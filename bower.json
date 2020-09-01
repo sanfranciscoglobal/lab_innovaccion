@@ -1,0 +1,22 @@
+{
+  "name": "Laboratorio.Innovacion",
+  "description": "Apps Js Editorial Libertad",
+  "main": "",
+  "authors": [
+    "Urbadigital"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "select2": "^4.0.13",
+    "owl.carousel": "^2.3.4"
+  }
+}
