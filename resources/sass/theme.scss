@@ -1,0 +1,20 @@
+/*
+ * Around | Multipurpose Bootstrap Template
+ * Copyright 2020 Createx Studio
+ * Theme styles
+ */
+
+@import '~bootstrap/scss/bootstrap';
+// Custom Variables
+@import 'variables';
+@import 'assets/aplication/user-variables';
+// Theme Helpers: Variables, Mixins and Placeholders
+@import 'assets/aplication/helpers';
+
+// Theme Core
+@import 'assets/aplication/reboot';
+@import 'assets/aplication/components';
+@import 'assets/aplication/utilities';
+@import "~simplebar/dist/simplebar.css";
+// Custom Core
+@import 'assets/aplication/user';
