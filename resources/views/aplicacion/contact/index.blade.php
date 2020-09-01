@@ -14,7 +14,7 @@
         </div>
     </section>
     <!-- Contact details + Form-->
-    <section class="container bg-overlay-content pt-7" style="margin-top: -500px;">
+    <section class="container bg-overlay-content pt-7" style="margin-top: -590px;">
         <div class="row pt-md-4 pt-lg-5 mt-3">
             <div class="col-lg-4 col-md-5 offset-lg-1">
                 <h1 class="text-light mb-3 pb-4 pt-sm-3">Contacts</h1>

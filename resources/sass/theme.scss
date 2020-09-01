@@ -4,13 +4,13 @@
  * Theme styles
  */
 
-@import '~bootstrap/scss/bootstrap';
 // Custom Variables
 @import 'variables';
 @import 'assets/aplication/user-variables';
 // Theme Helpers: Variables, Mixins and Placeholders
 @import 'assets/aplication/helpers';
-
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
 // Theme Core
 @import 'assets/aplication/reboot';
 @import 'assets/aplication/components';
