@@ -43,40 +43,9 @@
                     <div class="card-body py-5 px-3 px-sm-4">
                         <h2 class="h3 text-center">Drop us a line</h2>
                         <p class="font-size-sm text-muted text-center">We normally respond within 2 business days</p>
-                        <form class="needs-validation pt-2 px-md-3" novalidate>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label" for="cont-fn">Full name<sup
-                                                class="text-danger ml-1">*</sup></label>
-                                    <input class="form-control" type="text" id="cont-fn" placeholder="John Doe"
-                                           required>
-                                    <div class="invalid-feedback">Please enter your full name!</div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label" for="cont-email">Email address<sup
-                                                class="text-danger ml-1">*</sup></label>
-                                    <input class="form-control" type="email" id="cont-email"
-                                           placeholder="j.doe@example.com" required>
-                                    <div class="invalid-feedback">Please enter a valid email address!</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="cont-subject">Subject<sup
-                                            class="text-danger ml-1">*</sup></label>
-                                <input class="form-control" type="text" id="cont-subject"
-                                       placeholder="Title of your message" required>
-                                <div class="invalid-feedback">Please enter a subject!</div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="cont-message">Message<sup
-                                            class="text-danger ml-1">*</sup></label>
-                                <textarea class="form-control" id="cont-message" rows="5"
-                                          placeholder="Write your message here" required></textarea>
-                                <div class="invalid-feedback">Please write a message!</div>
-                            </div>
-                            <div class="text-center pt-2">
-                                <button class="btn btn-primary" type="submit">Send Message</button>
-                            </div>
+                        <form action="{{route('app.contacto.store')}}" class="needs-validation pt-2 px-md-3" method="POST" novalidate>
+                            @method('POST')
+                            @include('aplicacion.contact._form', compact('contacto'))
                         </form>
                     </div>
                 </div>
