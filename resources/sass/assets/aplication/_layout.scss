@@ -5,6 +5,10 @@
 }
 
 // Footer styles
+.bg-gradient-orange-purple {
+    background: rgb(239,147,0);
+    background: linear-gradient(90deg, rgba(239,147,0,1) 0%, rgba(180,6,94,1) 50%);
+}
 .bg-purple-gradient {
     background: $purple;
     background: linear-gradient(0deg, rgba(56,6,85,1) 0%, rgba(141,50,123,1) 100%);

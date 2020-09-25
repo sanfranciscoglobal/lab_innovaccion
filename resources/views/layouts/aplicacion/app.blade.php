@@ -18,6 +18,8 @@
     <link rel="mask-icon" color="#5bbad5" href="{{asset('img/safari-pinned-tab.svg')}}">
     <meta name="msapplication-TileColor" content="#766df4">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <!-- Page loading styles-->
     <style>
         .cs-page-loading {
@@ -63,7 +65,7 @@
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: normal;
-            color: #737491;
+            color: #380655;
         }
 
         .cs-page-spinner {
@@ -72,7 +74,7 @@
             height: 2.75rem;
             margin-bottom: .75rem;
             vertical-align: text-bottom;
-            border: .15em solid #766df4;
+            border: .15em solid #FF8527;
             border-right-color: transparent;
             border-radius: 50%;
             -webkit-animation: spinner .75s linear infinite;
@@ -118,7 +120,7 @@
 <div class="cs-page-loading active">
     <div class="cs-page-loading-inner">
         <div class="cs-page-spinner"></div>
-        <span>Loading...</span>
+        <span>Cargando...</span>
     </div>
 </div>
 <main class="cs-page-wrapper">

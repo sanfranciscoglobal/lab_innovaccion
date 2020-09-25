@@ -19740,6 +19740,11 @@ a[class*=bg-] {
   padding: 5px 0;
 }
 
+.bg-gradient-orange-purple {
+  background: #ef9300;
+  background: linear-gradient(90deg, #ef9300 0%, #b4065e 50%);
+}
+
 .bg-purple-gradient {
   background: #380655;
   background: linear-gradient(0deg, #380655 0%, #8d327b 100%);
