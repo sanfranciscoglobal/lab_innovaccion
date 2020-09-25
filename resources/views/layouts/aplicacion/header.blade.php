@@ -1,4 +1,28 @@
-<header class="cs-header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky" data-scroll-header>
+
+<header class="cs-header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky d-block p-0 bg-white" data-scroll-header>
+    <div class="d-block w-100 secondary-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-flex-start align-items-center">
+                    <span class="text-white"><span class="fe-phone"></span>&nbsp;Contáctanos</span>&nbsp;<a class="text-white" href="#">+593 910-784-8015</a>
+                    <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
+                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-facebook sb-dark sb-sm mr-2" href="#">
+                            <i class="fe-facebook"></i>
+                        </a></li>
+                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-twitter sb-dark sb-sm mr-2" href="#">
+                            <i class="fe-twitter"></i>
+                        </a></li>
+                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-instagram sb-dark sb-sm mr-2" href="#">
+                            <i class="fe-instagram"></i>
+                        </a></li>
+                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-google sb-dark sb-sm mr-2" href="#">
+                            <i class="fe-google"></i>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container px-0 px-xl-3">
         <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu">
             <span class="navbar-toggler-icon"></span>
@@ -13,12 +37,16 @@
         <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
             <a class="nav-link-style font-size-sm text-nowrap" href="#modal-signin" data-toggle="modal"
                data-view="#modal-signin-view">
-                <i class="fe-user font-size-xl mr-2"></i>Sign in
+                <i class="fe-search font-size-xl mr-2"></i>
+            </a>&nbsp;
+            <a class="nav-link-style font-size-sm text-nowrap" href="#modal-signin" data-toggle="modal"
+               data-view="#modal-signin-view">
+                <i class="fe-user font-size-xl mr-2"></i>
             </a>
             <a class="btn btn-translucent-light ml-grid-gutter d-none d-lg-inline-block navbar-btn"
-               href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Sign up</a>
+               href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a>
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
-               href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Sign up</a></div>
+               href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a></div>
         <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
             <div class="cs-offcanvas-cap navbar-box-shadow">
                 <h5 class="mt-1 mb-0">Menu</h5>
@@ -28,32 +56,38 @@
             <div class="cs-offcanvas-body">
                 <!-- Menu-->
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="#"
-                                                                   data-toggle="dropdown">Demos</a>
+                    <li class="nav-item dropdown dropdown-mega">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Iniciativas</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-column dropdown-column-img bg-secondary"
                                href="index.html"
                                style="background-image: url({{asset('img/demo/menu-banner.jpg')}});">
-
                             </a>
-                            <div class="dropdown-column"><a class="dropdown-item" href="index.html">Web Template
+                            <div class="dropdown-column">
+                                <a class="dropdown-item" href="index.html">Web Template
                                     Presentation</a><a class="dropdown-item" href="demo-business-consulting.html">Business
                                     Consulting</a><a class="dropdown-item" href="demo-shop-homepage.html">Shop
                                     Homepage</a><a class="dropdown-item" href="demo-booking-directory.html">Booking /
                                     Directory</a><a class="dropdown-item" href="demo-creative-agency.html">Creative
                                     Agency</a><a class="dropdown-item" href="demo-web-studio.html">Web Studio</a><a
                                         class="dropdown-item" href="demo-product-software.html">Product Landing -
-                                    Software</a></div>
-                            <div class="dropdown-column"><a class="dropdown-item" href="demo-product-gadget.html">Product
-                                    Landing - Gadget</a><a class="dropdown-item" href="demo-mobile-app.html">Mobile App
-                                    Showcase</a><a class="dropdown-item" href="demo-coworking-space.html">Coworking
-                                    Space</a><a class="dropdown-item" href="demo-event-landing.html">Event Landing</a><a
-                                        class="dropdown-item" href="demo-marketing-seo.html">Digital Marketing &amp;
-                                    SEO</a></div>
+                                    Software</a>
+                            </div>
+                            <div class="dropdown-column">
+                                <a class="dropdown-item" href="demo-product-gadget.html">Product
+                                    Landing - Gadget</a>
+                                <a class="dropdown-item" href="demo-mobile-app.html">Mobile App
+                                    Showcase</a>
+                                <a class="dropdown-item" href="demo-coworking-space.html">Coworking
+                                    Space</a>
+                                <a class="dropdown-item" href="demo-event-landing.html">Event Landing</a>
+                                <a class="dropdown-item" href="demo-marketing-seo.html">Digital Marketing &amp;
+                                    SEO</a>
+                            </div>
                         </div>
                     </li>
-                    <li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="#"
-                                                                   data-toggle="dropdown">Templates</a>
+                    <li class="nav-item dropdown dropdown-mega">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Gestión de Innovación</a>
                         <div class="dropdown-menu">
                             <div class="dropdown-column mb-2 mb-lg-0">
                                 <h5 class="dropdown-header">Blog</h5><a class="dropdown-item" href="blog-grid-rs.html">Grid
@@ -89,7 +123,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Analítica</a>
                         <ul class="dropdown-menu">
                             <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#"
                                                     data-toggle="dropdown">Dashboard</a>
@@ -117,8 +151,8 @@
                             <li><a class="dropdown-item" href="password-recovery.html">Password Recovery</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#"
-                                                            data-toggle="dropdown">Pages</a>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="about.html">About</a></li>
                             <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#"
@@ -155,8 +189,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Docs
-                            / UI Kit</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Acerca de</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="docs/dev-setup.html">
                                     <div class="d-flex align-items-center">

@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Around | Multipurpose Bootstrap Template
-    </title>
+    <title>Laboratorio de Innovación</title>
     <!-- SEO Meta Tags-->
     <meta name="description" content="Around - Multipurpose Bootstrap Template">
     <meta name="keywords"

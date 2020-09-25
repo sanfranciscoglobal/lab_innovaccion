@@ -1,0 +1,11 @@
+// Header styles
+.secondary-nav {
+    background-color: $orange;
+    padding: 5px 0;
+}
+
+// Footer styles
+.bg-purple-gradient {
+    background: $purple;
+    background: linear-gradient(0deg, rgba(56,6,85,1) 0%, rgba(141,50,123,1) 100%);
+}
