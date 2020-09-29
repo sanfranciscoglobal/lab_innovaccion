@@ -15,5 +15,7 @@ class Fondo extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function test0(){}
+    public function test0(){
+        return 'ok';
+    }
 }
