@@ -26,9 +26,9 @@
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title">Iniciativas</h4>
                     <ul>
-                        <li><a class="cs-widget-link" href="#">Mapeo</a></li>
-                        <li><a class="cs-widget-link" href="#">Nuevas iniciativas</a></li>
-                        <li><a class="cs-widget-link" href="#">Analítica</a></li>
+                        <li><a class="cs-widget-link" href="/mapeo/">Mapeo</a></li>
+                        <li><a class="cs-widget-link" href="/nuevas-iniciativas/">Nuevas iniciativas</a></li>
+                        <li><a class="cs-widget-link" href="/analitica/">Analítica</a></li>
                     </ul>
                 </div>
             </div>
@@ -36,8 +36,8 @@
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title">Gestión de innovación</h4>
                     <ul>
-                        <li><a class="cs-widget-link" href="#">Identificación de problemas</a></li>
-                        <li><a class="cs-widget-link" href="#">Soluciones innovadoras</a></li>
+                        <li><a class="cs-widget-link" href="/identificacion-de-problemas/">Identificación de problemas</a></li>
+                        <li><a class="cs-widget-link" href="/soluciones-innovadoras/">Soluciones innovadoras</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,8 +45,8 @@
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title">Analítica</h4>
                     <ul>
-                        <li><a class="cs-widget-link" href="#">Gráficos</a></li>
-                        <li><a class="cs-widget-link" href="#">Datos</a></li>
+                        <li><a class="cs-widget-link" href="/graficos/">Gráficos</a></li>
+                        <li><a class="cs-widget-link" href="/datos/">Datos</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,9 +54,9 @@
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title">Recursos</h4>
                     <ul>
-                        <li><a class="cs-widget-link" href="#">Fondos</a></li>
-                        <li><a class="cs-widget-link" href="#">Eventos</a></li>
-                        <li><a class="cs-widget-link" href="#">Material de aprendizaje</a></li>
+                        <li><a class="cs-widget-link" href="/fondos/">Fondos</a></li>
+                        <li><a class="cs-widget-link" href="/eventos/">Eventos</a></li>
+                        <li><a class="cs-widget-link" href="/material-de-aprendizaje/">Material de aprendizaje</a></li>
                     </ul>
                 </div>
             </div>
