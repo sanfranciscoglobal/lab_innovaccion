@@ -1,16 +1,20 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Models\Perfil;
-use App\Models\RolesUsers;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+// Models
+use App\Models\Perfil;
+use App\Models\RoleUser;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -39,13 +43,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function rolUser()
+    public function roles()
     {
-        return $this->belongsTo(RolesUsers::class, 'id', 'user_id');
+        return $this->belongsToMany(Role::class);
     }
 
     public function perfil()
     {
-        return $this->belongsTo(Perfil::class, 'perfil_id', 'id');
+        return $this->hasOne(Perfil::class);
     }
 }
