@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('aplicacion.home.home');
 })->name('app.home');
+Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
 
 // Aplicacion
 Route::as('app.')
@@ -25,6 +26,8 @@ Route::as('app.')
         function () {
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
+            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
+            Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
         }
     );
 
