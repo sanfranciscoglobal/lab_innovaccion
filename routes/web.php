@@ -25,6 +25,7 @@ Route::as('app.')
         function () {
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
+            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
         }
     );
 
