@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Aplicacion;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 // Modelos
 use App\Models\Fondo;

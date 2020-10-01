@@ -3,8 +3,8 @@
 namespace App\Http\Requests\Eventos;
 
 use Illuminate\Foundation\Http\FormRequest;
-//Definir validaciones
-class StorePost extends FormRequest
+
+class UpdatePost extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StorePost extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,20 +24,21 @@ class StorePost extends FormRequest
     public function rules()
     {
         return [
-            //validicion
+           //validicion
             //
             'Nombre' => 'string|required',
             'Organizador' => 'string|required',
             'Fecha' => 'date|required',
             'Hora' => 'string|required',
             'Imagen' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
-            'Descripcion' => 'nullable|string',
+           'Descripcion' => 'nullable|string',
             'Tipo' => 'boolean|required',
             'Canton' => 'string|nullable',
             'Ubicacion' => 'string|nullable',
             'URL' => 'string|nullable',
             'Estado' => 'boolean|required',
             'user_id' => 'numeric|required'
+      
         ];
     }
 }
