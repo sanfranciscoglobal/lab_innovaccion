@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Aplicacion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 // Modelos
 use App\Models\Fondo;
@@ -19,7 +20,7 @@ class crudFondos extends Controller
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
-    public function store(Request $request){
+    public function store(StorePost $request){
         $requestData = $request->validated();
         $validator = Validator::make($requestData, StorePost::rules());
         if ($validator->fails()) {
