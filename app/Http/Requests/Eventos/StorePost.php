@@ -29,7 +29,7 @@ class StorePost extends FormRequest
             'Nombre' => 'string|required',
             'Organizador' => 'string|required',
             'Fecha' => 'date|required',
-            'Hora' => 'string|required',
+            'Hora' => 'time|required',
             'Imagen' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
             'Descripcion' => 'nullable|string',
             'Tipo' => 'boolean|required',
