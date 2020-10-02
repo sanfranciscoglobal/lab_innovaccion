@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{ route('fondos.post') }}" method="POST">
+    <form role="form" action="{{ route('fondos.post') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
