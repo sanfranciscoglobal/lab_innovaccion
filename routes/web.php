@@ -17,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('aplicacion.home.home');
 })->name('app.home');
-Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
+
+// Users
+Route::post('login', 'Auth\LoginController@login')->name('login');
+
+Route::get('/fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
+Route::get('/fondosTest', 'Aplicacion\crudFondos@test')->name('fondos.test');
+Route::post('/fondos', 'Aplicacion\crudFondos@store')->name('fondos.post');
+
 
 // Aplicacion
 Route::as('app.')

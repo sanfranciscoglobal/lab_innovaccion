@@ -40,6 +40,24 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function login()
+    {
+        $credentials = $this->validate(request(), [
+            'email' => 'email|required|string',
+            'password' => 'required|string'
+        ]);
+
+        if(Auth::attempt($credentials))
+        {
+            return 'Tu sesión ha iniciado exitosamente.';
+            //return redirect()->route('admin/post');
+        }
+
+        return back()
+            ->withErrors($credentials)
+            ->withInput(request(['email']));
+    }
+
     public function redirectTo()
     {
         $roles = [];

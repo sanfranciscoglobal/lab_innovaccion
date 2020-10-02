@@ -13,7 +13,7 @@ class StorePost extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -35,9 +35,8 @@ class StorePost extends FormRequest
             'youtube' => 'string|nullable',
             'linkedin' => 'string|nullable',
             'twitter' => 'string|nullable',
-            'imagen' => 'image|mimes:jpeg,png,gif,jpg|max:2048|nullable',
-            'terminos' => 'boolean|required',
-            'user_id' => 'numeric|required'
+            'imagen' => 'image|mimes:jpeg,png,gif,jpg|max:2048|required',
+            'terminos' => 'boolean|required'
         ];
     }
 }

@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers\Aplicacion;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Contacto\StorePost;
-use App\Models\Contacto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+// Models
+use App\Models\Contacto;
+
 class FondosController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -20,7 +26,8 @@ class FondosController extends Controller
     {
         return view('aplicacion.fondos.fondos');
     }
-    public function verFormulariofondos(Request $request)
+
+    public function showForm(Request $request)
     {
         return view('aplicacion.fondos.frmFondos');
     }

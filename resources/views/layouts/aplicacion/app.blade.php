@@ -95,6 +95,13 @@
             }
         }
 
+        .error-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
     </style>
     <!-- Page loading scripts-->
     <script>
@@ -116,6 +123,14 @@
 </head>
 <!-- Body-->
 <body>
+
+    <div class="error-container" id="errorDiv">
+        @include('includes.session-flash-status')
+        @include('includes.validation-error')
+        {{-- {{ json_encode(session()->all()) }} --}}
+        {{ json_encode(Auth::user()) }}
+    </div>
+
 <!-- Page loading spinner-->
 <div class="cs-page-loading active">
     <div class="cs-page-loading-inner">
@@ -139,15 +154,15 @@
                         <p class="font-size-ms text-muted">
                             Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su registro.
                         </p>
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate action="{{ route('login') }}" method="POST">
+                            @csrf
                             <div class="input-group-overlay form-group">
                                 <div class="input-group-prepend-overlay">
                                     <span class="input-group-text">
                                         <i class="fe-mail"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico"
-                                       required>
+                                <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico" name='email' required>
                             </div>
                             <div class="input-group-overlay cs-password-toggle form-group">
                                 <div class="input-group-prepend-overlay">
@@ -156,7 +171,7 @@
                                     </span>
                                 </div>
                                 <input class="form-control prepended-form-control" type="password"
-                                       placeholder="Contraseña" required>
+                                       placeholder="Contraseña" name="password" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
