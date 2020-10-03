@@ -80,8 +80,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/fondos/">Fondos</a></li>
-                            <li><a class="dropdown-item" href="/eventos/">Eventos</a></li>
+                            <li><a class="dropdown-item" href="{{route('app.fondos')}}">Fondos</a></li>
+                            <li><a class="dropdown-item" href="{{route('app.eventos')}}">Eventos</a></li>
                             <li><a class="dropdown-item" href="/material-de-aprendizaje/">Material de aprendizaje</a></li>
                         </ul>
                     </li>
