@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
+// Models
+use App\Models\User;
+use App\Models\RoleUser;
 
 class RegisterController extends Controller
 {
@@ -62,12 +66,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return App\Models\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+            'verification_token' => Hash::make('secret token'),
+        ]);
+
+        RoleUser::create([
+            'user_id' => $user->id,
+        ]);
+
+        return back()->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
     }
 }
