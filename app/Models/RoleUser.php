@@ -11,6 +11,10 @@ class RoleUser extends Model
 
     protected $table = 'role_user';
 
+    protected $attributes = ['role_id' => 1];
+
+    protected $fillable = ['user_id', 'role_id'];
+
     public function role()
     {
         return $this->belongsTo('App\Models\Role');
