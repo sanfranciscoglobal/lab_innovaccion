@@ -25,6 +25,7 @@ class crudFondos extends Controller
      * App\Models\Fondo
      */
     public function store(StorePost $request){
+        
 
         $fondo = Fondo::create($request);
         // if($fondo = Fondo::create($request)){
@@ -52,6 +53,7 @@ class crudFondos extends Controller
 
         //     return redirect()->route('home')->with('status', 'Fondo creado con éxito');
         // }
+
         return redirect()->route('home')->with('status', 'Fondo creado con éxito');
     }
 

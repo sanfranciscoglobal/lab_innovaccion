@@ -15,17 +15,17 @@ class CreateEventosTable extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
-            $table->string('Organizador');
-            $table->date('Fecha');
-            $table->string('Hora');
-            $table->string('Imagen')->nullable();
-            $table->string('Descripcion')->nullable();
-            $table->boolean('Tipo');
-            $table->string('Canton')->nullable();
-            $table->string('Ubicacion')->nullable();
-            $table->string('URL')->nullable();
-            $table->boolean('Estado');            
+            $table->string('nombre');
+            $table->string('organizador');
+            $table->date('fecha');
+            $table->time('hora');
+            $table->string('imagen')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->boolean('tipo')->comment('Presencial-1/Virtual-0'); 
+            $table->string('canton')->nullable();
+            $table->string('ubicacion')->nullable();
+            $table->string('url')->nullable();
+            $table->boolean('estado')->comment('Publico-1/Privado-0');            
             $table->foreignId('user_id')->constrained();
             $table->softDeletes();
             $table->timestamps();

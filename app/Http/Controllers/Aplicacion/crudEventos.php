@@ -15,8 +15,8 @@ class crudEventos extends Controller
     public function store(StorePost $request)
     {
         $datosEvento=request()->except('_token');
-        if($request->hasFile('Imagen')){
-            $datosEvento['Imagen']=$request->file('Imagen')->store('uploads', 'public');
+        if($request->hasFile('imagen')){
+            $datosEvento['imagen']=$request->file('imagen')->store('uploads', 'public');
         }
    
         Evento::insert($datosEvento);
@@ -30,10 +30,10 @@ class crudEventos extends Controller
         $evento=Evento::findOrfail($id);
         if(Auth::check()){
             if(Auth::id() == $evento->user_id){
-                if ($request->hasFile('Foto')){
+                if ($request->hasFile('imagen')){
                 
                 Storage::delete('public/'.$evento->Foto);
-                $datosEmpleado['Foto']=$request->file('Foto')->store('uploads','public');
+                $datosEvento['imagen']=$request->file('imagen')->store('uploads','public');
                 }
             
                 

@@ -26,18 +26,19 @@ class StorePost extends FormRequest
         return [
             //validicion
             //
-            'Nombre' => 'string|required',
-            'Organizador' => 'string|required',
-            'Fecha' => 'date|required',
-            'Hora' => 'time|required',
-            'Imagen' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
-            'Descripcion' => 'nullable|string',
-            'Tipo' => 'boolean|required',
-            'Canton' => 'string|nullable',
-            'Ubicacion' => 'string|nullable',
-            'URL' => 'string|nullable',
-            'Estado' => 'boolean|required',
+            'nombre' => 'string|required',
+            'organizador' => 'string|required',
+            'fecha' => 'date|required',
+            'hora' => 'time|required',
+            'imagen' => 'required|image|mimes:jpeg,png,gif,jpg|max:2048',
+            'descricion' => 'required|string',
+            'tipo' => 'boolean|required',
+            'canton' => 'string|required_if:tipo,True',
+            'ubicacion' => 'string|required_if:tipo,True',
+            'url' => 'string|required_if:Tipo,False',
+            'estado' => 'boolean|required',
             'user_id' => 'numeric|required'
+
         ];
     }
 }
