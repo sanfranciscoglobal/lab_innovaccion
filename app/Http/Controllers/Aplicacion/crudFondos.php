@@ -25,34 +25,33 @@ class crudFondos extends Controller
      * App\Models\Fondo
      */
     public function store(StorePost $request){
+        $validatedData = $request->validated();
+        if($fondo = Fondo::create($validatedData)){
+            // if($request->imagen != null){
+            //     $extension = $request->imagen->extension();
+            //     $name = CustomUrl::slugify($request->organizacion).'_'.$id.'_'.date('Ymd').'_'.date('His');
+            //     $imageName = $name.'.'.$request->imagen->extension();
+            //     $fondo->image = $imageName;
+            //     $fondo->save();
 
-        $fondo = Fondo::create($request);
-        // if($fondo = Fondo::create($request)){
-        //     if($request->imagen != null){
-        //         $extension = $request->imagen->extension();
-        //         $name = CustomUrl::slugify($request->organizacion).'_'.$id.'_'.date('Ymd').'_'.date('His');
-        //         $imageName = $name.'.'.$request->imagen->extension();
-        //         $fondo->image = $imageName;
-        //         $fondo->save();
+            //     /**
+            //      * GUARDAR IMAGEN EN SERVIDOR
+            //      */
 
-        //         /**
-        //          * GUARDAR IMAGEN EN SERVIDOR
-        //          */
+            //     $filename = "{$name}.{$extension}";
+            //     $path = ProcessImageSmall::returnPathImage();
+            //     try{
+            //         $request->imagen->move($path, $filename);
+            //     } catch (Exception $e) {
+            //         return redirect()->back()->withErrors('No hemos podido guardar tu imagen.');
+            //     }
 
-        //         $filename = "{$name}.{$extension}";
-        //         $path = ProcessImageSmall::returnPathImage();
-        //         try{
-        //             $request->imagen->move($path, $filename);
-        //         } catch (Exception $e) {
-        //             return redirect()->back()->withErrors('No hemos podido guardar tu imagen.');
-        //         }
+            //     ProcessImageSmall::dispatch($name, $extension, $path);
+            // }
 
-        //         ProcessImageSmall::dispatch($name, $extension, $path);
-        //     }
-
-        //     return redirect()->route('home')->with('status', 'Fondo creado con éxito');
-        // }
-        return redirect()->route('home')->with('status', 'Fondo creado con éxito');
+            return redirect()->route('app.home')->with('status', 'Fondo creado con éxito');
+        }
+        return back()->with('error', 'Fondo no creado');
     }
 
     /**

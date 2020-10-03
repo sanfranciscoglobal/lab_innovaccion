@@ -4,6 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+// Models
+use App\Models\Fondo;
+
+// Observers
+use App\Observers\FondoObserver;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Fondo::observe(FondoObserver::class);
     }
 }

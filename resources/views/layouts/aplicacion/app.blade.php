@@ -99,7 +99,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 1000;
+            z-index: 1051;
         }
 
     </style>
@@ -128,7 +128,7 @@
         @include('includes.session-flash-status')
         @include('includes.validation-error')
         {{-- {{ json_encode(session()->all()) }} --}}
-        {{ json_encode(Auth::user()) }}
+        {{-- {{ json_encode(Auth::user()) }} --}}
     </div>
 
 <!-- Page loading spinner-->
@@ -205,15 +205,16 @@
                         <!--
                         <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
                         -->
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
+                            @csrf
                             <div class="form-group">
-                                <input class="form-control" name="nombre" type="text" placeholder="Nombre Completo" required>
+                                <input class="form-control" name="name" type="text" placeholder="Nombre Completo" required>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" name="email" type="email" placeholder="Correo electrónico" required>
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="clave" type="password" placeholder="Contraseña" required>
+                                <input class="form-control" name="password" type="password" placeholder="Contraseña" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -221,7 +222,7 @@
                                 </label>
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="clave_confirm" type="password" placeholder="Confirme la contraseña" required>
+                                <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>

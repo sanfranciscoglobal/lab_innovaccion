@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 // Models
-use App\Models\Contacto;
+use App\Models\Fondo;
 
 class FondosController extends Controller
 {
@@ -29,7 +29,14 @@ class FondosController extends Controller
 
     public function showForm(Request $request)
     {
-        return view('aplicacion.fondos.frmFondos');
+        $fondo = new Fondo;
+        return view('aplicacion.fondos.frmFondos', compact('fondo'))->with(['url' => route('app.fondos.post')]);
+    }
+
+    public function edit($id)
+    {
+        $fondo = Fondo::find($id);
+        return view('aplicacion.fondos.frmFondos', compact('fondo'))->with(['url' => route('app.fondos.put')]);
     }
 
 }

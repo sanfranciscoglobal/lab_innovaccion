@@ -19,12 +19,8 @@ Route::get('/', function () {
 })->name('app.home');
 
 // Users
-Route::post('login', 'Auth\LoginController@login')->name('login');
-
-Route::get('/fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
-Route::get('/fondosTest', 'Aplicacion\crudFondos@test')->name('fondos.test');
-Route::post('/fondos', 'Aplicacion\crudFondos@store')->name('fondos.post');
-
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 
 // Aplicacion
 Route::as('app.')
@@ -35,6 +31,13 @@ Route::as('app.')
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
             Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
             Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
+
+            // Fondos
+            Route::get('/fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
+            Route::get('/fondos/{id}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
+            Route::post('/fondos', 'Aplicacion\crudFondos@store')->name('fondos.post');
+            Route::put('/fondos', 'Aplicacion\crudFondos@store')->name('fondos.put');
+
         }
     );
 

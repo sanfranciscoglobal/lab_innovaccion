@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{ route('fondos.post') }}" method="POST">
+    <form role="form" action="{{ $url }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
@@ -52,13 +52,13 @@
                                             <span>Datos de los fondos</span>
                                             <div class="form-group">
                                                 <label for="org_nombre">* Nombre de la organización</label>
-                                                <input class="form-control" type="text" id="org_nombre" value="" name="organizacion" placeholder="Razón social" required>
+                                                <input class="form-control" type="text" id="org_nombre" value="{{ old('organizacion', $fondo->organizacion) }}" name="organizacion" placeholder="Razón social" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_nombre">* Nombre del fondo</label>
-                                                <input class="form-control" type="text" id="org_nombre" value="" name="nombre_fondo" placeholder="Nombre del programa" required>
+                                                <input class="form-control" type="text" id="org_nombre" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del programa" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -80,7 +80,7 @@
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
-                                                <input class="form-control" type="url" id="org_web" value="" name="info" placeholder="URL de la página oficial del fondo" required>
+                                                <input class="form-control" type="url" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12 to-hide f-propios d-none">
@@ -95,19 +95,19 @@
                                             <span>Redes Sociales</span>
                                             <div class="form-group">
                                                 <label for="org_twitter">Twitter</label>
-                                                <input class="form-control" type="url" id="org_twitter" value="" name="twitter">
+                                                <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter">
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_facebook">Facebook</label>
-                                                <input class="form-control" type="url" id="org_facebook" value="" name="facebook">
+                                                <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook">
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_linkedin">LinkedIn</label>
-                                                <input class="form-control" type="url" id="org_linkedin" value="" name="linkedin">
+                                                <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin">
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Instagram</label>
-                                                <input class="form-control" type="url" id="org_instagram" value="" name="instagram">
+                                                <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram">
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +117,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" required>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
@@ -149,6 +149,23 @@
             }
         })
     })
+</script>
+<script>
+    $(function(){
+        let fuente = {{ old('fuente', (int)$fondo->fuente) ?? 'null' }};
+        console.log(fuente);
+        switch(fuente){
+            case 1:
+                $('#fondos_propios').trigger('click');
+                break;
+            case 0:
+                $('#fondos_otros').trigger('click');
+                break;
+            default:
+                break;
+        }
 
+
+    });
 </script>
 @endsection
