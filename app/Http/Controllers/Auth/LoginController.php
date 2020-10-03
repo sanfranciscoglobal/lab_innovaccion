@@ -72,6 +72,6 @@ class LoginController extends Controller
 
         $array_json = json_encode($roles);
         Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
-        return redirect('app.dashboard');
+        return redirect('app.home');
     }
 }
