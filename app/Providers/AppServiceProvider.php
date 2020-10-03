@@ -6,9 +6,11 @@ use Illuminate\Support\ServiceProvider;
 
 // Models
 use App\Models\Fondo;
+use App\Models\Evento;
 
 // Observers
 use App\Observers\FondoObserver;
+use App\Observers\EventoObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,5 +32,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Fondo::observe(FondoObserver::class);
+        Evento::observe(EventoObserver::class);
     }
 }
