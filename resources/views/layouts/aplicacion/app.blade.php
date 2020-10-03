@@ -113,6 +113,7 @@
 {{--<link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>--}}
 <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="{{asset('css/theme.css')}}">
+    @yield('header-css')
 </head>
 <!-- Body-->
 <body>

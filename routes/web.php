@@ -29,6 +29,7 @@ Route::as('app.')
             Route::get('/datos-del-usuario',        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
             Route::get('/registro-de-fondos',       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
             Route::get('/registro-de-eventos',      'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
+            Route::get('/registro-de-iniciativas',      'Aplicacion\IniciativasController@verFormularioiniciativas')->name('registroiniciativas');
         }
     );
 
