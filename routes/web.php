@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('aplicacion.home.home');
 })->name('app.home');
 Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
+Route::get('/acerca-de', function () {
+    return view('aplicacion.acerca.acerca');
+})->name('fondos');
 
 // Aplicacion
 Route::as('app.')
