@@ -30,13 +30,13 @@ class FondosController extends Controller
     public function showForm(Request $request)
     {
         $fondo = new Fondo;
-        return view('aplicacion.fondos.frmFondos', compact('fondo'))->with(['url' => route('app.fondos.post')]);
+        return view('aplicacion.fondos.frmFondos', compact('fondo'))->with(['url' => route('app.fondos.post'), 'method' => 'POST']);
     }
 
     public function edit($id)
     {
         $fondo = Fondo::find($id);
-        return view('aplicacion.fondos.frmFondos', compact('fondo'))->with(['url' => route('app.fondos.put')]);
+        return view('aplicacion.fondos.frmFondos', compact('fondo'))->with(['url' => route('app.fondos.put', $fondo->id), 'method' => 'PUT']);
     }
 
 }

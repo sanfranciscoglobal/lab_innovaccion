@@ -3,6 +3,7 @@
 @section('content')
     <form role="form" action="{{ $url }}" method="POST" enctype="multipart/form-data">
     @csrf
+    @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -19,7 +20,7 @@
                         <!-- Title + Delete link-->
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Fondos Concursables</h1>
-                            <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" href="#"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo </a>
+                            <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" href="#"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</a>
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -108,6 +109,10 @@
                                             <div class="form-group">
                                                 <label for="org_instagram">Instagram</label>
                                                 <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="org_instagram">Youtube</label>
+                                                <input class="form-control" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube">
                                             </div>
                                         </div>
                                     </div>
