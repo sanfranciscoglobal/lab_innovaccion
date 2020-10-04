@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
+// Helpers
+use App\Helpers\CustomUrl; // $string
+use App\Helpers\Archivos; // $nombre, $archivo, $disk
+
 // Modelos
 use App\Models\Fondo;
 
 // Reglas de validacion
 use App\Http\Requests\Fondo\StorePost;
+use App\Http\Requests\Fondo\UpdatePost;
 
 class crudFondos extends Controller
 {
@@ -27,27 +32,12 @@ class crudFondos extends Controller
     public function store(StorePost $request){
         $validatedData = $request->validated();
         if($fondo = Fondo::create($validatedData)){
-            // if($request->imagen != null){
-            //     $extension = $request->imagen->extension();
-            //     $name = CustomUrl::slugify($request->organizacion).'_'.$id.'_'.date('Ymd').'_'.date('His');
-            //     $imageName = $name.'.'.$request->imagen->extension();
-            //     $fondo->image = $imageName;
-            //     $fondo->save();
-
-            //     /**
-            //      * GUARDAR IMAGEN EN SERVIDOR
-            //      */
-
-            //     $filename = "{$name}.{$extension}";
-            //     $path = ProcessImageSmall::returnPathImage();
-            //     try{
-            //         $request->imagen->move($path, $filename);
-            //     } catch (Exception $e) {
-            //         return redirect()->back()->withErrors('No hemos podido guardar tu imagen.');
-            //     }
-
-            //     ProcessImageSmall::dispatch($name, $extension, $path);
-            // }
+            if(isset($validatedData['imagen'])){
+                $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
+                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+                $fondo->imagen = $imageName;
+                $fondo->save();
+            }
 
             return redirect()->route('app.home')->with('status', 'Fondo creado con éxito');
         }
@@ -59,46 +49,18 @@ class crudFondos extends Controller
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
-    public function update(StorePost $request, $id){
+    public function update(UpdatePost $request, Fondo $fondo){
+        $validatedData = $request->validated();
+        $fondo->update($request->validated());
 
-        // if($request->imagen != null){
-        //     $extension = $request->imagen->extension();
-        //     $name = CustomUrl::slugify($request->organizacion).'_'.$id.'_'.date('Ymd').'_'.date('His');
-        //     $imageName = $name.'.'.$request->imagen->extension();
+        if(isset($validatedData['imagen'])){
+            $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
+            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+            $fondo->imagen = $imageName;
+            $fondo->save();
+        }
 
-        //     /**
-        //      * GUARDAR IMAGEN EN SERVIDOR
-        //      */
-
-        //     $filename = "{$name}.{$extension}";
-        //     $path = ProcessImageSmall::returnPathImage();
-        //     try{
-        //         $request->imagen->move($path, $filename);
-        //     } catch (Exception $e) {
-        //         return redirect()->back()->withErrors('No hemos podido guardar tu imagen.');
-        //     }
-
-        //     ProcessImageSmall::dispatch($name, $extension, $path);
-        // }
-
-        // $Fondo = Fondo::find($id);
-        // $Fondo->fuente = $request->fuente;
-        // $Fondo->organizacion = $request->organizacion;
-        // $Fondo->nombre_fondo = $request->nombre_fondo;
-        // $Fondo->info = $request->info;
-        // $Fondo->fecha_inicio = $request->fecha_inicio;
-        // $Fondo->fecha_fin = $request->fecha_fin;
-        // $Fondo->facebook = $request->facebook;
-        // $Fondo->instagram = $request->instagram;
-        // $Fondo->youtube = $request->youtube;
-        // $Fondo->linkedin = $request->linkedin;
-        // $Fondo->twitter = $request->twitter;
-        // $Fondo->imagen = $imageName;
-        // $Fondo->terminos = $request->terminos;
-        // $Fondo->save();
-
-        // return redirect()->route('home')->with('status', 'Fondo modificado con éxito');
-        return response()->json('ok', 200);
+        return redirect()->route('app.home')->with('status', 'Fondo modificado con éxito');
     }
 
     /**
@@ -117,6 +79,6 @@ class crudFondos extends Controller
         // }
 
         $fondo->delete();
-        return redirect()->route('mis-necesidades')->with('status', 'Fondo eliminado con éxito');
+        return redirect()->route('app.home')->with('status', 'Fondo eliminado con éxito');
     }
 }

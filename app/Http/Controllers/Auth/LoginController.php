@@ -49,8 +49,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials))
         {
-            return 'Tu sesión ha iniciado exitosamente.';
-            //return redirect()->route('admin/post');
+            return redirect()->route('app.home')->with('status', 'Tu sesión ha iniciado exitosamente.');
         }
 
         return back()

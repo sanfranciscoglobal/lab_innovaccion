@@ -34,7 +34,8 @@ Route::as('app.')
             Route::get('/fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
             Route::get('/fondos/{id}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
             Route::post('/fondos', 'Aplicacion\crudFondos@store')->name('fondos.post');
-            Route::put('/fondos', 'Aplicacion\crudFondos@store')->name('fondos.put');
+            Route::put('/fondos/{fondo}', 'Aplicacion\crudFondos@update')->name('fondos.put');
+            Route::delete('/fondos/{fondo}', 'Aplicacion\crudFondos@destroy')->name('fondos.delete');
 
             Route::get('/datos-del-usuario',        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
             Route::get('/registro-de-fondos',       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
