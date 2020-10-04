@@ -9,22 +9,31 @@ use App\Http\Requests\Eventos\UpdatePost;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+// Helpers
+use App\Helpers\CustomUrl; // $string
+use App\Helpers\Archivos; // $nombre, $archivo, $disk
 
 
 class crudEventos extends Controller
 {
     //
-   // public function __construct(){
-       // $this->middleware(['auth', 'acceso-app:user']);
-    //}
+    public function __construct(){
+        $this->middleware(['auth', 'acceso-app:user']);
+    }
     public function store(StorePost $request)
     {
         $validatedData=$request->validated();
-       
-        //Evento::insert($validatedData);
-        //return response()->json($validatedData);
-        if($evento=Evento::created($validatedData)){
-            return ("Evento registrado");
+ 
+        if($evento=Evento::create($validatedData)){
+
+            if(isset($validatedData['imagen'])){
+                $name = CustomUrl::urlTitle($validatedData['organizador']).'_'.$evento->id;
+                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+                $evento->imagen = $imageName;
+                $evento->save();
+            }
+            return redirect()->route('app.home')->with('status', 'Evento creado con éxito');
+           
         }
         /*$datosEvento=request()->except('_token');
         if($request->hasFile('imagen')){

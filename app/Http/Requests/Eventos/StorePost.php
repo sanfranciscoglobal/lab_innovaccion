@@ -40,8 +40,6 @@ class StorePost extends FormRequest
             'url' => 'nullable|string|required_if:tipo,"0"',
             'estado' => 'boolean',
             'terminos'=>'required|boolean'
-            //'user_id' => 'numeric'
-
         ];
     }
 }

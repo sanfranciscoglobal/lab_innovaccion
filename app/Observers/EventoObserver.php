@@ -2,14 +2,15 @@
 
 namespace App\Observers;
 
-use App\Evento;
+use App\Models\Evento;
+use Auth;
 
 class EventoObserver
 {
     /**
      * Handle the evento "created" event.
      *
-     * @param  \App\Evento  $evento
+     * @param  \App\Models\Evento  $evento
      * @return void
      */
     public function creating(Evento $evento)

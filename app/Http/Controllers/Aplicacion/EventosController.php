@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Aplicacion;
-
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Eventos\StorePost;
 use App\Models\Evento;
@@ -16,9 +16,9 @@ class EventosController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-   // public function __construct(){
-       // $this->middleware('auth');
-    //}
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function verEventos(Request $request)
     {
         return view('aplicacion.eventos.eventos');
