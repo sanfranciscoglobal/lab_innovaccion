@@ -1,8 +1,9 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{-- --}}" method="POST" enctype="multipart/form-data">
-    <div class="position-relative bg-purple-gradient" style="height: 480px;">
+    <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
+    @csrf
+        <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
                 <polygon fill="currentColor" points="0,257 0,260 3000,260 3000,0"></polygon>
@@ -24,8 +25,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="org_nombre">* Nombre del Organizador</label>
-                                    <input class="form-control" type="text" id="org_nombre" value="" name="evento_org_nombre" placeholder="Nombre del organizador" required>
+                                    <label for="organizador">* Nombre del Organizador</label>
+                                    <input class="form-control" type="text" id="organizador" value="" name="organizador" placeholder="Nombre del organizador" required>
                                 </div>
                             </div>
                         </div>
@@ -34,30 +35,30 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="evento_nombre">* Nombre del Evento</label>
-                                            <input class="form-control" type="text" id="evento_nombre" value="" name="evento_nombre" placeholder="Nombre del evento" required>
+                                            <label for="nombre">* Nombre del Evento</label>
+                                            <input class="form-control" type="text" id="nombre" value="" name="nombre" placeholder="Nombre del evento" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="evento_fecha">* Fecha</label>
-                                            <input class="form-control" type="date" id="evento_fecha" value="" name="evento_fecha" required>
+                                            <label for="fecha">* Fecha</label>
+                                            <input class="form-control" type="date" id="fecha" value="" name="fecha" required>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="evento_hora">* Hora</label>
-                                            <input class="form-control" type="time" id="evento_hora" value="" name="evento_hora" required>
+                                            <label for="hora">* Hora</label>
+                                            <input class="form-control" type="time" id="hora" value="" name="hora" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="evento_desc">* Descripción del Evento <span style="color: gray">(max. 100 palabras)</span></label>
-                                            <textarea id="evento_desc" class="form-control" name="evento_descripcion" rows="6" placeholder="Describa su evento" required ></textarea>
+                                            <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras)</span></label>
+                                            <textarea id="descripcion" class="form-control" name="descripcion" rows="6" placeholder="Describa su evento" required ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -66,13 +67,13 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <label for="evento_virtual">
-                                                    <input class="lugar" type="radio" id="evento_virtual" value="1" name="evento_lugar" required>
+                                                    <input class="lugar" type="radio" id="evento_virtual" value="0" name="tipo" required>
                                                     Virtual
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
                                                 <label for="evento_presencial">
-                                                    <input class="lugar" type="radio" id="evento_presencial" value="2" name="evento_lugar">
+                                                    <input class="lugar" type="radio" id="evento_presencial" value="1" name="tipo">
                                                     Presencial
                                                 </label>
                                             </div>
@@ -90,8 +91,8 @@
                                             <div class="col-md-12">
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
-                                                        <label for="evento_url">* URL del Evento</label>
-                                                        <input class="form-control" type="url" id="evento_url" value="" name="evento_url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" required>
+                                                        <label for="url">* URL del Evento</label>
+                                                        <input class="form-control" type="url" id="url" value="" name="url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 to-hide e-presencial d-none">
@@ -99,7 +100,7 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="org_web">* Cantón</label>
-                                                                <select class="form-control" name="evento_canton">
+                                                                <select class="form-control" name="canton">
                                                                     <option value="">Seleccione un cantón</option>
                                                                     <option value="1">Cantón 1</option>
                                                                     <option value="2">Cantón 2</option>
@@ -111,8 +112,8 @@
                                                     <div class="row">
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <label for="evento_direccion">* Ubicación del Evento</label>
-                                                                <input class="form-control" type="text" id="evento_direccion" value="" name="evento_direccion" placeholder="URL de la página oficial del fondo" required>
+                                                                <label for="ubicacion">* Ubicación del Evento</label>
+                                                                <input class="form-control" type="text" id="ubicacion" value="" name="ubicacion" placeholder="Direccion del evento" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -131,8 +132,8 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
-                                    <label for="evento_img">* Images del Evento</label>
-                                    <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="evento_img" required>
+                                    <label for="imagen">* Images del Evento</label>
+                                    <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
                                     <div class="evento-image-placeholder mt-3">
                                         <div id="evento-image-box" class="necesidad-image-box">
                                             <img id="output" class="img-fluid" src="http://placehold.it/300x300/?text=Imagen%20Destacada">
@@ -146,7 +147,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="verificada" required>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1"  required>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
@@ -168,9 +169,28 @@
     $(document).ready(function(){
         $('.lugar').change(function(){
             if($(this).is(':checked')){
-                if ($(this).val() > 0){
+
+                if ($(this).val() == "0"){
                     //$('.to-hide').removeClass('d-none');
-                    if($(this).val() == 2){
+                    $('.e-presencial .form-control').removeAttr('required');
+                    $('.e-presencial').addClass('d-none');
+                    $('.e-virtual .form-control').attr('required', true);
+                    $('.e-virtual').removeClass('d-none');
+
+                    }else{
+                        if ($(this).val() == "1"){
+                            $('.e-virtual .form-control').removeAttr('required');
+                            $('.e-virtual').addClass('d-none');
+                            $('.e-presencial .form-control').attr('required', true);
+                            $('.e-presencial').removeClass('d-none');
+                            initMap();
+                        }
+                      
+                    }
+                /*
+                if ($(this).val() == 0){
+                    //$('.to-hide').removeClass('d-none');
+                    if($(this).val() == 1){
                         $('.e-virtual .form-control').removeAttr('required');
                         $('.e-virtual').addClass('d-none');
                         $('.e-presencial .form-control').attr('required', true);
@@ -181,8 +201,9 @@
                         $('.e-presencial').addClass('d-none');
                         $('.e-virtual .form-control').attr('required', true);
                         $('.e-virtual').removeClass('d-none');
+                      
                     }
-                }
+                }*/
             }
         })
     })

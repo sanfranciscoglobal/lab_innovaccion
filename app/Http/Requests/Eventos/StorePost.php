@@ -29,15 +29,18 @@ class StorePost extends FormRequest
             'nombre' => 'string|required',
             'organizador' => 'string|required',
             'fecha' => 'date|required',
-            'hora' => 'time|required',
+            'hora' => 'string|required',
             'imagen' => 'required|image|mimes:jpeg,png,gif,jpg|max:2048',
-            'descricion' => 'required|string',
+            'descripcion' => 'required|string',
             'tipo' => 'boolean|required',
-            'canton' => 'string|required_if:tipo,True',
-            'ubicacion' => 'string|required_if:tipo,True',
-            'url' => 'string|required_if:Tipo,False',
-            'estado' => 'boolean|required',
-            'user_id' => 'numeric|required'
+            'canton' => 'nullable|required_if:tipo,"1"|string',
+            'ubicacion' => 'nullable|required_if:tipo,"1"|string',
+            'org_lat' => 'nullable|required_if:tipo,"1"|string',
+            'org_long'=> 'nullable|required_if:tipo,"1"|string',
+            'url' => 'nullable|string|required_if:tipo,"0"',
+            'estado' => 'boolean',
+            'terminos'=>'required|boolean'
+            //'user_id' => 'numeric'
 
         ];
     }

@@ -2,26 +2,39 @@
 
 namespace App\Http\Controllers\Aplicacion;
 use App\Models\Evento;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Eventos\StorePost;
 use App\Http\Requests\Eventos\UpdatePost;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 
 class crudEventos extends Controller
 {
     //
+   // public function __construct(){
+       // $this->middleware(['auth', 'acceso-app:user']);
+    //}
     public function store(StorePost $request)
     {
-        $datosEvento=request()->except('_token');
+        $validatedData=$request->validated();
+       
+        //Evento::insert($validatedData);
+        //return response()->json($validatedData);
+        if($evento=Evento::created($validatedData)){
+            return ("Evento registrado");
+        }
+        /*$datosEvento=request()->except('_token');
         if($request->hasFile('imagen')){
             $datosEvento['imagen']=$request->file('imagen')->store('uploads', 'public');
         }
    
         Evento::insert($datosEvento);
         return redirect()->route('home')->with('status', 'Evento creado con éxito');
-
+        */
+        return back()->with('error', 'Evento no creado');
     }
 
     public function update(UpdatePost $request, $id)

@@ -38,7 +38,15 @@ Route::as('app.')
 
             Route::get('/datos-del-usuario',        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
             Route::get('/registro-de-fondos',       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
-            Route::get('/registro-de-eventos',      'Aplicacion\EventosController@verFormularioeventos')->name('eventos');
+            //Eventos
+            Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos');
+            Route::get('/eventos/{id}/{slug}', 'Aplicacion\EventosController@edit')->name('eventos.edit');
+            Route::post('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.post');
+            Route::put('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.put');
+
+            Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
+
+            
         }
     );
 
