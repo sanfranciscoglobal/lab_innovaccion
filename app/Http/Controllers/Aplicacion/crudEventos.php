@@ -35,14 +35,7 @@ class crudEventos extends Controller
             return redirect()->route('app.home')->with('status', 'Evento creado con éxito');
            
         }
-        /*$datosEvento=request()->except('_token');
-        if($request->hasFile('imagen')){
-            $datosEvento['imagen']=$request->file('imagen')->store('uploads', 'public');
-        }
-   
-        Evento::insert($datosEvento);
-        return redirect()->route('home')->with('status', 'Evento creado con éxito');
-        */
+  
         return back()->with('error', 'Evento no creado');
     }
 
