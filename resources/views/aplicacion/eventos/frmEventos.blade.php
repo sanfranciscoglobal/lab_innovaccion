@@ -4,6 +4,7 @@
     <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
+    
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -20,7 +21,9 @@
                         <!-- Title + Delete link-->
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Eventos</h1>
-                            <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#eliminarevento"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar evento </a>
+                            @if ($method=='PUT')
+                                <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#eliminarevento"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar evento </a>
+                            @endif
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -167,36 +170,37 @@
         </div>
     </div>
     </form>
-
-    <div class="modal fade" id="eliminarevento" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="row margin-top-1 margin-bottom-1">
-                        <div class="col-12 offset-md-2 text-center">
-                            <h2 class="fs-28 uppercase bolder text-blue"> Eliminar Evento</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <form action="{{ route('app.eventos.delete', 1) }}" role="form" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <div class="modal-body">
+    @if ($method=='PUT')
+        <div class="modal fade" id="eliminarevento" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <div class="row margin-top-1 margin-bottom-1">
-                            <div class="col-sm-12 col-md-8 offset-md-2 text-center">
-                                <p>Esta seguro que desea eliminar este evento?</p>
+                            <div class="col-12 offset-md-2 text-center">
+                                <h2 class="fs-28 uppercase bolder text-blue"> Eliminar Evento</h2>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-danger">Yes</button>
-                    </div>
-                </form>
+
+                    <form action="{{ route('app.eventos.delete',$evento->id) }}" role="form" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="modal-body">
+                            <div class="row margin-top-1 margin-bottom-1">
+                                <div class="col-sm-12 col-md-8 offset-md-2 text-center">
+                                    <p>Esta seguro que desea eliminar este evento?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-danger">Yes</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 @endsection
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
