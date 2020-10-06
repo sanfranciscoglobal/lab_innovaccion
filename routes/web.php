@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('aplicacion.home.home');
 })->name('app.home');
 Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
+Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
+Route::get('/material-de-aprendizaje/{slug}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.detalle');
 Route::get('/acerca-de', function () {
     return view('aplicacion.acerca.acerca');
 })->name('acercade');

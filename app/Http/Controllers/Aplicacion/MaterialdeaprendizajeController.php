@@ -16,9 +16,13 @@ class MaterialdeaprendizajeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function verMaterialdeaprendizaje(Request $request)
+    public function verListadomateriales(Request $request)
     {
-        return view('aplicacion.materialaprendizaje.vermaterialaprendizaje');
+        return view('aplicacion.materialaprendizaje.verlistado');
+    }
+    public function verDetallematerial(Request $request)
+    {
+        return view('aplicacion.materialaprendizaje.verdetalle');
     }
     public function verFormularioregistromaterial(Request $request)
     {
