@@ -178,7 +178,7 @@
                         </div>
                     </div>
                 </div>
-            <form action="{{route('app.eventos.delete',$evento->id)}}" method="POST">
+            <form action="{{url ('app/eventos/'.$evento->id)}}  "role = "form" method="POST">
                     
                 {{ csrf_field() }}
                 {{method_field('DELETE')}}
