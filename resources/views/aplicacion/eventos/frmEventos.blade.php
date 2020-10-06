@@ -117,7 +117,7 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="ubicacion">* Ubicación del Evento</label>
-                                                                <input class="form-control" type="text" id="ubicacion" value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Direccion del evento" required>
+                                                                <input class="form-control" type="text" id="evento_direccion" value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Direccion del evento" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -340,8 +340,9 @@
                 var place = autocomplete.getPlace();
                 console.log(place.formatted_address);
                 var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+                //console.log(Latlng);
                 marker.setPosition( Latlng );
-                //infowindow.setContent(place.formatted_address);
+                infowindow.setContent(place.formatted_address);
                 //infowindow.hideInfoWindow();
                 //infowindow.showInfoWindow();
                 map.panTo( Latlng );
