@@ -20,7 +20,8 @@ Route::get('/', function () {
 Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
 Route::get('/acerca-de', function () {
     return view('aplicacion.acerca.acerca');
-})->name('fondos');
+})->name('acercade');
+Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 // Aplicacion
 Route::as('app.')
@@ -29,10 +30,11 @@ Route::as('app.')
         function () {
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
-            Route::get('/datos-del-usuario',        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
-            Route::get('/registro-de-fondos',       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
-            Route::get('/registro-de-eventos',      'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
-            Route::get('/registro-de-iniciativas',      'Aplicacion\IniciativasController@verFormularioiniciativas')->name('registroiniciativas');
+            Route::get('/datos-del-usuario',                        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
+            Route::get('/registro-de-fondos',                       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
+            Route::get('/registro-de-eventos',                      'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
+            Route::get('/registro-de-iniciativas',                  'Aplicacion\IniciativasController@verFormularioiniciativas')->name('registroiniciativas');
+            Route::get('/registro-de-material-de-aprendizaje',      'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
         }
     );
 
