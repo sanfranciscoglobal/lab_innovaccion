@@ -30,13 +30,13 @@ class EventosController extends Controller
     public function showForm(Request $request)
     {
         $evento = new Evento;
-        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.post')]);
+        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
     }
 
     public function edit($id)
     {
-        $evento = Fondo::find($id);
-        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.put')]);
+        $evento = Evento::find($id);
+        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.put',$evento->id),'method'=>'PUT']);
     }
 
 }

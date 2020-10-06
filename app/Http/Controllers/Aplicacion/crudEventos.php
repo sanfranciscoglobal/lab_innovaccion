@@ -39,7 +39,7 @@ class crudEventos extends Controller
         return back()->with('error', 'Evento no creado');
     }
 
-    public function update(UpdatePost $request, $id)
+    public function update(UpdatePost $request, Evento $evento )
     {
         $validatedData = $request->validated();
         $evento->update($request->validated());
@@ -79,9 +79,9 @@ class crudEventos extends Controller
     }
 
 
-    public function destroy($id) {
-
-        $evento = Evento::findOrfail($id);
+    public function destroy(Evento $evento) {
+        
+        //$evento = Evento::findOrfail($id);
 
         if(Auth::id() != $evento->user_id){
             return back()->with('status', 'No ingresaste este evento.');

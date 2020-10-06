@@ -43,7 +43,8 @@ Route::as('app.')
             Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos');
             Route::get('/eventos/{id}/{slug}', 'Aplicacion\EventosController@edit')->name('eventos.edit');
             Route::post('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.post');
-            Route::put('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.put');
+            Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put');
+            Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete');
 
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
 

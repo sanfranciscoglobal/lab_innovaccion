@@ -13,7 +13,7 @@ class UpdatePost extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,18 +26,21 @@ class UpdatePost extends FormRequest
         return [
            //validicion
             //
-            'Nombre' => 'string|required',
-            'Organizador' => 'string|required',
-            'Fecha' => 'date|required',
-            'Hora' => 'string|required',
-            'Imagen' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
-           'Descripcion' => 'nullable|string',
-            'Tipo' => 'boolean|required',
-            'Canton' => 'string|nullable',
-            'Ubicacion' => 'string|nullable',
-            'URL' => 'string|nullable',
-            'Estado' => 'boolean|required',
-            'user_id' => 'numeric|required'
+
+            'nombre' => 'string|required',
+            'organizador' => 'string|required',
+            'fecha' => 'date|required',
+            'hora' => 'string|required',
+            'imagen' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
+            'descripcion' => 'required|string',
+            'tipo' => 'boolean|required',
+            'canton' => 'nullable|required_if:tipo,"1"|string',
+            'ubicacion' => 'nullable|required_if:tipo,"1"|string',
+            'org_lat' => 'nullable|required_if:tipo,"1"|string',
+            'org_long'=> 'nullable|required_if:tipo,"1"|string',
+            'url' => 'nullable|string|required_if:tipo,"0"',
+            'estado' => 'boolean',
+            'terminos'=>'required|boolean'
       
         ];
     }
