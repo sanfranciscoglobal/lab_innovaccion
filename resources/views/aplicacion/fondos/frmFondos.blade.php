@@ -20,7 +20,7 @@
                         <!-- Title + Delete link-->
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Fondos Concursables</h1>
-                            <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" href="#"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</a>
+                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="toast" data-target="deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</button>
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -135,6 +135,28 @@
         </div>
     </div>
     </form>
+
+    <!-- Warning toast -->
+    <div class="modal fade" role="dialog" id="deleteAlert">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close text-white ml-2 mb-1" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('fondos.delete', $fondo->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <i class="fe-alert-triangle mr-2"></i>
+                        <span class="mr-auto">Warning toast</span>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="toast-body text-warning">Hello, world! This is a toast message.</div>
+    </div>
 @endsection
 @section('footer')
 <script>
