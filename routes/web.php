@@ -19,7 +19,8 @@ Route::get('/', function () {
 })->name('app.home');
 Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
-Route::get('/material-de-aprendizaje/{slug}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.detalle');
+Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
+Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 Route::get('/acerca-de', function () {
     return view('aplicacion.acerca.acerca');
 })->name('acercade');

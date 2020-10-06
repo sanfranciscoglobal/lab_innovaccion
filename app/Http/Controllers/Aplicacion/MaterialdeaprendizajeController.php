@@ -20,6 +20,10 @@ class MaterialdeaprendizajeController extends Controller
     {
         return view('aplicacion.materialaprendizaje.verlistado');
     }
+    public function verCategoriasmateriales(Request $request)
+    {
+        return view('aplicacion.materialaprendizaje.vercategorias');
+    }
     public function verDetallematerial(Request $request)
     {
         return view('aplicacion.materialaprendizaje.verdetalle');
