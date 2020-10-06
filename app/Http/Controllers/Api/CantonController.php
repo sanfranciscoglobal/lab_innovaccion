@@ -22,4 +22,8 @@ class CantonController extends Controller
     {
         return Canton::obtenerCantonesAgrupadoProvincia($request->search);
     }
+
+    public static function cantonOneSelect2(){
+        
+    }
 }
