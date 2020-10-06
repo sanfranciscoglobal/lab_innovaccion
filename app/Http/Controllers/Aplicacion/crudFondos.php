@@ -31,7 +31,9 @@ class crudFondos extends Controller
      */
     public function store(StorePost $request){
         $validatedData = $request->validated();
+     
         if($fondo = Fondo::create($validatedData)){
+            
             if(isset($validatedData['imagen'])){
                 $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
                 $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');

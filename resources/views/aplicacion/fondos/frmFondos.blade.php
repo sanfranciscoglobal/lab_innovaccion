@@ -67,13 +67,13 @@
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
-                                                        <input class="form-control" type="date" id="fondo_fecha_inicio" value="" name="fecha_inicio" placeholder="Nombre del programa" required>
+                                                        <input class="form-control" type="date" id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Nombre del programa" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_cierre">* Fecha de cierre</label>
-                                                        <input class="form-control" type="date" id="fondo_fecha_cierre" value="" name="fecha_fin" placeholder="Nombre del programa" required>
+                                                        <input class="form-control" type="date" id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Nombre del programa" required>
                                                     </div>
                                                 </div>
                                             </div>
