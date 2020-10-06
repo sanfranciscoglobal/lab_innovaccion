@@ -17,10 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('aplicacion.home.home');
 })->name('app.home');
+<<<<<<< HEAD
 
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
+=======
+Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
+Route::get('/acerca-de', function () {
+    return view('aplicacion.acerca.acerca');
+})->name('acercade');
+Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
+>>>>>>> 536aad21a1c4b799c7abe97529844137390439c5
 
 // Aplicacion
 Route::as('app.')
@@ -29,6 +37,7 @@ Route::as('app.')
         function () {
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
+<<<<<<< HEAD
 
             // Fondos
             Route::get('fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
@@ -50,6 +59,13 @@ Route::as('app.')
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
 
 
+=======
+            Route::get('/datos-del-usuario',                        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
+            Route::get('/registro-de-fondos',                       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
+            Route::get('/registro-de-eventos',                      'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
+            Route::get('/registro-de-iniciativas',                  'Aplicacion\IniciativasController@verFormularioiniciativas')->name('registroiniciativas');
+            Route::get('/registro-de-material-de-aprendizaje',      'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
+>>>>>>> 536aad21a1c4b799c7abe97529844137390439c5
         }
     );
 
