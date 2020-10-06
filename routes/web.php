@@ -31,14 +31,15 @@ Route::as('app.')
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
 
             // Fondos
-            Route::get('/fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
-            Route::get('/fondos/{id}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
-            Route::post('/fondos', 'Aplicacion\crudFondos@store')->name('fondos.post');
-            Route::put('/fondos/{fondo}', 'Aplicacion\crudFondos@update')->name('fondos.put');
-            Route::delete('/fondos/{fondo}', 'Aplicacion\crudFondos@destroy')->name('fondos.delete');
+            Route::get('fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
+            Route::get('fondos/{id}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
+            Route::post('fondos', 'Aplicacion\crudFondos@store')->name('fondos.post');
+            Route::put('fondos/{fondo}', 'Aplicacion\crudFondos@update')->name('fondos.put');
+            Route::delete('fondos/{fondo}', 'Aplicacion\crudFondos@destroy')->name('fondos.delete');
 
             Route::get('/datos-del-usuario',        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
             Route::get('/registro-de-fondos',       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
+
             //Eventos
             Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos');
             Route::get('/eventos/{id}/{slug}', 'Aplicacion\EventosController@edit')->name('eventos.edit');
@@ -48,7 +49,7 @@ Route::as('app.')
 
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
 
-            
+
         }
     );
 

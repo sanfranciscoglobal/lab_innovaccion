@@ -141,21 +141,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close text-white ml-2 mb-1" data-dismiss="toast" aria-label="Close">
+                    {{-- <button type="button" class="close text-white ml-2 mb-1" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button> --}}
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('fondos.delete', $fondo->id) }}" method="POST">
+                    <form action="{{ route('app.fondos.delete', 1) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <i class="fe-alert-triangle mr-2"></i>
                         <span class="mr-auto">Warning toast</span>
+                        <div class="toast-body text-warning">Hello, world! This is a toast message.</div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="toast-body text-warning">Hello, world! This is a toast message.</div>
     </div>
 @endsection
 @section('footer')

@@ -137,13 +137,13 @@
                                     <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
                                     <div class="evento-image-placeholder mt-3">
                                         <div id="evento-image-box" class="necesidad-image-box">
-                                            @if (isset($evento->imagen))  
+                                            @if (isset($evento->imagen))
                                                 <img id="output"  class="img-fluid" src="{{asset('storage').'/'.$evento->imagen}}">
-                                                
+
                                             @else
                                                 <img id="output" class="img-fluid" src="http://placehold.it/300x300/?text=Imagen%20Destacada">
                                             @endif
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -178,24 +178,22 @@
                         </div>
                     </div>
                 </div>
-            <form action="{{url ('app/eventos/'.$evento->id)}}  "role = "form" method="POST">
-                    
-                {{ csrf_field() }}
-                {{method_field('DELETE')}}
-                <div class="modal-body">
-                    
+
+                <form action="{{ route('app.eventos.delete', 1) }}" role="form" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
                         <div class="row margin-top-1 margin-bottom-1">
                             <div class="col-sm-12 col-md-8 offset-md-2 text-center">
                                 <p>Esta seguro que desea eliminar este evento?</p>
                             </div>
                         </div>
-                   
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-danger">Yes</button>
-                 </div>
-            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -227,7 +225,7 @@
                             $('.e-presencial').removeClass('d-none');
                             initMap();
                         }
-                      
+
                     }
                 /*
                 if ($(this).val() == 0){
@@ -243,7 +241,7 @@
                         $('.e-presencial').addClass('d-none');
                         $('.e-virtual .form-control').attr('required', true);
                         $('.e-virtual').removeClass('d-none');
-                      
+
                     }
                 }*/
             }
@@ -265,13 +263,13 @@
             var zoom = 16;
             var dragMarker = true;
             var placeSearch, autocomplete;
-            
-            
+
+
             if (
                 jQuery('input[id="lat"]').val() != 0 &&
                 jQuery('input[id="long"]').val()  != 0
             ){
-                
+
                 latUsuario = jQuery('#lat').val();
                 lonUsuario = jQuery('#long').val();
                 zoom = zoom;
@@ -351,9 +349,9 @@
 </script>
 <script>
     $(function(){
-    
+
         let tipo = {{ old('tipo', (int)$evento->tipo) ?? 'null' }};
-        
+
         switch(tipo){
             case 0:
                 $('#evento_virtual').trigger('click');
@@ -365,14 +363,14 @@
                 break;
         }
 
-        
+
 
 
 
     });
 
 
-  
+
 
 </script>
 
