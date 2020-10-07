@@ -56,6 +56,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="mat_files">Adjuntar archivos</label>
+                                            <input class="form-control" type="file" id="mat_autor" value="" name="mat_files" multiple>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
