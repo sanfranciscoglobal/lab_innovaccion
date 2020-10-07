@@ -33,11 +33,17 @@ Route::as('app.')
         function () {
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
-            Route::get('/datos-del-usuario',                        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
-            Route::get('/registro-de-fondos',                       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
-            Route::get('/registro-de-eventos',                      'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
-            Route::get('/registro-de-iniciativas',                  'Aplicacion\IniciativasController@verFormularioiniciativas')->name('registroiniciativas');
-            Route::get('/registro-de-material-de-aprendizaje',      'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
+            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
+            Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
+            Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
+
+            /**
+             * Rutas iniciativas
+             */
+            Route::get('/iniciativa', 'Aplicacion\IniciativasController@iniciativa')->name('iniciativa.create');
+            Route::post('/iniciativa/store', 'Aplicacion\IniciativasController@store')->name('iniciativa.store');
+
+            Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
         }
     );
 

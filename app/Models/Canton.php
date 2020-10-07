@@ -9,18 +9,18 @@ use Illuminate\Http\Request;
 class Canton extends Model
 {
     protected $table = 'canton';
+    public static $search = null;
 
     public function provincia()
     {
         return $this->belongsTo(Provincia::class, 'provincia_id', 'id');
     }
 
-    public static function obtenerCantones($search)
+    public static function obtenerCantones()
     {
         $rs = Canton::orderby('nombre');
-
-        if ($search) {
-            $rs->where('nombre', 'like', '%' . $search . '%');
+        if (self::$search) {
+            $rs->where('nombre', 'like', '%' . self::$search . '%');
         }
 
         return $rs->get();
@@ -30,10 +30,10 @@ class Canton extends Model
      * @param Request|null $request
      * @return array
      */
-    public static function obtenerCantonesAgrupadoProvincia($search)
+    public static function obtenerCantonesAgrupadoProvincia()
     {
-        $provincias = Provincia::obtenerProvincias($search);
-        $cantones = Canton::obtenerCantones($search);
+        $provincias = Provincia::obtenerProvinciasAll();
+        $cantones = Canton::obtenerCantones();
         $result = [];
 
         foreach ($provincias as $provincia) {
@@ -56,6 +56,4 @@ class Canton extends Model
 
         return $result;
     }
-
-
 }
