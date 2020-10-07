@@ -5,7 +5,7 @@
  */
 
 require('./bootstrap');
-// require('select2/dist/js/select2.min.js');
+require('select2/dist/js/select2.min.js');
 require('dropify/dist/js/dropify.min.js');
 require('bs-custom-file-input/dist/bs-custom-file-input');
 require('simplebar/dist/simplebar');

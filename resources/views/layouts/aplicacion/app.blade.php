@@ -120,6 +120,7 @@
 {{--<link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>--}}
 <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="{{asset('css/theme.css')}}">
+    @yield('header-css')
 </head>
 <!-- Body-->
 <body>
@@ -267,6 +268,7 @@
 
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/helpers.js')}}"></script>
 @yield('footer')
 {{--<script type="text/javascript">--}}
 {{--console.log(smoothScroll);--}}

@@ -11,13 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call([
-             RolesSeeder::class,
-            //  EstadoRegistroSeeder::class,
-            //  AbreviaturasSeeder::class,
-            //  ProvinciaSeeder::class,
-            //  CantonSeeder::class,
-            //  UserSeeder::class,
-         ]);
+        $this->call([
+            EstadoRegistroSeeder::class,
+            ProvinciaSeeder::class,
+            CantonSeeder::class,
+            TipoInstitucionSeeder::class,
+            IniciativaOrigenSeeder::class,
+            TipoPoblacionSeeder::class,
+        ]);
     }
 }
