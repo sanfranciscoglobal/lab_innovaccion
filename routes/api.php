@@ -18,3 +18,8 @@ Route::middleware('auth:api')
     ->get('/user', function (Request $request) {
         return $request->user();
     });
+
+Route::get('/obtener-tipo-institucion-select2', 'Api\TipoInstitucionController@tipoInstitucionSelect2')->name('api.tipo-institucion.select2');
+
+Route::get('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->name('api.canton.select2');
+Route::post('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->name('api.canton.select2');
