@@ -37,108 +37,37 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet assumenda, sit reiciendis nemo impedit quos laborum iusto, magnam id dolorem corrupti earum eius. Eligendi culpa nihil error voluptate temporibus expedita. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus expedita natus, tempore, pariatur voluptas illum velit iure quidem nam sit eius dolore quae suscipit soluta harum! Id maxime modi eveniet.</p>
                         </div>
                     </div>
-                    <article class="card card-horizontal card-hover mb-grid-gutter"><a class="card-img-top"
-                            href="blog-single-rs.html" style="background-image: url(img/blog/01.jpg);"></a>
-                        <div class="card-body"><a class="meta-link font-size-sm mb-2" href="#">Digital design</a>
-                            <h2 class="h4 nav-heading mb-4"><a href="blog-single-rs.html">Designers should always keep their
-                                    users in mind</a></h2><a class="media meta-link font-size-sm align-items-center pt-3"
-                                href="#"><img class="rounded-circle" width="36" src="img/blog/avatar/01.jpg"
-                                    alt="Emma Brown" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Emma
-                                        Brown</span></div>
-                            </a>
-                            <div class="mt-3 text-right text-nowrap"><a class="meta-link font-size-xs" href="#"><i
-                                        class="fe-message-square mr-1"></i>&nbsp;6</a><span class="meta-divider"></span><a
-                                    class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;Feb
-                                    19</a></div>
+                    <div class="row">
+                        @for ($i=0; $i<7;$i++)
+                        <div class="col col-lg-6">
+                            <article class="card card-hover mb-grid-gutter">
+                                <div class="card-body">
+                                    <h2 class="h4 nav-heading mb-4">
+                                        <a href="blog-single-rs.html">Designers should always keep their users in mind</a>
+                                    </h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum magni, nemo hic vitae minus tenetur velit ipsa amet corrupti repellendus vel rem, corporis accusamus ea ratione culpa sed non illo.</p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a class="media meta-link font-size-sm align-items-center pt-3" href="#"><img class="rounded-circle" width="36" src="img/blog/avatar/01.jpg" alt="Emma Brown" />
+                                                <div class="media-body pl-2 ml-1 mt-n1">
+                                                    por<span class="font-weight-semibold ml-1">Emma Brown</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mt-3 text-right text-nowrap">
+                                                <a class="meta-link font-size-xs" href="#">
+                                                    <i class="fe-message-square mr-1"></i>&nbsp;6</a><span class="meta-divider"></span>
+                                                <a class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;Feb 19</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-primary" href="#">Ver publicación</a>
+                                </div>
+                            </article>
                         </div>
-                    </article>
-                    <!-- Post-->
-                    <article class="card card-horizontal card-hover mb-grid-gutter"><a class="card-img-top order-sm-2"
-                            href="blog-single-rs.html" style="background-image: url(img/blog/02.jpg);"></a>
-                        <div class="card-body order-sm-1"><a class="meta-link font-size-sm mb-2" href="#">Technology</a>
-                            <h2 class="h4 nav-heading mb-4"><a href="blog-single-rs.html">How technological advancements
-                                    affect our decisions</a></h2><a
-                                class="media meta-link font-size-sm align-items-center pt-3" href="#"><img
-                                    class="rounded-circle" width="36" src="img/blog/avatar/03.jpg" alt="Jessica Miller" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Jessica
-                                        Miller</span></div>
-                            </a>
-                            <div class="mt-3 text-right text-nowrap"><a class="meta-link font-size-xs" href="#"><i
-                                        class="fe-message-square mr-1"></i>&nbsp;3</a><span class="meta-divider"></span><a
-                                    class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;Feb
-                                    4</a></div>
-                        </div>
-                    </article>
-                    <!-- Post-->
-                    <article class="card card-horizontal card-hover mb-grid-gutter"><a class="card-img-top"
-                            href="blog-single-rs.html" style="background-image: url(img/blog/03.jpg);"></a>
-                        <div class="card-body"><a class="meta-link font-size-sm mb-2" href="#">Business</a>
-                            <h2 class="h4 nav-heading mb-4"><a href="blog-single-rs.html">Open space - new trend in office
-                                    design</a></h2><a class="media meta-link font-size-sm align-items-center pt-3"
-                                href="#"><img class="rounded-circle" width="36" src="img/blog/avatar/05.jpg"
-                                    alt="Daniel Adams" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Daniel
-                                        Adams</span></div>
-                            </a>
-                            <div class="mt-3 text-right text-nowrap"><a class="meta-link font-size-xs" href="#"><i
-                                        class="fe-message-square mr-1"></i>&nbsp;12</a><span class="meta-divider"></span><a
-                                    class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;Jan
-                                    10</a></div>
-                        </div>
-                    </article>
-                    <!-- Post-->
-                    <article class="card card-horizontal card-hover mb-grid-gutter"><a class="card-img-top order-sm-2"
-                            href="blog-single-rs.html" style="background-image: url(img/blog/04.jpg);"></a>
-                        <div class="card-body order-sm-1"><a class="meta-link font-size-sm mb-2" href="#">Travel &amp;
-                                Vacation</a>
-                            <h2 class="h4 nav-heading mb-4"><a href="blog-single-rs.html">Escape to mountains with only one
-                                    backpack</a></h2><a class="media meta-link font-size-sm align-items-center pt-3"
-                                href="#"><img class="rounded-circle" width="36" src="img/blog/avatar/01.jpg"
-                                    alt="Emma Brown" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Emma
-                                        Brown</span></div>
-                            </a>
-                            <div class="mt-3 text-right text-nowrap"><a class="meta-link font-size-xs" href="#"><i
-                                        class="fe-message-square mr-1"></i>&nbsp;31</a><span class="meta-divider"></span><a
-                                    class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;Dec
-                                    25</a></div>
-                        </div>
-                    </article>
-                    <!-- Post-->
-                    <article class="card card-horizontal card-hover mb-grid-gutter"><a class="card-img-top"
-                            href="blog-single-rs.html" style="background-image: url(img/blog/05.jpg);"></a>
-                        <div class="card-body"><a class="meta-link font-size-sm mb-2" href="#">Technology</a>
-                            <h2 class="h4 nav-heading mb-4"><a href="blog-single-rs.html">Payments made easy. How new Tech
-                                    will affect E-Commerce industry?</a></h2><a
-                                class="media meta-link font-size-sm align-items-center pt-3" href="#"><img
-                                    class="rounded-circle" width="36" src="img/blog/avatar/02.jpg" alt="Charlie Welch" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Charlie
-                                        Welch</span></div>
-                            </a>
-                            <div class="mt-3 text-right text-nowrap"><a class="meta-link font-size-xs" href="#"><i
-                                        class="fe-message-square mr-1"></i>&nbsp;4</a><span class="meta-divider"></span><a
-                                    class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;Dec
-                                    12</a></div>
-                        </div>
-                    </article>
-                    <!-- Post-->
-                    <article class="card card-horizontal card-hover mb-grid-gutter"><a class="card-img-top order-sm-2"
-                            href="blog-single-rs.html" style="background-image: url(img/blog/06.jpg);"></a>
-                        <div class="card-body order-sm-1"><a class="meta-link font-size-sm mb-2" href="#">Business</a>
-                            <h2 class="h4 nav-heading mb-4"><a href="blog-single-rs.html">Business offices of Fortune 500
-                                    companies</a></h2><a class="media meta-link font-size-sm align-items-center pt-3"
-                                href="#"><img class="rounded-circle" width="36" src="img/blog/avatar/06.jpg"
-                                    alt="Barbara Palson" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Barbara
-                                        Palson</span></div>
-                            </a>
-                            <div class="mt-3 text-right text-nowrap"><a class="meta-link font-size-xs" href="#"><i
-                                        class="fe-message-square mr-1"></i>&nbsp;31</a><span class="meta-divider"></span><a
-                                    class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;Dec
-                                    25</a></div>
-                        </div>
-                    </article>
+                        @endfor
+                    </div>
                     <!-- Pagination-->
                     <div class="d-md-flex justify-content-between align-items-center pt-3 pb-2">
                         <div class="d-flex justify-content-center align-items-center mb-4">
@@ -185,7 +114,7 @@
                                 <div class="input-group-overlay">
                                     <div class="input-group-prepend-overlay"><span class="input-group-text"><i
                                                 class="fe-search"></i></span></div>
-                                    <input class="form-control prepended-form-control" type="text" placeholder="Search">
+                                    <input class="form-control prepended-form-control" type="text" placeholder="Buscar">
                                 </div>
                             </div>
                             <!-- Categories-->
