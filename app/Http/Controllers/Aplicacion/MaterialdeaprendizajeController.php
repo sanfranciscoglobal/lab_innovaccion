@@ -24,5 +24,10 @@ class MaterialdeaprendizajeController extends Controller
     {
         return view('aplicacion.materialaprendizaje.frmMaterial');
     }
+    public function showForm(Request $request)
+    {
+
+        return view('aplicacion.materialaprendizaje.frmMaterial');
+    }
 
 }

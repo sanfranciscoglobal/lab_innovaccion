@@ -114,7 +114,7 @@
     })
 
     CKEDITOR.replace('wysiwyg-editor', {
-        filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadUrl: "{{route('app.ckeditor.image-upload', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
     });
     CKEDITOR.config.height = 400;
