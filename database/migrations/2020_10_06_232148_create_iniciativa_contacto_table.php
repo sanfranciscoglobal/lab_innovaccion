@@ -22,7 +22,7 @@ class CreateIniciativaContactoTable extends Migration
 
             $table->foreign('iniciativa_id')
                 ->references('id')
-                ->on('iniciativa')
+                ->on('iniciativas')
                 ->constrained()
                 ->onDelete('cascade');
 

@@ -15,6 +15,16 @@ class CreateIniciativaInformacionTable extends Migration
     {
         Schema::create('iniciativa_informacion', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre_iniciativa', 250);
+            $table->integer('anio');
+            $table->string('nombre_vigencia', 250);
+            $table->string('logo', 250);
+            $table->string('componente_innovador', 250);
+            $table->text('descripcion_iniciativa');
+            $table->string('url_facebook', 250)->nullable();
+            $table->string('url_twitter', 250)->nullable();
+            $table->string('url_linkedin', 250)->nullable();
+            $table->string('url_youtube', 250)->nullable();
             $table->timestamps();
         });
     }

@@ -42,6 +42,10 @@ return [
     */
 
     'disks' => [
+        'iniciativas' => [
+            'driver' => 'local',
+            'root' => storage_path('app') . '/public/iniciativas',
+        ],
         'perfil' => [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/perfil',

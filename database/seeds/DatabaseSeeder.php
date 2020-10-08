@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
              TipoInstitucionSeeder::class,
              IniciativaOrigenSeeder::class,
              TipoPoblacionSeeder::class,
+             OdsCategoriasSeeder::class,
          ]);
     }
 }
