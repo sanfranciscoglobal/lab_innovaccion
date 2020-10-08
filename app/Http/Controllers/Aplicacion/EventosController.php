@@ -19,24 +19,27 @@ class EventosController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+
     public function verEventos(Request $request)
     {
         return view('aplicacion.eventos.eventos');
     }
+
     public function verFormularioeventos(Request $request)
     {
         return view('aplicacion.eventos.frmEventos');
     }
+
     public function showForm(Request $request)
     {
         $evento = new Evento;
-        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
+        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.post'), 'method' => 'POST']);
     }
 
     public function edit($id)
     {
         $evento = Evento::find($id);
-        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.put',$evento->id),'method'=>'PUT']);
+        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.put', $evento->id), 'method' => 'PUT']);
     }
 
 }

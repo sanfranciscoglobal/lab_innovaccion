@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             TipoInstitucionSeeder::class,
             IniciativaOrigenSeeder::class,
             TipoPoblacionSeeder::class,
+            RolesSeeder::class,
+            UsersSeeder::class,
         ]);
     }
 }

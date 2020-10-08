@@ -21,7 +21,12 @@ Route::get('/', function () {
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
-Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
+Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
+Route::get('/verificacion', function(){
+    return redirect()->route('app.home')->withErrors('Porfavor verifica tu email.');
+})->name('verification.notice');
+
+
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
@@ -38,28 +43,29 @@ Route::as('app.')
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
 
-            // Fondos
+            /**
+             * Rutas Usuarios
+             */
+            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
+
+            /**
+             * Rutas Fondos
+             */
             Route::get('fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
             Route::get('fondos/{id}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
             Route::post('fondos', 'Aplicacion\crudFondos@store')->name('fondos.post');
             Route::put('fondos/{fondo}', 'Aplicacion\crudFondos@update')->name('fondos.put');
             Route::delete('fondos/{fondo}', 'Aplicacion\crudFondos@destroy')->name('fondos.delete');
 
-            Route::get('/datos-del-usuario',        'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
-            Route::get('/registro-de-fondos',       'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
-
-            //Eventos
+            /**
+             * Rutas Eventos
+             */
             Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos');
             Route::get('/eventos/{id}/{slug}', 'Aplicacion\EventosController@edit')->name('eventos.edit');
             Route::post('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.post');
             Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put');
             Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete');
 
-            Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
-
-
-            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
-            Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
 
             /**

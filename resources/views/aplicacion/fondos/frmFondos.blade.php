@@ -20,7 +20,7 @@
                         <!-- Title + Delete link-->
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Fondos Concursables</h1>
-                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="toast" data-target="deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</button>
+                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</button>
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -136,27 +136,32 @@
     </div>
     </form>
 
-    <!-- Warning toast -->
-    <div class="modal fade" role="dialog" id="deleteAlert">
-        <div class="modal-dialog">
+    @if ($method == 'PUT')
+    <!-- danger modal -->
+    <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    {{-- <button type="button" class="close text-white ml-2 mb-1" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button> --}}
+                <div class="modal-header bg-danger text-white">
+                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Fondo</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-body">
-                    <form action="{{ route('app.fondos.delete', 1) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <i class="fe-alert-triangle mr-2"></i>
-                        <span class="mr-auto">Warning toast</span>
-                        <div class="toast-body text-warning">Hello, world! This is a toast message.</div>
-                    </form>
-                </div>
+                <form action="{{ route('app.fondos.delete', $fondo->id) }}" method="POST" role="form">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <div class="text-danger">Está seguro que desea eliminar este fondo?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    @endif
 @endsection
 @section('footer')
 <script>
@@ -180,7 +185,7 @@
 <script>
     $(function(){
         let fuente = {{ old('fuente', (int)$fondo->fuente) ?? 'null' }};
-        console.log(fuente);
+        // console.log(fuente);
         switch(fuente){
             case 1:
                 $('#fondos_propios').trigger('click');

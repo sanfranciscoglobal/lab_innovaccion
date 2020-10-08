@@ -31,9 +31,9 @@ class crudFondos extends Controller
      */
     public function store(StorePost $request){
         $validatedData = $request->validated();
-     
+
         if($fondo = Fondo::create($validatedData)){
-            
+
             if(isset($validatedData['imagen'])){
                 $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
                 $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
@@ -72,13 +72,9 @@ class crudFondos extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Fondo $fondo) {
-        // if(Auth::check()){
-        //     if(Auth::id() != $fondo->user_id){
-        //         return back()->with('status', 'No ingresaste este fondo.');
-        //     }
-        // } else {
-        //     return back()->with('status', 'No encontramos un usuario autenticado.');
-        // }
+        if(Auth::id() != $fondo->user_id){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
 
         $fondo->delete();
         return redirect()->route('app.home')->with('status', 'Fondo eliminado con éxito');

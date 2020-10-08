@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\EmailVerification;
+use Mail;
 
 // Models
 use App\Models\User;
@@ -84,6 +86,8 @@ class RegisterController extends Controller
         RoleUser::create([
             'user_id' => $user->id,
         ]);
+
+        Mail::to($user->email)->send(new EmailVerification($user));
 
         return back()->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
     }

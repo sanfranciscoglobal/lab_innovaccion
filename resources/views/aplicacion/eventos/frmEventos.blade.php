@@ -179,7 +179,7 @@
                     </div>
                 </div>
 
-                <form action="{{ route('app.eventos.delete', 1) }}" role="form" method="POST">
+                <form action="{{ route('app.eventos.delete', $evento->id) }}" role="form" method="POST">
                     @csrf
                     @method('DELETE')
                     <div class="modal-body">

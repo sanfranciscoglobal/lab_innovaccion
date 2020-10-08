@@ -23,7 +23,7 @@ class crudEventos extends Controller
     public function store(StorePost $request)
     {
         $validatedData=$request->validated();
- 
+
         if($evento=Evento::create($validatedData)){
 
             if(isset($validatedData['imagen'])){
@@ -33,9 +33,9 @@ class crudEventos extends Controller
                 $evento->save();
             }
             return redirect()->route('app.home')->with('status', 'Evento creado con éxito');
-           
+
         }
-  
+
         return back()->with('error', 'Evento no creado');
     }
 
@@ -58,12 +58,12 @@ class crudEventos extends Controller
         if(Auth::check()){
             if(Auth::id() == $evento->user_id){
                 if ($request->hasFile('imagen')){
-                
+
                 Storage::delete('public/'.$evento->Foto);
                 $datosEvento['imagen']=$request->file('imagen')->store('uploads','public');
                 }
-            
-                
+
+
                 Empleados::where('id','=',$id)->update($datosEvento);
                 $evento=Empleados::findOrfail($id);
                 return redirect()->route('home')->with('status', 'Evento modificado con éxito');;
@@ -75,18 +75,18 @@ class crudEventos extends Controller
             return back()->with('status', 'No encontramos un usuario autenticado.');
         }
         */
-        
+
     }
 
 
     public function destroy(Evento $evento) {
-        
+
         //$evento = Evento::findOrfail($id);
 
         if(Auth::id() != $evento->user_id){
             return back()->with('status', 'No ingresaste este evento.');
         }
-       
+
         $evento->delete();
         return redirect()->route('app.home')->with('status', 'Evento eliminado con éxito');
     }

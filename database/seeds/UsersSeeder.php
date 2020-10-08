@@ -13,6 +13,10 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
+        $sql  = "ALTER SEQUENCE users_id_seq RESTART WITH 1;";
+        $sql .= 'TRUNCATE users CASCADE;';
+        DB::connection()->getPdo()->exec($sql);
+
         factory(User::class, 3)->create();
 
         $usersRoles = [

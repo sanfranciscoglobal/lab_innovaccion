@@ -31,6 +31,6 @@ class CreateEstadoRegistrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estado_registros');
+        Schema::dropIfExists('estado_registro');
     }
 }
