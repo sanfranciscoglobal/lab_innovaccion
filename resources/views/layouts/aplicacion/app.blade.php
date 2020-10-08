@@ -268,6 +268,7 @@
 
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/helpers.js')}}"></script>
 @yield('footer')
 {{--<script type="text/javascript">--}}
 {{--console.log(smoothScroll);--}}

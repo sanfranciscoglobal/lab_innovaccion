@@ -18,6 +18,12 @@ class DatabaseSeeder extends Seeder
             //  ProvinciaSeeder::class,
             //  CantonSeeder::class,
             //  UserSeeder::class,
+             EstadoRegistroSeeder::class,
+             ProvinciaSeeder::class,
+             CantonSeeder::class,
+             TipoInstitucionSeeder::class,
+             IniciativaOrigenSeeder::class,
+             TipoPoblacionSeeder::class,
          ]);
     }
 }

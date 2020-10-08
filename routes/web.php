@@ -21,6 +21,14 @@ Route::get('/', function () {
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
+//Route::get('/fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('fondos');
+Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
+Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
+Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
+Route::get('/acerca-de', function () {
+    return view('aplicacion.acerca.acerca');
+})->name('acercade');
+//Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 // Aplicacion
 Route::as('app.')
@@ -53,13 +61,24 @@ Route::as('app.')
 
             //material de aprendizaje
 
-            Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material-de-aprendizaje');
+            Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material');
             Route::get('/registro-de-material-de-aprendizaje',      'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
             Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
 
 
+           // Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
+           // Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
+          //  Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
+
+            /**
+             * Rutas iniciativas
+             */
+            Route::get('/iniciativa', 'Aplicacion\IniciativasController@iniciativa')->name('iniciativa.create');
+            Route::post('/iniciativa/store', 'Aplicacion\IniciativasController@store')->name('iniciativa.store');
+
+            Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
         }
     );
 
