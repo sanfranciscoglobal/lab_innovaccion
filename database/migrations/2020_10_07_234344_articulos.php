@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEstadoRegistrosTable extends Migration
+class Articulos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,20 @@ class CreateEstadoRegistrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estado_registro', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('articulos', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('material_id');
             $table->string('nombre');
-            $table->string('codigo');
-            $table->string('color');
+
+            $table->foreign('material_id')
+                ->references('id')
+                ->on('materialesaprendizaje')
+                ->constrained()
+                ->onDelete('cascade')
+            ;
+           
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
@@ -31,6 +37,7 @@ class CreateEstadoRegistrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estado_registro');
+        //
+        Schema::dropIfExists('articulos');
     }
 }

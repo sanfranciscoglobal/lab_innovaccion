@@ -9,6 +9,7 @@ use App\Http\Requests\Eventos\UpdatePost;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Canton;
 // Helpers
 use App\Helpers\CustomUrl; // $string
 use App\Helpers\Archivos; // $nombre, $archivo, $disk

@@ -105,11 +105,17 @@
                                                             <div class="form-group">
                                                                 <label for="org_web">* Cantón</label>
                                                                 <select class="form-control" name="canton" value="">
-                                                                    <option value="">Seleccione un cantón</option>
+                        
+                                                                    @foreach ($cantones as $item)
+                                                                        <option value="{{$item}}" {{old('canton',$evento->canton)==$item? 'selected':''}}>{{$item}}</option>
+                                                                    @endforeach
+
+                                                                    <!-- option value="">Seleccione un cantón</option>
                                                                     <option value="1" {{old('canton',$evento->canton)=="1"? 'selected':''}}>Cantón 1</option>
                                                                     <option value="2" {{old('canton',$evento->canton)=="2"? 'selected':''}}>Cantón 2</option>
-                                                                    <option value="3" {{old('canton',$evento->canton)=="3"? 'selected':''}}>Cantón 3</option>
+                                                                    <option value="3" {{old('canton',$evento->canton)=="3"? 'selected':''}}>Cantón 3</option-->
                                                                 </select>
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>

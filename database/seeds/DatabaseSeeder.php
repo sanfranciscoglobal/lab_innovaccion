@@ -13,11 +13,11 @@ class DatabaseSeeder extends Seeder
     {
          $this->call([
              RolesSeeder::class,
-            //  EstadoRegistroSeeder::class,
+            
             //  AbreviaturasSeeder::class,
-            //  ProvinciaSeeder::class,
-            //  CantonSeeder::class,
-            //  UserSeeder::class,
+            
+           
+             UserSeeder::class,
              EstadoRegistroSeeder::class,
              ProvinciaSeeder::class,
              CantonSeeder::class,

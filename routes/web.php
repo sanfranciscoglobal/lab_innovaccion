@@ -57,11 +57,12 @@ Route::as('app.')
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
            
            //Iniciativas
-            Route::get('/registro-de-iniciativas',                  'Aplicacion\IniciativasController@verFormularioiniciativas')->name('registroiniciativas');
+            //Route::get('/registro-de-iniciativas','Aplicacion\IniciativasController@verFormularioiniciativas')->name('registroiniciativas');
 
             //material de aprendizaje
 
-            Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material');
+            Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material-de-aprendizaje');
+            Route::post('/material-de-aprendizaje', 'Aplicacion\crudMaterialesaprendizaje@store')->name('material-de-aprendizaje.post');
             Route::get('/registro-de-material-de-aprendizaje',      'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
             Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 

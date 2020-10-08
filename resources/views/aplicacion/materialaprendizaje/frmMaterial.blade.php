@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    <form role="form" action="{{-- --}}" method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{route('app.material-de-aprendizaje.post')}}" method="POST" enctype="multipart/form-data">
+    @csrf
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -31,13 +32,14 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mat_nombre">* Nombre de la publicación</label>
-                                            <input class="form-control" type="text" id="mat_nombre" value="" name="mat_nombre" required>
+                                            <input class="form-control" type="text" id="mat_nombre" value="" name="nombre_publicacion" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
+                                            <!--textarea id="mat_content" class="form-control ckeditor" name="mat_content" rows="20"></textarea-->
                                             <textarea id="mat_content" class="form-control ckeditor" name="mat_content" rows="20"></textarea>
                                         </div>
                                     </div>
@@ -46,13 +48,13 @@
                                     <div class="col-8">
                                         <div class="form-group">
                                             <label for="mat_url">* Fuente de la publicación</label>
-                                            <input class="form-control" type="url" id="mat_url" value="" name="mat_url" required>
+                                            <input class="form-control" type="url" id="mat_url" value="" name="fuente_publicacion" required>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="mat_autor">* Autor</label>
-                                            <input class="form-control" type="text" id="mat_autor" value="" name="mat_autor" required>
+                                            <input class="form-control" type="text" id="mat_autor" value="" name="autor_publicacion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +62,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mat_files">Adjuntar archivos</label>
-                                            <input class="form-control" type="file" id="mat_autor" value="" name="mat_files" multiple>
+                                            <input class="form-control" type="file" id="mat_autor" value="" name="mat_files[]" multiple>
                                         </div>
                                     </div>
                                 </div>
@@ -68,11 +70,11 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="mat_fecha">* Fecha de publicación</label>
-                                    <input class="form-control" type="date" id="mat_fecha" value="" name="mat_fecha" required>
+                                    <input class="form-control" type="date" id="mat_fecha" value="" name="fecha_publicacion" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="mat_tema">* Tema tratado</label>
-                                    <select class="form-control select2" name="mat_tema" required>
+                                    <select class="form-control select2" name="tema_tratado" required>
                                         <option value="">Seleccione un tema</option>
                                         <option value="1">Tema 1</option>
                                         <option value="2">Tema 2</option>
@@ -81,7 +83,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="mat_tipo">* Tipo de Documento</label>
-                                    <select class="form-control select2" name="mat_tipo" required>
+                                    <select class="form-control select2" name="tipo_documento" required>
                                         <option value="">Seleccione un Tipo</option>
                                         <option value="1">Tipo 1</option>
                                         <option value="2">Tipo 2</option>
@@ -90,7 +92,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="evento_img">* Imagen de portada</label>
-                                    <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="evento_img" required>
+                                    <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
                                     <div class="evento-image-placeholder mt-3">
                                         <div id="evento-image-box" class="necesidad-image-box">
                                             <img id="output" class="img-fluid" src="http://placehold.it/300x300/?text=Imagen%20Destacada">
@@ -99,7 +101,7 @@
                                 </div>
                                 <hr class="mt-2 mb-4">
                                 <div class="custom-control custom-checkbox d-block">
-                                    <input class="custom-control-input" type="checkbox" id="verificada" name="verificada" required>
+                                    <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" required>
                                     <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                 </div>
                                 <br />

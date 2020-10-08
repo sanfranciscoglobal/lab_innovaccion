@@ -5,6 +5,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Eventos\StorePost;
 use App\Models\Evento;
+use App\Models\Canton;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -30,13 +31,15 @@ class EventosController extends Controller
     public function showForm(Request $request)
     {
         $evento = new Evento;
-        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
+        $cantones= Canton::pluck('nombre','id')->prepend('Seleccione un cantón');
+        return view('aplicacion.eventos.frmEventos', compact('evento','cantones'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
     }
 
     public function edit($id)
     {
+        $cantones= Canton::pluck('nombre','id')->prepend('Seleccione un cantón');
         $evento = Evento::find($id);
-        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.put',$evento->id),'method'=>'PUT']);
+        return view('aplicacion.eventos.frmEventos', compact('evento','cantones'))->with(['url' => route('app.eventos.put',$evento->id),'method'=>'PUT']);
     }
 
 }
