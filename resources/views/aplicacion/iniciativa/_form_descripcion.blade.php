@@ -33,16 +33,18 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label class="control-label">* Población objetivo de la Iniciativa</label>
-                        <select id="iniciativa_poblacion" class="form-control select2" name="iniciativa_poblacion"
-                                {{--data-ajax--url="{{route('api.canton.select2')}}"--}}
-                                {{--data-ajax--data-type="json"--}}
-                                {{--data-ajax--cache="true"--}}
+                        <select style="width:100%;" id="iniciativa_poblacion" name="iniciativa_poblacion"
+                                class="form-control select2"
+                                data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                                data-ajax--data-type="json"
+                                data-ajax--cache="true"
+                                data-close-on-select="false"
                                 required="required" multiple>
-                            <option value="">Seleccione al menos un tipo</option>
-                            <option value="1">Tipo 1</option>
-                            <option value="2">Tipo 2</option>
-                            <option value="3">Tipo 3</option>
-                            <option value="4">Tipo 4</option>
+                            {{--<option value="">Seleccione al menos un tipo</option>--}}
+                            {{--<option value="1">Tipo 1</option>--}}
+                            {{--<option value="2">Tipo 2</option>--}}
+                            {{--<option value="3">Tipo 3</option>--}}
+                            {{--<option value="4">Tipo 4</option>--}}
                         </select>
                     </div>
                 </div>
@@ -52,13 +54,16 @@
                     <div class="form-group">
                         <label class="control-label">* Trabajo de la Iniciativa por ODS</label>
                         <select id="iniciativa_ods" class="form-control select2" name="iniciativa_ods"
-                                required="required"
-                                multiple>
-                            <option value="">Seleccione al menos un tipo</option>
-                            <option value="1">Tipo 1</option>
-                            <option value="2">Tipo 2</option>
-                            <option value="3">Tipo 3</option>
-                            <option value="4">Tipo 4</option>
+                                data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                data-ajax--data-type="json"
+                                data-ajax--cache="true"
+                                data-close-on-select="false"
+                                required="required" multiple>
+                            {{--<option value="">Seleccione al menos un tipo</option>--}}
+                            {{--<option value="1">Tipo 1</option>--}}
+                            {{--<option value="2">Tipo 2</option>--}}
+                            {{--<option value="3">Tipo 3</option>--}}
+                            {{--<option value="4">Tipo 4</option>--}}
                         </select>
                     </div>
                 </div>

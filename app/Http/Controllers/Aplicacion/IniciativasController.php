@@ -33,6 +33,10 @@ class IniciativasController extends Controller
         return view('aplicacion.iniciativa.create',compact('iniciativasOrigen'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function store(Request $request)
     {
         dd($request);
