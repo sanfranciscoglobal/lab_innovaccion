@@ -16,11 +16,11 @@ class CreatePerfilTable extends Migration
         Schema::create('perfil', function (Blueprint $table) {
             $table->id();
             $table->string('celular');
-            $table->enum('proposito', ['1', '2', '3'])->comment('1:mapear, 2:compartir, 3:participar');
+            $table->enum('proposito', [1, 2, 3])->comment('1:mapear, 2:compartir, 3:participar');
             $table->boolean('tipo_reg')->comment('1:individual, 0:organizacion');
             $table->string('organizacion')->nullable();
-            $table->string('tipo_org')->nullable();
-            $table->enum('direccion', ['1', '2', '3', '4'])->nullable()->comment('1:academia, 2:privado, 3:publico, 4:civil');
+            $table->enum('tipo_org', [1, 2, 3, 4])->nullable()->comment('1:academia, 2:privado, 3:publico, 4:civil');
+            $table->string('direccion')->nullable();
             $table->foreignId('canton_id')->nullable()->constrained('canton');
             $table->float('latitud', 11, 7)->nullable();
             $table->float('longitud', 11, 7)->nullable();

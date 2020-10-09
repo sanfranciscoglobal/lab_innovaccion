@@ -46,15 +46,15 @@
                                 <div class="form-group">
                                     <span>* Propósito del registro (¿Qué acción voy a realizar?):</span>
                                     <label for="mapear">
-                                        <input type="radio" id="mapear" name="proposito" value="1" required {{ old('proposito', $perfil->proposito) == 1 ? 'selected' : '' }}>
+                                        <input type="radio" id="mapear" name="proposito" value="1" required {{ old('proposito', $perfil->proposito) == 1 ? 'checked' : '' }}>
                                         Mapear una iniciativa
                                     </label>
                                     <label for="compartir">
-                                        <input type="radio" id="compartir" name="proposito" value="2" {{ old('proposito', $perfil->proposito) == 2 ? 'selected' : '' }}>
+                                        <input type="radio" id="compartir" name="proposito" value="2" {{ old('proposito', $perfil->proposito) == 2 ? 'checked' : '' }}>
                                         Compartir información de recursos (fondos, publicaciones y eventos)
                                     </label>
                                     <label for="participar">
-                                        <input type="radio" id="participar" name="proposito" value="3" {{ old('proposito', $perfil->proposito) == 3 ? 'selected' : '' }}>
+                                        <input type="radio" id="participar" name="proposito" value="3" {{ old('proposito', $perfil->proposito) == 3 ? 'checked' : '' }}>
                                         Participar en innovación (identificar problemas, proveer soluciones)
                                     </label>
                                 </div>
@@ -63,13 +63,13 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <label for="tipo_individual">
-                                                <input class="tipo_registro" type="radio" id="tipo_individual" name="tipo_reg" value="1" required  {{ old('tipo_reg', $perfil->tipo_reg) == 1 ? 'selected' : '' }}>
+                                                <input class="tipo_registro" type="radio" id="tipo_individual" name="tipo_reg" value="1" required {{ old('tipo_reg', $perfil->tipo_reg) == 1 ? 'checked' : '' }}>
                                                 Individual
                                             </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="tipo_oganizacion">
-                                                <input class="tipo_registro" type="radio" id="tipo_oganizacion" name="tipo_reg" value="0"  {{ old('tipo_reg', $perfil->tipo_reg) == 0 ? 'selected' : '' }}>
+                                                <input class="tipo_registro" type="radio" id="tipo_oganizacion" name="tipo_reg" value="0" {{ old('tipo_reg', $perfil->tipo_reg) == '0' ? 'checked' : '' }}>
                                                 Organización
                                             </label>
                                         </div>
@@ -79,19 +79,19 @@
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_nombre">* Nombre de la organización a la que pertenece</label>
-                                    <input class="form-control" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Organización Ecuador" required>
+                                    <input class="form-control req" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Organización Ecuador" required>
                                 </div>
                             </div>
                             <div class="col-md-5 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_web">* Página Web de la Organización</label>
-                                    <input class="form-control" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="www.pagina.com" required>
+                                    <input class="form-control req" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="www.pagina.com" required>
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_tipo">* Tipo de organización</label>
-                                    <select class="form-control" name="tipo_org" required>
+                                    <select class="form-control req" name="tipo_org" required>
                                         <option value="">Seleccione uno</option>
                                         <option value="1" {{ old('tipo_org', $perfil->tipo_org) == 1 ? 'selected' : '' }}>Academia</option>
                                         <option value="2" {{ old('tipo_org', $perfil->tipo_org) == 2 ? 'selected' : '' }}>Sector Privado</option>
@@ -103,13 +103,13 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="org_direccion">* Ubicación de su organización</label>
-                                            <input class="form-control" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Busqueda de lugar" required>
+                                            <input class="form-control req" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Busqueda de lugar" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
-                                            <select class="form-control select2" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false" required="required">
+                                            <select class="form-control select2" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
                                             </select>
                                         </div>
                                     </div>
@@ -147,7 +147,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $perfil->terminos) }}>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $perfil->terminos) == true ? 'checked' : '' }}>
                                         <label class="custom-control-label" for="verificada">* Yo certifico que esta información es verídica.</label>
                                     </div>
                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
@@ -192,14 +192,16 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 <script>
     var baseURL = '{{ URL::to('/') }}';
+    let user_lat = {{ old('latitud', $perfil->latitud) ?? 'null' }};
+    let user_lng = {{ old('longitud', $perfil->longitud) ?? 'null' }};
     var input = document.getElementById('org_direccion');
     jQuery(document).ready( function() {
         initMap();
     })
     function initMap() {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var latUsuario = position.coords.latitude;
-            var lonUsuario = position.coords.longitude;
+            var latUsuario = user_lat != null ? user_lat : position.coords.latitude;
+            var lonUsuario = user_lng != null ? user_lng : position.coords.longitude;
             var zoom = 16;
             var dragMarker = true;
             var placeSearch, autocomplete;
@@ -291,15 +293,22 @@
             if($(this).is(':checked')){
                 if($(this).val() == 0){
                     $('.to-hide').removeClass('d-none');
-                    $('.to-hide .form-control').attr('required', true);
+                    $('.to-hide .form-control .req').attr('required', true);
                 }else{
                     $('.to-hide').addClass('d-none');
-                    $('.to-hide .form-control').removeAttr('required');
+                    $('.to-hide .form-control .req').removeAttr('required');
 
                 }
             }
         })
     })
-
+</script>
+<script>
+    let tipo_reg = {{ old('tipo_reg', (int)$perfil->tipo_reg) ?? 'null' }} ;
+    $(function(){
+        if(tipo_reg != null){
+            $('.tipo_registro').trigger('change');
+        }
+    });
 </script>
 @endsection

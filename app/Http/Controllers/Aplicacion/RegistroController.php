@@ -31,15 +31,21 @@ class RegistroController extends Controller
     public function show(Request $request)
     {
         $user = User::find(Auth::id());
+        if($user->perfil_id != null && Perfil::find($user->perfil_id)){
+            return redirect()->route('app.perfil.edit');
+        }
         $perfil = new Perfil;
         return view('aplicacion.registro.frmRegistro', compact('user', 'perfil'))->with(['URL' => route('app.perfil.post'), 'method' => 'POST']);
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request)
     {
         $user = User::find(Auth::id());
-        $perfil = Perfil::find($id);
-        return view('aplicacion.registro.frmRegistro', compact('user', 'perfil'))->with(['URL' => route('app.perfil.put'), 'method' => 'PUT']);
+        $perfil = Perfil::find(Auth::user()->perfil_id);
+        if($user->perfil_id == null || !$perfil){
+            return redirect()->route('app.registro');
+        }
+        return view('aplicacion.registro.frmRegistro', compact('user', 'perfil'))->with(['URL' => route('app.perfil.put', Auth::user()->perfil_id), 'method' => 'PUT']);
     }
 
     public function store(StorePost $request){
@@ -52,5 +58,21 @@ class RegistroController extends Controller
             return redirect()->route('app.home')->with('status', 'Perfil creado con éxito');
         }
         return back()->with('error', 'Perfil no creado');
+    }
+
+    public function update(StorePost $request, Perfil $perfil){
+        $validatedData = $request->validated();
+        $perfil->update($request->validated());
+
+        return redirect()->route('app.home')->with('status', 'Perfil modificado con éxito');
+    }
+
+    public function destroy(User $user) {
+        if(Auth::id() != $user->id){
+            return back()->with('error', 'No puedes eliminar este usuario');
+        }
+        Perfil::find($user->perfil_id)->delete();
+        $user->delete();
+        return redirect()->route('app.home')->with('status', 'Usuario eliminado con éxito');
     }
 }

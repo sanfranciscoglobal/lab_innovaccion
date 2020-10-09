@@ -47,19 +47,19 @@ Route::as('app.')
              * Rutas Usuarios
              */
             Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@show')->name('registro');
-            Route::get('/datos-del-usuario/{id}', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
-            Route::post('/datos-del-usuario', 'Aplicacion\RegistroController@store')->name('perfil.post');
-            Route::put('/datos-del-usuario/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
-            Route::delete('/usuario/{user}', 'Aplicacion\RegistroController@delete')->name('user.delete');
+            Route::get('/datos-del-usuario/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
+            Route::post('/datos-del-usuario/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
+            Route::put('/datos-del-usuario/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
+            Route::delete('/usuario/delete/{user}', 'Aplicacion\RegistroController@destroy')->name('user.delete');
 
             /**
              * Rutas Fondos
              */
             Route::get('fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
             Route::get('fondos/{id}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
-            Route::post('fondos', 'Aplicacion\crudFondos@store')->name('fondos.post');
-            Route::put('fondos/{fondo}', 'Aplicacion\crudFondos@update')->name('fondos.put');
-            Route::delete('fondos/{fondo}', 'Aplicacion\crudFondos@destroy')->name('fondos.delete');
+            Route::post('fondos/store', 'Aplicacion\crudFondos@store')->name('fondos.post');
+            Route::put('fondos/update/{fondo}', 'Aplicacion\crudFondos@update')->name('fondos.put');
+            Route::delete('fondos/delete/{fondo}', 'Aplicacion\crudFondos@destroy')->name('fondos.delete');
 
             /**
              * Rutas Eventos

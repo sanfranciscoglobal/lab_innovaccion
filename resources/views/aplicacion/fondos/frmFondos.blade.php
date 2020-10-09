@@ -33,13 +33,13 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="fondos_propios">
-                                    <input class="fondos" type="radio" id="fondos_propios" value="1" name="fuente" required>
+                                    <input class="fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == 1 ? 'checked' : '' }}>
                                     Fondos propios
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label for="fondos_otros">
-                                    <input class="fondos" type="radio" id="fondos_otros" value="0" name="fuente">
+                                    <input class="fondos" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
                                     Fondos de otra organización
                                 </label>
                             </div>
@@ -124,7 +124,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $fondo->terminos) == 1 ? 'checked' : "" }}>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
@@ -185,21 +185,11 @@
     })
 </script>
 <script>
+    let fuente = {{ old('fuente', (int)$fondo->fuente) ?? 'null' }};
     $(function(){
-        let fuente = {{ old('fuente', (int)$fondo->fuente) ?? 'null' }};
-        // console.log(fuente);
-        switch(fuente){
-            case 1:
-                $('#fondos_propios').trigger('click');
-                break;
-            case 0:
-                $('#fondos_otros').trigger('click');
-                break;
-            default:
-                break;
+        if(fuente != null){
+            $('.fondos').trigger('change');
         }
-
-
     });
 </script>
 @endsection
