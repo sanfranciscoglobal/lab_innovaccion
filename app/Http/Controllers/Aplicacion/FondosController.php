@@ -36,6 +36,9 @@ class FondosController extends Controller
     public function edit($id)
     {
         $fondo = Fondo::find($id);
+        if($fondo->user_id != Auth::id()){
+            return back()->withErrors('Parece que no ingresaste este fondo.');
+        }
         return view('aplicacion.fondos.frmFondos', compact('fondo'))->with(['url' => route('app.fondos.put', $fondo->id), 'method' => 'PUT']);
     }
 

@@ -1,7 +1,9 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{-- --}}" method="POST">
+    <form role="form" action="{{ $URL }}" method="POST">
+    @csrf
+    @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -18,39 +20,41 @@
                         <!-- Title + Delete link-->
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Información de Usuario</h1>
-                            <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" href="#"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar cuenta </a>
+                            @if ($method == 'PUT')
+                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar usuario</button>
+                            @endif
                         </div>
                         <!-- Content-->
                         <div class="row">
                             <div class="col-sm-8">
                                 <div class="form-group">
                                     <label for="account-fn">Nombre</label>
-                                    <input class="form-control" type="text" id="account-fn" value="" name="nombre" readonly>
+                                    <input class="form-control" type="text" id="account-fn" value="{{ old('name', $user->name) }}" name="name" readonly>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="account-ln">Celular</label>
-                                    <input class="form-control" type="text" id="account-ln" value="" name="celular" required>
+                                    <input class="form-control" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" required>
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="form-group">
                                     <label for="account-email">Email</label>
-                                    <input class="form-control" type="email" id="account-email" value="" name="correo" readonly>
+                                    <input class="form-control" type="email" id="account-email" value="{{ old('email', $user->email) }}" name="email" readonly>
                                 </div>
                                 <div class="form-group">
                                     <span>* Propósito del registro (¿Qué acción voy a realizar?):</span>
                                     <label for="mapear">
-                                        <input type="radio" id="mapear" name="proposito" value="1" required>
+                                        <input type="radio" id="mapear" name="proposito" value="1" required {{ old('proposito', $perfil->proposito) == 1 ? 'selected' : '' }}>
                                         Mapear una iniciativa
                                     </label>
                                     <label for="compartir">
-                                        <input type="radio" id="compartir" name="proposito" value="2" >
+                                        <input type="radio" id="compartir" name="proposito" value="2" {{ old('proposito', $perfil->proposito) == 2 ? 'selected' : '' }}>
                                         Compartir información de recursos (fondos, publicaciones y eventos)
                                     </label>
                                     <label for="participar">
-                                        <input type="radio" id="participar" name="proposito" value="3" >
+                                        <input type="radio" id="participar" name="proposito" value="3" {{ old('proposito', $perfil->proposito) == 3 ? 'selected' : '' }}>
                                         Participar en innovación (identificar problemas, proveer soluciones)
                                     </label>
                                 </div>
@@ -59,13 +63,13 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <label for="tipo_individual">
-                                                <input class="tipo_registro" type="radio" id="tipo_individual" name="tipo_registro" value="1" required>
+                                                <input class="tipo_registro" type="radio" id="tipo_individual" name="tipo_reg" value="1" required  {{ old('tipo_reg', $perfil->tipo_reg) == 1 ? 'selected' : '' }}>
                                                 Individual
                                             </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="tipo_oganizacion">
-                                                <input class="tipo_registro" type="radio" id="tipo_oganizacion" name="tipo_registro" value="2">
+                                                <input class="tipo_registro" type="radio" id="tipo_oganizacion" name="tipo_reg" value="0"  {{ old('tipo_reg', $perfil->tipo_reg) == 0 ? 'selected' : '' }}>
                                                 Organización
                                             </label>
                                         </div>
@@ -75,45 +79,46 @@
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_nombre">* Nombre de la organización a la que pertenece</label>
-                                    <input class="form-control" type="text" id="org_nombre" value="" name="org_nombre" placeholder="Organización Ecuador" required>
+                                    <input class="form-control" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Organización Ecuador" required>
                                 </div>
                             </div>
                             <div class="col-md-5 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_web">* Página Web de la Organización</label>
-                                    <input class="form-control" type="url" id="org_web" value="" name="org_web" placeholder="www.pagina.com" required>
+                                    <input class="form-control" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="www.pagina.com" required>
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_tipo">* Tipo de organización</label>
-                                    <select class="form-control" name="org_tipo" required>
+                                    <select class="form-control" name="tipo_org" required>
                                         <option value="">Seleccione uno</option>
-                                        <option value="1">Academia</option>
-                                        <option value="2">Sector Privado</option>
-                                        <option value="3">Sector Público</option>
-                                        <option value="4">Organización de la sociedad civil</option>
+                                        <option value="1" {{ old('tipo_org', $perfil->tipo_org) == 1 ? 'selected' : '' }}>Academia</option>
+                                        <option value="2" {{ old('tipo_org', $perfil->tipo_org) == 2 ? 'selected' : '' }}>Sector Privado</option>
+                                        <option value="3" {{ old('tipo_org', $perfil->tipo_org) == 3 ? 'selected' : '' }}>Sector Público</option>
+                                        <option value="4" {{ old('tipo_org', $perfil->tipo_org) == 4 ? 'selected' : '' }}>Organización de la sociedad civil</option>
                                     </select>
                                 </div>
                                 <div class="row to-hide d-none">
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="org_direccion">* Ubicación de su organización</label>
-                                            <input class="form-control" type="text" id="org_direccion" value="" name="org_direccion" placeholder="Busqueda de lugar" required>
+                                            <input class="form-control" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Busqueda de lugar" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="org_canton">Cantón</label>
-                                            <input class="form-control" type="text" id="org_canton" value="" name="org_canton">
+                                            <label for="org_canton" class="control-label">Cantón</label><br>
+                                            <select class="form-control select2" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false" required="required">
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="map" style="width: 100%; height: 350px;"></div>
-                                        <input type="hidden" type="text" id="lat" name="org_lat" value="">
-                                        <input type="hidden" type="text" id="long" name="org_long" value="">
+                                        <input type="hidden" type="text" id="lat" name="latitud" value="{{ old('latitud', $perfil->latitud) }}">
+                                        <input type="hidden" type="text" id="long" name="longitud" value="{{ old('longitud', $perfil->longitud) }}">
                                     </div>
                                 </div>
                             </div>
@@ -122,19 +127,19 @@
                                     <span>Redes Sociales de la Organización</span>
                                     <div class="form-group">
                                         <label for="org_twitter">Twitter</label>
-                                        <input class="form-control" type="url" id="org_twitter" value="" name="org_twitter">
+                                        <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter">
                                     </div>
                                     <div class="form-group">
                                         <label for="org_facebook">Facebook</label>
-                                        <input class="form-control" type="url" id="org_facebook" value="" name="org_facebook">
+                                        <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook">
                                     </div>
                                     <div class="form-group">
                                         <label for="org_linkedin">LinkedIn</label>
-                                        <input class="form-control" type="url" id="org_linkedin" value="" name="org_linkedin">
+                                        <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin">
                                     </div>
                                     <div class="form-group">
                                         <label for="org_instagram">Instagram</label>
-                                        <input class="form-control" type="url" id="org_instagram" value="" name="org_instagram">
+                                        <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram">
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +147,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="verificada" required>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $perfil->terminos) }}>
                                         <label class="custom-control-label" for="verificada">* Yo certifico que esta información es verídica.</label>
                                     </div>
                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
@@ -155,6 +160,33 @@
         </div>
     </div>
     </form>
+
+    @if ($method == 'PUT')
+    <!-- danger modal -->
+    <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Usuario</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('app.user.delete', $user->id) }}" method="POST" role="form">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <div class="text-danger">Está seguro que desea eliminar este usuario?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
 @endsection
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
@@ -257,7 +289,7 @@
     $(document).ready(function(){
         $('.tipo_registro').change(function(){
             if($(this).is(':checked')){
-                if($(this).val() == 2){
+                if($(this).val() == 0){
                     $('.to-hide').removeClass('d-none');
                     $('.to-hide .form-control').attr('required', true);
                 }else{

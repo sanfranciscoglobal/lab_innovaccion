@@ -46,7 +46,11 @@ Route::as('app.')
             /**
              * Rutas Usuarios
              */
-            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
+            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@show')->name('registro');
+            Route::get('/datos-del-usuario/{id}', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
+            Route::post('/datos-del-usuario', 'Aplicacion\RegistroController@store')->name('perfil.post');
+            Route::put('/datos-del-usuario/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
+            Route::delete('/usuario/{user}', 'Aplicacion\RegistroController@delete')->name('user.delete');
 
             /**
              * Rutas Fondos

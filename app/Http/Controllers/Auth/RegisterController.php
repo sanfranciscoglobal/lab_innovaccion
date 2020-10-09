@@ -14,6 +14,7 @@ use Mail;
 // Models
 use App\Models\User;
 use App\Models\RoleUser;
+use App\Models\Perfil;
 
 class RegisterController extends Controller
 {
