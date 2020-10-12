@@ -104,17 +104,28 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="org_web">* Cantón</label>
-                                                                <select class="form-control" name="canton" value="">
-                        
+
+                                                                <select style="width:100%;" id="canton_id" class="form-control" name="canton" required>
+                                                                    <option></option>
                                                                     @foreach ($cantones as $item)
                                                                         <option value="{{$item}}" {{old('canton',$evento->canton)==$item? 'selected':''}}>{{$item}}</option>
                                                                     @endforeach
 
-                                                                    <!-- option value="">Seleccione un cantón</option>
-                                                                    <option value="1" {{old('canton',$evento->canton)=="1"? 'selected':''}}>Cantón 1</option>
-                                                                    <option value="2" {{old('canton',$evento->canton)=="2"? 'selected':''}}>Cantón 2</option>
-                                                                    <option value="3" {{old('canton',$evento->canton)=="3"? 'selected':''}}>Cantón 3</option-->
+                                                                   
                                                                 </select>
+                                                                <!--select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
+                                                                        data-ajax--url="{{route('api.canton.select2')}}"
+                                                                        data-ajax--data-type="json"
+                                                                        data-ajax--cache="true"
+                                                                        data-close-on-select="true"
+                                                                        value="{{old('canton',$evento->id)==$item? 'selected':''}}"
+                                                                        required="required">
+                                                                        {{--<option value="">Seleccione al menos un tipo</option>--}}
+                                                                        {{--<option value="1">Tipo 1</option>--}}
+                                                                        {{--<option value="2">Tipo 2</option>--}}
+                                                                        {{--<option value="3">Tipo 3</option>--}}
+                                                                        {{--<option value="4">Tipo 4</option>--}}
+                                                                </select-->
                                                                
                                                             </div>
                                                         </div>
@@ -210,6 +221,7 @@
 @endsection
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
 <script>
 
 
@@ -357,6 +369,12 @@
             }
         });
     }
+</script>
+<script type="text/javascript">
+    $("#canton_id").select2({
+        placeholder:('Seleccione un cantón'),
+        allowClear:true
+    });
 </script>
 <script>
     $(function(){

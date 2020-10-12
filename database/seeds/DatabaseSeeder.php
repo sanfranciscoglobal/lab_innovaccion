@@ -17,13 +17,17 @@ class DatabaseSeeder extends Seeder
             //  AbreviaturasSeeder::class,
             
            
-             UserSeeder::class,
+             UsersSeeder::class,
              EstadoRegistroSeeder::class,
              ProvinciaSeeder::class,
              CantonSeeder::class,
              TipoInstitucionSeeder::class,
              IniciativaOrigenSeeder::class,
              TipoPoblacionSeeder::class,
+             TipoSubConvocatoriaSeeder::class,
+             TipoSectorSeeder::class,
+             TipoSubsectorSeeder::class,
+
          ]);
     }
 }
