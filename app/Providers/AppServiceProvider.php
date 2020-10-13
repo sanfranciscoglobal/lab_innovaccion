@@ -7,10 +7,12 @@ use Illuminate\Support\ServiceProvider;
 // Models
 use App\Models\Fondo;
 use App\Models\Evento;
+use App\Models\MaterialAprendizaje;
 
 // Observers
 use App\Observers\FondoObserver;
 use App\Observers\EventoObserver;
+use App\Observers\MaterialObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,5 +35,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Fondo::observe(FondoObserver::class);
         Evento::observe(EventoObserver::class);
+        MaterialAprendizaje::observe(MaterialObserver::class);
     }
 }

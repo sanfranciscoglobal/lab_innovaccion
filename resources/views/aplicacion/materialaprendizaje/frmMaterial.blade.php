@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form role="form" action="{{route('app.material-de-aprendizaje.post')}}" method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
     
     @csrf
     @method($method)
@@ -97,12 +97,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="evento_img">* Imagen de portada</label>
-                                    <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
+                                    
+                                    @if ($method=='PUT')
+                                        <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada">                            
+                                    @else
+                                        <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
+                                    @endif
                                     <div class="evento-image-placeholder mt-3">
                                         <div id="evento-image-box" class="necesidad-image-box">
                                             @if (isset($material->imagen_portada))
                                                 <img id="output"  class="img-fluid" src="{{asset('storage').'/'.$material->imagen_portada}}">
-
                                             @else
                                                 <img id="output" class="img-fluid" src="http://placehold.it/300x300/?text=Imagen%20Destacada">
                                             @endif
@@ -111,7 +115,7 @@
                                 </div>
                                 <hr class="mt-2 mb-4">
                                 <div class="custom-control custom-checkbox d-block">
-                                    <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" required>
+                                    <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required>
                                     <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                 </div>
                                 <br />

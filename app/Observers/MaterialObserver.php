@@ -10,7 +10,7 @@ class MaterialObserver
     /**
      * Handle the fondo "creating" event.
      *
-     * @param  \App\Models\Fondo  $fondo
+     * @param  \App\Models\MaterialAprendizaje  $fondo
      * @return void
      */
     public function creating(MaterialAprendizaje $material)
