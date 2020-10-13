@@ -63,6 +63,10 @@ Route::as('app.')
 
             Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material-de-aprendizaje');
             Route::post('/material-de-aprendizaje', 'Aplicacion\crudMaterialesaprendizaje@store')->name('material-de-aprendizaje.post');
+            Route::get('/material-de-aprendizaje/{id}/{slug}', 'Aplicacion\MaterialdeaprendizajeController@edit')->name('material-de-aprendizaje.edit');
+            Route::put('/material-de-aprendizaje/{material}', 'Aplicacion\crudMaterialesaprendizaje@update')->name('material-de-aprendizaje.put');
+            Route::delete('/material-de-aprendizaje/{material}', 'Aplicacion\crudMaterialesaprendizaje@destroy')->name('material-de-aprendizaje.delete');
+
             Route::get('/registro-de-material-de-aprendizaje',      'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
             Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 

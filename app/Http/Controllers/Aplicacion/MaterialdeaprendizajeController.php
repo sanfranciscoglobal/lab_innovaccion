@@ -19,6 +19,10 @@ class MaterialdeaprendizajeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function verListadomateriales(Request $request)
     {
         return view('aplicacion.materialaprendizaje.verlistado');
@@ -37,8 +41,15 @@ class MaterialdeaprendizajeController extends Controller
     }
     public function showForm(Request $request)
     {
-
-        return view('aplicacion.materialaprendizaje.frmMaterial');
+        $material = new MaterialAprendizaje;
+        return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.post'),'method'=>'POST']);
+        
+    }
+ 
+    public function edit($id)
+    {
+        $material = MaterialAprendizaje::find($id);
+        return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
     }
 
 }
