@@ -107,21 +107,23 @@
                                                             <div class="form-group">
                                                                 <label for="org_web">* Cantón</label>
 
-                                                                <select style="width:100%;" id="canton_id" class="form-control" name="canton" required>
+                                                                <!--select style="width:100%;" id="canton_id" class="form-control" name="canton" required>
                                                                     <option></option>
                                                                     @foreach ($cantones as $item)
                                                                         <option value="{{$item}}" {{old('canton',$evento->canton)==$item? 'selected':''}}>{{$item}}</option>
                                                                     @endforeach
 
 
-                                                                </select>
-                                                                <!--select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
+                                                                </select-->
+                                                                <select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
                                                                         data-ajax--url="{{route('api.canton.select2')}}"
                                                                         data-ajax--data-type="json"
-                                                                        data-ajax--cache="true"
-                                                                        data-close-on-select="true"
-                                                                        value="{{old('canton',$evento->id)==$item? 'selected':''}}"
-                                                                        required="required">
+                                                                        data-ajax--data-cache="true"
+                                                                        data-close-on-select="false"
+                                                                        required="required"></select>
+                                                               
+                                                                
+                                                                 <!--select
                                                                         {{--<option value="">Seleccione al menos un tipo</option>--}}
                                                                         {{--<option value="1">Tipo 1</option>--}}
                                                                         {{--<option value="2">Tipo 2</option>--}}
@@ -293,7 +295,8 @@
                     }
                 }*/
             }
-        })
+        });
+        
     });
     var loadFile = function(event) {
         var image = document.getElementById('output');
@@ -390,14 +393,21 @@
         });
     };
 </script>
-<script type="text/javascript">
-    $("#canton_id").select2({
-        placeholder:('Seleccione un cantón'),
-        allowClear:true
-    });
 
-</script>
 <script>
+    
+
+    var cantonid={{old('canton',(int)$evento->canton)??'null'}};
+    if (cantonid){
+             
+
+        $("#canton_id").select2("trigger", "select", {
+                data: { id: cantonid }
+            });
+    }
+    
+    
+
     $(function(){
 
         let tipo = {{ old('tipo', (int)$evento->tipo) ?? 'null' }};
