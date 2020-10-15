@@ -92,66 +92,74 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4" style="min-height: 380px;">
-                    {{--<div class="py-2 p-md-3">--}}
-                        {{--<a href="{{route('app.iniciativa.index')}}" class="btn btn-primary btn-sm">--}}
-                            {{--<i class="fe fe-back"></i>--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
                     <div class="py-2 p-md-3">
-                        <!-- Timeline -->
-                        <div class="stepwizard">
-                            <div class="stepwizard-row setup-panel">
-                                <div class="stepwizard-step col-xs-3">
-                                    <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
-                                    <p>
-                                        <small>Propiedad</small>
-                                    </p>
-                                </div>
-                                <div class="stepwizard-step col-xs-3">
-                                    <a href="#step-2" type="button" class="btn btn-default btn-circle"
-                                       disabled="disabled">2</a>
-                                    <p>
-                                        <small>Identificación</small>
-                                    </p>
-                                </div>
-                                <div class="stepwizard-step col-xs-3">
-                                    <a href="#step-3" type="button" class="btn btn-default btn-circle"
-                                       disabled="disabled">3</a>
-                                    <p>
-                                        <small>Descripción</small>
-                                    </p>
-                                </div>
-                                <div class="stepwizard-step col-xs-3">
-                                    <a href="#step-4" type="button" class="btn btn-default btn-circle"
-                                       disabled="disabled">4</a>
-                                    <p>
-                                        <small>Contacto</small>
-                                    </p>
-                                </div>
-                            </div>
+                        <!-- Review-->
+                        <div class="pt-grid-gutter pb-grid-gutter border-bottom text-right">
+                            <a href="{{route('app.iniciativas.create')}}" class="btn btn-primary btn-sm">
+                                <i class="fe fe-plus mr-1"></i>
+                                Crear iniciativa
+                            </a>
                         </div>
-                        <!-- END Timeline -->
-                        <form action="{{ route("app.iniciativas.store") }}" method="POST" enctype='multipart/form-data'
-                              class="needs-validation" novalidate>
-                            @csrf
-                            @method('POST')
 
-                            <div class="panel panel-primary setup-content" id="step-1">
-                                @include('aplicacion.iniciativa._form_origen')
-                            </div>
+                        @foreach($iniciativas as $iniciativa)
+                            <div class="pt-grid-gutter pb-grid-gutter border-bottom">
+                                <div class="d-sm-flex align-items-center mb-2 pb-1">
+                                    <div class="d-flex align-items-center">
+                                        <span class="font-size-sm mr-2">
+                                            {{$iniciativa->iniciativaInformacion->anio}}
+                                        </span>
+                                        <h6 class="nav-heading mb-0">
+                                            <a href="#">
+                                                {{$iniciativa->iniciativaInformacion->nombre_iniciativa}}
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                                <p class="font-size-md text-justify">
+                                    {!! $iniciativa->iniciativaActor->enfoque !!}
+                                </p>
+                                <div class="media media-ie-fix align-items-center mr-3">
+                                    <img class="rounded-circle" width="42"
+                                         src="{{asset('storage/iniciativas/'.$iniciativa->iniciativaInformacion->logo)}}"
+                                         alt="{{$iniciativa->iniciativaInformacion->logo}}"/>
+                                    <div class="media-body pl-2 ml-1">
+                                        <h6 class="font-size-sm mb-n1">
+                                            {{$iniciativa->iniciativaActor->nombre_organizacion}}
+                                        </h6>
+                                        <span class="font-size-xs text-muted">3 days ago</span>
 
-                            <div class="panel panel-primary setup-content" id="step-2">
-                                @include('aplicacion.iniciativa._form_actor')
-                            </div>
+                                    </div>
 
-                            <div class="panel panel-primary setup-content" id="step-3">
-                                @include('aplicacion.iniciativa._form_descripcion')
-                            </div>
+                                    <div class="float-right">
+                                        <a class="btn btn-outline-primary btn-icon" data-toggle="tooltip"
+                                           title="Editar" href="{{route('app.iniciativas.edit',$iniciativa->id)}}"
+                                           data-placement="bottom">
+                                            <i class="fe-edit text-primary"></i>
+                                        </a>
 
-                            <div class="panel panel-primary setup-content" id="step-4">
-                                @include('aplicacion.iniciativa._form_contacto')
+                                        <a type="button" class="btn btn-outline-danger btn-icon" data-toggle="tooltip"
+                                           title="Eliminar" data-placement="bottom">
+                                            <i class="fe-trash-2 text-danger"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
-                        </form>
+                    @endforeach
+
+                    {{ $iniciativas->render() }}
+
+                    <!-- Pagination-->
+                        {{--<nav class="d-md-flex justify-content-between align-items-center text-center text-md-left pt-grid-gutter">--}}
+                            {{--<div class="d-md-flex align-items-center w-100"><span--}}
+                                        {{--class="font-size-sm text-muted mr-md-3">Showing 5 of 15 reviews</span>--}}
+                                {{--<div class="progress w-100 my-3 mx-auto mx-md-0" style="max-width: 10rem; height: 4px;">--}}
+                                    {{--<div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33"--}}
+                                         {{--aria-valuemin="0" aria-valuemax="100"></div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<button class="btn btn-outline-primary btn-sm" type="button">Show older reviews</button>--}}
+                        {{--</nav>--}}
                     </div>
                 </div>
             </div>
