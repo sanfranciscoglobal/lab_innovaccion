@@ -270,6 +270,25 @@
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/helpers.js')}}"></script>
+<script>
+    var errorCard = $('#errorDiv .alert');
+    if (errorCard.length > 0){
+        var iteraction = 0;
+        var interval = setInterval(function(){
+            iteraction++;
+            if (iteraction == 10) {
+                errorCard.css({
+                    'transform':'translateX(400px)',
+                    'transition': 'all ease .2s'
+                })
+                setTimeout(function(){
+                    $('.close').click();
+                },2000)
+                clearInterval(interval);
+            }
+        }, 1000);
+    }
+</script>
 @yield('footer')
 {{--<script type="text/javascript">--}}
 {{--console.log(smoothScroll);--}}
