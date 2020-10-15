@@ -93,9 +93,9 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4" style="min-height: 380px;">
                     {{--<div class="py-2 p-md-3">--}}
-                        {{--<a href="{{route('app.iniciativa.index')}}" class="btn btn-primary btn-sm">--}}
-                            {{--<i class="fe fe-back"></i>--}}
-                        {{--</a>--}}
+                    {{--<a href="{{route('app.iniciativa.index')}}" class="btn btn-primary btn-sm">--}}
+                    {{--<i class="fe fe-back"></i>--}}
+                    {{--</a>--}}
                     {{--</div>--}}
                     <div class="py-2 p-md-3">
                         <!-- Timeline -->
@@ -131,7 +131,8 @@
                             </div>
                         </div>
                         <!-- END Timeline -->
-                        <form action="{{ route("app.iniciativas.store") }}" method="POST" enctype='multipart/form-data'
+                        <form action="{{ route("app.iniciativas.update", $model->id) }}" method="POST"
+                              enctype='multipart/form-data'
                               class="needs-validation" novalidate>
                             @csrf
                             @method('POST')

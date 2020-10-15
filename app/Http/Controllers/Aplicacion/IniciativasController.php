@@ -25,16 +25,18 @@ class IniciativasController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-//    public function verIniciativas(Request $request)
-//    {
-//        return view('aplicacion.iniciativas.iniciativas');
-//    }
+    public function index(Request $request)
+    {
+        Iniciativas::$paginate = 2;
+        $iniciativas = Iniciativas::obtenerIniciativasPaginate();
+        return view('aplicacion.iniciativa.index', compact('iniciativas'));
+    }
 
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function iniciativa(Request $request)
+    public function create(Request $request)
     {
         IniciativaOrigen::$paginate = $request->mostrar;
         $iniciativasOrigen = IniciativaOrigen::obtenerIniciativaOrigenPaginate();
@@ -70,14 +72,16 @@ class IniciativasController extends Controller
                         $modelIniciativa->iniciativa_actor_id = $modelActor->id;
                         $modelIniciativa->iniciativa_informacion_id = $modelInformacion->id;
 
-                        if ($modelIniciativa->save()){
+                        if ($modelIniciativa->save()) {
                             DB::commit();
-                            return back()->with('status', 'Iniciativa cargada con éxito');
+                            return redirect()
+                                ->route('app.iniciativa.create')
+                                ->with('status', 'Iniciativa cargada con éxito');
                         }
                     }
                 }
             }
-            
+
         } catch (\Exception $e) {
             DB::rollback();
             throw $e;
@@ -87,4 +91,14 @@ class IniciativasController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Iniciativas $iniciativa)
+    {
+        $model = $iniciativa;
+        $iniciativasOrigen = IniciativaOrigen::obtenerIniciativaOrigenPaginate();
+        return view('aplicacion.iniciativa.edit', compact('model','iniciativasOrigen'));
+    }
 }
