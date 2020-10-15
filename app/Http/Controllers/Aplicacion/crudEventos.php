@@ -43,10 +43,13 @@ class crudEventos extends Controller
 
     public function update(UpdatePost $request, Evento $evento )
     {
+     
         $validatedData = $request->validated();
+        $previousData=Evento::findOrfail($validatedData->id);
         $evento->update($request->validated());
 
         if(isset($validatedData['imagen'])){
+            
             $name = CustomUrl::urlTitle($validatedData['organizador']).'_'.$evento->id;
             $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
             $evento->imagen = $imageName;

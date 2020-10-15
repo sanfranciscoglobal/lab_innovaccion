@@ -61,8 +61,10 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras)</span></label>
-                                            <textarea id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea>
+                                            <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras)</span> <span style="color: gray" id="count-words"></span></label>
+                                            <textarea onkeyup="countWords(this);" onkeydown="countWords(this);" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea>
+                                            <span id="count-words"></span>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -232,6 +234,24 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
 <script>
+    var maxlength=300;
+    var maxword=100;
+    function countWords(self){
+        var spaces=self.value.match(/\S+/g);
+        var words=spaces ? spaces.length:0;
+        if (words>maxword){
+            if (words==maxword+1){
+                maxlength=self.value.length-2
+            }
+            self.value=self.value.substring(0,maxlength);
+            words=maxword;
+            alert('Ha rebasado el limite');
+        }
+       
+        document.getElementById("count-words").innerHTML=words+" palabras";
+    };
+
+
     var baseURL = '{{ URL::to('/') }}';
     var input = document.getElementById('evento_direccion');
     $(document).ready(function(){
