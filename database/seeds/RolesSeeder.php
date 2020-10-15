@@ -13,6 +13,10 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
+        $sql  = "ALTER SEQUENCE roles_id_seq RESTART WITH 1;";
+        $sql .= 'TRUNCATE roles CASCADE;';
+        DB::connection()->getPdo()->exec($sql);
+
         $roles = [
           ['id' => 1, 'name' => 'user', 'description' => 'permisos de usuario'],
           ['id' => 2, 'name' => 'admin', 'description' => 'permisos de administrador'],

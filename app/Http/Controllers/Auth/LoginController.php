@@ -43,7 +43,7 @@ class LoginController extends Controller
     public function login()
     {
         $credentials = $this->validate(request(), [
-            'email' => 'email|required|string',
+            'email' => 'email|required|string|exists:users,email',
             'password' => 'required|string'
         ]);
 
@@ -53,8 +53,13 @@ class LoginController extends Controller
         }
 
         return back()
-            ->withErrors($credentials)
+            ->withErrors($credentials['email'], 'No hemos podido iniciar sesión.')
             ->withInput(request(['email']));
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('app.home');
     }
 
     public function redirectTo()

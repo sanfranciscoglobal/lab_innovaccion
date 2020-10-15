@@ -26,16 +26,16 @@ class StorePost extends FormRequest
         return [
             'fuente' => 'boolean|required',
             'organizacion' => 'string|required',
-            'nombre_fondo' => 'string|required_if:fuente,true',
+            'nombre_fondo' => 'string|required_if:fuente,1',
             'info' => 'string|required',
-            'fecha_inicio' => 'date|nullable|required_if:fuente,true',
-            'fecha_fin' => 'date|nullable|required_if:fuente,true',
+            'fecha_inicio' => 'date|nullable|required_if:fuente,1',
+            'fecha_fin' => 'date|nullable|required_if:fuente,1',
             'facebook' => 'string|nullable',
             'instagram' => 'string|nullable',
             'youtube' => 'string|nullable',
             'linkedin' => 'string|nullable',
             'twitter' => 'string|nullable',
-            'imagen' => 'image|mimes:jpeg,png,gif,jpg|max:2048|nullable|required_if:fuente,true',
+            'imagen' => 'image|mimes:jpeg,png,gif,jpg|max:2048|nullable|required_if:fuente,1',
             'terminos' => 'boolean|required'
         ];
     }

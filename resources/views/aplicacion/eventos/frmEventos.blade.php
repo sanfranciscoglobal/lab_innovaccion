@@ -4,7 +4,7 @@
     <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
-    
+
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -113,7 +113,7 @@
                                                                         <option value="{{$item}}" {{old('canton',$evento->canton)==$item? 'selected':''}}>{{$item}}</option>
                                                                     @endforeach
 
-                                                                   
+
                                                                 </select>
                                                                 <!--select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
                                                                         data-ajax--url="{{route('api.canton.select2')}}"
@@ -128,7 +128,7 @@
                                                                         {{--<option value="3">Tipo 3</option>--}}
                                                                         {{--<option value="4">Tipo 4</option>--}}
                                                                 </select-->
-                                                               
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -188,7 +188,7 @@
                                     @else
                                         <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
                                     @endif
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -210,7 +210,7 @@
                         </div>
                     </div>
 
-                    <form action="{{ route('app.eventos.delete',$evento->id) }}" role="form" method="POST">
+                    <form action="{{ route('app.eventos.delete', $evento->id) }}" role="form" method="POST">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">
@@ -271,7 +271,7 @@
                         $('.e-virtual').addClass('d-none');
                         $('.e-presencial .form-control').attr('required', true);
                         $('.e-presencial').removeClass('d-none');
-                        initMap();     
+                        initMap();
                     }
 
                 }

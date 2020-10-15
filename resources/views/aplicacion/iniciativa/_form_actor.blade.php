@@ -8,14 +8,14 @@
                 <div class="form-group">
                     <label class="control-label">* Nombre de la organización</label>
                     <input maxlength="200" type="text" required="required" class="form-control"
-                           placeholder="Nombre de la organización" name="iniciativa_org_nombre"/>
+                           placeholder="Nombre de la organización" name="nombre_organizacion"/>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
                     <label class="control-label">Siglas</label>
                     <input type="text" class="form-control" placeholder="Nombre de la organización"
-                           name="iniciativa_org_siglas"/>
+                           id="siglas" name="siglas"/>
                 </div>
             </div>
         </div>
@@ -24,20 +24,24 @@
                 <div class="form-group">
                     <label class="control-label">Sitio web</label>
                     <input maxlength="200" type="url" class="form-control" placeholder="Ejem. https://www.sitioweb.com"
-                           name="iniciativa_org_web"/>
+                           id="sitio_web" name="sitio_web"/>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
                     <label class="control-label">* Tipo de Institución</label><br/>
-                    <select style="width:100%;" id="iniciativa_org_tipo" class="form-control select2"
-                            name="iniciativa_org_tipo"
+                    <select style="width:100%;" id="tipo_institucion" name="tipo_institucion"
+                            class="form-control select2"
+                            data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                            data-ajax--data-type="json"
+                            data-ajax--cache="true"
+                            data-close-on-select="false"
                             required="required" multiple>
-                        <option value="">Seleccione al menos un tipo</option>
-                        <option value="1">Tipo 1</option>
-                        <option value="2">Tipo 2</option>
-                        <option value="3">Tipo 3</option>
-                        <option value="4">Tipo 4</option>
+                        {{--<option value="">Seleccione al menos un tipo</option>--}}
+                        {{--<option value="1">Tipo 1</option>--}}
+                        {{--<option value="2">Tipo 2</option>--}}
+                        {{--<option value="3">Tipo 3</option>--}}
+                        {{--<option value="4">Tipo 4</option>--}}
                     </select>
                 </div>
             </div>
@@ -57,7 +61,7 @@
                 <div class="form-group">
                     <label class="control-label">* Ubicaci&oacute;n de la iniciativa</label>
                     <select style="width:100%;" id="ubicaciones" class="form-control select2" name="ubicaciones"
-                            data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                            data-ajax--url="{{route('api.canton.select2')}}"
                             data-ajax--data-type="json"
                             data-ajax--cache="true"
                             data-close-on-select="false"
@@ -77,8 +81,7 @@
                             data-ajax--url="{{route('api.canton.select2')}}"
                             data-ajax--data-type="json"
                             data-ajax--cache="true"
-                            data-close-on-select="false"
-                            required="required" multiple>
+                            required="required">
                         {{--<option value="">Seleccione al menos un tipo</option>--}}
                         {{--<option value="1">Tipo 1</option>--}}
                         {{--<option value="2">Tipo 2</option>--}}
@@ -91,7 +94,7 @@
         <div class="form-group">
             <label class="control-label">Ubicación</label>
             <input maxlength="200" type="text" required="required" class="form-control"
-                   placeholder="Enter Company Address"/>
+                   placeholder="Enter Company Address" name="direccion" id="direccion"/>
         </div>
         <button class="btn btn-primary nextBtn pull-right" type="button">Siguiente</button>
     </div>

@@ -128,6 +128,9 @@
                         <!-- END Timeline -->
                         <form action="{{ route("app.iniciativa.store") }}" method="POST" enctype='multipart/form-data'
                               class="needs-validation" novalidate>
+                            @csrf
+                            @method('POST')
+
                             <div class="panel panel-primary setup-content" id="step-1">
                                 @include('aplicacion.iniciativa._form_origen')
                             </div>

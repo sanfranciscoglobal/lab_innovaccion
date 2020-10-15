@@ -12,7 +12,7 @@ use App\Models\Perfil;
 use App\Models\RoleUser;
 use App\Models\Role;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable, SoftDeletes;
 

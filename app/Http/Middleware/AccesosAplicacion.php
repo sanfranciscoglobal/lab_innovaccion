@@ -18,9 +18,23 @@ class AccesosAplicacion extends Middleware
      */
     public function handle($request, Closure $next, $role)
     {
-       if (!$request->user()->hasRole($role)) {
-            abort(401, 'This action is unauthorized.');
+        if(is_array($role)){
+        //dd($request->user());
+            foreach ($role as $role) {
+                if (!$request->user()->hasRole($role)) {
+                    // abort(401, 'No tienes permiso para realizar esta acción.');
+                    return redirect()->route('app.home')->withErrors('No tienes permiso para realizar esta acción.');
+                }
+                return $next($request);
+            }
+        }else{
+            if (!$request->user()->hasRole($role)) {
+                // abort(401, 'No tienes permiso para realizar esta acción.');
+                return redirect()->route('app.home')->withErrors('No tienes permiso para realizar esta acción.');
+            }
+            return $next($request);
         }
-        return $next($request);
+        abort(403, "¡No tienes autorizacion para realizar esta acción!");
+        // return $next($request);
     }
 }

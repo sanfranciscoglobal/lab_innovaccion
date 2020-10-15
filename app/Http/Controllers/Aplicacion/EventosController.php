@@ -20,18 +20,21 @@ class EventosController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+
     public function verEventos(Request $request)
     {
         return view('aplicacion.eventos.eventos');
     }
+
     public function verFormularioeventos(Request $request)
     {
         return view('aplicacion.eventos.frmEventos');
     }
+
     public function showForm(Request $request)
     {
         $evento = new Evento;
-        $cantones= Canton::pluck('nombre','id');
+        $cantones = Canton::pluck('nombre','id');
         return view('aplicacion.eventos.frmEventos', compact('evento','cantones'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
     }
 

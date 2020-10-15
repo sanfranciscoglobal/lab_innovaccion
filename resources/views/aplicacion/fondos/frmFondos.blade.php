@@ -20,7 +20,9 @@
                         <!-- Title + Delete link-->
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Fondos Concursables</h1>
-                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="toast" data-target="deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</button>
+                            @if ($method == 'PUT')
+                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</button>
+                            @endif
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -31,13 +33,13 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="fondos_propios">
-                                    <input class="fondos" type="radio" id="fondos_propios" value="1" name="fuente" required>
+                                    <input class="fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == 1 ? 'checked' : '' }}>
                                     Fondos propios
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label for="fondos_otros">
-                                    <input class="fondos" type="radio" id="fondos_otros" value="0" name="fuente">
+                                    <input class="fondos" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
                                     Fondos de otra organización
                                 </label>
                             </div>
@@ -122,7 +124,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $fondo->terminos) == 1 ? 'checked' : "" }}>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
@@ -136,27 +138,32 @@
     </div>
     </form>
 
-    <!-- Warning toast -->
-    <div class="modal fade" role="dialog" id="deleteAlert">
-        <div class="modal-dialog">
+    @if ($method == 'PUT')
+    <!-- danger modal -->
+    <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    {{-- <button type="button" class="close text-white ml-2 mb-1" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button> --}}
+                <div class="modal-header bg-danger text-white">
+                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Fondo</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-body">
-                    <form action="{{ route('app.fondos.delete', 1) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <i class="fe-alert-triangle mr-2"></i>
-                        <span class="mr-auto">Warning toast</span>
-                        <div class="toast-body text-warning">Hello, world! This is a toast message.</div>
-                    </form>
-                </div>
+                <form action="{{ route('app.fondos.delete', $fondo->id) }}" method="POST" role="form">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <div class="text-danger">Está seguro que desea eliminar este fondo?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    @endif
 @endsection
 @section('footer')
 <script>
@@ -178,21 +185,11 @@
     })
 </script>
 <script>
+    let fuente = {{ old('fuente', (int)$fondo->fuente) ?? 'null' }};
     $(function(){
-        let fuente = {{ old('fuente', (int)$fondo->fuente) ?? 'null' }};
-        console.log(fuente);
-        switch(fuente){
-            case 1:
-                $('#fondos_propios').trigger('click');
-                break;
-            case 0:
-                $('#fondos_otros').trigger('click');
-                break;
-            default:
-                break;
+        if(fuente != null){
+            $('.fondos').trigger('change');
         }
-
-
     });
 </script>
 @endsection

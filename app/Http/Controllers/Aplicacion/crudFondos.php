@@ -21,7 +21,7 @@ use App\Http\Requests\Fondo\UpdatePost;
 class crudFondos extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth', 'acceso-app:user']);
+        $this->middleware(['auth', 'acceso-app:user,admin,superadin']);
     }
 
     /**
@@ -31,9 +31,9 @@ class crudFondos extends Controller
      */
     public function store(StorePost $request){
         $validatedData = $request->validated();
-     
+
         if($fondo = Fondo::create($validatedData)){
-            
+
             if(isset($validatedData['imagen'])){
                 $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
                 $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
@@ -52,6 +52,10 @@ class crudFondos extends Controller
      * App\Models\Fondo
      */
     public function update(UpdatePost $request, Fondo $fondo){
+        if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
+
         $validatedData = $request->validated();
         $fondo->update($request->validated());
 
@@ -72,13 +76,9 @@ class crudFondos extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Fondo $fondo) {
-        // if(Auth::check()){
-        //     if(Auth::id() != $fondo->user_id){
-        //         return back()->with('status', 'No ingresaste este fondo.');
-        //     }
-        // } else {
-        //     return back()->with('status', 'No encontramos un usuario autenticado.');
-        // }
+        if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
 
         $fondo->delete();
         return redirect()->route('app.home')->with('status', 'Fondo eliminado con éxito');
