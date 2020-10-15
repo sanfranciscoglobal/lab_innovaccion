@@ -16,6 +16,7 @@ class FondosController extends Controller
 {
     public function __construct(){
         $this->middleware(['auth', 'verified']);
+        $this->middleware(['acceso-app:user,admin,superadmin'])->except('verFondos');
     }
 
     /**
@@ -37,6 +38,11 @@ class FondosController extends Controller
     public function edit($id)
     {
         $fondo = Fondo::find($id);
+
+        if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
+
         if($fondo->user_id != Auth::id()){
             return back()->withErrors('Parece que no ingresaste este fondo.');
         }
