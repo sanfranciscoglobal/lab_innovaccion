@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             TipoPoblacionSeeder::class,
             RolesSeeder::class,
             UsersSeeder::class,
+            TipoSubConvocatoriaSeeder::class,
+            TipoSectorSeeder::class,
+            TipoSubsectorSeeder::class,
         ]);
     }
 }

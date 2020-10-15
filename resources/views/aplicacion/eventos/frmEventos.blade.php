@@ -104,12 +104,29 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="org_web">* Cantón</label>
-                                                                <select class="form-control" name="canton" value="">
-                                                                    <option value="">Seleccione un cantón</option>
-                                                                    <option value="1" {{old('canton',$evento->canton)=="1"? 'selected':''}}>Cantón 1</option>
-                                                                    <option value="2" {{old('canton',$evento->canton)=="2"? 'selected':''}}>Cantón 2</option>
-                                                                    <option value="3" {{old('canton',$evento->canton)=="3"? 'selected':''}}>Cantón 3</option>
+
+                                                                <select style="width:100%;" id="canton_id" class="form-control" name="canton" required>
+                                                                    <option></option>
+                                                                    @foreach ($cantones as $item)
+                                                                        <option value="{{$item}}" {{old('canton',$evento->canton)==$item? 'selected':''}}>{{$item}}</option>
+                                                                    @endforeach
+
+
                                                                 </select>
+                                                                <!--select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
+                                                                        data-ajax--url="{{route('api.canton.select2')}}"
+                                                                        data-ajax--data-type="json"
+                                                                        data-ajax--cache="true"
+                                                                        data-close-on-select="true"
+                                                                        value="{{old('canton',$evento->id)==$item? 'selected':''}}"
+                                                                        required="required">
+                                                                        {{--<option value="">Seleccione al menos un tipo</option>--}}
+                                                                        {{--<option value="1">Tipo 1</option>--}}
+                                                                        {{--<option value="2">Tipo 2</option>--}}
+                                                                        {{--<option value="3">Tipo 3</option>--}}
+                                                                        {{--<option value="4">Tipo 4</option>--}}
+                                                                </select-->
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -137,7 +154,11 @@
                             <div class="col-lg-5">
                                 <div class="form-group">
                                     <label for="imagen">* Images del Evento</label>
-                                    <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
+                                    @if ($method=='PUT')
+                                        <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen">
+                                    @else
+                                        <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
+                                    @endif
                                     <div class="evento-image-placeholder mt-3">
                                         <div id="evento-image-box" class="necesidad-image-box">
                                             @if (isset($evento->imagen))
@@ -160,7 +181,12 @@
                                         <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1"  required>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
-                                    <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
+                                    @if ($method=='PUT')
+                                        <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Actualizar</button>
+                                    @else
+                                        <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
@@ -191,10 +217,10 @@
                                     <p>Esta seguro que desea eliminar este evento?</p>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-danger">Yes</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-danger">Si</button>
                         </div>
                     </form>
                 </div>
@@ -204,10 +230,8 @@
 @endsection
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
 <script>
-
-
-
     var baseURL = '{{ URL::to('/') }}';
     var input = document.getElementById('evento_direccion');
     $(document).ready(function(){
@@ -221,16 +245,16 @@
                     $('.e-virtual .form-control').attr('required', true);
                     $('.e-virtual').removeClass('d-none');
 
-                    }else{
-                        if ($(this).val() == 1){
-                            $('.e-virtual .form-control').removeAttr('required');
-                            $('.e-virtual').addClass('d-none');
-                            $('.e-presencial .form-control').attr('required', true);
-                            $('.e-presencial').removeClass('d-none');
-                            initMap();
-                        }
-
+                }else{
+                    if ($(this).val() == 1){
+                        $('.e-virtual .form-control').removeAttr('required');
+                        $('.e-virtual').addClass('d-none');
+                        $('.e-presencial .form-control').attr('required', true);
+                        $('.e-presencial').removeClass('d-none');
+                        initMap();
                     }
+
+                }
                 /*
                 if ($(this).val() == 0){
                     //$('.to-hide').removeClass('d-none');
@@ -250,15 +274,11 @@
                 }*/
             }
         })
-    })
+    });
     var loadFile = function(event) {
         var image = document.getElementById('output');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
-
-
-
-
 
     function initMap() {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -267,7 +287,6 @@
             var zoom = 16;
             var dragMarker = true;
             var placeSearch, autocomplete;
-
 
             if (
                 jQuery('input[id="lat"]').val() != 0 &&
@@ -285,7 +304,6 @@
             var myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
             var geocoder = new google.maps.Geocoder();
             var infowindow = new google.maps.InfoWindow();
-
 
             var options = {
                 //types: ["locality", "political", "geocode"],
@@ -350,7 +368,14 @@
                 jQuery('input[id="long"]').val(place.geometry.location.lng());
             }
         });
-    }
+    };
+</script>
+<script type="text/javascript">
+    $("#canton_id").select2({
+        placeholder:('Seleccione un cantón'),
+        allowClear:true
+    });
+
 </script>
 <script>
     $(function(){
@@ -367,10 +392,6 @@
             default:
                 break;
         }
-
-
-
-
 
     });
 

@@ -97,7 +97,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('app.fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item" href="{{route('app.eventos')}}">Eventos</a></li>
-                            <li><a class="dropdown-item" href="/material-de-aprendizaje/">Material de aprendizaje</a></li>
+                            <li><a class="dropdown-item" href="{{route('app.material-de-aprendizaje')}}">Material de aprendizaje</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
