@@ -21,7 +21,9 @@ use App\Http\Requests\Fondo\UpdatePost;
 class crudFondos extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth', 'acceso-app:user,admin,superadin']);
+        $this->middleware(['auth', 'verified']);
+        $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
+        $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
 
     /**
@@ -53,7 +55,7 @@ class crudFondos extends Controller
      */
     public function update(UpdatePost $request, Fondo $fondo){
         if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
-            return back()->with('error', 'No ingresaste este fondo.');
+            return back()->withErrors('No ingresaste este fondo.');
         }
 
         $validatedData = $request->validated();
@@ -77,7 +79,7 @@ class crudFondos extends Controller
      */
     public function destroy(Fondo $fondo) {
         if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('superadmin'))){
-            return back()->with('error', 'No ingresaste este fondo.');
+            return back()->withErrors('No ingresaste este fondo.');
         }
 
         $fondo->delete();

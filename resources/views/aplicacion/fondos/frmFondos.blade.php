@@ -143,7 +143,7 @@
     <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
+                <div class="modal-header bg-warning text-white">
                     <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Fondo</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="text-white">&times;</span>
@@ -153,7 +153,7 @@
                     @csrf
                     @method('DELETE')
                     <div class="modal-body">
-                        <div class="text-danger">Está seguro que desea eliminar este fondo?</div>
+                        <div class="text-warning">Está seguro que desea eliminar este fondo?</div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>

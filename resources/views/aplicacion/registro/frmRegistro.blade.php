@@ -109,7 +109,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
-                                            <select class="form-control select2" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
+                                            <select class="form-control select2" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
                                             </select>
                                         </div>
                                     </div>
@@ -288,6 +288,11 @@
     }
 </script>
 <script>
+    var canton = {{ old('canton_id', $perfil->canton_id) ?? 'null' }};
+    if(canton){
+        $('#org_canton option[value="SEL1"]').attr('selected', true);
+    }
+
     $(document).ready(function(){
         $('.tipo_registro').change(function(){
             if($(this).is(':checked')){

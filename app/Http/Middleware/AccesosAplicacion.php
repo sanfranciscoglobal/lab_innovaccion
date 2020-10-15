@@ -16,19 +16,19 @@ class AccesosAplicacion extends Middleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, ... $roles)
     {
-        if(is_array($role)){
-        //dd($request->user());
-            foreach ($role as $role) {
-                if (!$request->user()->hasRole($role)) {
+        if(is_array($roles)){
+            // dd(gettype($roles));
+            foreach ($roles as $role) {
+                if ($request->user()->hasRole($role)) {
                     // abort(401, 'No tienes permiso para realizar esta acción.');
-                    return redirect()->route('app.home')->withErrors('No tienes permiso para realizar esta acción.');
+                    return $next($request);
                 }
-                return $next($request);
             }
-        }else{
-            if (!$request->user()->hasRole($role)) {
+            return redirect()->route('app.home')->withErrors('No tienes permiso para realizar esta acción.');
+        } else {
+            if (!$request->user()->hasRole($roles)) {
                 // abort(401, 'No tienes permiso para realizar esta acción.');
                 return redirect()->route('app.home')->withErrors('No tienes permiso para realizar esta acción.');
             }
