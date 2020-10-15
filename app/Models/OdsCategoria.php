@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 
-class TipoPoblacion extends Model
+class OdsCategoria extends Model
 {
     public static $search = null;
-    protected $table = 'tipo_poblacion';
+    protected $table = 'ods_categorias';
 
     /**
      * @return Builder
      */
-    public static function builderTipoPobracion()
+    public static function builderOdsCategoria()
     {
-        $query = TipoPoblacion::orderBy('created_at', request('created_at', 'DESC'));
+        $query = OdsCategoria::orderBy('created_at', request('created_at', 'DESC'));
 
         if (self::$search) {
             //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');
@@ -27,8 +27,8 @@ class TipoPoblacion extends Model
     /**
      * @return array|\Illuminate\Support\Collection
      */
-    public static function obtenerTipoPoblacionAll()
+    public static function obtenerOdsCategoriaAll()
     {
-        return $rs = self::builderTipoPobracion()->get() ?? [];
+        return self::builderOdsCategoria()->get() ?? [];
     }
 }
