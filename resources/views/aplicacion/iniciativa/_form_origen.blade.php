@@ -5,7 +5,9 @@
     @foreach($iniciativasOrigen as $iniciativaOrigen)
         <div class="form-group">
             <input class="iniciativa_propiedad" type="radio" id="iniciativa_propiedad_{{$iniciativaOrigen->id}}"
-                   value="{{$iniciativaOrigen->id}}" name="iniciativa_propiedad" required="required">
+                   value="{{$iniciativaOrigen->id}}" name="iniciativa_propiedad" required="required"
+                    {{($model->iniciativa_origen_id == $iniciativaOrigen->id)?' checked':' '}}
+            >
             <label for="iniciativa_propiedad_{{$iniciativaOrigen->id}}">
                 {{$iniciativaOrigen->descripcion}}
             </label>

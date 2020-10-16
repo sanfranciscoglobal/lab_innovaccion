@@ -239,21 +239,10 @@
             $('div.setup-panel div a.btn-success').trigger('click');
 
 
-            // Cambio de lugar en mapa
-            $('.iniciativa_propiedad').change(function () {
-                if ($(this).is(':checked')) {
-                    if ($(this).val() > 0) {
-                        $('.info-box').addClass('d-none');
-                        $('.info-box.opc-' + $(this).val()).removeClass('d-none');
-                        if ($(this).val() == 1) {
-                            $('.opc-1 .form-control').attr('required', true);
-                            //initMap();
-                        } else {
-                            $('.opc-1 .form-control').removeAttr('required');
-                        }
-                    }
-                }
-            })
+            iniciativaOrigen();
+            $(document).on('change', '.iniciativa_propiedad', function () {
+                iniciativaOrigen();
+            });
         });
 
         // var loadFile = function (event) {
@@ -369,5 +358,22 @@
                 $(this).val('');
             })
         })
+
+        function iniciativaOrigen() {
+            $('.iniciativa_propiedad').each(function (element) {
+                if ($(this).is(':checked')) {
+                    if ($(this).val() > 0) {
+                        $('.info-box').addClass('d-none');
+                        $('.info-box.opc-' + $(this).val()).removeClass('d-none');
+
+                        if ($(this).val() == 1) {
+                            $('.opc-1 .form-control').attr('required', true);
+                        } else {
+                            $('.opc-1 .form-control').removeAttr('required');
+                        }
+                    }
+                }
+            });
+        }
     </script>
 @endsection

@@ -6,16 +6,16 @@
         <div class="contact_placeholder" data-iterator="0">
             <div class="form-group">
                 <label class="control-label">* Nombre de la pesona encargada de la Iniciativa</label>
-                <input name="iniciativa_contacto[0][nombre_encargado]" maxlength="200" type="text" required="required"
+                <input name="iniciativa_contacto[0][nombre_persona]" maxlength="200" type="text" required="required"
                        class="form-control" placeholder="Nombre del encargado"/>
             </div>
             <div class="form-group">
                 <label class="control-label">Teléfono móvil</label>
-                <input name="iniciativa_contacto[0][telefono]" type="text" required="required" class="form-control"/>
+                <input name="iniciativa_contacto[0][celular]" type="text" required="required" class="form-control"/>
             </div>
             <div class="form-group">
                 <label class="control-label">* Correo electrónico</label>
-                <input name="iniciativa_contacto[0][correo]" maxlength="200" type="email" required="required"
+                <input name="iniciativa_contacto[0][correo_electronico]" maxlength="200" type="email" required="required"
                        class="form-control"/>
             </div>
         </div>
@@ -27,16 +27,16 @@
                             class="fe-trash font-size-lg mr-2"></i> Quitar contacto (2)</span></p>
             <div class="form-group">
                 <label class="control-label">* Nombre de la pesona encargada de la Iniciativa (2)</label>
-                <input name="iniciativa_contacto[1][nombre_encargado]" maxlength="200" type="text" class="form-control"
+                <input name="iniciativa_contacto[1][nombre_persona]" maxlength="200" type="text" class="form-control"
                        placeholder="Nombre del contacto"/>
             </div>
             <div class="form-group">
                 <label class="control-label">Teléfono móvil (2)</label>
-                <input name="iniciativa_contacto[1][telefono]" type="text" class="form-control"/>
+                <input name="iniciativa_contacto[1][celular]" type="text" class="form-control"/>
             </div>
             <div class="form-group">
                 <label class="control-label">* Correo electrónico (2)</label>
-                <input name="iniciativa_contacto[1][correo]" maxlength="200" type="email" class="form-control"/>
+                <input name="iniciativa_contacto[1][correo_electronico]" maxlength="200" type="email" class="form-control"/>
             </div>
         </div>
     </div>

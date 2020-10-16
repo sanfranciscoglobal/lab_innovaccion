@@ -11,9 +11,14 @@ use App\Http\Requests\Iniciativa\StorePost;
 //use App\Models\Contacto;
 use App\Models\EstadoRegistro;
 use App\Models\IniciativaActor;
+use App\Models\IniciativaContacto;
 use App\Models\IniciativaInformacion;
+use App\Models\IniciativaInstitucion;
+use App\Models\IniciativaOds;
 use App\Models\IniciativaOrigen;
+use App\Models\IniciativaPoblacion;
 use App\Models\Iniciativas;
+use App\Models\IniciativaUbicacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -38,9 +43,10 @@ class IniciativasController extends Controller
      */
     public function create(Request $request)
     {
+        $model = new Iniciativas();
         IniciativaOrigen::$paginate = $request->mostrar;
         $iniciativasOrigen = IniciativaOrigen::obtenerIniciativaOrigenPaginate();
-        return view('aplicacion.iniciativa.create', compact('iniciativasOrigen'));
+        return view('aplicacion.iniciativa.create', compact('iniciativasOrigen','model'));
     }
 
     /**
@@ -52,8 +58,6 @@ class IniciativasController extends Controller
         DB::beginTransaction();
         $requestData = $request->validated();
         $validator = Validator::make($requestData, StorePost::myRules());
-
-        dd($request);
 
         try {
             if ($validator->fails()) {
@@ -75,10 +79,44 @@ class IniciativasController extends Controller
                         $modelIniciativa->iniciativa_informacion_id = $modelInformacion->id;
 
                         if ($modelIniciativa->save()) {
-                            DB::commit();
-                            return redirect()
-                                ->route('app.iniciativa.create')
-                                ->with('status', 'Iniciativa cargada con éxito');
+                            $statusInsert = true;
+                            if ($dataInstitucion = self::dataTipoInstitucion($request, $modelIniciativa) ?? []) {
+                                if (!(IniciativaInstitucion::insert($dataInstitucion))) {
+                                    throw new Exception;
+                                }
+                            }
+
+                            if ($dataUbicaciones = self::dataUbicaciones($request, $modelIniciativa) ?? []) {
+                                if (!(IniciativaUbicacion::insert($dataUbicaciones))) {
+                                    $statusInsert = false;
+                                }
+                            }
+
+                            if ($dataTipoPoblacion = self::dataTipoPoblacion($request, $modelIniciativa) ?? []) {
+                                if (!(IniciativaPoblacion::insert($dataTipoPoblacion))) {
+                                    $statusInsert = false;
+                                }
+                            }
+
+                            if ($dataOdsCategorias = self::dataOdsCategorias($request, $modelIniciativa) ?? []) {
+                                if (!(IniciativaOds::insert($dataOdsCategorias))) {
+                                    $statusInsert = false;
+                                }
+                            }
+
+                            if ($dataIniciativaContacto = self::dataIniciativaContacto($request, $modelIniciativa) ?? []) {
+                                if (!(IniciativaContacto::insert($dataIniciativaContacto))) {
+                                    $statusInsert = false;
+                                }
+                            }
+
+
+                            if ($statusInsert) {
+                                DB::commit();
+                                return redirect()
+                                    ->route('app.iniciativas.index')
+                                    ->with('status', 'Iniciativa cargada con éxito');
+                            }
                         }
                     }
                 }
@@ -101,6 +139,74 @@ class IniciativasController extends Controller
     {
         $model = $iniciativa;
         $iniciativasOrigen = IniciativaOrigen::obtenerIniciativaOrigenPaginate();
-        return view('aplicacion.iniciativa.edit', compact('model','iniciativasOrigen'));
+
+        return view('aplicacion.iniciativa.edit', compact('model', 'iniciativasOrigen'));
+    }
+
+    public static function dataTipoInstitucion(Request $request, Iniciativas $iniciativa)
+    {
+        if ($request->has('tipo_institucion')) {
+            foreach ($request->tipo_institucion as $key => $id) {
+                $data[$key]['iniciativa_id'] = $iniciativa->id;
+                $data[$key]['tipo_institucion_id'] = $id;
+            }
+            return $data;
+        }
+
+        return false;
+    }
+
+    public static function dataUbicaciones(Request $request, Iniciativas $iniciativa)
+    {
+        if ($request->has('ubicaciones')) {
+            foreach ($request->ubicaciones as $key => $id) {
+                $data[$key]['iniciativa_id'] = $iniciativa->id;
+                $data[$key]['canton_id'] = $id;
+            }
+            return $data;
+        }
+
+        return false;
+    }
+
+    public static function dataTipoPoblacion(Request $request, Iniciativas $iniciativa)
+    {
+        if ($request->has('tipo_poblacion')) {
+            foreach ($request->tipo_poblacion as $key => $id) {
+                $data[$key]['iniciativa_id'] = $iniciativa->id;
+                $data[$key]['tipo_poblacion_id'] = $id;
+            }
+            return $data;
+        }
+
+        return false;
+    }
+
+    public static function dataOdsCategorias(Request $request, Iniciativas $iniciativa)
+    {
+        if ($request->has('ods_categorias')) {
+            foreach ($request->ods_categorias as $key => $id) {
+                $data[$key]['iniciativa_id'] = $iniciativa->id;
+                $data[$key]['ods_categoria_id'] = $id;
+            }
+
+            return $data;
+        }
+
+        return false;
+    }
+
+    public static function dataIniciativaContacto(Request $request, Iniciativas $iniciativa)
+    {
+        if ($request->has('iniciativa_contacto') && is_array($request->iniciativa_contacto)) {
+            foreach ($request->iniciativa_contacto as $key => $contacto) {
+                $contacto['iniciativa_id'] = $iniciativa->id;
+                $data[$key] = $contacto;
+            }
+
+            return $data;
+        }
+
+        return false;
     }
 }
