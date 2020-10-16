@@ -33,9 +33,11 @@ Route::as('app.')
         function () {
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
+            Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio');
             Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@verFormularioregistro')->name('registro');
             Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
+            Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
 
             /**
              * Rutas iniciativas
@@ -52,14 +54,15 @@ Route::as('app.')
 //Route::get('/admin', 'HomeController@index')
 //    ->name('admin.home');
 //
-//Route::as('admin.')
+// Route::as('admin.')
 //    ->prefix('admin')
 //    ->group(
 //        function () {
 //            // Route::resource('abreviatura', 'AbreviaturaController');
+//            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
 //        }
 //    );
-//
+
 //// Autenticate
 //Auth::routes();
 //Route::as('auth.')
