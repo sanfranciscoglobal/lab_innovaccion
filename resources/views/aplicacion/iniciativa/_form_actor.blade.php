@@ -94,9 +94,16 @@
         <div class="form-group">
             <label class="control-label">Ubicación</label>
             <input maxlength="200" type="text" required="required" class="form-control"
-                   placeholder="Enter Company Address" name="direccion" id="direccion"/>
+                   placeholder="Escriba la dirección" name="direccion" id="direccion"/>
         </div>
-        <button class="btn btn-primary nextBtn pull-right" type="button">Siguiente</button>
+        <div class="row">
+            <div class="col">
+                <div id="map" style="width:100%; height: 350px;"></div>
+                <input type="hidden" type="text" id="lat" name="org_lat" value="">
+                <input type="hidden" type="text" id="long" name="org_long" value="">
+            </div>
+        </div>
+        <button class="btn btn-primary nextBtn pull-right mt-4" type="button">Siguiente</button>
     </div>
 </div>
 <div class="info-box opc-2 d-none">
