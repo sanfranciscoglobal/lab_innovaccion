@@ -50,8 +50,8 @@ class MaterialdeaprendizajeController extends Controller
     {
         
         $material = MaterialAprendizaje::find($id);
-        $articulos=Articulo::where('material_id',$material->id)->get();
-        return view('aplicacion.materialaprendizaje.frmMaterial', compact('material','articulos'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
+    
+        return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
     }
 
 }

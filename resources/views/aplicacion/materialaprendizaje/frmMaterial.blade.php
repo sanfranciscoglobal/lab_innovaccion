@@ -44,14 +44,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col">
                                         <div class="form-group">
                                             <!--textarea id="mat_content" class="form-control ckeditor" name="mat_content" rows="20"></textarea-->
                                             <textarea id="mat_content" class="form-control " name="mat_content" rows="20"></textarea>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="form-group">
@@ -72,9 +72,10 @@
                                             <label for="mat_files">Adjuntar archivos</label>
                                             
                                             @if ($method=='PUT')
+                                            
                                                 <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]" 
                                                 data-default-file=
-                                                        "@foreach ($articulos as $articulo)
+                                                        "@foreach ($material->articuloss as $articulo)
                                                             {{$articulo->nombre}}
                                                             <br>
 
@@ -176,7 +177,7 @@
 <script>
     @if ($method=='PUT')
                           
-        @foreach ($articulos as $articulo)
+        @foreach ($material->articuloss as $articulo)
            console.log("{{$articulo->nombre}}");
 
         @endforeach
