@@ -36,10 +36,10 @@
     </div>
     <div class="col-12">
         <div class="form-group">
-            <label for="innovacion_sector_productivo" class="control-label">* Objetivo de Desarrollo Sostenible (ODS)</label>
-            <select style="width:100%;" id="innovacion_sector_productivo" name="innovacion_sector_productivo"
+            <label for="innovacion_abierta_ods" class="control-label">* Objetivo de Desarrollo Sostenible (ODS)</label>
+            <select style="width:100%;" id="innovacion_abierta_ods" name="innovacion_abierta_ods"
                     class="form-control select2"
-                    data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
                     data-ajax--data-type="json"
                     data-ajax--cache="true"
                     data-close-on-select="false"
