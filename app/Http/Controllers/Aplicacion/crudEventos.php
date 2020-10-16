@@ -45,7 +45,7 @@ class crudEventos extends Controller
      
         $validatedData = $request->validated();
         
-        $evento->update($request->validated());
+        $evento->update( $validatedData);
 
         if(isset($validatedData['imagen'])){
             
