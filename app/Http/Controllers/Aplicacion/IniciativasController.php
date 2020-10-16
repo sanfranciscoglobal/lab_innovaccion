@@ -53,6 +53,8 @@ class IniciativasController extends Controller
         $requestData = $request->validated();
         $validator = Validator::make($requestData, StorePost::myRules());
 
+        dd($request);
+
         try {
             if ($validator->fails()) {
                 return redirect('admin.material-docente.create')

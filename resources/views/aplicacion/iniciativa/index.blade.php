@@ -95,6 +95,7 @@
                     <div class="py-2 p-md-3">
                         <!-- Review-->
                         <div class="pt-grid-gutter pb-grid-gutter border-bottom text-right">
+                            <h3 class="float-left">Iniciativas</h3>
                             <a href="{{route('app.iniciativas.create')}}" class="btn btn-primary btn-sm">
                                 <i class="fe fe-plus mr-1"></i>
                                 Crear iniciativa
@@ -143,24 +144,10 @@
                                         </a>
                                     </div>
                                 </div>
-
                             </div>
-                    @endforeach
-
-                    {{ $iniciativas->render() }}
-
-                    <!-- Pagination-->
-                        {{--<nav class="d-md-flex justify-content-between align-items-center text-center text-md-left pt-grid-gutter">--}}
-                            {{--<div class="d-md-flex align-items-center w-100"><span--}}
-                                        {{--class="font-size-sm text-muted mr-md-3">Showing 5 of 15 reviews</span>--}}
-                                {{--<div class="progress w-100 my-3 mx-auto mx-md-0" style="max-width: 10rem; height: 4px;">--}}
-                                    {{--<div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33"--}}
-                                         {{--aria-valuemin="0" aria-valuemax="100"></div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<button class="btn btn-outline-primary btn-sm" type="button">Show older reviews</button>--}}
-                        {{--</nav>--}}
+                        @endforeach
                     </div>
+                    {{ $iniciativas->links() }}
                 </div>
             </div>
         </div>

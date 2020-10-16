@@ -30,7 +30,7 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label class="control-label">* Tipo de Institución</label><br/>
-                    <select style="width:100%;" id="tipo_institucion" name="tipo_institucion"
+                    <select style="width:100%;" id="tipo_institucion" name="tipo_institucion[]"
                             class="form-control select2"
                             data-ajax--url="{{route('api.tipo-institucion.select2')}}"
                             data-ajax--data-type="json"
@@ -60,7 +60,7 @@
             <div class="col-lg-8">
                 <div class="form-group">
                     <label class="control-label">* Ubicaci&oacute;n de la iniciativa</label>
-                    <select style="width:100%;" id="ubicaciones" class="form-control select2" name="ubicaciones"
+                    <select style="width:100%;" id="ubicaciones" class="form-control select2" name="ubicaciones[]"
                             data-ajax--url="{{route('api.canton.select2')}}"
                             data-ajax--data-type="json"
                             data-ajax--cache="true"

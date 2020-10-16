@@ -74,6 +74,7 @@ Route::as('app.')
             Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete');
 
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
+            Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
 
 
             /**
@@ -104,14 +105,15 @@ Route::as('app.')
 //Route::get('/admin', 'HomeController@index')
 //    ->name('admin.home');
 //
-//Route::as('admin.')
+// Route::as('admin.')
 //    ->prefix('admin')
 //    ->group(
 //        function () {
 //            // Route::resource('abreviatura', 'AbreviaturaController');
+//            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
 //        }
 //    );
-//
+
 //// Autenticate
 //Auth::routes();
 //Route::as('auth.')
