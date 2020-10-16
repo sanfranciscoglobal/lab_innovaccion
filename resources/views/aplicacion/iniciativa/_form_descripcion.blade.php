@@ -33,7 +33,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label class="control-label">* Población objetivo de la Iniciativa</label>
-                        <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion"
+                        <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
                                 class="form-control select2"
                                 data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
                                 data-ajax--data-type="json"
@@ -53,7 +53,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label class="control-label">* Trabajo de la Iniciativa por ODS</label>
-                        <select id="ods_categorias" class="form-control select2" name="ods_categorias"
+                        <select id="ods_categorias" class="form-control select2" name="ods_categorias[]"
                                 data-ajax--url="{{route('api.ods-categoria.select2')}}"
                                 data-ajax--data-type="json"
                                 data-ajax--cache="true"

@@ -47,19 +47,18 @@
                 </li>
             @endif
         </ul>
-        {{--<button class="btn btn-outline-primary btn-sm" type="button">Show older reviews</button>--}}
     </nav>
-    {{--{{dd($paginator->count(), $paginator, $paginator->currentPage(),$paginator->perPage(),$elements)}}--}}
     @php
         $xvalue =  $paginator->currentPage()*$paginator->perPage();
         $xvalue = ($xvalue > $paginator->total())?$paginator->total():$xvalue;
+        $porcentaje = ($paginator->total()>0) ? round((($xvalue*100)/$paginator->total())) : 0 ;
     @endphp
     <div class="d-md-flex align-items-center w-100">
         <span class="font-size-sm text-muted mr-md-3">
             Mostrando {{$xvalue}} de {{$paginator->total()}} registros</span>
         <div class="progress w-100 my-3 mx-auto mx-md-0" style="max-width: 10rem; height: 4px;">
-            <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33"
-                 aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" role="progressbar" style="width: {{$porcentaje}}%;" aria-valuenow="{{$xvalue}}"
+                 aria-valuemin="0" aria-valuemax="{{$paginator->total()}}">
 
             </div>
         </div>
