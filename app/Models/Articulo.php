@@ -12,4 +12,8 @@ class Articulo extends Model
     protected $table = 'articulos';
     protected $fillable = ['nombre', 'material_id'];
 
+    public function materialid(){
+        return $this->belongsTo('App\Models\MaterialAprendizaje', "material_id","id");
+    }
+
 }

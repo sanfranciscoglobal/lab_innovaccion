@@ -44,7 +44,7 @@ class crudEventos extends Controller
     {
      
         $validatedData = $request->validated();
-        $previousData=Evento::findOrfail($validatedData->id);
+        
         $evento->update($request->validated());
 
         if(isset($validatedData['imagen'])){
@@ -56,36 +56,13 @@ class crudEventos extends Controller
         }
 
         return redirect()->route('app.home')->with('status', 'Evento modificado con éxito');
-        /*
-        $datosEvento=request()->except('_token','_method');
-        $evento=Evento::findOrfail($id);
-        if(Auth::check()){
-            if(Auth::id() == $evento->user_id){
-                if ($request->hasFile('imagen')){
-
-                Storage::delete('public/'.$evento->Foto);
-                $datosEvento['imagen']=$request->file('imagen')->store('uploads','public');
-                }
-
-
-                Empleados::where('id','=',$id)->update($datosEvento);
-                $evento=Empleados::findOrfail($id);
-                return redirect()->route('home')->with('status', 'Evento modificado con éxito');;
-            }
-            else{
-                return back()->with('status', 'No ingresaste este evento.');
-            }
-        } else {
-            return back()->with('status', 'No encontramos un usuario autenticado.');
-        }
-        */
+       
 
     }
 
 
     public function destroy(Evento $evento) {
 
-        //$evento = Evento::findOrfail($id);
 
         if(Auth::id() != $evento->user_id){
             return back()->with('status', 'No ingresaste este evento.');

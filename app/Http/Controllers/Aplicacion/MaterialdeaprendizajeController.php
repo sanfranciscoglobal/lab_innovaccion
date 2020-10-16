@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Aplicacion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contacto\StorePost;
 use App\Models\MaterialAprendizaje;
+use App\Models\Articulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -47,8 +48,10 @@ class MaterialdeaprendizajeController extends Controller
  
     public function edit($id)
     {
+        
         $material = MaterialAprendizaje::find($id);
-        return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
+        $articulos=Articulo::where('material_id',$material->id)->get();
+        return view('aplicacion.materialaprendizaje.frmMaterial', compact('material','articulos'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
     }
 
 }

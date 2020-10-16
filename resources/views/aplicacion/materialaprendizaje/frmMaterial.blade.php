@@ -5,10 +5,12 @@
 @endsection
 
 @section('content')
+    
     <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
     
     @csrf
     @method($method)
+    
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -26,8 +28,9 @@
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Material de Aprendizaje</h1>
                             @if ($method=='PUT')
-                                <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#eliminarmaterial"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar material </a>
+                                <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar material </a>
                             @endif
+                            
                             
                         </div>
                         <!-- Content-->
@@ -45,7 +48,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <!--textarea id="mat_content" class="form-control ckeditor" name="mat_content" rows="20"></textarea-->
-                                            <textarea id="mat_content" class="form-control ckeditor" name="mat_content" rows="20"></textarea>
+                                            <textarea id="mat_content" class="form-control " name="mat_content" rows="20"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +70,21 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mat_files">Adjuntar archivos</label>
-                                            <input class="form-control" type="file" id="mat_autor" value="" name="mat_files[]" multiple>
+                                            
+                                            @if ($method=='PUT')
+                                                <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]" 
+                                                data-default-file=
+                                                        "@foreach ($articulos as $articulo)
+                                                            {{$articulo->nombre}}
+                                                            <br>
+
+                                                        @endforeach"
+                                                    
+                                                multiple/>
+                                            @else
+                                                <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]" multiple/>
+                                            @endif
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -81,37 +98,30 @@
                                     <label for="mat_tema">* Tema tratado</label>
                                     <select class="form-control select2" name="tema_tratado" required>
                                         <option value="">Seleccione un tema</option>
-                                        <option value="1">Tema 1</option>
-                                        <option value="2">Tema 2</option>
-                                        <option value="3">Tema 3</option>
+                                        <option value="1" {{old('tema_tratado',$material->tema_tratado)=="1"? 'selected':''}}>Tema 1</option>
+                                        <option value="2" {{old('tema_tratado',$material->tema_tratado)=="1"? 'selected':''}}>Tema 2</option>
+                                        <option value="3" {{old('tema_tratado',$material->tema_tratado)=="1"? 'selected':''}}>Tema 3</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="mat_tipo">* Tipo de Documento</label>
                                     <select class="form-control select2" name="tipo_documento" required>
-                                        <option value="">Seleccione un Tipo</option>
-                                        <option value="1">Tipo 1</option>
-                                        <option value="2">Tipo 2</option>
-                                        <option value="3">Tipo 3</option>
+                                        <option value="">Seleccione un Tipo</option>                                                          
+                                        <option value="1" {{old('tipo_documento',$material->tipo_documento)=="1"? 'selected':''}}>Tipo 1</option>
+                                        <option value="2" {{old('tipo_documento',$material->tipo_documento)=="2"? 'selected':''}}>Tipo 2</option>
+                                        <option value="3" {{old('tipo_documento',$material->tipo_documento)=="3"? 'selected':''}}>Tipo 3</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="evento_img">* Imagen de portada</label>
+                                  
                                     
                                     @if ($method=='PUT')
-                                        <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada">                            
+                                        <input type="file" class="dropify"  onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage').'/'.$material->imagen_portada}}">                            
                                     @else
-                                        <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
+                                        <input type="file" class="dropify"  onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
                                     @endif
-                                    <div class="evento-image-placeholder mt-3">
-                                        <div id="evento-image-box" class="necesidad-image-box">
-                                            @if (isset($material->imagen_portada))
-                                                <img id="output"  class="img-fluid" src="{{asset('storage').'/'.$material->imagen_portada}}">
-                                            @else
-                                                <img id="output" class="img-fluid" src="http://placehold.it/300x300/?text=Imagen%20Destacada">
-                                            @endif
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                                 <hr class="mt-2 mb-4">
                                 <div class="custom-control custom-checkbox d-block">
@@ -133,30 +143,26 @@
     </div>
     </form>
     @if ($method=='PUT')
-        <div class="modal fade" id="eliminarmaterial" role="dialog">
-            <div class="modal-dialog">
+        <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="row margin-top-1 margin-bottom-1">
-                            <div class="col-12 offset-md-2 text-center">
-                                <h2 class="fs-28 uppercase bolder text-blue"> Eliminar Material</h2>
-                            </div>
-                        </div>
+                    <div class="modal-header bg-warning text-white">
+                        <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Material</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="text-white">&times;</span>
+                            </button>
                     </div>
 
                     <form action="{{ route('app.material-de-aprendizaje.delete',$material->id) }}" role="form" method="POST">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">
-                            <div class="row margin-top-1 margin-bottom-1">
-                                <div class="col-sm-12 col-md-8 offset-md-2 text-center">
-                                    <p>Esta seguro que desea eliminar este evento?</p>
-                                </div>
-                            </div>
+                            <div class="text-warning">Está seguro que desea eliminar este material?</div>
+                            
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-danger">Si</button>
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
                         </div>
                     </form>
                 </div>
@@ -165,22 +171,30 @@
     @endif
 @endsection
 @section('footer')
-<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+{{--<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script>
+    @if ($method=='PUT')
+                          
+        @foreach ($articulos as $articulo)
+           console.log("{{$articulo->nombre}}");
+
+        @endforeach
+    @endif
     $(document).ready(function(){
         $('.select2').select2();
     })
 
-    CKEDITOR.replace('wysiwyg-editor', {
-        filebrowserUploadUrl: "{{route('app.ckeditor.image-upload', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
-    });
-    CKEDITOR.config.height = 400;
+    // CKEDITOR.replace('wysiwyg-editor', {
+    //     filebrowserUploadUrl: "{{route('app.ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+    //     filebrowserUploadMethod: 'form'
+    // });
+    // CKEDITOR.config.height = 400;
 
     var loadFile = function(event) {
         var image = document.getElementById('output');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
+   
 </script>
 @endsection

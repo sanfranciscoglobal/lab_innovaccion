@@ -22,7 +22,7 @@
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Eventos</h1>
                             @if ($method=='PUT')
-                                <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#eliminarevento"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar evento </a>
+                                <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar evento </a>
                             @endif
                         </div>
                         <!-- Content-->
@@ -107,29 +107,13 @@
                                                             <div class="form-group">
                                                                 <label for="org_web">* Cantón</label>
 
-                                                                <!--select style="width:100%;" id="canton_id" class="form-control" name="canton" required>
-                                                                    <option></option>
-                                                                    @foreach ($cantones as $item)
-                                                                        <option value="{{$item}}" {{old('canton',$evento->canton)==$item? 'selected':''}}>{{$item}}</option>
-                                                                    @endforeach
-
-
-                                                                </select-->
                                                                 <select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
                                                                         data-ajax--url="{{route('api.canton.select2')}}"
                                                                         data-ajax--data-type="json"
                                                                         data-ajax--data-cache="true"
                                                                         data-close-on-select="false"
                                                                         required="required"></select>
-                                                               
-                                                                
-                                                                 <!--select
-                                                                        {{--<option value="">Seleccione al menos un tipo</option>--}}
-                                                                        {{--<option value="1">Tipo 1</option>--}}
-                                                                        {{--<option value="2">Tipo 2</option>--}}
-                                                                        {{--<option value="3">Tipo 3</option>--}}
-                                                                        {{--<option value="4">Tipo 4</option>--}}
-                                                                </select-->
+                                                
 
                                                             </div>
                                                         </div>
@@ -159,21 +143,12 @@
                                 <div class="form-group">
                                     <label for="imagen">* Images del Evento</label>
                                     @if ($method=='PUT')
-                                        <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen">
+                                        <input type="file" class="dropify" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" data-default-file="{{asset('storage').'/'.$evento->imagen}}">
+                                                                                                        
                                     @else
-                                        <input type="file" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
+                                        <input type="file" class="dropify" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
                                     @endif
-                                    <div class="evento-image-placeholder mt-3">
-                                        <div id="evento-image-box" class="necesidad-image-box">
-                                            @if (isset($evento->imagen))
-                                                <img id="output"  class="img-fluid" src="{{asset('storage').'/'.$evento->imagen}}">
-
-                                            @else
-                                                <img id="output" class="img-fluid" src="http://placehold.it/300x300/?text=Imagen%20Destacada">
-                                            @endif
-
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -201,31 +176,30 @@
     </div>
     </form>
     @if ($method=='PUT')
-        <div class="modal fade" id="eliminarevento" role="dialog">
-            <div class="modal-dialog">
+        
+        <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="row margin-top-1 margin-bottom-1">
-                            <div class="col-12 offset-md-2 text-center">
-                                <h2 class="fs-28 uppercase bolder text-blue"> Eliminar Evento</h2>
-                            </div>
-                        </div>
+                    <div class="modal-header bg-warning text-white">
+                        <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Evento</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="text-white">&times;</span>
+                            </button>
                     </div>
 
                     <form action="{{ route('app.eventos.delete', $evento->id) }}" role="form" method="POST">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">
-                            <div class="row margin-top-1 margin-bottom-1">
-                                <div class="col-sm-12 col-md-8 offset-md-2 text-center">
-                                    <p>Esta seguro que desea eliminar este evento?</p>
-                                </div>
-                            </div>
+                            <div class="text-warning">Está seguro que desea eliminar este evento?</div>
+                            
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-danger">Si</button>
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
                         </div>
+                        
+                        
                     </form>
                 </div>
             </div>
@@ -236,6 +210,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
 <script>
+    
     var maxlength=300;
     var maxword=100;
     function countWords(self){
@@ -396,15 +371,18 @@
 
 <script>
     
+    @if ($method=="PUT" && isset($evento->canton))
+        var cantonidd={{old('canton',(int)$evento->canton)??'null'}};
+        if (cantonidd){
+            var canton_nombre="{{$evento->cantonid->nombre}}"; 
+            $("#canton_id").select2("trigger", "select", {
+                     data: { id: cantonidd , text:canton_nombre}
+                 });
+        
+        }
 
-    var cantonid={{old('canton',(int)$evento->canton)??'null'}};
-    if (cantonid){
-             
-
-        $("#canton_id").select2("trigger", "select", {
-                data: { id: cantonid }
-            });
-    }
+    @endif
+    
     
     
 
