@@ -95,6 +95,7 @@
                     <div class="py-2 p-md-3">
                         <!-- Review-->
                         <div class="pt-grid-gutter pb-grid-gutter border-bottom text-right">
+                            <h3 class="float-left">Iniciativas</h3>
                             <a href="{{route('app.iniciativas.create')}}" class="btn btn-primary btn-sm">
                                 <i class="fe fe-plus mr-1"></i>
                                 Crear iniciativa
