@@ -14,11 +14,12 @@ class CreateOdsCategoriasTable extends Migration
     public function up()
     {
         Schema::create('ods_categorias', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id('id');
             $table->string('nombre');
             $table->text('descripcion')->nullable();
             $table->text('imagen')->nullable();
             $table->integer('orden')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
 

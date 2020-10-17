@@ -8,7 +8,15 @@ class IniciativaOds extends Model
 {
     protected $table = 'iniciativa_ods';
     protected $fillable = [
-        'iniciativa_actor_id',
+        'iniciativa_id',
         'ods_categoria_id',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function odsCategoria()
+    {
+        return $this->belongsTo(OdsCategoria::class);
+    }
 }

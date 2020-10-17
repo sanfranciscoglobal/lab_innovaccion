@@ -93,9 +93,9 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4" style="min-height: 380px;">
                     {{--<div class="py-2 p-md-3">--}}
-                        {{--<a href="{{route('app.iniciativa.index')}}" class="btn btn-primary btn-sm">--}}
-                            {{--<i class="fe fe-back"></i>--}}
-                        {{--</a>--}}
+                    {{--<a href="{{route('app.iniciativa.index')}}" class="btn btn-primary btn-sm">--}}
+                    {{--<i class="fe fe-back"></i>--}}
+                    {{--</a>--}}
                     {{--</div>--}}
                     <div class="py-2 p-md-3">
                         <!-- Timeline -->
@@ -131,10 +131,11 @@
                             </div>
                         </div>
                         <!-- END Timeline -->
-                        <form action="{{ route("app.iniciativas.store") }}" method="POST" enctype='multipart/form-data'
+                        <form action="{{ route("app.iniciativas.update", $model->id) }}" method="POST"
+                              enctype='multipart/form-data'
                               class="needs-validation" novalidate>
                             @csrf
-                            @method('POST')
+                            @method('PUT')
 
                             <div class="panel panel-primary setup-content" id="step-1">
                                 @include('aplicacion.iniciativa._form_origen')
@@ -160,17 +161,12 @@
 @endsection
 
 @section('footer')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap"
+            async defer></script>
 
-    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
     <script>
-        //var baseURL = '{{ URL::to('/') }}';
         var input = document.getElementById('evento_direccion');
         $(document).ready(function () {
-            // $('#iniciativa_org_tipo').select2();
-            // $('#iniciativa_poblacion').select2();
-            // $('#iniciativa_ods').select2();
-
             // Stepper
             var navListItems = $('div.setup-panel div a'),
                 allWells = $('.setup-content'),
@@ -237,21 +233,10 @@
             $('div.setup-panel div a.btn-success').trigger('click');
 
 
-            // Cambio de lugar en mapa
-            $('.iniciativa_propiedad').change(function () {
-                if ($(this).is(':checked')) {
-                    if ($(this).val() > 0) {
-                        $('.info-box').addClass('d-none');
-                        $('.info-box.opc-' + $(this).val()).removeClass('d-none');
-                        if ($(this).val() == 1) {
-                            $('.opc-1 .form-control').attr('required', true);
-                            //initMap();
-                        } else {
-                            $('.opc-1 .form-control').removeAttr('required');
-                        }
-                    }
-                }
-            })
+            iniciativaOrigen();
+            $(document).on('change', '.iniciativa_propiedad', function () {
+                iniciativaOrigen();
+            });
         });
 
         function initMap() {
@@ -362,5 +347,22 @@
                 $(this).val('');
             })
         })
+
+        function iniciativaOrigen() {
+            $('.iniciativa_propiedad').each(function (element) {
+                if ($(this).is(':checked')) {
+                    if ($(this).val() > 0) {
+                        $('.info-box').addClass('d-none');
+                        $('.info-box.opc-' + $(this).val()).removeClass('d-none');
+
+                        if ($(this).val() == 1) {
+                            $('.opc-1 .form-control').attr('required', true);
+                        } else {
+                            $('.opc-1 .form-control').removeAttr('required');
+                        }
+                    }
+                }
+            });
+        }
     </script>
 @endsection

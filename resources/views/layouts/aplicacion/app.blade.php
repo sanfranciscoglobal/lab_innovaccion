@@ -251,7 +251,7 @@
     </div>
     <!-- Navbar Floating light for Index page only-->
     @include('layouts.aplicacion.header')
-
+    @include('includes.session-flash-status')
     @yield('content')
 
 </main>

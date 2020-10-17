@@ -18,5 +18,6 @@ class IniciativaInformacion extends Model
         'url_twitter',
         'url_linkedin',
         'url_youtube',
+        'url_instagram',
     ];
 }
