@@ -20,7 +20,7 @@ class CreateIniciativaOdsTable extends Migration
 
             $table->foreign('iniciativa_id')
                 ->references('id')
-                ->on('iniciativa_actor')
+                ->on('iniciativas')
                 ->constrained()
                 ->onDelete('cascade');
 

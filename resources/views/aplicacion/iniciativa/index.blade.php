@@ -138,10 +138,15 @@
                                             <i class="fe-edit text-primary"></i>
                                         </a>
 
-                                        <a type="button" class="btn btn-outline-danger btn-icon" data-toggle="tooltip"
-                                           title="Eliminar" data-placement="bottom">
+                                        <a href="" data-toggle="modal" data-target="#deleteModal" data-id="{{ $iniciativa->id }}"
+                                           class="btn btn-outline-danger btn-icon">
                                             <i class="fe-trash-2 text-danger"></i>
                                         </a>
+
+                                        {{--<a type="button" class="btn btn-outline-danger btn-icon" data-toggle="tooltip"--}}
+                                           {{--title="Eliminar" data-placement="bottom">--}}
+                                            {{--<i class="fe-trash-2 text-danger"></i>--}}
+                                        {{--</a>--}}
                                     </div>
                                 </div>
                             </div>
@@ -152,6 +157,8 @@
             </div>
         </div>
     </div>
+
+    @include('includes.forms.modal-delete',['name_route'=>'app.iniciativas.destroy'])
 @endsection
 
 @section('footer')
@@ -160,6 +167,7 @@
 
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
     <script>
+        window.deleteModalAjax('deleteModal');
         {{--var baseURL = '{{ URL::to('/') }}';--}}
         {{--var input = document.getElementById('evento_direccion');--}}
         $(document).ready(function () {

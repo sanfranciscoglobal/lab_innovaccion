@@ -217,6 +217,32 @@ class IniciativasController extends Controller
         }
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\RepresentanteEstudiante $representanteEstudiante
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Iniciativas $iniciativa)
+    {
+        DB::beginTransaction();
+
+        try {
+            $iniciativa->iniciativaActor()->delete();
+            $iniciativa->iniciativaInformacion()->delete();
+            $iniciativa->delete();
+            DB::commit();
+            return back()->with('status','Iniciativa eliminada exitosamente');
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        } catch (\Throwable $e) {
+            DB::rollback();
+            throw $e;
+        }
+
+    }
+
     public static function dataTipoInstitucion(Request $request, Iniciativas $iniciativa)
     {
         if ($request->has('tipo_institucion')) {
