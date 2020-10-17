@@ -86,8 +86,8 @@ Route::as('app.')
             Route::put('/material-de-aprendizaje/{material}', 'Aplicacion\crudMaterialesaprendizaje@update')->name('material-de-aprendizaje.put');
             Route::delete('/material-de-aprendizaje/{material}', 'Aplicacion\crudMaterialesaprendizaje@destroy')->name('material-de-aprendizaje.delete');
 
-            Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
-            Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
+            // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
+            // Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
             
             /**
@@ -96,8 +96,6 @@ Route::as('app.')
             Route::resource('iniciativas', 'Aplicacion\IniciativasController');
             Route::get('/iniciativa', 'Aplicacion\IniciativasController@create')->name('iniciativa.create');
             Route::post('/iniciativa/store', 'Aplicacion\IniciativasController@store')->name('iniciativa.store');
-
-            Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
         }
     );
 
