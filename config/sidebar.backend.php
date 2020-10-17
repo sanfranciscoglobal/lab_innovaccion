@@ -18,25 +18,25 @@ return [
             'title' => '',
             'items' => [
                 [
-                    'title' => 'Dashboard',
-                    'url' => 'admin.home',
+                    'title' => 'Inicio',
+                    'url' => 'admin.escritorio',
                     'fa-icon' => 'fas fa-fw fa-tachometer-alt',
                     'caret' => false
                 ],
             ]
         ],
         [
-            'title' => 'Libros',
+            'title' => 'Iniciativas',
             'items' => [
                 [
-                    'title' => 'Libros',
+                    'title' => 'Listado',
                     'url' => '#',
                     'fa-icon' => 'fas fa-book',
                     'caret' => true,
                     'items' => [
                         [
                             'title' => 'Libros Creados',
-                            'url' => 'admin.libro.index',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-book-reader',
                         ],
                     ]
@@ -45,73 +45,73 @@ return [
             ]
         ],
         [
-            'title' => 'Instituciones',
+            'title' => 'Eventos',
             'items' => [
                 [
-                    'title' => 'Unidades Educativas',
+                    'title' => 'Listado',
                     'url' => '#',
                     'fa-icon' => 'fas fa-user-cog',
                     'caret' => true,
                     'items' => [
                         [
                             'title' => 'Institucion',
-                            'url' => 'admin.institucion.index',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-school',
                         ],
                         [
                             'title' => 'Registrar Cursos',
-                            'url' => 'admin.curso.index',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-chalkboard',
                         ],
                         [
                             'title' => 'Autorizar Docentes',
-                            'url' => 'admin.roles_users.index',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-user-tie',
                         ],
                     ]
                 ],
                 [
-                    'title' => 'Estudiantes',
+                    'title' => 'Publicaciones',
                     'url' => '#',
                     'fa-icon' => 'fas fa-school',
                     'caret' => true,
                     'items' => [
                         [
                             'title' => 'Detalle',
-                            'url' => 'admin.home',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-fw fa-tachometer-alt',
                         ],
                         [
                             'title' => 'Cargar',
-                            'url' => 'admin.home',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-fw fa-tachometer-alt',
                         ],
                         [
                             'title' => 'Contenido',
-                            'url' => 'admin.home',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-fw fa-tachometer-alt',
                         ]
                     ]
                 ],
                 [
-                    'title' => 'Representantes',
+                    'title' => 'Formularios',
                     'url' => '#',
                     'fa-icon' => 'fas fa-user-cog',
                     'caret' => true,
                     'items' => [
                         [
                             'title' => 'Detalle',
-                            'url' => 'admin.home',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-fw fa-tachometer-alt',
                         ],
                         [
                             'title' => 'Cargar',
-                            'url' => 'admin.home',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-fw fa-tachometer-alt',
                         ],
                         [
                             'title' => 'Contenido',
-                            'url' => 'admin.home',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-fw fa-tachometer-alt',
                         ]
                     ]
@@ -120,27 +120,27 @@ return [
             ]
         ],
         [
-            'title' => 'PARAMETROS',
+            'title' => 'Errores',
             'items' => [
                 [
-                    'title' => 'Institucional',
+                    'title' => 'Listado',
                     'url' => '#',
                     'fa-icon' => 'fas fa-cogs',
                     'caret' => true,
                     'items' => [
                         [
                             'title' => 'Periodo Lectivo',
-                            'url' => 'admin.anio-lectivo.index',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-calendar-alt',
                         ],
                         [
                             'title' => 'Paralelos',
-                            'url' => 'admin.paralelo.index',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fab fa-buromobelexperte',
                         ],
                         [
                             'title' => 'Asignaturas',
-                            'url' => 'admin.asignatura.index',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-book-open',
                         ]
                     ]
@@ -153,7 +153,7 @@ return [
                     'items' => [
                         [
                             'title' => 'Abreviaturas',
-                            'url' => 'admin.abreviatura.index',
+                            'url' => 'admin.escritorio',
                             'fa-icon' => 'fas fa-fw fa-tachometer-alt',
                         ],
                     ]
