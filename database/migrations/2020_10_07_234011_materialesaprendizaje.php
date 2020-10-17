@@ -22,7 +22,8 @@ class Materialesaprendizaje extends Migration
             $table->string('tipo_documento');
             $table->string('imagen_portada');
             $table->string('fuente_publicacion');
-            $table->string('autor_publicacion');            
+            $table->string('autor_publicacion');
+            $table->boolean('estado')->default(FALSE)->comment('No aprobado-1/Aprobado-0');                
             $table->boolean('terminos');
             $table->foreignId('user_id')->constrained();
             $table->softDeletes();

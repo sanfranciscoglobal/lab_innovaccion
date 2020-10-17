@@ -39,17 +39,18 @@ class crudMaterialesaprendizaje extends Controller
             
             $files= $request->file('mat_files');
             if(isset($files)){
-                
+                $cont=1;
                 foreach ($files as $file){
                     $fullfileName = $file->getClientOriginalName();
                     $OnlyfileName = pathinfo($fullfileName)['filename'];
-                    $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id.'_'.$OnlyfileName;
+                    $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id.'_'.$cont;
                     $fileName=Archivos::storeImagen($name,$file, 'public');
                     $articulo=Articulo::create([
                         'material_id'=>$material['id'],
                         'nombre' =>$fileName   
                     ]);
                     $articulo->save();
+                    $cont=$cont+1;
                 }
             }
                 
@@ -66,8 +67,9 @@ class crudMaterialesaprendizaje extends Controller
     public function update(UpdatePost $request, MaterialAprendizaje $material )
     {
         $validatedData = $request->validated();
-        $material->update($request->validated());
-        if(isset($material['imagen_portada'])){
+        $material->update($validatedData);
+       
+        if(isset($validatedData['imagen_portada'])){
             $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id;      
             $imageName = Archivos::storeImagen($name, $material['imagen_portada'], 'public');
             $material->imagen_portada = $imageName;
@@ -77,17 +79,20 @@ class crudMaterialesaprendizaje extends Controller
         //eliminar y grabar
         $files= $request->file('mat_files');
         if(isset($files)){
+            $cont=1;
             Articulo::where('material_id',$material->id)->delete();
+            
             foreach ($files as $file){
                $fullfileName = $file->getClientOriginalName();
                 $OnlyfileName = pathinfo($fullfileName)['filename'];
-                $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id.'_'.$OnlyfileName;
+                $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id.'_'.$cont;
                 $fileName=Archivos::storeImagen($name,$file, 'public');
                 $articulo=Articulo::create([
                     'material_id'=>$material['id'],
                     'nombre' =>$fileName   
                 ]);
                 $articulo->save();
+                $cont=$cont+1;
             }
         }
 

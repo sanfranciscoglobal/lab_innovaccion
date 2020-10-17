@@ -34,15 +34,15 @@ class EventosController extends Controller
     public function showForm(Request $request)
     {
         $evento = new Evento;
-        $cantones = Canton::pluck('nombre','id');
-        return view('aplicacion.eventos.frmEventos', compact('evento','cantones'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
+     
+        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
     }
 
     public function edit($id)
     {
-        $cantones= Canton::pluck('nombre','id');
+     
         $evento = Evento::find($id);
-        return view('aplicacion.eventos.frmEventos', compact('evento','cantones'))->with(['url' => route('app.eventos.put',$evento->id),'method'=>'PUT']);
+        return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.put',$evento->id),'method'=>'PUT']);
     }
 
 }
