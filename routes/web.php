@@ -84,7 +84,7 @@ Route::as('app.')
             Route::delete('/material-de-aprendizaje/{material}', 'Aplicacion\crudMaterialesaprendizaje@destroy')->name('material-de-aprendizaje.delete');
 
             // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
-            // Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
+             Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
             /**
