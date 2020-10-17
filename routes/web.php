@@ -54,14 +54,14 @@ Route::as('app.')
 //Route::get('/admin', 'HomeController@index')
 //    ->name('admin.home');
 //
-// Route::as('admin.')
-//    ->prefix('admin')
-//    ->group(
-//        function () {
-//            // Route::resource('abreviatura', 'AbreviaturaController');
-//            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
-//        }
-//    );
+Route::as('admin.')
+   ->prefix('admin')
+   ->group(
+       function () {
+           // Route::resource('abreviatura', 'AbreviaturaController');
+           Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
+       }
+   );
 
 //// Autenticate
 //Auth::routes();
