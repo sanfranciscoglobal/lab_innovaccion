@@ -165,7 +165,7 @@
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
     <script>
         //var baseURL = '{{ URL::to('/') }}';
-        var input = document.getElementById('direccion');
+        var input = document.getElementById('evento_direccion');
         $(document).ready(function () {
             // $('#iniciativa_org_tipo').select2();
             // $('#iniciativa_poblacion').select2();

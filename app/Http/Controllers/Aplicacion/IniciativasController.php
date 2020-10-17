@@ -9,6 +9,7 @@ use App\Http\Requests\Iniciativa\StorePost;
 
 //use App\Http\Requests\Contacto\StorePost;
 //use App\Models\Contacto;
+use App\Http\Requests\Iniciativa\UpdatePost;
 use App\Models\EstadoRegistro;
 use App\Models\IniciativaActor;
 use App\Models\IniciativaContacto;
@@ -46,7 +47,7 @@ class IniciativasController extends Controller
         $model = new Iniciativas();
         IniciativaOrigen::$paginate = $request->mostrar;
         $iniciativasOrigen = IniciativaOrigen::obtenerIniciativaOrigenPaginate();
-        return view('aplicacion.iniciativa.create', compact('iniciativasOrigen','model'));
+        return view('aplicacion.iniciativa.create', compact('iniciativasOrigen', 'model'));
     }
 
     /**
@@ -141,6 +142,79 @@ class IniciativasController extends Controller
         $iniciativasOrigen = IniciativaOrigen::obtenerIniciativaOrigenPaginate();
 
         return view('aplicacion.iniciativa.edit', compact('model', 'iniciativasOrigen'));
+    }
+
+    public function update(UpdatePost $request, Iniciativas $iniciativa)
+    {
+        DB::beginTransaction();
+        $requestData = $request->validated();
+
+        try {
+            if ($iniciativa->iniciativaActor->update($requestData)) {
+                if (($request->hasFile('logo')) && ($image = Archivos::storeImagen('iniciativas-' . date('his'), $request->logo, 'iniciativas'))) {
+                    $requestData['logo'] = $image;
+                }
+
+                if ($iniciativa->iniciativaInformacion->update($requestData)) {
+                    $iniciativa->iniciativa_origen_id = $request->iniciativa_propiedad;
+
+                    if ($iniciativa->update()) {
+                        $statusInsert = true;
+
+                        $iniciativa->iniciativaInstituciones()->delete();
+                        if ($dataInstitucion = self::dataTipoInstitucion($request, $iniciativa) ?? []) {
+                            if (!(IniciativaInstitucion::insert($dataInstitucion))) {
+                                throw new Exception;
+                            }
+                        }
+
+                        $iniciativa->iniciativaUbicaciones()->delete();
+                        if ($dataUbicaciones = self::dataUbicaciones($request, $iniciativa) ?? []) {
+                            if (!(IniciativaUbicacion::insert($dataUbicaciones))) {
+                                $statusInsert = false;
+                            }
+                        }
+
+                        $iniciativa->iniciativaPoblaciones()->delete();
+                        if ($dataTipoPoblacion = self::dataTipoPoblacion($request, $iniciativa) ?? []) {
+                            if (!(IniciativaPoblacion::insert($dataTipoPoblacion))) {
+                                $statusInsert = false;
+                            }
+                        }
+
+                        $iniciativa->iniciativaOds()->delete();
+                        if ($dataOdsCategorias = self::dataOdsCategorias($request, $iniciativa) ?? []) {
+                            if (!(IniciativaOds::insert($dataOdsCategorias))) {
+                                $statusInsert = false;
+                            }
+                        }
+
+                        $iniciativa->iniciativaContactos()->delete();
+                        if ($dataIniciativaContacto = self::dataIniciativaContacto($request, $iniciativa) ?? []) {
+                            if (!(IniciativaContacto::insert($dataIniciativaContacto))) {
+                                $statusInsert = false;
+                            }
+                        }
+
+
+                        if ($statusInsert) {
+                            DB::commit();
+                            return redirect()
+                                ->route('app.iniciativas.index')
+                                ->with('status', 'Iniciativa cargada con éxito');
+                        }
+                    }
+                }
+
+            }
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        } catch (\Throwable $e) {
+            DB::rollback();
+            throw $e;
+        }
     }
 
     public static function dataTipoInstitucion(Request $request, Iniciativas $iniciativa)

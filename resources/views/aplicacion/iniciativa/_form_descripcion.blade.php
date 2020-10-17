@@ -68,11 +68,6 @@
                                             selected>{{$ods->odsCategoria->nombre}}</option>
                                 @endforeach
                             @endif
-                            {{--<option value="">Seleccione al menos un tipo</option>--}}
-                            {{--<option value="1">Tipo 1</option>--}}
-                            {{--<option value="2">Tipo 2</option>--}}
-                            {{--<option value="3">Tipo 3</option>--}}
-                            {{--<option value="4">Tipo 4</option>--}}
                         </select>
                     </div>
                 </div>
@@ -115,29 +110,28 @@
                 <span>Redes Sociales</span>
                 <div class="form-group">
                     <label for="iniciativa_facebook">Facebook</label>
-                    <input class="form-control" type="url" id="url_facebook" value="" name="url_facebook"
+                    <input class="form-control" type="url" id="url_facebook" name="url_facebook"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_facebook:''}}"
                     >
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_instagram">Instagram</label>
-                    <input class="form-control" type="url" id="url_instagram" value=""
-                           name="url_instagram"
+                    <input class="form-control" type="url" id="url_instagram" name="url_instagram"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_instagram:''}}">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_twitter">Twitter</label>
-                    <input class="form-control" type="url" id="url_twitter" value="" name="url_twitter"
+                    <input class="form-control" type="url" id="url_twitter" name="url_twitter"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_twitter:''}}">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_linkedin">LinkedIn</label>
-                    <input class="form-control" type="url" id="url_linkedin" value="" name="url_linkedin"
+                    <input class="form-control" type="url" id="url_linkedin" name="url_linkedin"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_linkedin:''}}">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_youtube">Youtube</label>
-                    <input class="form-control" type="url" id="url_youtube" value="" name="url_youtube"
+                    <input class="form-control" type="url" id="url_youtube" name="url_youtube"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_youtube:''}}">
                 </div>
             </div>

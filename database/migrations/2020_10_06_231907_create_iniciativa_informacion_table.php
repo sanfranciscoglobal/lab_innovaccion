@@ -25,6 +25,7 @@ class CreateIniciativaInformacionTable extends Migration
             $table->string('url_twitter', 250)->nullable();
             $table->string('url_linkedin', 250)->nullable();
             $table->string('url_youtube', 250)->nullable();
+            $table->string('url_instagram', 250)->nullable();
             $table->timestamps();
         });
     }

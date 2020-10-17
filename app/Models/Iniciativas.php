@@ -67,6 +67,14 @@ class Iniciativas extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaContactos()
+    {
+        return $this->hasMany(IniciativaContacto::class, 'iniciativa_id', 'id');
+    }
+
+    /**
      * @return Builder
      */
     public static function builderIniciativa()
