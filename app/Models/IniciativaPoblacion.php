@@ -8,7 +8,15 @@ class IniciativaPoblacion extends Model
 {
     protected $table = 'iniciativa_poblacion';
     protected $fillable = [
-        'iniciativa_actor_id',
+        'iniciativa_id',
         'tipo_poblacion_id',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function tipoPoblacion()
+    {
+        return $this->belongsTo(TipoPoblacion::class);
+    }
 }

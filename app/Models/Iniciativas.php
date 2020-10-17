@@ -35,6 +35,46 @@ class Iniciativas extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaUbicaciones()
+    {
+        return $this->hasMany(IniciativaUbicacion::class, 'iniciativa_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaInstituciones()
+    {
+        return $this->hasMany(IniciativaInstitucion::class, 'iniciativa_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaPoblaciones()
+    {
+        return $this->hasMany(IniciativaPoblacion::class, 'iniciativa_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaOds()
+    {
+        return $this->hasMany(IniciativaOds::class, 'iniciativa_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaContactos()
+    {
+        return $this->hasMany(IniciativaContacto::class, 'iniciativa_id', 'id');
+    }
+
+    /**
      * @return Builder
      */
     public static function builderIniciativa()

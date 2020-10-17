@@ -8,7 +8,15 @@ class IniciativaInstitucion extends Model
 {
     protected $table = 'iniciativa_institucion';
     protected $fillable = [
-        'iniciativa_actor_id',
+        'iniciativa_id',
         'tipo_institucion_id',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function tipoInstitucion()
+    {
+        return $this->belongsTo(TipoInstitucion::class);
+    }
 }

@@ -15,12 +15,12 @@ class CreateIniciativaOdsTable extends Migration
     {
         Schema::create('iniciativa_ods', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('iniciativa_actor_id');
+            $table->unsignedBigInteger('iniciativa_id');
             $table->unsignedBigInteger('ods_categoria_id');
 
-            $table->foreign('iniciativa_actor_id')
+            $table->foreign('iniciativa_id')
                 ->references('id')
-                ->on('iniciativa_actor')
+                ->on('iniciativas')
                 ->constrained()
                 ->onDelete('cascade');
 
