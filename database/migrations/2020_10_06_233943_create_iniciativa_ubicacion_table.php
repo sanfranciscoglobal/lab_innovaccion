@@ -15,12 +15,12 @@ class CreateIniciativaUbicacionTable extends Migration
     {
         Schema::create('iniciativa_ubicacion', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('iniciativa_actor_id');
+            $table->unsignedBigInteger('iniciativa_id');
             $table->unsignedBigInteger('canton_id');
 
-            $table->foreign('iniciativa_actor_id')
+            $table->foreign('iniciativa_id')
                 ->references('id')
-                ->on('iniciativa_actor')
+                ->on('iniciativas')
                 ->constrained()
                 ->onDelete('cascade');
 

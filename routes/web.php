@@ -73,9 +73,6 @@ Route::as('app.')
             Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put');
             Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete');
 
-            Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
-            Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
-
 
             /**
              * Material de aprendizaje
@@ -89,13 +86,25 @@ Route::as('app.')
             // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
             // Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
-            
+
             /**
              * Rutas iniciativas
              */
             Route::resource('iniciativas', 'Aplicacion\IniciativasController');
-            Route::get('/iniciativa', 'Aplicacion\IniciativasController@create')->name('iniciativa.create');
-            Route::post('/iniciativa/store', 'Aplicacion\IniciativasController@store')->name('iniciativa.store');
+//            Route::get('/iniciativa', 'Aplicacion\IniciativasController@iniciativa')->name('iniciativa.create');
+//            Route::post('/iniciativa/store', 'Aplicacion\IniciativasController@store')->name('iniciativa.store');
+
+
+            /** Rutas Innovacion */
+            Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
+
+
+            /**
+             * Rutas Admin
+             */
+            Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio');
+
+
         }
     );
 
@@ -103,14 +112,14 @@ Route::as('app.')
 //Route::get('/admin', 'HomeController@index')
 //    ->name('admin.home');
 //
-// Route::as('admin.')
-//    ->prefix('admin')
-//    ->group(
-//        function () {
-//            // Route::resource('abreviatura', 'AbreviaturaController');
-//            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
-//        }
-//    );
+Route::as('admin.')
+   ->prefix('admin')
+   ->group(
+       function () {
+           // Route::resource('abreviatura', 'AbreviaturaController');
+           Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
+       }
+   );
 
 //// Autenticate
 //Auth::routes();
