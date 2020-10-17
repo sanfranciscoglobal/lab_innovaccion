@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\EstadoRegistro;
-
+use Illuminate\Support\Facades\DB;
 class EstadoRegistroSeeder extends Seeder
 {
     /**

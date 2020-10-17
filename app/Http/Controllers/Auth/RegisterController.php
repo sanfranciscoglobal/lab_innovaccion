@@ -4,10 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\EmailVerification;
+use Mail;
+
+// Models
+use App\Models\User;
+use App\Models\RoleUser;
+use App\Models\Perfil;
 
 class RegisterController extends Controller
 {
@@ -60,14 +67,29 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return App\Models\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+            'verification_token' => Hash::make('secret token'),
+        ]);
+
+        RoleUser::create([
+            'user_id' => $user->id,
+        ]);
+
+        Mail::to($user->email)->send(new EmailVerification($user));
+
+        return back()->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
     }
 }

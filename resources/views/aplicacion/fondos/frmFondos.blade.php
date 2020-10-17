@@ -1,7 +1,9 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{-- --}}" method="POST">
+    <form role="form" action="{{ $url }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -18,7 +20,9 @@
                         <!-- Title + Delete link-->
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Fondos Concursables</h1>
-                            <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" href="#"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo </a>
+                            @if ($method == 'PUT')
+                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</button>
+                            @endif
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -29,13 +33,13 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="fondos_propios">
-                                    <input class="fondos" type="radio" id="fondos_propios" value="1" name="fondos_procedencia" required>
+                                    <input class="fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == 1 ? 'checked' : '' }}>
                                     Fondos propios
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label for="fondos_otros">
-                                    <input class="fondos" type="radio" id="fondos_otros" value="2" name="fondos_procedencia">
+                                    <input class="fondos" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
                                     Fondos de otra organización
                                 </label>
                             </div>
@@ -51,13 +55,13 @@
                                             <span>Datos de los fondos</span>
                                             <div class="form-group">
                                                 <label for="org_nombre">* Nombre de la organización</label>
-                                                <input class="form-control" type="text" id="org_nombre" value="" name="fondo_org_nombre" placeholder="Razón social" required>
+                                                <input class="form-control" type="text" id="org_nombre" value="{{ old('organizacion', $fondo->organizacion) }}" name="organizacion" placeholder="Razón social" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_nombre">* Nombre del fondo</label>
-                                                <input class="form-control" type="text" id="org_nombre" value="" name="fondo_org_nombre" placeholder="Nombre del programa" required>
+                                                <input class="form-control" type="text" id="org_nombre" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del programa" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -65,13 +69,13 @@
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
-                                                        <input class="form-control" type="date" id="fondo_fecha_inicio" value="" name="fondo_fecha_inicio" placeholder="Nombre del programa" required>
+                                                        <input class="form-control" type="date" id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Nombre del programa" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_cierre">* Fecha de cierre</label>
-                                                        <input class="form-control" type="date" id="fondo_fecha_cierre" value="" name="fondo_fecha_cierre" placeholder="Nombre del programa" required>
+                                                        <input class="form-control" type="date" id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Nombre del programa" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,13 +83,13 @@
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
-                                                <input class="form-control" type="url" id="org_web" value="" name="fondo_url" placeholder="URL de la página oficial del fondo" required>
+                                                <input class="form-control" type="url" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Logotipo</label>
-                                                <input class="form-control" type="file" id="org_web" value="" name="fondo_file" title="URL de la página oficial del fondo" required>
+                                                <input class="form-control" type="file" id="org_web" value="" name="imagen" title="URL de la página oficial del fondo" required>
                                             </div>
                                         </div>
                                     </div>
@@ -94,19 +98,23 @@
                                             <span>Redes Sociales</span>
                                             <div class="form-group">
                                                 <label for="org_twitter">Twitter</label>
-                                                <input class="form-control" type="url" id="org_twitter" value="" name="org_twitter">
+                                                <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter">
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_facebook">Facebook</label>
-                                                <input class="form-control" type="url" id="org_facebook" value="" name="org_facebook">
+                                                <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook">
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_linkedin">LinkedIn</label>
-                                                <input class="form-control" type="url" id="org_linkedin" value="" name="org_linkedin">
+                                                <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin">
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Instagram</label>
-                                                <input class="form-control" type="url" id="org_instagram" value="" name="org_instagram">
+                                                <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="org_instagram">Youtube</label>
+                                                <input class="form-control" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube">
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +124,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="verificada" required>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $fondo->terminos) == 1 ? 'checked' : "" }}>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
@@ -129,15 +137,42 @@
         </div>
     </div>
     </form>
+
+    @if ($method == 'PUT')
+    <!-- danger modal -->
+    <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Fondo</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('app.fondos.delete', $fondo->id) }}" method="POST" role="form">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <div class="text-warning">Está seguro que desea eliminar este fondo?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
 @endsection
 @section('footer')
 <script>
     $(document).ready(function(){
         $('.fondos').change(function(){
             if($(this).is(':checked')){
-                if ($(this).val() > 0){
+                if ($(this).val() >= 0){
                     $('.to-hide').removeClass('d-none');
-                    if($(this).val() == 2){
+                    if($(this).val() == 0){
                         $('.f-propios .form-control').removeAttr('required');
                         $('.f-propios').addClass('d-none');
                     }else{
@@ -148,6 +183,13 @@
             }
         })
     })
-
+</script>
+<script>
+    let fuente = {{ old('fuente', (int)$fondo->fuente) ?? 'null' }};
+    $(function(){
+        if(fuente != null){
+            $('.fondos').trigger('change');
+        }
+    });
 </script>
 @endsection

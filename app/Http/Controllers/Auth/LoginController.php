@@ -40,6 +40,28 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function login()
+    {
+        $credentials = $this->validate(request(), [
+            'email' => 'email|required|string|exists:users,email',
+            'password' => 'required|string'
+        ]);
+
+        if(Auth::attempt($credentials))
+        {
+            return redirect()->route('app.home')->with('status', 'Tu sesión ha iniciado exitosamente.');
+        }
+
+        return back()
+            ->withErrors($credentials['email'], 'No hemos podido iniciar sesión.')
+            ->withInput(request(['email']));
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('app.home');
+    }
+
     public function redirectTo()
     {
         $roles = [];
@@ -54,6 +76,6 @@ class LoginController extends Controller
 
         $array_json = json_encode($roles);
         Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
-        return redirect('app.dashboard');
+        return redirect('app.home');
     }
 }

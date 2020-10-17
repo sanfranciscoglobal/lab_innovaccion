@@ -43,10 +43,25 @@
                data-view="#modal-signin-view">
                 <i class="fe-user font-size-xl mr-2"></i>
             </a>
+            @if (Auth::check())
+            <div class="btn-group dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   {{ Auth::user()->name }}
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#" class="dropdown-item">Action</a>
+                    <a href="#" class="dropdown-item">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="{{ route('logout') }}" class="dropdown-item">Salir</a>
+                </div>
+            </div>
+            @else
             <a class="btn btn-translucent-light ml-grid-gutter d-none d-lg-inline-block navbar-btn"
                href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a>
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
-               href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a></div>
+               href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a>
+            @endif
+        </div>
         <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
             <div class="cs-offcanvas-cap navbar-box-shadow">
                 <h5 class="mt-1 mb-0">Menu</h5>
@@ -60,7 +75,7 @@
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Iniciativas</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/mapeo/">Mapeo</a></li>
-                            <li><a class="dropdown-item" href="/nuevas-iniciativas/">Nuevas iniciativas</a></li>
+                            <li><a class="dropdown-item" href="{{ route('app.iniciativa.create') }}">Nuevas iniciativas</a></li>
                             <li><a class="dropdown-item" href="/analitica/">Analítica</a></li>
                         </ul>
                     </li>
@@ -80,9 +95,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/fondos/">Fondos</a></li>
-                            <li><a class="dropdown-item" href="/eventos/">Eventos</a></li>
-                            <li><a class="dropdown-item" href="/material-de-aprendizaje/">Material de aprendizaje</a></li>
+                            <li><a class="dropdown-item" href="{{route('app.fondos')}}">Fondos</a></li>
+                            <li><a class="dropdown-item" href="{{route('app.eventos')}}">Eventos</a></li>
+                            <li><a class="dropdown-item" href="{{route('app.material-de-aprendizaje')}}">Material de aprendizaje</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

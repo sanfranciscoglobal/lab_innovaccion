@@ -19,6 +19,7 @@
     <meta name="msapplication-TileColor" content="#766df4">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+     {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <!-- Page loading styles-->
     <style>
@@ -95,6 +96,13 @@
             }
         }
 
+        .error-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1051;
+        }
+
     </style>
     <!-- Page loading scripts-->
     <script>
@@ -117,6 +125,14 @@
 </head>
 <!-- Body-->
 <body>
+
+    <div class="error-container" id="errorDiv">
+        @include('includes.session-flash-status')
+        @include('includes.validation-error')
+        {{-- {{ json_encode(session()->all()) }} --}}
+        {{-- {{ json_encode(Auth::user()) }} --}}
+    </div>
+
 <!-- Page loading spinner-->
 <div class="cs-page-loading active">
     <div class="cs-page-loading-inner">
@@ -140,15 +156,15 @@
                         <p class="font-size-ms text-muted">
                             Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su registro.
                         </p>
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate action="{{ route('login') }}" method="POST">
+                            @csrf
                             <div class="input-group-overlay form-group">
                                 <div class="input-group-prepend-overlay">
                                     <span class="input-group-text">
                                         <i class="fe-mail"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico"
-                                       required>
+                                <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico" name='email' required>
                             </div>
                             <div class="input-group-overlay cs-password-toggle form-group">
                                 <div class="input-group-prepend-overlay">
@@ -157,7 +173,7 @@
                                     </span>
                                 </div>
                                 <input class="form-control prepended-form-control" type="password"
-                                       placeholder="Contraseña" required>
+                                       placeholder="Contraseña" name="password" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -191,15 +207,16 @@
                         <!--
                         <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
                         -->
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
+                            @csrf
                             <div class="form-group">
-                                <input class="form-control" name="nombre" type="text" placeholder="Nombre Completo" required>
+                                <input class="form-control" name="name" type="text" placeholder="Nombre Completo" required>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" name="email" type="email" placeholder="Correo electrónico" required>
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="clave" type="password" placeholder="Contraseña" required>
+                                <input class="form-control" name="password" type="password" placeholder="Contraseña" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -207,7 +224,7 @@
                                 </label>
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="clave_confirm" type="password" placeholder="Confirme la contraseña" required>
+                                <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -253,6 +270,25 @@
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/helpers.js')}}"></script>
+<script>
+    var errorCard = $('#errorDiv .alert');
+    if (errorCard.length > 0){
+        var iteraction = 0;
+        var interval = setInterval(function(){
+            iteraction++;
+            if (iteraction == 10) {
+                errorCard.css({
+                    'transform':'translateX(400px)',
+                    'transition': 'all ease .2s'
+                })
+                setTimeout(function(){
+                    $('.close').click();
+                },2000)
+                clearInterval(interval);
+            }
+        }, 1000);
+    }
+</script>
 @yield('footer')
 {{--<script type="text/javascript">--}}
 {{--console.log(smoothScroll);--}}

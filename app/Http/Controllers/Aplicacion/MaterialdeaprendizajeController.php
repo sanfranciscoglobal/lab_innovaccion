@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Aplicacion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contacto\StorePost;
-use App\Models\Contacto;
+use App\Models\MaterialAprendizaje;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 
 class MaterialdeaprendizajeController extends Controller
 {
@@ -16,6 +18,10 @@ class MaterialdeaprendizajeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function verListadomateriales(Request $request)
     {
         return view('aplicacion.materialaprendizaje.verlistado');
@@ -31,6 +37,18 @@ class MaterialdeaprendizajeController extends Controller
     public function verFormularioregistromaterial(Request $request)
     {
         return view('aplicacion.materialaprendizaje.frmMaterial');
+    }
+    public function showForm(Request $request)
+    {
+        $material = new MaterialAprendizaje;
+        return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.post'),'method'=>'POST']);
+        
+    }
+ 
+    public function edit($id)
+    {
+        $material = MaterialAprendizaje::find($id);
+        return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
     }
 
 }
