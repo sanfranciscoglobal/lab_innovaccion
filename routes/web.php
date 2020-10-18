@@ -39,7 +39,7 @@ Route::as('app.')
             Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
-
+            Route::get('/innovacion/gestion/{id}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
             /**
              * Rutas iniciativas
              */
