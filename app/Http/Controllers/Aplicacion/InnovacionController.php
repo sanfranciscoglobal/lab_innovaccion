@@ -26,4 +26,16 @@ class InnovacionController extends Controller
     {
         return view('aplicacion.innovacion.create');
     }
+
+    public function frmGestionInnocavion(Request $request)
+    {
+        // Pasar el tipo de innovación para cargar el template correspondiente
+        /*
+         * 1. Abierta
+         * 2. Social
+         * 3. Publica
+         */
+        $innovacion = 3;
+        return view('aplicacion.innovacion.gestion.identificacion.create')->with(array('tipo' => $innovacion));
+    }
 }
