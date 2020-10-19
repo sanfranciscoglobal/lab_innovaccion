@@ -1,4 +1,4 @@
-@extends('layouts.corporativa.app')
+@extends('layouts.aplicacion.app')
 
 @section('content')
     <main id="main">
