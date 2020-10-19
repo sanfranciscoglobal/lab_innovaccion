@@ -232,7 +232,7 @@ class IniciativasController extends Controller
             $iniciativa->iniciativaInformacion()->delete();
             $iniciativa->delete();
             DB::commit();
-            return back()->with('status','Iniciativa eliminada exitosamente');
+            return back()->with('status', 'Iniciativa eliminada exitosamente');
         } catch (\Exception $e) {
             DB::rollback();
             throw $e;
@@ -298,10 +298,14 @@ class IniciativasController extends Controller
 
     public static function dataIniciativaContacto(Request $request, Iniciativas $iniciativa)
     {
+        $data = [];
         if ($request->has('iniciativa_contacto') && is_array($request->iniciativa_contacto)) {
             foreach ($request->iniciativa_contacto as $key => $contacto) {
                 $contacto['iniciativa_id'] = $iniciativa->id;
-                $data[$key] = $contacto;
+                if ($contacto['nombre_persona'] && $contacto['celular'] && $contacto['correo_electronico']) {
+                    $data[$key] = $contacto;
+                }
+
             }
 
             return $data;
