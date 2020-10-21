@@ -73,6 +73,8 @@ Route::as('app.')
             Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put');
             Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete');
 
+            Route::get('/evento', 'Aplicacion\EventosController@verEventos')->name('evento');
+
 
             /**
              * Material de aprendizaje
@@ -91,8 +93,8 @@ Route::as('app.')
              * Rutas iniciativas
              */
             Route::resource('iniciativas', 'Aplicacion\IniciativasController');
-            Route::get('/iniciativa', 'Aplicacion\IniciativasController@create')->name('iniciativa.create');
-            Route::post('/iniciativa/store', 'Aplicacion\IniciativasController@store')->name('iniciativa.store');
+            //Route::get('/iniciativa', 'Aplicacion\IniciativasController@create')->name('iniciativa.create');
+            //Route::post('/iniciativa/store', 'Aplicacion\IniciativasController@store')->name('iniciativa.store');
 
 
             /** Rutas Innovacion */

@@ -38,7 +38,7 @@
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam accusantium voluptatem pariatur
                         minima earum sequi, autem, alias, dolorum totam excepturi mollitia eveniet ut corrupti
                         exercitationem explicabo incidunt debitis possimus sapiente.</p>
-                    <p class="text-center"><a class="btn btn-primary" href="/app/registro-de-eventos/">Publicar evento</a>
+                    <p class="text-center"><a class="btn btn-primary" href="{{route('app.eventos')}}">Publicar evento</a>
                     </p>
                 </div>
             </div>
@@ -128,6 +128,44 @@
 
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <div class="row mb-4">
+            @foreach ($eventos as $evento)
+                
+                <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+                    <div class="card card-hover border-0 box-shadow mx-auto" style="max-width: 400px;">
+                        <img class="card-img-top" style="height: 58ch" src="{{asset('storage').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
+                        <div class="card-body">
+                            <h3 class="h5 mb-0 text-center"  >{{$evento->nombre}}</h3>
+                        </div>
+                        <div class="card-hover-info px-4 py-4">
+                            <h3 class="h5 text-center">{{$evento->nombre}}</h3>
+                            <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
+                            <p class="text-justify">{{$evento->descripcion}}</p>
+                            <p class="text-center font-weight-bold font-size-lg"><span>{{$evento->fecha}} - {{$evento->hora}}</span></p>
+                           
+                            @if ($evento->tipo)
+                               
+                                <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Presencial</span>
+                                <p class="text-justify">{{$evento->cantonid->nombre}}</p>
+                                <p class="text-justify">{{$evento->ubicacion}}</p>
+                                {{-- <p class="text-justify">{{$evento->org_lat}}</p>
+                                <p class="text-justify">{{$evento->org_long}}</p> --}}
+                                <div class="event-map w-100 mt-1"  style="min-height: 250px; background: red;"></div>
+                            @else
+                               
+                                <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Virtual</span>
+                                <p class="text-justify"><a Target="_blank" href="{{$evento->url}}" blank="_">{{$evento->url}}</a></p>
+                                <div class="w-100 mt-1"  style="min-height: 250px; background: white;"></div>
+                            @endif
+                            
+                           
+                                
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+            @endforeach
             <!-- Loop Start -->
             <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-hover border-0 box-shadow mx-auto" style="max-width: 400px;">

@@ -23,7 +23,8 @@ class EventosController extends Controller
 
     public function verEventos(Request $request)
     {
-        return view('aplicacion.eventos.eventos');
+        $eventos = Evento::all();
+        return view('aplicacion.eventos.eventos', compact('eventos'));
     }
 
     public function verFormularioeventos(Request $request)
