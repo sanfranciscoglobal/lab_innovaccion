@@ -17,7 +17,7 @@ class CreateIniciativasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('estado_registro_id');
             $table->unsignedBigInteger('iniciativa_origen_id');
-            $table->unsignedBigInteger('iniciativa_actor_id');
+            $table->unsignedBigInteger('iniciativa_actor_id')->nullable();
             $table->unsignedBigInteger('iniciativa_informacion_id');
 
             $table->foreign('estado_registro_id')

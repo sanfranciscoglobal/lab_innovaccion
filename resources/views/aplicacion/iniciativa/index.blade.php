@@ -117,7 +117,12 @@
                                     </div>
                                 </div>
                                 <p class="font-size-md text-justify">
-                                    {!! $iniciativa->iniciativaActor->enfoque !!}
+                                    @if($iniciativa->iniciativaActor)
+                                        {!! $iniciativa->iniciativaActor->enfoque !!}
+                                    @else
+                                        {!! $iniciativa->iniciativaInformacion->descripcion_iniciativa !!}
+                                    @endif
+
                                 </p>
                                 <div class="media media-ie-fix align-items-center mr-3">
                                     <img class="rounded-circle" width="42"
@@ -125,9 +130,13 @@
                                          alt="{{$iniciativa->iniciativaInformacion->logo}}"/>
                                     <div class="media-body pl-2 ml-1">
                                         <h6 class="font-size-sm mb-n1">
-                                            {{$iniciativa->iniciativaActor->nombre_organizacion}}
+                                            @if($iniciativa->iniciativaActor)
+                                                {!! $iniciativa->iniciativaActor->nombre_organizacion !!}
+                                            @else
+                                                {!! $iniciativa->iniciativaInformacion->componente_innovador !!}
+                                            @endif
                                         </h6>
-                                        <span class="font-size-xs text-muted">3 days ago</span>
+                                        {{--<span class="font-size-xs text-muted">3 days ago</span>--}}
 
                                     </div>
 
@@ -138,14 +147,15 @@
                                             <i class="fe-edit text-primary"></i>
                                         </a>
 
-                                        <a href="" data-toggle="modal" data-target="#deleteModal" data-id="{{ $iniciativa->id }}"
+                                        <a href="" data-toggle="modal" data-target="#deleteModal"
+                                           data-id="{{ $iniciativa->id }}"
                                            class="btn btn-outline-danger btn-icon">
                                             <i class="fe-trash-2 text-danger"></i>
                                         </a>
 
                                         {{--<a type="button" class="btn btn-outline-danger btn-icon" data-toggle="tooltip"--}}
-                                           {{--title="Eliminar" data-placement="bottom">--}}
-                                            {{--<i class="fe-trash-2 text-danger"></i>--}}
+                                        {{--title="Eliminar" data-placement="bottom">--}}
+                                        {{--<i class="fe-trash-2 text-danger"></i>--}}
                                         {{--</a>--}}
                                     </div>
                                 </div>
