@@ -28,11 +28,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="{{route('app.home')}}">
-            <img class="navbar-floating-logo d-none d-lg-block" width="153" src="{{asset('img/logo/logo-light.png')}}"
-                 alt="Around"/>
-            <img class="navbar-stuck-logo" width="153" src="{{asset('img/logo/logo-dark.png')}}"
-                 alt="Around"/>
-            <img class="d-lg-none" width="58" src="{{asset('img/logo/logo-icon.png')}}" alt="Around"/>
+            <img class="navbar-floating-logo d-none d-lg-block my-2" width="80" src="{{asset('img/logo/thinkia_color_slogan.svg')}}"
+                 alt="Thinkia - Laboratorio de innovación"/>
+            <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_color_no_slogan.svg')}}"
+                 alt="Thinkia - Laboratorio de innovación"/>
+            <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_color_no_slogan.svg')}}" alt="Thinkia - Laboratorio de innovación"/>
         </a>
         <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
             <a class="nav-link-style font-size-sm text-nowrap" href="#modal-signin" data-toggle="modal"
