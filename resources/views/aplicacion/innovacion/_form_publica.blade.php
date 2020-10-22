@@ -3,7 +3,7 @@
             <label for="innovacion_publica_sector_productivo" class="control-label">* Sector productivo</label>
             <select style="width:100%;" id="innovacion_publica_sector_productivo" name="innovacion_publica_sector_productivo"
                     class="form-control select2"
-                    data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                    data-ajax--url="{{route('api.tipo-sector.select2','3')}}"
                     data-ajax--data-type="json"
                     data-ajax--cache="true"
                     data-close-on-select="false"
@@ -34,7 +34,7 @@
             <label for="innovacion_publica_ods" class="control-label">* Objetivo de Desarrollo Sostenible (ODS)</label>
             <select style="width:100%;" id="innovacion_publica_ods" name="innovacion_publica_ods"
                     class="form-control select2"
-                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                    data-ajax--url="{{route('api.tipo-sector.select2','2')}}"
                     data-ajax--data-type="json"
                     data-ajax--cache="true"
                     data-close-on-select="false"

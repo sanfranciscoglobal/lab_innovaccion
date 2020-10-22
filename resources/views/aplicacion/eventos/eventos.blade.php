@@ -38,19 +38,34 @@
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam accusantium voluptatem pariatur
                         minima earum sequi, autem, alias, dolorum totam excepturi mollitia eveniet ut corrupti
                         exercitationem explicabo incidunt debitis possimus sapiente.</p>
-                    <p class="text-center"><a class="btn btn-primary" href="{{route('app.eventos')}}">Publicar evento</a>
-                    </p>
+                    @if ($autentificacion)
+                        <p class="text-center"><a class="btn btn-primary" href="{{route('app.eventos')}}">Publicar evento</a>
+                        </p>
+                    @endif
                 </div>
             </div>
         </div>
     </section>
     <section class="searchbar-container bg-secondary">
-        <form class="container">
+        <form class="container" action="{{route('eventos.search')}}" method="POST">
+            @csrf
+            @method("POST")
             <div class="d-lg-flex align-items-center px-4 pt-4 pb-3">
                 <div class="d-sm-flex align-items-center">
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                        <label class="form-label" for="to-destination">Tipo de evento</label>
+                        <select class="form-control custom-select" id="to-destination" name="tipoevento">
+                            <option value="" selected disabled hidden>Seleccione un tipo</option>
+                            <option value="2">Todos</option>
+                            <option value="0">Virtual</option>
+                            <option value="1">Presencial</option>
+
+                        </select>
+
+                    </div>
+                    <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label" for="from-destination">Ciudad</label>
-                        <select class="form-control custom-select" id="from-destination">
+                        {{-- <select class="form-control custom-select" id="from-destination">
                             <option value="" selected disabled hidden>Seleccione Ciudad</option>
                             <option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>
                             <option value="Amsterdam, NL">Amsterdam, NL</option>
@@ -63,27 +78,21 @@
                             <option value="Monaco, MON">Monaco, MON</option>
                             <option value="Moscow, RU">Moscow, RU</option>
                             <option value="Stockholm, SW">Stockholm, SW</option>
+                        </select> --}}
+                        <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
+                                data-ajax--url="{{route('api.canton.select2')}}"
+                                data-ajax--data-type="json"
+                                data-ajax--data-cache="true"
+                                data-allow-clear="true"
+                                data-placeholder="Seleccione un Canton"
+                                data-close-on-select="false"
+                                disabled
+                                multiple>
                         </select>
                     </div>
-                    <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                        <label class="form-label" for="to-destination">Tipo de agente</label>
-                        <select class="form-control custom-select" id="to-destination">
-                            <option value="" selected disabled hidden>Seleccione un tipo</option>
-                            <option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>
-                            <option value="Amsterdam, NL">Amsterdam, NL</option>
-                            <option value="Berlin, GER"> Berlin, GER</option>
-                            <option value="Brussels, BE"> Brussels, BE</option>
-                            <option value="Buenos Aires, ARG">Buenos Aires, ARG</option>
-                            <option value="Canberra, AU">Canberra, AU</option>
-                            <option value="London, UK">London, UK</option>
-                            <option value="Madrid, SP">Madrid, SP</option>
-                            <option value="Monaco, MON">Monaco, MON</option>
-                            <option value="Moscow, RU">Moscow, RU</option>
-                            <option value="Stockholm, SW">Stockholm, SW</option>
-                        </select>
-                    </div>
+                    
                 </div>
-                <div class="d-sm-flex align-items-center">
+                {{-- <div class="d-sm-flex align-items-center">
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label">Objetivo de Desarrollo Sostenible (ODS)</label>
                         <select class="form-control custom-select" id="to-destination">
@@ -117,7 +126,7 @@
                             <option value="Moscow, RU">Moscow, RU</option>
                             <option value="Stockholm, SW">Stockholm, SW</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="text-center text-sm-left mt-2 mt-sm-4 mb-4">
                         <button class="btn btn-primary" type="submit">Filtrar</button>
                     </div>
@@ -240,30 +249,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Hackaton</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/03.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Conferencia de innovación</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/01.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Webinar de innovación</h3>
-                    </div>
-                </a>
-            </div>
+            
         </div>
     </section>
     <aside>
@@ -304,4 +290,26 @@
         </div>
     </aside>
 
+@endsection
+@section('footer')
+<script>
+    $(document.body).on("change","#to-destination",function(){
+    
+    $("#from-destination").empty();
+    if (this.value==1) {
+        
+        $("#from-destination").removeAttr('disabled');
+         
+    }
+    else{
+       
+        $("#from-destination").attr('disabled','disabled');   
+
+    }
+    
+
+    });
+
+</script>
+    
 @endsection

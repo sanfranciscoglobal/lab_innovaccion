@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,7 @@ Route::get('/verificacion', function(){
 })->name('verification.notice');
 
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
+Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
@@ -41,6 +43,11 @@ Route::as('app.')
     ->prefix('app')
     ->group(
         function () {
+
+            /*
+             Rutas contacto
+             */  
+
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
 
@@ -67,13 +74,11 @@ Route::as('app.')
             /**
              * Rutas Eventos
              */
-            Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos');
-            Route::get('/eventos/{id}/{slug}', 'Aplicacion\EventosController@edit')->name('eventos.edit');
-            Route::post('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.post');
-            Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put');
-            Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete');
-
-            Route::get('/evento', 'Aplicacion\EventosController@verEventos')->name('evento');
+            Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos')->middleware('auth');
+            Route::get('/eventos/{id}/{slug}', 'Aplicacion\EventosController@edit')->name('eventos.edit')->middleware('auth');
+            Route::post('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.post')->middleware('auth');
+            Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put')->middleware('auth');
+            Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete')->middleware('auth');
 
 
             /**
@@ -104,7 +109,7 @@ Route::as('app.')
             /**
              * Rutas Admin
              */
-            Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio');
+            Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');
 
             Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
