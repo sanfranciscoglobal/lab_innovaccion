@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left">
-                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/layout/home/01.svg') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/mapa.svg') }}"
                             alt="Icon" />
                         <h3 class="h5 mb-2">Mapa</h3>
                         <p class="font-size-sm">Find aute irure dolor in reprehend in voluptate velit esse cillum dolore eu
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left">
-                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/layout/home/02.svg') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bloc.svg') }}"
                             alt="Icon" />
                         <h3 class="h5 mb-2">Recursos</h3>
                         <p class="font-size-sm">Find aute irure dolor in reprehend in voluptate velit esse cillum dolore eu
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left">
-                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/layout/home/03.svg') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bombilla.svg') }}"
                             alt="Icon" />
                         <h3 class="h5 mb-2">Gestión de la Innovación</h3>
                         <p class="font-size-sm">Find aute irure dolor in reprehend in voluptate velit esse cillum dolore eu
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left">
-                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/layout/home/04.svg') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/lupa.svg') }}"
                             alt="Icon" />
                         <h3 class="h5 mb-2">Ecosistema de Innovación</h3>
                         <p class="font-size-sm">Find aute irure dolor in reprehend in voluptate velit esse cillum dolore eu
@@ -56,15 +56,24 @@
             <div class="col-md-6 px-3 pl-xl-0 pr-lg-5 pr-xl-7 py-2 py-lg-4 order-md-1">
                 <div class="ml-md-auto mr-sm-7 py-5 my-sm-0 py-md-6 py-lg-7 text-white" style="max-width: 400px;">
                     <h2 class="mb-3 pb-1 text-white">Laboratorio de Innovación</h2>
-                    <p>Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint.</p>
+                    <p>Thinkia es un espacio que promueve el encuentro de diversos actores - academia, público, privado y sociedad civil - para trabajar de manera colaborativa y creativa en innovación. </p>
                     <ul class="list-unstyled font-size-sm">
-                        <li class="d-flex align-items-center"><i
-                                class="fe-check-circle font-size-lg mr-2"></i><span>Excepteur sint</span></li>
-                        <li class="d-flex align-items-center"><i class="fe-check-circle font-size-lg mr-2"></i><span>Quam
-                                lacus suspendisse</span></li>
-                        <li class="d-flex align-items-center"><i
-                                class="fe-check-circle font-size-lg mr-2"></i><span>Elementum pulvinar etiam</span></li>
+                        <li class="d-flex align-items-center">
+                            <i class="fe-check-circle font-size-lg mr-2"></i>
+                            <span>Conoce y conéctate con otros innovadores. </span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fe-check-circle font-size-lg mr-2"></i>
+                            <span>Aprende y profundiza sobre metodologías de innovación.</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fe-check-circle font-size-lg mr-2"></i>
+                            <span>Comparte tus retos e intenta darles una solución desde otro enfoque.</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fe-check-circle font-size-lg mr-2"></i>
+                            <span>Propón soluciones efectivas y de ágil implementación.</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -103,6 +112,11 @@
                             <h3 class="h5 mb-0 text-center">Webinar de innovación</h3>
                         </div>
                     </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a class="btn btn-primary" href="/eventos/">Ver más</a>
                 </div>
             </div>
         </div>
@@ -228,29 +242,21 @@
     <!-- Statistics (Digits)-->
     <section class="container py-4 pt-md-6 pt-lg-7 pb-md-5">
         <div class="row pb-lg-4 pt-3">
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">3</h3>
-                <p class="text-muted font-size-lg mb-0">Lorem ipsum</p>
+            <div class="col-lg-2 offset-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
+                <h3 class="display-2 font-weight-normal mb-0">8050</h3>
+                <p class="text-muted font-size-lg mb-0">Visitas</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">10</h3>
-                <p class="text-muted font-size-lg mb-0">Lorem ipsum</p>
+                <h3 class="display-2 font-weight-normal mb-0">1500</h3>
+                <p class="text-muted font-size-lg mb-0">Actores mapeados</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">6+</h3>
-                <p class="text-muted font-size-lg mb-0">Lorem ipsum</p>
+                <h3 class="display-2 font-weight-normal mb-0">40</h3>
+                <p class="text-muted font-size-lg mb-0">Retos resueltos</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">8</h3>
-                <p class="text-muted font-size-lg mb-0">Lorem ipsum</p>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">5</h3>
-                <p class="text-muted font-size-lg mb-0">Lorem ipsum</p>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">900</h3>
-                <p class="text-muted font-size-lg mb-0">Lorem ipsum</p>
+                <h3 class="display-2 font-weight-normal mb-0">18</h3>
+                <p class="text-muted font-size-lg mb-0">Convocatorias de innovación</p>
             </div>
         </div>
     </section>
