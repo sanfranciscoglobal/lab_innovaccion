@@ -28,7 +28,7 @@ Route::get('/verificacion', function(){
 })->name('verification.notice');
 
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
-Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
+//Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
@@ -123,6 +123,13 @@ Route::as('admin.')
            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
        }
    );
+
+Route::as('web.')
+    ->group(
+        function () {
+            Route::resource('iniciativas', 'Web\IniciativasController');
+        }
+    );
 
 //// Autenticate
 //Auth::routes();

@@ -37,6 +37,14 @@ class Iniciativas extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function iniciativaUbicaciones()
     {
         return $this->hasMany(IniciativaUbicacion::class, 'iniciativa_id', 'id');
@@ -72,6 +80,70 @@ class Iniciativas extends Model
     public function iniciativaContactos()
     {
         return $this->hasMany(IniciativaContacto::class, 'iniciativa_id', 'id');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNombreOrganizacionAttribute()
+    {
+        return ($this->iniciativaActor) ? $this->iniciativaActor->nombre_organizacion : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getEnfoqueAttribute()
+    {
+        return ($this->iniciativaActor) ? $this->iniciativaActor->enfoque : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNombreIniciativaAttribute()
+    {
+        return ($this->iniciativaInformacion) ? $this->iniciativaInformacion->nombre_iniciativa : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLogoAttribute()
+    {
+        return ($this->iniciativaInformacion) ? $this->iniciativaInformacion->logo : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescripcionIniciativaAttribute()
+    {
+        return ($this->iniciativaInformacion) ? $this->iniciativaInformacion->descripcion_iniciativa : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUserNameAttribute()
+    {
+        return ($this->user) ? $this->user->name : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUserEmailAttribute()
+    {
+        return ($this->user) ? $this->user->email : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUserCelularAttribute()
+    {
+        return ($this->user->perfilUser) ? $this->user->perfilUser->celular : null;
     }
 
     /**
