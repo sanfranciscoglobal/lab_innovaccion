@@ -99,18 +99,18 @@
                                     <label for="mat_tema">* Tema tratado</label>
                                     <select class="form-control select2" name="tema_tratado" required>
                                         <option value="">Seleccione un tema</option>
-                                        <option value="1" {{old('tema_tratado',$material->tema_tratado)=="1"? 'selected':''}}>Tema 1</option>
-                                        <option value="2" {{old('tema_tratado',$material->tema_tratado)=="1"? 'selected':''}}>Tema 2</option>
-                                        <option value="3" {{old('tema_tratado',$material->tema_tratado)=="1"? 'selected':''}}>Tema 3</option>
+                                        <option value="Tema 1" {{old('tema_tratado',$material->tema_tratado)=="Tema 1"? 'selected':''}}>Tema 1</option>
+                                        <option value="Tema 2" {{old('tema_tratado',$material->tema_tratado)=="Tema 2"? 'selected':''}}>Tema 2</option>
+                                        <option value="Tema 3" {{old('tema_tratado',$material->tema_tratado)=="Tema 3"? 'selected':''}}>Tema 3</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="mat_tipo">* Tipo de Documento</label>
                                     <select class="form-control select2" name="tipo_documento" required>
                                         <option value="">Seleccione un Tipo</option>                                                          
-                                        <option value="1" {{old('tipo_documento',$material->tipo_documento)=="1"? 'selected':''}}>Tipo 1</option>
-                                        <option value="2" {{old('tipo_documento',$material->tipo_documento)=="2"? 'selected':''}}>Tipo 2</option>
-                                        <option value="3" {{old('tipo_documento',$material->tipo_documento)=="3"? 'selected':''}}>Tipo 3</option>
+                                        <option value="Tipo 1" {{old('tipo_documento',$material->tipo_documento)=="Tipo 1"? 'selected':''}}>Tipo 1</option>
+                                        <option value="Tipo 2" {{old('tipo_documento',$material->tipo_documento)=="Tipo 2"? 'selected':''}}>Tipo 2</option>
+                                        <option value="Tipo 3" {{old('tipo_documento',$material->tipo_documento)=="Tipo 3"? 'selected':''}}>Tipo 3</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

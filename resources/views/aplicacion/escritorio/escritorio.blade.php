@@ -13,7 +13,9 @@
             <!-- Sidebar-->
             @include('aplicacion.escritorio._sidebar_escritorio')
             <!-- Content-->
-            @include('aplicacion.escritorio._content_escritorio')
+            {{-- @include('aplicacion.escritorio._content_escritorio') --}}
+
+            @yield('contenido')
 
         </div>
     </div>

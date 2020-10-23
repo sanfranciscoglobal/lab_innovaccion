@@ -111,6 +111,8 @@
                                                                         data-ajax--url="{{route('api.canton.select2')}}"
                                                                         data-ajax--data-type="json"
                                                                         data-ajax--data-cache="true"
+                                                                        data-allow-clear="true"
+                                                                        data-placeholder="Seleccione un Canton"
                                                                         data-close-on-select="false"
                                                                         required="required"></select>
                                                 
