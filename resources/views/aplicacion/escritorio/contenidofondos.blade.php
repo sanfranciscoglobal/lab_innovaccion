@@ -3,7 +3,7 @@
 <div class="col-lg-9">
     <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
         <div class="py-2 p-md-3">
-            <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
+            <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left border-bottom">
                 <h1 class="h3 mb-2 text-nowrap">Fondos Registrados <span class="badge badge-secondary ml-1">{{ $fondos->count() }}</span></h1>
                 <a href="{{route('app.fondos')}}" class="btn btn-primary">
                     <i class="fe fe-plus mr-1"></i>
@@ -32,7 +32,7 @@
                         <p>{{ $fondo->organizacion }}</p>
                     </div>
                     <div class="media media-ie-fix align-items-center mr-3">
-                        <img class="rounded-circle" width="100"
+                        <img class="" width="100"
                              src="{{ asset('storage/'.$fondo->imagen) }}"
                              alt="{{$fondo->nombre_fondo}}"/>
                         <div class="media-body pl-2 ml-1">
@@ -50,7 +50,7 @@
                     <span class="text-muted">Se muestran 4 de {{ $fondos->count() }} fondos</span>
                 </div>
                 <div class="col-sm-4 text-right">
-                    <button type="button" class="btn btn-link">Cargar más fondos</button>
+                    <button type="button" class="btn btn-outline-primary btn-sm">Cargar más fondos</button>
                 </div>
             </div>
         </div>

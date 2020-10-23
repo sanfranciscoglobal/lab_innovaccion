@@ -26,7 +26,8 @@ class FondosController extends Controller
      */
     public function verFondos(Request $request)
     {
-        $fondos = Fondo::all();
+        Fondo::$paginate = 2;
+        $fondos = Fondo::obtenerPaginate();
         return view('aplicacion.fondos.fondos', compact('fondos'));
     }
 

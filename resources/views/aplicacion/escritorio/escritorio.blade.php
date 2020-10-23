@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="position-relative" style="height: 480px;"></div>
-    <div class="container bg-overlay-content pb-4 mb-md-3" style="margin-top: -350px;">
+    <div class="container bg-overlay-content pb-4 mb-md-3" style="margin-top: -310px;">
         <div class="row">
             <!-- Sidebar-->
             @include('aplicacion.escritorio._sidebar_escritorio')

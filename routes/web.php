@@ -56,10 +56,10 @@ Route::as('app.')
             /**
              * Rutas Usuarios
              */
-            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@show')->name('registro');
-            Route::get('/datos-del-usuario/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
-            Route::post('/datos-del-usuario/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
-            Route::put('/datos-del-usuario/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
+            Route::get('/perfil', 'Aplicacion\RegistroController@show')->name('registro');
+            Route::get('/perfil/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
+            Route::post('/perfil/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
+            Route::put('/perfil/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
             Route::delete('/usuario/delete/{user}', 'Aplicacion\RegistroController@destroy')->name('user.delete');
 
 
@@ -113,18 +113,7 @@ Route::as('app.')
             Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');
             Route::get('/escritorio/eventos', 'Aplicacion\EscritorioController@verEventos')->name('escritorio.eventos')->middleware('auth');
             Route::get('/escritorio/material', 'Aplicacion\EscritorioController@verMateriales')->name('escritorio.material')->middleware('auth');
-
-
-            /**
-             * Rutas Admin
-             */
-            Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio');
-
             Route::get('/escritorio/fondos', 'Aplicacion\EscritorioController@verFondos')->name('escritorio.fondos');
-
-
-            Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
-            Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
 
         }
     );
