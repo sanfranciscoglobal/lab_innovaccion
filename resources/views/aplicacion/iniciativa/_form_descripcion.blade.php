@@ -87,9 +87,7 @@
                     <div class="form-group">
                         <label class="control-label">* Descripción de la Iniciativa (max.100 palabras) </label>
                         <textarea class="form-control" name="descripcion_iniciativa" id="descripcion_iniciativa"
-                                  rows="20" required="required">
-                            {{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}
-                        </textarea>
+                                  rows="20" required="required">{{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}</textarea>
                     </div>
                 </div>
             </div>
@@ -99,7 +97,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="evento_img">* Logotipo</label>
-                        <input type="file" class="dropify" name="logo" id="logo"
+                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" name="logo" id="logo"
                                {{($model->iniciativaInformacion)?'':'required'}}
                                data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"
                         >

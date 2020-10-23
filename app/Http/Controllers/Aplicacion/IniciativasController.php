@@ -38,6 +38,13 @@ class IniciativasController extends Controller
         return view('aplicacion.iniciativa.index', compact('iniciativas'));
     }
 
+    public function listado(Request $request)
+    {
+        Iniciativas::$paginate = 2;
+        $iniciativas = Iniciativas::obtenerIniciativasPaginate();
+        return view('aplicacion.iniciativa.iniciativas', compact('iniciativas'));
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

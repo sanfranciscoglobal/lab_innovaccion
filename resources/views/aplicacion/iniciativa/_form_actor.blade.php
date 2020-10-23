@@ -56,9 +56,7 @@
                     <label class="control-label">* Enfoque: ¿Qué trabajo hace la organización? (max.100
                         palabras) </label>
                     <textarea class="form-control" name="enfoque" id="enfoque" rows="6"
-                              required="required">
-                        {{($model->iniciativaActor)?$model->iniciativaActor->enfoque:''}}
-                    </textarea>
+                              required="required">{{($model->iniciativaActor)?$model->iniciativaActor->enfoque:''}}</textarea>
                 </div>
             </div>
         </div>
