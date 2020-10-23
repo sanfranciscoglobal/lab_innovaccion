@@ -24,6 +24,10 @@
             z-index: 99;
             background: white;
         }
+        .custom-select {
+            width:250px;
+            max-width: 250px;
+        }
 
     </style>
 @endsection
@@ -43,11 +47,11 @@
         <form class="container" action="{{route('web.iniciativas.index')}}" method="POST">
             @method('POST')
             @csrf
-            <div class="d-lg-flex align-items-center px-4 pt-4 pb-3">
-                <div class="d-sm-flex align-items-center">
+            <div class="d-lg-flex align-items-start px-4 pt-4 pb-3">
+                <div class="d-sm-flex align-items-start">
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label" for="from-destination">Ciudad</label>
-                        <select style="width:100%;" id="canton_id" class="form-control custom-select select2"
+                        <select id="canton_id" class="form-control custom-select select2"
                                 name="canton_id"
                                 data-ajax--url="{{route('api.canton.select2')}}"
                                 data-ajax--data-type="json"
@@ -75,7 +79,7 @@
                     </div>
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label" for="to-destination">Tipo Instituci&oacute;n</label>
-                        <select style="width:100%;" id="tipo_institucion" name="tipo_institucion[]"
+                        <select id="tipo_institucion" name="tipo_institucion[]"
                                 class="form-control custom-select select2"
                                 data-ajax--url="{{route('api.tipo-institucion.select2')}}"
                                 data-ajax--data-type="json"
@@ -105,7 +109,7 @@
                         {{--</select>--}}
                     </div>
                 </div>
-                <div class="d-sm-flex align-items-center">
+                <div class="d-sm-flex align-items-start">
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label">Objetivo de Desarrollo Sostenible (ODS)</label>
                         <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
