@@ -34,7 +34,7 @@
             @foreach ($fondos as $fondo)
             @php
                 $img = isset($fondo->imagen) ? $fondo->imagen : '';
-                $img = Storage::disk('public')->exists($img) ? asset('/storage/app/public/'.$img) : asset('img/logo/thinkia_color_no_slogan.svg');
+                $img = Storage::disk('public')->exists($img) ? asset('storage/'.$img) : asset('img/logo/thinkia_color_no_slogan.svg');
             @endphp
             <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
