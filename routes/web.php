@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +28,7 @@ Route::get('/verificacion', function(){
 })->name('verification.notice');
 
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
+//Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
 Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');
 Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
@@ -141,6 +141,13 @@ Route::as('admin.')
            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
        }
    );
+
+Route::as('web.')
+    ->group(
+        function () {
+            Route::resource('iniciativas', 'Web\IniciativasController');
+        }
+    );
 
 //// Autenticate
 //Auth::routes();
