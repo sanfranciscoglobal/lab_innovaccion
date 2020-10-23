@@ -14,6 +14,18 @@
                 Problemas reportados
                 <span class="text-muted font-size-sm font-weight-normal ml-auto">18</span>
             </a>
+            <a class="d-flex align-items-center nav-link-style px-4 py-3" href="{{route('app.escritorio.fondos')}}">
+                Fondos registrados
+                <span class="text-muted font-size-sm font-weight-normal ml-auto">5</span>
+            </a>
+            <a class="d-flex align-items-center nav-link-style px-4 py-3" href="{{route('app.escritorio.eventos')}}">
+                Eventos registrados
+                <span class="text-muted font-size-sm font-weight-normal ml-auto">5</span>
+            </a>
+            <a class="d-flex align-items-center nav-link-style px-4 py-3" href="{{route('app.escritorio.material')}}">
+                Materiales registrados
+                <span class="text-muted font-size-sm font-weight-normal ml-auto">1</span>
+            </a>
             <a class="d-flex align-items-center nav-link-style px-4 py-3" href="#">Mi Perfil</a>
             <a class="d-flex align-items-center nav-link-style px-4 py-3 border-top" href="#">
                 Cerrar sesión

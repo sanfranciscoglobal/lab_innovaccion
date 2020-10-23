@@ -15,7 +15,7 @@ use App\Models\Fondo;
 class FondosController extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified'])->except('verFondos');
         $this->middleware('acceso-app:user,admin,superadmin')->except('verFondos');
     }
 
@@ -26,7 +26,8 @@ class FondosController extends Controller
      */
     public function verFondos(Request $request)
     {
-        return view('aplicacion.fondos.fondos');
+        $fondos = Fondo::all();
+        return view('aplicacion.fondos.fondos', compact('fondos'));
     }
 
     public function showForm(Request $request)

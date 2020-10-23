@@ -16,7 +16,6 @@ class TipoInstitucionController extends Controller
         foreach ($tipoInstituciones as $tipoInstitucion) {
             $data[] = ['id' => $tipoInstitucion->id, 'text' => $tipoInstitucion->descripcion];
         }
-
         return $data;
     }
 }
