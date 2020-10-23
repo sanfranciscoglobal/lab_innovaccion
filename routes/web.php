@@ -146,6 +146,7 @@ Route::as('web.')
     ->group(
         function () {
             Route::resource('iniciativas', 'Web\IniciativasController');
+            Route::post('iniciativas', 'Web\IniciativasController@index')->name('iniciativas.index');
         }
     );
 

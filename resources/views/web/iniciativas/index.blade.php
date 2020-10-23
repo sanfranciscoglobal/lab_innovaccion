@@ -48,30 +48,15 @@
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label" for="from-destination">Ciudad</label>
                         <select style="width:100%;" id="canton_id" class="form-control custom-select select2"
-                                name="canton_id"
+                                name="canton_id[]"
                                 data-ajax--url="{{route('api.canton.select2')}}"
                                 data-ajax--data-type="json"
                                 data-ajax--cache="true"
-                                required="required">
-                            {{--@if($model->iniciativaActor)--}}
-                            {{--<option value="{{$model->iniciativaActor->canton_id}}"--}}
-                            {{--selected>{{$model->iniciativaActor->canton->nombre}}</option>--}}
-                            {{--@endif--}}
+                                required="required" multiple>
+                            @foreach($cantones as $canton)
+                                <option value="{{$canton->id}}" selected>{{$canton->nombre}}</option>
+                            @endforeach
                         </select>
-                        {{--<select class="form-control custom-select" id="from-destination">--}}
-                        {{--<option value="" selected disabled hidden>Seleccione Ciudad</option>--}}
-                        {{--<option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>--}}
-                        {{--<option value="Amsterdam, NL">Amsterdam, NL</option>--}}
-                        {{--<option value="Berlin, GER"> Berlin, GER</option>--}}
-                        {{--<option value="Brussels, BE"> Brussels, BE</option>--}}
-                        {{--<option value="Buenos Aires, ARG">Buenos Aires, ARG</option>--}}
-                        {{--<option value="Canberra, AU">Canberra, AU</option>--}}
-                        {{--<option value="London, UK">London, UK</option>--}}
-                        {{--<option value="Madrid, SP">Madrid, SP</option>--}}
-                        {{--<option value="Monaco, MON">Monaco, MON</option>--}}
-                        {{--<option value="Moscow, RU">Moscow, RU</option>--}}
-                        {{--<option value="Stockholm, SW">Stockholm, SW</option>--}}
-                        {{--</select>--}}
                     </div>
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label" for="to-destination">Tipo Instituci&oacute;n</label>
@@ -82,27 +67,13 @@
                                 data-ajax--cache="true"
                                 data-close-on-select="false"
                                 required="required" multiple>
-                            {{--@if($model->iniciativaInstituciones)--}}
-                            {{--@foreach($model->iniciativaInstituciones as $institucion)--}}
-                            {{--<option value="{{$institucion->tipo_institucion_id}}"--}}
-                            {{--selected>{{$institucion->tipoInstitucion->descripcion}}</option>--}}
-                            {{--@endforeach--}}
-                            {{--@endif--}}
+                            @foreach($tipoInstituciones as $tipoInstitucion)
+                                <option value="{{$tipoInstitucion->id}}"
+                                        selected>
+                                    {{$tipoInstitucion->descripcion}}
+                                </option>
+                            @endforeach
                         </select>
-                        {{--<select class="form-control custom-select" id="to-destination">--}}
-                        {{--<option value="" selected disabled hidden>Seleccione un tipo</option>--}}
-                        {{--<option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>--}}
-                        {{--<option value="Amsterdam, NL">Amsterdam, NL</option>--}}
-                        {{--<option value="Berlin, GER"> Berlin, GER</option>--}}
-                        {{--<option value="Brussels, BE"> Brussels, BE</option>--}}
-                        {{--<option value="Buenos Aires, ARG">Buenos Aires, ARG</option>--}}
-                        {{--<option value="Canberra, AU">Canberra, AU</option>--}}
-                        {{--<option value="London, UK">London, UK</option>--}}
-                        {{--<option value="Madrid, SP">Madrid, SP</option>--}}
-                        {{--<option value="Monaco, MON">Monaco, MON</option>--}}
-                        {{--<option value="Moscow, RU">Moscow, RU</option>--}}
-                        {{--<option value="Stockholm, SW">Stockholm, SW</option>--}}
-                        {{--</select>--}}
                     </div>
                 </div>
                 <div class="d-sm-flex align-items-center">
@@ -114,27 +85,12 @@
                                 data-ajax--cache="true"
                                 data-close-on-select="false"
                                 required="required" multiple>
-                            {{--@if($model->iniciativaOds)--}}
-                            {{--@foreach($model->iniciativaOds as $ods)--}}
-                            {{--<option value="{{$ods->ods_categoria_id}}"--}}
-                            {{--selected>{{$ods->odsCategoria->nombre}}</option>--}}
-                            {{--@endforeach--}}
-                            {{--@endif--}}
+                            @foreach($odsCategorias as $odsCategoria)
+                                <option value="{{$odsCategoria->id}}" selected>
+                                    {{$odsCategoria->nombre}}
+                                </option>
+                            @endforeach
                         </select>
-                        {{--<select class="form-control custom-select" id="to-destination">--}}
-                        {{--<option value="" selected disabled hidden>Seleccione un ODS</option>--}}
-                        {{--<option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>--}}
-                        {{--<option value="Amsterdam, NL">Amsterdam, NL</option>--}}
-                        {{--<option value="Berlin, GER"> Berlin, GER</option>--}}
-                        {{--<option value="Brussels, BE"> Brussels, BE</option>--}}
-                        {{--<option value="Buenos Aires, ARG">Buenos Aires, ARG</option>--}}
-                        {{--<option value="Canberra, AU">Canberra, AU</option>--}}
-                        {{--<option value="London, UK">London, UK</option>--}}
-                        {{--<option value="Madrid, SP">Madrid, SP</option>--}}
-                        {{--<option value="Monaco, MON">Monaco, MON</option>--}}
-                        {{--<option value="Moscow, RU">Moscow, RU</option>--}}
-                        {{--<option value="Stockholm, SW">Stockholm, SW</option>--}}
-                        {{--</select>--}}
                     </div>
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label">Población Objetivo</label>
@@ -145,27 +101,12 @@
                                 data-ajax--cache="true"
                                 data-close-on-select="false"
                                 required="required" multiple>
-                            {{--@if($model->iniciativaPoblaciones)--}}
-                            {{--@foreach($model->iniciativaPoblaciones as $poblacion)--}}
-                            {{--<option value="{{$poblacion->tipo_poblacion_id}}"--}}
-                            {{--selected>{{$poblacion->tipoPoblacion->descripcion}}</option>--}}
-                            {{--@endforeach--}}
-                            {{--@endif--}}
+                            @foreach($tipoPoblaciones as $tipoPoblacion)
+                                <option value="{{$tipoPoblacion->id}}" selected>
+                                    {{$tipoPoblacion->descripcion}}
+                                </option>
+                            @endforeach
                         </select>
-                        {{--<select class="form-control custom-select" id="to-destination">--}}
-                        {{--<option value="" selected disabled hidden>Seleccione una poblacion</option>--}}
-                        {{--<option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>--}}
-                        {{--<option value="Amsterdam, NL">Amsterdam, NL</option>--}}
-                        {{--<option value="Berlin, GER"> Berlin, GER</option>--}}
-                        {{--<option value="Brussels, BE"> Brussels, BE</option>--}}
-                        {{--<option value="Buenos Aires, ARG">Buenos Aires, ARG</option>--}}
-                        {{--<option value="Canberra, AU">Canberra, AU</option>--}}
-                        {{--<option value="London, UK">London, UK</option>--}}
-                        {{--<option value="Madrid, SP">Madrid, SP</option>--}}
-                        {{--<option value="Monaco, MON">Monaco, MON</option>--}}
-                        {{--<option value="Moscow, RU">Moscow, RU</option>--}}
-                        {{--<option value="Stockholm, SW">Stockholm, SW</option>--}}
-                        {{--</select>--}}
                     </div>
                     <div class="text-center text-sm-left mt-2 mt-sm-4 mb-4">
                         <button class="btn btn-primary" type="submit">Aplicar</button>
