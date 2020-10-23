@@ -29,6 +29,7 @@ Route::get('/verificacion', function(){
 })->name('verification.notice');
 
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
+Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
 Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');
 Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
@@ -47,7 +48,7 @@ Route::as('app.')
 
             /*
              Rutas contacto
-             */  
+             */
 
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
@@ -117,7 +118,11 @@ Route::as('app.')
             /**
              * Rutas Admin
              */
-           
+            Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio');
+
+            Route::get('/escritorio/fondos', 'Aplicacion\EscritorioController@verFondos')->name('escritorio.fondos');
+
+
             Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
             Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
 
