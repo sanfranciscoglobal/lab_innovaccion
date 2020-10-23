@@ -1,4 +1,5 @@
-
+@extends('aplicacion.escritorio.escritorio')
+@section('contenido')
 <div class="col-lg-9">
     <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
         <div class="py-2 p-md-3">
@@ -29,3 +30,4 @@
         </div>
     </div>
 </div>
+@endsection

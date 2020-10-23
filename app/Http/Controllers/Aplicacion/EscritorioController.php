@@ -21,7 +21,7 @@ class EscritorioController extends Controller
      */
     public function verEscritorio(Request $request)
     {
-        return view('aplicacion.escritorio.escritorio');
+        return view('aplicacion.escritorio._content_escritorio');
     }
 
     public function verEventos(Request $request)
