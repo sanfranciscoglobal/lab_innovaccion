@@ -19,6 +19,7 @@ class CreateIniciativasTable extends Migration
             $table->unsignedBigInteger('iniciativa_origen_id');
             $table->unsignedBigInteger('iniciativa_actor_id')->nullable();
             $table->unsignedBigInteger('iniciativa_informacion_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->foreign('estado_registro_id')
                 ->references('id')
@@ -38,6 +39,12 @@ class CreateIniciativasTable extends Migration
             $table->foreign('iniciativa_informacion_id')
                 ->references('id')
                 ->on('iniciativa_informacion')->constrained()
+                ->onDelete('cascade');
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->constrained()
                 ->onDelete('cascade');
 
             $table->timestamps();
