@@ -179,5 +179,59 @@
     };
 
 </script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        var listasectores=[];
+        var idsubsector;
+        // alert('entro');
+         //recargarlista(listasectores,idsubsector);
+        $('#innovacion_abierta_sector_productivo').change(function(){
+            idsubsector='#innovacion_abierta_subsector_productivo';
+            listasectores=$('#innovacion_abierta_sector_productivo').val();
+            recargarlista(listasectores,idsubsector);
+        });
+        $('#innovacion_publica_sector_productivo').change(function(){
+            idsubsector='#innovacion_publica_subsector_productivo';
+            listasectores=$('#innovacion_publica_sector_productivo').val();
+            recargarlista(listasectores,idsubsector);
+        });
+    
+
+    });
+
+</script>
+<script type="text/javascript">
+
+    
+    function recargarlista(listasectores,idsubsector){
+
+        if (listasectores.length!=0){
+            console.log(listasectores);
+            $.ajax({
+
+                type:"POST",
+                url:"{{route('api.tipo-subsector.select2')}}",
+                //data:"listasectores="+ listasectores,
+                data: { listasectores1: JSON.stringify(listasectores)} ,
+                
+                success:function(r){
+                    $(idsubsector).find('option').remove();
+                    $(r).each(function(i,v){
+                        $(idsubsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
+                    });
+                },
+                error:function(){
+                    alert('Ocurrio un error en el servidor ..');
+                }
+
+            });
+        }
+        else{
+            $(idsubsector).find('option').remove();
+        }
+        
+    }
+</script>
 
 @endsection

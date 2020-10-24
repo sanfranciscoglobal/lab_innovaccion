@@ -5,14 +5,12 @@
         <div class="py-2 p-md-3">
             <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                 <h1 class="h3 mb-2 text-nowrap">Eventos Registrados <span class="badge badge-secondary ml-1">{{$eventos->count()}}</span></h1>
-            </div>
-            
-            <div class="pt-grid-gutter pb-grid-gutter border-bottom text-left">
                 <a href="{{route('app.eventos.post')}}" class="btn btn-primary">
                     <i class="fe fe-plus mr-1"></i>
                     Crear evento
                 </a>
             </div>
+           
             <div class="row">
                 @foreach ($eventos as $evento)
                 

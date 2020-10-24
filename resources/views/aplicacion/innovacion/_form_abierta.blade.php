@@ -22,10 +22,6 @@
             <label for="innovacion_abierta_subsector_productivo" class="control-label">* Subsector productivo</label>
             <select style="width:100%;" id="innovacion_abierta_subsector_productivo" name="innovacion_subsector_productivo[]"
                     class="form-control select2"
-                    data-ajax--url="{{route('api.tipo-institucion.select2')}}"
-                    data-ajax--data-type="json"
-                    data-ajax--cache="true"
-                    data-close-on-select="false"
                     required="required" multiple>
                 {{--<option value="">Seleccione al menos un tipo</option>--}}
                 {{--<option value="1">Tipo 1</option>--}}
