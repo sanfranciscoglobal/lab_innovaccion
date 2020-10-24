@@ -107,6 +107,7 @@ Route::as('app.')
             /** Rutas Innovacion */
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
             Route::get('/innovacion/gestion/{id}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
+            Route::post('/innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
 
 
             /** Rutas Escritorio */

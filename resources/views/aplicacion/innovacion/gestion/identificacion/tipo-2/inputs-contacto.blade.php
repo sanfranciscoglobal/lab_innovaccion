@@ -7,12 +7,12 @@
     <!-- URL Input -->
     <div class="form-group">
         <label for="url-input">Sitio web</label>
-        <input class="form-control" type="url" id="url-input" name="sitioweb" value="">
+        <input class="form-control" type="url" id="url-input" name="web" value="">
     </div>
     <!-- URL Input -->
     <div class="form-group">
         <label for="url-input">Video relacionado</label>
-        <input class="form-control" type="url" id="url-input" name="videourl" value="">
+        <input class="form-control" type="url" id="url-input" name="youtube" value="">
     </div>
     <div class="form-group">
         <label class="control-label">Ubicación</label>
@@ -31,7 +31,7 @@
 <div class="col-md-4">
     <div class="controls-container mb-3">
         <label for="pdf">Foto relacionado al problema identificado (Max. 1Mb)</label>
-        <input type="file" class="dropify" name="foto" id="foto" >
+        <input type="file" class="dropify" name="imagen" id="foto" >
     </div>
     <h4 class="h3">Redes sociales de los problemas identificados</h4>
     <div class="form-group">

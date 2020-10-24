@@ -64,13 +64,13 @@
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input form-control conditional" data-target="interactuar" type="radio" id="interactuar-1" name="interactuar" value="1">
+                    <input class="custom-control-input form-control conditional" data-target="interactuar" type="radio" id="interactuar-1" name="datos" value="1">
                     <label class="custom-control-label" for="interactuar-1">Si</label>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input form-control conditional" data-target="interactuar" type="radio" id="interactuar-2" name="interactuar" value="2">
+                    <input class="custom-control-input form-control conditional" data-target="interactuar" type="radio" id="interactuar-2" name="datos" value="2">
                     <label class="custom-control-label" for="interactuar-2">No</label>
                 </div>
             </div>
@@ -81,10 +81,10 @@
     </div>
     <div class="controls-container mb-3 has-parent interactuar d-none">
         <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="5" name="describe_problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar."></textarea>
+        <textarea class="form-control" id="textarea-input" rows="5" name="problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar."></textarea>
     </div>
     <div class="controls-container mb-3 has-parent interactuar d-none">
-        <label for="pdf">* Carga un archivo complementario (Max. 10Mb)</label>
+        <label for="archivo">* Carga un archivo complementario (Max. 10Mb)</label>
         <input type="file" class="dropify form-control" name="pdf" id="pdg" >
     </div>
 </div>
