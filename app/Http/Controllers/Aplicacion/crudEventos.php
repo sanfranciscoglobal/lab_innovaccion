@@ -19,8 +19,11 @@ class crudEventos extends Controller
 {
     //
     public function __construct(){
-        $this->middleware(['auth', 'acceso-app:user']);
+        $this->middleware(['auth', 'verified']);
+        $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
+        $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
+
     public function store(StorePost $request)
     {
         $validatedData=$request->validated();

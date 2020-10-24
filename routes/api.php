@@ -27,6 +27,9 @@ Route::get('/obtener-ods-categoria-select2', 'Api\OdsCategoriaController@odsCate
 
 Route::get('/obtener-tipo-sector-select2/{id}', 'Api\TipoSectorController@tipoSectorSelect2')->name('api.tipo-sector.select2');
 
+Route::get('/obtener-objetivos-desarrollo-select2', 'Api\ObjetivosDesarrolloController@objetivosDesarrolloSelect2')->name('api.objetivo-desarrollo.select2');
+
+
 Route::get('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->name('api.canton.select2');
 Route::post('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->name('api.canton.select2');
 

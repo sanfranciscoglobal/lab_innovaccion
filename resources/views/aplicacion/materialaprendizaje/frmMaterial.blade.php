@@ -118,9 +118,9 @@
                                   
                                     
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify"  onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage').'/'.$material->imagen_portada}}">                            
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage').'/'.$material->imagen_portada}}">                            
                                     @else
-                                        <input type="file" class="dropify"  onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
                                     @endif
                                    
                                 </div>

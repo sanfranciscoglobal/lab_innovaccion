@@ -1,7 +1,9 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{-- --}}" method="POST">
+    <form role="form" action="{{route('app.convocatoria.post')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary  d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -29,19 +31,19 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="tipo_abierta">
-                                    <input class="innovacion_tipo" type="radio" id="tipo_abierta" value="1" name="tipo_innovacion" required>
+                                    <input class="innovacion_tipo" type="radio" id="tipo_abierta" value="1" name="tipoconvocatoria_id" required>
                                     Innovación Abierta
                                 </label>
                             </div>
                             <div class="col-sm-3">
                                 <label for="tipo_social">
-                                    <input class="innovacion_tipo" type="radio" id="tipo_social" value="2" name="tipo_innovacion">
+                                    <input class="innovacion_tipo" type="radio" id="tipo_social" value="2" name="tipoconvocatoria_id">
                                     Innovación Social
                                 </label>
                             </div>
                             <div class="col-sm-3">
                                 <label for="tipo_publica">
-                                    <input class="innovacion_tipo" type="radio" id="tipo_publica" value="3" name="tipo_innovacion">
+                                    <input class="innovacion_tipo" type="radio" id="tipo_publica" value="3" name="tipoconvocatoria_id">
                                     Innovación Pública
                                 </label>
                             </div>
@@ -66,39 +68,51 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="innovacion_fecha_inicio">* Fecha de inicio</label>
-                                            <input class="form-control" type="date" id="innovacion_fecha_inicio" min="<?php echo date('d/m/Y'); ?>" value="" name="innovacion_fecha_inicio" required>
+                                            <input class="form-control" type="date" id="innovacion_fecha_inicio" min="<?php echo date('d/m/Y'); ?>"  value="{{isset($convocatoria->fecha_inicio)?$convocatoria->fecha_inicio:old('fecha_inicio')}}" name="fecha_inicio" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="innovacion_fecha_cierre">* Fecha de fin</label>
-                                            <input class="form-control" type="date" id="innovacion_fecha_cierre" min="<?php echo date('d/m/Y'); ?>" value="" name="innovacion_fecha_cierre" required>
+                                            <input class="form-control" type="date" id="innovacion_fecha_cierre" min="<?php echo date('d/m/Y'); ?>" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" name="fecha_cierre" required>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="control-label">* Descripción de la Convocatoria (max.100 palabras) </label>
-                                    <textarea class="form-control ck-editor" name="descripcion_convocatoria" id="descripcion_convocatoria"
-                                              rows="10" required="required"></textarea>
+                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(max. 100 palabras)</span> <span style="color: gray" id="count-words"></span></label>
+                                    <textarea onkeyup="countWords(this);" onkeydown="countWords(this);" class="form-control" name="descripcion" id="descripcion_convocatoria"
+                                              rows="10" required="required"
+                                              >{{ old('descripcion', $convocatoria->descripcion ?? null) }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="innovacion_imagen">* Imagen</label>
-                                    <input type="file" class="dropify" name="innovacion_imagen" id="innovacion_imagen" required
-                                            {{--data-default-file="http://placehold.it/300x300/?text=Imagen%20Destacada"--}}>
+                                    @if ($method=='PUT')
+                                        <input type="file" class="dropify" name="imagen" id="innovacion_imagen " accept="image/gif, image/jpeg, image/png"  data-default-file="{{asset('storage').'/'.$convocatoria->imagen}}">
+                                                                                                    
+                                    @else
+                                        <input type="file" class="dropify" name="imagen" id="innovacion_imagen " accept="image/gif, image/jpeg, image/png" required>
+                                    @endif
+                                                                       
+                                    
                                 </div>
                             </div>
                             <div class="col-12">
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="verificada" required>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value='1' required>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
-                                    <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i> Publicar</button>
+                                    @if ($method=='PUT')
+                                        <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i> Actualizar</button>
+                                    @else
+                                        <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i> Publicar</button>
+                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>
@@ -125,7 +139,45 @@
             }
         })
 
-    })
+    });
+
+    $(function(){
+        let tipo = {{ old('tipoconvocatoria_id', (int)$convocatoria->tipoconvocatoria_id) ?? 'null' }};
+       switch(tipo){
+           case 1:
+               $('#tipo_abierta').trigger('click');
+               break;
+           case 2:
+               $('#tipo_social').trigger('click');
+               break;
+           case 3:
+               $('#tipo_publica').trigger('click');
+               break;
+           default:
+            
+               break;
+       }
+
+   });
+   //contar palabras
+
+   var maxlength=300;
+    var maxword=100;
+    function countWords(self){
+        var spaces=self.value.match(/\S+/g);
+        var words=spaces ? spaces.length:0;
+        if (words>maxword){
+            if (words==maxword+1){
+                maxlength=self.value.length-2
+            }
+            self.value=self.value.substring(0,maxlength);
+            words=maxword;
+            alert('Ha rebasado el limite');
+        }
+       
+        document.getElementById("count-words").innerHTML=words+" palabras";
+    };
 
 </script>
+
 @endsection

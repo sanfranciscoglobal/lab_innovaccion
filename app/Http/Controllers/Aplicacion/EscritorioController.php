@@ -28,16 +28,16 @@ class EscritorioController extends Controller
     {
 
         $eventos=Evento::orderbyDesc('fecha','hora')->where('user_id',Auth::id())->get();
-        $eventoscount=count($eventos);
-        return view('aplicacion.escritorio.contenidoeventos',compact('eventos','eventoscount'));
+        
+        return view('aplicacion.escritorio.contenidoeventos',compact('eventos'));
         
     }
     public function verMateriales(Request $request)
     {
 
         $materiales=MaterialAprendizaje::orderbyDesc('fecha_publicacion')->where('user_id',Auth::id())->get();
-        $materialescount=count($materiales);
-        return view('aplicacion.escritorio.contenidomateriales',compact('materiales','materialescount'));
+       
+        return view('aplicacion.escritorio.contenidomateriales',compact('materiales'));
         
     }
 

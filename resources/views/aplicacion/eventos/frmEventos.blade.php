@@ -62,7 +62,8 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras)</span> <span style="color: gray" id="count-words"></span></label>
-                                            <textarea onkeyup="countWords(this);" onkeydown="countWords(this);" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea>
+                                            <textarea onkeyup="countWords(this);" onkeydown="countWords(this);" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
+                                            >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea>
                                             <span id="count-words"></span>
                                         
                                         </div>
