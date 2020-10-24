@@ -21,11 +21,21 @@ use App\Models\IniciativaPoblacion;
 use App\Models\Iniciativas;
 use App\Models\IniciativaUbicacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class IniciativasController extends Controller
 {
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -38,12 +48,12 @@ class IniciativasController extends Controller
         return view('aplicacion.iniciativa.index', compact('iniciativas'));
     }
 
-    public function listado(Request $request)
-    {
-        Iniciativas::$paginate = 2;
-        $iniciativas = Iniciativas::obtenerIniciativasPaginate();
-        return view('aplicacion.iniciativa.iniciativas', compact('iniciativas'));
-    }
+//    public function listado(Request $request)
+//    {
+//        Iniciativas::$paginate = 2;
+//        $iniciativas = Iniciativas::obtenerIniciativasPaginate();
+//        return view('aplicacion.iniciativa.iniciativas', compact('iniciativas'));
+//    }
 
     /**
      * @param Request $request
@@ -84,6 +94,7 @@ class IniciativasController extends Controller
                     $modelIniciativa->iniciativa_origen_id = $request->iniciativa_propiedad;
                     $modelIniciativa->iniciativa_actor_id = ($modelActor) ? $modelActor->id : null;
                     $modelIniciativa->iniciativa_informacion_id = $modelInformacion->id;
+                    $modelIniciativa->user_id = Auth::user()->id;
 
                     if ($modelIniciativa->save()) {
                         $statusInsert = true;

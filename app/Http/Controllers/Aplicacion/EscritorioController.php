@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Aplicacion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contacto\StorePost;
 use App\Models\Contacto;
+use App\Models\Fondo;
 use App\Models\Evento;
 use App\Models\MaterialAprendizaje;
 use Illuminate\Http\Request;
@@ -24,6 +25,13 @@ class EscritorioController extends Controller
         return view('aplicacion.escritorio._content_escritorio');
     }
 
+    public function verFondos(Request $request)
+    {
+
+        $fondos = Fondo::where('user_id', Auth::id())->get();
+        return view('aplicacion.escritorio.contenidofondos', compact('fondos'));
+
+    }
     public function verEventos(Request $request)
     {
 

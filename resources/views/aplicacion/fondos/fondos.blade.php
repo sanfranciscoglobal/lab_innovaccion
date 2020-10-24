@@ -31,19 +31,26 @@
     </section>
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <div class="row mb-3 mt-4">
+            @foreach ($fondos as $fondo)
+            @php
+                $img = isset($fondo->imagen) ? $fondo->imagen : '';
+                $img = Storage::disk('public')->exists($img) ? asset('storage/'.$img) : asset('img/logo/thinkia_color_no_slogan.svg');
+            @endphp
             <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
                     <a class="card-floating-icon" href="mailto:sarah.cole@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Agente"
-                            alt="Sarah Cole" />
+                    <div class="card-img-top card-img-gradient">
+                        <img src="{{ $img }}" alt="{{ $fondo->organizacion }}" />
                     </div>
                     <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Agente de cooperación</h3>
-                        <p class="font-size-xs  mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <h3 class="h6 card-title mb-2">{{ $fondo->organizacion }}</h3>
+                        <p class="font-size-xs  mb-0">{{ $fondo->nombre_fondo }} <br>{{ $fondo->info }} </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
+            @endforeach
+
+            {{-- <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
                     <a class="card-floating-icon" href="mailto:charlie.welch@example.com"><i class="fe-mail"></i></a>
                     <div class="card-img-top card-img-gradient">
@@ -126,7 +133,7 @@
                         <p class="font-size-xs  mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
