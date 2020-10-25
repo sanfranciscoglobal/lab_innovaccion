@@ -125,6 +125,8 @@
             </div>
         </div>
     </div>
+    
+    </form>
     @if ($method=='PUT')
         
         <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
@@ -155,7 +157,6 @@
             </div>
         </div>
     @endif
-    </form>
 @endsection
 @section('footer')
 <script>
