@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{route('app.convocatoria.post')}}" method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" id='myForm' method="POST" enctype="multipart/form-data">
         @csrf
         @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
@@ -20,7 +20,10 @@
                         <!-- Title + Delete link-->
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Innovación</h1>
-                            <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" href="#"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo </a>
+                            @if ($method=='PUT')
+                                <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar convocatoria </a>
+                            @endif
+                            
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -103,6 +106,7 @@
                             <div class="col-12">
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                    
                                     <div class="custom-control custom-checkbox d-block">
                                         <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value='1' required>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
@@ -121,23 +125,60 @@
             </div>
         </div>
     </div>
+    @if ($method=='PUT')
+        
+        <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning text-white">
+                        <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Convocatoria</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="text-white">&times;</span>
+                            </button>
+                    </div>
+
+                    <form action="{{ route('app.convocatoria.delete', $convocatoria->id) }}" role="form" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="modal-body">
+                            <div class="text-warning">Está seguro que desea eliminar esta convocatoria?</div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                        </div>
+                        
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endif
     </form>
 @endsection
 @section('footer')
 <script>
     $(document).ready(function(){
-
+        var cont=0;
         $('.innovacion_tipo').change(function(){
             if($(this).is(':checked')){
                 if ($(this).val() > 0){
+                    
                     $('.send-button').removeClass('d-none');
                     $('.controls').addClass('d-none');
                     $('#control-'+ $(this).val()).removeClass('d-none');
                     $('.controls .form-control').removeAttr('required');
                     $('#control-'+ $(this).val()+' .form-control').attr('required', true);
+                    if (cont==0){
+                        cargarput($(this).val());
+                        cont+=1;
+                        
+                        
+                    }
                 }
             }
-        })
+        });
 
     });
 
@@ -181,11 +222,38 @@
 </script>
 <script type="text/javascript">
 
+    function cargarput(valortipo){
+
+        var listasubsectores=[];
+        var arraylista=[];
+        if (valortipo==1){
+           // alert('INNOVACION ABIERTA');
+            idsubsector='#innovacion_abierta_subsector_productivo';
+            listasectores=$('#innovacion_abierta_sector_productivo').val();
+            arraylista= <?php echo $convocatoria->consubsectores?>;           
+            arraylista.forEach(subsector => {
+                listasubsectores.push(subsector['subsector_id']);
+            });
+            primeracarga(listasectores,idsubsector,listasubsectores);
+
+        }
+        else if(valortipo==3){
+           // alert('INNOVACION PUBLICA');
+            idsubsector='#innovacion_publica_subsector_productivo';
+            listasectores=$('#innovacion_publica_sector_productivo').val();
+            arraylista= <?php echo $convocatoria->consubsectores?>;           
+            arraylista.forEach(subsector => {
+                listasubsectores.push(subsector['subsector_id']);
+            });
+            primeracarga(listasectores,idsubsector,listasubsectores);
+        }
+        
+    };
+
     $(document).ready(function(){
+        
         var listasectores=[];
         var idsubsector;
-        // alert('entro');
-         //recargarlista(listasectores,idsubsector);
         $('#innovacion_abierta_sector_productivo').change(function(){
             idsubsector='#innovacion_abierta_subsector_productivo';
             listasectores=$('#innovacion_abierta_sector_productivo').val();
@@ -196,23 +264,19 @@
             listasectores=$('#innovacion_publica_sector_productivo').val();
             recargarlista(listasectores,idsubsector);
         });
-    
-
     });
 
 </script>
 <script type="text/javascript">
-
     
     function recargarlista(listasectores,idsubsector){
 
         if (listasectores.length!=0){
-            console.log(listasectores);
+            
             $.ajax({
 
                 type:"POST",
                 url:"{{route('api.tipo-subsector.select2')}}",
-                //data:"listasectores="+ listasectores,
                 data: { listasectores1: JSON.stringify(listasectores)} ,
                 
                 success:function(r){
@@ -229,9 +293,41 @@
         }
         else{
             $(idsubsector).find('option').remove();
+        }     
+    };
+
+    function primeracarga(listasectores,idsubsector,listasubsectores){
+        if (listasectores.length!=0){
+            
+            $.ajax({
+
+                type:"POST",
+                url:"{{route('api.tipo-subsector.select2')}}",
+                data: { listasectores1: JSON.stringify(listasectores)} ,
+                
+                success:function(r){
+                    $(idsubsector).find('option').remove();
+                    $(r).each(function(i,v){
+                        if (listasubsectores.includes(v.id)){
+                            $(idsubsector).append('<option selected value="'+ v.id+'">'+v.text+'</option>');
+                        }
+                        else{
+                            $(idsubsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
+                        }
+                        
+                    });
+                },
+                error:function(){
+                    alert('Ocurrio un error en el servidor ..');
+                }
+
+            });
         }
-        
-    }
+        else{
+            $(idsubsector).find('option').remove();
+        }
+
+        };
 </script>
 
 @endsection

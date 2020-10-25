@@ -28,7 +28,7 @@ class InnovacionController extends Controller
     public function frmInnovacionAbiertaIdentificacion(Request $request)
     {
         $convocatoria = new Convocatoria;
-        return view('aplicacion.innovacion.create',compact('convocatoria'))->with(['method'=>'POST']);
+        return view('aplicacion.innovacion.create',compact('convocatoria'))->with(['url' => route('app.convocatoria.post'),'method'=>'POST']);
     }
   
     public function frmGestionInnocavion(Request $request)

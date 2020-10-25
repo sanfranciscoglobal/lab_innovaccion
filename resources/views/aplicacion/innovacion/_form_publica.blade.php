@@ -23,6 +23,7 @@
             <select style="width:100%;" id="innovacion_publica_subsector_productivo" name="innovacion_subsector_productivo[]"
                     class="form-control select2"
                     required="required" multiple>
+                 
       
             </select>
         </div>
