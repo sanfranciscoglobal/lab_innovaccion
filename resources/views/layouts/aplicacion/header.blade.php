@@ -36,7 +36,7 @@
         </a>
         <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
             <a class="nav-link-style font-size-sm text-nowrap" href="#modal-signin" data-toggle="modal"
-               data-view="#modal-signin-view">
+               data-view="#search-bar-view">
                 <i class="fe-search font-size-xl mr-2"></i>
             </a>&nbsp;
             <a class="nav-link-style font-size-sm text-nowrap" href="#modal-signin" data-toggle="modal"
