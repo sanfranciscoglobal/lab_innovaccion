@@ -17,6 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('aplicacion.home.home');
 })->name('app.home');
+Route::get('/acerca-de', function () {
+    return view('aplicacion.acerca.acerca');
+})->name('acercade');
+Route::get('/el-equipo', function () {
+    return view('aplicacion.equipo.index');
+})->name('elequipo');
+Route::get('/valores', function () {
+    return view('aplicacion.valores.index');
+})->name('valores');
+Route::get('/terminos-y-condiciones', function () {
+    return view('aplicacion.terminos-condiciones.index');
+})->name('terminoscondiciones');
+Route::get('/preguntas-frecuentes', function () {
+    return view('aplicacion.faq.index');
+})->name('faq');
 
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
@@ -35,9 +50,7 @@ Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('in
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
-Route::get('/acerca-de', function () {
-    return view('aplicacion.acerca.acerca');
-})->name('acercade');
+
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 // Aplicacion

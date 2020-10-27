@@ -1,9 +1,9 @@
 
-<header class="cs-header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky d-block p-0 bg-white" data-scroll-header>
+<header class="cs-header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky d-block p-0 secondary-nav" data-scroll-header>
     <div class="d-block w-100 secondary-nav">
         <div class="container">
-            <div class="row">
-                <div class="col d-flex justify-flex-start align-items-center">
+            <div class="row w-100">
+                <div class="col-12 d-flex justify-content-end align-items-center">
                     <span class="text-white"><span class="fe-phone"></span>&nbsp;Contáctanos</span>&nbsp;<a class="text-white" href="#">+593 910-784-8015</a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
                         <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-facebook sb-dark sb-sm mr-2" href="#">
@@ -28,21 +28,23 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="{{route('app.home')}}">
-            <img class="navbar-floating-logo d-none d-lg-block my-2" width="80" src="{{asset('img/logo/thinkia_color_slogan.svg')}}"
+            <img class="navbar-floating-logo d-none d-lg-block my-2" width="80" src="{{asset('img/logo/thinkia_blanco_slogan.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
-            <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_color_no_slogan.svg')}}"
+            <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_blanco_no_slogan.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
-            <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_color_no_slogan.svg')}}" alt="Thinkia - Laboratorio de innovación"/>
+            <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_blanco_no_slogan.svg')}}" alt="Thinkia - Laboratorio de innovación"/>
         </a>
         <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
-            <a class="nav-link-style font-size-sm text-nowrap" href="#modal-signin" data-toggle="modal"
-               data-view="#modal-signin-view">
+            <a class="nav-link-style font-size-sm text-nowrap text-white" href="#modal-signin" data-toggle="modal"
+               data-view="#search-bar-view">
                 <i class="fe-search font-size-xl mr-2"></i>
             </a>&nbsp;
+            <?php /*
             <a class="nav-link-style font-size-sm text-nowrap" href="#modal-signin" data-toggle="modal"
                data-view="#modal-signin-view">
                 <i class="fe-user font-size-xl mr-2"></i>
             </a>
+            */ ?>
             @if (Auth::check())
             <div class="btn-group dropdown">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,8 +58,12 @@
                 </div>
             </div>
             @else
-            <a class="btn btn-translucent-light ml-grid-gutter d-none d-lg-inline-block navbar-btn"
+            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
+               href="#modal-signin" data-toggle="modal" data-view="#modal-signin-view">Iniciar Sesión</a>
+            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
                href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a>
+            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
+               href="#modal-signin" data-toggle="modal" data-view="#modal-signin-view">Iniciar Sesión</a>
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
                href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a>
             @endif
@@ -72,36 +78,40 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Iniciativas</a>
+                        <a class="text-white nav-link dropdown-toggle" href="#" data-toggle="dropdown">Gestión de Innovación</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/mapeo/">Mapeo</a></li>
-                            <li><a class="dropdown-item" href="{{ url('app/iniciativas')}}">Nuevas iniciativas</a></li>
+                            <li><a class="dropdown-item" href="/identificacion-de-problemas/">Innovación abierta</a></li>
+                            <li><a class="dropdown-item" href="/soluciones-innovadoras/">Innovación pública</a></li>
+                            <li><a class="dropdown-item" href="/soluciones-innovadoras/">Innovación social</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="text-white nav-link dropdown-toggle" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/mapeo/">Mapa de iniciativas</a></li>
                             <li><a class="dropdown-item" href="/analitica/">Analítica</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Gestión de Innovación</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/identificacion-de-problemas/">Identificación de Problemas</a></li>
-                            <li><a class="dropdown-item" href="/soluciones-innovadoras/">Soluciones Innovadoras</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Analítica</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/graficos/">Gráficos</a></li>
-                            <li><a class="dropdown-item" href="/datos/">Datos</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
+                        <a class="text-white nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item" href="{{route('eventos')}}">Eventos</a></li>
-                            <li><a class="dropdown-item" href="{{route('material')}}">Material de aprendizaje</a></li>
+                            <li><a class="dropdown-item" href="{{route('material')}}">Publicaciones y herramientas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="/acerca-de/">Acerca de</a>
+                        <a class="text-white nav-link " href="/mapa/">Mapa</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="text-white nav-link dropdown-toggle" href="#">Nosotros</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/acerca-de/">Acerca de</a></li>
+                            <li><a class="dropdown-item" href="/el-equipo/">El equipo</a></li>
+                            <li><a class="dropdown-item" href="/valores/">Valores</a></li>
+                            <li><a class="dropdown-item" href="/terminos-y-condiciones/">Términos y condiciones</a></li>
+                            <li><a class="dropdown-item" href="/preguntas-frecuentes/">Preguntas frecuentes</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
