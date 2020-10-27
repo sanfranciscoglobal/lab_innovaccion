@@ -47,15 +47,19 @@
             */ ?>
             @if (Auth::check())
             <div class="btn-group dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    {{ Auth::user()->name }}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="#" class="dropdown-item">Action</a>
-                    <a href="#" class="dropdown-item">Another action</a>
+                    <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
+                    <a href="{{ route('app.registro') }}" class="dropdown-item">Perfil</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ route('logout') }}" class="dropdown-item">Salir</a>
-                </div>
+                    <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
+                </div> --}}
+                <a href="{{ route('app.escritorio') }}" class="btn btn-primary">
+                    <i class="fe-user mr-2"></i>
+                    {{ Auth::user()->name }}
+                </a>
             </div>
             @else
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"

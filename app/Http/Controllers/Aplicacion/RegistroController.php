@@ -30,7 +30,7 @@ class RegistroController extends Controller
      */
     public function show(Request $request)
     {
-        $user = User::find(Auth::id());
+        $user = Auth::user();
         if($user->perfil_id != null && Perfil::find($user->perfil_id)){
             return redirect()->route('app.perfil.edit');
         }
@@ -40,22 +40,22 @@ class RegistroController extends Controller
 
     public function edit(Request $request)
     {
-        $user = User::find(Auth::id());
-        $perfil = Perfil::find(Auth::user()->perfil_id);
+        $user = Auth::user();
+        $perfil = Perfil::find($user->perfil_id);
         if($user->perfil_id == null || !$perfil){
             return redirect()->route('app.registro');
         }
-        return view('aplicacion.registro.frmRegistro', compact('user', 'perfil'))->with(['URL' => route('app.perfil.put', Auth::user()->perfil_id), 'method' => 'PUT']);
+        return view('aplicacion.registro.frmRegistro', compact('user', 'perfil'))->with(['URL' => route('app.perfil.put', $user->perfil_id), 'method' => 'PUT']);
     }
 
     public function store(StorePost $request){
         $validatedData = $request->validated();
 
         if($fondo = Perfil::create($validatedData)){
-            $user = User::find(Auth::id());
+            $user = Auth::user();
             $user->perfil_id = $fondo->id;
             $user->save();
-            return redirect()->route('app.home')->with('status', 'Perfil creado con éxito');
+            return redirect()->route('app.escritorio')->with('status', 'Perfil creado con éxito');
         }
         return back()->with('error', 'Perfil no creado');
     }
@@ -64,14 +64,14 @@ class RegistroController extends Controller
         $validatedData = $request->validated();
         $perfil->update($request->validated());
 
-        return redirect()->route('app.home')->with('status', 'Perfil modificado con éxito');
+        return redirect()->route('app.escritorio')->with('status', 'Perfil modificado con éxito');
     }
 
     public function destroy(User $user) {
-        if(Auth::id() != $user->id){
+        if(Auth::id() != $user->id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin')) ){
             return back()->with('error', 'No puedes eliminar este usuario');
         }
-        Perfil::find($user->perfil_id)->delete();
+        // Perfil::find($user->perfil_id)->delete();
         $user->delete();
         return redirect()->route('app.home')->with('status', 'Usuario eliminado con éxito');
     }

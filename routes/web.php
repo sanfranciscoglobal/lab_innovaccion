@@ -17,6 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('aplicacion.home.home');
 })->name('app.home');
+Route::get('/acerca-de', function () {
+    return view('aplicacion.acerca.acerca');
+})->name('acercade');
+Route::get('/el-equipo', function () {
+    return view('aplicacion.equipo.index');
+})->name('elequipo');
+Route::get('/valores', function () {
+    return view('aplicacion.valores.index');
+})->name('valores');
+Route::get('/terminos-y-condiciones', function () {
+    return view('aplicacion.terminos-condiciones.index');
+})->name('terminoscondiciones');
+Route::get('/preguntas-frecuentes', function () {
+    return view('aplicacion.faq.index');
+})->name('faq');
 
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
@@ -35,9 +50,7 @@ Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('in
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
-Route::get('/acerca-de', function () {
-    return view('aplicacion.acerca.acerca');
-})->name('acercade');
+
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 // Aplicacion
@@ -56,10 +69,10 @@ Route::as('app.')
             /**
              * Rutas Usuarios
              */
-            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@show')->name('registro');
-            Route::get('/datos-del-usuario/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
-            Route::post('/datos-del-usuario/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
-            Route::put('/datos-del-usuario/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
+            Route::get('/perfil', 'Aplicacion\RegistroController@show')->name('registro');
+            Route::get('/perfil/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
+            Route::post('/perfil/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
+            Route::put('/perfil/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
             Route::delete('/usuario/delete/{user}', 'Aplicacion\RegistroController@destroy')->name('user.delete');
 
 
@@ -107,24 +120,14 @@ Route::as('app.')
             /** Rutas Innovacion */
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
             Route::get('/innovacion/gestion/{id}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
+            Route::post('/innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
 
 
             /** Rutas Escritorio */
             Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');
             Route::get('/escritorio/eventos', 'Aplicacion\EscritorioController@verEventos')->name('escritorio.eventos')->middleware('auth');
             Route::get('/escritorio/material', 'Aplicacion\EscritorioController@verMateriales')->name('escritorio.material')->middleware('auth');
-
-
-            /**
-             * Rutas Admin
-             */
-            Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio');
-
             Route::get('/escritorio/fondos', 'Aplicacion\EscritorioController@verFondos')->name('escritorio.fondos');
-
-
-            Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
-            Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
 
         }
     );
