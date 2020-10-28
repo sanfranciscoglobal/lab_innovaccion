@@ -40,7 +40,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mat_nombre">* Nombre de la publicación</label>
-                                            <input class="form-control" type="text" id="mat_nombre" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" name="nombre_publicacion" required>
+                                            <input class="form-control" type="text" id="mat_nombre" placeholder="Nombre de la publicación" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" name="nombre_publicacion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -56,13 +56,13 @@
                                     <div class="col-8">
                                         <div class="form-group">
                                             <label for="mat_url">* Fuente de la publicación</label>
-                                            <input class="form-control" type="url" id="mat_url" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" required>
+                                            <input class="form-control" type="url" id="mat_url" placeholder="Fuente de la publicación" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" required>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="mat_autor">* Autor</label>
-                                            <input class="form-control" type="text" id="mat_autor" value="{{isset($material->autor_publicacion)?$material->autor_publicacion:old('autor_publicacion')}}" name="autor_publicacion" required>
+                                            <input class="form-control" type="text" id="mat_autor" placeholder="Autor" value="{{isset($material->autor_publicacion)?$material->autor_publicacion:old('autor_publicacion')}}" name="autor_publicacion" required>
                                         </div>
                                     </div>
                                 </div>

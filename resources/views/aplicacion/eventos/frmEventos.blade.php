@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{$url}}" onSubmit='return validar();' method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" onsubmit="return validar();" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
 
@@ -62,7 +62,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span> 
-                                            <textarea onkeyup="countWords();" onkeydown="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
+                                            <textarea onkeyup="countWords();" onkeydown="countWords();" onblur="validar()" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
                                             >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span></label>
                                         
                                         </div>
@@ -112,7 +112,7 @@
                                                                         data-ajax--data-type="json"
                                                                         data-ajax--data-cache="true"
                                                                         data-allow-clear="true"
-                                                                        data-placeholder="Seleccione un Canton"
+                                                                        data-placeholder="Seleccione un Cantón"
                                                                         data-close-on-select="false"
                                                                         required="required"></select>
                                                 
@@ -235,15 +235,14 @@
         
         let str = document.getElementById("descripcion").value;
         var spaces=str.match(/\S+/g);
-        var words=spaces ? spaces.length:0;     
-        if (words>10){
+        var words=spaces ? spaces.length:0;
+        if (words>50 || words==0){
             
             return(true);
         }
         else{
             document.getElementById("descripcion").focus();
             alert('Minimo de palabras no rebasado');
-            
             return(false);
         }
     };
