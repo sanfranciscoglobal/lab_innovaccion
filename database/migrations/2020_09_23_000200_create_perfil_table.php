@@ -16,6 +16,7 @@ class CreatePerfilTable extends Migration
         Schema::create('perfil', function (Blueprint $table) {
             $table->id();
             $table->string('celular');
+            $table->string('avatar', 200)->nullable();
             $table->enum('proposito', [1, 2, 3])->comment('1:mapear, 2:compartir, 3:participar');
             $table->boolean('tipo_reg')->comment('1:individual, 0:organizacion');
             $table->string('organizacion')->nullable();

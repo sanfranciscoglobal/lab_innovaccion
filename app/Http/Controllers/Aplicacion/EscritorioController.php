@@ -27,8 +27,8 @@ class EscritorioController extends Controller
 
     public function verFondos(Request $request)
     {
-
-        $fondos = Fondo::where('user_id', Auth::id())->get();
+        // Fondo::$paginate = 1;
+        $fondos = Fondo::obtenerPaginate();
         return view('aplicacion.escritorio.contenidofondos', compact('fondos'));
 
     }

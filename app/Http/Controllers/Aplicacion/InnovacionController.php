@@ -30,16 +30,9 @@ class InnovacionController extends Controller
         $convocatoria = new Convocatoria;
         return view('aplicacion.innovacion.create',compact('convocatoria'))->with(['url' => route('app.convocatoria.post'),'method'=>'POST']);
     }
-  
-    public function frmGestionInnocavion(Request $request)
+
+    public function frmGestionInnocavion(Request $request, $tipo)
     {
-        // Pasar el tipo de innovación para cargar el template correspondiente
-        /*
-         * 1. Abierta
-         * 2. Social
-         * 3. Publica
-         */
-        $innovacion = 3;
-        return view('aplicacion.innovacion.gestion.identificacion.create')->with(array('tipo' => $innovacion));
+        return view('aplicacion.innovacion.gestion.identificacion.create')->with(array('tipo' => $tipo));
     }
 }

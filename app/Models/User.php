@@ -50,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function perfil()
     {
-        return $this->hasOne(Perfil::class);
+        return $this->belongsTo(Perfil::class);
     }
 
     public function hasRole($role){
