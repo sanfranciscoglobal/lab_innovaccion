@@ -85,6 +85,6 @@
     </div>
     <div class="controls-container mb-3 has-parent interactuar d-none">
         <label for="archivo">* Carga un archivo complementario (Max. 10Mb)</label>
-        <input type="file" class="dropify form-control" name="pdf" id="pdg" >
+        <input type="file" class="dropify form-control" name="pdf" id="pdf" >
     </div>
 </div>

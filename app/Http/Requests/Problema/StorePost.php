@@ -24,7 +24,7 @@ class StorePost extends FormRequest
     public function rules()
     {
         return [
-            'tipo_convocatoria_id' => ['numeric', 'exists:ipo_convocatoria_id,id', 'required'],
+            'tipo_convocatoria_id' => ['numeric', 'exists:tipo_convocatoria,id', 'required'],
             'sector' => ['bool', 'required_unless:tipo_convocatoria_id,2'],
             'subsector' => ['bool', 'required_unless:tipo_convocatoria_id,2'],
             'confidencial' => ['bool', 'required'],
@@ -32,7 +32,7 @@ class StorePost extends FormRequest
             'datos' => ['bool', 'required'],
             'actividad' => ['string', 'min:10', 'max:400', 'required_if:tipo_convocatoria_id,1', 'nullable'],
             'problema' => ['string', 'min:10', 'max:500', 'required'],
-            'archivo' => ['file', 'nullable'],
+            'archivo' => ['file', 'max:10240', 'mimes:pdf', 'nullable'],
             'causas.*' => ['string', 'min:10', 'max:280', 'required'],
             'efectos.*' => ['string', 'min:10', 'max:280', 'required'],
             'eslabon' => ['', 'required_if:tipo_convocatoria_id,1', 'nullable'],
@@ -46,8 +46,8 @@ class StorePost extends FormRequest
             'linkedin' => ['url', 'nullable'],
             'twitter' => ['url', 'nullable'],
             'youtube' => ['url', 'nullable'],
-            'imagen' => ['image', 'max_size:10mb', 'nullable'],
-            'canton_id' => ['numeric', 'exists:canton,id', 'required'],
+            'imagen' => ['image', 'max:1024', 'mimes:jpg, jpeg, png', 'nullable'],
+            'canton_id' => ['numeric', 'exists:canton,id', 'nullable'],
             'ubicacion' => ['string', 'min:10', 'max:280', 'required'],
             'latitud' => ['numeric', 'required'],
             'longitud' => ['numeric', 'required'],
