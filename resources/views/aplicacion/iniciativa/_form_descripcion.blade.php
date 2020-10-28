@@ -23,9 +23,10 @@
         <div class="col-8">
             <div class="form-group">
                 <label class="control-label">* ¿Esta vigente?</label>
-                <input type="text" required="required" class="form-control" placeholder="Nombre de la Iniciativa"
-                       name="nombre_vigencia"
-                       value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->nombre_vigencia:''}}"/>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1" required="required">
+                    <label class="custom-control-label" for="customSwitch1">Active para marcar como vigente</label>
+                </div>
             </div>
         </div>
     </div>
