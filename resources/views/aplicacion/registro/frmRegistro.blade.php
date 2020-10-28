@@ -298,10 +298,10 @@
             if($(this).is(':checked')){
                 if($(this).val() == 0){
                     $('.to-hide').removeClass('d-none');
-                    $('.to-hide .form-control .req').attr('required', true);
+                    $('.req').attr('required', true);
                 }else{
                     $('.to-hide').addClass('d-none');
-                    $('.to-hide .form-control .req').removeAttr('required');
+                    $('.req').attr('required', false);
 
                 }
             }

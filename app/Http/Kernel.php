@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\AccesosAplicacion;
 use App\Http\Middleware\AccesosBackend;
+use App\Http\Middleware\ProfileExists;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,5 +68,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'acceso-app' => AccesosAplicacion::class,
         'acceso-backend' => AccesosBackend::class,
+        'has-perfil' => ProfileExists::class,
     ];
 }

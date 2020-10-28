@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Corporativas
+/** RUTAS PUBLICAS */
+// Index
 Route::get('/', function () {
     return view('aplicacion.home.home');
 })->name('app.home');
@@ -42,6 +43,7 @@ Route::get('/verificacion', function(){
     return redirect()->route('app.home')->withErrors('Porfavor verifica tu email.');
 })->name('verification.notice');
 
+// Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
 //Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
@@ -53,7 +55,8 @@ Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\Materialdeapren
 
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
-// Aplicacion
+
+/** RUTAS CON LOGIN */
 Route::as('app.')
     ->prefix('app')
     ->group(
@@ -62,17 +65,17 @@ Route::as('app.')
             /*
              Rutas contacto
              */
-
             Route::get('contacto', 'Aplicacion\HomeController@contacto')->name('contacto');
             Route::post('contacto/store', 'Aplicacion\HomeController@store')->name('contacto.store');
+
 
             /**
              * Rutas Usuarios
              */
-            Route::get('/datos-del-usuario', 'Aplicacion\RegistroController@show')->name('registro');
-            Route::get('/datos-del-usuario/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
-            Route::post('/datos-del-usuario/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
-            Route::put('/datos-del-usuario/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
+            Route::get('/perfil', 'Aplicacion\RegistroController@show')->name('registro');
+            Route::get('/perfil/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
+            Route::post('/perfil/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
+            Route::put('/perfil/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
             Route::delete('/usuario/delete/{user}', 'Aplicacion\RegistroController@destroy')->name('user.delete');
 
 
@@ -120,32 +123,20 @@ Route::as('app.')
             /** Rutas Innovacion */
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
             Route::get('/innovacion/gestion/{id}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
+            Route::post('/innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
 
 
             /** Rutas Escritorio */
             Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');
             Route::get('/escritorio/eventos', 'Aplicacion\EscritorioController@verEventos')->name('escritorio.eventos')->middleware('auth');
             Route::get('/escritorio/material', 'Aplicacion\EscritorioController@verMateriales')->name('escritorio.material')->middleware('auth');
-
-
-            /**
-             * Rutas Admin
-             */
-            Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio');
-
             Route::get('/escritorio/fondos', 'Aplicacion\EscritorioController@verFondos')->name('escritorio.fondos');
-
-
-            Route::get('/registro-de-fondos', 'Aplicacion\FondosController@verFormulariofondos')->name('registrofondos');
-            Route::get('/registro-de-eventos', 'Aplicacion\EventosController@verFormularioeventos')->name('registroeventos');
 
         }
     );
 
-//// Adminitrator
-//Route::get('/admin', 'HomeController@index')
-//    ->name('admin.home');
-//
+
+/** RUTAS ADMINISTRATIVAS */
 Route::as('admin.')
    ->prefix('admin')
    ->group(

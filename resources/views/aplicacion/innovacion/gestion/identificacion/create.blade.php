@@ -80,7 +80,7 @@
 @endsection
 
 @section('content')
-    @include('includes.validation-error-admin')
+    {{-- @include('includes.validation-error-admin') --}}
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -125,10 +125,11 @@
                         </div>
 
                         <!-- END Timeline -->
-                        <form action="{{ route("app.iniciativas.store") }}" method="POST" enctype='multipart/form-data'
+                        <form action="{{ route("app.problemas.store") }}" method="POST" enctype='multipart/form-data'
                               class="needs-validation" novalidate>
                             @csrf
                             @method('POST')
+                            <input type="hidden" name="tipo_convocatoria_id" value="{{ $tipo }}">
 
                             <div class="panel panel-primary setup-content" id="step-1">
                                 @include('aplicacion.innovacion.gestion.identificacion._form_problema')

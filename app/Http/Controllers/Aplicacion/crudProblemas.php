@@ -12,18 +12,18 @@ use App\Helpers\CustomUrl; // $string
 use App\Helpers\Archivos; // $nombre, $archivo, $disk
 
 // Modelos
-use App\Models\Fondo;
+use App\Models\Problema;
 
 // Reglas de validacion
-use App\Http\Requests\Fondo\StorePost;
-use App\Http\Requests\Fondo\UpdatePost;
+use App\Http\Requests\Problema\StorePost;
+use App\Http\Requests\Problema\UpdatePost;
 
-class crudFondos extends Controller
+class crudProblemas extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth', 'verified', 'has-perfil']);
-        $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
-        $this->middleware('acceso-app:user,superadmin')->only('destroy');
+        // $this->middleware(['auth', 'verified']);
+        // $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
+        // $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
 
     /**
@@ -32,20 +32,21 @@ class crudFondos extends Controller
      * App\Models\Fondo
      */
     public function store(StorePost $request){
+        dd($request);
         $validatedData = $request->validated();
 
-        if($fondo = Fondo::create($validatedData)){
+        // if($fondo = Fondo::create($validatedData)){
 
-            if(isset($validatedData['imagen'])){
-                $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
-                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
-                $fondo->imagen = $imageName;
-                $fondo->save();
-            }
+        //     if(isset($validatedData['imagen'])){
+        //         $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
+        //         $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+        //         $fondo->imagen = $imageName;
+        //         $fondo->save();
+        //     }
 
-            return redirect()->route('app.home')->with('status', 'Fondo creado con éxito');
-        }
-        return back()->with('error', 'Fondo no creado');
+        //     return redirect()->route('app.home')->with('status', 'Innovación creada con éxito');
+        // }
+        // return back()->with('error', 'Innovación no creada');
     }
 
     /**
