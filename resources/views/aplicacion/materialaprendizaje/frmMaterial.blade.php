@@ -118,7 +118,7 @@
                                   
                                     
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage').'/'.$material->imagen_portada}}">                            
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage/materiales').'/'.$material->imagen_portada}}">                            
                                     @else
                                         <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
                                     @endif
@@ -192,10 +192,6 @@
     // });
     // CKEDITOR.config.height = 400;
 
-    var loadFile = function(event) {
-        var image = document.getElementById('output');
-        image.src = URL.createObjectURL(event.target.files[0]);
-    };
    
 </script>
 @endsection

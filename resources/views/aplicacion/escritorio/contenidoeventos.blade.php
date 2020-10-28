@@ -4,7 +4,7 @@
     <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
         <div class="py-2 p-md-3">
             <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
-                <h1 class="h3 mb-2 text-nowrap">Eventos Registrados <span class="badge badge-secondary ml-1">{{$eventos->count()}}</span></h1>
+                <h1 class="h3 mb-2 text-nowrap">Eventos Registrados <span class="badge badge-secondary ml-1">{{$eventos->total()}}</span></h1>
                 <a href="{{route('app.eventos.post')}}" class="btn btn-primary">
                     <i class="fe fe-plus mr-1"></i>
                     Crear evento
@@ -35,14 +35,15 @@
                 
             </div>
            
-            <div class="row mt-4">
+            {{-- <div class="row mt-4">
                 <div class="col-sm-8">
                     <span class="text-muted">Se muestran 4 de {{$eventos->count()}} eventos</span>
                 </div>
                 <div class="col-sm-4 text-right">
                     <button type="button" class="btn btn-primary">Cargar más eventos</button>
                 </div>
-            </div>
+            </div> --}}
+            <div>{{ $eventos->links() }}</div>
         </div>
     </div>
 </div>
