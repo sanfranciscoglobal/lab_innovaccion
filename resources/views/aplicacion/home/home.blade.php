@@ -7,41 +7,37 @@
 
     <section id="funciones">
         <div class="container mt-5 mb-5">
-            <div class="row">
+            <div class="row d-flex">
                 <div class="col-md-3">
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/mapa.svg') }}"
-                            alt="Icon" />
-                        <h3 class="h5 mb-2">Mapa</h3>
-                        <p class="font-size-sm">Find aute irure dolor in reprehend in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bloc.svg') }}"
-                            alt="Icon" />
-                        <h3 class="h5 mb-2">Recursos</h3>
-                        <p class="font-size-sm">Find aute irure dolor in reprehend in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left">
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bombilla.svg') }}"
                             alt="Icon" />
                         <h3 class="h5 mb-2">Gestión de la Innovación</h3>
-                        <p class="font-size-sm">Find aute irure dolor in reprehend in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur.</p>
+                        <p class="font-size-sm mb-0">A través de convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left">
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/lupa.svg') }}"
                             alt="Icon" />
                         <h3 class="h5 mb-2">Ecosistema de Innovación</h3>
-                        <p class="font-size-sm">Find aute irure dolor in reprehend in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur.</p>
+                        <p class="font-size-sm mb-0">A través de un mapeo de agentes de innovación facilitamos su conexión para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/mapa.svg') }}"
+                            alt="Icon" />
+                        <h3 class="h5 mb-2">Mapa</h3>
+                        <p class="font-size-sm mb-0">A través de datos abiertos sobre el ecosistema y la gestión de innovación promovemos su uso para fines informativos e investigativos.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bloc.svg') }}"
+                            alt="Icon" />
+                        <h3 class="h5 mb-2">Recursos</h3>
+                        <p class="font-size-sm mb-0">A través de una recopilación de publicaciones, eventos, y fondos invitamos a compartir conocimientos y oportunidades de innovación de manera colectiva. </p>
                     </div>
                 </div>
             </div>
@@ -84,9 +80,8 @@
     <section class="bg-secondary" id="demos">
         <div class="container pt-5 pb-4 py-md-6 py-lg-7">
             <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h2 class="h1 mb-4 uppercase">Eventos</span>
+                <h2 class="h1 mb-4 uppercase">¡Próximos eventos!</span>
                 </h2>
-                <p class="text-muted">Mira nuestros próximos eventos</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
