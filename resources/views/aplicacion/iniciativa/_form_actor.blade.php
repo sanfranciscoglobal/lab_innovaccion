@@ -100,30 +100,16 @@
         */ ?>
         <div class="form-group direccion" data-row="0">
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <label class="control-label">Dirección Principal</label>
                     <input maxlength="200" type="text" required="required" class="form-control ubicacion ubicacion-0"
                     placeholder="Escriba la dirección" id="evento_direccion" data-adresscontainer="0" name="direccion[]"
                     value="{{($model->iniciativaActor)?$model->iniciativaActor->direccion:''}}"/>
                     <input type="hidden" class="lat lat-0" name="latitud[]" value="">
                     <input type="hidden" class="long long-0" name="longitud[]" value="">
-                </div>
-                <div id="clone" class="col-lg-3">
-                    <label class="control-label">Ciudad</label>
-                    <select style="width:100%;" id="ubicaciones" class="form-control select2" name="ciudad[]"
-                            data-ajax--url="{{route('api.canton.select2')}}"
-                            data-ajax--data-type="json"
-                            data-ajax--cache="true"
-                            data-close-on-select="false"
-                            required="required">
-
-                        @if($model->iniciativaUbicaciones)
-                            @foreach($model->iniciativaUbicaciones as $ubicacion)
-                                <option value="{{$ubicacion->canton_id}}"
-                                        selected>{{$ubicacion->canton->nombre}}</option>
-                            @endforeach
-                        @endif
-                    </select>
+                    <input type="hidden" class="localidad localidad-0" name="localidad[]" value="">
+                    <input type="hidden" class="area1 area1-0" name="area1[]" value="">
+                    <input type="hidden" class="long long-0" name="area2[]" value="">
                 </div>
             </div>
         </div>
