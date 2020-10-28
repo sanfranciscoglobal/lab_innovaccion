@@ -46,20 +46,31 @@
             </a>
             */ ?>
             @if (Auth::check())
-            <div class="btn-group dropdown">
-                {{-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   {{ Auth::user()->name }}
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
-                    <a href="{{ route('app.registro') }}" class="dropdown-item">Perfil</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
-                </div> --}}
-                <a href="{{ route('app.escritorio') }}" class="btn btn-primary">
-                    <i class="fe-user mr-2"></i>
+            @php
+                $avatar = asset('img/logo/logo-icon-footer.png');
+                // if(isset(Auth::user()->perfil_id)){
+                //     if(isset(Auth::user()->perfil->avatar)){
+                //         $avatar = asset();
+                //     }
+                // }
+            @endphp
+            <div class="navbar-tool dropdown">
+                <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px">
+                <a class="navbar-tool-label dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{-- <i class="fe-user mr-2"></i> --}}
+                    <small class="text-muted">Hola!</small>
                     {{ Auth::user()->name }}
                 </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
+                    <a href="{{ route('app.registro') }}" class="dropdown-item">Mi Perfil</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
+                </div>
+                {{-- <a href="{{ route('app.escritorio') }}" class="btn btn-primary">
+                    <i class="fe-user mr-2"></i>
+                    {{ Auth::user()->name }}
+                </a> --}}
             </div>
             @else
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
