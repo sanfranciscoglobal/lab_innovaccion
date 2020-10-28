@@ -1,9 +1,12 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <section id="home-hero-banner">
-        <img class="img-fluid" src="{{ asset('img/home-hero-banner.jpg') }}">
-    </section>
+<style scoped>
+    .carousel-item {min-height: 550px;}
+</style>
+<section id="home-hero-banner">
+    @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
+</section>
 
     <section id="funciones">
         <div class="container mt-5 mb-5">
