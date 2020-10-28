@@ -47,8 +47,16 @@
             </a>
             */ ?>
             @if (Auth::check())
+            @php
+                $avatar = asset('img/logo/logo-icon-footer.png');
+                // if(isset(Auth::user()->perfil_id)){
+                //     if(isset(Auth::user()->perfil->avatar)){
+                //         $avatar = asset();
+                //     }
+                // }
+            @endphp
             <div class="navbar-tool dropdown">
-                <img src="" class="navbar-tool-icon-box-img" alt="user-avatar">
+                <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px">
                 <a class="navbar-tool-label dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{-- <i class="fe-user mr-2"></i> --}}
                     <small class="text-muted">Hola!</small>
