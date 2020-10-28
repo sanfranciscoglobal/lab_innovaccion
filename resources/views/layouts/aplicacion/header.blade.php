@@ -1,10 +1,14 @@
-
+<style>
+    .navbar-stuck { background-color: #FF8527 !important; }
+    .navbar-floating-logo,
+    .navbar-stuck-logo { transform: translateY(-20px); }
+</style>
 <header class="cs-header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky d-block p-0 secondary-nav" data-scroll-header>
     <div class="d-block w-100 secondary-nav">
         <div class="container">
             <div class="row w-100">
                 <div class="col-12 d-flex justify-content-end align-items-center">
-                    <span class="text-white"><span class="fe-phone"></span>&nbsp;Contáctanos</span>&nbsp;<a class="text-white" href="#">+593 910-784-8015</a>
+                    <a href="mailto:info@thinkia.org"><span class="text-white"><span class="fe-mail"></span>&nbsp;Contáctanos</span></a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
                         <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-facebook sb-dark sb-sm mr-2" href="#">
                             <i class="fe-facebook"></i>
@@ -14,9 +18,6 @@
                         </a></li>
                         <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-instagram sb-dark sb-sm mr-2" href="#">
                             <i class="fe-instagram"></i>
-                        </a></li>
-                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-google sb-dark sb-sm mr-2" href="#">
-                            <i class="fe-google"></i>
                         </a></li>
                     </ul>
                 </div>
