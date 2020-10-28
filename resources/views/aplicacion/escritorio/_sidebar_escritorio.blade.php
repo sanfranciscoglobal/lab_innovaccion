@@ -6,7 +6,7 @@
         </div>
         <div class="d-lg-block collapse pb-2" id="account-menu">
             <h3 class="d-block bg-secondary font-size-sm font-weight-semibold text-muted mb-0 px-4 py-3">Cuenta</h3>
-            <a class="d-flex align-items-center nav-link-style px-4 py-3" href="#">
+            <a class="d-flex align-items-center nav-link-style px-4 py-3" href="{{route('app.iniciativas.index')}}">
                 Iniciativas registradas
                 <span class="text-muted font-size-sm font-weight-normal ml-auto">{{ App\Models\Iniciativas::count() }}</span>
             </a>
