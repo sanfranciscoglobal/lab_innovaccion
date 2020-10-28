@@ -229,6 +229,7 @@
         var arraylista=[];
         if (valortipo==1){
            // alert('INNOVACION ABIERTA');
+           
             idsubsector='#innovacion_abierta_subsector_productivo';
             listasectores=$('#innovacion_abierta_sector_productivo').val();
             arraylista= <?php echo $convocatoria->consubsectores?>;           
@@ -239,6 +240,7 @@
 
         }
         else if(valortipo==3){
+            
            // alert('INNOVACION PUBLICA');
             idsubsector='#innovacion_publica_subsector_productivo';
             listasectores=$('#innovacion_publica_sector_productivo').val();
@@ -252,17 +254,18 @@
     };
 
     $(document).ready(function(){
-        
         var listasectores=[];
         var idsubsector;
         $('#innovacion_abierta_sector_productivo').change(function(){
             idsubsector='#innovacion_abierta_subsector_productivo';
             listasectores=$('#innovacion_abierta_sector_productivo').val();
+           
             recargarlista(listasectores,idsubsector);
         });
         $('#innovacion_publica_sector_productivo').change(function(){
             idsubsector='#innovacion_publica_subsector_productivo';
             listasectores=$('#innovacion_publica_sector_productivo').val();
+        
             recargarlista(listasectores,idsubsector);
         });
     });
@@ -271,9 +274,9 @@
 <script type="text/javascript">
     
     function recargarlista(listasectores,idsubsector){
-
+        
         if (listasectores.length!=0){
-            
+            var subsectorlist=$(idsubsector).val();
             $.ajax({
 
                 type:"POST",
@@ -283,7 +286,13 @@
                 success:function(r){
                     $(idsubsector).find('option').remove();
                     $(r).each(function(i,v){
-                        $(idsubsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
+                        if (subsectorlist.includes(v.id.toString())){
+                            $(idsubsector).append('<option selected value="'+ v.id+'">'+v.text+'</option>');
+                        }
+                        else{
+                            $(idsubsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
+                        }
+                        
                     });
                 },
                 error:function(){
