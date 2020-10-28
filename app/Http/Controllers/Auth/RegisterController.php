@@ -81,7 +81,8 @@ class RegisterController extends Controller
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
-            'verification_token' => Hash::make('secret token'),
+            'verification_token' => Hash::make($validatedData['name'].$validatedData['email'].date('Y-m-d H:i:s')),
+            'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
 
         RoleUser::create([
