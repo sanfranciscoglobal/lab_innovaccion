@@ -236,6 +236,27 @@
                         </form>
                     </div>
                 </div>
+                <div class="cs-view" id="search-bar-view">
+                    <div class="modal-header border-0 bg-dark px-4">
+                        <h4 class="modal-title text-light">Buscar contenidos</h4>
+                        <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body px-4">
+                        <!--
+                        <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
+                        -->
+                        <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
+                            @csrf
+                            <div class="form-group">
+                                <input class="form-control" name="s" type="text" placeholder="Término de búsqueda" required>
+                            </div>
+                            <button class="btn btn-primary btn-block" type="submit">Buscar</button>
+
+                        </form>
+                    </div>
+                </div>
                 <?php /*
                 <div class="modal-body text-center px-4 pt-2 pb-4">
                     <hr>
