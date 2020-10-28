@@ -41,20 +41,23 @@
             </a>&nbsp;
 
             @if (Auth::check())
-            <div class="btn-group dropdown">
-                {{-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   {{ Auth::user()->name }}
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
-                    <a href="{{ route('app.registro') }}" class="dropdown-item">Perfil</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
-                </div> --}}
-                <a href="{{ route('app.escritorio') }}" class="btn btn-primary">
-                    <i class="fe-user mr-2"></i>
+            <div class="navbar-tool dropdown">
+                <img src="" class="navbar-tool-icon-box-img" alt="user-avatar">
+                <a class="navbar-tool-label dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{-- <i class="fe-user mr-2"></i> --}}
+                    <small class="text-muted">Hola!</small>
                     {{ Auth::user()->name }}
                 </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
+                    <a href="{{ route('app.registro') }}" class="dropdown-item">Mi Perfil</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
+                </div>
+                {{-- <a href="{{ route('app.escritorio') }}" class="btn btn-primary">
+                    <i class="fe-user mr-2"></i>
+                    {{ Auth::user()->name }}
+                </a> --}}
             </div>
             @else
             <a class="nav-link-style font-size-sm text-nowrap" href="#modal-signin" data-toggle="modal"
