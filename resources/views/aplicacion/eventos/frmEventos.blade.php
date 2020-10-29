@@ -245,6 +245,7 @@
             //document.getElementById("descripcion").setCustomValidity("¡Se esperaba una dirección de correo electrónico!");
             //document.getElementById('descripcion').innerHTML = 'Email must be filled out';
             alert('No tiene el minimo de palabras necesarias');
+
             return(false);
         }
     };
