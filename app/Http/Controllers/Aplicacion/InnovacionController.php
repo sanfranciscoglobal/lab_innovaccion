@@ -6,7 +6,6 @@ use App\Helpers\Archivos;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Iniciativa\StorePost;
-
 //use App\Http\Requests\Contacto\StorePost;
 //use App\Models\Contacto;
 use App\Models\EstadoRegistro;
@@ -15,6 +14,9 @@ use App\Models\TipoSector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Convocatoria;
+
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class InnovacionController extends Controller
 {
@@ -25,7 +27,8 @@ class InnovacionController extends Controller
      */
     public function frmInnovacionAbiertaIdentificacion(Request $request)
     {
-        return view('aplicacion.innovacion.create');
+        $convocatoria = new Convocatoria;
+        return view('aplicacion.innovacion.create',compact('convocatoria'))->with(['url' => route('app.convocatoria.post'),'method'=>'POST']);
     }
 
     public function frmGestionInnocavion(Request $request, $tipo)

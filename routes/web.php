@@ -92,11 +92,11 @@ Route::as('app.')
             /**
              * Rutas Eventos
              */
-            Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos')->middleware('auth');
-            Route::get('/eventos/{id}', 'Aplicacion\EventosController@edit')->name('eventos.edit')->middleware('auth');
-            Route::post('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.post')->middleware('auth');
-            Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put')->middleware('auth');
-            Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete')->middleware('auth');
+            Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos');
+            Route::get('/eventos/{id}', 'Aplicacion\EventosController@edit')->name('eventos.edit');
+            Route::post('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.post');
+            Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put');
+            Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete');
 
 
             /**
@@ -122,6 +122,12 @@ Route::as('app.')
 
             /** Rutas Innovacion */
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
+            Route::get('/innovacion/crear/{id}', 'Aplicacion\crudConvocatoria@edit')->name('convocatoria.edit');
+            Route::put('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@update')->name('convocatoria.put');
+            Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
+            Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
+            
+
             Route::get('/innovacion/gestion/{id}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
             Route::post('/innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
 

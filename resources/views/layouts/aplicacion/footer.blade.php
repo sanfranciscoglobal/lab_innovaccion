@@ -1,16 +1,18 @@
 <footer class="cs-footer bg-dark bg-purple-gradient pt-5 pt-md-6">
     <div class="container pt-3 pt-md-0">
-        <div class="row pb-3">
-            <div class="col-md-4 mt-n2 pb-3 pb-md-0 mb-4">
+        <div class="row">
+            <div class="col-md-4 mt-n2 pb-3 pb-md-0">
                 <a class="d-block text-white mx-auto" href="index.html" style="width: 153px; color: white">
-                    <img src="{{asset('img/thinkia_blanco_slogan.svg')}}" width="120" alt="Around"/>
+                    <img src="{{asset('img/logo/thinkia_blanco_slogan.svg')}}" width="120" alt="Thinkia"/>
                     <!--
                     <h4 class="cs-widget-title text-white">Laboratorio de Innovación</h4>
                     -->
                 </a>
                 <p class="font-size-sm text-light opacity-60 pb-2 pb-sm-3 mt-3">¡Conectate con otros actores, comparte tus retos e innova de manera colectiva!</p>
+            </div>
+            <div class="col-md-2 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
-                    <h4 class="cs-widget-title mt-3">Síguenos</h4>
+                    <h4 class="cs-widget-title">Síguenos</h4>
                     <a class="social-btn sb-outline sb-facebook sb-light sb-lg mr-2 mb-2" href="#">
                         <i class="fe-facebook"></i>
                     </a>
@@ -20,15 +22,21 @@
                     <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="#">
                         <i class="fe-instagram"></i>
                     </a>
-                    <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="#">
-                        <i class="fe-google"></i>
-                    </a>
-                    <h4 class="cs-widget-title mt-3">Contáctanos</h4>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 ml-auto pb-1">
+                <div class="cs-widget cs-widget-light">
+                    <h4 class="cs-widget-title">Contáctanos</h4>
                     <a href="mailto:contacto@thinkia.org">contacto@thinkia.org</a>
-                    <p class="mt-4 text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución-CompartirIgual 4.0 internacional Los datos recopilados están bajo  licencia ODbL 1.0. El código fuente de la plataforma está disponible bajo una licencia  General Public License 3.0.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 ml-auto pb-1">
+                <div class="cs-widget cs-widget-light">
+                    <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución 4.0 internacional.</p>
                     <img src="{{asset('img/cc-badge.png')}}" width="100" alt="Creative Commons Attribution 3.0 International">
                 </div>
             </div>
+            <?php /*
             <div class="col-md-2 col-sm-4 ml-auto pb-1 mb-4">
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title">Iniciativas</h4>
@@ -67,6 +75,7 @@
                     </ul>
                 </div>
             </div>
+            */ ?>
         </div>
         <div class="row align-items-center my-3 pt-4">
             <div class="col-md-6 order-md-2 text-md-right mb-3">

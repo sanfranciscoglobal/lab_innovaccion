@@ -16,7 +16,7 @@ class CreateTipoSubsectorsTable extends Migration
         Schema::create('tipo_subsector', function (Blueprint $table) {
            
             $table->id();
-            $table->unsignedBigInteger('sector_id')->nullable();
+            $table->unsignedBigInteger('sector_id');
             $table->string('nombre');
 
             $table->foreign('sector_id')->references('id')->on('tipo_sector')->constrained()

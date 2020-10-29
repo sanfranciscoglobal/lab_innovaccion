@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-    
+
     <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
-    
+
     @csrf
     @method($method)
-    
+
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
         <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
@@ -21,7 +21,7 @@
     <div class="container bg-overlay-content pb-4 mb-md-3" style="margin-top: -350px;">
         <div class="row">
             <!-- Content-->
-            <div class="col-12">
+            <div class="col-12 col-lg-8 offset-lg-2">
                 <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
                     <div class="py-2 p-md-3">
                         <!-- Title + Delete link-->
@@ -30,8 +30,8 @@
                             @if ($method=='PUT')
                                 <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar material </a>
                             @endif
-                            
-                            
+
+
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -40,7 +40,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mat_nombre">* Nombre de la publicación</label>
-                                            <input class="form-control" type="text" id="mat_nombre" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" name="nombre_publicacion" required>
+                                            <input class="form-control" type="text" id="mat_nombre" placeholder="Nombre de la publicación" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" name="nombre_publicacion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -56,13 +56,13 @@
                                     <div class="col-8">
                                         <div class="form-group">
                                             <label for="mat_url">* Fuente de la publicación</label>
-                                            <input class="form-control" type="url" id="mat_url" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" required>
+                                            <input class="form-control" type="url" id="mat_url" placeholder="Fuente de la publicación" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" required>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="mat_autor">* Autor</label>
-                                            <input class="form-control" type="text" id="mat_autor" value="{{isset($material->autor_publicacion)?$material->autor_publicacion:old('autor_publicacion')}}" name="autor_publicacion" required>
+                                            <input class="form-control" type="text" id="mat_autor" placeholder="Autor" value="{{isset($material->autor_publicacion)?$material->autor_publicacion:old('autor_publicacion')}}" name="autor_publicacion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -70,22 +70,22 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mat_files">Adjuntar archivos</label>
-                                            
+
                                             @if ($method=='PUT')
-                                            
-                                                <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]" 
+
+                                                <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]"
                                                 data-default-file=
                                                         "@foreach ($material->articuloss as $articulo)
                                                             {{$articulo->nombre}}
                                                             <br>
 
                                                         @endforeach"
-                                                    
+
                                                 multiple/>
                                             @else
                                                 <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]" multiple/>
                                             @endif
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                                 <div class="form-group">
                                     <label for="mat_tipo">* Tipo de Documento</label>
                                     <select class="form-control select2" name="tipo_documento" required>
-                                        <option value="">Seleccione un Tipo</option>                                                          
+                                        <option value="">Seleccione un Tipo</option>
                                         <option value="Tipo 1" {{old('tipo_documento',$material->tipo_documento)=="Tipo 1"? 'selected':''}}>Tipo 1</option>
                                         <option value="Tipo 2" {{old('tipo_documento',$material->tipo_documento)=="Tipo 2"? 'selected':''}}>Tipo 2</option>
                                         <option value="Tipo 3" {{old('tipo_documento',$material->tipo_documento)=="Tipo 3"? 'selected':''}}>Tipo 3</option>
@@ -115,14 +115,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="evento_img">* Imagen de portada</label>
-                                  
-                                    
+
+
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify"  onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage').'/'.$material->imagen_portada}}">                            
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage/materiales').'/'.$material->imagen_portada}}">                            
                                     @else
-                                        <input type="file" class="dropify"  onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
                                     @endif
-                                   
+
                                 </div>
                                 <hr class="mt-2 mb-4">
                                 <div class="custom-control custom-checkbox d-block">
@@ -159,7 +159,7 @@
                         @method('DELETE')
                         <div class="modal-body">
                             <div class="text-warning">Está seguro que desea eliminar este material?</div>
-                            
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
@@ -176,7 +176,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script>
     @if ($method=='PUT')
-                          
+
         @foreach ($material->articuloss as $articulo)
            console.log("{{$articulo->nombre}}");
 
@@ -192,10 +192,6 @@
     // });
     // CKEDITOR.config.height = 400;
 
-    var loadFile = function(event) {
-        var image = document.getElementById('output');
-        image.src = URL.createObjectURL(event.target.files[0]);
-    };
    
 </script>
 @endsection

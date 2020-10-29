@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" onsubmit="return validar();" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
 
@@ -61,9 +61,9 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras)</span> <span style="color: gray" id="count-words"></span></label>
-                                            <textarea onkeyup="countWords(this);" onkeydown="countWords(this);" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea>
-                                            <span id="count-words"></span>
+                                            <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span> 
+                                            <textarea onkeyup="countWords();" onkeydown="countWords();" onblur="validar()" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
+                                            >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span></label>
                                         
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                                                         data-ajax--data-type="json"
                                                                         data-ajax--data-cache="true"
                                                                         data-allow-clear="true"
-                                                                        data-placeholder="Seleccione un Canton"
+                                                                        data-placeholder="Seleccione un Cantón"
                                                                         data-close-on-select="false"
                                                                         required="required"></select>
                                                 
@@ -145,10 +145,10 @@
                                 <div class="form-group">
                                     <label for="imagen">* Images del Evento</label>
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" data-default-file="{{asset('storage').'/'.$evento->imagen}}">
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
                                                                                                         
                                     @else
-                                        <input type="file" class="dropify" onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
+                                        <input type="file" class="dropify"  accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
                                     @endif
                                    
                                 </div>
@@ -215,25 +215,43 @@
     
     var maxlength=300;
     var maxword=100;
-    function countWords(self){
-        var spaces=self.value.match(/\S+/g);
+    function countWords(){
+        
+        let str = document.getElementById("descripcion").value;
+        var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
         if (words>maxword){
             if (words==maxword+1){
-                maxlength=self.value.length-2
+                maxlength=$('#descripcion').value.length-2
             }
-            self.value=self.value.substring(0,maxlength);
+            $('#descripcion').value=$('#descripcion').value.substring(0,maxlength);
             words=maxword;
             alert('Ha rebasado el limite');
         }
-       
         document.getElementById("count-words").innerHTML=words+" palabras";
+    };
+
+    function validar(){
+        
+        let str = document.getElementById("descripcion").value;
+        var spaces=str.match(/\S+/g);
+        var words=spaces ? spaces.length:0;
+        if (words>50 || words==0){
+            
+            return(true);
+        }
+        else{
+            document.getElementById("descripcion").focus();
+            alert('Minimo de palabras no rebasado');
+            return(false);
+        }
     };
 
 
     var baseURL = '{{ URL::to('/') }}';
     var input = document.getElementById('evento_direccion');
     $(document).ready(function(){
+        countWords();
         $('.lugar').change(function(){
             if($(this).is(':checked')){
 
@@ -254,23 +272,6 @@
                     }
 
                 }
-                /*
-                if ($(this).val() == 0){
-                    //$('.to-hide').removeClass('d-none');
-                    if($(this).val() == 1){
-                        $('.e-virtual .form-control').removeAttr('required');
-                        $('.e-virtual').addClass('d-none');
-                        $('.e-presencial .form-control').attr('required', true);
-                        $('.e-presencial').removeClass('d-none');
-                        initMap();
-                    }else{
-                        $('.e-presencial .form-control').removeAttr('required');
-                        $('.e-presencial').addClass('d-none');
-                        $('.e-virtual .form-control').attr('required', true);
-                        $('.e-virtual').removeClass('d-none');
-
-                    }
-                }*/
             }
         });
         
