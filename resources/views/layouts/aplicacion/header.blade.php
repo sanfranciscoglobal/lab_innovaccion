@@ -57,9 +57,9 @@
             @endphp
             <div class="navbar-tool dropdown">
                 <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px">
-                <a class="navbar-tool-label dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="navbar-tool-label dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{-- <i class="fe-user mr-2"></i> --}}
-                    <small class="text-muted">Hola!</small>
+                    <small class="text-white">Hola!</small>
                     {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
