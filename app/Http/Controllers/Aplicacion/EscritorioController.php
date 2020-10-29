@@ -27,7 +27,7 @@ class EscritorioController extends Controller
 
     public function verFondos(Request $request)
     {
-        // Fondo::$paginate = 1;
+        Fondo::$own = true;
         $fondos = Fondo::obtenerPaginate();
         return view('aplicacion.escritorio.contenidofondos', compact('fondos'));
 
@@ -35,18 +35,18 @@ class EscritorioController extends Controller
     public function verEventos(Request $request)
     {
         Evento::$paginate = 2;
-        $eventos = Evento::obtenerPaginate();        
+        $eventos = Evento::obtenerPaginate();
         return view('aplicacion.escritorio.contenidoeventos',compact('eventos'));
-        
+
     }
     public function verMateriales(Request $request)
     {
 
         MaterialAprendizaje::$paginate = 2;
         $materiales = MaterialAprendizaje::obtenerPaginate();
-       
+
         return view('aplicacion.escritorio.contenidomateriales',compact('materiales'));
-        
+
     }
 
 }
