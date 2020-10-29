@@ -91,6 +91,6 @@ class RegisterController extends Controller
 
         // Mail::to($user->email)->send(new EmailVerification($user));
 
-        return back()->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
+        return redirect()->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
     }
 }

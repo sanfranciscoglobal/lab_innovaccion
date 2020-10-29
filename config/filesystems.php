@@ -46,6 +46,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/iniciativas',
         ],
+        'fondos' => [
+            'driver' => 'local',
+            'root' => storage_path('app') . '/public/fondos',
+        ],
         'eventos' => [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/eventos',
@@ -62,14 +66,12 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
-
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -79,7 +81,6 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
-
     ],
 
     /*
