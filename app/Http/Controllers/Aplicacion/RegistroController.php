@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 
+// Helpers
+use App\Helpers\CustomUrl; // $string
+use App\Helpers\Archivos; // $nombre, $archivo, $disk
+
 // Models
 use App\Models\User;
 use App\Models\Perfil;
@@ -51,10 +55,19 @@ class RegistroController extends Controller
     public function store(StorePost $request){
         $validatedData = $request->validated();
 
-        if($fondo = Perfil::create($validatedData)){
+        if($perfil = Perfil::create($validatedData)){
             $user = Auth::user();
-            $user->perfil_id = $fondo->id;
+            $user->perfil_id = $perfil->id;
             $user->save();
+
+            if(isset($validatedData['avatar'])){
+                // $name = CustomUrl::urlTitle($validatedData['name']).'_'.$perfil->id;
+                $name = 'avatar_'.$perfil->id;
+                $imageName = Archivos::storeImagen($name, $validatedData['avatar'], 'perfil');
+                $perfil->avatar = $imageName;
+                $perfil->save();
+            }
+
             return redirect()->route('app.escritorio')->with('status', 'Perfil creado con éxito');
         }
         return back()->with('error', 'Perfil no creado');
@@ -63,6 +76,13 @@ class RegistroController extends Controller
     public function update(StorePost $request, Perfil $perfil){
         $validatedData = $request->validated();
         $perfil->update($request->validated());
+
+        if(isset($validatedData['avatar'])){
+            $name = 'avatar_'.$perfil->id;
+            $imageName = Archivos::storeImagen($name, $validatedData['avatar'], 'perfil');
+            $perfil->avatar = $imageName;
+            $perfil->save();
+        }
 
         return redirect()->route('app.escritorio')->with('status', 'Perfil modificado con éxito');
     }

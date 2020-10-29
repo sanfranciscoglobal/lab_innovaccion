@@ -165,6 +165,7 @@
                                     </span>
                                 </div>
                                 <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico" name='email' required>
+                                @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
                             </div>
                             <div class="input-group-overlay cs-password-toggle form-group">
                                 <div class="input-group-prepend-overlay">
@@ -211,9 +212,11 @@
                             @csrf
                             <div class="form-group">
                                 <input class="form-control" name="name" type="text" placeholder="Nombre Completo" required>
+                                @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <input class="form-control" name="email" type="email" placeholder="Correo electrónico" required>
+                                @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">
                                 <input class="form-control" name="password" type="password" placeholder="Contraseña" required>
@@ -222,6 +225,7 @@
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
+                                @error('password')<div class="invalid-feedback">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">
                                 <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" required>
@@ -230,6 +234,7 @@
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
+                                @error('password_confirmation')<div class="invalid-feedback">{{ $message }}</div>@enderror
                             </div>
                             <button class="btn btn-primary btn-block" type="submit">Registrar</button>
                             <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signin-view'>Entrar</a></p>
