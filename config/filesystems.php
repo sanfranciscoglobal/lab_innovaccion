@@ -49,6 +49,7 @@ return [
         'fondos' => [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/fondos',
+        ],
         'eventos' => [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/eventos',
