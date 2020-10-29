@@ -62,7 +62,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span> 
-                                            <textarea onkeyup="countWords();" onkeydown="countWords();" onblur="validar()" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
+                                            <textarea oninput="countWords();" onblur="validar()" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
                                             >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span></label>
                                         
                                         </div>
@@ -143,7 +143,7 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
-                                    <label for="imagen">* Images del Evento</label>
+                                    <label for="imagen">* Imagen del Evento</label>
                                     @if ($method=='PUT')
                                         <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
                                                                                                         
@@ -212,7 +212,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
 <script>
-    
+    //contar palabras
     var maxlength=300;
     var maxword=100;
     function countWords(){
@@ -236,17 +236,20 @@
         let str = document.getElementById("descripcion").value;
         var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
-        if (words>50 || words==0){
+        if (words>49 || words==0){
             
             return(true);
         }
         else{
             document.getElementById("descripcion").focus();
-            alert('Minimo de palabras no rebasado');
+            //document.getElementById("descripcion").setCustomValidity("¡Se esperaba una dirección de correo electrónico!");
+            //document.getElementById('descripcion').innerHTML = 'Email must be filled out';
+            alert('No tiene el minimo de palabras necesarias');
+
             return(false);
         }
     };
-
+    //
 
     var baseURL = '{{ URL::to('/') }}';
     var input = document.getElementById('evento_direccion');
