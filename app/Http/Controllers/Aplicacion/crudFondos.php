@@ -38,12 +38,12 @@ class crudFondos extends Controller
 
             if(isset($validatedData['imagen'])){
                 $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
-                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'fondos');
                 $fondo->imagen = $imageName;
                 $fondo->save();
             }
 
-            return redirect()->route('app.home')->with('status', 'Fondo creado con éxito');
+            return redirect()->route('app.escritorio.fondos')->with('status', 'Fondo creado con éxito');
         }
         return back()->with('error', 'Fondo no creado');
     }
@@ -68,7 +68,7 @@ class crudFondos extends Controller
             $fondo->save();
         }
 
-        return redirect()->route('app.home')->with('status', 'Fondo modificado con éxito');
+        return redirect()->route('app.escritorio.fondos')->with('status', 'Fondo modificado con éxito');
     }
 
     /**
@@ -83,6 +83,6 @@ class crudFondos extends Controller
         }
 
         $fondo->delete();
-        return redirect()->route('app.home')->with('status', 'Fondo eliminado con éxito');
+        return redirect()->route('app.escritorio.fondos')->with('status', 'Fondo eliminado con éxito');
     }
 }

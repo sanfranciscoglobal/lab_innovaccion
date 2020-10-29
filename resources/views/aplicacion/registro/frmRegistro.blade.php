@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{ $URL }}" method="POST">
+    <form role="form" action="{{ $URL }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
@@ -74,6 +74,13 @@
                                             </label>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="org_web">Avatar</label>
+                                    <input class="form-control dropify" type="file" id="avatar" name="avatar" title="Avatar del usuario">
+                                    @error('avatar')<div class="invalid-feedback">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">

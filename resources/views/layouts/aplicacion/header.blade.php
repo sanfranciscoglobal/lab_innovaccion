@@ -49,11 +49,11 @@
             @if (Auth::check())
             @php
                 $avatar = asset('img/logo/logo-icon-footer.png');
-                // if(isset(Auth::user()->perfil_id)){
-                //     if(isset(Auth::user()->perfil->avatar)){
-                //         $avatar = asset();
-                //     }
-                // }
+                if(isset(Auth::user()->perfil_id)){
+                    if(isset(Auth::user()->perfil->avatar)){
+                        $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
+                    }
+                }
             @endphp
             <div class="navbar-tool dropdown">
                 <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px">
