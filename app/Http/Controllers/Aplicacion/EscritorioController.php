@@ -34,19 +34,19 @@ class EscritorioController extends Controller
     }
     public function verEventos(Request $request)
     {
-
-        $eventos=Evento::orderbyDesc('fecha','hora')->where('user_id',Auth::id())->get();
-        $eventoscount=count($eventos);
-        return view('aplicacion.escritorio.contenidoeventos',compact('eventos','eventoscount'));
-
+        Evento::$paginate = 2;
+        $eventos = Evento::obtenerPaginate();        
+        return view('aplicacion.escritorio.contenidoeventos',compact('eventos'));
+        
     }
     public function verMateriales(Request $request)
     {
 
-        $materiales=MaterialAprendizaje::orderbyDesc('fecha_publicacion')->where('user_id',Auth::id())->get();
-        $materialescount=count($materiales);
-        return view('aplicacion.escritorio.contenidomateriales',compact('materiales','materialescount'));
-
+        MaterialAprendizaje::$paginate = 2;
+        $materiales = MaterialAprendizaje::obtenerPaginate();
+       
+        return view('aplicacion.escritorio.contenidomateriales',compact('materiales'));
+        
     }
 
 }

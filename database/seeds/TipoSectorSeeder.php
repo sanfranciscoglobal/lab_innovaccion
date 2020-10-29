@@ -42,23 +42,5 @@ class TipoSectorSeeder extends Seeder
         DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('24','3','Seguridad',NULL,NULL,NULL);");
         DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('25','3','Económico y productivo',NULL,NULL,NULL);");
         
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('26','2','Objetivo 1: Poner fin a la pobreza',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('27','2','Objetivo 2: Hambre y seguridad alimentaria',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('28','2','Objetivo 3: Salud y bienestar',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('29','2','Objetivo 4: Educación de calidad',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('30','2','Objetivo 5: Igualdad de género',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('31','2','Objetivo 6: Agua limpia y saneamiento',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('32','2','Objetivo 7: Energía asequible y no contaminante',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('33','2','Objetivo 8: Trabajo decente y crecimiento económico',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('34','2','Objetivo 9: Industria, innovación e infraestructura',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('35','2','Objetivo 10: Reducción de las desigualdades',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('36','2','Objetivo 11: Ciudades y comunidades sostenibles',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('37','2','Objetivo 12: Producción y consumo responsables',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('38','2','Objetivo 13: Acción por el clima',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('39','2','Objetivo 14: Vida submarina',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('40','2','Objetivo 15: Vida de ecosistemas terrestres',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('41','2','Objetivo 16: Paz, justicia e instituciones sólidas',NULL,NULL,NULL);");
-        DB::insert("insert into tipo_sector (id, convocatoria_id, nombre, created_at, updated_at, deleted_at) values('42','2','Objetivo 17: Alianzas para lograr los objetivos',NULL,NULL,NULL);");
-       
     }
 }

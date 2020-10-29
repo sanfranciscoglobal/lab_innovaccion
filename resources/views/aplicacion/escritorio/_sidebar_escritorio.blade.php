@@ -30,7 +30,7 @@
                     <li><a class="cs-widget-link px-4 py-3 collapsed" href="#recursos" data-toggle="collapse">Recursos</a>
                         <ul class="collapse" id="recursos" data-parent="#menu">
                             <li><a class="cs-widget-link" href="{{ route('app.escritorio.fondos') }}">Fondos <small class="text-muted pl-1 ml-2">{{ App\Models\Fondo::count() }}</small></a></li>
-                            <li><a class="cs-widget-link" href="#{{ route('app.escritorio.eventos') }}">Eventos <small class="text-muted pl-1 ml-2">{{ App\Models\Evento::count() }}</small></a></li>
+                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.eventos') }}">Eventos <small class="text-muted pl-1 ml-2">{{ App\Models\Evento::count() }}</small></a></li>
                             <li><a class="cs-widget-link" href="{{ route('app.escritorio.material') }}">Publicaciones y Herramientas <small class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::count() }}</small></a></li>
                         </ul>
                     </li>

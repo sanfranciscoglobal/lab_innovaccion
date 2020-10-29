@@ -40,7 +40,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mat_nombre">* Nombre de la publicación</label>
-                                            <input class="form-control" type="text" id="mat_nombre" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" name="nombre_publicacion" required>
+                                            <input class="form-control" type="text" id="mat_nombre" placeholder="Nombre de la publicación" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" name="nombre_publicacion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -56,13 +56,13 @@
                                     <div class="col-8">
                                         <div class="form-group">
                                             <label for="mat_url">* Fuente de la publicación</label>
-                                            <input class="form-control" type="url" id="mat_url" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" required>
+                                            <input class="form-control" type="url" id="mat_url" placeholder="Fuente de la publicación" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" required>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="mat_autor">* Autor</label>
-                                            <input class="form-control" type="text" id="mat_autor" value="{{isset($material->autor_publicacion)?$material->autor_publicacion:old('autor_publicacion')}}" name="autor_publicacion" required>
+                                            <input class="form-control" type="text" id="mat_autor" placeholder="Autor" value="{{isset($material->autor_publicacion)?$material->autor_publicacion:old('autor_publicacion')}}" name="autor_publicacion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -118,9 +118,9 @@
 
 
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify"  onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage').'/'.$material->imagen_portada}}">
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage/materiales').'/'.$material->imagen_portada}}">                            
                                     @else
-                                        <input type="file" class="dropify"  onchange="loadFile(event)" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" required>
                                     @endif
 
                                 </div>
@@ -192,10 +192,6 @@
     // });
     // CKEDITOR.config.height = 400;
 
-    var loadFile = function(event) {
-        var image = document.getElementById('output');
-        image.src = URL.createObjectURL(event.target.files[0]);
-    };
-
+   
 </script>
 @endsection

@@ -46,6 +46,14 @@ return [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/iniciativas',
         ],
+        'eventos' => [
+            'driver' => 'local',
+            'root' => storage_path('app') . '/public/eventos',
+        ],
+        'materiales' => [
+            'driver' => 'local',
+            'root' => storage_path('app') . '/public/materiales',
+        ],
         'perfil' => [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/perfil',

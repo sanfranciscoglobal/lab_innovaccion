@@ -19,8 +19,11 @@ class crudEventos extends Controller
 {
     //
     public function __construct(){
-        $this->middleware(['auth', 'acceso-app:user']);
+        $this->middleware(['auth', 'verified']);
+        $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
+        $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
+
     public function store(StorePost $request)
     {
         $validatedData=$request->validated();
@@ -29,15 +32,14 @@ class crudEventos extends Controller
 
             if(isset($validatedData['imagen'])){
                 $name = CustomUrl::urlTitle($validatedData['organizador']).'_'.$evento->id;
-                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'eventos');
                 $evento->imagen = $imageName;
                 $evento->save();
             }
-            return redirect()->route('app.home')->with('status', 'Evento creado con éxito');
+            return redirect()->route('app.escritorio.eventos')->with('status', 'Evento creado con éxito');
 
         }
-
-        return back()->with('error', 'Evento no creado');
+        return redirect()->route('app.escritorio.eventos')->with('status', 'Evento no creado');
     }
 
     public function update(UpdatePost $request, Evento $evento )
@@ -50,12 +52,12 @@ class crudEventos extends Controller
         if(isset($validatedData['imagen'])){
             
             $name = CustomUrl::urlTitle($validatedData['organizador']).'_'.$evento->id;
-            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'eventos');
             $evento->imagen = $imageName;
             $evento->save();
         }
 
-        return redirect()->route('app.home')->with('status', 'Evento modificado con éxito');
+        return redirect()->route('app.escritorio.eventos')->with('status', 'Evento modificado con éxito');
        
 
     }
@@ -69,7 +71,7 @@ class crudEventos extends Controller
         }
 
         $evento->delete();
-        return redirect()->route('app.home')->with('status', 'Evento eliminado con éxito');
+        return redirect()->route('app.escritorio.eventos')->with('status', 'Evento eliminado con éxito');
     }
 
 }
