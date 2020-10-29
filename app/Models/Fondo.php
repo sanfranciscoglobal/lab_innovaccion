@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
+use Auth;
 
 
 class Fondo extends Model
@@ -14,6 +15,7 @@ class Fondo extends Model
     protected $table = 'fondos';
     protected $fillable = ['fuente', 'organizacion', 'nombre_fondo', 'info', 'fecha_inicio', 'fecha_fin', 'facebook', 'instagram', 'youtube', 'linkedin', 'twitter', 'imagen', 'terminos'];
     public static $paginate = 10;
+    public static $own = false;
 
     public function user(){
         return $this->belongsTo('App\Models\User');
@@ -25,8 +27,9 @@ class Fondo extends Model
     public static function builder()
     {
         $query = Fondo::orderBy('created_at', 'DESC');
-        // if (self::$search) {
-        // }
+        if (self::$own) {
+            $query->where('user_id', Auth::id());
+        }
         return $query;
     }
 

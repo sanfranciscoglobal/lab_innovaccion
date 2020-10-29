@@ -33,7 +33,7 @@
                     </div>
                     <div class="media media-ie-fix align-items-center mr-3">
                         <img class="" width="100"
-                             src="{{ asset('storage/'.$fondo->imagen) }}"
+                             src="{{ asset('storage/fondos/'.$fondo->imagen) }}"
                              alt="{{$fondo->nombre_fondo}}"/>
                         <div class="media-body pl-2 ml-1">
                             <h6 class="font-size-sm mb-n1">
