@@ -19,13 +19,14 @@ class MaterialdeaprendizajeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-
     public function __construct(){
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified','has-perfil'])->except('verListadomateriales','verCategoriasmateriales','verDetallematerial');
+        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetallematerial');
     }
     public function verListadomateriales(Request $request)
     {
-        return view('aplicacion.materialaprendizaje.verlistado');
+        $materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
+        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales'));
     }
     public function verCategoriasmateriales(Request $request)
     {

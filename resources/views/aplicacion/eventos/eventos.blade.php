@@ -93,7 +93,7 @@
                 
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <div class="card card-hover border-0 box-shadow mx-auto" style="max-width: 400px;">
-                        <img class="card-img-top" style="height: 58ch" src="{{asset('storage').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
+                        <img class="card-img-top" style="height: 58ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
                         <div class="card-body">
                             <h3 class="h5 mb-0 text-center"  >{{$evento->nombre}}</h3>
                         </div>
@@ -128,7 +128,7 @@
                 
             @endforeach
             <!-- Loop Start -->
-            <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+            {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-hover border-0 box-shadow mx-auto" style="max-width: 400px;">
                     <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
                     <div class="card-body">
@@ -143,7 +143,7 @@
                         <div class="event-map w-100 mt-1" style="min-height: 250px; background: red;"></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- loop end -->
             {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">

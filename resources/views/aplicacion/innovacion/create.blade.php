@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{$url}}" id='myForm' method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" onsubmit="return validar();" id='myForm' method="POST" enctype="multipart/form-data">
         @csrf
         @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
@@ -84,17 +84,17 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(max. 100 palabras)</span> <span style="color: gray" id="count-words"></span></label>
-                                    <textarea onkeyup="countWords(this);" onkeydown="countWords(this);" class="form-control" name="descripcion" id="descripcion_convocatoria"
+                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span></label>
+                                    <textarea onkeyup="countWords();" onkeydown="countWords();" onblur="validar();" class="form-control" name="descripcion" id="descripcion_convocatoria"
                                               rows="10" required="required"
-                                              >{{ old('descripcion', $convocatoria->descripcion ?? null) }}</textarea>
+                                              >{{ old('descripcion', $convocatoria->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="innovacion_imagen">* Imagen</label>
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" name="imagen" id="innovacion_imagen " accept="image/gif, image/jpeg, image/png"  data-default-file="{{asset('storage').'/'.$convocatoria->imagen}}">
+                                        <input type="file" class="dropify" name="imagen" id="innovacion_imagen " accept="image/gif, image/jpeg, image/png"  data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
                                                                                                     
                                     @else
                                         <input type="file" class="dropify" name="imagen" id="innovacion_imagen " accept="image/gif, image/jpeg, image/png" required>
@@ -162,6 +162,7 @@
 <script>
     $(document).ready(function(){
         var cont=0;
+        countWords();
         $('.innovacion_tipo').change(function(){
             if($(this).is(':checked')){
                 if ($(this).val() > 0){
@@ -202,24 +203,41 @@
 
    });
    //contar palabras
-
    var maxlength=300;
     var maxword=100;
-    function countWords(self){
-        var spaces=self.value.match(/\S+/g);
+
+   function countWords(){
+        
+        let str = document.getElementById("descripcion_convocatoria").value;
+        var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
         if (words>maxword){
             if (words==maxword+1){
-                maxlength=self.value.length-2
+                maxlength=$('#descripcion_convocatoria').value.length-2
             }
-            self.value=self.value.substring(0,maxlength);
+            $('#descripcion_convocatoria').value=$('#descripcion_convocatoria').value.substring(0,maxlength);
             words=maxword;
             alert('Ha rebasado el limite');
         }
-       
         document.getElementById("count-words").innerHTML=words+" palabras";
     };
 
+    function validar(){
+        
+        let str = document.getElementById("descripcion_convocatoria").value;
+        var spaces=str.match(/\S+/g);
+        var words=spaces ? spaces.length:0;
+        if (words>50 || words==0){
+            
+            return(true);
+        }
+        else{
+            document.getElementById("descripcion_convocatoria").focus();
+            alert('Minimo de palabras requerido');
+            return(false);
+        }
+    };
+    ///
 </script>
 <script type="text/javascript">
 
