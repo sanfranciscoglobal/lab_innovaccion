@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{$url}}" onsubmit="return validar();" method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
 
@@ -62,8 +62,12 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span> 
-                                            <textarea oninput="countWords();" onblur="validar()" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
+            
+                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
                                             >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span></label>
+                                            <br>
+                                            <div class="invalid-feedback" id='descripcion-error'></div>
+    
                                         
                                         </div>
                                     </div>
@@ -163,9 +167,9 @@
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
                                     @if ($method=='PUT')
-                                        <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Actualizar</button>
+                                        <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Actualizar</button>
                                     @else
-                                        <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
+                                        <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
                                     @endif
 
                                 </div>
@@ -220,33 +224,34 @@
         let str = document.getElementById("descripcion").value;
         var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
-        if (words>maxword){
-            if (words==maxword+1){
-                maxlength=$('#descripcion').value.length-2
-            }
-            $('#descripcion').value=$('#descripcion').value.substring(0,maxlength);
-            words=maxword;
-            alert('Ha rebasado el limite');
-        }
+        // if (words>maxword){
+        //     // if (words==maxword+1){
+        //     //     maxlength=$('#descripcion').value.length-2
+        //     // }
+        //     // $('#descripcion').value=$('#descripcion').value.substring(0,maxlength);
+        //     // words=maxword;
+        //     // alert('Ha rebasado el limite');
+        //     $("#descripcion").focus();
+        //     $("#descripcion-error-max").addClass('d-inline');
+        //     $('#descripcion').addClass('is-invalid');
+        // }
         document.getElementById("count-words").innerHTML=words+" palabras";
-    };
-
-    function validar(){
-        
-        let str = document.getElementById("descripcion").value;
-        var spaces=str.match(/\S+/g);
-        var words=spaces ? spaces.length:0;
-        if (words>49 || words==0){
-            
-            return(true);
+        if (words>49 && words<=maxword || words==0){
+            $("#descripcion-error").removeClass('d-inline');
+            $('#descripcion').removeClass('is-invalid');
+            $('#submitbutton').removeAttr('disabled');
+        }
+        else if (words<49){
+            $("#descripcion-error").html('Llene el mínimo de palabras necesarias');
+            $("#descripcion-error").addClass('d-inline');
+            $('#descripcion').addClass('is-invalid');
+            $('#submitbutton').attr('disabled','disabled');   
         }
         else{
-            document.getElementById("descripcion").focus();
-            //document.getElementById("descripcion").setCustomValidity("¡Se esperaba una dirección de correo electrónico!");
-            //document.getElementById('descripcion').innerHTML = 'Email must be filled out';
-            alert('No tiene el minimo de palabras necesarias');
-
-            return(false);
+            $("#descripcion-error").html('Ha sobrepasado el límite de palabras permitido');
+            $("#descripcion-error").addClass('d-inline');
+            $('#descripcion').addClass('is-invalid');
+            $('#submitbutton').attr('disabled','disabled');  
         }
     };
     //
