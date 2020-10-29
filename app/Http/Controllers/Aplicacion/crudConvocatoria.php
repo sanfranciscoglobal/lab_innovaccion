@@ -39,7 +39,7 @@ class crudConvocatoria extends Controller
             
             if(isset($validatedData['imagen'])){
                 $name = CustomUrl::urlTitle('convocatoria'.'_'.$convocatoria->tipoconvocatoria_id.'_'.$convocatoria->id);
-                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+                $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'convocatorias');
                 $convocatoria->imagen = $imageName;
                 $convocatoria->save();
             }
@@ -87,7 +87,7 @@ class crudConvocatoria extends Controller
 
         if(isset($validatedData['imagen'])){
             $name = CustomUrl::urlTitle('convocatoria'.'_'.$convocatoria->tipoconvocatoria_id.'_'.$convocatoria->id);
-            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'convocatorias');
             $convocatoria->imagen = $imageName;
             $convocatoria->save();
         }
