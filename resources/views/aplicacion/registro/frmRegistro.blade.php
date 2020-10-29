@@ -30,18 +30,21 @@
                                 <div class="form-group">
                                     <label for="account-fn">Nombre</label>
                                     <input class="form-control" type="text" id="account-fn" value="{{ old('name', $user->name) }}" name="name" readonly>
+                                    @error('name')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="account-ln">Celular</label>
                                     <input class="form-control" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" required>
+                                    @error('celular')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="form-group">
                                     <label for="account-email">Email</label>
                                     <input class="form-control" type="email" id="account-email" value="{{ old('email', $user->email) }}" name="email" readonly>
+                                    @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                                 <div class="form-group">
                                     <span>* Propósito del registro (¿Qué acción voy a realizar?):</span>
@@ -57,6 +60,7 @@
                                         <input type="radio" id="participar" name="proposito" value="3" {{ old('proposito', $perfil->proposito) == 3 ? 'checked' : '' }}>
                                         Participar en innovación (identificar problemas, proveer soluciones)
                                     </label>
+                                    @error('proposito')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                                 <div class="form-group">
                                     <span>* Tipo de Registro</span>
@@ -73,6 +77,7 @@
                                                 Organización
                                             </label>
                                         </div>
+                                        @error('tipo_reg')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
                             </div>
@@ -80,19 +85,21 @@
                                 <div class="form-group">
                                     <label for="org_web">Avatar</label>
                                     <input class="form-control dropify" type="file" id="avatar" name="avatar" title="Avatar del usuario">
-                                    @error('avatar')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                    @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_nombre">* Nombre de la organización a la que pertenece</label>
                                     <input class="form-control req" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Organización Ecuador" required>
+                                    @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-5 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_web">* Página Web de la Organización</label>
                                     <input class="form-control req" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="www.pagina.com" required>
+                                    @error('web')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
@@ -105,6 +112,7 @@
                                         <option value="3" {{ old('tipo_org', $perfil->tipo_org) == 3 ? 'selected' : '' }}>Sector Público</option>
                                         <option value="4" {{ old('tipo_org', $perfil->tipo_org) == 4 ? 'selected' : '' }}>Organización de la sociedad civil</option>
                                     </select>
+                                    @error('tipo_org')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                                 <div class="row to-hide d-none">
                                     <div class="col-md-8">
@@ -112,12 +120,14 @@
                                             <label for="org_direccion">* Ubicación de su organización</label>
                                             <input class="form-control req" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Busqueda de lugar" required>
                                         </div>
+                                        @error('direccion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
                                             <select class="form-control select2" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
                                             </select>
+                                            @error('canton_id')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
@@ -126,6 +136,7 @@
                                         <div id="map" style="width: 100%; height: 350px;"></div>
                                         <input type="hidden" type="text" id="lat" name="latitud" value="{{ old('latitud', $perfil->latitud) }}">
                                         <input type="hidden" type="text" id="long" name="longitud" value="{{ old('longitud', $perfil->longitud) }}">
+                                        @error('latitud', 'longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
                             </div>
@@ -135,18 +146,22 @@
                                     <div class="form-group">
                                         <label for="org_twitter">Twitter</label>
                                         <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter">
+                                        @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_facebook">Facebook</label>
                                         <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook">
+                                        @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_linkedin">LinkedIn</label>
                                         <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin">
+                                        @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_instagram">Instagram</label>
                                         <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram">
+                                        @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
                             </div>
@@ -156,6 +171,7 @@
                                     <div class="custom-control custom-checkbox d-block">
                                         <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $perfil->terminos) == true ? 'checked' : '' }}>
                                         <label class="custom-control-label" for="verificada">* Yo certifico que esta información es verídica.</label>
+                                        @error('terminos')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
                                 </div>
