@@ -20,8 +20,11 @@ use App\Helpers\Archivos; // $nombre, $archivo, $disk
 class crudMaterialesaprendizaje extends Controller
 {
     //
+
     public function __construct(){
-        $this->middleware(['auth', 'acceso-app:user']);
+        $this->middleware(['auth', 'verified', 'has-perfil']);
+        $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
+        $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
     public function store(StorePost $request){
        

@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{$url}}" onsubmit="return validar();" id='myForm' method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" id='myForm' method="POST" enctype="multipart/form-data">
         @csrf
         @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
@@ -85,9 +85,12 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span></label>
-                                    <textarea onkeyup="countWords();" onkeydown="countWords();" onblur="validar();" class="form-control" name="descripcion" id="descripcion_convocatoria"
+                                    <textarea onkeyup="countWords();" onkeydown="countWords();"  class="form-control" name="descripcion" id="descripcion_convocatoria"
                                               rows="10" required="required"
                                               >{{ old('descripcion', $convocatoria->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
+                                              <br>
+                                              <div class="invalid-feedback" id='descripcion-error'></div>
+
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -112,9 +115,9 @@
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
                                     @if ($method=='PUT')
-                                        <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i> Actualizar</button>
+                                        <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i> Actualizar</button>
                                     @else
-                                        <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i> Publicar</button>
+                                        <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i> Publicar</button>
                                     @endif
                                     
                                 </div>
@@ -174,9 +177,7 @@
                     $('#control-'+ $(this).val()+' .form-control').attr('required', true);
                     if (cont==0){
                         cargarput($(this).val());
-                        cont+=1;
-                        
-                        
+                        cont+=1;                  
                     }
                 }
             }
@@ -205,36 +206,39 @@
    //contar palabras
    var maxlength=300;
     var maxword=100;
-
-   function countWords(){
+    function countWords(){
         
         let str = document.getElementById("descripcion_convocatoria").value;
         var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
-        if (words>maxword){
-            if (words==maxword+1){
-                maxlength=$('#descripcion_convocatoria').value.length-2
-            }
-            $('#descripcion_convocatoria').value=$('#descripcion_convocatoria').value.substring(0,maxlength);
-            words=maxword;
-            alert('Ha rebasado el limite');
-        }
+        // if (words>maxword){
+        //     // if (words==maxword+1){
+        //     //     maxlength=$('#descripcion').value.length-2
+        //     // }
+        //     // $('#descripcion').value=$('#descripcion').value.substring(0,maxlength);
+        //     // words=maxword;
+        //     // alert('Ha rebasado el limite');
+        //     $("#descripcion").focus();
+        //     $("#descripcion-error-max").addClass('d-inline');
+        //     $('#descripcion').addClass('is-invalid');
+        // }
         document.getElementById("count-words").innerHTML=words+" palabras";
-    };
-
-    function validar(){
-        
-        let str = document.getElementById("descripcion_convocatoria").value;
-        var spaces=str.match(/\S+/g);
-        var words=spaces ? spaces.length:0;
-        if (words>50 || words==0){
-            
-            return(true);
+        if (words>49 && words<=maxword || words==0){
+            $("#descripcion-error").removeClass('d-inline');
+            $('#descripcion_convocatoria').removeClass('is-invalid');
+            $('#submitbutton').removeAttr('disabled');
+        }
+        else if (words<49){
+            $("#descripcion-error").html('Llene el mínimo de palabras necesarias');
+            $("#descripcion-error").addClass('d-inline');
+            $('#descripcion_convocatoria').addClass('is-invalid');
+            $('#submitbutton').attr('disabled','disabled');   
         }
         else{
-            document.getElementById("descripcion_convocatoria").focus();
-            alert('Minimo de palabras requerido');
-            return(false);
+            $("#descripcion-error").html('Ha sobrepasado el límite de palabras permitido');
+            $("#descripcion-error").addClass('d-inline');
+            $('#descripcion_convocatoria').addClass('is-invalid');
+            $('#submitbutton').attr('disabled','disabled');  
         }
     };
     ///
