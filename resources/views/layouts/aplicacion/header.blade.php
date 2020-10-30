@@ -109,15 +109,15 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
+                        <a class="text-white nav-link " href="/mapa/">Mapa</a>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="text-white nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item" href="{{route('eventos')}}">Eventos</a></li>
                             <li><a class="dropdown-item" href="{{route('material')}}">Publicaciones y herramientas</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="text-white nav-link " href="/mapa/">Mapa</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="text-white nav-link dropdown-toggle" href="#">Nosotros</a>
