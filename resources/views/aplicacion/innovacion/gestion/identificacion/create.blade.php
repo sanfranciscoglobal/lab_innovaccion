@@ -151,7 +151,7 @@
 @endsection
 
 @section('footer')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCumBYahoH5olLlie5I9Jw6bNh91vaQly4&libraries=places&callback=initMap" async defer></script>
 
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
     <script>
