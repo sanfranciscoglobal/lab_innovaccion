@@ -126,6 +126,9 @@
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
                                             <select class="form-control select2" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
+                                                @if ($perfil->cantin_id)
+                                                <option value="{{ $perfil->canton_id }}" selected>{{ $perfil->canton->nombre }}</option>
+                                                @endif
                                             </select>
                                             @error('canton_id')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>

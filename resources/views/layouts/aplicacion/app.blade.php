@@ -173,15 +173,16 @@
                                         <i class="fe-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control" type="password"
-                                       placeholder="Contraseña" name="password" required>
+                                <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/g" required>
+                                @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Show password</span>
                                 </label>
+                                {{-- <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 symbolo, Mínimo 8 caracteres</small> --}}
                             </div>
-                            <div class="d-flex justify-content-between align-items-center form-group">
+                            {{-- <div class="d-flex justify-content-between align-items-center form-group">
                                 <div class="custom-control custom-checkbox">
                                     <input class="custom-control-input" type="checkbox" id="keep-signed">
                                     <label class="custom-control-label" for="keep-signed">Mantener sesión iniciada</label>
@@ -189,7 +190,7 @@
                                 <a class="nav-link-style font-size-ms" href="password-recovery.html">
                                     ¿Olvidó su contraseña?
                                 </a>
-                            </div>
+                            </div> --}}
                             <button class="btn btn-primary btn-block" type="submit">Entrar</button>
                             <p class="font-size-sm pt-3 mb-0">
                                 ¿No tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signup-view'>Registrese</a>
@@ -219,12 +220,14 @@
                                 @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="password" type="password" placeholder="Contraseña" required>
+                                <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/g" required>
+                                @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
+                                <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 symbolo, Mínimo 8 caracteres</small>
                                 @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">

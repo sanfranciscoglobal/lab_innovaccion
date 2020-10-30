@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\EmailVerification;
 use Mail;
+use Auth;
 
 // Models
 use App\Models\User;
@@ -74,7 +75,7 @@ class RegisterController extends Controller
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/g'],
         ]);
 
         $user = User::create([
@@ -89,8 +90,10 @@ class RegisterController extends Controller
             'user_id' => $user->id,
         ]);
 
+        Auth::attempt($request->only('email', 'password'));
+
         // Mail::to($user->email)->send(new EmailVerification($user));
 
-        return back()->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
+        return redirect()->route('app.registro')->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
     }
 }
