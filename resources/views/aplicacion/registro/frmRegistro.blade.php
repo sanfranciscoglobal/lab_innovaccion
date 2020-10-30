@@ -35,8 +35,8 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="account-ln">Celular</label>
-                                    <input class="form-control" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" required>
+                                    <label for="account-ln">* Celular</label>
+                                    <input class="form-control" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$" required>
                                     @error('celular')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                             <div class="col-md-5 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_web">* Página Web de la Organización</label>
-                                    <input class="form-control req" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="www.pagina.com" required>
+                                    <input class="form-control req" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="https://www.sitioweb.com" required>
                                     @error('web')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
@@ -148,22 +148,22 @@
                                     <span>Redes Sociales de la Organización</span>
                                     <div class="form-group">
                                         <label for="org_twitter">Twitter</label>
-                                        <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter">
+                                        <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                         @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_facebook">Facebook</label>
-                                        <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook">
+                                        <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                         @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_linkedin">LinkedIn</label>
-                                        <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin">
+                                        <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                         @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_instagram">Instagram</label>
-                                        <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram">
+                                        <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                         @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
@@ -215,7 +215,7 @@
     @endif
 @endsection
 @section('footer')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCumBYahoH5olLlie5I9Jw6bNh91vaQly4&libraries=places&callback=initMap" async defer></script>
 <script>
     var baseURL = '{{ URL::to('/') }}';
     let user_lat = {{ old('latitud', $perfil->latitud) ?? 'null' }};
