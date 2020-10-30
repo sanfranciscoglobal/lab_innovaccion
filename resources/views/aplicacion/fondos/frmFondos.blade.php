@@ -18,11 +18,14 @@
                 <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
                     <div class="py-2 p-md-3">
                         <!-- Title + Delete link-->
-                        <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
+                        <div class="d-sm-flex align-items-center justify-content-between text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Registro de Fondos Concursables</h1>
                             @if ($method == 'PUT')
                             <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</button>
                             @endif
+                        </div>
+                        <div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+                            <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios</p>
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -104,27 +107,27 @@
                                             <span>Redes Sociales</span>
                                             <div class="form-group">
                                                 <label for="org_twitter">Twitter</label>
-                                                <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter">
+                                                <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                                 @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_facebook">Facebook</label>
-                                                <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook">
+                                                <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                                 @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_linkedin">LinkedIn</label>
-                                                <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin">
+                                                <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                                 @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Instagram</label>
-                                                <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram">
+                                                <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                                 @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Youtube</label>
-                                                <input class="form-control" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube">
+                                                <input class="form-control" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
                                                 @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>

@@ -36,18 +36,18 @@
     <h4 class="h3">Redes sociales de los problemas identificados</h4>
     <div class="form-group">
         <label for="url-input">Facebook</label>
-        <input class="form-control" type="url" id="url-input" name="facebook" value="">
+        <input class="form-control" type="url" id="url-input" name="facebook" value="" placeholder="Link a tu usuario">
     </div>
     <div class="form-group">
         <label for="url-input">Instagram</label>
-        <input class="form-control" type="url" id="url-input" name="instagram" value="">
+        <input class="form-control" type="url" id="url-input" name="instagram" value="" placeholder="Link a tu usuario">
     </div>
     <div class="form-group">
         <label for="url-input">LinkedIn</label>
-        <input class="form-control" type="url" id="url-input" name="linkedin" value="">
+        <input class="form-control" type="url" id="url-input" name="linkedin" value="" placeholder="Link a tu usuario">
     </div>
     <div class="form-group">
         <label for="url-input">Twitter</label>
-        <input class="form-control" type="url" id="url-input" name="twitter" value="">
+        <input class="form-control" type="url" id="url-input" name="twitter" value="" placeholder="Link a tu usuario">
     </div>
 </div>
