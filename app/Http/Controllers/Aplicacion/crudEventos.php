@@ -27,7 +27,7 @@ class crudEventos extends Controller
     public function store(StorePost $request)
     {
         $validatedData=$request->validated();
-        
+
         if($evento=Evento::create($validatedData)){
 
             if(isset($validatedData['imagen'])){
@@ -44,13 +44,13 @@ class crudEventos extends Controller
 
     public function update(UpdatePost $request, Evento $evento )
     {
-     
+
         $validatedData = $request->validated();
-        
+
         $evento->update( $validatedData);
 
         if(isset($validatedData['imagen'])){
-            
+
             $name = CustomUrl::urlTitle($validatedData['organizador']).'_'.$evento->id;
             $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'eventos');
             $evento->imagen = $imageName;
@@ -58,8 +58,6 @@ class crudEventos extends Controller
         }
 
         return redirect()->route('app.escritorio.eventos')->with('status', 'Evento modificado con éxito');
-       
-
     }
 
 
