@@ -173,7 +173,7 @@
                                         <i class="fe-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/g" required>
+                                <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/" required>
                                 @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
@@ -220,7 +220,7 @@
                                 @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/g" required>
+                                <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/" required>
                                 @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">

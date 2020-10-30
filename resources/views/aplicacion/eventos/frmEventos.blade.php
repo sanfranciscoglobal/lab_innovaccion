@@ -61,14 +61,14 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span> 
-            
-                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"   oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required 
+                                            <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span>
+
+                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"   oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required
                                             >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span></label>
                                             <br>
                                             <div class="invalid-feedback" id='descripcion-error'></div>
-    
-                                        
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                                                                         data-close-on-select="false"
                                                                         required="required"
                                                                         oninvalid="setCustomValidity('Por favor seleccione una opción de la lista.')" onchange="try{setCustomValidity('')}catch(e){}"></select>
-                                                
+
 
                                                             </div>
                                                         </div>
@@ -151,11 +151,11 @@
                                     <label for="imagen">* Imagen del Evento</label>
                                     @if ($method=='PUT')
                                         <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
-                                                                                                        
+
                                     @else
                                         <input type="file" class="dropify"  accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" oninvalid="setCustomValidity('Por favor seleccione una imagen.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                     @endif
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
     </div>
     </form>
     @if ($method=='PUT')
-        
+
         <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -199,14 +199,14 @@
                         @method('DELETE')
                         <div class="modal-body">
                             <div class="text-warning">Está seguro que desea eliminar este evento?</div>
-                            
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
                         </div>
-                        
-                        
+
+
                     </form>
                 </div>
             </div>
@@ -221,7 +221,7 @@
     var maxlength=300;
     var maxword=100;
     function countWords(){
-        
+
         let str = document.getElementById("descripcion").value;
         var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
@@ -246,13 +246,13 @@
             $("#descripcion-error").html('Llene el mínimo de palabras necesarias');
             $("#descripcion-error").addClass('d-inline');
             $('#descripcion').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');   
+            $('#submitbutton').attr('disabled','disabled');
         }
         else{
             $("#descripcion-error").html('Ha sobrepasado el límite de palabras permitido');
             $("#descripcion-error").addClass('d-inline');
             $('#descripcion').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');  
+            $('#submitbutton').attr('disabled','disabled');
         }
     };
     //
@@ -283,7 +283,7 @@
                 }
             }
         });
-        
+
     });
     var loadFile = function(event) {
         var image = document.getElementById('output');
@@ -382,21 +382,21 @@
 </script>
 
 <script>
-    
+
     @if ($method=="PUT" && isset($evento->canton))
         var cantonidd={{old('canton',(int)$evento->canton)??'null'}};
         if (cantonidd){
-            var canton_nombre="{{$evento->cantonid->nombre}}"; 
+            var canton_nombre="{{$evento->cantonid->nombre}}";
             $("#canton_id").select2("trigger", "select", {
                      data: { id: cantonidd , text:canton_nombre}
                  });
-        
+
         }
 
     @endif
-    
-    
-    
+
+
+
 
     $(function(){
 
