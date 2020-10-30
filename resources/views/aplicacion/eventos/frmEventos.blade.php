@@ -30,7 +30,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="organizador">* Nombre del Organizador</label>
-                                    <input class="form-control" type="text" id="organizador" value="{{isset($evento->organizador)?$evento->organizador:old('organizador')}}" name="organizador" placeholder="Nombre del organizador" required>
+                                    <input class="form-control" type="text" id="organizador" value="{{isset($evento->organizador)?$evento->organizador:old('organizador')}}" name="organizador" placeholder="Nombre del organizador"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="nombre">* Nombre del Evento</label>
-                                            <input class="form-control" type="text" id="nombre" value="{{isset($evento->nombre)?$evento->nombre:old('nombre')}}" name="nombre" placeholder="Nombre del evento" required>
+                                            <input class="form-control" type="text" id="nombre" value="{{isset($evento->nombre)?$evento->nombre:old('nombre')}}" name="nombre" placeholder="Nombre del evento"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -48,13 +48,13 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="fecha">* Fecha</label>
-                                            <input class="form-control" type="date" id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha" required>
+                                            <input class="form-control" type="date" id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="hora">* Hora</label>
-                                            <input class="form-control" type="time" id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora" required>
+                                            <input class="form-control" type="time" id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora"  oninvalid="setCustomValidity('Por favor seleccione una hora.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                         <div class="form-group">
                                             <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span> 
             
-                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"  required 
+                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"   oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required 
                                             >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span></label>
                                             <br>
                                             <div class="invalid-feedback" id='descripcion-error'></div>
@@ -102,7 +102,7 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* URL del Evento</label>
-                                                        <input class="form-control" type="url" id="url" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" required>
+                                                        <input class="form-control" type="url" id="url" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 to-hide e-presencial d-none">
@@ -118,7 +118,8 @@
                                                                         data-allow-clear="true"
                                                                         data-placeholder="Seleccione un Cantón"
                                                                         data-close-on-select="false"
-                                                                        required="required"></select>
+                                                                        required="required"
+                                                                        oninvalid="setCustomValidity('Por favor seleccione una opción de la lista.')" onchange="try{setCustomValidity('')}catch(e){}"></select>
                                                 
 
                                                             </div>
@@ -128,7 +129,7 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="ubicacion">* Ubicación del Evento</label>
-                                                                <input class="form-control" type="text" id="evento_direccion" value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Direccion del evento" required>
+                                                                <input class="form-control" type="text" id="evento_direccion" value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Direccion del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -152,7 +153,7 @@
                                         <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
                                                                                                         
                                     @else
-                                        <input type="file" class="dropify"  accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" required>
+                                        <input type="file" class="dropify"  accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" oninvalid="setCustomValidity('Por favor seleccione una imagen.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                     @endif
                                    
                                 </div>
@@ -163,7 +164,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1"  required>
+                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" oninvalid="setCustomValidity('Por favor marca esta casilla si tu quieres continuar.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                     </div>
                                     @if ($method=='PUT')
