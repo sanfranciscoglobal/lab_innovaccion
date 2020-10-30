@@ -146,7 +146,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
                 <div class="cs-view show" id="modal-signin-view">
-                    <div class="modal-header border-0 bg-dark px-4">
+                    <div class="modal-header border-0 bg-purple-gradient px-4">
                         <h4 class="modal-title text-light">Iniciar sesión</h4>
                         <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -199,7 +199,7 @@
                     </div>
                 </div>
                 <div class="cs-view" id="modal-signup-view">
-                    <div class="modal-header border-0 bg-dark px-4">
+                    <div class="modal-header border-0 bg-purple-gradient px-4">
                         <h4 class="modal-title text-light">Registro de Usuario</h4>
                         <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -245,7 +245,7 @@
                     </div>
                 </div>
                 <div class="cs-view" id="search-bar-view">
-                    <div class="modal-header border-0 bg-dark px-4">
+                    <div class="modal-header border-0 bg-purple-gradient px-4">
                         <h4 class="modal-title text-light">Buscar contenidos</h4>
                         <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>

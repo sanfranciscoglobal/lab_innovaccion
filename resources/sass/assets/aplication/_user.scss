@@ -1,4 +1,30 @@
-// 
+//
 // user.scss
 // Use this to write your custom SCSS
 //
+
+// Texts
+
+.uppercase { text-transform: uppercase; }
+.text-naranja { color: $naranja; }
+.text-tomate { color: $tomate; }
+.text-mora { color: $mora; }
+.text-uva { color: $uva; }
+
+.fs-12 { font-size: 12px; }
+.fs-14 { font-size: 14px; }
+.fs-16 { font-size: 16px; }
+.fs-18 { font-size: 18px; }
+.fs-20 { font-size: 20px; }
+.fs-22 { font-size: 22px; }
+.fs-26 { font-size: 26px; }
+.fs-32 { font-size: 32px; }
+.fs-36 { font-size: 36px; }
+.fs-48 { font-size: 48px; }
+.fs-60 { font-size: 60px; }
+
+// Backgrounds
+.bg-naranja { background-color: $naranja; }
+.bg-tomate { background-color: $tomate; }
+.bg-mora { background-color: $mora; }
+.bg-uva { background-color: $uva; }
