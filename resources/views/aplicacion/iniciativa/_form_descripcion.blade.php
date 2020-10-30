@@ -111,27 +111,32 @@
                     <label for="iniciativa_facebook">Facebook</label>
                     <input class="form-control" type="url" id="url_facebook" name="url_facebook"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_facebook:''}}"
+                            placeholder="Link a tu usuario"
                     >
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_instagram">Instagram</label>
                     <input class="form-control" type="url" id="url_instagram" name="url_instagram"
-                           value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_instagram:''}}">
+                           value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_instagram:''}}"
+                            placeholder="Link a tu usuario">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_twitter">Twitter</label>
                     <input class="form-control" type="url" id="url_twitter" name="url_twitter"
-                           value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_twitter:''}}">
+                           value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_twitter:''}}"
+                            placeholder="Link a tu usuario">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_linkedin">LinkedIn</label>
                     <input class="form-control" type="url" id="url_linkedin" name="url_linkedin"
-                           value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_linkedin:''}}">
+                           value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_linkedin:''}}"
+                            placeholder="Link a tu usuario">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_youtube">Youtube</label>
                     <input class="form-control" type="url" id="url_youtube" name="url_youtube"
-                           value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_youtube:''}}">
+                           value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_youtube:''}}"
+                            placeholder="Link a tu usuario">
                 </div>
             </div>
         </div>
