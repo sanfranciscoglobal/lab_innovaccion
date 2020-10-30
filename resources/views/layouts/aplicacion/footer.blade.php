@@ -27,7 +27,7 @@
             <div class="col-md-2 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title">Contáctanos</h4>
-                    <a class="text-white" href="mailto:contacto@thinkia.org">contacto@thinkia.org</a>
+                    <a class="text-white" href="mailto:hola@thinkia.org">hola@thinkia.org</a>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 ml-auto pb-1">
