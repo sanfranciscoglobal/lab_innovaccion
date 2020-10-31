@@ -38,35 +38,39 @@
                         </div>
                     </div>
                     <div class="row">
-                        @for ($i=0; $i<7;$i++)
-                        <div class="col col-lg-6">
-                            <article class="card card-hover mb-grid-gutter">
-                                <div class="card-body">
-                                    <h2 class="h4 nav-heading mb-4">
-                                        <a href="blog-single-rs.html">Designers should always keep their users in mind</a>
-                                    </h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum magni, nemo hic vitae minus tenetur velit ipsa amet corrupti repellendus vel rem, corporis accusamus ea ratione culpa sed non illo.</p>
-                                    <div class="row">
-                                        <div class="col">
-                                            <a class="media meta-link font-size-sm align-items-center pt-3" href="#"><img class="rounded-circle" width="36" src="img/blog/avatar/01.jpg" alt="Emma Brown" />
-                                                <div class="media-body pl-2 ml-1 mt-n1">
-                                                    por<span class="font-weight-semibold ml-1">Emma Brown</span>
+                        @foreach ($materiales as $material)
+                            <div class="col col-lg-6">
+                                <article class="card card-hover mb-grid-gutter">
+                                    <div class="card-body">
+                                        <h2 class="h4 nav-heading mb-4">
+                                            <a href="#">{{$material->nombre_publicacion}}</a>
+                                        </h2>
+                                        <p>{{$material->tema_tratado}}</p>
+                                        <p>{{$material->tipo_documento}}</p>
+                                  
+                                        <div class="row">
+                                            <div class="col">
+                                                <a class="media meta-link font-size-sm align-items-center pt-3" href="#"><img class="rounded-circle" width="36" src="{{asset('storage/materiales').'/'.$material->imagen_portada}}" alt="" />
+                                                    <div class="media-body pl-2 ml-1 mt-n1">
+                                                        por<span class="font-weight-semibold ml-1">{{$material->autor_publicacion}}</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mt-3 text-right text-nowrap">
+                                                    <a class="meta-link font-size-xs" href="#">
+                                                        <i class="fe-message-square mr-1"></i>&nbsp;6</a><span class="meta-divider"></span>
+                                                    <a class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;{{date('M d, Y', strtotime( $material->fecha_publicacion))}}</a>
                                                 </div>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mt-3 text-right text-nowrap">
-                                                <a class="meta-link font-size-xs" href="#">
-                                                    <i class="fe-message-square mr-1"></i>&nbsp;6</a><span class="meta-divider"></span>
-                                                <a class="meta-link font-size-xs" href="#"><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;Feb 19</a>
                                             </div>
                                         </div>
+                                        <a class="btn btn-primary" href="#">Ver publicación</a>
                                     </div>
-                                    <a class="btn btn-primary" href="#">Ver publicación</a>
-                                </div>
-                            </article>
-                        </div>
-                        @endfor
+                                </article>
+                            </div>
+                            
+                        @endforeach
+                        
                     </div>
                     <!-- Pagination-->
                     <div class="d-md-flex justify-content-between align-items-center pt-3 pb-2">

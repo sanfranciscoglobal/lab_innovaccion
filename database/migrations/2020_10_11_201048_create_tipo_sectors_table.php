@@ -16,7 +16,7 @@ class CreateTipoSectorsTable extends Migration
         Schema::create('tipo_sector', function (Blueprint $table) {
            
             $table->id();
-            $table->unsignedBigInteger('convocatoria_id')->nullable();
+            $table->unsignedBigInteger('convocatoria_id');
             $table->string('nombre');
             $table->foreign('convocatoria_id')->references('id')->on('tipo_convocatoria')->onDelete('SET NULL');
             $table->timestamps();

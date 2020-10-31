@@ -160,7 +160,7 @@
 @endsection
 
 @section('footer')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCumBYahoH5olLlie5I9Jw6bNh91vaQly4&libraries=places&callback=initMap" async defer></script>
     <script>
         var input = document.getElementById('evento_direccion');
         var selectPath = '{{route('api.canton.select2')}}';
@@ -275,16 +275,16 @@
                 html = '';
                 html += '<div class="form-group direccion" data-row="'+addressIterator+'">';
                     html += '<div class="row">';
-                        html += '<div class="col-lg-9">';
+                        html += '<div class="col-lg-12">';
                             html += '<label class="control-label">Dirección Sucursal</label>';
                             html += '<input maxlength="200" type="text" required="required" data-adresscontainer="'+addressIterator+'" class="form-control ubicacion ubicacion-'+addressIterator+'"';
                             html += 'placeholder="Escriba la dirección" name="direccion[]"';
                             html += 'value=""/>';
                             html += '<input type="hidden" class="lat lat-'+addressIterator+'" name="latitud[]" value="">';
                             html += '<input type="hidden" class="long long-'+addressIterator+'" name="longitud[]" value="">';
-                        html += '</div>';
-                        html += '<div class="col-lg-3">';
-                            html += $('#clone').html();
+                            html += '<input type="hidden" class="localidad localidad-'+addressIterator+'" name="localidad[]" value="">';
+                            html += '<input type="hidden" class="area1 area1-'+addressIterator+'" name="area1[]" value="">';
+                            html += '<input type="hidden" class="area2 area2-'+addressIterator+'" name="area2[]" value="">';
                         html += '</div>';
                 html += '</div></div>';
                 $('#sedes-container').append(html);
@@ -345,6 +345,17 @@
                             jQuery('input.ubicacion-'+currentAddressInput).val(results[0].formatted_address);
                             jQuery('input.lat-'+currentAddressInput).val(marker.getPosition().lat());
                             jQuery('input.long-'+currentAddressInput).val(marker.getPosition().lng());
+                            $.each(results[0].address_components, function(index, value){
+                                if (value.types.indexOf('locality') > -1){
+                                    jQuery('input.localidad-'+currentAddressInput).val(value.short_name);
+                                }
+                                if (value.types.indexOf('administrative_area_level_1') > -1){
+                                    jQuery('input.area1-'+currentAddressInput).val(value.short_name);
+                                }
+                                if (value.types.indexOf('administrative_area_level_2') > -1){
+                                    jQuery('input.area2-'+currentAddressInput).val(value.short_name);
+                                }
+                            })
                             infowindow.setContent(results[0].formatted_address);
                             infowindow.open(map, marker);
                         }
@@ -358,6 +369,17 @@
                                 jQuery('input.ubicacion-'+currentAddressInput).val(results[0].formatted_address);
                                 jQuery('input.lat-'+currentAddressInput).val(marker.getPosition().lat());
                                 jQuery('input.long-'+currentAddressInput).val(marker.getPosition().lng());
+                                $.each(results[0].address_components, function(index, value){
+                                    if (value.types.indexOf('locality') > -1){
+                                        jQuery('input.localidad-'+currentAddressInput).val(value.short_name);
+                                    }
+                                    if (value.types.indexOf('administrative_area_level_1') > -1){
+                                        jQuery('input.area1-'+currentAddressInput).val(value.short_name);
+                                    }
+                                    if (value.types.indexOf('administrative_area_level_2') > -1){
+                                        jQuery('input.area2-'+currentAddressInput).val(value.short_name);
+                                    }
+                                })
                                 infowindow.setContent(results[0].formatted_address);
                                 infowindow.open(map, marker);
                             }
@@ -375,9 +397,19 @@
             Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
             marker.setPosition(Latlng);
             infowindow.setContent(place.formatted_address);
-            //infowindow.hideInfoWindow();
-            //infowindow.showInfoWindow();
+            console.log(place)
             map.panTo(Latlng);
+            $.each(place.address_components, function(index, value){
+                if (value.types.indexOf('locality') > -1){
+                    jQuery('input.localidad-'+currentAddressInput).val(value.short_name);
+                }
+                if (value.types.indexOf('administrative_area_level_1') > -1){
+                    jQuery('input.area1-'+currentAddressInput).val(value.short_name);
+                }
+                if (value.types.indexOf('administrative_area_level_2') > -1){
+                    jQuery('input.area2-'+currentAddressInput).val(value.short_name);
+                }
+            })
             jQuery('input.lat-'+currentAddressInput).val(place.geometry.location.lat());
             jQuery('input.long-'+currentAddressInput).val(place.geometry.location.lng());
         }

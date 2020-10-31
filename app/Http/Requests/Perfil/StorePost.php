@@ -25,6 +25,7 @@ class StorePost extends FormRequest
     {
         return [
             'celular' => 'string|required',
+            'avatar' => 'image|nullable|max:1024',
             'proposito' => 'numeric|required',
             'tipo_reg' => 'boolean|required',
             'organizacion' => 'string|nullable|required_if:tipo_reg,0',

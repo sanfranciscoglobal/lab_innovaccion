@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <title>Laboratorio de Innovación</title>
@@ -146,7 +146,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
                 <div class="cs-view show" id="modal-signin-view">
-                    <div class="modal-header border-0 bg-dark px-4">
+                    <div class="modal-header border-0 bg-purple-gradient px-4">
                         <h4 class="modal-title text-light">Iniciar sesión</h4>
                         <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -164,7 +164,8 @@
                                         <i class="fe-mail"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico" name='email' required>
+                                <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico" name='email' value="{{ old('email') }}" required>
+                                @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="input-group-overlay cs-password-toggle form-group">
                                 <div class="input-group-prepend-overlay">
@@ -172,15 +173,16 @@
                                         <i class="fe-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control" type="password"
-                                       placeholder="Contraseña" name="password" required>
+                                <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/" min="8" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Show password</span>
                                 </label>
+                                @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                {{-- <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 symbolo, Mínimo 8 caracteres</small> --}}
                             </div>
-                            <div class="d-flex justify-content-between align-items-center form-group">
+                            {{-- <div class="d-flex justify-content-between align-items-center form-group">
                                 <div class="custom-control custom-checkbox">
                                     <input class="custom-control-input" type="checkbox" id="keep-signed">
                                     <label class="custom-control-label" for="keep-signed">Mantener sesión iniciada</label>
@@ -188,7 +190,7 @@
                                 <a class="nav-link-style font-size-ms" href="password-recovery.html">
                                     ¿Olvidó su contraseña?
                                 </a>
-                            </div>
+                            </div> --}}
                             <button class="btn btn-primary btn-block" type="submit">Entrar</button>
                             <p class="font-size-sm pt-3 mb-0">
                                 ¿No tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signup-view'>Registrese</a>
@@ -197,7 +199,7 @@
                     </div>
                 </div>
                 <div class="cs-view" id="modal-signup-view">
-                    <div class="modal-header border-0 bg-dark px-4">
+                    <div class="modal-header border-0 bg-purple-gradient px-4">
                         <h4 class="modal-title text-light">Registro de Usuario</h4>
                         <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -210,26 +212,31 @@
                         <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
                             @csrf
                             <div class="form-group">
-                                <input class="form-control" name="name" type="text" placeholder="Nombre Completo" required>
+                                <input class="form-control" name="name" type="text" placeholder="Nombre Completo" value="{{ old('name') }}" required>
+                                @error('name')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name="email" type="email" placeholder="Correo electrónico" required>
+                                <input class="form-control" name="email" type="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
+                                @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="password" type="password" placeholder="Contraseña" required>
+                                <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/" min="8" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
+                                <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 symbolo, Mínimo 8 caracteres</small>
+                                @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" required>
+                                <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" min="8" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
+                                @error('password_confirmation')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <button class="btn btn-primary btn-block" type="submit">Registrar</button>
                             <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signin-view'>Entrar</a></p>
@@ -237,7 +244,7 @@
                     </div>
                 </div>
                 <div class="cs-view" id="search-bar-view">
-                    <div class="modal-header border-0 bg-dark px-4">
+                    <div class="modal-header border-0 bg-purple-gradient px-4">
                         <h4 class="modal-title text-light">Buscar contenidos</h4>
                         <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>

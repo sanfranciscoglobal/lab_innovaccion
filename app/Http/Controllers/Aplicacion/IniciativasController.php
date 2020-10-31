@@ -33,7 +33,7 @@ class IniciativasController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function __construct(){
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**

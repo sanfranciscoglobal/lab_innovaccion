@@ -49,17 +49,17 @@
             @if (Auth::check())
             @php
                 $avatar = asset('img/logo/logo-icon-footer.png');
-                // if(isset(Auth::user()->perfil_id)){
-                //     if(isset(Auth::user()->perfil->avatar)){
-                //         $avatar = asset();
-                //     }
-                // }
+                if(isset(Auth::user()->perfil_id)){
+                    if(isset(Auth::user()->perfil->avatar)){
+                        $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
+                    }
+                }
             @endphp
             <div class="navbar-tool dropdown">
                 <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px">
-                <a class="navbar-tool-label dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="navbar-tool-label dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{-- <i class="fe-user mr-2"></i> --}}
-                    <small class="text-muted">Hola!</small>
+                    <small class="text-white">Hola!</small>
                     {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -109,15 +109,15 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
+                        <a class="text-white nav-link " href="/mapa/">Mapa</a>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="text-white nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item" href="{{route('eventos')}}">Eventos</a></li>
                             <li><a class="dropdown-item" href="{{route('material')}}">Publicaciones y herramientas</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="text-white nav-link " href="/mapa/">Mapa</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="text-white nav-link dropdown-toggle" href="#">Nosotros</a>

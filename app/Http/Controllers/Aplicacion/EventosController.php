@@ -20,6 +20,10 @@ class EventosController extends Controller
     // public function __construct(){
     //     $this->middleware('auth');
     // }
+    public function __construct(){
+        $this->middleware(['auth','verified','has-perfil'])->except('verEventos','searchEventos');
+        $this->middleware('acceso-app:user,admin,superadmin')->except('verEventos','searchEventos');
+    }
     public function verEventos(Request $request)
     {
         $autentificacion=false;

@@ -1,18 +1,21 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <section id="home-hero-banner">
-        <img class="img-fluid" src="{{ asset('img/home-hero-banner.jpg') }}">
-    </section>
+<style scoped>
+    .carousel-item {min-height: 550px;}
+</style>
+<section id="home-hero-banner">
+    @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
+</section>
 
     <section id="funciones">
-        <div class="container mt-5 mb-5">
+        <div class="container-fluid mt-5 mb-5">
             <div class="row d-flex">
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bombilla.svg') }}"
                             alt="Icon" />
-                        <h3 class="h5 mb-2">Gestión de la Innovación</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-mora">Gestión de la Innovación</h3>
                         <p class="font-size-sm mb-0">A través de convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
                     </div>
                 </div>
@@ -20,7 +23,7 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/lupa.svg') }}"
                             alt="Icon" />
-                        <h3 class="h5 mb-2">Ecosistema de Innovación</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-uva">Ecosistema de Innovación</h3>
                         <p class="font-size-sm mb-0">A través de un mapeo de agentes de innovación facilitamos su conexión para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
                     </div>
                 </div>
@@ -28,7 +31,7 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/mapa.svg') }}"
                             alt="Icon" />
-                        <h3 class="h5 mb-2">Mapa</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-naranja">Mapa</h3>
                         <p class="font-size-sm mb-0">A través de datos abiertos sobre el ecosistema y la gestión de innovación promovemos su uso para fines informativos e investigativos.</p>
                     </div>
                 </div>
@@ -36,7 +39,7 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bloc.svg') }}"
                             alt="Icon" />
-                        <h3 class="h5 mb-2">Recursos</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-tomate">Recursos</h3>
                         <p class="font-size-sm mb-0">A través de una recopilación de publicaciones, eventos, y fondos invitamos a compartir conocimientos y oportunidades de innovación de manera colectiva. </p>
                     </div>
                 </div>
@@ -126,14 +129,14 @@
         </div>
     </div>
     <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
-        <h2 class="text-light text-center pt-3 pt-md-2 mb-5">Novedades</h2>
+        <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">Novedades</h2>
         <div class="cs-carousel">
             <div class="cs-carousel-inner"
                 data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 16},&quot;850&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 16}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 23}}}">
                 <!-- Article-->
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                        <span class="badge badge-lg badge-floating badge-floating-right badge-success">Nuevo</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">
@@ -148,7 +151,7 @@
                                         1</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
-                                <a class="meta-link font-size-xs" href="#">
+                                <a class="meta-link font-size-xs text-tomate" href="#">
                                     <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
                                 </a>
                             </div>
@@ -158,7 +161,7 @@
                 <!-- Article-->
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                        <span class="badge badge-lg badge-floating badge-floating-right badge-success">Nuevo</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">
@@ -173,7 +176,7 @@
                                         1</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
-                                <a class="meta-link font-size-xs" href="#">
+                                <a class="meta-link font-size-xs text-tomate" href="#">
                                     <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
                                 </a>
                             </div>
@@ -183,7 +186,7 @@
                 <!-- Article-->
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                        <span class="badge badge-lg badge-floating badge-floating-right badge-success">Nuevo</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">
@@ -198,7 +201,7 @@
                                         1</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
-                                <a class="meta-link font-size-xs" href="#">
+                                <a class="meta-link font-size-xs text-tomate" href="#">
                                     <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
                                 </a>
                             </div>
@@ -208,7 +211,7 @@
                 <!-- Article-->
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                        <span class="badge badge-lg badge-floating badge-floating-right badge-success">Nuevo</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">
@@ -223,7 +226,7 @@
                                         1</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
-                                <a class="meta-link font-size-xs" href="#">
+                                <a class="meta-link font-size-xs text-tomate" href="#">
                                     <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
                                 </a>
                             </div>

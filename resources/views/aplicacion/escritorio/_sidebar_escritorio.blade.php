@@ -7,9 +7,16 @@
     </style>
     <div class="bg-light rounded-lg box-shadow-lg">
         <div class="px-4 py-4 mb-1 text-center">
-            <img class="d-block rounded-circle mx-auto my-2" width="110" src="http://placehold.it/80x80/?text=U">
-            <h6 class="mb-0 pt-1">{{-- Auth::user()->name --}}
-            </h6>
+            @php
+                $avatar = asset('img/logo/logo-icon-footer.png');
+                if(isset(Auth::user()->perfil_id)){
+                    if(isset(Auth::user()->perfil->avatar)){
+                        $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
+                    }
+                }
+            @endphp
+            <img class="d-block rounded-circle mx-auto my-2" width="110" src="{{ $avatar }}">
+            <h6 class="mb-0 pt-1">{{ Auth::user()->name }}</h6>
         </div>
         <div class="d-lg-block collapse pb-2" id="account-menu">
             <div class="cs-widget cs-widget-categories mb-5 pl-3">
@@ -29,9 +36,9 @@
                     </li>
                     <li><a class="cs-widget-link px-4 py-3 collapsed" href="#recursos" data-toggle="collapse">Recursos</a>
                         <ul class="collapse" id="recursos" data-parent="#menu">
-                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.fondos') }}">Fondos <small class="text-muted pl-1 ml-2">{{ App\Models\Fondo::count() }}</small></a></li>
-                            <li><a class="cs-widget-link" href="#{{ route('app.escritorio.eventos') }}">Eventos <small class="text-muted pl-1 ml-2">{{ App\Models\Evento::count() }}</small></a></li>
-                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.material') }}">Publicaciones y Herramientas <small class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::count() }}</small></a></li>
+                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.fondos') }}">Fondos <small class="text-muted pl-1 ml-2">{{ App\Models\Fondo::where('user_id', Auth::id())->count() }}</small></a></li>
+                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.eventos') }}">Eventos <small class="text-muted pl-1 ml-2">{{ App\Models\Evento::where('user_id', Auth::id())->count() }}</small></a></li>
+                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.material') }}">Publicaciones y Herramientas <small class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::where('user_id', Auth::id())->count() }}</small></a></li>
                         </ul>
                     </li>
                 </ul>

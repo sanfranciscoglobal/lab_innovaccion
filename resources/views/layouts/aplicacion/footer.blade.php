@@ -27,12 +27,12 @@
             <div class="col-md-2 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title">Contáctanos</h4>
-                    <a href="mailto:contacto@thinkia.org">contacto@thinkia.org</a>
+                    <a class="text-white" href="mailto:hola@thinkia.org">hola@thinkia.org</a>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
-                    <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución-CompartirIgual 4.0 internacional Los datos recopilados están bajo  licencia ODbL 1.0. El código fuente de la plataforma está disponible bajo una licencia  General Public License 3.0.</p>
+                    <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución 4.0 internacional.</p>
                     <img src="{{asset('img/cc-badge.png')}}" width="100" alt="Creative Commons Attribution 3.0 International">
                 </div>
             </div>
