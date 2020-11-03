@@ -126,7 +126,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="evento_img">* Imagen asociada a la tematica</label>
+                                    <label for="evento_img">* Imagen asociada a la temática</label>
 
 
                                     @if ($method=='PUT')
