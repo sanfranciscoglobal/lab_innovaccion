@@ -20,7 +20,7 @@ class Convocatorias extends Migration
             $table->unsignedBigInteger('tipoconvocatoria_id');
             $table->date('fecha_inicio');
             $table->date('fecha_cierre');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->string('imagen');
             $table->boolean('terminos');
             $table->foreignId('user_id')->constrained();

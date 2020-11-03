@@ -60,7 +60,7 @@
                                     <div class="col-8">
                                         <div class="form-group">
                                             <label for="mat_url">* Fuente de la publicación</label>
-                                            <input class="form-control" type="url" id="mat_url" placeholder="Fuente de la publicación" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input class="form-control" type="url" id="mat_url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese el link añadiendo https o http.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                         </div>
                                     </div>
                                     <div class="col-4">
@@ -126,7 +126,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="evento_img">* Imagen asociada a la tematica</label>
+                                    <label for="evento_img">* Imagen asociada a la temática</label>
 
 
                                     @if ($method=='PUT')
