@@ -102,7 +102,7 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* URL del Evento</label>
-                                                        <input class="form-control" type="url" id="url" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                        <input class="form-control" type="url" id="url" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" oninvalid="setCustomValidity('Ingrese el link añadiendo https o http.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 to-hide e-presencial d-none">
