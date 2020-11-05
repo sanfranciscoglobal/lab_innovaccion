@@ -59,7 +59,7 @@ class LoginController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('app.home');
+        return redirect()->route('home');
     }
 
     public function redirectTo()
@@ -76,6 +76,6 @@ class LoginController extends Controller
 
         $array_json = json_encode($roles);
         Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
-        return redirect('app.home');
+        return redirect('home');
     }
 }

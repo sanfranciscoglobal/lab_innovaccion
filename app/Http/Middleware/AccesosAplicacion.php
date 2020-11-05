@@ -26,11 +26,11 @@ class AccesosAplicacion extends Middleware
                     return $next($request);
                 }
             }
-            return redirect()->route('app.home')->withErrors('No tienes permiso para realizar esta acción.');
+            return redirect()->route('home')->withErrors('No tienes permiso para realizar esta acción.');
         } else {
             if (!$request->user()->hasRole($roles)) {
                 // abort(401, 'No tienes permiso para realizar esta acción.');
-                return redirect()->route('app.home')->withErrors('No tienes permiso para realizar esta acción.');
+                return redirect()->route('home')->withErrors('No tienes permiso para realizar esta acción.');
             }
             return $next($request);
         }

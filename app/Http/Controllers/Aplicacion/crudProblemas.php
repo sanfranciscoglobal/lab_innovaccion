@@ -44,7 +44,7 @@ class crudProblemas extends Controller
         //         $fondo->save();
         //     }
 
-        //     return redirect()->route('app.home')->with('status', 'Innovación creada con éxito');
+        //     return redirect()->route('home')->with('status', 'Innovación creada con éxito');
         // }
         // return back()->with('error', 'Innovación no creada');
     }
@@ -69,7 +69,7 @@ class crudProblemas extends Controller
             $fondo->save();
         }
 
-        return redirect()->route('app.home')->with('status', 'Fondo modificado con éxito');
+        return redirect()->route('home')->with('status', 'Fondo modificado con éxito');
     }
 
     /**
@@ -84,6 +84,6 @@ class crudProblemas extends Controller
         }
 
         $fondo->delete();
-        return redirect()->route('app.home')->with('status', 'Fondo eliminado con éxito');
+        return redirect()->route('home')->with('status', 'Fondo eliminado con éxito');
     }
 }

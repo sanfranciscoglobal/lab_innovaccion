@@ -93,6 +93,6 @@ class RegistroController extends Controller
         }
         // Perfil::find($user->perfil_id)->delete();
         $user->delete();
-        return redirect()->route('app.home')->with('status', 'Usuario eliminado con éxito');
+        return redirect()->route('home')->with('status', 'Usuario eliminado con éxito');
     }
 }
