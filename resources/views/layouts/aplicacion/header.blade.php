@@ -2,6 +2,12 @@
     .navbar-stuck { background-color: #FF8527 !important; }
     .navbar-floating-logo,
     .navbar-stuck-logo { transform: translateY(-20px); }
+
+    @media (min-width:769px){
+        .nav-link{
+            color: white!important;
+        }
+    }
 </style>
 <header class="cs-header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky d-block p-0 secondary-nav" data-scroll-header>
     <div class="d-block w-100 secondary-nav">
@@ -28,7 +34,7 @@
         <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="{{route('app.home')}}">
+        <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="{{route('home')}}">
             <img class="navbar-floating-logo d-none d-lg-block my-2" width="80" src="{{asset('img/logo/thinkia_blanco_slogan.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
             <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_blanco_no_slogan.svg')}}"
@@ -94,7 +100,7 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="text-white nav-link dropdown-toggle" href="#" data-toggle="dropdown">Gestión de Innovación</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Gestión de Innovación</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/identificacion-de-problemas/">Innovación abierta</a></li>
                             <li><a class="dropdown-item" href="/soluciones-innovadoras/">Innovación pública</a></li>
@@ -102,17 +108,17 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="text-white nav-link dropdown-toggle" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/mapeo/">Mapa de iniciativas</a></li>
                             <li><a class="dropdown-item" href="/analitica/">Analítica</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="text-white nav-link " href="/mapa/">Mapa</a>
+                        <a class="nav-link " href="/mapa/">Mapa</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="text-white nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item" href="{{route('eventos')}}">Eventos</a></li>
@@ -120,13 +126,13 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="text-white nav-link dropdown-toggle" href="#">Nosotros</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Nosotros</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/acerca-de/">Acerca de</a></li>
-                            <li><a class="dropdown-item" href="/el-equipo/">El equipo</a></li>
-                            <li><a class="dropdown-item" href="/valores/">Valores</a></li>
-                            <li><a class="dropdown-item" href="/terminos-y-condiciones/">Términos y condiciones</a></li>
-                            <li><a class="dropdown-item" href="/preguntas-frecuentes/">Preguntas frecuentes</a></li>
+                            <li><a class="dropdown-item" href="{{ route('acercade') }}">Acerca de</a></li>
+                            <li><a class="dropdown-item" href="{{ route('elequipo') }}">El equipo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('valores') }}">Valores</a></li>
+                            <li><a class="dropdown-item" href="{{ route('terminoscondiciones') }}">Términos y condiciones</a></li>
+                            <li><a class="dropdown-item" href="{{ route('faq') }}">Preguntas frecuentes</a></li>
                         </ul>
                     </li>
                 </ul>

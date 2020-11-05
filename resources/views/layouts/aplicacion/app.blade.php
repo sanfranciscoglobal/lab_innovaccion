@@ -126,12 +126,12 @@
 <!-- Body-->
 <body>
 
-    <div class="error-container" id="errorDiv">
+    {{-- <div class="error-container" id="errorDiv">
         @include('includes.session-flash-status')
         @include('includes.validation-error')
-        {{-- {{ json_encode(session()->all()) }} --}}
-        {{-- {{ json_encode(Auth::user()) }} --}}
-    </div>
+        {{ json_encode(session()->all()) }}
+        {{ json_encode(Auth::user()) }}
+    </div> --}}
 
 <!-- Page loading spinner-->
 <div class="cs-page-loading active">
@@ -173,14 +173,14 @@
                                         <i class="fe-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/" min="8" required>
+                                <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" /*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"*/ required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Show password</span>
                                 </label>
                                 @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                                {{-- <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 symbolo, Mínimo 8 caracteres</small> --}}
+                                <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
                             </div>
                             {{-- <div class="d-flex justify-content-between align-items-center form-group">
                                 <div class="custom-control custom-checkbox">
@@ -220,17 +220,17 @@
                                 @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/" min="8" required>
+                                <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password') }}" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
-                                <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 symbolo, Mínimo 8 caracteres</small>
+                                <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
                                 @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" min="8" required>
+                                <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -298,6 +298,7 @@
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/helpers.js')}}"></script>
+<script src="{{ asset('js/password-validator.js') }}"></script>
 <script>
     var errorCard = $('#errorDiv .alert');
     if (errorCard.length > 0){
