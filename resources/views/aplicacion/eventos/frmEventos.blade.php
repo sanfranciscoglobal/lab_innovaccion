@@ -29,8 +29,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="organizador">* Nombre del Organizador</label>
-                                    <input class="form-control" type="text" id="organizador" value="{{isset($evento->organizador)?$evento->organizador:old('organizador')}}" name="organizador" placeholder="Nombre del organizador"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                    <label for="organizador">* Nombre del Organizador <span style="color: gray">(max. 250 caracteres)</span></label>
+                                    <input class="form-control" type="text" id="organizador" value="{{isset($evento->organizador)?$evento->organizador:old('organizador')}}" maxlength='250' name="organizador" placeholder="Nombre del organizador"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                 </div>
                             </div>
                         </div>
@@ -39,8 +39,8 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="nombre">* Nombre del Evento</label>
-                                            <input class="form-control" type="text" id="nombre" value="{{isset($evento->nombre)?$evento->nombre:old('nombre')}}" name="nombre" placeholder="Nombre del evento"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <label for="nombre">* Nombre del Evento <span style="color: gray">(max. 250 caracteres)</span></label>
+                                            <input class="form-control" type="text" id="nombre" value="{{isset($evento->nombre)?$evento->nombre:old('nombre')}}" maxlength='250' name="nombre" placeholder="Nombre del evento"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* URL del Evento</label>
-                                                        <input class="form-control" type="url" id="url" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                        <input class="form-control" type="url" id="url" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" oninvalid="setCustomValidity('Ingrese el link añadiendo https o http.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 to-hide e-presencial d-none">

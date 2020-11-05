@@ -24,7 +24,7 @@ class StorePost extends FormRequest
     public function rules()
     {
         return [
-            'celular' => 'string|required',
+            'celular' => 'string|nullable',
             'avatar' => 'image|nullable|max:1024',
             'proposito' => 'numeric|required',
             'tipo_reg' => 'boolean|required',

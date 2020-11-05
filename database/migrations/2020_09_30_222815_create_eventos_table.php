@@ -20,7 +20,7 @@ class CreateEventosTable extends Migration
             $table->date('fecha');
             $table->time('hora');
             $table->string('imagen');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->boolean('tipo')->comment('Presencial-1/Virtual-0'); 
             $table->string('canton')->nullable();
             $table->string('ubicacion')->nullable();
