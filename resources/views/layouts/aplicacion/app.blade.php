@@ -99,7 +99,8 @@
         .error-container {
             position: fixed;
             top: 20px;
-            right: 20px;
+            right: 0px;
+            width: 100%;
             z-index: 1051;
         }
 
@@ -126,12 +127,13 @@
 <!-- Body-->
 <body>
 
-    {{-- <div class="error-container" id="errorDiv">
+    {{-- <div class="error-container" id="errorDiv"> --}}
         @include('includes.session-flash-status')
-        @include('includes.validation-error')
+        @include('includes.session-flash-error')
+        {{-- @include('includes.validation-error')
         {{ json_encode(session()->all()) }}
-        {{ json_encode(Auth::user()) }}
-    </div> --}}
+        {{ json_encode(Auth::user()) }} --}}
+    {{-- </div> --}}
 
 <!-- Page loading spinner-->
 <div class="cs-page-loading active">
@@ -165,7 +167,7 @@
                                             <i class="fe-mail"></i>
                                         </span>
                                     </div>
-                                    <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico" name='email' value="{{ old('email') }}" required>
+                                    <input class="form-control prepended-form-control @error('email') is-invalid @enderror" type="email" placeholder="Correo Electrónico" name='email' value="{{ old('email') }}" required>
                                 </div>
                                 @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
@@ -176,7 +178,7 @@
                                             <i class="fe-lock"></i>
                                         </span>
                                     </div>
-                                    <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" /*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"*/ required>
+                                    <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" /*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"*/ required>
                                     <label class="cs-password-toggle-btn">
                                         <input class="custom-control-input" type="checkbox">
                                         <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -217,16 +219,16 @@
                         <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
                             @csrf
                             <div class="form-group">
-                                <input class="form-control" name="name" type="text" placeholder="Nombre Completo" value="{{ old('name') }}" required>
+                                <input class="form-control @error('name') is-invalid @enderror" name="name" type="text" placeholder="Nombre Completo" value="{{ old('name') }}" required>
                                 @error('name')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name="email" type="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
+                                <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
                                 @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <div class="cs-password-toggle">
-                                    <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password') }}" required>
+                                    <input class="form-control @error('password') is-invalid @enderror" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password') }}" required>
                                     <label class="cs-password-toggle-btn">
                                         <input class="custom-control-input" type="checkbox">
                                         <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -238,7 +240,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="cs-password-toggle">
-                                    <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
+                                    <input class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
                                     <label class="cs-password-toggle-btn">
                                         <input class="custom-control-input" type="checkbox">
                                         <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -289,7 +291,6 @@
     </div>
     <!-- Navbar Floating light for Index page only-->
     @include('layouts.aplicacion.header')
-    @include('includes.session-flash-status')
     @yield('content')
 
 </main>
@@ -309,24 +310,31 @@
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/helpers.js')}}"></script>
 <script>
-    var errorCard = $('#errorDiv .alert');
-    if (errorCard.length > 0){
-        var iteraction = 0;
-        var interval = setInterval(function(){
-            iteraction++;
-            if (iteraction == 10) {
-                errorCard.css({
-                    'transform':'translateX(400px)',
-                    'transition': 'all ease .2s'
-                })
-                setTimeout(function(){
-                    $('.close').click();
-                },2000)
-                clearInterval(interval);
-            }
-        }, 1000);
-    }
+    // var errorCard = $('#errorDiv .alert');
+    // if (errorCard.length > 0){
+    //     var iteraction = 0;
+    //     var interval = setInterval(function(){
+    //         iteraction++;
+    //         if (iteraction == 10) {
+    //             errorCard.css({
+    //                 'transform':'translateX(400px)',
+    //                 'transition': 'all ease .2s'
+    //             })
+    //             setTimeout(function(){
+    //                 $('.close').click();
+    //             },2000)
+    //             clearInterval(interval);
+    //         }
+    //     }, 1000);
+    // }
+    $('.modal-status').modal('show');
 </script>
+@if($errors)
+<script>
+    $('.modal-status').modal('show');
+</script>
+@endif
+
 @yield('footer')
 {{--<script type="text/javascript">--}}
 {{--console.log(smoothScroll);--}}
