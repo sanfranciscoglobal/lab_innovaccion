@@ -7,6 +7,8 @@
 // Custom Variables
 @import 'variables';
 @import 'assets/aplication/user-variables';
+// Custom Core
+@import 'assets/aplication/user';
 // Theme Helpers: Variables, Mixins and Placeholders
 @import 'assets/aplication/helpers';
 // Bootstrap
@@ -17,7 +19,7 @@
 @import 'assets/aplication/utilities';
 @import "~simplebar/dist/simplebar.css";
 // Custom Core
-@import 'assets/aplication/user';
+// @import 'assets/aplication/user';
 @import 'assets/aplication/layout';
 
 // App before

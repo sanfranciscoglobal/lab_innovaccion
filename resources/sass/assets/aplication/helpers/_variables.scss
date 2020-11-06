@@ -17,6 +17,7 @@ $gray-600:              #737491 !default;
 $gray-700:            	#5a5b75 !default;
 $gray-800:              #4a4b65 !default;
 $gray-900:              #37384e !default;
+$purple-color:          #4e2561 !default;
 $black:                 #000 !default;
 
 
@@ -58,7 +59,8 @@ $spacers: () !default;
 $spacers: map-merge(
   (
     6: ($spacer * 5),
-    7: ($spacer * 6)
+    7: ($spacer * 6),
+    8: ($spacer * 10.5)
   ),
   $spacers
 );
@@ -524,7 +526,7 @@ $navbar-toggler-padding-x:                .75rem !default;
 $navbar-toggler-font-size:                $font-size-base !default;
 $navbar-toggler-border-radius:            0 !default;
 
-$navbar-light-color:                      $gray-700 !default;
+$navbar-light-color:                      $purple-color !default;
 $navbar-light-hover-color:                $primary !default;
 $navbar-light-active-color:               $primary !default;
 $navbar-light-disabled-color:             $gray-500 !default;

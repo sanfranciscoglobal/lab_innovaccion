@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // Index
 Route::get('/', function () {
     return view('aplicacion.home.home');
-})->name('app.home');
+})->name('home');
 Route::get('/acerca-de', function () {
     return view('aplicacion.acerca.acerca');
 })->name('acercade');
@@ -40,7 +40,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
 Route::get('/verificacion', function(){
-    return redirect()->route('app.home')->withErrors('Porfavor verifica tu email.');
+    return redirect()->route('home')->withErrors('Porfavor verifica tu email.');
 })->name('verification.notice');
 
 // Sistema
@@ -52,7 +52,6 @@ Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('in
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
-
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
@@ -121,13 +120,13 @@ Route::as('app.')
 
 
             /** Rutas Innovacion */
+            //FASE A
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
             Route::get('/innovacion/crear/{id}', 'Aplicacion\crudConvocatoria@edit')->name('convocatoria.edit');
             Route::put('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@update')->name('convocatoria.put');
             Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
-            
-
+            //FASE B
             Route::get('/innovacion/gestion/{id}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
             Route::post('/innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
 

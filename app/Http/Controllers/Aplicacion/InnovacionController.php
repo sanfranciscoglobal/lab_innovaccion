@@ -31,8 +31,10 @@ class InnovacionController extends Controller
         return view('aplicacion.innovacion.create',compact('convocatoria'))->with(['url' => route('app.convocatoria.post'),'method'=>'POST']);
     }
 
-    public function frmGestionInnocavion(Request $request, $tipo)
+    public function frmGestionInnocavion(Request $request, $convocatoria_id)
     {
-        return view('aplicacion.innovacion.gestion.identificacion.create')->with(array('tipo' => $tipo));
+        $convocatoria = Convocatoria::find($convocatoria_id);
+        $tipo = $convocatoria->tipoconvocatoria_id;
+        return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria'))->with('tipo', $tipo);
     }
 }

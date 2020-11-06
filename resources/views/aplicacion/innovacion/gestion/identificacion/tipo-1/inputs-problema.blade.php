@@ -1,6 +1,6 @@
 <div class="form-group">
     <div class="controls-container mb-3">
-        <label class="control-label">* Pertenece al sector productivo: <span style="color:red; font-weight:bold; font-size: 18px;">QUITAR ESTO Y COLOCAR SECTOR DINAMICAMENTE</span></label>
+        <label class="control-label">* Pertenece al sector productivo: <span style="color:red; font-weight:bold; font-size: 18px;">{{ $convocatoria->consectores }}</span></label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
@@ -16,11 +16,11 @@
             </div>
         </div>
         <div class="message-for-no d-none">
-            <p>Esta convocatoria está dirigida al sector <span style="color:red; font-weight:bold; font-size: 18px;">QUITAR ESTO Y COLOCAR SECTOR DINAMICAMENTE</span>.</p>
+            <p>Esta convocatoria está dirigida al sector <span style="color:red; font-weight:bold; font-size: 18px;">{{ $convocatoria->consectores }}</span>.</p>
         </div>
     </div>
     <div class="controls-container mb-3 has-parent sector d-none">
-        <label class="control-label">* Pertenece al subsector productivo: <span style="color:red; font-weight:bold; font-size: 18px;">QUITAR ESTO Y COLOCAR SUBSECTOR DINAMICAMENTE</span></label>
+        <label class="control-label">* Pertenece al subsector productivo: <span style="color:red; font-weight:bold; font-size: 18px;">{{ $convocatoria->consubsectores }}</span></label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="message-for-no d-none">
-            <p>Esta convocatoria está dirigida al sector <span style="color:red; font-weight:bold; font-size: 18px;">QUITAR ESTO Y COLOCAR SECTOR DINAMICAMENTE</span>.</p>
+            <p>Esta convocatoria está dirigida al sector <span style="color:red; font-weight:bold; font-size: 18px;">{{ $convocatoria->consubsectores }}</span>.</p>
         </div>
     </div>
     <div class="controls-container mb-3 has-parent subsector d-none">
