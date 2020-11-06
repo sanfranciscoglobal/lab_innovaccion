@@ -158,30 +158,35 @@
                         </p>
                         <form class="needs-validation" novalidate action="{{ route('login') }}" method="POST">
                             @csrf
-                            <div class="input-group-overlay form-group">
-                                <div class="input-group-prepend-overlay">
-                                    <span class="input-group-text">
-                                        <i class="fe-mail"></i>
-                                    </span>
+                            <div class="form-group">
+                                <div class="input-group-overlay">
+                                    <div class="input-group-prepend-overlay">
+                                        <span class="input-group-text">
+                                            <i class="fe-mail"></i>
+                                        </span>
+                                    </div>
+                                    <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico" name='email' value="{{ old('email') }}" required>
                                 </div>
-                                <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico" name='email' value="{{ old('email') }}" required>
                                 @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
-                            <div class="input-group-overlay cs-password-toggle form-group">
-                                <div class="input-group-prepend-overlay">
-                                    <span class="input-group-text">
-                                        <i class="fe-lock"></i>
-                                    </span>
+                            <div class="form-group">
+                                <div class="input-group-overlay cs-password-toggle">
+                                    <div class="input-group-prepend-overlay">
+                                        <span class="input-group-text">
+                                            <i class="fe-lock"></i>
+                                        </span>
+                                    </div>
+                                    <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" /*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"*/ required>
+                                    <label class="cs-password-toggle-btn">
+                                        <input class="custom-control-input" type="checkbox">
+                                        <i class="fe-eye cs-password-toggle-indicator"></i>
+                                        <span class="sr-only">Show password</span>
+                                    </label>
                                 </div>
-                                <input class="form-control prepended-form-control" type="password" placeholder="Contraseña" name="password" /*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"*/ required>
-                                <label class="cs-password-toggle-btn">
-                                    <input class="custom-control-input" type="checkbox">
-                                    <i class="fe-eye cs-password-toggle-indicator"></i>
-                                    <span class="sr-only">Show password</span>
-                                </label>
-                                @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
+                                @error('password')<br><div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
+
                             {{-- <div class="d-flex justify-content-between align-items-center form-group">
                                 <div class="custom-control custom-checkbox">
                                     <input class="custom-control-input" type="checkbox" id="keep-signed">
@@ -219,23 +224,28 @@
                                 <input class="form-control" name="email" type="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
                                 @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
-                            <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password') }}" required>
-                                <label class="cs-password-toggle-btn">
-                                    <input class="custom-control-input" type="checkbox">
-                                    <i class="fe-eye cs-password-toggle-indicator"></i>
-                                    <span class="sr-only">Mostrar contraseña</span>
-                                </label>
+                            <div class="form-group">
+                                <div class="cs-password-toggle">
+                                    <input class="form-control" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password') }}" required>
+                                    <label class="cs-password-toggle-btn">
+                                        <input class="custom-control-input" type="checkbox">
+                                        <i class="fe-eye cs-password-toggle-indicator"></i>
+                                        <span class="sr-only">Mostrar contraseña</span>
+                                    </label>
+                                </div>
                                 <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
                                 @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
-                            <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
-                                <label class="cs-password-toggle-btn">
-                                    <input class="custom-control-input" type="checkbox">
-                                    <i class="fe-eye cs-password-toggle-indicator"></i>
-                                    <span class="sr-only">Mostrar contraseña</span>
-                                </label>
+                            <div class="form-group">
+                                <div class="cs-password-toggle">
+                                    <input class="form-control" name="password_confirmation" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
+                                    <label class="cs-password-toggle-btn">
+                                        <input class="custom-control-input" type="checkbox">
+                                        <i class="fe-eye cs-password-toggle-indicator"></i>
+                                        <span class="sr-only">Mostrar contraseña</span>
+                                    </label>
+                                </div>
+                                <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
                                 @error('password_confirmation')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <button class="btn btn-primary btn-block" type="submit">Registrar</button>
@@ -298,7 +308,6 @@
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/helpers.js')}}"></script>
-<script src="{{ asset('js/password-validator.js') }}"></script>
 <script>
     var errorCard = $('#errorDiv .alert');
     if (errorCard.length > 0){

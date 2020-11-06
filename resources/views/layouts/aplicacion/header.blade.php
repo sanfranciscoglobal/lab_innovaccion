@@ -9,7 +9,7 @@
         }
     }
 </style>
-<header class="cs-header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky d-block p-0 secondary-nav" data-scroll-header>
+<header class="cs-header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky d-block p-0 secondary-nav" data-scroll-header>
     <div class="d-block w-100 secondary-nav">
         <div class="container">
             <div class="row w-100">
@@ -34,7 +34,7 @@
         <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="{{route('home')}}">
+        <a class="navbar-brand order-lg-1 ml-lg-0 pr-lg-2 mr-lg-4 justify-content-start" href="{{route('home')}}">
             <img class="navbar-floating-logo d-none d-lg-block my-2" width="80" src="{{asset('img/logo/thinkia_blanco_slogan.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
             <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_blanco_no_slogan.svg')}}"
@@ -62,13 +62,13 @@
                 }
             @endphp
             <div class="navbar-tool dropdown">
-                <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px">
+                <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px; max-height:50px">
                 <a class="navbar-tool-label dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{-- <i class="fe-user mr-2"></i> --}}
-                    <small class="text-white">Hola!</small>
-                    {{ Auth::user()->name }}
+                    {{-- <span class="d-md-none text-white pr-3"></span> --}}
+                    <small class="d-none d-lg-block text-white">Hola!</small>
+                    <span class="d-none d-lg-inline text-white">{{ Auth::user()->name }}</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-menu dropdown-menu-right" role="menu">
                     <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
                     <a href="{{ route('app.registro') }}" class="dropdown-item">Mi Perfil</a>
                     <div class="dropdown-divider"></div>
