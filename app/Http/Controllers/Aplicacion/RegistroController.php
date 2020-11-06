@@ -23,9 +23,9 @@ use App\Http\Requests\Perfil\StorePost;
 class RegistroController extends Controller
 {
 
-    public function __construct(){
-        $this->middleware(['auth', 'verified']);
-    }
+    // public function __construct(){
+    //     $this->middleware(['auth', 'verified']);
+    // }
 
     /**
      * Show perfil de usuario.

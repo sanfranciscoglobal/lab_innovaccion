@@ -57,6 +57,7 @@ Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\Materialdeapren
 
 /** RUTAS CON LOGIN */
 Route::as('app.')
+    ->middleware(['auth', 'verified', 'has-perfil'])
     ->prefix('app')
     ->group(
         function () {
@@ -71,11 +72,11 @@ Route::as('app.')
             /**
              * Rutas Usuarios
              */
-            Route::get('/perfil', 'Aplicacion\RegistroController@show')->name('registro');
-            Route::get('/perfil/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
-            Route::post('/perfil/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
-            Route::put('/perfil/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
-            Route::delete('/usuario/delete/{user}', 'Aplicacion\RegistroController@destroy')->name('user.delete');
+            Route::get('perfil', 'Aplicacion\RegistroController@show')->name('registro')->withoutMiddleware(['has-perfil']);
+            Route::post('perfil/store', 'Aplicacion\RegistroController@store')->name('perfil.post')->withoutMiddleware(['has-perfil']);
+            Route::get('perfil/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
+            Route::put('perfil/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
+            Route::delete('usuario/delete/{user}', 'Aplicacion\RegistroController@destroy')->name('user.delete');
 
 
             /**
@@ -143,13 +144,14 @@ Route::as('app.')
 
 /** RUTAS ADMINISTRATIVAS */
 Route::as('admin.')
-   ->prefix('admin')
-   ->group(
-       function () {
-           // Route::resource('abreviatura', 'AbreviaturaController');
-           Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
-       }
-   );
+    ->middleware(['auth', 'verified', 'has-perfil', 'acceso-app:admin,superadmin'])
+    ->prefix('admin')
+    ->group(
+        function () {
+            // Route::resource('abreviatura', 'AbreviaturaController');
+            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
+        }
+    );
 
 Route::as('web.')
     ->group(

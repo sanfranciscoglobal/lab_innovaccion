@@ -21,7 +21,6 @@ use App\Http\Requests\Fondo\UpdatePost;
 class crudFondos extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth', 'verified', 'has-perfil']);
         $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
         $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }

@@ -19,7 +19,7 @@
                     </button>
                 </div>
                 <div class="modal-body text-danger">
-                    <p>{{ session('status') }}</p>
+                    <p>{{ session('error') }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>

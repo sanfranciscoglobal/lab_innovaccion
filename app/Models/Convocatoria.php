@@ -28,4 +28,12 @@ class Convocatoria extends Model
     public function conods(){
         return $this->hasMany('App\Models\ConvocatoriaODS','convocatoria_id','id');
     }
+
+    /**
+     * Regresa nos nombres de los sectores productivos de una convocatoria
+     */
+    public function sectoresName(Convocatoria $convocatoria){
+        $sectores = $convocatoria->consectores;
+        return $sectores->map(function($s){ return $s->sectorid->nombre; });
+    }
 }

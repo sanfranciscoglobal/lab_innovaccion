@@ -2,10 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Closure;
 use Auth;
 
-class ProfileExists
+class ProfileExists extends Middleware
 {
     /**
      * Handle an incoming request.

@@ -65,7 +65,7 @@ class RegisterController extends Controller
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
             'verification_token' => Hash::make($validatedData['name'].$validatedData['email'].date('Y-m-d H:i:s')),
-            'email_verified_at' => date('Y-m-d H:i:s'),
+            // 'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
 
         RoleUser::create([
@@ -74,8 +74,8 @@ class RegisterController extends Controller
 
         Auth::attempt($request->only('email', 'password'));
 
-        // Mail::to($user->email)->send(new EmailVerification($user));
+        Mail::to($user->email)->send(new EmailVerification($user));
 
-        return redirect()->route('app.registro')->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
+        return redirect()->route('home')->with('status', 'Usuario creado con éxito, porfavor verifica tu email.');
     }
 }

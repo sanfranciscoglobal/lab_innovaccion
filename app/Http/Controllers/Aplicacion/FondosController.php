@@ -15,7 +15,6 @@ use App\Models\Fondo;
 class FondosController extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth', 'verified', 'has-perfil'])->except('verFondos');
         $this->middleware('acceso-app:user,admin,superadmin')->except('verFondos');
     }
 
