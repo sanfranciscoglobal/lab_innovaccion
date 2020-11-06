@@ -140,7 +140,8 @@
                                         <div id="map" style="width: 100%; height: 350px;"></div>
                                         <input type="hidden" type="text" id="lat" name="latitud" value="{{ old('latitud', $perfil->latitud) }}">
                                         <input type="hidden" type="text" id="long" name="longitud" value="{{ old('longitud', $perfil->longitud) }}">
-                                        @error('latitud', 'longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        @error('latitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        @error('longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +217,7 @@
     @endif
 @endsection
 @section('footer')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCumBYahoH5olLlie5I9Jw6bNh91vaQly4&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 <script>
     var baseURL = '{{ URL::to('/') }}';
     let user_lat = {{ old('latitud', $perfil->latitud) ?? 'null' }};
