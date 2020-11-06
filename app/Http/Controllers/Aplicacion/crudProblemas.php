@@ -56,7 +56,7 @@ class crudProblemas extends Controller
      */
     public function update(UpdatePost $request, Fondo $fondo){
         if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
-            return back()->withErrors('No ingresaste este fondo.');
+            return back()->with('error', 'No ingresaste este fondo.');
         }
 
         $validatedData = $request->validated();
@@ -80,7 +80,7 @@ class crudProblemas extends Controller
      */
     public function destroy(Fondo $fondo) {
         if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('superadmin'))){
-            return back()->withErrors('No ingresaste este fondo.');
+            return back()->with('error', 'No ingresaste este fondo.');
         }
 
         $fondo->delete();

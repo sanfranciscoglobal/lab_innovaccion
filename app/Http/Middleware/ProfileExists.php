@@ -17,7 +17,7 @@ class ProfileExists
     public function handle($request, Closure $next)
     {
         if (!isset(Auth::user()->perfil)) {
-            return redirect()->route('app.registro')->withErrors('Completa tu perfil.');
+            return redirect()->route('app.registro')->with('error', 'Completa tu perfil.');
         }
         return $next($request);
     }
