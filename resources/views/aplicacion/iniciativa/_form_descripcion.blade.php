@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label class="control-label">* ¿Esta vigente?</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1" required="required">
+                    <input type="checkbox" class="custom-control-input" id="vigencia" name="vigencia" required="required">
                     <label class="custom-control-label" for="customSwitch1">Active para marcar como vigente</label>
                 </div>
             </div>
@@ -86,9 +86,20 @@
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label class="control-label">* Descripción de la Iniciativa (max.100 palabras) </label>
-                        <textarea class="form-control" name="descripcion_iniciativa" id="descripcion_iniciativa"
-                                  rows="20" required="required">{{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}</textarea>
+                        <label class="control-label">
+                            * Descripción de la Iniciativa
+                            <span class="text-primary">(max. 100 palabras) (min. 50 palabras)</span>
+                        </label>
+                        <textarea oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion');"
+                                  class="form-control"
+                                  name="descripcion_iniciativa"
+                                  id="descripcion_iniciativa"
+                                  oninvalid="setCustomValidity('Por favor complete este campo.')"
+                                  onchange="try{setCustomValidity('')}catch(e){}" rows="20" required="required">
+                            {{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}
+                        </textarea>
+                        <span style="color: gray" id="count-words"></span>
+                        <div class="invalid-feedback" id='descripcion_iniciativa_enfoque-error'></div>
                     </div>
                 </div>
             </div>
@@ -98,7 +109,8 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="evento_img">* Logotipo</label>
-                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" name="logo" id="logo"
+                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" name="logo"
+                               id="logo"
                                {{($model->iniciativaInformacion)?'':'required'}}
                                data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"
                         >
@@ -111,35 +123,35 @@
                     <label for="iniciativa_facebook">Facebook</label>
                     <input class="form-control" type="url" id="url_facebook" name="url_facebook"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_facebook:''}}"
-                            placeholder="Link a tu usuario"
+                           placeholder="Link a tu usuario"
                     >
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_instagram">Instagram</label>
                     <input class="form-control" type="url" id="url_instagram" name="url_instagram"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_instagram:''}}"
-                            placeholder="Link a tu usuario">
+                           placeholder="Link a tu usuario">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_twitter">Twitter</label>
                     <input class="form-control" type="url" id="url_twitter" name="url_twitter"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_twitter:''}}"
-                            placeholder="Link a tu usuario">
+                           placeholder="Link a tu usuario">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_linkedin">LinkedIn</label>
                     <input class="form-control" type="url" id="url_linkedin" name="url_linkedin"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_linkedin:''}}"
-                            placeholder="Link a tu usuario">
+                           placeholder="Link a tu usuario">
                 </div>
                 <div class="form-group">
                     <label for="iniciativa_youtube">Youtube</label>
                     <input class="form-control" type="url" id="url_youtube" name="url_youtube"
                            value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->url_youtube:''}}"
-                            placeholder="Link a tu usuario">
+                           placeholder="Link a tu usuario">
                 </div>
             </div>
         </div>
     </div>
-    <button class="btn btn-primary nextBtn pull-right" type="button">Siguiente</button>
+    <button class="btn btn-primary nextBtn pull-right" id="btn-siguiente-descripcion" type="button">Siguiente</button>
 </div>

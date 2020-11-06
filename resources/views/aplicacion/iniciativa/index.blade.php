@@ -5,9 +5,10 @@
     <div class="col-lg-9">
         <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
             <div class="py-2 p-md-3">
-                <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left border-bottom">
-                    <h1 class="h3 mb-2 text-nowrap">Iniciativas<span
-                                class="badge badge-secondary ml-1">{{ $iniciativas->total() }}</span></h1>
+                <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
+                    <h1 class="h3 mb-2 text-nowrap">
+                        Iniciativas <span class="badge badge-secondary ml-1">{{ $iniciativas->total() }}</span>
+                    </h1>
                     <a href="{{route('app.iniciativas.create')}}" class="btn btn-primary">
                         <i class="fe fe-plus mr-1"></i>
                         Crear Iniciativas
@@ -28,25 +29,34 @@
                 {{--<div class="py-2 p-md-3">--}}
                 <!-- Review-->
                     {{--<div class="pt-grid-gutter pb-grid-gutter border-bottom text-right">--}}
-                        {{--<h3 class="float-left">Iniciativas</h3>--}}
-                        {{--<a href="{{route('app.iniciativas.create')}}" class="btn btn-primary btn-sm">--}}
-                            {{--<i class="fe fe-plus mr-1"></i>--}}
-                            {{--Crear iniciativa--}}
-                        {{--</a>--}}
+                    {{--<h3 class="float-left">Iniciativas</h3>--}}
+                    {{--<a href="{{route('app.iniciativas.create')}}" class="btn btn-primary btn-sm">--}}
+                    {{--<i class="fe fe-plus mr-1"></i>--}}
+                    {{--Crear iniciativa--}}
+                    {{--</a>--}}
                     {{--</div>--}}
 
                     @foreach($iniciativas as $iniciativa)
                         <div class="pt-grid-gutter pb-grid-gutter border-bottom">
                             <div class="d-sm-flex align-items-center mb-2 pb-1">
                                 <div class="d-flex align-items-center">
-                                        <span class="font-size-sm mr-2">
-                                            {{$iniciativa->iniciativaInformacion->anio}}
-                                        </span>
-                                    <h6 class="nav-heading mb-0">
-                                        <a href="#">
+                                    {{--<span class="font-size-sm mr-2">--}}
+                                    {{--{{$iniciativa->iniciativaInformacion->anio}}--}}
+                                    {{--</span>--}}
+                                    {{--<h6 class="nav-heading mb-0">--}}
+                                    {{--<a href="#">--}}
+                                    {{--{{$iniciativa->iniciativaInformacion->nombre_iniciativa}}--}}
+                                    {{--</a>--}}
+                                    {{--</h6>--}}
+                                    <h4 class="nav-heading mb-0">
+                                        <a data-toggle="tooltip"
+                                           title="Editar"
+                                           href="{{route('app.iniciativas.edit',$iniciativa->id)}}"
+                                           data-placement="bottom">
+                                            <i class="fe-edit mr-2"></i>
                                             {{$iniciativa->iniciativaInformacion->nombre_iniciativa}}
                                         </a>
-                                    </h6>
+                                    </h4>
                                 </div>
                             </div>
                             <p class="font-size-md text-justify">
@@ -73,25 +83,25 @@
 
                                 </div>
 
-                                <div class="float-right">
-                                    <a class="btn btn-outline-primary btn-icon" data-toggle="tooltip"
-                                       title="Editar"
-                                       href="{{route('app.iniciativas.edit',$iniciativa->id)}}"
-                                       data-placement="bottom">
-                                        <i class="fe-edit text-primary"></i>
-                                    </a>
+                                {{--<div class="float-right">--}}
+                                {{--<a class="btn btn-outline-primary btn-icon" data-toggle="tooltip"--}}
+                                {{--title="Editar"--}}
+                                {{--href="{{route('app.iniciativas.edit',$iniciativa->id)}}"--}}
+                                {{--data-placement="bottom">--}}
+                                {{--<i class="fe-edit text-primary"></i>--}}
+                                {{--</a>--}}
 
-                                    <a href="" data-toggle="modal" data-target="#deleteModal"
-                                       data-id="{{ $iniciativa->id }}"
-                                       class="btn btn-outline-danger btn-icon">
-                                        <i class="fe-trash-2 text-danger"></i>
-                                    </a>
+                                {{--<a href="" data-toggle="modal" data-target="#deleteModal"--}}
+                                {{--data-id="{{ $iniciativa->id }}"--}}
+                                {{--class="btn btn-outline-danger btn-icon">--}}
+                                {{--<i class="fe-trash-2 text-danger"></i>--}}
+                                {{--</a>--}}
 
-                                    {{--<a type="button" class="btn btn-outline-danger btn-icon" data-toggle="tooltip"--}}
-                                    {{--title="Eliminar" data-placement="bottom">--}}
-                                    {{--<i class="fe-trash-2 text-danger"></i>--}}
-                                    {{--</a>--}}
-                                </div>
+                                {{--<a type="button" class="btn btn-outline-danger btn-icon" data-toggle="tooltip"--}}
+                                {{--title="Eliminar" data-placement="bottom">--}}
+                                {{--<i class="fe-trash-2 text-danger"></i>--}}
+                                {{--</a>--}}
+                                {{--</div>--}}
                             </div>
                         </div>
                     @endforeach
