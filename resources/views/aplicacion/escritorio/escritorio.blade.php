@@ -18,7 +18,7 @@
 
 @section('content')
     <div class="position-relative desktop-spacer mb-4 mb-md-5"></div>
-    <div class="container bg-overlay-content pb-4 mb-md-3">
+    <div class="container bg-overlay-content mb-md-5">
         <div class="row">
             <!-- Sidebar-->
             @include('aplicacion.escritorio._sidebar_escritorio')
