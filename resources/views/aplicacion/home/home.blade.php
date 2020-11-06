@@ -9,7 +9,7 @@
 </section>
 
     <section id="funciones">
-        <div class="container-fluid mt-5 mb-5">
+        <div class="container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5">
             <div class="row d-flex">
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
@@ -53,7 +53,7 @@
                 style="background-image: url({{ asset('img/layout/home/laboratorio-side-bkg.png') }});">
             </div>
             <div class="col-md-6 px-3 pl-xl-0 pr-lg-5 pr-xl-7 py-2 py-lg-4 order-md-1">
-                <div class="ml-md-auto mr-sm-7 py-5 my-sm-0 py-md-6 py-lg-7 text-white" style="max-width: 400px;">
+                <div class="ml-md-auto mr-sm-7 py-5 my-sm-0 py-md-6 pl-lg-8 pr-lg-8 py-lg-7 text-white">
                     <h2 class="mb-3 pb-1 text-white">Laboratorio de Innovación</h2>
                     <p>Thinkia es un espacio que promueve el encuentro de diversos actores - academia, público, privado y sociedad civil - para trabajar de manera colaborativa y creativa en innovación. </p>
                     <ul class="list-unstyled font-size-sm">
