@@ -20,13 +20,13 @@ class CreateEventosTable extends Migration
             $table->date('fecha');
             $table->time('hora');
             $table->string('imagen');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->boolean('tipo')->comment('Presencial-1/Virtual-0'); 
             $table->string('canton')->nullable();
             $table->string('ubicacion')->nullable();
             $table->string('org_lat')->nullable();
             $table->string('org_long')->nullable();
-            $table->string('url')->nullable();
+            $table->text('url')->nullable();
             $table->boolean('estado')->default(FALSE)->comment('Publico-1/Privado-0');            
             
             $table->boolean('terminos');

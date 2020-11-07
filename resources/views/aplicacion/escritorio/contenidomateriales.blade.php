@@ -4,7 +4,7 @@
     <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
         <div class="py-2 p-md-3">
             <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
-                <h1 class="h3 mb-2 text-nowrap">Materiales Aprendizaje Registrados <span class="badge badge-secondary ml-1">{{$materiales->total()}}</span></h1>
+                <h1 class="h3 mb-2 text-nowrap">Publicaciones y Herramientas Registradas <span class="badge badge-secondary ml-1">{{$materiales->total()}}</span></h1>
                 <a href="{{route('app.material-de-aprendizaje.post')}}" class="btn btn-primary">
                     <i class="fe fe-plus mr-1"></i>
                     Crear Material
@@ -22,7 +22,7 @@
                                     data-placement="bottom">
                                     <i class="fe-edit text-primary"></i>
                                     {{$material->nombre_publicacion}}</a></h4>
-                                {{-- <h4 class="h4">{{$evento->nombre}}</h4> --}}
+                                
                             </div>
                             <div class="col-sm-3 text-right text-muted">{{date('M d, Y', strtotime( $material->fecha_publicacion))}}</div>
                         </div>
@@ -32,9 +32,9 @@
                     
                     <div class="media media-ie-fix align-items-center mr-3">
                     
-                        <img  width="100"
+                        {{-- <img  width="100"
                              src="{{asset('storage/materiales'.'/'.$material->imagen_portada)}}"
-                             alt="{{$material->imagen_portada}}"/>
+                             alt="{{$material->imagen_portada}}"/> --}}
                         <div class="media-body pl-2 ml-1">
                        
                             <h6 class="font-size-sm mb-n1">

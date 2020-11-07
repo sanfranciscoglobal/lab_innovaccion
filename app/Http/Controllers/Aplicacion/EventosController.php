@@ -76,10 +76,10 @@ class EventosController extends Controller
         return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
     }
 
-    public function edit($id)
+    public function edit(Evento $evento)
     {
-
-        $evento = Evento::find($id);
+     
+        //$evento = Evento::find($id);
         return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.put',$evento->id),'method'=>'PUT']);
     }
 
