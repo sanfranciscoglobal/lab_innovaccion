@@ -26,7 +26,8 @@ class crudFondos extends Controller
     }
 
     /**
-     * @param Request $request
+     * Almacena un fondo (componente E)
+     * @param StorePost $request
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
@@ -48,7 +49,9 @@ class crudFondos extends Controller
     }
 
     /**
-     * @param Request $request
+     * Actualiza un fondo (componente E)
+     * @param UpdatePost $request
+     * @param Fondo $fondo
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
@@ -71,8 +74,7 @@ class crudFondos extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Elimina un fondo (componente E)
      * @param  \App\Models\Fondo $fondo->id
      * @return \Illuminate\Http\Response
      */

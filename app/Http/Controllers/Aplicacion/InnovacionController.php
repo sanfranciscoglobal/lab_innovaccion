@@ -21,8 +21,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class InnovacionController extends Controller
 {
     /**
-     * Show the application dashboard.
-     *
+     * Muestra el formulario de convocatorias (Fase A componente H)
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function frmInnovacionAbiertaIdentificacion(Request $request)
@@ -31,9 +30,13 @@ class InnovacionController extends Controller
         return view('aplicacion.innovacion.create',compact('convocatoria'))->with(['url' => route('app.convocatoria.post'),'method'=>'POST']);
     }
 
-    public function frmGestionInnocavion(Request $request, $convocatoria_id)
+    /**
+     * Muestra el formulario de problemas (Fase B componente H)
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function frmGestionInnocavion(Convocatoria $convocatoria)
     {
-        $convocatoria = Convocatoria::find($convocatoria_id);
+        // $convocatoria = Convocatoria::find($convocatoria_id);
         $tipo = $convocatoria->tipoconvocatoria_id;
         return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria'))->with('tipo', $tipo);
     }

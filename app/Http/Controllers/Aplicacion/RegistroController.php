@@ -28,11 +28,10 @@ class RegistroController extends Controller
     // }
 
     /**
-     * Show perfil de usuario.
-     *
+     * Muestra el perfil de usuario para crear, o redirecciona para editar si existe
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function show(Request $request)
+    public function show()
     {
         $user = Auth::user();
         if($user->perfil_id != null && Perfil::find($user->perfil_id)){
@@ -42,7 +41,11 @@ class RegistroController extends Controller
         return view('aplicacion.registro.frmRegistro', compact('user', 'perfil'))->with(['URL' => route('app.perfil.post'), 'method' => 'POST']);
     }
 
-    public function edit(Request $request)
+    /**
+     * Muestra el perfil de usuario para editar
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function edit()
     {
         $user = Auth::user();
         $perfil = Perfil::find($user->perfil_id);
@@ -52,6 +55,11 @@ class RegistroController extends Controller
         return view('aplicacion.registro.frmRegistro', compact('user', 'perfil'))->with(['URL' => route('app.perfil.put', $user->perfil_id), 'method' => 'PUT']);
     }
 
+    /**
+     * Almacena el perfil del usuario
+     * @param App\Http\Requests\Perfil\StorePost $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(StorePost $request){
         $validatedData = $request->validated();
 
@@ -73,6 +81,12 @@ class RegistroController extends Controller
         return back()->with('error', 'Perfil no creado');
     }
 
+    /**
+     * Actializa el perfil del usuario
+     * @param App\Http\Requests\Perfil\StorePost $request
+     * @param App\Models\Perfil $perfil
+     * @return \Illuminate\Http\Response
+     */
     public function update(StorePost $request, Perfil $perfil){
         $validatedData = $request->validated();
         $perfil->update($request->validated());
@@ -87,6 +101,11 @@ class RegistroController extends Controller
         return redirect()->route('app.escritorio')->with('status', 'Perfil modificado con éxito');
     }
 
+    /**
+     * Elimina el perfil del usuario
+     * @param App\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(User $user) {
         if(Auth::id() != $user->id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin')) ){
             return back()->with('error', 'No puedes eliminar este usuario');

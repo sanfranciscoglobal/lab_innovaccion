@@ -19,27 +19,33 @@ class FondosController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
+     * Muestra el listado de fondos (componente E)
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function verFondos(Request $request)
+    public function verFondos()
     {
         Fondo::$paginate = 2;
         $fondos = Fondo::obtenerPaginate();
         return view('aplicacion.fondos.fondos', compact('fondos'));
     }
 
-    public function showForm(Request $request)
+    /**
+     * Muestra el formulario de fondos (componente E)
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function showForm()
     {
         $fondo = new Fondo;
         return view('aplicacion.fondos.frmFondos', compact('fondo'))->with(['url' => route('app.fondos.post'), 'method' => 'POST']);
     }
 
-    public function edit($id)
+    /**
+     * Muestra el formulario de fondos para editar (componente E)
+     * @param App\Models\Fondo $fondo
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function edit(Fondo $fondo)
     {
-        $fondo = Fondo::find($id);
-
         if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
             return back()->with('error', 'No ingresaste este fondo.');
         }

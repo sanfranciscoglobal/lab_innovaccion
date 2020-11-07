@@ -26,7 +26,8 @@ class crudProblemas extends Controller
     }
 
     /**
-     * @param Request $request
+     * Almacena un problema (fase B componente H)
+     * @param StorePost $request
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
@@ -49,40 +50,41 @@ class crudProblemas extends Controller
     }
 
     /**
-     * @param Request $request
+     * Actualiza un problema (fase B componente H)
+     * @param StorePost $request
+     * @param Problema $problema
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
-    public function update(UpdatePost $request, Fondo $fondo){
-        if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
-            return back()->with('error', 'No ingresaste este fondo.');
-        }
+    public function update(UpdatePost $request, Problema $problema){
+        // if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
+        //     return back()->with('error', 'No ingresaste este fondo.');
+        // }
 
-        $validatedData = $request->validated();
-        $fondo->update($request->validated());
+        // $validatedData = $request->validated();
+        // $fondo->update($request->validated());
 
-        if(isset($validatedData['imagen'])){
-            $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
-            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
-            $fondo->imagen = $imageName;
-            $fondo->save();
-        }
+        // if(isset($validatedData['imagen'])){
+        //     $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
+        //     $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+        //     $fondo->imagen = $imageName;
+        //     $fondo->save();
+        // }
 
-        return redirect()->route('home')->with('status', 'Fondo modificado con éxito');
+        // return redirect()->route('home')->with('status', 'Fondo modificado con éxito');
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Models\Fondo $fondo->id
+     * Elimina un problema (fase B componente H)
+     * @param  \App\Models\Problema $Problema->id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fondo $fondo) {
-        if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('superadmin'))){
-            return back()->with('error', 'No ingresaste este fondo.');
-        }
+    public function destroy(Problema $problema) {
+        // if(Auth::id() != $convocatoria->user_id && (!Auth::user()->hasRole('superadmin'))){
+        //     return back()->with('error', 'No ingresaste este fondo.');
+        // }
 
-        $fondo->delete();
-        return redirect()->route('home')->with('status', 'Fondo eliminado con éxito');
+        // $convocatoria->delete();
+        // return redirect()->route('home')->with('status', 'Fondo eliminado con éxito');
     }
 }
