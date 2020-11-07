@@ -31,6 +31,7 @@
                                 <div class="form-group">
                                     <label for="organizador">* Nombre del Organizador <span style="color: gray">(max. 250 caracteres)</span></label>
                                     <input class="form-control" type="text" id="organizador" value="{{isset($evento->organizador)?$evento->organizador:old('organizador')}}" maxlength='250' name="organizador" placeholder="Nombre del organizador"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                    @error('organizador')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                         </div>
@@ -41,30 +42,57 @@
                                         <div class="form-group">
                                             <label for="nombre">* Nombre del Evento <span style="color: gray">(max. 250 caracteres)</span></label>
                                             <input class="form-control" type="text" id="nombre" value="{{isset($evento->nombre)?$evento->nombre:old('nombre')}}" maxlength='250' name="nombre" placeholder="Nombre del evento"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col">
+                                    {{-- <div class="col">
                                         <div class="form-group">
                                             <label for="fecha">* Fecha</label>
                                             <input class="form-control" type="date" id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col">
                                         <div class="form-group">
+                                            <label class="form-label">* Fecha</label>
+                                            <div class="input-group-overlay">
+                                            <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altFormat": "F j, Y", "dateFormat": "Y/m/d"}' id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
+                                            <div class="input-group-append-overlay">
+                                                <span class="input-group-text">
+                                                <i class="fe-calendar"></i>
+                                                </span>
+                                            </div>
+                                            </div>
+                                            @error('fecha')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        {{-- <div class="form-group">
                                             <label for="hora">* Hora</label>
                                             <input class="form-control" type="time" id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora"  oninvalid="setCustomValidity('Por favor seleccione una hora.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                        </div> --}}
+                                        <div class="form-group">
+                                            <label class="form-label">* Hora</label>
+                                            <div class="input-group-overlay">
+                                              <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Elija una hora"  data-datepicker-options='{"enableTime": true, "noCalendar": true, "dateFormat": "H:i"}'  id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora"  oninvalid="setCustomValidity('Por favor seleccione una hora.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                              <div class="input-group-append-overlay">
+                                                <span class="input-group-text">
+                                                  <i class="fe-calendar"></i>
+                                                </span>
+                                              </div>
+                                            </div>
+                                            @error('hora')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="descripcion">* Descripción del Evento <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span>
+                                            <label  class="control-label" for="descripcion">Descripción del Evento <span style="color: gray">(max. 50 palabras)</span></label>
 
-                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"   oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required
-                                            >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span></label>
+                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"
+                                            >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
                                             <br>
                                             <div class="invalid-feedback" id='descripcion-error'></div>
 
@@ -102,7 +130,8 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* URL del Evento</label>
-                                                        <input class="form-control" type="url" id="url" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Ejem. https://link-del-evento.com?u=lkasdf78ia4l5" oninvalid="setCustomValidity('Ingrese el link añadiendo https o http.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                        <input class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                        <div class="invalid-feedback" id='url-error'></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 to-hide e-presencial d-none">
@@ -129,7 +158,7 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="ubicacion">* Ubicación del Evento</label>
-                                                                <input class="form-control" type="text" id="evento_direccion" value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Direccion del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                                <input class="form-control" type="text" id="evento_direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Direccion del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -150,11 +179,12 @@
                                 <div class="form-group">
                                     <label for="imagen">* Imagen del Evento</label>
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" value="" maxlength='250' name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
 
                                     @else
-                                        <input type="file" class="dropify"  accept="image/gif, image/jpeg, image/png" id="imagen" value="" name="imagen" oninvalid="setCustomValidity('Por favor seleccione una imagen.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                        <input type="file" class="dropify"  accept="image/gif, image/jpeg, image/png" id="imagen" value="" maxlength='250' name="imagen" oninvalid="setCustomValidity('Por favor seleccione una imagen.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                     @endif
+                                    @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
 
                                 </div>
                             </div>
@@ -237,24 +267,38 @@
         //     $('#descripcion').addClass('is-invalid');
         // }
         document.getElementById("count-words").innerHTML=words+" palabras";
-        if (words>49 && words<=maxword || words==0){
-            $("#descripcion-error").removeClass('d-inline');
-            $('#descripcion').removeClass('is-invalid');
-            $('#submitbutton').removeAttr('disabled');
-        }
-        else if (words<49){
-            $("#descripcion-error").html('Llene el mínimo de palabras necesarias');
-            $("#descripcion-error").addClass('d-inline');
-            $('#descripcion').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');
-        }
-        else{
+        if (words>50){
             $("#descripcion-error").html('Ha sobrepasado el límite de palabras permitido');
             $("#descripcion-error").addClass('d-inline');
             $('#descripcion').addClass('is-invalid');
             $('#submitbutton').attr('disabled','disabled');
         }
+        else{
+
+            $("#descripcion-error").removeClass('d-inline');
+            $('#descripcion').removeClass('is-invalid');
+            $('#submitbutton').removeAttr('disabled');
+        }
     };
+    //
+    //funcion url
+    function validateURL() {
+         var $URL= document.getElementById("url").value;
+         var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
+         var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
+         if((pattern_1.test($URL) || pattern_2.test($URL) )){
+            $("#url-error").removeClass('d-inline');
+            $('#url').removeClass('is-invalid');
+            $('#submitbutton').removeAttr('disabled');
+            
+         } else{
+            $("#url-error").html('Url invalido');
+            $("#url-error").addClass('d-inline');
+            $('#url').addClass('is-invalid');
+            $('#submitbutton').attr('disabled','disabled');
+         }
+       }
+
     //
 
     var baseURL = '{{ URL::to('/') }}';
@@ -394,7 +438,6 @@
         }
 
     @endif
-
 
 
 

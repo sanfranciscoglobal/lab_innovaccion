@@ -1,7 +1,8 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{$url}}" id='myForm' method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" id='myForm' method="POST" enctype="multipart/form-data" 
+    class="needs-validation" novalidate>
         @csrf
         @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">

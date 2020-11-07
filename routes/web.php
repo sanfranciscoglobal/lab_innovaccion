@@ -92,7 +92,7 @@ Route::as('app.')
              * Rutas Eventos
              */
             Route::get('/eventos', 'Aplicacion\EventosController@showForm')->name('eventos');
-            Route::get('/eventos/{id}', 'Aplicacion\EventosController@edit')->name('eventos.edit');
+            Route::get('/eventos/{evento}', 'Aplicacion\EventosController@edit')->name('eventos.edit');
             Route::post('/eventos', 'Aplicacion\crudEventos@store')->name('eventos.post');
             Route::put('/eventos/{evento}', 'Aplicacion\crudEventos@update')->name('eventos.put');
             Route::delete('/eventos/{evento}', 'Aplicacion\crudEventos@destroy')->name('eventos.delete');
@@ -101,11 +101,11 @@ Route::as('app.')
             /**
              * Material de aprendizaje
              */
-            Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material-de-aprendizaje');
-            Route::post('/material-de-aprendizaje', 'Aplicacion\crudMaterialesaprendizaje@store')->name('material-de-aprendizaje.post');
-            Route::get('/material-de-aprendizaje/{id}', 'Aplicacion\MaterialdeaprendizajeController@edit')->name('material-de-aprendizaje.edit');
-            Route::put('/material-de-aprendizaje/{material}', 'Aplicacion\crudMaterialesaprendizaje@update')->name('material-de-aprendizaje.put');
-            Route::delete('/material-de-aprendizaje/{material}', 'Aplicacion\crudMaterialesaprendizaje@destroy')->name('material-de-aprendizaje.delete');
+            Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material-de-aprendizaje');
+            Route::post('/publicacion-herramienta', 'Aplicacion\crudMaterialesaprendizaje@store')->name('material-de-aprendizaje.post');
+            Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@edit')->name('material-de-aprendizaje.edit');
+            Route::put('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@update')->name('material-de-aprendizaje.put');
+            Route::delete('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@destroy')->name('material-de-aprendizaje.delete');
 
             // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
              Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
@@ -134,7 +134,7 @@ Route::as('app.')
             /** Rutas Escritorio */
             Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');
             Route::get('/escritorio/eventos', 'Aplicacion\EscritorioController@verEventos')->name('escritorio.eventos')->middleware('auth');
-            Route::get('/escritorio/material', 'Aplicacion\EscritorioController@verMateriales')->name('escritorio.material')->middleware('auth');
+            Route::get('/escritorio/publicacion-herramienta', 'Aplicacion\EscritorioController@verMateriales')->name('escritorio.material')->middleware('auth');
             Route::get('/escritorio/fondos', 'Aplicacion\EscritorioController@verFondos')->name('escritorio.fondos');
 
         }

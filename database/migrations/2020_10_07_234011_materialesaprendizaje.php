@@ -17,12 +17,13 @@ class Materialesaprendizaje extends Migration
         Schema::create('materialesaprendizaje', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_publicacion');
-            $table->date('fecha_publicacion');
+            $table->date('fecha_publicacion')->nullable();
             $table->string('tema_tratado');
             $table->string('tipo_documento');
-            $table->string('imagen_portada');
-            $table->string('fuente_publicacion');
-            $table->string('autor_publicacion');
+            $table->boolean('tipo')->comment('Publicacion-0/Herramienta-1'); 
+            //$table->string('imagen_portada');
+            $table->text('fuente_publicacion');
+            $table->string('autor_publicacion')->nullable();
             $table->boolean('estado')->default(FALSE)->comment('No aprobado-1/Aprobado-0');                
             $table->boolean('terminos');
             $table->foreignId('user_id')->constrained();
