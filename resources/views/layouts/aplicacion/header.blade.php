@@ -34,8 +34,7 @@
             <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_color.svg')}}" alt="Thinkia - Laboratorio de innovación"/>
         </a>
         <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
-            <a class="nav-link-style font-size-sm text-nowrap " href="#modal-signin" data-toggle="modal"
-               data-view="#search-bar-view">
+            <a class="nav-link-style font-size-sm text-nowrap " href="#search" data-toggle="modal">
                 <i class="fe-search font-size-xl mr-2"></i>
             </a>&nbsp;
             <?php /*
@@ -73,13 +72,13 @@
             </div>
             @else
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
-               href="#modal-signin" data-toggle="modal" data-view="#modal-signin-view">Iniciar Sesión</a>
+               href="#modal-signin" data-toggle="modal">Iniciar Sesión</a>
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
-               href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a>
+               href="#modal-signup" data-toggle="modal">Crear cuenta</a>
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
-               href="#modal-signin" data-toggle="modal" data-view="#modal-signin-view">Iniciar Sesión</a>
+               href="#modal-signin" data-toggle="modal">Iniciar Sesión</a>
             <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
-               href="#modal-signin" data-toggle="modal" data-view="#modal-signup-view">Crear cuenta</a>
+               href="#modal-signup" data-toggle="modal">Crear cuenta</a>
             @endif
         </div>
         <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
