@@ -2,18 +2,36 @@
 //@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i');
 
-// Variables
-//@import 'variables';
+/** AROUND THEME */
+// Custom Variables
+@import 'variables';
+@import 'assets/aplication/user-variables';
+
+// Theme Helpers: Variables, Mixins and Placeholders
+@import 'assets/aplication/helpers';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Theme Core
+@import 'assets/aplication/reboot';
+@import 'assets/aplication/components';
+@import 'assets/aplication/utilities';
+
+// Custom Core
+@import 'assets/aplication/user';
+@import 'assets/aplication/layout';
+
 // Vendor
+@import '~animate.css';
+@import '~select2/dist/css/select2.min.css';
+@import '~dropify/dist/css/dropify.min.css';
+@import '~flatpickr/dist/flatpickr.min.css';
+@import '~simplebar/dist/simplebar.css';
+
+// Icons
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '~@fortawesome/fontawesome-free/scss/regular.scss';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
-@import '~animate.css';
-@import "~select2/dist/css/select2.min.css";
-@import "~dropify/dist/css/dropify.min.css";
-//@import "~simplebar/dist/simplebar.css";
-//// Template
-//@import 'theme.css';
+
