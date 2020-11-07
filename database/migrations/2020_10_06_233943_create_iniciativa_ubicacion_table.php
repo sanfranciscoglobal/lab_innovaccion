@@ -16,7 +16,13 @@ class CreateIniciativaUbicacionTable extends Migration
         Schema::create('iniciativa_ubicacion', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('iniciativa_id');
-            $table->unsignedBigInteger('canton_id');
+            $table->unsignedBigInteger('canton_id')->nullable();
+            $table->string('direccion', 500);
+            $table->string('latitud', 100)->nullable();
+            $table->string('longitud', 100)->nullable();
+            $table->string('localidad', 100)->nullable();
+            $table->string('area1', 100)->nullable();
+            $table->string('area2', 100)->nullable();
 
             $table->foreign('iniciativa_id')
                 ->references('id')

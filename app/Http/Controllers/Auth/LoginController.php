@@ -44,7 +44,7 @@ class LoginController extends Controller
     {
         $credentials = $this->validate(request(), [
             'email' => 'email|required|string|exists:users,email',
-            'password' => 'required|string'
+            'password' => 'required|string',
         ]);
 
         if(Auth::attempt($credentials))
@@ -53,8 +53,9 @@ class LoginController extends Controller
         }
 
         return back()
-            ->with('error', 'No hemos podido iniciar sesión.')
-            ->withInput(request(['email']));
+            // ->with('error', 'No hemos podido iniciar sesión.')
+            ->withErrors('login')
+            ->withInput(request(['email', 'login']));
     }
 
     public function logout(){

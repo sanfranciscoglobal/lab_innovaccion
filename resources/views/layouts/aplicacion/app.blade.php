@@ -147,134 +147,142 @@
     <div class="modal fade" id="modal-signin" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
-                <div class="cs-view show" id="modal-signin-view">
-                    <div class="modal-header border-0 bg-purple-gradient px-4">
-                        <h4 class="modal-title text-light">Iniciar sesión</h4>
-                        <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body px-4">
-                        <p class="font-size-ms text-muted">
-                            Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su registro.
+                <div class="modal-header border-0 bg-purple-gradient px-4">
+                    <h4 class="modal-title text-light">Iniciar sesión</h4>
+                    <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body px-4">
+                    <p class="font-size-ms text-muted">
+                        Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su registro.
+                    </p>
+                    <form class="needs-validation" novalidate action="{{ route('login') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="login" value="1">
+                        <div class="form-group">
+                            <div class="input-group-overlay">
+                                <div class="input-group-prepend-overlay">
+                                    <span class="input-group-text">
+                                        <i class="fe-mail"></i>
+                                    </span>
+                                </div>
+                                <input class="form-control prepended-form-control @error('email') is-invalid @enderror" type="email" placeholder="Correo Electrónico" name='email' value="{{ old('email') }}" required>
+                            </div>
+                            @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group-overlay cs-password-toggle">
+                                <div class="input-group-prepend-overlay">
+                                    <span class="input-group-text">
+                                        <i class="fe-lock"></i>
+                                    </span>
+                                </div>
+                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" /*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"*/ required>
+                                <label class="cs-password-toggle-btn">
+                                    <input class="custom-control-input" type="checkbox">
+                                    <i class="fe-eye cs-password-toggle-indicator"></i>
+                                    <span class="sr-only">Show password</span>
+                                </label>
+                            </div>
+                            <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
+                            @error('password')<br><div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                        </div>
+
+                        {{-- <div class="d-flex justify-content-between align-items-center form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" id="keep-signed">
+                                <label class="custom-control-label" for="keep-signed">Mantener sesión iniciada</label>
+                            </div>
+                            <a class="nav-link-style font-size-ms" href="password-recovery.html">
+                                ¿Olvidó su contraseña?
+                            </a>
+                        </div> --}}
+                        <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+                        <p class="font-size-sm pt-3 mb-0">
+                            ¿No tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signup-view'>Registrese</a>
                         </p>
-                        <form class="needs-validation" novalidate action="{{ route('login') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <div class="input-group-overlay">
-                                    <div class="input-group-prepend-overlay">
-                                        <span class="input-group-text">
-                                            <i class="fe-mail"></i>
-                                        </span>
-                                    </div>
-                                    <input class="form-control prepended-form-control @error('email') is-invalid @enderror" type="email" placeholder="Correo Electrónico" name='email' value="{{ old('email') }}" required>
-                                </div>
-                                @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group-overlay cs-password-toggle">
-                                    <div class="input-group-prepend-overlay">
-                                        <span class="input-group-text">
-                                            <i class="fe-lock"></i>
-                                        </span>
-                                    </div>
-                                    <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" /*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"*/ required>
-                                    <label class="cs-password-toggle-btn">
-                                        <input class="custom-control-input" type="checkbox">
-                                        <i class="fe-eye cs-password-toggle-indicator"></i>
-                                        <span class="sr-only">Show password</span>
-                                    </label>
-                                </div>
-                                <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
-                                @error('password')<br><div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                            </div>
-
-                            {{-- <div class="d-flex justify-content-between align-items-center form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" id="keep-signed">
-                                    <label class="custom-control-label" for="keep-signed">Mantener sesión iniciada</label>
-                                </div>
-                                <a class="nav-link-style font-size-ms" href="password-recovery.html">
-                                    ¿Olvidó su contraseña?
-                                </a>
-                            </div> --}}
-                            <button class="btn btn-primary btn-block" type="submit">Entrar</button>
-                            <p class="font-size-sm pt-3 mb-0">
-                                ¿No tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signup-view'>Registrese</a>
-                            </p>
-                        </form>
-                    </div>
+                    </form>
                 </div>
-                <div class="cs-view" id="modal-signup-view">
-                    <div class="modal-header border-0 bg-purple-gradient px-4">
-                        <h4 class="modal-title text-light">Registro de Usuario</h4>
-                        <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body px-4">
-                        <!--
-                        <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
-                        -->
-                        <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
-                            @csrf
-                            <div class="form-group">
-                                <input class="form-control @error('name') is-invalid @enderror" name="name" type="text" placeholder="Nombre Completo" value="{{ old('name') }}" required>
-                                @error('name')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
-                                @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                            </div>
-                            <div class="form-group">
-                                <div class="cs-password-toggle">
-                                    <input class="form-control @error('password') is-invalid @enderror" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password') }}" required>
-                                    <label class="cs-password-toggle-btn">
-                                        <input class="custom-control-input" type="checkbox">
-                                        <i class="fe-eye cs-password-toggle-indicator"></i>
-                                        <span class="sr-only">Mostrar contraseña</span>
-                                    </label>
-                                </div>
-                                <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
-                                @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                            </div>
-                            <div class="form-group">
-                                <div class="cs-password-toggle">
-                                    <input class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
-                                    <label class="cs-password-toggle-btn">
-                                        <input class="custom-control-input" type="checkbox">
-                                        <i class="fe-eye cs-password-toggle-indicator"></i>
-                                        <span class="sr-only">Mostrar contraseña</span>
-                                    </label>
-                                </div>
-                                <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
-                                @error('password_confirmation')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                            </div>
-                            <button class="btn btn-primary btn-block" type="submit">Registrar</button>
-                            <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signin-view'>Entrar</a></p>
-                        </form>
-                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-signup" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="modal-header border-0 bg-purple-gradient px-4">
+                    <h4 class="modal-title text-light">Registro de Usuario</h4>
+                    <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="cs-view" id="search-bar-view">
-                    <div class="modal-header border-0 bg-purple-gradient px-4">
-                        <h4 class="modal-title text-light">Buscar contenidos</h4>
-                        <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body px-4">
-                        <!--
-                        <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
-                        -->
-                        <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
-                            @csrf
-                            <div class="form-group">
-                                <input class="form-control" name="s" type="text" placeholder="Término de búsqueda" required>
+                <div class="modal-body px-4">
+                    <!--
+                    <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
+                    -->
+                    <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
+                        @csrf
+                        <input type="hidden" name="login" value="0">
+                        <div class="form-group">
+                            <input class="form-control @error('name') is-invalid @enderror" name="name" type="text" placeholder="Nombre Completo" value="{{ old('name') }}" required>
+                            @error('name')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
+                            @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                        </div>
+                        <div class="form-group">
+                            <div class="cs-password-toggle">
+                                <input class="form-control @error('password') is-invalid @enderror" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password') }}" required>
+                                <label class="cs-password-toggle-btn">
+                                    <input class="custom-control-input" type="checkbox">
+                                    <i class="fe-eye cs-password-toggle-indicator"></i>
+                                    <span class="sr-only">Mostrar contraseña</span>
+                                </label>
                             </div>
-                            <button class="btn btn-primary btn-block" type="submit">Buscar</button>
+                            <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
+                            @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                        </div>
+                        <div class="form-group">
+                            <div class="cs-password-toggle">
+                                <input class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
+                                <label class="cs-password-toggle-btn">
+                                    <input class="custom-control-input" type="checkbox">
+                                    <i class="fe-eye cs-password-toggle-indicator"></i>
+                                    <span class="sr-only">Mostrar contraseña</span>
+                                </label>
+                            </div>
+                            <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
+                            @error('password_confirmation')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Registrar</button>
+                        <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signin-view'>Entrar</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="search" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="modal-header border-0 bg-purple-gradient px-4">
+                    <h4 class="modal-title text-light">Buscar contenidos</h4>
+                    <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body px-4">
+                    <!--
+                    <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
+                    -->
+                    <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
+                        @csrf
+                        <div class="form-group">
+                            <input class="form-control" name="s" type="text" placeholder="Término de búsqueda" required>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Buscar</button>
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
                 <?php /*
                 <div class="modal-body text-center px-4 pt-2 pb-4">
@@ -329,9 +337,16 @@
     // }
     $('.modal-status').modal('show');
 </script>
-@if($errors)
+@if($errors->any())
 <script>
-    $('.modal-status').modal('show');
+    var isLogin = {{ old('login') ?? 'null' }};
+    if(isLogin != null){
+        if(isLogin == 1){
+            $('#modal-signin').modal('show');
+        } else {
+            $('#modal-signup').modal('show');
+        }
+    }
 </script>
 @endif
 

@@ -1,173 +1,119 @@
-@extends('layouts.aplicacion.app')
+@extends('aplicacion.escritorio.escritorio')
 
-@section('header-css')
-    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">--}}
-    <style>
-        .stepwizard-step p {
-            margin-top: 0px;
-            color: #666;
-        }
-
-        .stepwizard-row {
-            display: table-row;
-        }
-
-        .stepwizard {
-            display: table;
-            width: 100%;
-            position: relative;
-        }
-
-        .stepwizard-step button[disabled] {
-            /*opacity: 1 !important;
-            filter: alpha(opacity=100) !important;*/
-        }
-
-        .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
-            opacity: 1 !important;
-            color: #bbb;
-        }
-
-        .stepwizard-row:before {
-            top: 14px;
-            bottom: 0;
-            position: absolute;
-            content: " ";
-            width: 100%;
-            height: 1px;
-            background-color: #ccc;
-            z-index: 0;
-        }
-
-        .stepwizard-step {
-            display: table-cell;
-            text-align: center;
-            position: relative;
-        }
-
-        .stepwizard-step .btn-default:not(.btn-success) {
-            background: white;
-            border: 1px solid;
-        }
-
-        .stepwizard-step .btn-default.panel-error {
-            color: red;
-        }
-
-        .btn-circle {
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            padding: 6px 0;
-            font-size: 12px;
-            line-height: 1.428571429;
-            border-radius: 15px;
-        }
-
-        .has-error .form-control,
-        .has-error .select2-selection {
-            border-color: darkred;
-        }
-
-        .has-error input[type="checkbox"] + label,
-        .has-error input[type="radio"] + label {
-            color: darkred !important;
-            border: 1px solid darkred;
-            padding: 0 10px;
-            background: rgba(139, 0, 0, 0.397);
-        }
-    </style>
-@endsection
-
-@section('content')
+@section('contenido')
     @include('includes.validation-error-admin')
-    <div class="position-relative bg-purple-gradient" style="height: 480px;">
-        <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
-                <polygon fill="currentColor" points="0,257 0,260 3000,260 3000,0"></polygon>
-            </svg>
-        </div>
-    </div>
-    <div class="container bg-overlay-content pb-4 mb-md-3" style="margin-top: -350px;">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4" style="min-height: 380px;">
-                    <div class="py-2 p-md-3">
-                        <!-- Review-->
-                        <div class="pt-grid-gutter pb-grid-gutter border-bottom text-right">
-                            <h3 class="float-left">Iniciativas</h3>
-                            <a href="{{route('app.iniciativas.create')}}" class="btn btn-primary btn-sm">
-                                <i class="fe fe-plus mr-1"></i>
-                                Crear iniciativa
-                            </a>
-                        </div>
+    <div class="col-lg-9">
+        <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
+            <div class="py-2 p-md-3">
+                <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
+                    <h1 class="h3 mb-2 text-nowrap">
+                        Iniciativas <span class="badge badge-secondary ml-1">{{ $iniciativas->total() }}</span>
+                    </h1>
+                    <a href="{{route('app.iniciativas.create')}}" class="btn btn-primary">
+                        <i class="fe fe-plus mr-1"></i>
+                        Crear Iniciativas
+                    </a>
+                </div>
+                {{--<div class="position-relative bg-purple-gradient" style="height: 480px;">--}}
+                {{--<div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">--}}
+                {{--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">--}}
+                {{--<polygon fill="currentColor" points="0,257 0,260 3000,260 3000,0"></polygon>--}}
+                {{--</svg>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="container bg-overlay-content pb-4 mb-md-3" style="margin-top: -350px;">--}}
+                <div class="row">
+                {{--<div class="col-lg-8 offset-lg-2">--}}
+                {{--<div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4"--}}
+                {{--style="min-height: 380px;">--}}
+                {{--<div class="py-2 p-md-3">--}}
+                <!-- Review-->
+                    {{--<div class="pt-grid-gutter pb-grid-gutter border-bottom text-right">--}}
+                    {{--<h3 class="float-left">Iniciativas</h3>--}}
+                    {{--<a href="{{route('app.iniciativas.create')}}" class="btn btn-primary btn-sm">--}}
+                    {{--<i class="fe fe-plus mr-1"></i>--}}
+                    {{--Crear iniciativa--}}
+                    {{--</a>--}}
+                    {{--</div>--}}
 
-                        @foreach($iniciativas as $iniciativa)
-                            <div class="pt-grid-gutter pb-grid-gutter border-bottom">
-                                <div class="d-sm-flex align-items-center mb-2 pb-1">
-                                    <div class="d-flex align-items-center">
-                                        <span class="font-size-sm mr-2">
-                                            {{$iniciativa->iniciativaInformacion->anio}}
-                                        </span>
-                                        <h6 class="nav-heading mb-0">
-                                            <a href="#">
-                                                {{$iniciativa->iniciativaInformacion->nombre_iniciativa}}
-                                            </a>
-                                        </h6>
-                                    </div>
-                                </div>
-                                <p class="font-size-md text-justify">
-                                    @if($iniciativa->iniciativaActor)
-                                        {!! $iniciativa->iniciativaActor->enfoque !!}
-                                    @else
-                                        {!! $iniciativa->iniciativaInformacion->descripcion_iniciativa !!}
-                                    @endif
-
-                                </p>
-                                <div class="media media-ie-fix align-items-center mr-3">
-                                    <img class="rounded-circle" width="42"
-                                         src="{{asset('storage/iniciativas/'.$iniciativa->iniciativaInformacion->logo)}}"
-                                         alt="{{$iniciativa->iniciativaInformacion->logo}}"/>
-                                    <div class="media-body pl-2 ml-1">
-                                        <h6 class="font-size-sm mb-n1">
-                                            @if($iniciativa->iniciativaActor)
-                                                {!! $iniciativa->iniciativaActor->nombre_organizacion !!}
-                                            @else
-                                                {!! $iniciativa->iniciativaInformacion->componente_innovador !!}
-                                            @endif
-                                        </h6>
-                                        {{--<span class="font-size-xs text-muted">3 days ago</span>--}}
-
-                                    </div>
-
-                                    <div class="float-right">
-                                        <a class="btn btn-outline-primary btn-icon" data-toggle="tooltip"
-                                           title="Editar" href="{{route('app.iniciativas.edit',$iniciativa->id)}}"
+                    @foreach($iniciativas as $iniciativa)
+                        <div class="pt-grid-gutter pb-grid-gutter border-bottom">
+                            <div class="d-sm-flex align-items-center mb-2 pb-1">
+                                <div class="d-flex align-items-center">
+                                    {{--<span class="font-size-sm mr-2">--}}
+                                    {{--{{$iniciativa->iniciativaInformacion->anio}}--}}
+                                    {{--</span>--}}
+                                    {{--<h6 class="nav-heading mb-0">--}}
+                                    {{--<a href="#">--}}
+                                    {{--{{$iniciativa->iniciativaInformacion->nombre_iniciativa}}--}}
+                                    {{--</a>--}}
+                                    {{--</h6>--}}
+                                    <h4 class="nav-heading mb-0">
+                                        <a data-toggle="tooltip"
+                                           title="Editar"
+                                           href="{{route('app.iniciativas.edit',$iniciativa->id)}}"
                                            data-placement="bottom">
-                                            <i class="fe-edit text-primary"></i>
+                                            <i class="fe-edit mr-2"></i>
+                                            {{$iniciativa->iniciativaInformacion->nombre_iniciativa}}
                                         </a>
-
-                                        <a href="" data-toggle="modal" data-target="#deleteModal"
-                                           data-id="{{ $iniciativa->id }}"
-                                           class="btn btn-outline-danger btn-icon">
-                                            <i class="fe-trash-2 text-danger"></i>
-                                        </a>
-
-                                        {{--<a type="button" class="btn btn-outline-danger btn-icon" data-toggle="tooltip"--}}
-                                        {{--title="Eliminar" data-placement="bottom">--}}
-                                        {{--<i class="fe-trash-2 text-danger"></i>--}}
-                                        {{--</a>--}}
-                                    </div>
+                                    </h4>
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
-                    {{ $iniciativas->links() }}
+                            <p class="font-size-md text-justify">
+                                @if($iniciativa->iniciativaActor)
+                                    {!! $iniciativa->iniciativaActor->enfoque !!}
+                                @else
+                                    {!! $iniciativa->iniciativaInformacion->descripcion_iniciativa !!}
+                                @endif
+
+                            </p>
+                            <div class="media media-ie-fix align-items-center mr-3">
+                                <img class="rounded-circle" width="42"
+                                     src="{{asset('storage/iniciativas/'.$iniciativa->iniciativaInformacion->logo)}}"
+                                     alt="{{$iniciativa->iniciativaInformacion->logo}}"/>
+                                <div class="media-body pl-2 ml-1">
+                                    <h6 class="font-size-sm mb-n1">
+                                        @if($iniciativa->iniciativaActor)
+                                            {!! $iniciativa->iniciativaActor->nombre_organizacion !!}
+                                        @else
+                                            {!! $iniciativa->iniciativaInformacion->componente_innovador !!}
+                                        @endif
+                                    </h6>
+                                    {{--<span class="font-size-xs text-muted">3 days ago</span>--}}
+
+                                </div>
+
+                                {{--<div class="float-right">--}}
+                                {{--<a class="btn btn-outline-primary btn-icon" data-toggle="tooltip"--}}
+                                {{--title="Editar"--}}
+                                {{--href="{{route('app.iniciativas.edit',$iniciativa->id)}}"--}}
+                                {{--data-placement="bottom">--}}
+                                {{--<i class="fe-edit text-primary"></i>--}}
+                                {{--</a>--}}
+
+                                {{--<a href="" data-toggle="modal" data-target="#deleteModal"--}}
+                                {{--data-id="{{ $iniciativa->id }}"--}}
+                                {{--class="btn btn-outline-danger btn-icon">--}}
+                                {{--<i class="fe-trash-2 text-danger"></i>--}}
+                                {{--</a>--}}
+
+                                {{--<a type="button" class="btn btn-outline-danger btn-icon" data-toggle="tooltip"--}}
+                                {{--title="Eliminar" data-placement="bottom">--}}
+                                {{--<i class="fe-trash-2 text-danger"></i>--}}
+                                {{--</a>--}}
+                                {{--</div>--}}
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+                {{ $iniciativas->links() }}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>
-
     @include('includes.forms.modal-delete',['name_route'=>'app.iniciativas.destroy'])
 @endsection
 

@@ -93,9 +93,9 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4" style="min-height: 380px;">
                     {{--<div class="py-2 p-md-3">--}}
-                        {{--<a href="{{route('app.iniciativa.index')}}" class="btn btn-primary btn-sm">--}}
-                            {{--<i class="fe fe-back"></i>--}}
-                        {{--</a>--}}
+                    {{--<a href="{{route('app.iniciativa.index')}}" class="btn btn-primary btn-sm">--}}
+                    {{--<i class="fe fe-back"></i>--}}
+                    {{--</a>--}}
                     {{--</div>--}}
                     <div class="py-2 p-md-3">
                         <!-- Timeline -->
@@ -161,15 +161,16 @@
 
 @section('footer')
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
-    <script>
+    <script type="text/javascript">
+        //initMap();
         var input = document.getElementById('evento_direccion');
         var selectPath = '{{route('api.canton.select2')}}';
         console.log(selectPath);
         var options = {
-                    //types: ["locality", "political", "geocode"],
-                    //types: ['(cities)'],
-                    componentRestrictions: {country: 'ec'}
-                };
+            //types: ["locality", "political", "geocode"],
+            //types: ['(cities)'],
+            componentRestrictions: {country: 'ec'}
+        };
         var map,
             myLatlng,
             currentAddressInput,
@@ -179,14 +180,15 @@
             infowindow,
             Latlng,
             infoService;
+
         $(document).ready(function () {
-            $('#map').hide();
-            var addressContainers = $('.direccion');
+            //$('#map').hide();
+            //var addressContainers = $('.direccion');
             // Stepper
             var navListItems = $('div.setup-panel div a'),
                 allWells = $('.setup-content'),
-                allSiguienteBtn = $('.nextBtn');
-            submitBtn = $('.submitBtn');
+                allSiguienteBtn = $('.nextBtn'),
+                submitBtn = $('.submitBtn');
 
             allWells.hide();
 
@@ -266,35 +268,40 @@
                         }
                     }
                 }
-            })
+            });
 
 
             /* Agregar otro bloque para agregar otra ciudad */
             $('#add_city').click(function () {
-                var addressIterator = addressContainers.length++;
-                html = '';
-                html += '<div class="form-group direccion" data-row="'+addressIterator+'">';
-                    html += '<div class="row">';
-                        html += '<div class="col-lg-12">';
-                            html += '<label class="control-label">Dirección Sucursal</label>';
-                            html += '<input maxlength="200" type="text" required="required" data-adresscontainer="'+addressIterator+'" class="form-control ubicacion ubicacion-'+addressIterator+'"';
-                            html += 'placeholder="Escriba la dirección" name="direccion[]"';
-                            html += 'value=""/>';
-                            html += '<input type="hidden" class="lat lat-'+addressIterator+'" name="latitud[]" value="">';
-                            html += '<input type="hidden" class="long long-'+addressIterator+'" name="longitud[]" value="">';
-                            html += '<input type="hidden" class="localidad localidad-'+addressIterator+'" name="localidad[]" value="">';
-                            html += '<input type="hidden" class="area1 area1-'+addressIterator+'" name="area1[]" value="">';
-                            html += '<input type="hidden" class="area2 area2-'+addressIterator+'" name="area2[]" value="">';
-                        html += '</div>';
+                var addressIterator = document.getElementsByClassName("ubicaciones").length;
+                console.log("Hay " + addressIterator + " elementos");
+
+                //var addressIterator = addressContainers.length++;
+
+                var html = '';
+                html += '<div class="form-group ubicaciones direccion" data-row="' + addressIterator + '">';
+                html += '<div class="row">';
+                html += '<div class="col-lg-12">';
+                html += '<label class="control-label">Dirección Sucursal</label>';
+                html += '<input maxlength="200" type="text" required="required" data-adresscontainer="' + addressIterator + '" class="form-control ubicacion ubicacion-' + addressIterator + '"';
+                html += 'placeholder="Escriba la dirección" name="Ubicaciones[' + addressIterator + '][direccion]"';
+                html += 'value=""/>';
+                html += '<input type="hidden" class="lat lat-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][latitud]" value="">';
+                html += '<input type="hidden" class="long long-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][longitud]" value="">';
+                html += '<input type="hidden" class="localidad localidad-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][localidad]" value="">';
+                html += '<input type="hidden" class="area1 area1-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][area1]" value="">';
+                html += '<input type="hidden" class="area2 area2-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][area2]" value="">';
+                html += '</div>';
                 html += '</div></div>';
+
                 $('#sedes-container').append(html);
-                var newInput = document.getElementsByClassName('ubicacion-'+addressIterator)[0];
+                var newInput = document.getElementsByClassName('ubicacion-' + addressIterator)[0];
                 newInput.focus();
                 autocomplete = new google.maps.places.Autocomplete(newInput, options);
                 autocomplete.addListener('place_changed', setnewAddress);
             })
 
-            $(document).on('focus', '.ubicacion', function(){
+            $(document).on('focus', '.ubicacion', function () {
                 currentAddressInput = $(this).data('adresscontainer');
                 $('#map').show();
             })
@@ -330,6 +337,7 @@
                     zoom: zoom,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
+                console.log(map);
                 marker = new google.maps.Marker({
                     position: myLatlng,
                     map: map,
@@ -342,18 +350,19 @@
                     if (status == google.maps.GeocoderStatus.OK) {
                         if (results[0]) {
                             //jQuery('input[id="lat"],input[id="long"]').show();
-                            jQuery('input.ubicacion-'+currentAddressInput).val(results[0].formatted_address);
-                            jQuery('input.lat-'+currentAddressInput).val(marker.getPosition().lat());
-                            jQuery('input.long-'+currentAddressInput).val(marker.getPosition().lng());
-                            $.each(results[0].address_components, function(index, value){
-                                if (value.types.indexOf('locality') > -1){
-                                    jQuery('input.localidad-'+currentAddressInput).val(value.short_name);
+                            jQuery('input.ubicacion-' + currentAddressInput).val(results[0].formatted_address);
+                            jQuery('input.lat-' + currentAddressInput).val(marker.getPosition().lat());
+                            jQuery('input.long-' + currentAddressInput).val(marker.getPosition().lng());
+
+                            $.each(results[0].address_components, function (index, value) {
+                                if (value.types.indexOf('locality') > -1) {
+                                    jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
                                 }
-                                if (value.types.indexOf('administrative_area_level_1') > -1){
-                                    jQuery('input.area1-'+currentAddressInput).val(value.short_name);
+                                if (value.types.indexOf('administrative_area_level_1') > -1) {
+                                    jQuery('input.area1-' + currentAddressInput).val(value.short_name);
                                 }
-                                if (value.types.indexOf('administrative_area_level_2') > -1){
-                                    jQuery('input.area2-'+currentAddressInput).val(value.short_name);
+                                if (value.types.indexOf('administrative_area_level_2') > -1) {
+                                    jQuery('input.area2-' + currentAddressInput).val(value.short_name);
                                 }
                             })
                             infowindow.setContent(results[0].formatted_address);
@@ -366,18 +375,18 @@
                     geocoder.geocode({'latLng': marker.getPosition()}, function (results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
                             if (results[0]) {
-                                jQuery('input.ubicacion-'+currentAddressInput).val(results[0].formatted_address);
-                                jQuery('input.lat-'+currentAddressInput).val(marker.getPosition().lat());
-                                jQuery('input.long-'+currentAddressInput).val(marker.getPosition().lng());
-                                $.each(results[0].address_components, function(index, value){
-                                    if (value.types.indexOf('locality') > -1){
-                                        jQuery('input.localidad-'+currentAddressInput).val(value.short_name);
+                                jQuery('input.ubicacion-' + currentAddressInput).val(results[0].formatted_address);
+                                jQuery('input.lat-' + currentAddressInput).val(marker.getPosition().lat());
+                                jQuery('input.long-' + currentAddressInput).val(marker.getPosition().lng());
+                                $.each(results[0].address_components, function (index, value) {
+                                    if (value.types.indexOf('locality') > -1) {
+                                        jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
                                     }
-                                    if (value.types.indexOf('administrative_area_level_1') > -1){
-                                        jQuery('input.area1-'+currentAddressInput).val(value.short_name);
+                                    if (value.types.indexOf('administrative_area_level_1') > -1) {
+                                        jQuery('input.area1-' + currentAddressInput).val(value.short_name);
                                     }
-                                    if (value.types.indexOf('administrative_area_level_2') > -1){
-                                        jQuery('input.area2-'+currentAddressInput).val(value.short_name);
+                                    if (value.types.indexOf('administrative_area_level_2') > -1) {
+                                        jQuery('input.area2-' + currentAddressInput).val(value.short_name);
                                     }
                                 })
                                 infowindow.setContent(results[0].formatted_address);
@@ -399,19 +408,19 @@
             infowindow.setContent(place.formatted_address);
             console.log(place)
             map.panTo(Latlng);
-            $.each(place.address_components, function(index, value){
-                if (value.types.indexOf('locality') > -1){
-                    jQuery('input.localidad-'+currentAddressInput).val(value.short_name);
+            $.each(place.address_components, function (index, value) {
+                if (value.types.indexOf('locality') > -1) {
+                    jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
                 }
-                if (value.types.indexOf('administrative_area_level_1') > -1){
-                    jQuery('input.area1-'+currentAddressInput).val(value.short_name);
+                if (value.types.indexOf('administrative_area_level_1') > -1) {
+                    jQuery('input.area1-' + currentAddressInput).val(value.short_name);
                 }
-                if (value.types.indexOf('administrative_area_level_2') > -1){
-                    jQuery('input.area2-'+currentAddressInput).val(value.short_name);
+                if (value.types.indexOf('administrative_area_level_2') > -1) {
+                    jQuery('input.area2-' + currentAddressInput).val(value.short_name);
                 }
             })
-            jQuery('input.lat-'+currentAddressInput).val(place.geometry.location.lat());
-            jQuery('input.long-'+currentAddressInput).val(place.geometry.location.lng());
+            jQuery('input.lat-' + currentAddressInput).val(place.geometry.location.lat());
+            jQuery('input.long-' + currentAddressInput).val(place.geometry.location.lng());
         }
 
         /* activar otro contacto */
