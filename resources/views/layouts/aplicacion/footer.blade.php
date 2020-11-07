@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4 mt-n2 pb-3 pb-md-0">
                 <a class="d-block text-white mx-auto" href="index.html" style="width: 153px; color: white">
-                    <img src="{{asset('img/logo/thinkia_blanco_slogan.svg')}}" width="120" alt="Thinkia"/>
+                    <img src="{{asset('img/logo/thinkia_white.svg')}}" width="120" alt="Thinkia"/>
                     <!--
                     <h4 class="cs-widget-title text-white">Laboratorio de Innovación</h4>
                     -->
@@ -77,7 +77,7 @@
             </div>
             */ ?>
         </div>
-        <div class="row align-items-center my-3 pt-4">
+        <!-- <div class="row align-items-center my-3 pt-4">
             <div class="col-md-6 order-md-2 text-md-right mb-3">
                 <ul class="list-inline font-size-sm mb-0">
                     <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="#">Síguenos</a></li>
@@ -90,7 +90,7 @@
                             class="nav-link-style nav-link-light" href="#" target="_blank"
                             rel="noopener">Fundación San Francisco Global</a></p>
             </div>
-        </div>
+        </div> -->
     </div>
 </footer>
 <!-- Back to top button-->
