@@ -10,7 +10,7 @@ class IniciativaInformacion extends Model
     protected $fillable = [
         'nombre_iniciativa',
         'anio',
-        'nombre_vigencia',
+        'vigencia',
         'logo',
         'componente_innovador',
         'descripcion_iniciativa',

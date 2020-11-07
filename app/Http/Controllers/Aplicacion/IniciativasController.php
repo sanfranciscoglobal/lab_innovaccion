@@ -32,8 +32,9 @@ class IniciativasController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function __construct(){
-        //$this->middleware('auth');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
     /**
@@ -43,7 +44,7 @@ class IniciativasController extends Controller
      */
     public function index(Request $request)
     {
-        Iniciativas::$paginate = 2;
+        Iniciativas::$paginate = 10;
         $iniciativas = Iniciativas::obtenerIniciativasPaginate();
         return view('aplicacion.iniciativa.index', compact('iniciativas'));
     }
@@ -87,6 +88,8 @@ class IniciativasController extends Controller
             $modelActor = ($request->iniciativa_propiedad == 1) ? IniciativaActor::create($requestData) : [];
             if ($image = Archivos::storeImagen('iniciativas-' . date('his'), $request->logo, 'iniciativas')) {
                 $requestData['logo'] = $image;
+                $requestData['vigencia'] = $request->has('vigencia') ? 'SI' : 'NO';
+
                 if ($modelInformacion = IniciativaInformacion::create($requestData)) {
                     $estado = EstadoRegistro::obtenerEstadoRegistroRevision();
                     $modelIniciativa = new Iniciativas();
@@ -96,6 +99,7 @@ class IniciativasController extends Controller
                     $modelIniciativa->iniciativa_informacion_id = $modelInformacion->id;
                     $modelIniciativa->user_id = Auth::user()->id;
 
+
                     if ($modelIniciativa->save()) {
                         $statusInsert = true;
                         if ($dataInstitucion = self::dataTipoInstitucion($request, $modelIniciativa) ?? []) {
@@ -103,6 +107,7 @@ class IniciativasController extends Controller
                                 throw new Exception;
                             }
                         }
+
 
                         if ($dataUbicaciones = self::dataUbicaciones($request, $modelIniciativa) ?? []) {
                             if (!(IniciativaUbicacion::insert($dataUbicaciones))) {
@@ -138,7 +143,6 @@ class IniciativasController extends Controller
                     }
                 }
             }
-
 
         } catch (\Exception $e) {
             DB::rollback();
@@ -275,10 +279,15 @@ class IniciativasController extends Controller
 
     public static function dataUbicaciones(Request $request, Iniciativas $iniciativa)
     {
-        if ($request->has('ubicaciones')) {
-            foreach ($request->ubicaciones as $key => $id) {
+
+        if ($request->has('Ubicaciones')) {
+            foreach ($request->Ubicaciones as $key => $info) {
+
                 $data[$key]['iniciativa_id'] = $iniciativa->id;
-                $data[$key]['canton_id'] = $id;
+                $data[$key]['canton_id'] = null;
+                $data[$key]['direccion'] = $info['direccion'];
+                $data[$key]['latitud'] = $info['latitud'];
+                $data[$key]['longitud'] = $info['longitud'];
             }
             return $data;
         }
