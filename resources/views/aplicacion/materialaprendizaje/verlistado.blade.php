@@ -50,7 +50,7 @@
                                   
                                         <div class="row">
                                             <div class="col">
-                                                <a class="media meta-link font-size-sm align-items-center pt-3" href="#"><img class="rounded-circle" width="36" src="{{asset('storage/materiales').'/'.$material->imagen_portada}}" alt="" />
+                                               {{-- <a class="media meta-link font-size-sm align-items-center pt-3" href="#"><img class="rounded-circle" width="36" src="{{asset('storage/materiales').'/'.$material->imagen_portada}}" alt="" />  --}}
                                                     <div class="media-body pl-2 ml-1 mt-n1">
                                                         por<span class="font-weight-semibold ml-1">{{$material->autor_publicacion}}</span>
                                                     </div>

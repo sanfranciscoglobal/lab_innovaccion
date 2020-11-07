@@ -101,7 +101,7 @@
                                         <div class="form-group">
                                             <label class="form-label">* Fecha de publicación</label>
                                             <div class="input-group-overlay">
-                                            <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altFormat": "F j, Y", "dateFormat": "Y/m/d"}' id="mat_fecha" value="{{isset($material->fecha_publicacion)?$material->fecha_publicacion:old('fecha_publicacion')}}" name="fecha_publicacion"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
+                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altFormat": "F j, Y", "dateFormat": "Y/m/d"}' id="mat_fecha" value="{{isset($material->fecha_publicacion)?$material->fecha_publicacion:old('fecha_publicacion')}}" name="fecha_publicacion"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
                                                 <div class="input-group-append-overlay">
                                                     <span class="input-group-text">
                                                     <i class="fe-calendar"></i>
@@ -225,6 +225,8 @@
 @section('footer')
 {{--<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
 <script>
     @if ($method=='PUT')
 
@@ -318,5 +320,11 @@
         }
 
         });
+
+
+        flatpickr('.js-input', {
+    "altInput":true,
+    "locale": "es"  // locale for this instance only
+    });
 </script>
 @endsection
