@@ -64,8 +64,8 @@
                                         </div>
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
-                                                <label for="org_nombre">* Nombre del fondo</label>
-                                                <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del programa" required>
+                                                <label for="org_fondo">* Nombre del fondo</label>
+                                                <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_fondo" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del programa" required>
                                                 @error('nombre_fondo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
@@ -74,15 +74,29 @@
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
-                                                        <input class="form-control @error('fecha_inicio') is-invalid @enderror" type="date" id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Nombre del programa" required>
+                                                        <div class="input-group-overlay">
+                                                            <input class="form-control cs-date-picker @error('fecha_inicio') is-invalid @enderror" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' minlength="4">
+                                                            <div class="input-group-append-overlay">
+                                                                <span class="input-group-text">
+                                                                    <i class="fe-calendar"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
                                                         @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_cierre">* Fecha de cierre</label>
-                                                        <input class="form-control @error('fecha_fin') is-invalid @enderror" type="date" id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Nombre del programa" required>
-                                                        @error('fecha_fin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                                        <div class="input-group-overlay">
+                                                            <input class="form-control cs-date-picker @error('fecha_fin') is-invalid @enderror" type="text" data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Fecha de finalización" required>
+                                                            <div class="input-group-append-overlay">
+                                                                <span class="input-group-text">
+                                                                    <i class="fe-calendar"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        @error('fecha_fin')<div class="invalid-feedback d-inline">{{ $message }}sfvsdvsdv</div>@enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,10 +108,19 @@
                                                 @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
+                                        @php
+                                            if($fondo->imagen){
+                                                $img = asset('storage/fondos/'.$fondo->imagen);
+                                            } else {
+                                                $img = '';
+                                            }
+
+                                        @endphp
                                         <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
-                                                <label for="org_web">* Logotipo</label>
-                                                <input class="form-control dropify @error('imagen') is-invalid @enderror" type="file" id="org_web" name="imagen" title="URL de la página oficial del fondo" required>
+                                                <label for="org_logo">* Logotipo</label>
+                                                <input class="form-control dropify" type="file" id="org_logo" name="imagen" title="URL de la página oficial del fondo" data-default-file="{{ $img }}" required>
+                                                <div class="invalid-feedback">Sube un logo porfavor.</div>
                                                 @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
@@ -182,6 +205,7 @@
 @endsection
 @section('footer')
 <script>
+    const fondoImg = @json($fondo->imagen);
     $(document).ready(function(){
         $('.fondos').change(function(){
             if($(this).is(':checked')){
@@ -195,6 +219,9 @@
                         $('.f-propios').removeClass('d-none');
                     }
                 }
+            }
+            if(fondoImg){
+                $('#org_logo').removeAttr('required');
             }
         })
     })

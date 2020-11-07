@@ -83,7 +83,7 @@ Route::as('app.')
              * Rutas Fondos
              */
             Route::get('fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
-            Route::get('fondos/{id}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
+            Route::get('fondos/{fondo}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
             Route::post('fondos/store', 'Aplicacion\crudFondos@store')->name('fondos.post');
             Route::put('fondos/update/{fondo}', 'Aplicacion\crudFondos@update')->name('fondos.put');
             Route::delete('fondos/delete/{fondo}', 'Aplicacion\crudFondos@destroy')->name('fondos.delete');
@@ -128,7 +128,7 @@ Route::as('app.')
             Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
             //FASE B
-            Route::get('/innovacion/gestion/{id}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
+            Route::get('/innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
             Route::post('/innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
 
 

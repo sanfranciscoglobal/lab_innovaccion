@@ -65,7 +65,7 @@ class crudFondos extends Controller
 
         if(isset($validatedData['imagen'])){
             $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
-            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'fondos');
             $fondo->imagen = $imageName;
             $fondo->save();
         }
