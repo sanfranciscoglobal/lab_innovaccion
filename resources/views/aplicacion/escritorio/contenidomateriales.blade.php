@@ -22,7 +22,7 @@
                                     data-placement="bottom">
                                     <i class="fe-edit text-primary"></i>
                                     {{$material->nombre_publicacion}}</a></h4>
-                                {{-- <h4 class="h4">{{$evento->nombre}}</h4> --}}
+                                
                             </div>
                             <div class="col-sm-3 text-right text-muted">{{date('M d, Y', strtotime( $material->fecha_publicacion))}}</div>
                         </div>
