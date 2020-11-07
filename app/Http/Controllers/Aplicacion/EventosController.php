@@ -21,7 +21,6 @@ class EventosController extends Controller
     //     $this->middleware('auth');
     // }
     public function __construct(){
-        $this->middleware(['auth','verified','has-perfil'])->except('verEventos','searchEventos');
         $this->middleware('acceso-app:user,admin,superadmin')->except('verEventos','searchEventos');
     }
     public function verEventos(Request $request)
@@ -33,7 +32,7 @@ class EventosController extends Controller
         }
 
         $eventos = Evento::orderbyDesc('fecha','hora')->get();
-      
+
         return view('aplicacion.eventos.eventos', compact('eventos','autentificacion'));
     }
     public function searchEventos(Request $request)
@@ -51,9 +50,9 @@ class EventosController extends Controller
                 }
                 else{
                     $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->get();
-                    
+
                 }
-                
+
             }
             else{
                 $eventos = Evento::orderbyDesc('fecha','hora')->get();
@@ -61,19 +60,19 @@ class EventosController extends Controller
         }
         return view('aplicacion.eventos.eventos', compact('eventos','autentificacion'));
     }
-  
+
 
     public function verFormularioeventos(Request $request)
     {
-        
+
         return view('aplicacion.eventos.frmEventos');
     }
 
     public function showForm(Request $request)
     {
-        
+
         $evento = new Evento;
-        
+
         return view('aplicacion.eventos.frmEventos', compact('evento'))->with(['url' => route('app.eventos.post'),'method'=>'POST']);
     }
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Closure;
 use Auth;
 
-class ProfileExists
+class ProfileExists extends Middleware
 {
     /**
      * Handle an incoming request.
@@ -17,7 +18,7 @@ class ProfileExists
     public function handle($request, Closure $next)
     {
         if (!isset(Auth::user()->perfil)) {
-            return redirect()->route('app.registro')->withErrors('Completa tu perfil.');
+            return redirect()->route('app.registro')->with('error', 'Completa tu perfil.');
         }
         return $next($request);
     }

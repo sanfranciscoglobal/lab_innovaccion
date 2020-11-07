@@ -1,4 +1,4 @@
-@if (session('status'))
+@if (session('error'))
     {{-- ALERT --}}
     {{-- <div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="fe-check-circle font-size-xl mt-n1 mr-3"></i>
@@ -12,17 +12,17 @@
     <div class="modal modal-status" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header bg-primary">
-                    <h4 class="modal-title text-white"><i class="fe-check-circle mr-2"></i> Acción Completa</h4>
+                <div class="modal-header bg-danger">
+                    <h4 class="modal-title text-white"><i class="fe-slash mr-2"></i> Acción NO Completa</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="text-white" aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body text-primary">
-                    <p>{{ session('status') }}</p>
+                <div class="modal-body text-danger">
+                    <p>{{ session('error') }}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
                     {{-- <button type="button" class="btn btn-primary btn-sm">Save changes</button> --}}
                 </div>
             </div>

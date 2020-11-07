@@ -1,29 +1,21 @@
-<style>
-    .navbar-stuck { background-color: #FF8527 !important; }
-    .navbar-floating-logo,
-    .navbar-stuck-logo { transform: translateY(-20px); }
-
-    @media (min-width:769px){
-        .nav-link{
-            color: white!important;
-        }
-    }
-</style>
 <header class="cs-header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky d-block p-0 secondary-nav" data-scroll-header>
     <div class="d-block w-100 secondary-nav">
         <div class="container">
             <div class="row w-100">
                 <div class="col-12 d-flex justify-content-end align-items-center">
-                    <a href="mailto:info@thinkia.org"><span class="text-white"><span class="fe-mail"></span>&nbsp;Contáctanos</span></a>
+                    <a href="mailto:info@thinkia.org"><span class=""><span class="fe-mail"></span>&nbsp;Contáctanos</span></a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
-                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-facebook sb-dark sb-sm mr-2" href="#">
+                        <li class="list-inline-item"><a class=" social-btn sb-outline sb-facebook sb-dark sb-sm mr-2" href="#">
                             <i class="fe-facebook"></i>
                         </a></li>
-                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-twitter sb-dark sb-sm mr-2" href="#">
+                        <li class="list-inline-item"><a class=" social-btn sb-outline sb-twitter sb-dark sb-sm mr-2" href="#">
                             <i class="fe-twitter"></i>
                         </a></li>
-                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-instagram sb-dark sb-sm mr-2" href="#">
+                        <li class="list-inline-item"><a class=" social-btn sb-outline sb-instagram sb-dark sb-sm mr-2" href="#">
                             <i class="fe-instagram"></i>
+                        </a></li>
+                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-youtube sb-dark sb-sm mr-2" href="#">
+                            <i class="fe-youtube"></i>
                         </a></li>
                     </ul>
                 </div>
@@ -35,14 +27,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand order-lg-1 ml-lg-0 pr-lg-2 mr-lg-4 justify-content-start" href="{{route('home')}}">
-            <img class="navbar-floating-logo d-none d-lg-block my-2" width="80" src="{{asset('img/logo/thinkia_blanco_slogan.svg')}}"
+            <img class="navbar-floating-logo d-none d-lg-block my-2" width="80" src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
-            <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_blanco_no_slogan.svg')}}"
+            <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
-            <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_blanco_no_slogan.svg')}}" alt="Thinkia - Laboratorio de innovación"/>
+            <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_color.svg')}}" alt="Thinkia - Laboratorio de innovación"/>
         </a>
         <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
-            <a class="nav-link-style font-size-sm text-nowrap text-white" href="#modal-signin" data-toggle="modal"
+            <a class="nav-link-style font-size-sm text-nowrap " href="#modal-signin" data-toggle="modal"
                data-view="#search-bar-view">
                 <i class="fe-search font-size-xl mr-2"></i>
             </a>&nbsp;
@@ -63,10 +55,10 @@
             @endphp
             <div class="navbar-tool dropdown">
                 <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px; max-height:50px">
-                <a class="navbar-tool-label dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{-- <span class="d-md-none text-white pr-3"></span> --}}
-                    <small class="d-none d-lg-block text-white">Hola!</small>
-                    <span class="d-none d-lg-inline text-white">{{ Auth::user()->name }}</span>
+                <a class="navbar-tool-label dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{-- <span class="d-md-none  pr-3"></span> --}}
+                    <small class="d-none d-lg-block ">Hola!</small>
+                    <span class="d-none d-lg-inline ">{{ Auth::user()->name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                     <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>

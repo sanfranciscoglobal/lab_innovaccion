@@ -20,7 +20,6 @@ class MaterialdeaprendizajeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function __construct(){
-        $this->middleware(['auth', 'verified','has-perfil'])->except('verListadomateriales','verCategoriasmateriales','verDetallematerial');
         $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetallematerial');
     }
     public function verListadomateriales(Request $request)
@@ -44,7 +43,7 @@ class MaterialdeaprendizajeController extends Controller
     {
         $material = new MaterialAprendizaje;
         return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.post'),'method'=>'POST']);
-        
+
     }
  
     public function edit(MaterialAprendizaje $material)

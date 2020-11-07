@@ -22,7 +22,6 @@ class crudMaterialesaprendizaje extends Controller
     //
 
     public function __construct(){
-        $this->middleware(['auth', 'verified', 'has-perfil']);
         $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
         $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
@@ -85,7 +84,7 @@ class crudMaterialesaprendizaje extends Controller
         if(isset($files)){
             $cont=1;
             Articulo::where('material_id',$material->id)->delete();
-            
+
             foreach ($files as $file){
                $fullfileName = $file->getClientOriginalName();
                 $OnlyfileName = pathinfo($fullfileName)['filename'];
@@ -93,7 +92,7 @@ class crudMaterialesaprendizaje extends Controller
                 $fileName=Archivos::storeImagen($name,$file, 'materiales');
                 $articulo=Articulo::create([
                     'material_id'=>$material['id'],
-                    'nombre' =>$fileName   
+                    'nombre' =>$fileName
                 ]);
                 $articulo->save();
                 $cont=$cont+1;
@@ -101,12 +100,12 @@ class crudMaterialesaprendizaje extends Controller
         }
 
         return redirect()->route('app.escritorio.material')->with('status', 'Material modificado con éxito');
-        
+
     }
 
 
     public function destroy(MaterialAprendizaje $material) {
-        
+
         //$evento = Evento::findOrfail($id);
 
         if(Auth::id() != $material->user_id){

@@ -5,6 +5,12 @@
 
 // Texts
 
+$user-xs: 0;
+$user-sm: 576px;
+$user-md: 768px;
+$user-lg: 992px;
+$user-xl: 1280px;
+
 .uppercase { text-transform: uppercase; }
 .text-naranja { color: $naranja; }
 .text-tomate { color: $tomate; }
@@ -28,3 +34,32 @@
 .bg-tomate { background-color: $tomate; }
 .bg-mora { background-color: $mora; }
 .bg-uva { background-color: $uva; }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(78 37 97) !important;
+    font-weight: 600 !important;
+}
+
+@media (max-width: $user-sm) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+      max-width: 95% !important;
+  }
+}
+
+@media (min-width: $user-md) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+      max-width: 90% !important;
+  }
+}
+
+@media (min-width: $user-lg) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+      max-width: 85% !important;
+  }
+}
+
+@media (min-width: $user-xl) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+      max-width: 80% !important;
+  }
+}
