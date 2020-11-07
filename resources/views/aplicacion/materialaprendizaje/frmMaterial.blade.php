@@ -71,7 +71,7 @@
                                     <div class="col-12 m-publicacion m-herramienta d-none">
                                         <div class="form-group">
                                             <label id='label_nombre' for="mat_nombre">* Nombre de la publicación<span style="color: gray">(max. 250 caracteres)</span> </label>
-                                            <input class="form-control" type="text" id="mat_nombre" placeholder="Nombre de la publicación" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" maxlength='250' name="nombre_publicacion" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input class="form-control" type="text" id="mat_nombre" placeholder="Nombre de la publicación" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" maxlength='150' name="nombre_publicacion" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             @error('nombre_publicacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -87,7 +87,7 @@
                                     <div class="col-4 m-publicacion d-none" >
                                         <div class="form-group">
                                             <label for="mat_autor">* Autor</label>
-                                            <input class="form-control" type="text" id="mat_autor" placeholder="Autor" maxlength='250' value="{{isset($material->autor_publicacion)?$material->autor_publicacion:old('autor_publicacion')}}" name="autor_publicacion" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input class="form-control" type="text" id="mat_autor" placeholder="Autor" maxlength='150' value="{{isset($material->autor_publicacion)?$material->autor_publicacion:old('autor_publicacion')}}" name="autor_publicacion" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             @error('autor_publicacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>

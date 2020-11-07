@@ -30,7 +30,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="organizador">* Nombre del Organizador <span style="color: gray">(max. 250 caracteres)</span></label>
-                                    <input class="form-control" type="text" id="organizador" value="{{isset($evento->organizador)?$evento->organizador:old('organizador')}}" maxlength='250' name="organizador" placeholder="Nombre del organizador"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                    <input class="form-control" type="text" id="organizador" value="{{isset($evento->organizador)?$evento->organizador:old('organizador')}}" maxlength='150' name="organizador" placeholder="Nombre del organizador"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                     @error('organizador')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="nombre">* Nombre del Evento <span style="color: gray">(max. 250 caracteres)</span></label>
-                                            <input class="form-control" type="text" id="nombre" value="{{isset($evento->nombre)?$evento->nombre:old('nombre')}}" maxlength='250' name="nombre" placeholder="Nombre del evento"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input class="form-control" type="text" id="nombre" value="{{isset($evento->nombre)?$evento->nombre:old('nombre')}}" maxlength='150' name="nombre" placeholder="Nombre del evento"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                         <div class="form-group">
                                             <label class="form-label">* Fecha</label>
                                             <div class="input-group-overlay">
-                                            <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altFormat": "F j, Y", "dateFormat": "Y/m/d"}' id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
+                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altInput": true,"ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
                                             <div class="input-group-append-overlay">
                                                 <span class="input-group-text">
                                                 <i class="fe-calendar"></i>
@@ -246,6 +246,8 @@
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
+<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
 <script>
     //contar palabras
     var maxlength=300;
@@ -457,6 +459,25 @@
         }
 
     });
+
+    flatpickr('.js-input', {
+    "altInput":true,
+    "locale": "es"  // locale for this instance only
+    });
+    // flatpickr('.js-input', {
+    //   minDate: '1920-01-01',
+    //   locale: {
+    //     firstDayOfWeek: 1,
+    //     weekdays: {
+    //       shorthand: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+    //       longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],         
+    //     }, 
+    //     months: {
+    //       shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Оct', 'Nov', 'Dic'],
+    //       longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    //     },
+    //   },
+    // }); 
 
 
 

@@ -28,6 +28,17 @@
                         </div>
                     <p>{{$evento->descripcion}}</p>
                     </div>
+                    <div class="media media-ie-fix align-items-center mr-3">
+                        <img class="" width="100"
+                             src="{{ asset('storage/eventos/'.$evento->imagen) }}"
+                             alt="{{$evento->nombre}}"/>
+                        <div class="media-body pl-2 ml-1">
+                            <h6 class="font-size-sm mb-n1">
+                                {{$evento->organizador}}
+                            </h6>
+                            <span class="font-size-xs text-muted" >{{$evento->fecha}} - {{date('H:i', strtotime( $evento->hora))}}</span>
+                        </div>
+                    </div>
                     
                 
 
