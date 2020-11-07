@@ -21,13 +21,13 @@ use App\Http\Requests\Fondo\UpdatePost;
 class crudFondos extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth', 'verified', 'has-perfil']);
         $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
         $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
 
     /**
-     * @param Request $request
+     * Almacena un fondo (componente E)
+     * @param StorePost $request
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
@@ -49,13 +49,15 @@ class crudFondos extends Controller
     }
 
     /**
-     * @param Request $request
+     * Actualiza un fondo (componente E)
+     * @param UpdatePost $request
+     * @param Fondo $fondo
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
     public function update(UpdatePost $request, Fondo $fondo){
         if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
-            return back()->withErrors('No ingresaste este fondo.');
+            return back()->with('error', 'No ingresaste este fondo.');
         }
 
         $validatedData = $request->validated();
@@ -63,7 +65,7 @@ class crudFondos extends Controller
 
         if(isset($validatedData['imagen'])){
             $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
-            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
+            $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'fondos');
             $fondo->imagen = $imageName;
             $fondo->save();
         }
@@ -72,14 +74,13 @@ class crudFondos extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Elimina un fondo (componente E)
      * @param  \App\Models\Fondo $fondo->id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Fondo $fondo) {
         if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('superadmin'))){
-            return back()->withErrors('No ingresaste este fondo.');
+            return back()->with('error', 'No ingresaste este fondo.');
         }
 
         $fondo->delete();

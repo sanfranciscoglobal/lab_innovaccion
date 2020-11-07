@@ -1,6 +1,16 @@
+@php
+    $sectores = $convocatoria->sectoresName($convocatoria);
+    $sectoresArray = '';
+    foreach ($sectores as $sector) {
+        $sectoresArray .= $sector;
+        if ($sector != $sectores->last()) {
+            $sectoresArray .= '; ';
+        }
+    }
+@endphp
 <div class="form-group">
     <div class="controls-container mb-3">
-        <label class="control-label">* Pertenece al sector productivo: <span style="color:red; font-weight:bold; font-size: 18px;">{{ $convocatoria->consectores }}</span></label>
+        <label class="control-label">* Pertenece al sector productivo: {{ $sectoresArray }}</label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
@@ -10,13 +20,13 @@
             </div>
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input form-control conditional" data-target="sector" type="radio" id="sector-2" name="sector" value="2" >
+                    <input class="custom-control-input form-control conditional" data-target="sector" type="radio" id="sector-2" name="sector" value="0" >
                     <label class="custom-control-label" for="sector-2">No</label>
                 </div>
             </div>
         </div>
         <div class="message-for-no d-none">
-            <p>Esta convocatoria está dirigida al sector <span style="color:red; font-weight:bold; font-size: 18px;">{{ $convocatoria->consectores }}</span>.</p>
+            <p>Esta convocatoria está dirigida al sector: {{ $sectoresArray }}.</p>
         </div>
     </div>
     <div class="controls-container mb-3 has-parent sector d-none">
@@ -30,7 +40,7 @@
             </div>
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input form-control conditional" data-target="subsector" type="radio" id="subsector-2" name="subsector" value="2">
+                    <input class="custom-control-input form-control conditional" data-target="subsector" type="radio" id="subsector-2" name="subsector" value="0">
                     <label class="custom-control-label" for="subsector-2">No</label>
                 </div>
             </div>

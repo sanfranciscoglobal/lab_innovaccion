@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{ $URL }}" method="POST" enctype="multipart/form-data">
+    <form class="needs-validation" novalidate role="form" action="{{ $URL }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
@@ -35,9 +35,9 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="account-ln">Celular</label>
-                                    <input class="form-control" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$">
-                                    <span class="muted-text">Ex. +5930987654321</span>
+                                    <label for="account-ln">* Celular</label>
+                                    <input class="form-control @error('celular') is-invalid @enderror" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="09(9|8)[0-9]{7}" required>
+                                    <span class="muted-text">Ex. 0987654321</span>
                                     @error('celular')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
@@ -84,29 +84,29 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="org_web">Avatar</label>
-                                    <input class="form-control dropify" type="file" id="avatar" name="avatar" title="Avatar del usuario">
+                                    <label for="org_web">Imágen de Perfil</label>
+                                    <input class="form-control dropify @error('avatar') is-invalid @enderror" type="file" id="avatar" name="avatar" title="Avatar del usuario">
                                     @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_nombre">* Nombre de la organización a la que pertenece</label>
-                                    <input class="form-control req" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Organización Ecuador" required>
+                                    <input class="form-control req @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Organización Ecuador" required>
                                     @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-5 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_web">* Página Web de la Organización</label>
-                                    <input class="form-control req" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="https://www.sitioweb.com" required>
+                                    <input class="form-control req @error('web') is-invalid @enderror" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="https://www.sitioweb.com" required>
                                     @error('web')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_tipo">* Tipo de organización</label>
-                                    <select class="form-control req" name="tipo_org" required>
+                                    <select class="form-control req @error('tipo_org') is-invalid @enderror" name="tipo_org" required>
                                         <option value="">Seleccione uno</option>
                                         <option value="1" {{ old('tipo_org', $perfil->tipo_org) == 1 ? 'selected' : '' }}>Academia</option>
                                         <option value="2" {{ old('tipo_org', $perfil->tipo_org) == 2 ? 'selected' : '' }}>Sector Privado</option>
@@ -119,14 +119,14 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="org_direccion">* Ubicación de su organización</label>
-                                            <input class="form-control req" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Busqueda de lugar" required>
+                                            <input class="form-control req @error('direccion') is-invalid @enderror" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Busqueda de lugar" required>
                                         </div>
                                         @error('direccion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
-                                            <select class="form-control select2" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
+                                            <select class="form-control select2 @error('canton_id') is-invalid @enderror" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
                                                 @if ($perfil->cantin_id)
                                                 <option value="{{ $perfil->canton_id }}" selected>{{ $perfil->canton->nombre }}</option>
                                                 @endif
@@ -140,7 +140,8 @@
                                         <div id="map" style="width: 100%; height: 350px;"></div>
                                         <input type="hidden" type="text" id="lat" name="latitud" value="{{ old('latitud', $perfil->latitud) }}">
                                         <input type="hidden" type="text" id="long" name="longitud" value="{{ old('longitud', $perfil->longitud) }}">
-                                        @error('latitud', 'longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        @error('latitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        @error('longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
                             </div>
@@ -149,22 +150,22 @@
                                     <span>Redes Sociales de la Organización</span>
                                     <div class="form-group">
                                         <label for="org_twitter">Twitter</label>
-                                        <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                         @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_facebook">Facebook</label>
-                                        <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                         @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_linkedin">LinkedIn</label>
-                                        <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                         @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_instagram">Instagram</label>
-                                        <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                         @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
@@ -173,7 +174,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $perfil->terminos) == true ? 'checked' : '' }}>
+                                        <input class="custom-control-input @error('terminos') is-invalid @enderror" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $perfil->terminos) == true ? 'checked' : '' }}>
                                         <label class="custom-control-label" for="verificada">* Yo certifico que esta información es verídica.</label>
                                         @error('terminos')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
@@ -216,7 +217,7 @@
     @endif
 @endsection
 @section('footer')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCumBYahoH5olLlie5I9Jw6bNh91vaQly4&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 <script>
     var baseURL = '{{ URL::to('/') }}';
     let user_lat = {{ old('latitud', $perfil->latitud) ?? 'null' }};

@@ -14,6 +14,9 @@
                         <li class="list-inline-item"><a class=" social-btn sb-outline sb-instagram sb-dark sb-sm mr-2" href="#">
                             <i class="fe-instagram"></i>
                         </a></li>
+                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-youtube sb-dark sb-sm mr-2" href="#">
+                            <i class="fe-youtube"></i>
+                        </a></li>
                     </ul>
                 </div>
             </div>

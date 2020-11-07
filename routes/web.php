@@ -40,7 +40,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
 Route::get('/verificacion', function(){
-    return redirect()->route('home')->withErrors('Porfavor verifica tu email.');
+    return redirect()->route('home')->with('error', 'Porfavor verifica tu email.');
 })->name('verification.notice');
 
 // Sistema
@@ -57,6 +57,7 @@ Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\Materialdeapren
 
 /** RUTAS CON LOGIN */
 Route::as('app.')
+    ->middleware(['auth', 'verified', 'has-perfil'])
     ->prefix('app')
     ->group(
         function () {
@@ -71,18 +72,18 @@ Route::as('app.')
             /**
              * Rutas Usuarios
              */
-            Route::get('/perfil', 'Aplicacion\RegistroController@show')->name('registro');
-            Route::get('/perfil/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
-            Route::post('/perfil/store', 'Aplicacion\RegistroController@store')->name('perfil.post');
-            Route::put('/perfil/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
-            Route::delete('/usuario/delete/{user}', 'Aplicacion\RegistroController@destroy')->name('user.delete');
+            Route::get('perfil', 'Aplicacion\RegistroController@show')->name('registro')->withoutMiddleware(['has-perfil']);
+            Route::post('perfil/store', 'Aplicacion\RegistroController@store')->name('perfil.post')->withoutMiddleware(['has-perfil']);
+            Route::get('perfil/edit', 'Aplicacion\RegistroController@edit')->name('perfil.edit');
+            Route::put('perfil/update/{perfil}', 'Aplicacion\RegistroController@update')->name('perfil.put');
+            Route::delete('usuario/delete/{user}', 'Aplicacion\RegistroController@destroy')->name('user.delete');
 
 
             /**
              * Rutas Fondos
              */
             Route::get('fondos', 'Aplicacion\FondosController@showForm')->name('fondos');
-            Route::get('fondos/{id}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
+            Route::get('fondos/{fondo}/{slug}', 'Aplicacion\FondosController@edit')->name('fondos.edit');
             Route::post('fondos/store', 'Aplicacion\crudFondos@store')->name('fondos.post');
             Route::put('fondos/update/{fondo}', 'Aplicacion\crudFondos@update')->name('fondos.put');
             Route::delete('fondos/delete/{fondo}', 'Aplicacion\crudFondos@destroy')->name('fondos.delete');
@@ -127,7 +128,7 @@ Route::as('app.')
             Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
             //FASE B
-            Route::get('/innovacion/gestion/{id}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
+            Route::get('/innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
             Route::post('/innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
 
 
@@ -143,13 +144,14 @@ Route::as('app.')
 
 /** RUTAS ADMINISTRATIVAS */
 Route::as('admin.')
-   ->prefix('admin')
-   ->group(
-       function () {
-           // Route::resource('abreviatura', 'AbreviaturaController');
-           Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
-       }
-   );
+    ->middleware(['auth', 'verified', 'has-perfil', 'acceso-app:admin,superadmin'])
+    ->prefix('admin')
+    ->group(
+        function () {
+            // Route::resource('abreviatura', 'AbreviaturaController');
+            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
+        }
+    );
 
 Route::as('web.')
     ->group(

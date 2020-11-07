@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{ $url }}" method="POST" enctype="multipart/form-data">
+    <form class="needs-validation" novalidate role="form" action="{{ $url }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
     <div class="position-relative bg-purple-gradient" style="height: 480px;">
@@ -36,13 +36,13 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="fondos_propios">
-                                    <input class="fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == 1 ? 'checked' : '' }}>
+                                    <input class="fondos @error('fuente') is-invalid @enderror" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == 1 ? 'checked' : '' }}>
                                     Fondos propios
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label for="fondos_otros">
-                                    <input class="fondos" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
+                                    <input class="fondos @error('fuente') is-invalid @enderror" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
                                     Fondos de otra organización
                                 </label>
                             </div>
@@ -58,14 +58,14 @@
                                             <span>Datos de los fondos</span>
                                             <div class="form-group">
                                                 <label for="org_nombre">* Nombre de la organización</label>
-                                                <input class="form-control" type="text" id="org_nombre" value="{{ old('organizacion', $fondo->organizacion) }}" name="organizacion" placeholder="Razón social" required>
+                                                <input class="form-control @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $fondo->organizacion) }}" name="organizacion" placeholder="Razón social" required>
                                                 @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
-                                                <label for="org_nombre">* Nombre del fondo</label>
-                                                <input class="form-control" type="text" id="org_nombre" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del programa" required>
+                                                <label for="org_fondo">* Nombre del fondo</label>
+                                                <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_fondo" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del programa" required>
                                                 @error('nombre_fondo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
@@ -74,15 +74,29 @@
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
-                                                        <input class="form-control" type="date" id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Nombre del programa" required>
+                                                        <div class="input-group-overlay">
+                                                            <input class="form-control cs-date-picker @error('fecha_inicio') is-invalid @enderror" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' minlength="4">
+                                                            <div class="input-group-append-overlay">
+                                                                <span class="input-group-text">
+                                                                    <i class="fe-calendar"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
                                                         @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_cierre">* Fecha de cierre</label>
-                                                        <input class="form-control" type="date" id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Nombre del programa" required>
-                                                        @error('fecha_fin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                                        <div class="input-group-overlay">
+                                                            <input class="form-control cs-date-picker @error('fecha_fin') is-invalid @enderror" type="text" data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Fecha de finalización" required>
+                                                            <div class="input-group-append-overlay">
+                                                                <span class="input-group-text">
+                                                                    <i class="fe-calendar"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        @error('fecha_fin')<div class="invalid-feedback d-inline">{{ $message }}sfvsdvsdv</div>@enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,14 +104,23 @@
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
-                                                <input class="form-control" type="url" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
+                                                <input class="form-control @error('info') is-invalid @enderror" type="url" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
                                                 @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
+                                        @php
+                                            if($fondo->imagen){
+                                                $img = asset('storage/fondos/'.$fondo->imagen);
+                                            } else {
+                                                $img = '';
+                                            }
+
+                                        @endphp
                                         <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
-                                                <label for="org_web">* Logotipo</label>
-                                                <input class="form-control dropify" type="file" id="org_web" value="" name="imagen" title="URL de la página oficial del fondo" required>
+                                                <label for="org_logo">* Logotipo</label>
+                                                <input class="form-control dropify" type="file" id="org_logo" name="imagen" title="URL de la página oficial del fondo" data-default-file="{{ $img }}" required>
+                                                <div class="invalid-feedback">Sube un logo porfavor.</div>
                                                 @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
@@ -107,27 +130,27 @@
                                             <span>Redes Sociales</span>
                                             <div class="form-group">
                                                 <label for="org_twitter">Twitter</label>
-                                                <input class="form-control" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
+                                                <input class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                                 @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_facebook">Facebook</label>
-                                                <input class="form-control" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
+                                                <input class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                                 @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_linkedin">LinkedIn</label>
-                                                <input class="form-control" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
+                                                <input class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                                 @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Instagram</label>
-                                                <input class="form-control" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
+                                                <input class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                                 @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Youtube</label>
-                                                <input class="form-control" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
+                                                <input class="form-control @error('youtube') is-invalid @enderror" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
                                                 @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
@@ -138,7 +161,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
-                                        <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $fondo->terminos) == 1 ? 'checked' : "" }}>
+                                        <input class="custom-control-input @error('terminos') is-invalid @enderror" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $fondo->terminos) == 1 ? 'checked' : "" }}>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                         @error('terminos')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
@@ -182,6 +205,7 @@
 @endsection
 @section('footer')
 <script>
+    const fondoImg = @json($fondo->imagen);
     $(document).ready(function(){
         $('.fondos').change(function(){
             if($(this).is(':checked')){
@@ -195,6 +219,9 @@
                         $('.f-propios').removeClass('d-none');
                     }
                 }
+            }
+            if(fondoImg){
+                $('#org_logo').removeAttr('required');
             }
         })
     })

@@ -53,7 +53,7 @@ class LoginController extends Controller
         }
 
         return back()
-            ->withErrors($credentials['email'], 'No hemos podido iniciar sesión.')
+            ->with('error', 'No hemos podido iniciar sesión.')
             ->withInput(request(['email']));
     }
 
