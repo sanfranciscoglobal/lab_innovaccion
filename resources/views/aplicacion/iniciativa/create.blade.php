@@ -161,9 +161,13 @@
 
 @section('footer')
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCumBYahoH5olLlie5I9Jw6bNh91vaQly4&libraries=places&callback=initMap"
-            async defer></script>
+            async defer>
+        {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOeKwDPIHOSx5igK2fNhr7vYZaK6qHeEU&libraries=places&callback=initMap" async defer>--}}
 
-    <script>
+    </script>
+
+    <script type="text/javascript">
+        //initMap();
         var input = document.getElementById('evento_direccion');
         var selectPath = '{{route('api.canton.select2')}}';
         console.log(selectPath);
@@ -181,9 +185,10 @@
             infowindow,
             Latlng,
             infoService;
+
         $(document).ready(function () {
-            $('#map').hide();
-            var addressContainers = $('.direccion');
+            //$('#map').hide();
+            //var addressContainers = $('.direccion');
             // Stepper
             var navListItems = $('div.setup-panel div a'),
                 allWells = $('.setup-content'),
@@ -268,7 +273,7 @@
                         }
                     }
                 }
-            })
+            });
 
 
             /* Agregar otro bloque para agregar otra ciudad */
@@ -337,6 +342,7 @@
                     zoom: zoom,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
+                console.log(map);
                 marker = new google.maps.Marker({
                     position: myLatlng,
                     map: map,
@@ -352,6 +358,7 @@
                             jQuery('input.ubicacion-' + currentAddressInput).val(results[0].formatted_address);
                             jQuery('input.lat-' + currentAddressInput).val(marker.getPosition().lat());
                             jQuery('input.long-' + currentAddressInput).val(marker.getPosition().lng());
+
                             $.each(results[0].address_components, function (index, value) {
                                 if (value.types.indexOf('locality') > -1) {
                                     jQuery('input.localidad-' + currentAddressInput).val(value.short_name);

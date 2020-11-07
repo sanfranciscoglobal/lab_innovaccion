@@ -21,11 +21,23 @@
             </div>
         </div>
         <div class="col-8">
+            {{--<div class="form-group">--}}
+            {{--<label for="representante_curso" class="bmd-label-floating">¿Representante de curso?</label>--}}
+            {{--<input type="checkbox" name="representante_curso" id="representante_curso" class="form-control check-toggle"--}}
+            {{--data-toggle="toggle" data-style="slow" data-on="{{__('SI')}}" data-off="{{__('NO')}}">--}}
+
+            {{--<div class="invalid-feedback">Por favor seleccione el año lectivo</div>--}}
+            {{--<div class="valid-feedback"><i class="fe-check-circle"></i></div>--}}
+
+            {{--@error('representante_curso')--}}
+            {{--<small class="text-danger">{{ $message }}</small>--}}
+            {{--@enderror--}}
+            {{--</div>--}}
             <div class="form-group">
                 <label class="control-label">* ¿Esta vigente?</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="vigencia" name="vigencia" required="required">
-                    <label class="custom-control-label" for="customSwitch1">Active para marcar como vigente</label>
+                    <input class="custom-control-input" type="checkbox" id="vigencia-switch" name="vigencia" checked>
+                    <label class="custom-control-label" for="vigencia-switch">Active para marcar como vigente</label>
                 </div>
             </div>
         </div>
@@ -90,12 +102,13 @@
                             * Descripción de la Iniciativa
                             <span class="text-primary">(max. 100 palabras) (min. 50 palabras)</span>
                         </label>
-                        <textarea oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion');"
-                                  class="form-control"
-                                  name="descripcion_iniciativa"
-                                  id="descripcion_iniciativa"
-                                  oninvalid="setCustomValidity('Por favor complete este campo.')"
-                                  onchange="try{setCustomValidity('')}catch(e){}" rows="20" required="required">
+                        <textarea
+                                oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion');"
+                                class="form-control"
+                                name="descripcion_iniciativa"
+                                id="descripcion_iniciativa"
+                                oninvalid="setCustomValidity('Por favor complete este campo.')"
+                                onchange="try{setCustomValidity('')}catch(e){}" rows="20" required="required">
                             {{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}
                         </textarea>
                         <span style="color: gray" id="count-words"></span>
