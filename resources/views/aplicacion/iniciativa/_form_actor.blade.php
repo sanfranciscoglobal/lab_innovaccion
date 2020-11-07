@@ -53,10 +53,23 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <label class="control-label">* Enfoque: ¿Qué trabajo hace la organización? (max.100
-                        palabras) </label>
-                    <textarea class="form-control" name="enfoque" id="enfoque" rows="6"
-                              required="required">{{($model->iniciativaActor)?$model->iniciativaActor->enfoque:''}}</textarea>
+                    <label class="control-label">
+                        * Enfoque: ¿Qué trabajo hace la organización?
+                        <span class="text-primary">(max. 100 palabras) (min. 50 palabras)</span>
+                    </label>
+
+                    <textarea oninput="window.countWords('enfoque','enfoque-error','submit-actor-id');"
+                              name="enfoque"
+                              id="enfoque"
+                              class="form-control"
+                              placeholder="Describa su evento" rows="6"
+                              oninvalid="setCustomValidity('Por favor complete este campo.')"
+                              onchange="try{setCustomValidity('')}catch(e){}" required
+                    >
+                        {{($model->iniciativaActor)?$model->iniciativaActor->enfoque:''}}
+                    </textarea>
+                    <span style="color: gray" id="count-words"></span>
+                    <div class="invalid-feedback" id='enfoque-error'></div>
                 </div>
             </div>
         </div>
@@ -98,21 +111,53 @@
             </div>
         </div>
         */ ?>
-        <div class="form-group direccion" data-row="0">
-            <div class="row">
-                <div class="col-lg-12">
-                    <label class="control-label">Dirección Principal</label>
-                    <input maxlength="200" type="text" required="required" class="form-control ubicacion ubicacion-0"
-                    placeholder="Escriba la dirección" id="evento_direccion" data-adresscontainer="0" name="direccion[]"
-                    value="{{($model->iniciativaActor)?$model->iniciativaActor->direccion:''}}"/>
-                    <input type="hidden" class="lat lat-0" name="latitud[]" value="">
-                    <input type="hidden" class="long long-0" name="longitud[]" value="">
-                    <input type="hidden" class="localidad localidad-0" name="localidad[]" value="">
-                    <input type="hidden" class="area1 area1-0" name="area1[]" value="">
-                    <input type="hidden" class="long long-0" name="area2[]" value="">
+        @if($model->iniciativaUbicaciones->count() > 0)
+            @foreach($model->iniciativaUbicaciones as $key => $ubicacion)
+                <div class="form-group ubicaciones direccion" data-row="0">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label class="control-label">Dirección Principal</label>
+                            <input maxlength="200" type="text" required="required"
+                                   class="form-control ubicacion ubicacion-{{$key}}"
+                                   placeholder="Escriba la dirección" id="evento_direccion"
+                                   data-adresscontainer="{{$key}}"
+                                   name="Ubicaciones[{{$key}}][direccion]"
+                                   value="{{$ubicacion->direccion}}"/>
+                            <input type="hidden" class="lat lat-{{$key}}" name="Ubicaciones[{{$key}}][latitud]"
+                                   value="{{$ubicacion->latitud}}">
+                            <input type="hidden" class="long long-{{$key}}" name="Ubicaciones[{{$key}}][longitud]"
+                                   value="{{$ubicacion->longitud}}">
+                            <input type="hidden" class="localidad localidad-{{$key}}"
+                                   name="Ubicaciones[{{$key}}][localidad]"
+                                   value="{{$ubicacion->localidad}}">
+                            <input type="hidden" class="area1 area1-{{$key}}" name="Ubicaciones[{{$key}}][area1]"
+                                   value="{{$ubicacion->area1}}">
+                            <input type="hidden" class="long long-{{$key}}" name="Ubicaciones[{{$key}}][area2]"
+                                   value="{{$ubicacion->area2}}">
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div class="form-group ubicaciones direccion" data-row="0">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label class="control-label">Dirección Principal</label>
+                        <input maxlength="200" type="text" required="required"
+                               class="form-control ubicacion ubicacion-0"
+                               placeholder="Escriba la dirección" id="evento_direccion" data-adresscontainer="0"
+                               name="Ubicaciones[0][direccion]"
+                               value="{{($model->iniciativaActor)?$model->iniciativaActor->direccion:''}}"/>
+                        <input type="hidden" class="lat lat-0" name="Ubicaciones[0][latitud]" value="">
+                        <input type="hidden" class="long long-0" name="Ubicaciones[0][longitud]" value="">
+                        <input type="hidden" class="localidad localidad-0" name="Ubicaciones[0][localidad]" value="">
+                        <input type="hidden" class="area1 area1-0" name="Ubicaciones[0][area1]" value="">
+                        <input type="hidden" class="long long-0" name="Ubicaciones[0][area2]" value="">
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
+
         <div id="sedes-container"></div>
         <div class="row my-3">
             <div class="col-lg-3 offset-lg-9">
@@ -129,5 +174,5 @@
 </div>
 <div class="info-box opc-2 d-none">
     <h3 class="text-center">Haga clic en siguiente</h3>
-    <button class="btn btn-primary nextBtn pull-right" type="button">Siguiente</button>
+    <button class="btn btn-primary nextBtn pull-right" id="submit-actor-id" type="button">Siguiente</button>
 </div>

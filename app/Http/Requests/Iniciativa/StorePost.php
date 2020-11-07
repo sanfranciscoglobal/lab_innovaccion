@@ -34,10 +34,9 @@ class StorePost extends FormRequest
             'direccion' => 'nullable',
             'canton_id' => 'nullable',
             'direccion' => 'nullable',
-
             'nombre_iniciativa' => 'required',
             'anio' => 'required',
-            'nombre_vigencia' => 'required',
+            'Ubicaciones' => 'required',
             'componente_innovador' => 'required',
             'descripcion_iniciativa' => 'required',
             'url_facebook' => 'nullable',
@@ -46,7 +45,8 @@ class StorePost extends FormRequest
             'url_linkedin' => 'nullable',
             'url_youtube' => 'nullable',
             'latitud' => 'nullable',
-            'longitud' => 'nullable'
+            'longitud' => 'nullable',
+            'vigencia' => 'required',
         ];
     }
 

@@ -162,6 +162,43 @@ $('.select2').each(function (e, element) {
     }
 });
 
+
+window.countWords = function countWords(element_id, element_error_id, submit_id, min, maxword) {
+    var maxlength = 300;
+
+    if (maxword == undefined) {
+        maxword = 100;
+    }
+
+    if (min == undefined) {
+        min = 49;
+    }
+
+    let str = document.getElementById(element_id).value;
+    var spaces = str.match(/\S+/g);
+    var words = spaces ? spaces.length : 0;
+
+    document.getElementById("count-words").innerHTML = words + " palabras";
+
+    if (words > 49 && words <= maxword || words == 0) {
+        $("#" + element_error_id).removeClass('d-inline');
+        $('#' + element_id).removeClass('is-invalid');
+        $('#' + submit_id).removeAttr('disabled');
+    }
+    else if (words < 49) {
+        $("#" + element_error_id).html('Llene el mínimo de palabras necesarias');
+        $("#" + element_error_id).addClass('d-inline');
+        $('#' + element_id).addClass('is-invalid');
+        $('#submitbutton').attr('disabled', 'disabled');
+    }
+    else {
+        $("#" + element_error_id).html('Ha sobrepasado el límite de palabras permitido');
+        $("#" + element_error_id).addClass('d-inline');
+        $('#' + element_id).addClass('is-invalid');
+        $('#' + submit_id).attr('disabled', 'disabled');
+    }
+}
+
 /**
  * A Javascript module to loadeding/refreshing options of a select2 list box using ajax based on selection of another select2 list box.
  *
