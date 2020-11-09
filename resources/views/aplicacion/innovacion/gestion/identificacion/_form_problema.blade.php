@@ -1,3 +1,8 @@
+<form method="POST" enctype='multipart/form-data' class="needs-validation" novalidate>
+@csrf
+@method($method)
+<input type="hidden" name="tipo_convocatoria_id" value="{{ $tipo }}">
+<input type="hidden" name="convocatoria_id" value="{{ $convocatoria->id }}">
 <p>En esta sección promovemos la gestión de la innovación sobre la base de la participación ciudadana y la creación
     colectiva de soluciones a partir de la identificación y planteamiento de problemas.</p>
 <p>Impulsamos la innovación abierta, la innovación social y la innovación pública, mediante un esquema de interacción
@@ -43,6 +48,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary nextBtn pull-right" type="button">Guargar y continuar</button>
-    <button class="btn btn-link" type="button">Guardar</button>
+    <button class="btn btn-primary nextBtn pull-right" type="submit" formaction="{{ $url.'?continue=1' }}">Guargar y continuar</button>
+    <button class="btn btn-link" type="submit" formaction="{{ $url.'?continue=0' }}">Guardar</button>
 </div>
+</form>

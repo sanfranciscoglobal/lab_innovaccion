@@ -125,24 +125,17 @@
                         </div>
 
                         <!-- END Timeline -->
-                        <form action="{{ route("app.problemas.store") }}" method="POST" enctype='multipart/form-data'
-                              class="needs-validation" novalidate>
-                            @csrf
-                            @method('POST')
-                            <input type="hidden" name="tipo_convocatoria_id" value="{{ $tipo }}">
+                        <div class="panel panel-primary setup-content" id="step-1">
+                            @include('aplicacion.innovacion.gestion.identificacion._form_problema')
+                        </div>
 
-                            <div class="panel panel-primary setup-content" id="step-1">
-                                @include('aplicacion.innovacion.gestion.identificacion._form_problema')
-                            </div>
+                        <div class="panel panel-primary setup-content" id="step-2">
+                            @include('aplicacion.innovacion.gestion.identificacion._form_causa')
+                        </div>
 
-                            <div class="panel panel-primary setup-content" id="step-2">
-                                @include('aplicacion.innovacion.gestion.identificacion._form_causa')
-                            </div>
-
-                            <div class="panel panel-primary setup-content" id="step-3">
-                                @include('aplicacion.innovacion.gestion.identificacion._form_contacto')
-                            </div>
-                        </form>
+                        <div class="panel panel-primary setup-content" id="step-3">
+                            @include('aplicacion.innovacion.gestion.identificacion._form_contacto')
+                        </div>
                     </div>
                 </div>
             </div>

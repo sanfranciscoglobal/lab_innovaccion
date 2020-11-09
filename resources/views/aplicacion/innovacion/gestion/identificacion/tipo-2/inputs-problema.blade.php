@@ -4,13 +4,13 @@
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input conditional" data-target="confidencial" type="radio" id="confidencial-1" name="confidencial" value="1" required>
+                    <input class="custom-control-input conditional" data-target="confidencial" type="radio" id="confidencial-1" name="confidencial" value="1" {{ old('confidencial', $problema->confidencial) == 1 ? 'checked' : '' }} required>
                     <label class="custom-control-label" for="confidencial-1">Si</label>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input conditional" data-target="confidencial" type="radio" id="confidencial-2" name="confidencial" value="2" >
+                    <input class="custom-control-input conditional" data-target="confidencial" type="radio" id="confidencial-2" name="confidencial" value="0" {{ old('confidencial', $problema->confidencial) == 0 ? 'checked' : '' }}>
                     <label class="custom-control-label" for="confidencial-2">No</label>
                 </div>
             </div>
@@ -24,13 +24,13 @@
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input conditional" data-target="entregadatos" type="radio" id="entregadatos-1" name="datos" value="1">
+                    <input class="custom-control-input conditional" data-target="entregadatos" type="radio" id="entregadatos-1" name="datos" value="1" {{ old('datos', $problema->datos) == 1 ? 'checked' : '' }} required>
                     <label class="custom-control-label" for="entregadatos-1">Si</label>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input conditional" data-target="entregadatos" type="radio" id="entregadatos-2" name="datos" value="2">
+                    <input class="custom-control-input conditional" data-target="entregadatos" type="radio" id="entregadatos-2" name="datos" value="0" {{ old('datos', $problema->datos) == 0 ? 'checked' : '' }}>
                     <label class="custom-control-label" for="entregadatos-2">No</label>
                 </div>
             </div>
@@ -41,11 +41,11 @@
     </div>
     <div class="controls-container mb-3 has-parent entregadatos d-none">
         <label class="control-label">* Describe el sector/grupo social al cual afecta el problema (280 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="3" name="grupo_social" placeholder="Ejemplo. Comunidad de mujeres productoras de artesanías."></textarea>
+        <textarea class="form-control" id="textarea-input" rows="3" name="grupo_social" placeholder="Ejemplo. Comunidad de mujeres productoras de artesanías." required> {{ old('grupo_social', $problema->grupo_social) }}</textarea>
     </div>
     <div class="controls-container mb-3">
         <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="5" name="problema" required placeholder="Ejemplo. HE DETECTADO QUE SE PRODUCE EL PROBLEMA DE dificultad en el acabado de las artesanías por falta de equipos, LO CUAL PROVOCA reducción en las ventas."></textarea>
+        <textarea class="form-control" id="textarea-input" rows="5" name="problema" required placeholder="Ejemplo. HE DETECTADO QUE SE PRODUCE EL PROBLEMA DE dificultad en el acabado de las artesanías por falta de equipos, LO CUAL PROVOCA reducción en las ventas.">{{ old('problema', $problema->problema) }}</textarea>
     </div>
     <div class="controls-container mb-3">
         <label for="pdf">* Carga un archivo complementario (Max. 10Mb)</label>
