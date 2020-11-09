@@ -178,7 +178,7 @@
                     <div class="input-group-overlay form-group">
                         <div class="input-group-prepend-overlay"><span class="input-group-text"><i
                                     class="fe-mail"></i></span></div>
-                        <input class="form-control prepended-form-control" type="email" placeholder="Email" required>
+                        <input class="form-control prepended-form-control" type="email" placeholder="Correo electrónico" required>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" rows="4" placeholder="Mensaje" required></textarea>

@@ -5,16 +5,16 @@
                 <div class="col-12 d-flex justify-content-end align-items-center">
                     <a href="mailto:info@thinkia.org"><span class=""><span class="fe-mail"></span>&nbsp;Contáctanos</span></a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
-                        <li class="list-inline-item"><a class=" social-btn sb-outline sb-facebook sb-dark sb-sm mr-2" href="#">
+                        <li class="list-inline-item"><a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2" href="#">
                             <i class="fe-facebook"></i>
                         </a></li>
-                        <li class="list-inline-item"><a class=" social-btn sb-outline sb-twitter sb-dark sb-sm mr-2" href="#">
+                        <li class="list-inline-item"><a class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2" href="#">
                             <i class="fe-twitter"></i>
                         </a></li>
-                        <li class="list-inline-item"><a class=" social-btn sb-outline sb-instagram sb-dark sb-sm mr-2" href="#">
+                        <li class="list-inline-item"><a class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2" href="#">
                             <i class="fe-instagram"></i>
                         </a></li>
-                        <li class="list-inline-item"><a class="text-white social-btn sb-outline sb-youtube sb-dark sb-sm mr-2" href="#">
+                        <li class="list-inline-item"><a class="social-btn sb-outline sb-youtube sb-dark sb-sm mr-2" href="#">
                             <i class="fe-youtube"></i>
                         </a></li>
                     </ul>

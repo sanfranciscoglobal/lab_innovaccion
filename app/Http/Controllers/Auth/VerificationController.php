@@ -49,9 +49,9 @@ class VerificationController extends Controller
             $user->email_verified_at = date('Y-m-d H:i:s');
             $user->save();
 
-            return redirect()->route('app.registro')->with('status', 'Email verificado con éxito.');
+            return redirect()->route('app.registro')->with('status', 'Correo electrónico verificado con éxito.');
         } else {
-            return redirect()->route('home')->with('error', 'Email no verificado.');
+            return redirect()->route('home')->with('error', 'Correo electrónico no verificado.');
         }
     }
 }

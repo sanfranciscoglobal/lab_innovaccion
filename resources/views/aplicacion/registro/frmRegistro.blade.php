@@ -43,40 +43,40 @@
                             </div>
                             <div class="col-sm-8">
                                 <div class="form-group">
-                                    <label for="account-email">Email</label>
+                                    <label for="account-email">Correo electrónico</label>
                                     <input class="form-control" type="email" id="account-email" value="{{ old('email', $user->email) }}" name="email" readonly>
                                     @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                                 <div class="form-group">
                                     <span>* Propósito del registro (¿Qué acción voy a realizar?):</span>
-                                    <label for="mapear">
-                                        <input type="radio" id="mapear" name="proposito" value="1" required {{ old('proposito', $perfil->proposito) == 1 ? 'checked' : '' }}>
-                                        Mapear una iniciativa
-                                    </label>
-                                    <label for="compartir">
-                                        <input type="radio" id="compartir" name="proposito" value="2" {{ old('proposito', $perfil->proposito) == 2 ? 'checked' : '' }}>
-                                        Compartir información de recursos (fondos, publicaciones y eventos)
-                                    </label>
-                                    <label for="participar">
-                                        <input type="radio" id="participar" name="proposito" value="3" {{ old('proposito', $perfil->proposito) == 3 ? 'checked' : '' }}>
-                                        Participar en innovación (identificar problemas, proveer soluciones)
-                                    </label>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="mapear" name="proposito" value="1" required {{ old('proposito', $perfil->proposito) == 1 ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="mapear">Mapear una iniciativa</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="compartir" name="proposito" value="2" {{ old('proposito', $perfil->proposito) == 2 ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="compartir">Compartir información de recursos (fondos, publicaciones y eventos)</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="participar" name="proposito" value="3" {{ old('proposito', $perfil->proposito) == 3 ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="participar">Participar en innovación (identificar problemas, proveer soluciones)</label>
+                                    </div>
                                     @error('proposito')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                                 <div class="form-group">
                                     <span>* Tipo de Registro</span>
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <label for="tipo_individual">
-                                                <input class="tipo_registro" type="radio" id="tipo_individual" name="tipo_reg" value="1" required {{ old('tipo_reg', $perfil->tipo_reg) == 1 ? 'checked' : '' }}>
-                                                Individual
-                                            </label>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input tipo_registro" type="radio" id="tipo_individual" name="tipo_reg" value="1" required {{ old('tipo_reg', $perfil->tipo_reg) == '1' ? 'checked' : '' }}>
+                                                <label class="custom-control-label" for="tipo_individual">Individual</label>
+                                            </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="tipo_oganizacion">
-                                                <input class="tipo_registro" type="radio" id="tipo_oganizacion" name="tipo_reg" value="0" {{ old('tipo_reg', $perfil->tipo_reg) == '0' ? 'checked' : '' }}>
-                                                Organización
-                                            </label>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input tipo_registro" type="radio" id="tipo_oganizacion" name="tipo_reg" value="0" {{ old('tipo_reg', $perfil->tipo_reg) == '0' ? 'checked' : '' }}>
+                                                <label class="custom-control-label" for="tipo_oganizacion">Organización</label>
+                                            </div>
                                         </div>
                                         @error('tipo_reg')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
