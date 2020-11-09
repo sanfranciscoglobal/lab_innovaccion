@@ -75,7 +75,7 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
                                                         <div class="input-group-overlay">
-                                                            <input class="form-control cs-date-picker @error('fecha_inicio') is-invalid @enderror" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' minlength="4">
+                                                            <input class="form-control cs-date-picker js-input  @error('fecha_inicio') is-invalid @enderror" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' minlength="4">
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>
@@ -88,15 +88,15 @@
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_cierre">* Fecha de cierre</label>
-                                                        <div class="input-group-overlay">
-                                                            <input class="form-control cs-date-picker @error('fecha_fin') is-invalid @enderror" type="text" data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Fecha de finalización" required>
+                                                        <div class="input-group-overlay ">
+                                                            <input class="form-control cs-date-picker js-input  @error('fecha_fin') is-invalid @enderror" type="text" data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Fecha de finalización" required>
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        @error('fecha_fin')<div class="invalid-feedback d-inline">{{ $message }}sfvsdvsdv</div>@enderror
+                                                        @error('fecha_fin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,8 +104,9 @@
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
-                                                <input class="form-control @error('info') is-invalid @enderror" type="url" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
-                                                @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                                <input oninput='validateURL()'class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
+                                                {{-- @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror --}}
+                                                <div class="invalid-feedback" id='url-error'></div>
                                             </div>
                                         </div>
                                         @php
@@ -119,7 +120,7 @@
                                         <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
                                                 <label for="org_logo">* Logotipo</label>
-                                                <input class="form-control dropify" type="file" id="org_logo" name="imagen" title="URL de la página oficial del fondo" data-default-file="{{ $img }}" required>
+                                                <input class="form-control dropify" type="file" id="org_logo" accept="image/gif, image/jpeg, image/png" name="imagen" title="URL de la página oficial del fondo" data-default-file="{{ $img }}" required>
                                                 <div class="invalid-feedback">Sube un logo porfavor.</div>
                                                 @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
@@ -165,7 +166,7 @@
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                         @error('terminos')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
-                                    <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
+                                    <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
                                 </div>
                             </div>
                         </div>
@@ -204,6 +205,8 @@
     @endif
 @endsection
 @section('footer')
+<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
 <script>
     const fondoImg = @json($fondo->imagen);
     $(document).ready(function(){
@@ -233,5 +236,43 @@
             $('.fondos').trigger('change');
         }
     });
+
+    function validateURL() {
+         var $URL= document.getElementById("org_web").value;
+         var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
+         var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
+         if((pattern_1.test($URL) || pattern_2.test($URL) )){
+            $("#url-error").removeClass('d-inline');
+            $('#org_web').removeClass('is-invalid');
+            $('#submitbutton').removeAttr('disabled');
+            
+         } else{
+            $("#url-error").html('Url invalido');
+            $("#url-error").addClass('d-inline');
+            $('#org_web').addClass('is-invalid');
+            $('#submitbutton').attr('disabled','disabled');
+         }
+       }
+
+    flatpickr('.js-input', {
+    "altInput":true,
+    "locale": "es"  // locale for this instance only
+    });
+
+    // flatpickr('.js-input', {
+    //   minDate: '1920-01-01',
+    //   locale: {
+    //     firstDayOfWeek: 1,
+    //     weekdays: {
+    //       shorthand: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+    //       longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],         
+    //     }, 
+    //     months: {
+    //       shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Оct', 'Nov', 'Dic'],
+    //       longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    //     },
+    //   },
+    // }); 
+
 </script>
 @endsection
