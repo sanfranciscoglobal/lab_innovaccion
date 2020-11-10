@@ -15,7 +15,7 @@ use App\Helpers\Archivos; // $nombre, $archivo, $disk
 use App\Models\Problema;
 
 // Reglas de validacion
-use App\Http\Requests\Problema\StorePost;
+use App\Http\Requests\Problema\Store1Post;
 use App\Http\Requests\Problema\UpdatePost;
 
 class crudProblemas extends Controller
@@ -31,22 +31,28 @@ class crudProblemas extends Controller
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
-    public function store(StorePost $request){
-        dd($request);
+    public function store(Store1Post $request){
+        // dd($request->get('continue'));
         $validatedData = $request->validated();
 
-        // if($fondo = Fondo::create($validatedData)){
+        if($problema = Problema::create($validatedData)){
 
-        //     if(isset($validatedData['imagen'])){
-        //         $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
-        //         $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
-        //         $fondo->imagen = $imageName;
-        //         $fondo->save();
-        //     }
+            if(isset($validatedData['archivo'])){
+                // $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.;
+                $imageName = Archivos::storeImagen($problema->id, $validatedData['archivo'], 'problemas');
+                $problema->archivo = $imageName;
+                $problema->save();
+            }
 
-        //     return redirect()->route('home')->with('status', 'Innovación creada con éxito');
-        // }
-        // return back()->with('error', 'Innovación no creada');
+            if($request->get('continue')){
+                $request->session()->put('step', '2');
+                return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema creada con éxito']);
+            } else {
+                return redirect()->route('app.escritorio')->with(['status' => 'Innovación problema creada con éxito']);
+            }
+            
+        }
+        return back()->with('error', 'Innovación problema no creada');
     }
 
     /**

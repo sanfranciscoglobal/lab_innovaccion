@@ -35,16 +35,18 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label for="fondos_propios">
-                                    <input class="fondos @error('fuente') is-invalid @enderror" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == 1 ? 'checked' : '' }}>
-                                    Fondos propios
-                                </label>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == 1 ? 'checked' : '' }}>
+                                    <label class="custom-control-label" for="fondos_propios">Fondos propios</label>
+                                </div>
+                                @error('fuente')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                             </div>
                             <div class="col-sm-4">
-                                <label for="fondos_otros">
-                                    <input class="fondos @error('fuente') is-invalid @enderror" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
-                                    Fondos de otra organización
-                                </label>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input fondos" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
+                                    <label class="custom-control-label" for="fondos_otros">Fondos propios</label>
+                                </div>
+                                {{-- @error('fuente')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror --}}
                             </div>
                             <div class="col-12">
                                 <div class="row to-hide d-none">
@@ -75,13 +77,14 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
                                                         <div class="input-group-overlay">
-                                                            <input class="form-control cs-date-picker js-input  @error('fecha_inicio') is-invalid @enderror" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' minlength="4">
+                                                            <input class="form-control cs-date-picker" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}'>
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>
                                                                 </span>
                                                             </div>
                                                         </div>
+                                                        <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
                                                         @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                     </div>
                                                 </div>
@@ -89,7 +92,7 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_cierre">* Fecha de cierre</label>
                                                         <div class="input-group-overlay ">
-                                                            <input class="form-control cs-date-picker js-input  @error('fecha_fin') is-invalid @enderror" type="text" data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Fecha de finalización" required>
+                                                            <input class="form-control cs-date-picker" type="text" data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Fecha de finalización" required>
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>
@@ -104,8 +107,8 @@
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
-                                                <input oninput='validateURL()'class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
-                                                {{-- @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror --}}
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
+                                                @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                 <div class="invalid-feedback" id='url-error'></div>
                                             </div>
                                         </div>
@@ -115,14 +118,22 @@
                                             } else {
                                                 $img = '';
                                             }
-
                                         @endphp
                                         <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
                                                 <label for="org_logo">* Logotipo</label>
-                                                <input class="form-control dropify" type="file" id="org_logo" accept="image/gif, image/jpeg, image/png" name="imagen" title="URL de la página oficial del fondo" data-default-file="{{ $img }}" required>
-                                                <div class="invalid-feedback">Sube un logo porfavor.</div>
-                                                @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                                <div class="cs-file-drop-area">
+                                                    <div class="cs-file-drop-icon fe-upload"></div>
+                                                    <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
+                                                    <input type="file" class="cs-file-drop-input" id="org_logo" accept="image/gif, image/jpeg, image/png" name="imagen" title="URL de la página oficial del fondo" required>
+                                                    <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
+                                                    <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+                                                    @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                                </div>
+                                                <div>
+                                                    <img src="{{ old('imagen', $img) }}" alt="old_imagen" style="max-width: 100px; max-height: 100px">
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -131,27 +142,27 @@
                                             <span>Redes Sociales</span>
                                             <div class="form-group">
                                                 <label for="org_twitter">Twitter</label>
-                                                <input class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                                 @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_facebook">Facebook</label>
-                                                <input class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                                 @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_linkedin">LinkedIn</label>
-                                                <input class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                                 @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Instagram</label>
-                                                <input class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                                 @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Youtube</label>
-                                                <input class="form-control @error('youtube') is-invalid @enderror" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('youtube') is-invalid @enderror" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
                                                 @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
@@ -236,43 +247,5 @@
             $('.fondos').trigger('change');
         }
     });
-
-    function validateURL() {
-         var $URL= document.getElementById("org_web").value;
-         var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
-         var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
-         if((pattern_1.test($URL) || pattern_2.test($URL) )){
-            $("#url-error").removeClass('d-inline');
-            $('#org_web').removeClass('is-invalid');
-            $('#submitbutton').removeAttr('disabled');
-            
-         } else{
-            $("#url-error").html('Url invalido');
-            $("#url-error").addClass('d-inline');
-            $('#org_web').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');
-         }
-       }
-
-    flatpickr('.js-input', {
-    "altInput":true,
-    "locale": "es"  // locale for this instance only
-    });
-
-    // flatpickr('.js-input', {
-    //   minDate: '1920-01-01',
-    //   locale: {
-    //     firstDayOfWeek: 1,
-    //     weekdays: {
-    //       shorthand: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
-    //       longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],         
-    //     }, 
-    //     months: {
-    //       shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Оct', 'Nov', 'Dic'],
-    //       longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-    //     },
-    //   },
-    // }); 
-
 </script>
 @endsection
