@@ -102,21 +102,21 @@
                         <div class="stepwizard">
                             <div class="stepwizard-row setup-panel">
                                 <div class="stepwizard-step col-xs-3">
-                                    <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                                    <a href="#step-1" type="button" class="btn btn-success btn-circle" id="step-1-btn">1</a>
                                     <p>
                                     <small>Problema</small>
                                     </p>
                                 </div>
                                 <div class="stepwizard-step col-xs-3">
                                     <a href="#step-2" type="button" class="btn btn-default btn-circle"
-                                       disabled="disabled">2</a>
+                                       disabled="disabled" id="step-2-btn">2</a>
                                     <p>
                                         <small>Causas</small>
                                     </p>
                                 </div>
                                 <div class="stepwizard-step col-xs-3">
                                     <a href="#step-3" type="button" class="btn btn-default btn-circle"
-                                       disabled="disabled">3</a>
+                                       disabled="disabled" id="step-3-btn">3</a>
                                     <p>
                                         <small>Contacto</small>
                                     </p>
@@ -144,151 +144,164 @@
 @endsection
 
 @section('footer')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 
-    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
-    <script>
-        //var baseURL = '{{ URL::to('/') }}';
-        var input = document.getElementById('evento_direccion');
-        $(document).ready(function () {
-            // $('#iniciativa_org_tipo').select2();
-            // $('#iniciativa_poblacion').select2();
-            // $('#iniciativa_ods').select2();
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
+<script>
+    //var baseURL = '{{ URL::to('/') }}';
+    var input = document.getElementById('evento_direccion');
+    $(document).ready(function () {
+        // $('#iniciativa_org_tipo').select2();
+        // $('#iniciativa_poblacion').select2();
+        // $('#iniciativa_ods').select2();
 
-            // Stepper
-            var navListItems = $('div.setup-panel div a'),
-                allWells = $('.setup-content'),
-                allSiguienteBtn = $('.nextBtn');
-            submitBtn = $('.submitBtn');
+        // Stepper
+        var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allSiguienteBtn = $('.nextBtn');
+        submitBtn = $('.submitBtn');
 
-            allWells.hide();
+        allWells.hide();
 
-            navListItems.click(function (e) {
-                e.preventDefault();
-                var $target = $($(this).attr('href')),
-                    $item = $(this);
+        navListItems.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                $item = $(this);
 
-                if (!$item.hasClass('disabled')) {
-                    navListItems.removeClass('btn-success').addClass('btn-default');
-                    $item.addClass('btn-success');
-                    allWells.hide();
-                    $target.show();
-                    //$target.find('input:eq(0)').focus();
-                }
-            });
-
-            allSiguienteBtn.click(function () {
-                var curStep = $(this).closest(".setup-content"),
-                    curStepBtn = curStep.attr("id"),
-                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                    curInputs = curStep.find("input,select,textarea"),
-                    isValid = true,
-                    encontro = false;
-
-                $(".form-group").removeClass("has-error");
-                for (var i = 0; i < curInputs.length; i++) {
-                    if (!curInputs[i].validity.valid) {
-                        isValid = false;
-                        $(curInputs[i]).closest(".form-group").addClass("has-error");
-                        if (encontro != true) {
-                            encontro = true;
-                            $("html, body").animate({
-                                scrollTop: $(curInputs[i]).offset().top - 130
-                            }, 500)
-                            console.log($(curInputs[i]));
-                        }
-                    }
-                }
-
-                if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
-            });
-
-            submitBtn.click(function () {
-                var allInputs = $('form').find("input,select,textarea"),
-                    isValid = true;
-                for (var i = 0; i < allInputs.length; i++) {
-                    if (!allInputs[i].validity.valid) {
-                        isValid = false;
-                        var panelParent = $(allInputs[i]).closest('.panel').attr('id');
-                        $(allInputs[i]).closest(".form-group").addClass("has-error");
-                        $('#error-message').html('<strong>Atención!</strong> Por favor revise los pasos anteriores, le falta completar algunos datos.');
-                        $('a[href="#' + panelParent + '"]').addClass('panel-error');
-                        console.log($(allInputs[i]).closest('.panel').attr('id'))
-                    }
-                }
-            });
-
-            $('div.setup-panel div a.btn-success').trigger('click');
-
-            $('.conditional').change(function(){
-                    var input = $(this)
-                    var target = input.data('target')
-                    if(input.is(':checked') && input.val() == 1){
-                        input.parents('.controls-container').find('.message-for-no').addClass('d-none')
-                        $('.'+target).removeClass('d-none')
-                        $('.'+target+' .form-control').attr('required', 'required')
-                        console.log('si');
-                    }else{
-                        input.parents('.controls-container').find('.message-for-no').removeClass('d-none')
-                        $('.'+target).addClass('d-none')
-                        $('.'+target+' .form-control').removeAttr('required')
-                        console.log('no');
-                    }
-                })
-
-            function mostrarOcultarHijo(padre){}
-
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('btn-success').addClass('btn-default');
+                $item.addClass('btn-success');
+                allWells.hide();
+                $target.show();
+                //$target.find('input:eq(0)').focus();
+            }
         });
 
-        function initMap() {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var latUsuario = position.coords.latitude;
-                var lonUsuario = position.coords.longitude;
-                var zoom = 16;
-                var dragMarker = true;
-                var placeSearch, autocomplete;
-                /*
-                if (
-                    jQuery('#necesidad_lat').length > 0 &&
-                    jQuery('#necesidad_long').length > 0
-                ){
-                    latUsuario = jQuery('#necesidad_lat').val();
-                    lonUsuario = jQuery('#necesidad_long').val();
-                    zoom = zoom;
-                    dragMarker = false;
-                }*/
+        allSiguienteBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input,select,textarea"),
+                isValid = true,
+                encontro = false;
 
-                // var map;
-                var marker;
-                var myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
-                var geocoder = new google.maps.Geocoder();
-                var infowindow = new google.maps.InfoWindow();
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                    if (encontro != true) {
+                        encontro = true;
+                        $("html, body").animate({
+                            scrollTop: $(curInputs[i]).offset().top - 130
+                        }, 500)
+                        console.log($(curInputs[i]));
+                    }
+                }
+            }
+
+            if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+        });
+
+        submitBtn.click(function () {
+            var allInputs = $('form').find("input,select,textarea"),
+                isValid = true;
+            for (var i = 0; i < allInputs.length; i++) {
+                if (!allInputs[i].validity.valid) {
+                    isValid = false;
+                    var panelParent = $(allInputs[i]).closest('.panel').attr('id');
+                    $(allInputs[i]).closest(".form-group").addClass("has-error");
+                    $('#error-message').html('<strong>Atención!</strong> Por favor revise los pasos anteriores, le falta completar algunos datos.');
+                    $('a[href="#' + panelParent + '"]').addClass('panel-error');
+                    console.log($(allInputs[i]).closest('.panel').attr('id'))
+                }
+            }
+        });
+
+        $('div.setup-panel div a.btn-success').trigger('click');
+
+        $('.conditional').change(function(){
+                var input = $(this)
+                var target = input.data('target')
+                if(input.is(':checked') && input.val() == 1){
+                    input.parents('.controls-container').find('.message-for-no').addClass('d-none')
+                    $('.'+target).removeClass('d-none')
+                    $('.'+target+' .form-control').attr('required', 'required')
+                    console.log('si');
+                }else{
+                    input.parents('.controls-container').find('.message-for-no').removeClass('d-none')
+                    $('.'+target).addClass('d-none')
+                    $('.'+target+' .form-control').removeAttr('required')
+                    console.log('no');
+                }
+            })
+
+        function mostrarOcultarHijo(padre){}
+
+    });
+
+    function initMap() {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var latUsuario = position.coords.latitude;
+            var lonUsuario = position.coords.longitude;
+            var zoom = 16;
+            var dragMarker = true;
+            var placeSearch, autocomplete;
+            /*
+            if (
+                jQuery('#necesidad_lat').length > 0 &&
+                jQuery('#necesidad_long').length > 0
+            ){
+                latUsuario = jQuery('#necesidad_lat').val();
+                lonUsuario = jQuery('#necesidad_long').val();
+                zoom = zoom;
+                dragMarker = false;
+            }*/
+
+            // var map;
+            var marker;
+            var myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
+            var geocoder = new google.maps.Geocoder();
+            var infowindow = new google.maps.InfoWindow();
 
 
-                var options = {
-                    //types: ["locality", "political", "geocode"],
-                    //types: ['(cities)'],
-                    componentRestrictions: {country: 'ec'}
-                };
-                var autocomplete = new google.maps.places.Autocomplete(input, options);
+            var options = {
+                //types: ["locality", "political", "geocode"],
+                //types: ['(cities)'],
+                componentRestrictions: {country: 'ec'}
+            };
+            var autocomplete = new google.maps.places.Autocomplete(input, options);
 
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: myLatlng,
-                    zoom: zoom,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                });
-                marker = new google.maps.Marker({
-                    position: myLatlng,
-                    map: map,
-                    //icon: baseURL + '/images/markers/me_icon.png',
-                    draggable: dragMarker,
-                    animation: google.maps.Animation.DROP,
-                    title: 'Arrastre para seleccionar la ubicación'
-                });
-                geocoder.geocode({'latLng': myLatlng}, function (results, status) {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatlng,
+                zoom: zoom,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                //icon: baseURL + '/images/markers/me_icon.png',
+                draggable: dragMarker,
+                animation: google.maps.Animation.DROP,
+                title: 'Arrastre para seleccionar la ubicación'
+            });
+            geocoder.geocode({'latLng': myLatlng}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[0]) {
+                        jQuery('input[id="lat"],input[id="long"]').show();
+                        jQuery('input[id="evento_direccion"]').val(results[0].formatted_address);
+                        jQuery('input[id="lat"]').val(marker.getPosition().lat());
+                        jQuery('input[id="long"]').val(marker.getPosition().lng());
+                        infowindow.setContent(results[0].formatted_address);
+                        infowindow.open(map, marker);
+                    }
+                }
+            });
+
+            google.maps.event.addListener(marker, 'dragend', function () {
+                geocoder.geocode({'latLng': marker.getPosition()}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         if (results[0]) {
-                            jQuery('input[id="lat"],input[id="long"]').show();
                             jQuery('input[id="evento_direccion"]').val(results[0].formatted_address);
                             jQuery('input[id="lat"]').val(marker.getPosition().lat());
                             jQuery('input[id="long"]').val(marker.getPosition().lng());
@@ -297,56 +310,59 @@
                         }
                     }
                 });
-
-                google.maps.event.addListener(marker, 'dragend', function () {
-                    geocoder.geocode({'latLng': marker.getPosition()}, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            if (results[0]) {
-                                jQuery('input[id="evento_direccion"]').val(results[0].formatted_address);
-                                jQuery('input[id="lat"]').val(marker.getPosition().lat());
-                                jQuery('input[id="long"]').val(marker.getPosition().lng());
-                                infowindow.setContent(results[0].formatted_address);
-                                infowindow.open(map, marker);
-                            }
-                        }
-                    });
-                });
-
-                autocomplete.addListener('place_changed', setnewAddress);
-
-                function setnewAddress() {
-                    var place = autocomplete.getPlace();
-                    console.log(place.formatted_address);
-                    var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
-                    marker.setPosition(Latlng);
-                    //infowindow.setContent(place.formatted_address);
-                    //infowindow.hideInfoWindow();
-                    //infowindow.showInfoWindow();
-                    map.panTo(Latlng);
-                    jQuery('input[id="lat"]').val(place.geometry.location.lat());
-                    jQuery('input[id="long"]').val(place.geometry.location.lng());
-                }
             });
-        }
 
-        /* Agregar otro bloque para agregar otra ciudad */
+            autocomplete.addListener('place_changed', setnewAddress);
 
-        // $('#add_city').click(function () {
-        //
-        // })
-
-        /* activar otro contacto */
-        $('#add_contact').click(function () {
-            $('.is-hidden').toggleClass('d-none')
-            $(this).toggleClass('d-none');
+            function setnewAddress() {
+                var place = autocomplete.getPlace();
+                console.log(place.formatted_address);
+                var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+                marker.setPosition(Latlng);
+                //infowindow.setContent(place.formatted_address);
+                //infowindow.hideInfoWindow();
+                //infowindow.showInfoWindow();
+                map.panTo(Latlng);
+                jQuery('input[id="lat"]').val(place.geometry.location.lat());
+                jQuery('input[id="long"]').val(place.geometry.location.lng());
+            }
         });
+    }
 
-        $('#remove_contact').click(function () {
-            $('.is-hidden').toggleClass('d-none')
-            $('#add_contact').toggleClass('d-none');
-            $('.is-hidden input').each(function () {
-                $(this).val('');
-            })
+    /* Agregar otro bloque para agregar otra ciudad */
+
+    // $('#add_city').click(function () {
+    //
+    // })
+
+    /* activar otro contacto */
+    $('#add_contact').click(function () {
+        $('.is-hidden').toggleClass('d-none')
+        $(this).toggleClass('d-none');
+    });
+
+    $('#remove_contact').click(function () {
+        $('.is-hidden').toggleClass('d-none')
+        $('#add_contact').toggleClass('d-none');
+        $('.is-hidden input').each(function () {
+            $(this).val('');
         })
-    </script>
+    });
+</script>
+<script>
+    var step = {{ session('step') ?? 'null' }};
+    $(function(){
+        console.log(step);
+        switch (parseInt(step)) { 
+            case 2: 
+                $('#step-2-btn').click()
+                break;
+            case 3: 
+                $('#step-3-btn').click()
+                break;
+            default:
+                break;
+        }
+    });
+</script>
 @endsection

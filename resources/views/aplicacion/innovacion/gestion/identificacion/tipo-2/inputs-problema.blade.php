@@ -43,15 +43,15 @@
     </div>
     <div class="controls-container mb-3 has-parent entregadatos {{ old('grupo_social', $problema->grupo_social) ? '' : 'd-none' }}">
         <label class="control-label">* Describe el sector/grupo social al cual afecta el problema (280 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="3" name="grupo_social" placeholder="Ejemplo. Comunidad de mujeres productoras de artesanías." minlength="20" maxlength="280" required> {{ old('grupo_social', $problema->grupo_social) }}</textarea>
+        <textarea class="form-control" id="textarea-input" rows="3" name="grupo_social" placeholder="Ejemplo. Comunidad de mujeres productoras de artesanías." minlength="20" maxlength="280" required>{{ old('grupo_social', $problema->grupo_social) }}</textarea>
         @error('grupo_social')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
-    <div class="controls-container mb-3 {{ old('problema', $problema->problema) ? '' : 'd-none' }}">
+    <div class="controls-container mb-3 has-parent entregadatos {{ old('problema', $problema->problema) ? '' : 'd-none' }}">
         <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
         <textarea class="form-control" id="textarea-input" rows="5" name="problema" required placeholder="Ejemplo. HE DETECTADO QUE SE PRODUCE EL PROBLEMA DE dificultad en el acabado de las artesanías por falta de equipos, LO CUAL PROVOCA reducción en las ventas." minlength="20" maxlength="500">{{ old('problema', $problema->problema) }}</textarea>  
         @error('problema')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
-    <div class="controls-container mb-3 {{ old('archivo', $problema->archivo) ? '' : 'd-none' }}">
+    <div class="controls-container mb-3 has-parent entregadatos {{ old('confidencial', $problema->confidencial) ? '' : 'd-none' }}">
         <label for="archivo">* Carga un archivo complementario (Max. 10Mb)</label>
         <input type="file" class="dropify" name="archivo" id="archivo" required>
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror

@@ -77,7 +77,7 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
                                                         <div class="input-group-overlay">
-                                                            <input class="form-control cs-date-picker" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}'>
+                                                            <input class="form-control cs-date-picker" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}'>
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>

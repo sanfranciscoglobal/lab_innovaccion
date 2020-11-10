@@ -46,16 +46,16 @@
         <label class="control-label">* Describe cómo le afecta al grupo social que has señalado (500 caractéres)</label>
         <textarea class="form-control" id="textarea-input" rows="3" name="descripcion_grupo"  placeholder="Ejemplo:
         CUANDO los padres QUIEREN vacunar a sus hijos SON AFECTADOS POR la mala organización el momento de emitir turnos y por las largas esperas que provocan malestar y desorganización.
-        CUANDO los productores QUIEREN acceder a crédito para realizar una inversión SON AFECTADOS POR la inexistencia de un proceso claro que establezca los pasos y los requisitos de forma clara, concreta, específica y única." required> {{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
+        CUANDO los productores QUIEREN acceder a crédito para realizar una inversión SON AFECTADOS POR la inexistencia de un proceso claro que establezca los pasos y los requisitos de forma clara, concreta, específica y única." required>{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
         @error('descripcion_grupo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3">
         <label class="control-label">* Escribe tres palabras o conceptos clave que se refieran al problema detectado</label>
-        <input class="form-control mb-1" type="text" name="keyword[1]" placeholder="Concepto 1" required value=" {{ old('keyword[1]', $problema->keyword) }}">
+        <input class="form-control mb-1" type="text" name="keyword[1]" placeholder="Concepto 1" required value="{{ old('keyword[1]', $problema->keyword) }}">
         @error('keyword[1]')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-        <input class="form-control mb-1" type="text" name="keyword[2]" placeholder="Concepto 2" required value=" {{ old('keyword[2]', $problema->keyword) }}">
+        <input class="form-control mb-1" type="text" name="keyword[2]" placeholder="Concepto 2" required value="{{ old('keyword[2]', $problema->keyword) }}">
         @error('keyword[2]')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-        <input class="form-control mb-1" type="text" name="keyword[3]" placeholder="Concepto 3" required value=" {{ old('keyword[3]', $problema->keyword) }}">
+        <input class="form-control mb-1" type="text" name="keyword[3]" placeholder="Concepto 3" required value="{{ old('keyword[3]', $problema->keyword) }}">
         @error('keyword[3]')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>

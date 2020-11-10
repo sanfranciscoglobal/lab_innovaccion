@@ -62,7 +62,7 @@
             <p>Esta convocatoria busca generar porcesos de innovación abierta que requieren la participación de agente externos.</p>
         </div>
     </div>
-    <div class="controls-container mb-3 has-parent esquema {{ old('datos', $problema->datos) ? '' : 'd-none' }}">
+    <div class="controls-container mb-3 has-parent confidencial {{ old('datos', $problema->datos) ? '' : 'd-none' }}">
         <label class="control-label">* Tú, tu equipo u organización tienen disponibilidad para interactuar con otros actores para entregar datos e información para resolver el problema detectado</label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
@@ -85,7 +85,7 @@
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('problema', $problema->problema) ? '' : 'd-none' }}">
         <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="5" name="problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar." minlength="20" maxlength="500" required> {{ old('problema', $problema->problema) }}</textarea>
+        <textarea class="form-control" id="textarea-input" rows="5" name="problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar." minlength="20" maxlength="500" required>{{ old('problema', $problema->problema) }}</textarea>
         @error('problema')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('sector', $problema->sector) ? '' : 'd-none' }}">

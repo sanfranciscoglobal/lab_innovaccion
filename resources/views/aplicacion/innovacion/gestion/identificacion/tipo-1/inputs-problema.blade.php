@@ -116,17 +116,17 @@
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('actividad', $problema->actividad) ? '' : 'd-none' }}">
         <label class="control-label">* Describe cuál es la actividad productiva que realizas, y en la cual se ha presentado el problema detectado (400 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="3" name="actividad" placeholder="NUESTRA EMPRESA/PROYECTO/EQUIPO produce enlatados de frutas para exportación, ACTIVIDAD EN LA CUAL TENEMOS EL PROBLEMA de alto costo en el proceso de recepción de materia prima y su clasificación." minlength="20" maxlength="400" required> {{ old('actividad', $problema->actividad) }}</textarea>
+        <textarea class="form-control" id="textarea-input" rows="3" name="actividad" placeholder="NUESTRA EMPRESA/PROYECTO/EQUIPO produce enlatados de frutas para exportación, ACTIVIDAD EN LA CUAL TENEMOS EL PROBLEMA de alto costo en el proceso de recepción de materia prima y su clasificación." minlength="20" maxlength="400" required>{{ old('actividad', $problema->actividad) }}</textarea>
         @error('actividad')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('problema', $problema->problema) ? '' : 'd-none' }}">
         <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="5" name="problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar." minlength="20" maxlength="500" required> {{ old('problema', $problema->problema) }}</textarea>
+        <textarea class="form-control" id="textarea-input" rows="5" name="problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar." minlength="20" maxlength="500" required>{{ old('problema', $problema->problema) }}</textarea>
         @error('problema')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('sector', $problema->sector) ? '' : 'd-none' }}">
         <label for="pdf">* Carga un archivo complementario (Max. 10Mb)</label>
-        <input type="file" class="dropify form-control" name="archivo" id="pdf" require d>
+        <input type="file" class="dropify form-control" name="archivo" id="pdf" required>
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>

@@ -36,7 +36,8 @@ class Store3Post extends FormRequest
             'ubicacion' => ['string', 'min:10', 'max:280', 'required'],
             'latitud' => ['numeric', 'required'],
             'longitud' => ['numeric', 'required'],
-            'terminos' => ['bool', 'required']
+            'terminos' => ['bool', 'required'],
+            'step' => ['numeric', 'required']
         ];
     }
 }

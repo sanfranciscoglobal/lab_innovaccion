@@ -57,12 +57,12 @@
             <input class="custom-control-input form-control" type="radio" id="eslabon-5" name="eslabon" value="5" {{ old('eslabon', $problema->eslabon) == '5' ? 'checked' : '' }}>
             <label class="custom-control-label" for="eslabon-5">Relación con los clientes y el mercado (Se refiere a la capacidad comercial de la empresa/proyecto/equipo, dentro de su mercado objetivo en función de las ventas logradas; ejemplo: niveles de ventas menores en comparación al período anterior)</label>
         </div>
-        @error('')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+        @error('eslabon')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3">
         <label class="control-label">* Describe qué es lo que está pasando en el eslabón de la cadena productiva que señalaste (500 caractéres)</label>
         <textarea class="form-control" id="textarea-input" rows="3" name="descripcion_grupo"  placeholder="Ejemplo:
-        LA CADENA PRODUCTIVA SE HA VISTO AFECTADA PORQUE el proveedor entrega materia prima que no cumple con los estándares requeridos, LO CUAL OCASIONA uso de más tiempo y mano de obra en la clasificación de la materia prima que encarece el producto y limita el acceso a más producto exportable." required> {{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
+        LA CADENA PRODUCTIVA SE HA VISTO AFECTADA PORQUE el proveedor entrega materia prima que no cumple con los estándares requeridos, LO CUAL OCASIONA uso de más tiempo y mano de obra en la clasificación de la materia prima que encarece el producto y limita el acceso a más producto exportable." required>{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
         @error('eslabon')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3">

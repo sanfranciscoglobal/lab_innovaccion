@@ -44,7 +44,13 @@ class crudProblemas extends Controller
                 $problema->save();
             }
 
-            return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with('status', 'Innovación problema creada con éxito');
+            if($request->get('continue')){
+                $request->session()->put('step', '2');
+                return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema creada con éxito']);
+            } else {
+                return redirect()->route('app.escritorio')->with(['status' => 'Innovación problema creada con éxito']);
+            }
+            
         }
         return back()->with('error', 'Innovación problema no creada');
     }
