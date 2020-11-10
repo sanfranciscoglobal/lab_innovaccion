@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
+use Illuminate\Auth;
+use Hash;
 
 class ConfirmPasswordController extends Controller
 {
@@ -36,5 +38,22 @@ class ConfirmPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function show(){
+        return view('auth.passwords.confirm');
+    }
+
+    public function update(){
+
+        $data = $this->validate(request(), [
+            'password' => 'required|string|confirmed|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}$/|min:8',
+        ]);
+
+        $user = auth()->user();
+        $user->password = Hash::make($data['password']);
+        $user->save();
+
+        return redirect()->route('app.escritorio')->with('status', 'Contraseña actualizada con éxito.');
     }
 }

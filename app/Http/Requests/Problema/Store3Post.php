@@ -25,12 +25,12 @@ class Store3Post extends FormRequest
     {
         return [
             'telefono' => ['string', 'min:7', 'max:20', 'required'],
-            'web' => ['url', 'nullable'],
-            'facebook' => ['url', 'nullable'],
-            'instagram' => ['url', 'nullable'],
-            'linkedin' => ['url', 'nullable'],
-            'twitter' => ['url', 'nullable'],
-            'youtube' => ['url', 'nullable'],
+            'web' => ['string', 'nullable'],
+            'facebook' => ['string', 'nullable'],
+            'instagram' => ['string', 'nullable'],
+            'linkedin' => ['string', 'nullable'],
+            'twitter' => ['string', 'nullable'],
+            'youtube' => ['string', 'nullable'],
             'imagen' => ['image', 'max:1024', 'mimes:jpg, jpeg, png', 'nullable'],
             'canton_id' => ['numeric', 'exists:canton,id', 'nullable'],
             'ubicacion' => ['string', 'min:10', 'max:280', 'required'],

@@ -16,6 +16,10 @@
                 @foreach ($fondos as $fondo)
                 @php
                     $slug = App\Helpers\CustomUrl::urlTitle($fondo->nombre_fondo);
+                    $img = asset('img/logo/favicon/android-chrome-512x512.png');
+                    if(Storage::disk('fondos')->exists($fondo->imagen)){
+                        $img = asset('storage/fondos/'.$fondo->imagen);
+                    }
                 @endphp
                     <div class="col-sm-12 pt-4 pb-2 list-item">
                         <div class="row">
@@ -33,7 +37,7 @@
                     </div>
                     <div class="media media-ie-fix align-items-center mr-3">
                         <img class="" width="100"
-                             src="{{ asset('storage/fondos/'.$fondo->imagen) }}"
+                             src="{{ $img }}"
                              alt="{{$fondo->nombre_fondo}}"/>
                         <div class="media-body pl-2 ml-1">
                             <h6 class="font-size-sm mb-n1">

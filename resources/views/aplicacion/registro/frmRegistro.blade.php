@@ -85,6 +85,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="avatar">Imágen de Perfil</label>
+                                    @if($method == 'POST')
                                     <div class="cs-file-drop-area">
                                         <div class="cs-file-drop-icon fe-upload"></div>
                                         <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
@@ -93,6 +94,17 @@
                                         <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
                                         @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
+                                    @else
+                                    @php
+                                        $avatar = asset('img/logo/logo-icon-footer.png');
+                                        if(isset(Auth::user()->perfil_id)){
+                                            if(isset(Auth::user()->perfil->avatar)){
+                                                $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
+                                            }
+                                        }
+                                    @endphp
+                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
@@ -105,7 +117,7 @@
                             <div class="col-md-5 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_web">* Página Web de la Organización</label>
-                                    <input class="form-control req @error('web') is-invalid @enderror" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="https://www.sitioweb.com" required>
+                                    <input class="form-control req @error('web') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="https://www.sitioweb.com" required>
                                     @error('web')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
@@ -132,11 +144,13 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
-                                            <select class="form-control select2 @error('canton_id') is-invalid @enderror" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
-                                                @if ($perfil->cantin_id)
+                                            <select class="form-control custom-select select2" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
+                                                @if ($perfil->canton_id)
                                                 <option value="{{ $perfil->canton_id }}" selected>{{ $perfil->canton->nombre }}</option>
                                                 @endif
                                             </select>
+                                            <div class="invalid-feedback">Selecciona un canton.</div>
+                                            <div class="valid-feedback">Ok!</div>
                                             @error('canton_id')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -156,22 +170,22 @@
                                     <span>Redes Sociales de la Organización</span>
                                     <div class="form-group">
                                         <label for="org_twitter">Twitter</label>
-                                        <input class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('twitter') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                         @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_facebook">Facebook</label>
-                                        <input class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('facebook') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                         @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_linkedin">LinkedIn</label>
-                                        <input class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('linkedin') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                         @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_instagram">Instagram</label>
-                                        <input class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('instagram') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                         @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>

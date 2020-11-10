@@ -112,28 +112,28 @@
                                                 <div class="invalid-feedback" id='url-error'></div>
                                             </div>
                                         </div>
-                                        @php
-                                            if($fondo->imagen){
-                                                $img = asset('storage/fondos/'.$fondo->imagen);
-                                            } else {
-                                                $img = '';
-                                            }
-                                        @endphp
                                         <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
                                                 <label for="org_logo">* Logotipo</label>
+                                                @if ($method == 'POST')
                                                 <div class="cs-file-drop-area">
                                                     <div class="cs-file-drop-icon fe-upload"></div>
                                                     <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-                                                    <input type="file" class="cs-file-drop-input" id="org_logo" accept="image/gif, image/jpeg, image/png" name="imagen" title="URL de la página oficial del fondo" required>
+                                                    <input type="file" class="cs-file-drop-input" id="org_logo" accept="image/gif, image/jpeg, image/png" name="imagen" title="Imagen del fondo" required>
                                                     <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                                     <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
                                                     @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                                                </div>
-                                                <div>
-                                                    <img src="{{ old('imagen', $img) }}" alt="old_imagen" style="max-width: 100px; max-height: 100px">
-                                                    
-                                                </div>
+                                                </div>    
+                                                @else
+                                                @php
+                                                    if($fondo->imagen){
+                                                        $img = asset('storage/fondos/'.$fondo->imagen);
+                                                    } else {
+                                                        $img = '';
+                                                    }
+                                                @endphp
+                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}">
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -227,9 +227,11 @@
                     $('.to-hide').removeClass('d-none');
                     if($(this).val() == 0){
                         $('.f-propios .form-control').removeAttr('required');
+                        $('#org_logo').removeAttr('required');
                         $('.f-propios').addClass('d-none');
                     }else{
                         $('.f-propios .form-control').attr('required', true);
+                        $('#org_logo').attr('required', true);
                         $('.f-propios').removeClass('d-none');
                     }
                 }

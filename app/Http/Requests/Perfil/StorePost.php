@@ -34,11 +34,11 @@ class StorePost extends FormRequest
             'canton_id' => 'numeric|nullable',
             'latitud' => 'numeric|nullable|required_if:tipo_reg,0',
             'longitud' => 'numeric|nullable|required_if:tipo_reg,0',
-            'web' => 'url|nullable|required_if:tipo_reg,0',
-            'facebook' => 'url|nullable',
-            'instagram' => 'url|nullable',
-            'linkedin' => 'url|nullable',
-            'twitter' => 'url|nullable',
+            'web' => 'string|nullable|required_if:tipo_reg,0',
+            'facebook' => 'string|nullable',
+            'instagram' => 'string|nullable',
+            'linkedin' => 'string|nullable',
+            'twitter' => 'string|nullable',
             'terminos' => 'boolean|required',
         ];
     }
