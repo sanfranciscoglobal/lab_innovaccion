@@ -4,51 +4,56 @@
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input conditional" data-target="confidencial" type="radio" id="confidencial-1" name="confidencial" value="1" {{ old('confidencial', $problema->confidencial) == 1 ? 'checked' : '' }} required>
+                    <input class="custom-control-input conditional" data-target="confidencial" type="radio" id="confidencial-1" name="confidencial" value="1" {{ old('confidencial', $problema->confidencial) == '1' ? 'checked' : '' }} required>
                     <label class="custom-control-label" for="confidencial-1">Si</label>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input conditional" data-target="confidencial" type="radio" id="confidencial-2" name="confidencial" value="0" {{ old('confidencial', $problema->confidencial) == 0 ? 'checked' : '' }}>
+                    <input class="custom-control-input conditional" data-target="confidencial" type="radio" id="confidencial-2" name="confidencial" value="0" {{ old('confidencial', $problema->confidencial) == '0' ? 'checked' : '' }}>
                     <label class="custom-control-label" for="confidencial-2">No</label>
                 </div>
             </div>
+            @error('confidencial')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
         </div>
         <div class="message-for-no d-none">
             <p>Esta convocatoria busca generar porcesos de innovación social que requieren la interacción de diversos actores del sistema nacional de innovación.</p>
         </div>
     </div>
-    <div class="controls-container mb-3 has-parent confidencial d-none">
+    <div class="controls-container mb-3 has-parent confidencial {{ old('datos', $problema->datos) ? '' : 'd-none' }}">
         <label class="control-label">* Tú, tu equipo u organización tienen disponibilidad para interactuar con otros actores para entregar datos e información para resolver el problema detectado</label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input conditional" data-target="entregadatos" type="radio" id="entregadatos-1" name="datos" value="1" {{ old('datos', $problema->datos) == 1 ? 'checked' : '' }} required>
+                    <input class="custom-control-input conditional" data-target="entregadatos" type="radio" id="entregadatos-1" name="datos" value="1" {{ old('datos', $problema->datos) == '1' ? 'checked' : '' }} required>
                     <label class="custom-control-label" for="entregadatos-1">Si</label>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input conditional" data-target="entregadatos" type="radio" id="entregadatos-2" name="datos" value="0" {{ old('datos', $problema->datos) == 0 ? 'checked' : '' }}>
+                    <input class="custom-control-input conditional" data-target="entregadatos" type="radio" id="entregadatos-2" name="datos" value="0" {{ old('datos', $problema->datos) == '0' ? 'checked' : '' }}>
                     <label class="custom-control-label" for="entregadatos-2">No</label>
                 </div>
             </div>
+            @error('datos')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
         </div>
         <div class="message-for-no d-none">
             <p>Esta convocatoria busca generar porcesos de innovación social que requieren la interacción de diversos actores del sistema nacional de innovación.</p>
         </div>
     </div>
-    <div class="controls-container mb-3 has-parent entregadatos d-none">
+    <div class="controls-container mb-3 has-parent entregadatos {{ old('grupo_social', $problema->grupo_social) ? '' : 'd-none' }}">
         <label class="control-label">* Describe el sector/grupo social al cual afecta el problema (280 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="3" name="grupo_social" placeholder="Ejemplo. Comunidad de mujeres productoras de artesanías." required> {{ old('grupo_social', $problema->grupo_social) }}</textarea>
+        <textarea class="form-control" id="textarea-input" rows="3" name="grupo_social" placeholder="Ejemplo. Comunidad de mujeres productoras de artesanías." minlength="20" maxlength="280" required> {{ old('grupo_social', $problema->grupo_social) }}</textarea>
+        @error('grupo_social')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
-    <div class="controls-container mb-3">
+    <div class="controls-container mb-3 {{ old('problema', $problema->problema) ? '' : 'd-none' }}">
         <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="5" name="problema" required placeholder="Ejemplo. HE DETECTADO QUE SE PRODUCE EL PROBLEMA DE dificultad en el acabado de las artesanías por falta de equipos, LO CUAL PROVOCA reducción en las ventas.">{{ old('problema', $problema->problema) }}</textarea>
+        <textarea class="form-control" id="textarea-input" rows="5" name="problema" required placeholder="Ejemplo. HE DETECTADO QUE SE PRODUCE EL PROBLEMA DE dificultad en el acabado de las artesanías por falta de equipos, LO CUAL PROVOCA reducción en las ventas." minlength="20" maxlength="500">{{ old('problema', $problema->problema) }}</textarea>  
+        @error('problema')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
-    <div class="controls-container mb-3">
-        <label for="pdf">* Carga un archivo complementario (Max. 10Mb)</label>
-        <input type="file" class="dropify" name="archivo" id="pdf" required>
+    <div class="controls-container mb-3 {{ old('archivo', $problema->archivo) ? '' : 'd-none' }}">
+        <label for="archivo">* Carga un archivo complementario (Max. 10Mb)</label>
+        <input type="file" class="dropify" name="archivo" id="archivo" required>
+        @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>
