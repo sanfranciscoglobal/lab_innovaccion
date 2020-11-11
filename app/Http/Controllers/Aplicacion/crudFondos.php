@@ -37,7 +37,8 @@ class crudFondos extends Controller
         if($fondo = Fondo::create($validatedData)){
 
             if(isset($validatedData['imagen'])){
-                $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
+                // $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
+                $name = $fondo->id;
                 $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'fondos');
                 $fondo->imagen = $imageName;
                 $fondo->save();
@@ -64,7 +65,8 @@ class crudFondos extends Controller
         $fondo->update($request->validated());
 
         if(isset($validatedData['imagen'])){
-            $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
+            // $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
+            $name = $fondo->id;
             $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'fondos');
             $fondo->imagen = $imageName;
             $fondo->save();

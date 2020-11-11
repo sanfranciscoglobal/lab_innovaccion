@@ -10,7 +10,7 @@
         @if(Auth::check())
             <div class="px-4 py-4 mb-1 text-center">
                 @php
-                    $avatar = asset('img/logo/logo-icon-footer.png');
+                    $avatar = asset('img/logo/favicon/android-chrome-192x192.png');
                     if(isset(Auth::user()->perfil_id)){
                         if(isset(Auth::user()->perfil->avatar)){
                             $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);

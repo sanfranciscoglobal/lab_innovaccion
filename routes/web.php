@@ -42,6 +42,11 @@ Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verif
 Route::get('/verificacion', function(){
     return redirect()->route('home')->with('error', 'Porfavor verifica tu correo electrónico.');
 })->name('verification.notice');
+Route::get('reset-password', 'Auth\ForgotPasswordController@show')->middleware(['guest'])->name('reset');
+Route::post('reset-password', 'Auth\ResetPasswordController@send')->name('password.email');
+Route::get('reset-password/{user}', 'Auth\LoginController@reset')->name('password.login');
+Route::get('change-password/edit', 'Auth\ConfirmPasswordController@show')->name('password.edit');
+Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->name('password.update');
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
