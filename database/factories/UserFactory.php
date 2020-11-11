@@ -5,7 +5,7 @@
 use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------

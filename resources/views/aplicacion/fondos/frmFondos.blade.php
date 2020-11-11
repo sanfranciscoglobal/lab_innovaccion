@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == 1 ? 'checked' : '' }}>
+                                    <input class="custom-control-input fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == '1' ? 'checked' : '' }}>
                                     <label class="custom-control-label" for="fondos_propios">Fondos propios</label>
                                 </div>
                                 @error('fuente')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
@@ -44,7 +44,7 @@
                             <div class="col-sm-4">
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input fondos" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
-                                    <label class="custom-control-label" for="fondos_otros">Fondos propios</label>
+                                    <label class="custom-control-label" for="fondos_otros">Fondos de otra organización</label>
                                 </div>
                                 {{-- @error('fuente')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror --}}
                             </div>
@@ -64,7 +64,7 @@
                                                 @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-12 to-hide d-none">
+                                        <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
                                                 <label for="org_fondo">* Nombre del fondo</label>
                                                 <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_fondo" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del programa" required>
@@ -77,7 +77,7 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
                                                         <div class="input-group-overlay">
-                                                            <input class="form-control cs-date-picker" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}'>
+                                                            <input class="form-control cs-date-picker cs-date-range" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate": "today"}' data-linked-input="#fondo_fecha_cierre">
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>
@@ -216,8 +216,6 @@
     @endif
 @endsection
 @section('footer')
-<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
 <script>
     const fondoImg = @json($fondo->imagen);
     $(document).ready(function(){

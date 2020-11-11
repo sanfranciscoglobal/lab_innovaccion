@@ -11,6 +11,7 @@ require('bs-custom-file-input/dist/bs-custom-file-input');
 require('simplebar/dist/simplebar');
 require('lightgallery.js');
 
+rangePlugin = require('flatpickr/dist/plugins/rangePlugin');
 const flatpickr = require('flatpickr/dist/flatpickr.min.js');
 const flatpickrEs = require('flatpickr/dist/l10n/es.js').default.es;
 flatpickr.localize(flatpickrEs);

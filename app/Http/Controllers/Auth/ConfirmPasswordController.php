@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
 use Illuminate\Auth;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 class ConfirmPasswordController extends Controller
 {

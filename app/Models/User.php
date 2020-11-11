@@ -12,6 +12,7 @@ use Illuminate\Contracts\Auth\CanResetPassword;
 use App\Models\Perfil;
 use App\Models\RoleUser;
 use App\Models\Role;
+use App\Models\Fondo;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -61,5 +62,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function perfilUser()
     {
         return $this->belongsTo(Perfil::class,'perfil_id','id');
+    }
+
+    public function fondos(){
+        return $this->hasMany(Fondo::class);
     }
 }
