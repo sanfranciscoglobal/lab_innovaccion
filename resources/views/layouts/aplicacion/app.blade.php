@@ -345,6 +345,7 @@
     flatpickr(".js-input", {
         allowInput:true,
         altInput:true,
+        minDate:"today",
         onOpen: function(selectedDates, dateStr, instance) {
             $(instance.altInput).prop('readonly', true);
         },

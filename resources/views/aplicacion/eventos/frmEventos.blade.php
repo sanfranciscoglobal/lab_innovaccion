@@ -79,7 +79,7 @@
                                         <div class="form-group">
                                             <label class="form-label">* Hora</label>
                                             <div class="input-group-overlay">
-                                              <input class="form-control appended-form-control cs-date-picker js-input-hora" type="text" placeholder="Elija una hora"  data-datepicker-options='{"enableTime": true, "noCalendar": true,"allowInput":true, "dateFormat": "H:i"}'  id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora"  oninvalid="setCustomValidity('Por favor seleccione una hora.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                              <input class="form-control appended-form-control cs-date-picker js-input-hora" type="text" placeholder="Elija una hora"  data-datepicker-options='{"enableTime": true,"noCalendar": true,"allowInput":true, "dateFormat": "H:i"}'  id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora"  oninvalid="setCustomValidity('Por favor seleccione una hora.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                               <div class="input-group-append-overlay">
                                                 <span class="input-group-text">
                                                   <i class="fe-calendar"></i>

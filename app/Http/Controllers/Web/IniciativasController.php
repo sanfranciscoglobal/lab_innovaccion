@@ -14,7 +14,7 @@ use App\Models\TipoPoblacion;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-//use Maatwebsite\Excel\Excel;
+use Maatwebsite\Excel\Excel;
 use Excel;
 
 class IniciativasController extends Controller
