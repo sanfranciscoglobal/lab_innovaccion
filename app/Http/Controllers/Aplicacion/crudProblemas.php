@@ -99,19 +99,19 @@ class crudProblemas extends Controller
      * App\Models\Fondo
      */
     public function updateFase2(Store2Post $request, Problema $problema){
-        // dd($problema->user_id);
+        // dd($problema->archivo);
         if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
             return back()->with('error', 'No ingresaste este problema.');
         }
-
+        
         $validatedData = $request->validated();
-        $problema->update($request->validated());
-
-        if(isset($validatedData['imagen'])){
-            $imageName = Archivos::storeImagen($problema->id, $validatedData['imagen'], 'public');
-            $problema->archivo = $imageName;
-            $problema->save();
-        }
+        $problema->causas = json_encode($validatedData['causas']);
+        $problema->efectos = json_encode($validatedData['efectos']);
+        $problema->eslabon = $validatedData['eslabon'] ?? null;
+        $problema->grupo_social = $validatedData['grupo_social'] ?? null;
+        $problema->descripcion_grupo = $validatedData['descripcion_grupo'];
+        $problema->keyword = json_encode($validatedData['keyword']);
+        $problema->save();
 
         if($request->get('continue')){
             $request->session()->put('step', '3');
@@ -124,7 +124,7 @@ class crudProblemas extends Controller
     }
 
     public function updateFase3(Store3Post $request, Problema $problema){
-        dd($request);
+        // dd($request);
         if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
             return back()->with('error', 'No ingresaste este fondo.');
         }
@@ -149,11 +149,12 @@ class crudProblemas extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Problema $problema) {
-        // if(Auth::id() != $convocatoria->user_id && (!Auth::user()->hasRole('superadmin'))){
-        //     return back()->with('error', 'No ingresaste este fondo.');
-        // }
+        // dd($problema->id);
+        if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
 
-        // $convocatoria->delete();
-        // return redirect()->route('home')->with('status', 'Fondo eliminado con éxito');
+        $problema->delete();
+        return redirect()->route('home')->with('status', 'Problema eliminado con éxito.');
     }
 }

@@ -14,8 +14,8 @@
         <div class="col-sm-12">
             <hr/>
             <div class="form-group custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="verificada" name="iniciativa_verificada"
-                    required="required">
+                <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1"
+                    required="required" {{ old('terminos', $problema->terminos) == '1' ? 'checked' : '' }}>
                 <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta
                     plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
             </div>

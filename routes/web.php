@@ -137,12 +137,14 @@ Route::as('app.')
             Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
             //FASE B
+            Route::get('innovacion/gestion/ver/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
             Route::get('innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnovacion')->name('innovaciongestion');
             Route::get('innovacion/gestion/{convocatoria}/{problema}', 'Aplicacion\InnovacionController@frmGestionInnovacionEdit')->name('problemas.edit');
             Route::post('innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
             Route::put('innovacion/gestion/update/{problema}', 'Aplicacion\crudProblemas@update')->name('problemas.update');
             Route::put('innovacion/gestion/update/fase2/{problema}', 'Aplicacion\crudProblemas@updateFase2')->name('problemas.update.fase2');
             Route::put('innovacion/gestion/update/fase3/{problema}', 'Aplicacion\crudProblemas@updateFase3')->name('problemas.update.fase3');
+            Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
 
             /** Rutas Escritorio */
