@@ -45,15 +45,23 @@
                                         <h2 class="h4 nav-heading mb-4">
                                             <a href="#">{{$material->nombre_publicacion}}</a>
                                         </h2>
+                                        @if ($material->tipo==0)
+                                            <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicación</span>
+                                        @else
+                                            <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Herramienta</span>
+                                        @endif
+                                        
                                         <p>{{$material->tema_tratado}}</p>
                                         <p>{{$material->tipo_documento}}</p>
                                   
                                         <div class="row">
                                             <div class="col">
                                                {{-- <a class="media meta-link font-size-sm align-items-center pt-3" href="#"><img class="rounded-circle" width="36" src="{{asset('storage/materiales').'/'.$material->imagen_portada}}" alt="" />  --}}
-                                                    <div class="media-body pl-2 ml-1 mt-n1">
-                                                        por<span class="font-weight-semibold ml-1">{{$material->autor_publicacion}}</span>
-                                                    </div>
+                                                    @if ($material->tipo==0)
+                                                        <div class="media-body pl-2 ml-1 mt-n1">
+                                                            por<span class="font-weight-semibold ml-1">{{$material->autor_publicacion}}</span>
+                                                        </div>
+                                                    @endif
                                                 </a>
                                             </div>
                                             <div class="col">

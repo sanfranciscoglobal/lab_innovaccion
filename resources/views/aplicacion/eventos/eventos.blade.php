@@ -64,7 +64,7 @@
 
                     </div>
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                        <label class="form-label" for="from-destination">Ciudad</label>
+                        <label class="form-label" for="from-destination">Cantón</label>
                  
                         <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
                                 data-ajax--url="{{route('api.canton.select2')}}"

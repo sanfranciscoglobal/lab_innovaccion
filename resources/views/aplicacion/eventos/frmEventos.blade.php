@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <form role="form" action="{{$url}}" method="POST" enctype="multipart/form-data">
+    <form role="form" id='frm' class="needs-validation" novalidate action="{{$url}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
 
@@ -25,6 +25,10 @@
                                 <a class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar evento </a>
                             @endif
                         </div>
+                        <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
+                            <span style="color: gray">Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios.</span> 
+                        </div>
+                        
                         <!-- Content-->
                         <div class="row">
                             <div class="col-12">
@@ -57,7 +61,7 @@
                                         <div class="form-group">
                                             <label class="form-label">* Fecha</label>
                                             <div class="input-group-overlay">
-                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altInput": true,"ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
+                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
                                             <div class="input-group-append-overlay">
                                                 <span class="input-group-text">
                                                 <i class="fe-calendar"></i>
@@ -75,7 +79,7 @@
                                         <div class="form-group">
                                             <label class="form-label">* Hora</label>
                                             <div class="input-group-overlay">
-                                              <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Elija una hora"  data-datepicker-options='{"enableTime": true, "noCalendar": true, "dateFormat": "H:i"}'  id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora"  oninvalid="setCustomValidity('Por favor seleccione una hora.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                              <input class="form-control appended-form-control cs-date-picker js-input-hora" type="text" placeholder="Elija una hora"  data-datepicker-options='{"enableTime": true,"noCalendar": true,"allowInput":true, "dateFormat": "H:i"}'  id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora"  oninvalid="setCustomValidity('Por favor seleccione una hora.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                               <div class="input-group-append-overlay">
                                                 <span class="input-group-text">
                                                   <i class="fe-calendar"></i>
@@ -104,16 +108,24 @@
                                     <div class="col">
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <label for="evento_virtual">
+                                                <div class="custom-control custom-radio">
+                                                    <input class="lugar custom-control-input" type="radio" id="evento_virtual" value="0" name="tipo" required>
+                                                    <label class="custom-control-label" for="evento_virtual">Virtual</label>
+                                                </div>
+                                                {{-- <label for="evento_virtual">
                                                     <input class="lugar" type="radio" id="evento_virtual" value="0" name="tipo" required>
                                                     Virtual
-                                                </label>
+                                                </label> --}}
                                             </div>
                                             <div class="col-sm-9">
-                                                <label for="evento_presencial">
+                                                <div class="custom-control custom-radio">
+                                                    <input class="lugar custom-control-input" type="radio" id="evento_presencial" value="1" name="tipo" >
+                                                    <label class="custom-control-label" for="evento_presencial">Presencial</label>
+                                                </div>
+                                                {{-- <label for="evento_presencial">
                                                     <input class="lugar" type="radio" id="evento_presencial" value="1" name="tipo">
                                                     Presencial
-                                                </label>
+                                                </label> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +142,7 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* URL del Evento</label>
-                                                        <input class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                        <input class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
                                                         <div class="invalid-feedback" id='url-error'></div>
                                                     </div>
                                                 </div>
@@ -138,9 +150,25 @@
                                                     <div class="row">
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <label for="org_web">* Cantón</label>
+                                                                <label for="canton_id">* Cantón</label>
+                                                                <div class= "m-0 p-0 w-100 form-group">
+                                                                    
+                                                                    <select style="width:100%;" class="form-control custom-select select2" id='canton_id' name='canton'
 
-                                                                <select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
+                                                                    data-ajax--url="{{route('api.canton.select2')}}"
+                                                                    data-ajax--data-type="json"
+                                                                    data-ajax--data-cache="true"
+                                                                    data-allow-clear="true"
+                                                                    data-placeholder="Seleccione un Cantón"
+                                                                    data-close-on-select="false"
+                                                                    >
+                                                                       
+                                                                    </select>
+                                                                    <div class="invalid-tooltip">Por favor seleccione un cantón.</div>
+                                                                    <div class="valid-tooltip">Ok!</div>
+                                                                </div>
+
+                                                                {{-- <select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
                                                                         data-ajax--url="{{route('api.canton.select2')}}"
                                                                         data-ajax--data-type="json"
                                                                         data-ajax--data-cache="true"
@@ -148,10 +176,11 @@
                                                                         data-placeholder="Seleccione un Cantón"
                                                                         data-close-on-select="false"
                                                                         required="required"
-                                                                        oninvalid="setCustomValidity('Por favor seleccione una opción de la lista.')" onchange="try{setCustomValidity('')}catch(e){}"></select>
-
-
+                                                                        oninvalid="setCustomValidity('Por favor seleccione una opción de la lista.')" onchange="try{setCustomValidity('')}catch(e){}"
+                                                                        ></select> --}}
+                                                                
                                                             </div>
+                                                            @error('canton_id')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -177,14 +206,25 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
+                                    
                                     <label for="imagen">* Imagen del Evento</label>
+
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" value="" maxlength='250' name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
 
                                     @else
-                                        <input type="file" class="dropify"  accept="image/gif, image/jpeg, image/png" id="imagen" value="" maxlength='250' name="imagen" oninvalid="setCustomValidity('Por favor seleccione una imagen.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                        <div class="cs-file-drop-area">
+                                            <div class="cs-file-drop-icon fe-upload"></div>
+                                            <span class="cs-file-drop-message">Arrastre y suelte para subir</span>
+                                            
+                                                <input type="file" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name='imagen' class="cs-file-drop-input" required>
+                                            
+                                            <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O seleccione una imagen</button>
+
+                                            <div class="invalid-feedback">Inserta una imagen.</div>
+                                        </div>
+                                    
                                     @endif
-                                    @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
 
                                 </div>
                             </div>
@@ -196,7 +236,9 @@
                                     <div class="custom-control custom-checkbox d-block">
                                         <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" oninvalid="setCustomValidity('Por favor marca esta casilla si tu quieres continuar.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
+                                        
                                     </div>
+                                    
                                     @if ($method=='PUT')
                                         <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Actualizar</button>
                                     @else
@@ -241,11 +283,18 @@
                 </div>
             </div>
         </div>
+
+        
     @endif
 @endsection
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
+<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script>
 <script>
     //contar palabras
     var maxlength=300;
@@ -303,17 +352,24 @@
 
     var baseURL = '{{ URL::to('/') }}';
     var input = document.getElementById('evento_direccion');
+    	
+    
     $(document).ready(function(){
         countWords();
         $('.lugar').change(function(){
-            if($(this).is(':checked')){
 
+            if($(this).is(':checked')){
+                
                 if ($(this).val() == 0){
                     //$('.to-hide').removeClass('d-none');
                     $('.e-presencial .form-control').removeAttr('required');
                     $('.e-presencial').addClass('d-none');
                     $('.e-virtual .form-control').attr('required', true);
                     $('.e-virtual').removeClass('d-none');
+                    $('#frm').removeClass('was-validated');
+                   
+                    
+                    
 
                 }else{
                     if ($(this).val() == 1){
@@ -321,13 +377,15 @@
                         $('.e-virtual').addClass('d-none');
                         $('.e-presencial .form-control').attr('required', true);
                         $('.e-presencial').removeClass('d-none');
+                        $('#frm').removeClass('was-validated');
+                        $('#url').removeAttr('required');
                         initMap();
                     }
 
                 }
             }
         });
-
+        
     });
     var loadFile = function(event) {
         var image = document.getElementById('output');
@@ -457,28 +515,7 @@
         }
 
     });
-
-    flatpickr('.js-input', {
-    "altInput":true,
-    "locale": "es"  // locale for this instance only
-    });
-    // flatpickr('.js-input', {
-    //   minDate: '1920-01-01',
-    //   locale: {
-    //     firstDayOfWeek: 1,
-    //     weekdays: {
-    //       shorthand: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
-    //       longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],         
-    //     }, 
-    //     months: {
-    //       shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Оct', 'Nov', 'Dic'],
-    //       longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-    //     },
-    //   },
-    // }); 
-
-
-
+  
 
 </script>
 
