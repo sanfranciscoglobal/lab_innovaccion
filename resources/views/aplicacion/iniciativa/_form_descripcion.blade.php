@@ -1,6 +1,10 @@
 <div class="panel-heading">
     <h3 class="panel-title">Información de la Iniciativa de Innovación</h3>
 </div>
+<div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+    <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son
+        obligatorios</p>
+</div>
 <div class="panel-body">
     <div class="row">
         <div class="col-12">
@@ -16,8 +20,9 @@
         <div class="col-4">
             <div class="form-group">
                 <label class="control-label">* Año de inicio</label>
-                <input type="number" min="1900" max="<?php echo date('Y') ?>" required="required" class="form-control"
-                       name="anio" value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->anio:''}}"/>
+                <input type="number" min="1900" max="{{date('Y')}}" required="required" class="form-control"
+                       name="anio"
+                       value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->anio:date('Y')}}"/>
             </div>
         </div>
         <div class="col-8">

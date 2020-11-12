@@ -180,12 +180,12 @@ window.countWords = function countWords(element_id, element_error_id, submit_id,
 
     document.getElementById("count-words").innerHTML = words + " palabras";
 
-    if (words > 49 && words <= maxword || words == 0) {
+    if (words > min && words <= maxword || words == 0) {
         $("#" + element_error_id).removeClass('d-inline');
         $('#' + element_id).removeClass('is-invalid');
         $('#' + submit_id).removeAttr('disabled');
     }
-    else if (words < 49) {
+    else if (words < min) {
         $("#" + element_error_id).html('Llene el mínimo de palabras necesarias');
         $("#" + element_error_id).addClass('d-inline');
         $('#' + element_id).addClass('is-invalid');
