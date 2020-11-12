@@ -17,7 +17,7 @@ class Problema extends Model
      * @var array
      */
     protected $fillable = [
-        'tipo_convocatoria_id', 'sector', 'subsector', 'confidencial', 'recomendaciones', 'datos', 'actividad', 'problema', 'archivo',     'telefono', 'web', 'facebook', 'instagram', 'linkedin', 'twitter', 'youtube', 'imagen', 'canton_id', 'ubicacion', 'latitud', 'longitud', 'terminos'
+        'convocatoria_id', 'tipo_convocatoria_id', 'sector', 'subsector', 'confidencial', 'recomendaciones', 'datos', 'actividad', 'problema', 'archivo',     'telefono', 'web', 'facebook', 'instagram', 'linkedin', 'twitter', 'youtube', 'imagen', 'canton_id', 'ubicacion', 'latitud', 'longitud', 'terminos'
     ];
 
     public function tipo_convocatoria(){

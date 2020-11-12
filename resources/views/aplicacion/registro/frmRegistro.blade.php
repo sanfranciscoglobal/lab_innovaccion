@@ -18,11 +18,14 @@
                 <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
                     <div class="py-2 p-md-3">
                         <!-- Title + Delete link-->
-                        <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
+                        <div class="d-sm-flex align-items-center justify-content-between text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Información de Usuario</h1>
                             @if ($method == 'PUT')
                             <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar usuario</button>
                             @endif
+                        </div>
+                        <div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+                            <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios</p>
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -43,40 +46,40 @@
                             </div>
                             <div class="col-sm-8">
                                 <div class="form-group">
-                                    <label for="account-email">Email</label>
+                                    <label for="account-email">Correo electrónico</label>
                                     <input class="form-control" type="email" id="account-email" value="{{ old('email', $user->email) }}" name="email" readonly>
                                     @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                                 <div class="form-group">
                                     <span>* Propósito del registro (¿Qué acción voy a realizar?):</span>
-                                    <label for="mapear">
-                                        <input type="radio" id="mapear" name="proposito" value="1" required {{ old('proposito', $perfil->proposito) == 1 ? 'checked' : '' }}>
-                                        Mapear una iniciativa
-                                    </label>
-                                    <label for="compartir">
-                                        <input type="radio" id="compartir" name="proposito" value="2" {{ old('proposito', $perfil->proposito) == 2 ? 'checked' : '' }}>
-                                        Compartir información de recursos (fondos, publicaciones y eventos)
-                                    </label>
-                                    <label for="participar">
-                                        <input type="radio" id="participar" name="proposito" value="3" {{ old('proposito', $perfil->proposito) == 3 ? 'checked' : '' }}>
-                                        Participar en innovación (identificar problemas, proveer soluciones)
-                                    </label>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="mapear" name="proposito" value="1" required {{ old('proposito', $perfil->proposito) == 1 ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="mapear">Mapear una iniciativa</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="compartir" name="proposito" value="2" {{ old('proposito', $perfil->proposito) == 2 ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="compartir">Compartir información de recursos (fondos, publicaciones y eventos)</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="participar" name="proposito" value="3" {{ old('proposito', $perfil->proposito) == 3 ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="participar">Participar en innovación (identificar problemas, proveer soluciones)</label>
+                                    </div>
                                     @error('proposito')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                                 <div class="form-group">
                                     <span>* Tipo de Registro</span>
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <label for="tipo_individual">
-                                                <input class="tipo_registro" type="radio" id="tipo_individual" name="tipo_reg" value="1" required {{ old('tipo_reg', $perfil->tipo_reg) == 1 ? 'checked' : '' }}>
-                                                Individual
-                                            </label>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input tipo_registro" type="radio" id="tipo_individual" name="tipo_reg" value="1" required {{ old('tipo_reg', $perfil->tipo_reg) == '1' ? 'checked' : '' }}>
+                                                <label class="custom-control-label" for="tipo_individual">Individual</label>
+                                            </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="tipo_oganizacion">
-                                                <input class="tipo_registro" type="radio" id="tipo_oganizacion" name="tipo_reg" value="0" {{ old('tipo_reg', $perfil->tipo_reg) == '0' ? 'checked' : '' }}>
-                                                Organización
-                                            </label>
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input tipo_registro" type="radio" id="tipo_oganizacion" name="tipo_reg" value="0" {{ old('tipo_reg', $perfil->tipo_reg) == '0' ? 'checked' : '' }}>
+                                                <label class="custom-control-label" for="tipo_oganizacion">Organización</label>
+                                            </div>
                                         </div>
                                         @error('tipo_reg')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
@@ -84,22 +87,40 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="org_web">Imágen de Perfil</label>
-                                    <input class="form-control dropify @error('avatar') is-invalid @enderror" type="file" id="avatar" name="avatar" title="Avatar del usuario">
-                                    @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                    <label for="avatar">Imágen de Perfil</label>
+                                    @if($method == 'POST')
+                                    <div class="cs-file-drop-area">
+                                        <div class="cs-file-drop-icon fe-upload"></div>
+                                        <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
+                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario">
+                                        <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
+                                        <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+                                        @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                    </div>
+                                    @else
+                                    @php
+                                        $avatar = asset('img/logo/logo-icon-footer.png');
+                                        if(isset(Auth::user()->perfil_id)){
+                                            if(isset(Auth::user()->perfil->avatar)){
+                                                $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
+                                            }
+                                        }
+                                    @endphp
+                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_nombre">* Nombre de la organización a la que pertenece</label>
-                                    <input class="form-control req @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Organización Ecuador" required>
+                                    <input class="form-control req @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Nombre de la Organización" required>
                                     @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-5 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_web">* Página Web de la Organización</label>
-                                    <input class="form-control req @error('web') is-invalid @enderror" type="url" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="https://www.sitioweb.com" required>
+                                    <input class="form-control req @error('web') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="https://www.sitioweb.com" required>
                                     @error('web')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
@@ -119,18 +140,21 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="org_direccion">* Ubicación de su organización</label>
-                                            <input class="form-control req @error('direccion') is-invalid @enderror" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Busqueda de lugar" required>
+                                            <input class="form-control req @error('direccion') is-invalid @enderror" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Dirección del lugar" required>
                                         </div>
                                         @error('direccion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
-                                            <select class="form-control select2 @error('canton_id') is-invalid @enderror" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
-                                                @if ($perfil->cantin_id)
+                                            <select class="form-control custom-select select2" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
+                                                <option value="" disabled selected>Selecciona uno</option>
+                                                @if ($perfil->canton_id)
                                                 <option value="{{ $perfil->canton_id }}" selected>{{ $perfil->canton->nombre }}</option>
                                                 @endif
                                             </select>
+                                            <div class="invalid-feedback">Selecciona un canton.</div>
+                                            <div class="valid-feedback">Ok!</div>
                                             @error('canton_id')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -150,22 +174,22 @@
                                     <span>Redes Sociales de la Organización</span>
                                     <div class="form-group">
                                         <label for="org_twitter">Twitter</label>
-                                        <input class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('twitter') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                         @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_facebook">Facebook</label>
-                                        <input class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('facebook') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                         @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_linkedin">LinkedIn</label>
-                                        <input class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('linkedin') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                         @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_instagram">Instagram</label>
-                                        <input class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('instagram') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                         @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
@@ -219,7 +243,7 @@
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 <script>
-    var baseURL = '{{ URL::to('/') }}';
+    var baseURL = "{{ URL::to('/') }}";
     let user_lat = {{ old('latitud', $perfil->latitud) ?? 'null' }};
     let user_lng = {{ old('longitud', $perfil->longitud) ?? 'null' }};
     var input = document.getElementById('org_direccion');

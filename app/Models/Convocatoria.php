@@ -36,4 +36,12 @@ class Convocatoria extends Model
         $sectores = $convocatoria->consectores;
         return $sectores->map(function($s){ return $s->sectorid->nombre; });
     }
+
+    /**
+     * Regresa nos nombres de los subsectores productivos de una convocatoria
+     */
+    public function subsectoresName(Convocatoria $convocatoria){
+        $subsectores = $convocatoria->consubsectores;
+        return $subsectores->map(function($s){ return $s->subsectorid->nombre; });
+    }
 }

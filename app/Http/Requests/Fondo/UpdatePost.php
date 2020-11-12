@@ -26,7 +26,7 @@ class UpdatePost extends FormRequest
         return [
             'fuente' => 'boolean|required',
             'organizacion' => 'string|required',
-            'nombre_fondo' => 'string|required_if:fuente,1',
+            'nombre_fondo' => 'string|nullable|required_if:fuente,1',
             'info' => 'string|required',
             'fecha_inicio' => 'date|nullable|required_if:fuente,1',
             'fecha_fin' => 'date|nullable|required_if:fuente,1|after:fecha_inicio',

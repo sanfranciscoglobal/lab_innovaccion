@@ -15,7 +15,9 @@ use App\Helpers\Archivos; // $nombre, $archivo, $disk
 use App\Models\Problema;
 
 // Reglas de validacion
-use App\Http\Requests\Problema\StorePost;
+use App\Http\Requests\Problema\Store1Post;
+use App\Http\Requests\Problema\Store2Post;
+use App\Http\Requests\Problema\Store3Post;
 use App\Http\Requests\Problema\UpdatePost;
 
 class crudProblemas extends Controller
@@ -31,22 +33,30 @@ class crudProblemas extends Controller
      * @return \Illuminate\Http\Response
      * App\Models\Fondo
      */
-    public function store(StorePost $request){
-        dd($request);
+    public function store(Store1Post $request){
+        // dd($request->get('continue'));
         $validatedData = $request->validated();
 
-        // if($fondo = Fondo::create($validatedData)){
+        if($problema = Problema::create($validatedData)){
+            $problema->user_id = auth()->id();
+            $problema->save();
 
-        //     if(isset($validatedData['imagen'])){
-        //         $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
-        //         $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
-        //         $fondo->imagen = $imageName;
-        //         $fondo->save();
-        //     }
+            if(isset($validatedData['archivo'])){
+                // $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.;
+                $imageName = Archivos::storeImagen($problema->id, $validatedData['archivo'], 'problemas');
+                $problema->archivo = $imageName;
+                $problema->save();
+            }
 
-        //     return redirect()->route('home')->with('status', 'Innovación creada con éxito');
-        // }
-        // return back()->with('error', 'Innovación no creada');
+            if($request->get('continue')){
+                $request->session()->put('step', '2');
+                return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema creada con éxito', 'method' => 'PUT']);
+            } else {
+                return redirect()->route('app.escritorio')->with(['status' => 'Innovación problema creada con éxito']);
+            }
+            
+        }
+        return back()->with('error', 'Innovación problema no creada');
     }
 
     /**
@@ -57,21 +67,80 @@ class crudProblemas extends Controller
      * App\Models\Fondo
      */
     public function update(UpdatePost $request, Problema $problema){
-        // if(Auth::id() != $fondo->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
-        //     return back()->with('error', 'No ingresaste este fondo.');
-        // }
+        // dd($request->validated());
+        if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
 
-        // $validatedData = $request->validated();
-        // $fondo->update($request->validated());
+        $validatedData = $request->validated();
+        $problema->update($request->validated());
 
-        // if(isset($validatedData['imagen'])){
-        //     $name = CustomUrl::urlTitle($validatedData['organizacion']).'_'.$fondo->id;
-        //     $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'public');
-        //     $fondo->imagen = $imageName;
-        //     $fondo->save();
-        // }
+        if(isset($validatedData['imagen'])){
+            $imageName = Archivos::storeImagen($problema->id, $validatedData['imagen'], 'public');
+            $problema->archivo = $imageName;
+            $problema->save();
+        }
 
-        // return redirect()->route('home')->with('status', 'Fondo modificado con éxito');
+        if($request->get('continue')){
+            $request->session()->put('step', '2');
+            return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema modificado con éxito', 'method' => 'PUT']);
+        } else {
+            return redirect()->route('app.escritorio')->with(['status' => 'Innovación problema modificado con éxito']);
+        }
+
+        return back()->with('error', 'Innovación problema no actualizada');
+    }
+
+    /**
+     * Actualiza un problema (fase B componente H)
+     * @param StorePost $request
+     * @param Problema $problema
+     * @return \Illuminate\Http\Response
+     * App\Models\Fondo
+     */
+    public function updateFase2(Store2Post $request, Problema $problema){
+        // dd($problema->user_id);
+        if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este problema.');
+        }
+
+        $validatedData = $request->validated();
+        $problema->update($request->validated());
+
+        if(isset($validatedData['imagen'])){
+            $imageName = Archivos::storeImagen($problema->id, $validatedData['imagen'], 'public');
+            $problema->archivo = $imageName;
+            $problema->save();
+        }
+
+        if($request->get('continue')){
+            $request->session()->put('step', '3');
+            return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema modificado con éxito', 'method' => 'PUT']);
+        } else {
+            return redirect()->route('app.escritorio')->with(['status' => 'Innovación problema modificado con éxito']);
+        }
+
+        return back()->with('error', 'Innovación problema no modificado.');
+    }
+
+    public function updateFase3(Store3Post $request, Problema $problema){
+        dd($request);
+        if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
+
+        $validatedData = $request->validated();
+        $problema->update($request->validated());
+
+        if(isset($validatedData['imagen'])){
+            $imageName = Archivos::storeImagen($problema->id, $validatedData['imagen'], 'public');
+            $problema->imagen = $imageName;
+            $problema->save();
+        }
+        
+        $request->session()->forget('step', '3');
+
+        return redirect()->route('home')->with('status', 'Problema modificado con éxito');
     }
 
     /**

@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Convocatoria;
+use App\Models\Problema;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -34,11 +35,24 @@ class InnovacionController extends Controller
      * Muestra el formulario de problemas (Fase B componente H)
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function frmGestionInnocavion(Convocatoria $convocatoria)
+    public function frmGestionInnovacion(Convocatoria $convocatoria)
+    {
+        $problema = new Problema;
+        $tipo = $convocatoria->tipoconvocatoria_id;
+        $url = route("app.problemas.store");
+        return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'method' => 'POST']);
+    }
+
+    /**
+     * Muestra el formulario de problemas para editar (Fase B componente H)
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function frmGestionInnovacionEdit(Convocatoria $convocatoria, Problema $problema)
     {
        
         $tipo = $convocatoria->tipoconvocatoria_id;
-        return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria'))->with('tipo', $tipo);
+        $url = route("app.problemas.update", [$convocatoria->id, $problema->id]);
+        return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'method' => 'PUT']);
     }
 
     public function verInnovaciones(Request $request)

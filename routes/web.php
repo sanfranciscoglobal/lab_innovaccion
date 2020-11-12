@@ -40,8 +40,13 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
 Route::get('/verificacion', function(){
-    return redirect()->route('home')->with('error', 'Porfavor verifica tu email.');
+    return redirect()->route('home')->with('error', 'Porfavor verifica tu correo electrónico.');
 })->name('verification.notice');
+Route::get('reset-password', 'Auth\ForgotPasswordController@show')->middleware(['guest'])->name('reset');
+Route::post('reset-password', 'Auth\ResetPasswordController@send')->name('password.email');
+Route::get('reset-password/{user}', 'Auth\LoginController@reset')->name('password.login');
+Route::get('change-password/edit', 'Auth\ConfirmPasswordController@show')->name('password.edit');
+Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->name('password.update');
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
@@ -131,8 +136,12 @@ Route::as('app.')
             Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
             //FASE B
-            Route::get('/innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnocavion')->name('innovaciongestion');
-            Route::post('/innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
+            Route::get('innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnovacion')->name('innovaciongestion');
+            Route::get('innovacion/gestion/{convocatoria}/{problema}', 'Aplicacion\InnovacionController@frmGestionInnovacionEdit')->name('problemas.edit');
+            Route::post('innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
+            Route::put('innovacion/gestion/update/{problema}', 'Aplicacion\crudProblemas@update')->name('problemas.update');
+            Route::put('innovacion/gestion/update/fase2/{problema}', 'Aplicacion\crudProblemas@updateFase2')->name('problemas.update.fase2');
+            Route::put('innovacion/gestion/update/fase3/{problema}', 'Aplicacion\crudProblemas@updateFase3')->name('problemas.update.fase3');
 
 
             /** Rutas Escritorio */

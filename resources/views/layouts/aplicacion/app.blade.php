@@ -11,9 +11,9 @@
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon and Touch Icons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/favicon-16x16.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/logo/favicon/android-chrome-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/logo/favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/logo/favicon/favicon-16x16.png')}}">
     <link rel="manifest" href="{{asset('site.webmanifest')}}">
     <link rel="mask-icon" color="#5bbad5" href="{{asset('img/safari-pinned-tab.svg')}}">
     <meta name="msapplication-TileColor" content="#766df4">
@@ -178,7 +178,7 @@
                                         <i class="fe-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" /*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"*/ required>
+                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -198,9 +198,12 @@
                                 ¿Olvidó su contraseña?
                             </a>
                         </div> --}}
+                        <p class="font-size-sm mb-3">
+                            ¿Olvidaste tu contraseña? <a href='{{ route('reset') }}' class='font-weight-medium'>Recuperar contraseña</a>
+                        </p>
                         <button class="btn btn-primary btn-block" type="submit">Entrar</button>
                         <p class="font-size-sm pt-3 mb-0">
-                            ¿No tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signup-view'>Registrese</a>
+                            ¿No tiene una cuenta? <a href='#modal-signup' data-toggle="modal" class='font-weight-medium'>Regístrese</a>
                         </p>
                     </form>
                 </div>
@@ -255,8 +258,11 @@
                             <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
                             @error('password_confirmation')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                         </div>
+                        @error('email')
+                        <div class="font-size-lg text-danger d-inline mb-3">Para recuperar tu cuenta ponte en contacto.</div>
+                        @enderror
                         <button class="btn btn-primary btn-block" type="submit">Registrar</button>
-                        <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signin-view'>Entrar</a></p>
+                        <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#modal-signin' data-toggle="modal" class='font-weight-medium'>Entrar</a></p>
                     </form>
                 </div>
             </div>

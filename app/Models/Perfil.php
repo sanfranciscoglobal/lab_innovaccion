@@ -19,4 +19,9 @@ class Perfil extends Model
     protected $fillable = [
         'celular', 'proposito', 'tipo_reg', 'organizacion', 'tipo_org', 'direccion', 'canton_id', 'latitud', 'longitud', 'web', 'facebook', 'instagram', 'linkedin', 'twitter', 'terminos'
     ];
+
+    public function canton()
+    {
+        return $this->belongsTo('App\Models\Canton');
+    }
 }
