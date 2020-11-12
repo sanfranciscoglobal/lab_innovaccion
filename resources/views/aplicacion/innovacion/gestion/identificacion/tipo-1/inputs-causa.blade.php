@@ -1,7 +1,7 @@
 @php
-    $causas = json_decode($problema->causas, true);
-    $efectos = json_decode($problema->efectos, true);
-    $keyword = json_decode($problema->keyword, true);
+    $causas = json_decode($problema->causas, true) ?? null;
+    $efectos = json_decode($problema->efectos, true) ?? null;
+    $keyword = json_decode($problema->keyword, true) ?? null;
 @endphp
 <div class="form-group">
     <div class="controls-container mb-3">
