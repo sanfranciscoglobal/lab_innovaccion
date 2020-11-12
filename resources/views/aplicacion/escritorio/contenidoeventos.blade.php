@@ -33,8 +33,8 @@
                             </div>
                             <p>{{$evento->descripcion}}</p>
                         </div>
-                    <p>{{$evento->descripcion}}</p>
-                    </div>
+                    {{-- <p>{{$evento->descripcion}}</p> --}}
+                    
                     <div class="media media-ie-fix align-items-center mr-3">
                         <img class="" width="100"
                              src="{{ asset('storage/eventos/'.$evento->imagen) }}"

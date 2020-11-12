@@ -21,10 +21,24 @@
                                     title="Editar" href="{{route('app.material-de-aprendizaje.edit',$material->id)}}"
                                     data-placement="bottom">
                                     <i class="fe-edit text-primary"></i>
-                                    {{$material->nombre_publicacion}}</a></h4>
+                                    {{$material->nombre_publicacion}}
+                       
+                                </a></h4>
                                 
                             </div>
-                            <div class="col-sm-3 text-right text-muted">{{date('M d, Y', strtotime( $material->fecha_publicacion))}}</div>
+                            @if ($material->tipo==0)
+                                <div class="col-sm-3 text-right  text-muted">{{date('M d, Y', strtotime( $material->fecha_publicacion))}}</div>
+                                <div class="col">
+                                    <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicación</span>
+                                </div>
+                            @else
+                                <div class="col">
+                                    <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Herramienta</span>
+                                </div>
+                            @endif
+                            
+                            
+                            
                         </div>
                         <p>{{$material->tema_tratado}}</p>   
 
@@ -36,11 +50,12 @@
                              src="{{asset('storage/materiales'.'/'.$material->imagen_portada)}}"
                              alt="{{$material->imagen_portada}}"/> --}}
                         <div class="media-body pl-2 ml-1">
-                       
-                            <h6 class="font-size-sm mb-n1">
-                                {{$material->autor_publicacion}}
-                            </h6>
-                            <span class="font-size-xs text-muted" >{{$material->fecha_publicacion}}</span>
+                            @if ($material->tipo==0)
+                                <h6 class="font-size-sm mb-n1">
+                                    {{$material->autor_publicacion}}
+                                </h6>
+                                <span class="font-size-xs text-muted" >{{$material->fecha_publicacion}}</span>
+                            @endif
 
                         </div>
 

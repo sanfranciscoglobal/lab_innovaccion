@@ -36,8 +36,16 @@ class InnovacionController extends Controller
      */
     public function frmGestionInnocavion(Convocatoria $convocatoria)
     {
-        // $convocatoria = Convocatoria::find($convocatoria_id);
+       
         $tipo = $convocatoria->tipoconvocatoria_id;
         return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria'))->with('tipo', $tipo);
     }
+
+    public function verInnovaciones(Request $request)
+    {
+        $convocatorias= Convocatoria::all();
+        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+    }
+
+
 }
