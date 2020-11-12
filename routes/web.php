@@ -50,6 +50,7 @@ Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->na
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
+Route::get('/eventos/{evento}', 'Aplicacion\EventosController@verEventodetalle')->name('eventodetalle');
 //Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
 Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');

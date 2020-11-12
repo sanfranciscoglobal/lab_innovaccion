@@ -165,7 +165,7 @@
                                                                        
                                                                     </select>
                                                                     <div class="invalid-tooltip">Por favor seleccione un cantón.</div>
-                                                                    <div class="valid-tooltip">Ok!</div>
+                                                                    <div class="valid-tooltip">Bien!</div>
                                                                 </div>
 
                                                                 {{-- <select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
@@ -187,7 +187,7 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="ubicacion">* Ubicación del Evento</label>
-                                                                <input class="form-control" type="text" id="evento_direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Direccion del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                                <input class="form-control" type="text" id="evento_direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Dirección del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -289,9 +289,7 @@
 @endsection
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
-{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
-<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script>
@@ -369,9 +367,7 @@
                     $('.e-virtual .form-control').attr('required', true);
                     $('.e-virtual').removeClass('d-none');
                     $('#frm').removeClass('was-validated');
-                   
-                    
-                    
+                    initMap();
 
                 }else{
                     if ($(this).val() == 1){
@@ -381,7 +377,7 @@
                         $('.e-presencial').removeClass('d-none');
                         $('#frm').removeClass('was-validated');
                         $('#url').removeAttr('required');
-                        initMap();
+                        
                     }
 
                 }
@@ -396,8 +392,10 @@
 
     function initMap() {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var latUsuario = position.coords.latitude;
-            var lonUsuario = position.coords.longitude;
+            // var latUsuario = position.coords.latitude;
+            // var lonUsuario = position.coords.longitude;
+            var latUsuario = 0;
+            var lonUsuario = 0;
             var zoom = 16;
             var dragMarker = true;
             var placeSearch, autocomplete;
@@ -470,8 +468,10 @@
 
             function setnewAddress() {
                 var place = autocomplete.getPlace();
-                console.log(place.formatted_address);
+                //console.log(place.formatted_address);
+              
                 var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+                
                 //console.log(Latlng);
                 marker.setPosition( Latlng );
                 infowindow.setContent(place.formatted_address);
@@ -494,11 +494,8 @@
             $("#canton_id").select2("trigger", "select", {
                      data: { id: cantonidd , text:canton_nombre}
                  });
-
         }
-
     @endif
-
 
 
     $(function(){
@@ -511,6 +508,7 @@
                 break;
             case 1:
                 $('#evento_presencial').trigger('click');
+               
                 break;
             default:
                 break;
