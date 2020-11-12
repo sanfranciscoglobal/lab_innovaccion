@@ -142,7 +142,7 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* URL del Evento</label>
-                                                        <input class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
+                                                        <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
                                                         <div class="invalid-feedback" id='url-error'></div>
                                                     </div>
                                                 </div>
@@ -333,18 +333,20 @@
     //funcion url
     function validateURL() {
          var $URL= document.getElementById("url").value;
-         var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
-         var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
-         if((pattern_1.test($URL) || pattern_2.test($URL) )){
-            $("#url-error").removeClass('d-inline');
+         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$(:(\d+))?\/?/i;
+        //  var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
+        //  var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
+        //  if((pattern_1.test($URL) || pattern_2.test($URL) )){
+        if(pattern.test($URL) ){
+            //$("#url-error").removeClass('d-inline');
             $('#url').removeClass('is-invalid');
-            $('#submitbutton').removeAttr('disabled');
+           // $('#submitbutton').removeAttr('disabled');
             
          } else{
-            $("#url-error").html('Url invalido');
-            $("#url-error").addClass('d-inline');
+            //$("#url-error").html('Url invalido');
+           // $("#url-error").addClass('d-inline');
             $('#url').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');
+            //$('#submitbutton').attr('disabled','disabled');
          }
        }
 
