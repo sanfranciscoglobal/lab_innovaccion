@@ -12,6 +12,8 @@ require('bs-custom-file-input/dist/bs-custom-file-input');
 require('simplebar/dist/simplebar');
 require('lightgallery.js');
 
+imagesLoaded =  require('imagesloaded');
+Shuffle = require('shufflejs/dist/shuffle.min');
 Parallax  = require('parallax-js/dist/parallax');
 SmoothScroll  = require('smooth-scroll/dist/smooth-scroll');
 

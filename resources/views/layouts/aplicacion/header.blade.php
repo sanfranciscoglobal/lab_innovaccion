@@ -102,7 +102,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/mapeo/">Mapa de iniciativas</a></li>
+                            <li><a class="dropdown-item" href="{{route('web.iniciativas.index')}}">Mapa de iniciativas</a></li>
                             <li><a class="dropdown-item" href="/analitica/">Analítica</a></li>
                         </ul>
                     </li>

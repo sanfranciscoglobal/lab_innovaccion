@@ -2,16 +2,29 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Exports\IniciativasExport;
+use App\Helpers\Archivos;
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Canton;
 use App\Models\Iniciativas;
 use App\Models\OdsCategoria;
 use App\Models\TipoInstitucion;
 use App\Models\TipoPoblacion;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+//use Maatwebsite\Excel\Excel;
+use Excel;
 
 class IniciativasController extends Controller
 {
+//    private $excel;
+//
+//    public function __construct(Excel $excel)
+//    {
+//        $this->excel = $excel;
+//    }
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +32,8 @@ class IniciativasController extends Controller
      */
     public function index(Request $request)
     {
-
         Iniciativas::$paginate = 10;
+        Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
         Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
         Iniciativas::$search_tipo_institucion = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
         Iniciativas::$search_ods_categorias = $request->has('ods_categorias') ? $request->ods_categorias : [];
@@ -30,78 +43,18 @@ class IniciativasController extends Controller
         $tipoInstituciones = TipoInstitucion::whereIn('id', Iniciativas::$search_tipo_institucion)->get();
         $odsCategorias = OdsCategoria::whereIn('id', Iniciativas::$search_ods_categorias)->get();
         $tipoPoblaciones = TipoPoblacion::whereIn('id', Iniciativas::$search_tipo_poblacion)->get();
+        $buscar = $request->buscar;
 
         $iniciativas = Iniciativas::obtenerIniciativasPaginate();
-//        dd($iniciativas);
-//        dd($cantones);
-//        dd($cantones, $request);
 
-        return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones'));
+        //dd($request);
+
+        return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function exportarExcel(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Iniciativas $iniciativas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Iniciativas $iniciativas)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Iniciativas $iniciativas
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Iniciativas $iniciativas)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\Iniciativas $iniciativas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Iniciativas $iniciativas)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Iniciativas $iniciativas
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Iniciativas $iniciativas)
-    {
-        //
+        $fecha = Carbon::now()->format('Ymdhi');
+        return Excel::download(new IniciativasExport(), 'download-iniciativa-' . $fecha . '.xlsx');
     }
 }

@@ -51,7 +51,7 @@
     </div>
     <div class="row">
         <div class="col-12 text-right">
-            <button id="add_contact" class="btn btn-sm btn-success" type="button"><i
+            <button id="add_contact" class="btn btn-sm btn-primary" type="button"><i
                         class="fe-plus font-size-lg mr-2"></i> Agregar nuevo contacto
             </button>
         </div>
@@ -63,7 +63,7 @@
         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta
             plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
     </div>
-    <button class="btn btn-success submitBtn pull-right" type="submit">
+    <button class="btn btn-primary submitBtn pull-right" type="submit">
         <i class="fe-save font-size-lg mr-2"></i> Guardar
     </button>
     <div id="error-message" class="text-danger"></div>

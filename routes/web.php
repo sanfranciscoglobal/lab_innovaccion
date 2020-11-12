@@ -158,9 +158,13 @@ Route::as('web.')
         function () {
             Route::resource('iniciativas', 'Web\IniciativasController');
             Route::post('iniciativas', 'Web\IniciativasController@index')->name('iniciativas.index');
+            Route::post('iniciativas/export', 'Web\IniciativasController@exportarExcel')->name('iniciativas.exportar-excel');
         }
     );
 
+Route::get('/admin/acerca-de', function () {
+    return view('aplicacion.acerca.acerca-test');
+})->name('acercade-admin');
 //// Autenticate
 //Auth::routes();
 //Route::as('auth.')

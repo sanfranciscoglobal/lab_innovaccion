@@ -290,7 +290,7 @@
         </div>
     </div>
     <!-- Navbar Floating light for Index page only-->
-    @include('layouts.aplicacion.header')
+    @include('layouts.aplicacion.admin-header')
     @yield('content')
 
 </main>
@@ -335,7 +335,6 @@
 </script>
 @endif
 
-@yield('scripts')
 @yield('footer')
 {{--<script type="text/javascript">--}}
 {{--console.log(smoothScroll);--}}

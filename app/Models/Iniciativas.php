@@ -151,12 +151,38 @@ class Iniciativas extends Model
     }
 
     /**
+     * @return string|null
+     */
+    public function getUserImagenAttribute()
+    {
+        return ($this->user->perfilUser) ? $this->user->perfilUser->avatar : null;
+    }
+
+    /**
      * @return Builder
      */
     public static function builderIniciativa()
     {
         $query = Iniciativas::orderBy('created_at', request('created_at', 'DESC'));
-        // $query->with('iniciativaActor', 'iniciativaInformacion');
+        $query->with('iniciativaActor', 'iniciativaInformacion');
+
+        if (self::$search) {
+            $query->whereIn('iniciativa_actor_id', function ($query) {
+                $query->select('id')
+                    ->from('iniciativa_actor')
+                    ->where('iniciativa_actor.nombre_organizacion', 'ilike', '%' . self::$search . '%')
+                    ->Orwhere('iniciativa_actor.siglas', 'ilike', '%' . self::$search . '%')
+                    ->Orwhere('iniciativa_actor.enfoque', 'ilike', '%' . self::$search . '%');
+            });
+
+//            $query->whereIn('iniciativa_actor_id', function ($query) {
+//                $query->select('id')
+//                    ->from('iniciativa_actor')
+//                    ->where('iniciativa_actor.nombre_organizacion', 'ilike', '%' . self::$search . '%')
+//                    ->Orwhere('iniciativa_actor.siglas', 'ilike', '%' . self::$search . '%')
+//                    ->Orwhere('iniciativa_actor.enfoque', 'ilike', '%' . self::$search . '%');
+//            });
+        }
 
         if (self::$search_canton_id) {
             $query->whereIn('iniciativas.id', function ($query) {
@@ -191,8 +217,6 @@ class Iniciativas extends Model
         }
 
 //        dd($query->toSql());
-//
-//        dd(self::$search_canton_id, self::$search_tipo_poblacion, self::$search_ods_categorias, self::$search_tipo_institucion);
 
         return $query;
     }
@@ -205,6 +229,16 @@ class Iniciativas extends Model
     {
         $rs = self::builderIniciativa();
         return $rs->paginate(self::$paginate) ?? [];
+    }
+
+    /**
+     * Obtener paginador de iniciativas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerIniciativasAll()
+    {
+        $rs = self::builderIniciativa();
+        return $rs->get() ?? [];
     }
 
 

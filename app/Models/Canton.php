@@ -20,7 +20,8 @@ class Canton extends Model
     {
         $rs = Canton::orderby('nombre');
         if (self::$search) {
-            $rs->where('nombre', 'like', '%' . self::$search . '%');
+            $rs->where('nombre', 'ilike', '%' . self::$search . '%');
+            //$rs->whereRaw('lower(nombre)) like ?', ['%' . mb_strtolower(self::$search) . '%']);
         }
 
         return $rs->get();
