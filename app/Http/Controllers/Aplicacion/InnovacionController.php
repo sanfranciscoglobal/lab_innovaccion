@@ -38,6 +38,7 @@ class InnovacionController extends Controller
      */
     public function frmGestionInnovacion(Convocatoria $convocatoria)
     {
+        session()->forget('step');
         $problema = new Problema;
         $tipo = $convocatoria->tipoconvocatoria_id;
         $url = $url2 = $url3 = route("app.problemas.store");
@@ -66,6 +67,16 @@ class InnovacionController extends Controller
     {
         $convocatorias= Convocatoria::all();
         return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+    }
+
+    /**
+     * Muestra todos los problemas creados para las convocatorias (fase B componente H)
+     * @return \Illuminate\Contracts\Support\Renderable 
+     */
+    public function verProblemas(Convocatoria $convocatoria)
+    {
+        $problemas = Problema::where('convocatoria_id', $convocatoria->id)->get();
+        return view('aplicacion.innovacion.gestion.innovacionProblemas', compact('convocatoria', 'problemas'));
     }
 
 

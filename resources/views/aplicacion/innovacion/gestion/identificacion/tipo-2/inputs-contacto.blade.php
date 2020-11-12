@@ -20,16 +20,16 @@
     <div class="form-group">
         <label class="control-label">* Ubicación</label>
         <input maxlength="200" type="text" required="required" class="form-control"
-               placeholder="Enter Company Address" id="evento_direccion" name="direccion"
+               placeholder="Enter Company Address" id="direccion" name="direccion"
                value="{{ old('direccion', $problema->direccion) }}"/>
         @error('direccion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="row mb-4">
         <div class="col">
             <div id="map" style="width:100%; height: 350px;"></div>
-            <input type="hidden" id="lat" name="latitud" value="{{ old('latitud', $problema->latitud) }}" required>
+            <input type="hidden" id="latitud" name="latitud" value="{{ old('latitud', $problema->latitud) }}" required>
             @error('latitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-            <input type="hidden" id="long" name="longitud" value="{{ old('latitud', $problema->latitud) }}" required>
+            <input type="hidden" id="longitud" name="longitud" value="{{ old('latitud', $problema->latitud) }}" required>
             @error('longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
         </div>
     </div>
