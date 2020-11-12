@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary pull-right" type="submit" formaction="{{ route("app.problemas.update.fase2", [$problema->id, 'continue' => 1]) }}">Guargar y continuar</button>
-    <button class="btn btn-link" type="submit" formaction="{{ route("app.problemas.update.fase2", [$convocatoria->id, $problema->id, 'continue' => 0]) }}">Guardar</button>
+    <button class="btn btn-primary pull-right" type="submit" formaction="{{ $url2.'?continue=1' }}">Guargar y continuar</button>
+    <button class="btn btn-link" type="submit" formaction="{{ $url2.'?continue=0' }}">Guardar</button>
 </div>
 </form>

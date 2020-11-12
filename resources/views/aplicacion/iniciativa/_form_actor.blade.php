@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="form-group">
                     <label class="control-label">Sitio web</label>
                     <input maxlength="200" type="url" class="form-control" placeholder="Ejem. https://www.sitioweb.com"
@@ -30,7 +30,7 @@
                            value="{{($model->iniciativaActor)?$model->iniciativaActor->sitio_web:''}}"/>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-12">
                 <div class="form-group">
                     <label class="control-label">* Tipo de Institución</label><br/>
                     <select style="width:100%;" id="tipo_institucion" name="tipo_institucion[]"
@@ -119,7 +119,7 @@
                             <label class="control-label">Dirección Principal</label>
                             <input maxlength="200" type="text" required="required"
                                    class="form-control ubicacion ubicacion-{{$key}}"
-                                   placeholder="Escriba la dirección" id="evento_direccion"
+                                   placeholder="Escriba la dirección"
                                    data-adresscontainer="{{$key}}"
                                    name="Ubicaciones[{{$key}}][direccion]"
                                    value="{{$ubicacion->direccion}}"/>

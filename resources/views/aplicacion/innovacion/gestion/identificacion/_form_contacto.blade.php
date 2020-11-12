@@ -1,4 +1,4 @@
-<form method="POST" enctype='multipart/form-data' class="needs-validation" novalidate action="{{ route("app.problemas.update.fase3", [$problema->id]) }}">
+<form method="POST" enctype='multipart/form-data' class="needs-validation" novalidate action="{{ $url3 }}">
 @csrf
 @method('PUT')
 <input type="hidden" name="tipo_convocatoria_id" value="{{ $tipo }}">
