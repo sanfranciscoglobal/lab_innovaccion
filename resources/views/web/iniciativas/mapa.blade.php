@@ -35,23 +35,26 @@
 @section('content')
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
-            <div class="col-lg-6 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Ecosistema de innovación</h1>
+            <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
+                <h1 class="mt-5">Iniciativas</h1>
                 <div class="py-4">
                     <p class="cs-callout">
-                        ¡Se parte del ecosistema de innovación!<span class="clearfix"></span>
-                        * Registra tu iniciativa queremos saber sobre tu trabajo. <span class="clearfix"></span>
-                        * Conoce el trabajo de otros en temas de innovación. <span class="clearfix"></span>
-                        * Anímate a contactar a actores que trabajen en temas de tu interés. <span
-                                class="clearfix"></span>
-                        * Construyamos lazos de trabajo colaborativos. <span class="clearfix"></span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
                     </p>
                 </div>
             </div>
         </div>
     </section>
     <section class="searchbar-container bg-secondary">
-        @include('web.iniciativas._filter', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones','buscar'))
+        <form class="container" action="{{route('web.iniciativas.index')}}" method="POST">
+            @method('POST')
+            @csrf
+            @include('web.iniciativas._filter', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones'))
+        </form>
+        <p class="text-center">
+            <a class="btn btn-primary" href="/app/registro-de-eventos/">Descargar datos</a>
+        </p>
     </section>
 
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
@@ -60,8 +63,7 @@
             @foreach($iniciativas as $iniciativa)
                 <div class="cs-grid-item" data-groups="[&quot;3d&quot;]">
                     <div class="card card-hover border-0 box-shadow mx-auto">
-                        <img class="d-block rounded-circle mx-auto my-2"
-                             src="{{ asset('storage/iniciativas/'.$iniciativa->logo) }}"/>
+                        <img class="card-img-top" src="{{ asset('storage/iniciativas/'.$iniciativa->logo) }}"/>
                         <div class="card-body my-2 mx-3">
                             <h3 class="h5 mb-0">
                                 {{$iniciativa->nombre_organizacion}}
@@ -75,8 +77,7 @@
                                 {{$iniciativa->descripcion_iniciativa}}
                             </p>
                             <div class="media meta-link align-items-center pt-2">
-                                <img class="rounded-circle" width="50"
-                                     src="{{asset('storage/perfil/'.$iniciativa->user_imagen)}}">
+                                <img class="rounded-circle" width="50" src="http://placehold.it/50x50">
                                 <div class="media-body pl-2 ml-1">
                                     <span class="font-weight-semibold d-block w-100">
                                         {{$iniciativa->user_name}}
@@ -98,18 +99,44 @@
     @php
         $iniciativas->links()
     @endphp
+    {{--<aside>--}}
+    {{--<div class="container">--}}
+    {{--<div class="row">--}}
+    {{--<div class="col-12">--}}
+    {{--<div class="d-md-flex justify-content-between align-items-center pt-3 pb-2">--}}
+    {{--<div class="d-flex justify-content-center align-items-center mb-4">--}}
+    {{--<label class="pr-1 mr-2">Mostrar</label>--}}
+    {{--<select class="form-control custom-select mr-2" style="width: 5rem;">--}}
+    {{--<option value="10">10</option>--}}
+    {{--<option value="20">20</option>--}}
+    {{--<option value="30">30</option>--}}
+    {{--<option value="40">40</option>--}}
+    {{--<option value="50">50</option>--}}
+    {{--</select>--}}
+    {{--<div class="font-size-sm text-nowrap pl-1 mb-1">eventos por página</div>--}}
+    {{--</div>--}}
+    {{--<nav class="mb-4" aria-label="Page navigation">--}}
+    {{--<ul class="pagination justify-content-center">--}}
+    {{--<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><i--}}
+    {{--class="fe-chevron-left"></i></a></li>--}}
+    {{--<li class="page-item d-sm-none"><span class="page-link page-link-static">2 / 10</span>--}}
+    {{--</li>--}}
+    {{--<li class="page-item d-none d-sm-block"><a class="page-link" href="#">1</a></li>--}}
+    {{--<li class="page-item active d-none d-sm-block" aria-current="page"><span--}}
+    {{--class="page-link">2<span--}}
+    {{--class="sr-only">(current)</span></span></li>--}}
+    {{--<li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>--}}
+    {{--<li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>--}}
+    {{--<li class="page-item d-none d-sm-block">...</li>--}}
+    {{--<li class="page-item d-none d-sm-block"><a class="page-link" href="#">10</a></li>--}}
+    {{--<li class="page-item"><a class="page-link" href="#" aria-label="Next"><i--}}
+    {{--class="fe-chevron-right"></i></a></li>--}}
+    {{--</ul>--}}
+    {{--</nav>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</aside>--}}
 
-@endsection
-
-@section('scripts')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(document).on('click', '.btn-filter-submit', function () {
-                var action = $(this).data('action');
-                $('#filter-iniciativas').attr('action',action);
-                $('#filter-iniciativas').submit();
-                //console.log(action);
-            });
-        });
-    </script>
 @endsection

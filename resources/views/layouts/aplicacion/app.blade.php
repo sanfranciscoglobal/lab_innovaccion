@@ -362,6 +362,7 @@
 </script>
 @endif
 
+@yield('scripts')
 @yield('footer')
 {{--<script type="text/javascript">--}}
 {{--console.log(smoothScroll);--}}

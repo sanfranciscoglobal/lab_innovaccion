@@ -16,8 +16,10 @@ const flatpickr = require('flatpickr/dist/flatpickr.min.js');
 const flatpickrEs = require('flatpickr/dist/l10n/es.js').default.es;
 flatpickr.localize(flatpickrEs);
 
-Parallax = require('parallax-js/dist/parallax');
-SmoothScroll = require('smooth-scroll/dist/smooth-scroll');
+imagesLoaded =  require('imagesloaded');
+Shuffle = require('shufflejs/dist/shuffle.min');
+Parallax  = require('parallax-js/dist/parallax');
+SmoothScroll  = require('smooth-scroll/dist/smooth-scroll');
 
 require('../../resources/js/theme.min.js');
 
