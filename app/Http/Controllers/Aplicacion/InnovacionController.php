@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Aplicacion;
 use App\Helpers\Archivos;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use illuminate\Support\Facades\Auth;
 use App\Http\Requests\Iniciativa\StorePost;
 //use App\Http\Requests\Contacto\StorePost;
 //use App\Models\Contacto;
@@ -50,6 +51,10 @@ class InnovacionController extends Controller
     public function frmGestionInnovacionEdit(Convocatoria $convocatoria, Problema $problema)
     {
         // $convocatoria = Convocatoria::find($convocatoria_id);
+        if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
+
         $tipo = $convocatoria->tipoconvocatoria_id;
         $url = route("app.problemas.update", [$convocatoria->id, $problema->id]);
         $url2 = route("app.problemas.update.fase2", [$problema->id]);

@@ -139,6 +139,7 @@ Route::as('app.')
             Route::put('innovacion/gestion/update/{problema}', 'Aplicacion\crudProblemas@update')->name('problemas.update');
             Route::put('innovacion/gestion/update/fase2/{problema}', 'Aplicacion\crudProblemas@updateFase2')->name('problemas.update.fase2');
             Route::put('innovacion/gestion/update/fase3/{problema}', 'Aplicacion\crudProblemas@updateFase3')->name('problemas.update.fase3');
+            Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
 
             /** Rutas Escritorio */

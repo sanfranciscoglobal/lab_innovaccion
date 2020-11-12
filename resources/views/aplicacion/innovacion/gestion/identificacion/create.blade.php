@@ -122,6 +122,11 @@
                                 </div>
                             </div>
                         </div>
+                        @if ($method == 'PUT')
+                        <div class="d-flex w-100 justify-content-end">
+                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar problema</button>
+                        </div>
+                        @endif
 
                         <!-- END Timeline -->
                         <div class="panel panel-primary setup-content" id="step-1">
@@ -140,6 +145,33 @@
             </div>
         </div>
     </div>
+
+    @if ($method == 'PUT')
+    <!-- danger modal -->
+    <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Usuario</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('app.problemas.delete', $problema->id) }}" method="POST" role="form">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <div class="text-danger">Está seguro que desea eliminar este usuario?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
 @endsection
 
 @section('footer')
