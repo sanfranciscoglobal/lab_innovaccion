@@ -342,11 +342,30 @@
     //     }, 1000);
     // }
     $('.modal-status').modal('show');
-    $('#modal-signup').on('show.bs.modal', function () {
-        $('#modal-signin').modal('hide');
+    flatpickr(".js-input", {
+        allowInput:true,
+        altInput:true,
+        minDate:"today",
+        onOpen: function(selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', true);
+        },
+        onClose: function(selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', false);
+            $(instance.altInput).blur();
+        }
     });
-    $('#modal-signin').on('show.bs.modal', function () {
-        $('#modal-signup').modal('hide');
+    flatpickr(".js-input-hora", {
+        enableTime: true, 
+        noCalendar: true,
+        allowInput:true,
+        altInput:true,
+        onOpen: function(selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', true);
+        },
+        onClose: function(selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', false);
+            $(instance.altInput).blur();
+        }
     });
 </script>
 @if($errors->any())

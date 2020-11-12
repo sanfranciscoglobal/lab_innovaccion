@@ -61,4 +61,12 @@ class InnovacionController extends Controller
         $url3 = route("app.problemas.update.fase3", [$problema->id]);
         return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'method' => 'PUT']);
     }
+
+    public function verInnovaciones(Request $request)
+    {
+        $convocatorias= Convocatoria::all();
+        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+    }
+
+
 }
