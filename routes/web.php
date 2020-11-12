@@ -57,6 +57,9 @@ Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('in
 Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
+
+Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
+
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
