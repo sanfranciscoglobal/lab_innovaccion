@@ -28,7 +28,7 @@ class CreateFondosTable extends Migration
             $table->string('twitter',250)->nullable();
             $table->string('imagen',250)->nullable();
             $table->boolean('terminos');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -10,7 +10,7 @@
         @if(Auth::check())
             <div class="px-4 py-4 mb-1 text-center">
                 @php
-                    $avatar = asset('img/logo/logo-icon-footer.png');
+                    $avatar = asset('img/logo/favicon/android-chrome-192x192.png');
                     if(isset(Auth::user()->perfil_id)){
                         if(isset(Auth::user()->perfil->avatar)){
                             $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
@@ -43,7 +43,7 @@
                             <ul class="collapse" id="ecosistema" data-parent="#menu">
                                 <li><a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">Mapa de
                                         iniciativas</a></li>
-                                <li><a class="cs-widget-link" href="#">Analítica</a></li>
+                                {{-- <li><a class="cs-widget-link" href="#">Analítica</a></li> --}}
                             </ul>
                         </li>
                         <li><a class="cs-widget-link px-4 py-3 collapsed" href="#recursos"

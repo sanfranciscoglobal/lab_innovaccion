@@ -26,37 +26,38 @@ class crudMaterialesaprendizaje extends Controller
         $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
     public function store(StorePost $request){
-
+       
+        
         try{
             $validatedData=$request->validated();
-
+            
             if($material=MaterialAprendizaje::create($validatedData)){
-
-                if(isset($material['imagen_portada'])){
-                    $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id;
-                    $imageName = Archivos::storeImagen($name, $material['imagen_portada'], 'materiales');
-                    $material->imagen_portada = $imageName;
-                    $material->save();
+                
+                // if(isset($material['imagen_portada'])){
+                //     $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id;
+                //     $imageName = Archivos::storeImagen($name, $material['imagen_portada'], 'materiales');
+                //     $material->imagen_portada = $imageName;
+                //     $material->save();
+                // }
+            
+                $files= $request->file('mat_files');
+                if(isset($files)){
+                    $cont=1;
+                    foreach ($files as $file){
+                        $fullfileName = $file->getClientOriginalName();
+                        $OnlyfileName = pathinfo($fullfileName)['filename'];
+                        $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id.'_'.$cont;
+                        $fileName=Archivos::storeImagen($name,$file, 'materiales');
+                        $articulo=Articulo::create([
+                            'material_id'=>$material['id'],
+                            'nombre' =>$fileName   
+                        ]);
+                        $articulo->save();
+                        $cont=$cont+1;
+                    }
                 }
-
-            $files= $request->file('mat_files');
-            if(isset($files)){
-                $cont=1;
-                foreach ($files as $file){
-                    $fullfileName = $file->getClientOriginalName();
-                    $OnlyfileName = pathinfo($fullfileName)['filename'];
-                    $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id.'_'.$cont;
-                    $fileName=Archivos::storeImagen($name,$file, 'materiales');
-                    $articulo=Articulo::create([
-                        'material_id'=>$material['id'],
-                        'nombre' =>$fileName
-                    ]);
-                    $articulo->save();
-                    $cont=$cont+1;
-                }
-            }
-
-                return redirect()->route('app.escritorio.material')->with('status', 'Material creado con éxito');
+                
+                return redirect()->route('app.escritorio.material')->with('status', 'Material creado con éxito');         
             }
         }
         catch (Exception $e){
@@ -70,14 +71,14 @@ class crudMaterialesaprendizaje extends Controller
     {
         $validatedData = $request->validated();
         $material->update($validatedData);
-
-        if(isset($validatedData['imagen_portada'])){
-            $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id;
-            $imageName = Archivos::storeImagen($name, $material['imagen_portada'], 'materiales');
-            $material->imagen_portada = $imageName;
-            $material->save();
-        }
-
+       
+        // if(isset($validatedData['imagen_portada'])){
+        //     $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id;      
+        //     $imageName = Archivos::storeImagen($name, $material['imagen_portada'], 'materiales');
+        //     $material->imagen_portada = $imageName;
+        //     $material->save();
+        // }
+     
         //eliminar y grabar
         $files= $request->file('mat_files');
         if(isset($files)){

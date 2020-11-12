@@ -12,13 +12,14 @@
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5">Fondos</h1>
                 <div class="py-4">
-                    <p class="cs-callout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                    <p class="cs-callout">¡Fomentemos oportunidades de financiamiento para la innovación!<br>
+                        Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.
+                        Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación. </p>
                 </div>
             </div>
         </div>
     </section>
-    <section>
+    {{-- <section>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
@@ -28,23 +29,29 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <div class="row mb-3 mt-4">
             @foreach ($fondos as $fondo)
             @php
                 $img = isset($fondo->imagen) ? $fondo->imagen : '';
-                $img = Storage::disk('fondos')->exists($img) ? asset('storage/'.$img) : asset('img/logo/thinkia_color_no_slogan.svg');
+                $img = Storage::disk('fondos')->exists($img) ? asset('storage/fondos/'.$img) : asset('img/logo/thinkia_color_no_slogan.svg');
             @endphp
             <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <a class="card-floating-icon" href="mailto:sarah.cole@example.com"><i class="fe-mail"></i></a>
+                    <a class="card-floating-icon" href="mailto:{{ $fondo->user->email }}"><i class="fe-mail"></i></a>
                     <div class="card-img-top card-img-gradient">
-                        <img src="{{ $img }}" alt="{{ $fondo->organizacion }}" />
+                        <img src="{{ $img }}" alt="{{ $fondo->organizacion }}" style="height: 300px"/>
                     </div>
                     <div class="card-body text-center">
                         <h3 class="h6 card-title mb-2">{{ $fondo->organizacion }}</h3>
-                        <p class="font-size-xs  mb-0">{{ $fondo->nombre_fondo }} <br>{{ $fondo->info }} </p>
+                        @if($fondo->fuente)
+                        <p class="font-size-xs mb-0">{{ $fondo->nombre_fondo }}</p>
+                        <p class="font-size-xs mb-0">{{ 'Del: '.$fondo->fecha_inicio.' al '.$fondo->fecha_fin }}</p>
+                        <p class="font-size-xs mb-0">{{ $fondo->info }}</p>
+                        @else
+                        <p class="font-size-xs mb-0">{{ $fondo->info }}</p>
+                        @endif
                     </div>
                 </div>
             </div>

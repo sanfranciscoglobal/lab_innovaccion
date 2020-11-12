@@ -45,12 +45,12 @@ class MaterialdeaprendizajeController extends Controller
         return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.post'),'method'=>'POST']);
 
     }
-
-    public function edit($id)
+ 
+    public function edit(MaterialAprendizaje $material)
     {
-
-        $material = MaterialAprendizaje::find($id);
-
+        
+        //$material = MaterialAprendizaje::find($id);
+    
         return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
     }
 

@@ -12,7 +12,7 @@ class MaterialAprendizaje extends Model
     //
     use SoftDeletes;
     protected $table = 'materialesaprendizaje';
-    protected $fillable = ['nombre_publicacion', 'fecha_publicacion', 'tema_tratado', 'tipo_documento', 'imagen_portada', 'fuente_publicacion', 'autor_publicacion', 'terminos'];
+    protected $fillable = ['nombre_publicacion', 'fecha_publicacion', 'tema_tratado', 'tipo_documento', 'imagen_portada', 'fuente_publicacion', 'autor_publicacion', 'tipo','terminos'];
     public static $paginate = 10;
     
     public function user(){

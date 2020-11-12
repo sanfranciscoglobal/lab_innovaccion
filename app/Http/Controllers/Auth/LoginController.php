@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -44,7 +45,7 @@ class LoginController extends Controller
     {
         $credentials = $this->validate(request(), [
             'email' => 'email|required|string|exists:users,email',
-            'password' => 'required|string'
+            'password' => 'required|string',
         ]);
 
         if(Auth::attempt($credentials))
@@ -53,8 +54,9 @@ class LoginController extends Controller
         }
 
         return back()
-            ->with('error', 'No hemos podido iniciar sesión.')
-            ->withInput(request(['email']));
+        ->with('error', 'No hemos podido iniciar sesión, intenta nuevamente.')
+        ->withInput(request(['email', 'login']));
+        // ->with('error', 'No hemos podido iniciar sesión.')
     }
 
     public function logout(){
@@ -77,5 +79,18 @@ class LoginController extends Controller
         $array_json = json_encode($roles);
         Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
         return redirect('home');
+    }
+
+    public function reset(User $user){
+        if($user->verification_token == $_GET['hash']){
+            $user->verification_token = null;
+            $user->email_verified_at = date('Y-m-d H:i:s');
+            $user->save();
+            Auth::loginUsingId($user->id, true);
+
+            return redirect()->route('password.edit')->with('status', 'Confirma tu nueva contraseña.');
+        } else {
+            return redirect()->route('home')->with('error', 'Token de verificacion no válido.');
+        }
     }
 }

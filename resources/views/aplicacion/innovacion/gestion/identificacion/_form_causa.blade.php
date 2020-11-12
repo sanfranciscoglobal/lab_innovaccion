@@ -1,5 +1,10 @@
+<form method="POST" enctype='multipart/form-data' class="needs-validation" novalidate>
+@csrf
+@method('PUT')
+<input type="hidden" name="tipo_convocatoria_id" value="{{ $tipo }}">
 <div class="panel-heading">
     <h3 class="panel-title">Descripción de las causas</h3>
+    @include('includes.validation-error')
 </div>
 <div class="panel-body">
     <div class="row">
@@ -8,6 +13,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary nextBtn pull-right" type="button">Guargar y continuar</button>
-    <button class="btn btn-link" type="button">Guardar</button>
+    <button class="btn btn-primary pull-right" type="submit" formaction="{{ $url2.'?continue=1' }}">Guargar y continuar</button>
+    <button class="btn btn-link" type="submit" formaction="{{ $url2.'?continue=0' }}">Guardar</button>
 </div>
+</form>

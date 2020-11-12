@@ -20,8 +20,8 @@ class Canton extends Model
     {
         $rs = Canton::orderby('nombre');
         if (self::$search) {
+            //$Capitalized=ucfirst(strtolower(self::$search));
             $rs->where('nombre', 'ilike', '%' . self::$search . '%');
-            //$rs->whereRaw('lower(nombre)) like ?', ['%' . mb_strtolower(self::$search) . '%']);
         }
 
         return $rs->get();

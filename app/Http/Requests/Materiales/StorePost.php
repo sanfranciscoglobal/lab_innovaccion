@@ -26,12 +26,13 @@ class StorePost extends FormRequest
         return [
 
             'nombre_publicacion' => 'string|required',
-            'fecha_publicacion' => 'date|required',
+            'fecha_publicacion' => 'nullable|date|required_if:tipo,"0"',
             'tema_tratado' => 'string|required',
             'tipo_documento' => 'string|required',
-            'imagen_portada' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
+            'tipo' => 'boolean|required',
+            //'imagen_portada' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
             'fuente_publicacion' => 'required|string',
-            'autor_publicacion' => 'string|required',
+            'autor_publicacion' => 'nullable|string|required_if:tipo,"0"',
             'terminos'=>'required|boolean'
         ];
     }
