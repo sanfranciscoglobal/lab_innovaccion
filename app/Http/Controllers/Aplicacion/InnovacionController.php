@@ -39,8 +39,8 @@ class InnovacionController extends Controller
     {
         $problema = new Problema;
         $tipo = $convocatoria->tipoconvocatoria_id;
-        $url = route("app.problemas.store");
-        return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'method' => 'POST']);
+        $url = $url2 = $url3 = route("app.problemas.store");
+        return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'method' => 'POST']);
     }
 
     /**
@@ -52,6 +52,8 @@ class InnovacionController extends Controller
         // $convocatoria = Convocatoria::find($convocatoria_id);
         $tipo = $convocatoria->tipoconvocatoria_id;
         $url = route("app.problemas.update", [$convocatoria->id, $problema->id]);
-        return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'method' => 'PUT']);
+        $url2 = route("app.problemas.update.fase2", [$problema->id]);
+        $url3 = route("app.problemas.update.fase3", [$problema->id]);
+        return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'method' => 'PUT']);
     }
 }
