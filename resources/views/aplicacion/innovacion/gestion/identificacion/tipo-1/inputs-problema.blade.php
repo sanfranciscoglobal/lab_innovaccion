@@ -7,10 +7,19 @@
             $sectoresArray .= '; ';
         }
     }
+
+    $subsectores = $convocatoria->subsectoresName($convocatoria);
+    $subsectoresArray = '';
+    foreach ($subsectores as $subsector) {
+        $subsectoresArray .= $subsector;
+        if ($subsector != $subsectores->last()) {
+            $subsectoresArray .= '; ';
+        }
+    }
 @endphp
 <div class="form-group">
     <div class="controls-container mb-3">
-        <label class="control-label">* Pertenece al sector productivo: {{ $sectoresArray }}</label>
+        <label class="control-label">* Pertenece al sector productivo: {{ $sectoresArray }}.</label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
@@ -31,7 +40,7 @@
         </div>
     </div>
     <div class="controls-container mb-3 has-parent sector {{ old('subsector', $problema->subsector) ? '' : 'd-none' }}">
-        <label class="control-label">* Pertenece al subsector productivo: <span style="color:red; font-weight:bold; font-size: 18px;">{{ $convocatoria->consubsectores }}</span></label>
+        <label class="control-label">* Pertenece al subsector productivo: {{ $subsectoresArray }}.</label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
@@ -48,7 +57,7 @@
             @error('subsector')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
         </div>
         <div class="message-for-no d-none">
-            <p>Esta convocatoria está dirigida al sector <span style="color:red; font-weight:bold; font-size: 18px;">{{ $convocatoria->consubsectores }}</span>.</p>
+            <p>Esta convocatoria está dirigida al sector {{ $subsectoresArray }}.</p>
         </div>
     </div>
     <div class="controls-container mb-3 has-parent subsector {{ old('confidencial', $problema->confidencial) ? '' : 'd-none' }}">
@@ -125,8 +134,23 @@
         @error('problema')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('sector', $problema->sector) ? '' : 'd-none' }}">
-        <label for="pdf">* Carga un archivo complementario (Max. 10Mb)</label>
-        <input type="file" class="dropify form-control" name="archivo" id="pdf" required>
+        @if($method == 'POST')
+        <div class="cs-file-drop-area">
+            <div class="cs-file-drop-icon fe-upload"></div>
+            <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
+            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="archivo" id="pdf" required>
+            <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
+            <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+        </div>
+        @else
+        @php
+            $img = asset('img/logo/logo-icon-footer.png');
+            if(Storage::disk('problemas')->exists($problema->archivo)){
+                $img =  asset('storage/problemas/'.$problema->archivo);
+            }
+            @endphp
+        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" required data-default-file="{{$img}}">
+        @endif
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>

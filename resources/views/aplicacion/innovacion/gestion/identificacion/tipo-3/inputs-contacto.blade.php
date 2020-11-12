@@ -37,7 +37,23 @@
 <div class="col-md-4">
     <div class="controls-container mb-3">
         <label for="pdf">Foto relacionado al problema identificado (Max. 1Mb)</label>
-        <input type="file" class="dropify" name="imagen" id="foto" >
+        @if($method == 'POST')
+        <div class="cs-file-drop-area">
+            <div class="cs-file-drop-icon fe-upload"></div>
+            <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
+            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="imagen" id="foto" required>
+            <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
+            <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+        </div>
+        @else
+        @php
+            $img = asset('img/logo/logo-icon-footer.png');
+            if(Storage::disk('problemas')->exists($problema->imagen)){
+                $img =  asset('storage/problemas/'.$problema->imagen);
+            }
+            @endphp
+        <input type="file" class="dropify" title="Avatar del usuario" name="imagen" id="foto" required data-default-file="{{$img}}">
+        @endif
         @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <h4 class="h3">Redes sociales de los problemas identificados</h4>

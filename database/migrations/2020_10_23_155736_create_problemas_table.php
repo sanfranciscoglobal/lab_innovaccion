@@ -25,12 +25,12 @@ class CreateProblemasTable extends Migration
             $table->string('actividad', 400)->nullable();
             $table->string('problema', 500)->nullable();
             $table->string('archivo', 280)->nullable();
-            $table->string('causas', 280)->nullable();
-            $table->string('efectos', 280)->nullable();
+            $table->json('causas')->nullable();
+            $table->json('efectos')->nullable();
             $table->enum('eslabon', [1, 2, 3, 4, 5])->nullable()->comment('1:proveedores, 2:insumos, 3:proceso productivo, 4:producto terminado, 5:cliente y mercado');
             $table->string('grupo_social', 280)->nullable();
             $table->string('descripcion_grupo')->nullable();
-            $table->string('keyword')->nullable();
+            $table->json('keyword')->nullable();
             $table->string('telefono')->nullable();
             $table->string('web')->nullable();
             $table->string('facebook')->nullable();
@@ -44,6 +44,7 @@ class CreateProblemasTable extends Migration
             $table->float('latitud', 10, 6)->nullable();
             $table->float('longitud', 10, 6)->nullable();
             $table->boolean('terminos')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

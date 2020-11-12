@@ -203,7 +203,7 @@
                         </p>
                         <button class="btn btn-primary btn-block" type="submit">Entrar</button>
                         <p class="font-size-sm pt-3 mb-0">
-                            ¿No tiene una cuenta? <a href='#modal-signup' data-toggle="modal" class='font-weight-medium'>Registrese</a>
+                            ¿No tiene una cuenta? <a href='#modal-signup' data-toggle="modal" class='font-weight-medium'>Regístrese</a>
                         </p>
                     </form>
                 </div>

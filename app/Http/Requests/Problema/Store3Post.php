@@ -32,12 +32,11 @@ class Store3Post extends FormRequest
             'twitter' => ['string', 'nullable'],
             'youtube' => ['string', 'nullable'],
             'imagen' => ['image', 'max:1024', 'mimes:jpg, jpeg, png', 'nullable'],
-            'canton_id' => ['numeric', 'exists:canton,id', 'nullable'],
+            // 'canton_id' => ['numeric', 'exists:canton,id', 'nullable'],
             'ubicacion' => ['string', 'min:10', 'max:280', 'required'],
             'latitud' => ['numeric', 'required'],
             'longitud' => ['numeric', 'required'],
-            'terminos' => ['bool', 'required'],
-            'step' => ['numeric', 'required']
+            'terminos' => ['bool', 'required']
         ];
     }
 }

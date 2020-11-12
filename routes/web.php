@@ -136,7 +136,9 @@ Route::as('app.')
             Route::get('innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnovacion')->name('innovaciongestion');
             Route::get('innovacion/gestion/{convocatoria}/{problema}', 'Aplicacion\InnovacionController@frmGestionInnovacionEdit')->name('problemas.edit');
             Route::post('innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
-            Route::post('innovacion/gestion/update', 'Aplicacion\crudProblemas@update')->name('problemas.update');
+            Route::put('innovacion/gestion/update/{problema}', 'Aplicacion\crudProblemas@update')->name('problemas.update');
+            Route::put('innovacion/gestion/update/fase2/{problema}', 'Aplicacion\crudProblemas@updateFase2')->name('problemas.update.fase2');
+            Route::put('innovacion/gestion/update/fase3/{problema}', 'Aplicacion\crudProblemas@updateFase3')->name('problemas.update.fase3');
 
 
             /** Rutas Escritorio */

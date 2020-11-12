@@ -18,11 +18,14 @@
                 <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
                     <div class="py-2 p-md-3">
                         <!-- Title + Delete link-->
-                        <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
+                        <div class="d-sm-flex align-items-center justify-content-between text-center text-sm-left">
                             <h1 class="h3 mb-2 text-nowrap">Información de Usuario</h1>
                             @if ($method == 'PUT')
                             <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar usuario</button>
                             @endif
+                        </div>
+                        <div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+                            <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios</p>
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -110,7 +113,7 @@
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_nombre">* Nombre de la organización a la que pertenece</label>
-                                    <input class="form-control req @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Organización Ecuador" required>
+                                    <input class="form-control req @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Nombre de la Organización" required>
                                     @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
@@ -137,7 +140,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="org_direccion">* Ubicación de su organización</label>
-                                            <input class="form-control req @error('direccion') is-invalid @enderror" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Busqueda de lugar" required>
+                                            <input class="form-control req @error('direccion') is-invalid @enderror" type="text" id="org_direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Dirección del lugar" required>
                                         </div>
                                         @error('direccion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
@@ -145,6 +148,7 @@
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
                                             <select class="form-control custom-select select2" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
+                                                <option value="" disabled selected>Selecciona uno</option>
                                                 @if ($perfil->canton_id)
                                                 <option value="{{ $perfil->canton_id }}" selected>{{ $perfil->canton->nombre }}</option>
                                                 @endif
@@ -239,7 +243,7 @@
 @section('footer')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 <script>
-    var baseURL = '{{ URL::to('/') }}';
+    var baseURL = "{{ URL::to('/') }}";
     let user_lat = {{ old('latitud', $perfil->latitud) ?? 'null' }};
     let user_lng = {{ old('longitud', $perfil->longitud) ?? 'null' }};
     var input = document.getElementById('org_direccion');

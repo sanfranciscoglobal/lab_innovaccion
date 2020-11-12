@@ -29,8 +29,7 @@ class Store2Post extends FormRequest
             'eslabon' => ['', 'required_if:tipo_convocatoria_id,1', 'nullable'],
             'grupo_social' => ['string', 'required_unless:tipo_convocatoria_id,1'],
             'descripcion_grupo' => ['string', 'min:10', 'max:500', 'required'],
-            'keyword.*' => ['string', 'min:3', 'max:50', 'required'],
-            'step' => ['numeric', 'required']
+            'keyword.*' => ['string', 'min:3', 'max:50', 'required']
         ];
     }
 }

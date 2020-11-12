@@ -33,8 +33,7 @@ class Store1Post extends FormRequest
             'datos' => ['bool', 'required'],
             'actividad' => ['string', 'min:10', 'max:400', 'required_if:tipo_convocatoria_id,1', 'nullable'],
             'problema' => ['string', 'min:10', 'max:500', 'required'],
-            'archivo' => ['file', 'max:10240', 'mimes:pdf', 'nullable'],
-            'step' => ['numeric', 'required']
+            'archivo' => ['file', 'max:10240', 'mimes:pdf', 'nullable']
         ];
     }
 }

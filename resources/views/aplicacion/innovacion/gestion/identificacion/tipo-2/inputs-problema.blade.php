@@ -53,7 +53,23 @@
     </div>
     <div class="controls-container mb-3 has-parent entregadatos {{ old('confidencial', $problema->confidencial) ? '' : 'd-none' }}">
         <label for="archivo">* Carga un archivo complementario (Max. 10Mb)</label>
-        <input type="file" class="dropify" name="archivo" id="archivo" required>
+        @if($method == 'POST')
+        <div class="cs-file-drop-area">
+            <div class="cs-file-drop-icon fe-upload"></div>
+            <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
+            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="archivo" id="pdf" required>
+            <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
+            <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+        </div>
+        @else
+        @php
+            $img = asset('img/logo/logo-icon-footer.png');
+            if(Storage::disk('problemas')->exists($problema->archivo)){
+                $img =  asset('storage/problemas/'.$problema->archivo);
+            }
+            @endphp
+        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" required data-default-file="{{$img}}">
+        @endif
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>
