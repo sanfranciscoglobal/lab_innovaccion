@@ -56,7 +56,7 @@
                             data-ajax--data-type="json"
                             data-ajax--cache="true"
                             data-close-on-select="false"
-                            placeholder="Seleccionar Tipo Institución"
+                            data-placeholder="Seleccionar tipo institución"
                             required="required" multiple>
                         @if($model->iniciativaInstituciones)
                             @foreach($model->iniciativaInstituciones as $institucion)
@@ -81,14 +81,12 @@
                             name="enfoque"
                             id="enfoque"
                             class="form-control"
-                            placeholder="Describa su evento"
+                            placeholder="Ingrese el enfoque"
                             rows="6"
                             oninvalid="setCustomValidity('Por favor complete este campo.')"
                             onchange="try{setCustomValidity('')}catch(e){}"
                             required
-                    >
-                        {{($model->iniciativaActor)?$model->iniciativaActor->enfoque:''}}
-                    </textarea>
+                    >{{($model->iniciativaActor)?$model->iniciativaActor->enfoque:''}}</textarea>
                     <span style="color: gray" id="count-words"></span>
                     <div class="invalid-feedback" id='enfoque-error'></div>
                 </div>
@@ -196,6 +194,6 @@
     </div>
 </div>
 {{--<div class="info-box opc-2 d-none">--}}
-    {{--<h3 class="text-center">Haga clic en siguiente</h3>--}}
-    {{--<button class="btn btn-primary nextBtn pull-right" id="submit-actor-id" type="button">Siguiente</button>--}}
+{{--<h3 class="text-center">Haga clic en siguiente</h3>--}}
+{{--<button class="btn btn-primary nextBtn pull-right" id="submit-actor-id" type="button">Siguiente</button>--}}
 {{--</div>--}}

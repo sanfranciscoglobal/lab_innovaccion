@@ -59,6 +59,7 @@
                                 data-ajax--data-type="json"
                                 data-ajax--cache="true"
                                 data-close-on-select="false"
+                                data-placeholder="Seleccionar población objetivo"
                                 required="required" multiple>
                             @if($model->iniciativaPoblaciones)
                                 @foreach($model->iniciativaPoblaciones as $poblacion)
@@ -80,6 +81,7 @@
                                 data-ajax--data-type="json"
                                 data-ajax--cache="true"
                                 data-close-on-select="false"
+                                data-placeholder="Seleccionar ODS"
                                 required="required" multiple>
                             @if($model->iniciativaOds)
                                 @foreach($model->iniciativaOds as $ods)
@@ -95,7 +97,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label class="control-label">* Componente Innovador</label>
-                        <input type="text" required="required" class="form-control" placeholder=""
+                        <input type="text" required="required" class="form-control" placeholder="Componente Innovador"
                                name="componente_innovador"
                                value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->componente_innovador:''}}"/>
                     </div>
@@ -111,12 +113,12 @@
                         <textarea
                                 oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion');"
                                 class="form-control"
+                                placeholder="Describa la Iniciativa"
                                 name="descripcion_iniciativa"
                                 id="descripcion_iniciativa"
                                 oninvalid="setCustomValidity('Por favor complete este campo.')"
-                                onchange="try{setCustomValidity('')}catch(e){}" rows="20" required="required">
-                            {{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}
-                        </textarea>
+                                onchange="try{setCustomValidity('')}catch(e){}" rows="20" required="required"
+                        >{{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}</textarea>
                         <span style="color: gray" id="count-words"></span>
                         <div class="invalid-feedback" id='descripcion_iniciativa_enfoque-error'></div>
                     </div>
