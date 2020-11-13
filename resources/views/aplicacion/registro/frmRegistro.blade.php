@@ -92,10 +92,9 @@
                                     <div class="cs-file-drop-area">
                                         <div class="cs-file-drop-icon fe-upload"></div>
                                         <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario">
+                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario" accept="image/gif, image/jpeg, image/png">
                                         <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                         <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
-                                        @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     @else
                                     @php
@@ -105,9 +104,10 @@
                                                 $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
                                             }
                                         }
-                                    @endphp
-                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}">
+                                        @endphp
+                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}" accept="image/gif, image/jpeg, image/png">
                                     @endif
+                                    @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">

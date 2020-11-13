@@ -122,7 +122,6 @@
                                                     <input type="file" class="cs-file-drop-input" id="org_logo" accept="image/gif, image/jpeg, image/png" name="imagen" title="Imagen del fondo" required>
                                                     <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                                     <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
-                                                    @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                 </div>    
                                                 @else
                                                 @php
@@ -131,9 +130,10 @@
                                                     } else {
                                                         $img = '';
                                                     }
-                                                @endphp
-                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}">
+                                                    @endphp
+                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png">
                                                 @endif
+                                                @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
                                     </div>
