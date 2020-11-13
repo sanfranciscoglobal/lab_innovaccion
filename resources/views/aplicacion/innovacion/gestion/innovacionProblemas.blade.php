@@ -95,9 +95,9 @@
 
         @foreach ($problemas as $problema)
         @php
-            $causas = json_decode($problema->causas, true);
-            $efectos = json_decode($problema->efectos, true);
-            $keyword = json_decode($problema->keyword, true);
+            $causas = json_decode($problema->causas, true) ?? null;
+            $efectos = json_decode($problema->efectos, true) ?? null;
+            $keyword = json_decode($problema->keyword, true) ?? null;
         @endphp
         <div class="col-12 col-md-6 p-2">
           <div class="card text-left">
@@ -111,17 +111,17 @@
               <div class="mb-3">
                 <h4 class="card-title">Causas del Problema</h4>
                 <ul class="text-muted">
-                  <li>{{ $causas[1] }}</li>
-                  <li>{{ $causas[2] }}</li>
-                  <li>{{ $causas[3] }}</li>
+                  <li>{{ $causas[1] ?? '' }}</li>
+                  <li>{{ $causas[2] ?? '' }}</li>
+                  <li>{{ $causas[3] ?? '' }}</li>
                 </ul>
               </div>
               <div class="mb-3">
                 <h4 class="card-title">Efectos del Problema</h4>
                 <ul class="text-muted">
-                  <li>{{ $efectos[1] }}</li>
-                  <li>{{ $efectos[2] }}</li>
-                  <li>{{ $efectos[3] }}</li>
+                  <li>{{ $efectos[1] ?? '' }}</li>
+                  <li>{{ $efectos[2] ?? '' }}</li>
+                  <li>{{ $efectos[3] ?? '' }}</li>
                 </ul>
               </div>
               <div class="mb-3">
@@ -131,9 +131,9 @@
               <div class="mb-3">
                 <h4 class="card-title">Palabras o conceptos clave</h4>
                 <ul class="text-muted">
-                  <li>{{ $keyword[1] }}</li>
-                  <li>{{ $keyword[2] }}</li>
-                  <li>{{ $keyword[3] }}</li>
+                  <li>{{ $keyword[1] ?? '' }}</li>
+                  <li>{{ $keyword[2] ?? '' }}</li>
+                  <li>{{ $keyword[3] ?? '' }}</li>
                 </ul>
               </div>
               <div class="text-center">
