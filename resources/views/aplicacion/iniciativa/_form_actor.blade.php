@@ -73,18 +73,18 @@
                 <div class="form-group">
                     <label class="control-label">
                         * Enfoque: ¿Qué trabajo hace la organización?
-                        <span class="text-primary">(max. 100 palabras) (min. 50 palabras)</span>
+                        <span class="text-primary">(max. 50 palabras)</span>
                     </label>
 
                     <textarea
-                            oninput="window.countWords('enfoque','enfoque-error','submit-actor-id');"
+                            oninput="window.countWords('enfoque','enfoque-error','submit-actor-id',0,50);"
                             name="enfoque"
                             id="enfoque"
                             class="form-control"
                             placeholder="Ingrese el enfoque"
                             rows="6"
-                            oninvalid="setCustomValidity('Por favor complete este campo.')"
-                            onchange="try{setCustomValidity('')}catch(e){}"
+                            {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
+                            {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
                             required
                     >{{($model->iniciativaActor)?$model->iniciativaActor->enfoque:''}}</textarea>
                     <span style="color: gray" id="count-words"></span>

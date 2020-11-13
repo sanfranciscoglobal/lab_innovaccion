@@ -164,14 +164,12 @@ $('.select2').each(function (e, element) {
 
 
 window.countWords = function countWords(element_id, element_error_id, submit_id, min, maxword) {
-    var maxlength = 300;
-
     if (maxword == undefined) {
         maxword = 100;
     }
 
     if (min == undefined) {
-        min = 49;
+        min = 0;
     }
 
     let str = document.getElementById(element_id).value;

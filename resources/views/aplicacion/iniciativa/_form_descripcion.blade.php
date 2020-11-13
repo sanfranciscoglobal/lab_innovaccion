@@ -108,16 +108,18 @@
                     <div class="form-group">
                         <label class="control-label">
                             * Descripción de la Iniciativa
-                            <span class="text-primary">(max. 100 palabras) (min. 50 palabras)</span>
+                            <span class="text-primary">(max. 50 palabras)</span>
                         </label>
                         <textarea
-                                oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion');"
+                                oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion',0,50);"
                                 class="form-control"
                                 placeholder="Describa la Iniciativa"
                                 name="descripcion_iniciativa"
                                 id="descripcion_iniciativa"
-                                oninvalid="setCustomValidity('Por favor complete este campo.')"
-                                onchange="try{setCustomValidity('')}catch(e){}" rows="20" required="required"
+                                {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
+                                {{--onchange="try{setCustomValidity('')}catch(e){}" --}}
+                                rows="20"
+                                required="required"
                         >{{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}</textarea>
                         <span style="color: gray" id="count-words"></span>
                         <div class="invalid-feedback" id='descripcion_iniciativa_enfoque-error'></div>
