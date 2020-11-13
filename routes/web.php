@@ -146,6 +146,9 @@ Route::as('app.')
             Route::put('innovacion/gestion/update/fase3/{problema}', 'Aplicacion\crudProblemas@updateFase3')->name('problemas.update.fase3');
             Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
+            //SOLUCION
+            Route::get('innovacion/solucion/ver', 'Aplicacion\SolucionController@verSoluciones')->name('innovacionsolucion.ver');
+
 
             /** Rutas Escritorio */
             Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');
