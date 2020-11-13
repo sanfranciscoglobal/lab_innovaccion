@@ -31,4 +31,12 @@ class OdsCategoria extends Model
     {
         return self::builderOdsCategoria()->get() ?? [];
     }
+
+    /**
+     * @return array|\Illuminate\Support\Collection
+     */
+    public static function obtenerOdsCategoriaPluckNameIdArray()
+    {
+        return self::builderOdsCategoria()->pluck('nombre','id')->all() ?? [];
+    }
 }

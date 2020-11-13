@@ -215,6 +215,7 @@
                     encontro = false;
 
                 $(".form-group").removeClass("has-error");
+                console.log(curInputs);
                 for (var i = 0; i < curInputs.length; i++) {
                     if (!curInputs[i].validity.valid) {
                         isValid = false;
