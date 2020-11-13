@@ -33,7 +33,7 @@ class Store3Post extends FormRequest
             'youtube' => ['string', 'nullable'],
             'imagen' => ['image', 'max:1024', 'mimes:jpg, jpeg, png', 'nullable'],
             // 'canton_id' => ['numeric', 'exists:canton,id', 'nullable'],
-            'ubicacion' => ['string', 'min:10', 'max:280', 'required'],
+            'direccion' => ['string', 'min:10', 'max:280', 'required'],
             'latitud' => ['numeric', 'required'],
             'longitud' => ['numeric', 'required'],
             'terminos' => ['bool', 'required']

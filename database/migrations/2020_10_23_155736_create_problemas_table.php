@@ -29,7 +29,7 @@ class CreateProblemasTable extends Migration
             $table->json('efectos')->nullable();
             $table->enum('eslabon', [1, 2, 3, 4, 5])->nullable()->comment('1:proveedores, 2:insumos, 3:proceso productivo, 4:producto terminado, 5:cliente y mercado');
             $table->string('grupo_social', 280)->nullable();
-            $table->string('descripcion_grupo')->nullable();
+            $table->string('descripcion_grupo', 500)->nullable();
             $table->json('keyword')->nullable();
             $table->string('telefono')->nullable();
             $table->string('web')->nullable();

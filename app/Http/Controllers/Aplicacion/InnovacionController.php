@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Aplicacion;
 use App\Helpers\Archivos;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use illuminate\Support\Facades\Auth;
 use App\Http\Requests\Iniciativa\StorePost;
 //use App\Http\Requests\Contacto\StorePost;
 //use App\Models\Contacto;
@@ -37,6 +38,7 @@ class InnovacionController extends Controller
      */
     public function frmGestionInnovacion(Convocatoria $convocatoria)
     {
+        session()->forget('step');
         $problema = new Problema;
         $tipo = $convocatoria->tipoconvocatoria_id;
         $url = $url2 = $url3 = route("app.problemas.store");
@@ -49,7 +51,11 @@ class InnovacionController extends Controller
      */
     public function frmGestionInnovacionEdit(Convocatoria $convocatoria, Problema $problema)
     {
-       
+        // $convocatoria = Convocatoria::find($convocatoria_id);
+        if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
+            return back()->with('error', 'No ingresaste este fondo.');
+        }
+
         $tipo = $convocatoria->tipoconvocatoria_id;
         $url = route("app.problemas.update", [$convocatoria->id, $problema->id]);
         $url2 = route("app.problemas.update.fase2", [$problema->id]);
@@ -61,6 +67,16 @@ class InnovacionController extends Controller
     {
         $convocatorias= Convocatoria::all();
         return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+    }
+
+    /**
+     * Muestra todos los problemas creados para las convocatorias (fase B componente H)
+     * @return \Illuminate\Contracts\Support\Renderable 
+     */
+    public function verProblemas(Convocatoria $convocatoria)
+    {
+        $problemas = Problema::where('convocatoria_id', $convocatoria->id)->get();
+        return view('aplicacion.innovacion.gestion.innovacionProblemas', compact('convocatoria', 'problemas'));
     }
 
 

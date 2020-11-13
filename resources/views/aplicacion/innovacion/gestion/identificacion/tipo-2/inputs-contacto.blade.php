@@ -2,7 +2,7 @@
     <!-- Phone Input -->
     <div class="form-group">
         <label for="tel-input">* Teléfono de contacto</label>
-        <input class="form-control" type="tel" id="tel-input" name="telefono" value="{{ old('telefono', $problema->telefono) }}">
+        <input class="form-control" type="tel" id="tel-input" name="telefono" value="{{ old('telefono', $problema->telefono) }}" required>
         @error('telefono')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <!-- URL Input -->
@@ -18,18 +18,18 @@
         @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="form-group">
-        <label class="control-label">Ubicación</label>
+        <label class="control-label">* Ubicación</label>
         <input maxlength="200" type="text" required="required" class="form-control"
-               placeholder="Enter Company Address" id="evento_direccion" name="direccion"
+               placeholder="Enter Company Address" id="direccion" name="direccion"
                value="{{ old('direccion', $problema->direccion) }}"/>
         @error('direccion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="row mb-4">
         <div class="col">
             <div id="map" style="width:100%; height: 350px;"></div>
-            <input type="hidden" id="lat" name="latitud" value="{{ old('latitud', $problema->latitud) }}">
+            <input type="hidden" id="latitud" name="latitud" value="{{ old('latitud', $problema->latitud) }}" required>
             @error('latitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-            <input type="hidden" id="long" name="longitud" value="{{ old('latitud', $problema->latitud) }}">
+            <input type="hidden" id="longitud" name="longitud" value="{{ old('latitud', $problema->latitud) }}" required>
             @error('longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
         </div>
     </div>
@@ -41,7 +41,7 @@
         <div class="cs-file-drop-area">
             <div class="cs-file-drop-icon fe-upload"></div>
             <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="imagen" id="foto" required>
+            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="imagen" id="foto">
             <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
             <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
         </div>
@@ -52,7 +52,7 @@
                 $img =  asset('storage/problemas/'.$problema->imagen);
             }
             @endphp
-        <input type="file" class="dropify" title="Avatar del usuario" name="imagen" id="foto" required data-default-file="{{$img}}">
+        <input type="file" class="dropify" title="Avatar del usuario" name="imagen" id="foto" data-default-file="{{$img}}">
         @endif
         @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
