@@ -10,6 +10,7 @@
                     data-ajax--data-type="json"
                     data-ajax--cache="true"
                     style="width:100%;"
+                    data-placeholder="Seleccionar ciudad"
                     multiple>
                 @foreach($cantones as $canton)
                     <option value="{{$canton->id}}" selected>{{$canton->nombre}}</option>
@@ -24,6 +25,7 @@
                     data-ajax--data-type="json"
                     data-ajax--cache="true"
                     data-close-on-select="false"
+                    data-placeholder="Seleccionar tipo institución"
                     style="width:100%;"
                     multiple>
                 @foreach($tipoInstituciones as $tipoInstitucion)
@@ -42,6 +44,7 @@
                     data-ajax--cache="true"
                     data-close-on-select="false"
                     style="width:100%;"
+                    data-placeholder="Seleccionar ODS"
                     multiple>
                 @foreach($odsCategorias as $odsCategoria)
                     <option value="{{$odsCategoria->id}}" selected>
@@ -58,6 +61,7 @@
                     data-ajax--data-type="json"
                     data-ajax--cache="true"
                     data-close-on-select="false"
+                    data-placeholder="Seleccionar población objetivo"
                     multiple>
                 @foreach($tipoPoblaciones as $tipoPoblacion)
                     <option value="{{$tipoPoblacion->id}}" selected>
