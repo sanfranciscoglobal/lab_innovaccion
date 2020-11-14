@@ -294,6 +294,144 @@
             </div>
         </div>
     </section>
+    <div class="position-relative bg-purple-gradient" style="height: 420px;">
+        <div class="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+                <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z">
+                </path>
+            </svg>
+        </div>
+    </div>
+
+    <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
+        <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">PROBLEMAS</h2>
+        <div class="cs-carousel">
+            <div class="cs-carousel-inner"
+                data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 16},&quot;850&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 16}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 23}}}">
+                <!-- Article-->
+                <div class="pb-2">
+                    <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 centrado">
+                                <div class="row justify-content-md-center">
+                                    <h1 class="text-center font-weight-bold"><?php echo date('d'); ?></h1>    
+                                </div>
+                                <div class="row justify-content-md-center">
+                                    <p class="text-center font-weight-bold font-size-lg"><?php echo date('M'); ?></p>
+                                </div>
+                                <div class="row justify-content-md-center ">
+                                    
+                                        <button type="button" class="btn btn-outline-secondary btn-sm btn-icon"><i class="fe-twitter"></i></button>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></button>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
+                                <p class="card-subtitle"><small class="text-muted">Convocatoria</small></p>
+                                <h5 class="card-title"><a href="#">Sector Productivo</a> </h5>
+                                <p class="card-text font-size-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam accusantium voluptatem pariatur
+                                    minima earum sequi, autem, alias, dolorum totam excepturi mollitia eveniet ut corrupti
+                                    exercitationem explicabo incidunt debitis possimus sapiente.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- Article-->
+                <div class="pb-2">
+                    <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 centrado">
+                                <div class="row justify-content-md-center">
+                                    <h1 class="text-center font-weight-bold"><?php echo date('d'); ?></h1>    
+                                </div>
+                                <div class="row justify-content-md-center">
+                                    <p class="text-center font-weight-bold font-size-lg"><?php echo date('M'); ?></p>
+                                </div>
+                                <div class="row justify-content-md-center ">
+                                    
+                                        <button type="button" class="btn btn-outline-secondary btn-sm btn-icon"><i class="fe-twitter"></i></button>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></button>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
+                                <p class="card-subtitle"><small class="text-muted">Convocatoria</small></p>
+                                <h5 class="card-title"><a href="#">Sector Productivo</a> </h5>
+                                <p class="card-text font-size-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam accusantium voluptatem pariatur
+                                    minima earum sequi, autem, alias, dolorum totam excepturi mollitia eveniet ut corrupti
+                                    exercitationem explicabo incidunt debitis possimus sapiente.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- Article-->
+                <div class="pb-2">
+                    <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 centrado">
+                                <div class="row justify-content-md-center">
+                                    <h1 class="text-center font-weight-bold"><?php echo date('d'); ?></h1>    
+                                </div>
+                                <div class="row justify-content-md-center">
+                                    <p class="text-center font-weight-bold font-size-lg"><?php echo date('M'); ?></p>
+                                </div>
+                                <div class="row justify-content-md-center ">
+                                    
+                                        <button type="button" class="btn btn-outline-secondary btn-sm btn-icon"><i class="fe-twitter"></i></button>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></button>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
+                                <p class="card-subtitle"><small class="text-muted">Convocatoria</small></p>
+                                <h5 class="card-title"><a href="#">Sector Productivo</a> </h5>
+                                <p class="card-text font-size-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam accusantium voluptatem pariatur
+                                    minima earum sequi, autem, alias, dolorum totam excepturi mollitia eveniet ut corrupti
+                                    exercitationem explicabo incidunt debitis possimus sapiente.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- Article-->
+                <div class="pb-2">
+                    <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
+                        <div class="card-body pt-5 px-4 px-xl-5">
+                            <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
+                            <h3 class="h4 nav-heading mb-4">
+                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                            </h3>
+                        </div>
+                        <div class="px-4 px-xl-5 pt-2">
+                            <a class="media meta-link font-size-sm align-items-center" href="#">
+                                <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile4.jpg') }}"
+                                    alt="Sanomi Smith" />
+                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Empresa
+                                        1</span></div>
+                            </a>
+                            <div class="mt-3 text-right text-nowrap">
+                                <a class="meta-link font-size-xs text-tomate" href="#">
+                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
     <aside>
         <div class="container">
             <div class="row">
