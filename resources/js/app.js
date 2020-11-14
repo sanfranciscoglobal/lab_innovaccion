@@ -11,15 +11,16 @@ require('bs-custom-file-input/dist/bs-custom-file-input');
 require('simplebar/dist/simplebar');
 require('lightgallery.js');
 
-rangePlugin = require('flatpickr/dist/plugins/rangePlugin');
 const flatpickr = require('flatpickr/dist/flatpickr.min.js');
+rangePlugin = require('flatpickr/dist/plugins/rangePlugin');
 const flatpickrEs = require('flatpickr/dist/l10n/es.js').default.es;
 flatpickr.localize(flatpickrEs);
+flatpickr.l10ns.default.firstDayOfWeek = 0;
 
-imagesLoaded =  require('imagesloaded');
+imagesLoaded = require('imagesloaded');
 Shuffle = require('shufflejs/dist/shuffle.min');
-Parallax  = require('parallax-js/dist/parallax');
-SmoothScroll  = require('smooth-scroll/dist/smooth-scroll');
+Parallax = require('parallax-js/dist/parallax');
+SmoothScroll = require('smooth-scroll/dist/smooth-scroll');
 
 require('../../resources/js/theme.min.js');
 

@@ -4,7 +4,6 @@
 <input type="hidden" name="tipo_convocatoria_id" value="{{ $tipo }}">
 <div class="panel-heading">
     <h3 class="panel-title">Información de contacto</h3>
-    @include('includes.validation-error')
 </div>
 <div class="panel-body">
     <div class="row">
