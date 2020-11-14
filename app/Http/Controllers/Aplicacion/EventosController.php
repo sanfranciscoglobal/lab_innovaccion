@@ -23,6 +23,10 @@ class EventosController extends Controller
     public function __construct(){
         $this->middleware('acceso-app:user,admin,superadmin')->except('verEventos','searchEventos');
     }
+    public function verEventodetalle(Evento $evento)
+    {
+        return view('aplicacion.eventos.eventodesplegado', compact('evento'));
+    }
     public function verEventos(Request $request)
     {
         $autentificacion=false;
