@@ -1,5 +1,5 @@
-<footer class="cs-footer bg-dark bg-purple-gradient pt-5 pt-md-6">
-    <div class="container pt-3 pt-md-0">
+<footer class="cs-footer bg-dark bg-purple-gradient pt-5" style="text-align: center;">
+    <div class="">
         <div class="row">
             <div class="col-md-4 mt-n2 pb-3 pb-md-0">
                 <a class="d-block text-white mx-auto" href="index.html" style="width: 153px; color: white">
@@ -10,9 +10,9 @@
                 </a>
                 <p class="font-size-sm text-light opacity-60 pb-2 pb-sm-3 mt-3">¡Conectate con otros actores, comparte tus retos e innova de manera colectiva!</p>
             </div>
-            <div class="col-md-2 col-sm-4 ml-auto pb-1">
+            <div class="col-md-3 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
-                    <h4 class="cs-widget-title">Síguenos</h4>
+                    <h4 class="cs-widget-title" style="text-align: center;">Síguenos</h4>
                     <a class="social-btn sb-outline sb-facebook sb-light sb-lg mr-2 mb-2" href="#">
                         <i class="fe-facebook"></i>
                     </a>
@@ -22,18 +22,23 @@
                     <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="#">
                         <i class="fe-instagram"></i>
                     </a>
+                    <a class="social-btn sb-outline sb-youtube sb-light sb-lg mr-2 mb-2" href="#">
+                        <i class="fe-youtube"></i>
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-2 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title">Contáctanos</h4>
                     <a class="text-white" href="mailto:hola@thinkia.org">hola@thinkia.org</a>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4 ml-auto pb-1">
+            <div class="col-md-2 col-sm-4 ml-auto pb-1">
+            <img src="{{asset('img/onu.svg')}}" style="height:90px!important" width="80" alt="Creative Commons Attribution 3.0 International">
+                <img src="{{asset('img/sanfrancisco.svg')}}" style="height:90px!important" width="100" height="100px" alt="Creative Commons Attribution 3.0 International">
+            </div>
+            <div class="col-md-3 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
-                    <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución 4.0 internacional.</p>
-                    <img src="{{asset('img/cc-badge.png')}}" width="100" alt="Creative Commons Attribution 3.0 International">
+                                    <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución 4.0 internacional.</p>
+                    <img src="{{asset('img/cc-badge.png')}}" width="80" alt="Creative Commons Attribution 3.0 International">
                 </div>
             </div>
             <?php /*

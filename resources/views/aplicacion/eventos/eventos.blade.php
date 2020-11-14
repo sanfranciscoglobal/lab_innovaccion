@@ -94,10 +94,10 @@
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <div class="card card-hover border-0 box-shadow mx-auto" style="max-width: 400px;">
                         <img class="card-img-top" style="height: 58ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
-                        <div class="card-body">
-                            <h3 class="h5 mb-0 text-center"  >{{$evento->nombre}}</h3>
+                        <div class="card-body text-center">
+                            <a class=" meta-link font-size-lg font-weight-bold align-items-center" href="{{route('eventodetalle',$evento->id)}}">{{$evento->nombre}}</a>
                         </div>
-                        <div class="card-hover-info px-4 py-4">
+                        {{-- <div class="card-hover-info px-4 py-4">
                             <h3 class="h5 text-center">{{$evento->nombre}}</h3>
                             <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
                             <p class="text-justify">{{$evento->descripcion}}</p>
@@ -108,8 +108,7 @@
                                 <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Presencial</span>
                                 <p class="text-justify">{{$evento->cantonid->nombre}}</p>
                                 <p class="text-justify">{{$evento->ubicacion}}</p>
-                                {{-- <p class="text-justify">{{$evento->org_lat}}</p>
-                                <p class="text-justify">{{$evento->org_long}}</p> --}}
+                           
                                 <div class="event-map w-100 mt-1"  style="min-height: 250px; background: red;"></div>
                             @else
                                
@@ -120,7 +119,7 @@
                             
                            
                                 
-                        </div>
+                        </div> --}}
                         
                     </div>
                 </div>

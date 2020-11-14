@@ -1,22 +1,28 @@
-<header class="cs-header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky d-block p-0 secondary-nav" data-scroll-header>
+<header class="cs-header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky d-block p-0 secondary-nav"
+        data-scroll-header>
     <div class="d-block w-100 secondary-nav">
         <div class="container">
             <div class="row w-100">
                 <div class="col-12 d-flex justify-content-end align-items-center">
-                    <a href="mailto:info@thinkia.org"><span class=""><span class="fe-mail"></span>&nbsp;Contáctanos</span></a>
+                    <a href="mailto:info@thinkia.org"><span class=""><span
+                                    class="fe-mail"></span>&nbsp;Contáctanos</span></a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
-                        <li class="list-inline-item m-0"><a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="#">
-                            <i class="fe-facebook"></i>
-                        </a></li>
-                        <li class="list-inline-item m-0"><a class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2 mr-md-3" href="#">
-                            <i class="fe-twitter"></i>
-                        </a></li>
-                        <li class="list-inline-item m-0"><a class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="#">
-                            <i class="fe-instagram"></i>
-                        </a></li>
-                        <li class="list-inline-item m-0"><a class="social-btn sb-outline sb-youtube sb-dark sb-sm" href="#">
-                            <i class="fe-youtube"></i>
-                        </a></li>
+                        <li class="list-inline-item m-0"><a
+                                    class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="#">
+                                <i class="fe-facebook"></i>
+                            </a></li>
+                        <li class="list-inline-item m-0"><a
+                                    class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2 mr-md-3" href="#">
+                                <i class="fe-twitter"></i>
+                            </a></li>
+                        <li class="list-inline-item m-0"><a
+                                    class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="#">
+                                <i class="fe-instagram"></i>
+                            </a></li>
+                        <li class="list-inline-item m-0"><a class="social-btn sb-outline sb-youtube sb-dark sb-sm"
+                                                            href="#">
+                                <i class="fe-youtube"></i>
+                            </a></li>
                     </ul>
                 </div>
             </div>
@@ -27,11 +33,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand order-lg-1 ml-lg-0 pr-lg-2 mr-lg-4 justify-content-start" href="{{route('home')}}">
-            <img class="navbar-floating-logo d-none d-lg-block my-2" width="80" src="{{asset('img/logo/thinkia_color.svg')}}"
+            <img class="navbar-floating-logo d-none d-lg-block my-2" width="80"
+                 src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
             <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
-            <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_color.svg')}}" alt="Thinkia - Laboratorio de innovación"/>
+            <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_color.svg')}}"
+                 alt="Thinkia - Laboratorio de innovación"/>
         </a>
         <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
             <a class="nav-link-style font-size-sm text-nowrap " href="#search" data-toggle="modal">
@@ -44,36 +52,38 @@
             </a>
             */ ?>
             @auth
-            @php
-                $avatar = asset('img/logo/favicon/android-chrome-192x192.png');
-                if(isset(Auth::user()->perfil_id)){
-                    if(isset(Auth::user()->perfil->avatar)){
-                        $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
+                @php
+                    $avatar = asset('img/logo/favicon/android-chrome-192x192.png');
+                    if(isset(Auth::user()->perfil_id)){
+                        if(isset(Auth::user()->perfil->avatar)){
+                            $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
+                        }
                     }
-                }
-            @endphp
-            <div class="navbar-tool dropdown d-none d-lg-inline-flex">
-                <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar" style="max-width: 50px; max-height:50px">
-                <a class="navbar-tool-label dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="avatarMenu">
-                    <small class="d-none d-lg-block">Hola!</small>
-                    <span class="d-none d-lg-inline">{{ Auth::user()->name }}</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="avatarMenu">
-                    <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
-                    <a href="{{ route('app.registro') }}" class="dropdown-item">Mi Perfil</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
+                @endphp
+                <div class="navbar-tool dropdown d-none d-lg-inline-flex">
+                    <img src="{{ $avatar }}" class="navbar-tool-icon-box-img" alt="user-avatar"
+                         style="max-width: 50px; max-height:50px">
+                    <a class="navbar-tool-label dropdown-toggle" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" id="avatarMenu">
+                        <small class="d-none d-lg-block">Hola!</small>
+                        <span class="d-none d-lg-inline">{{ Auth::user()->name }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="avatarMenu">
+                        <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
+                        <a href="{{ route('app.registro') }}" class="dropdown-item">Mi Perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
+                    </div>
                 </div>
-            </div>
             @else
-            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
-               href="#modal-signin" data-toggle="modal">Iniciar Sesión</a>
-            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
-               href="#modal-signup" data-toggle="modal">Crear cuenta</a>
-            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
-               href="#modal-signin" data-toggle="modal">Iniciar Sesión</a>
-            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
-               href="#modal-signup" data-toggle="modal">Crear cuenta</a>
+                <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
+                   href="#modal-signin" data-toggle="modal">Iniciar Sesión</a>
+                <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn"
+                   href="#modal-signup" data-toggle="modal">Crear cuenta</a>
+                <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
+                   href="#modal-signin" data-toggle="modal">Iniciar Sesión</a>
+                <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn"
+                   href="#modal-signup" data-toggle="modal">Crear cuenta</a>
             @endif
         </div>
         <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
@@ -88,7 +98,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Gestión de Innovación</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/identificacion-de-problemas/">Innovación abierta</a></li>
+                            <li><a class="dropdown-item" href="/identificacion-de-problemas/">Innovación abierta</a>
+                            </li>
                             <li><a class="dropdown-item" href="/soluciones-innovadoras/">Innovación pública</a></li>
                             <li><a class="dropdown-item" href="/soluciones-innovadoras/">Innovación social</a></li>
                         </ul>
@@ -96,7 +107,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('web.iniciativas.index')}}">Mapa de iniciativas</a></li>
+                            <li><a class="dropdown-item" href="{{route('web.iniciativas.index')}}">Mapa de
+                                    iniciativas</a></li>
                             <li><a class="dropdown-item" href="/analitica/">Analítica</a></li>
                         </ul>
                     </li>
@@ -108,7 +120,8 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item" href="{{route('eventos')}}">Eventos</a></li>
-                            <li><a class="dropdown-item" href="{{route('material')}}">Publicaciones y herramientas</a></li>
+                            <li><a class="dropdown-item" href="{{route('material')}}">Publicaciones y herramientas</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -117,24 +130,33 @@
                             <li><a class="dropdown-item" href="{{ route('acercade') }}">Acerca de</a></li>
                             <li><a class="dropdown-item" href="{{ route('elequipo') }}">El equipo</a></li>
                             <li><a class="dropdown-item" href="{{ route('valores') }}">Valores</a></li>
-                            <li><a class="dropdown-item" href="{{ route('terminoscondiciones') }}">Términos y condiciones</a></li>
+                            <li><a class="dropdown-item" href="{{ route('terminoscondiciones') }}">Términos y
+                                    condiciones</a></li>
                             <li><a class="dropdown-item" href="{{ route('faq') }}">Preguntas frecuentes</a></li>
                         </ul>
                     </li>
+
+                    @if(\App\Helpers\Helper::validarUsuarioAdmin())
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{route('admin.escritorio')}}">Administrar</a>
+                        </li>
+                    @endif
+
                     <li class="nav-item dropdown d-lg-none">
-                        @auth   
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{auth()->user()->name}}</a>
-                        <ul class="dropdown-menu">
-                            <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
-                            <a href="{{ route('app.registro') }}" class="dropdown-item">Mi Perfil</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
-                        </ul>
+                        @auth
+                            <a class="nav-link dropdown-toggle" href="#"
+                               data-toggle="dropdown">{{auth()->user()->name}}</a>
+                            <ul class="dropdown-menu">
+                                <a href="{{ route('app.escritorio') }}" class="dropdown-item">Escritorio</a>
+                                <a href="{{ route('app.registro') }}" class="dropdown-item">Mi Perfil</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
+                            </ul>
                         @else
-                        <div class="d-flex justify-content-between">
-                            <a class="btn btn-primary" href="#modal-signin" data-toggle="modal">Iniciar Sesión</a>
-                            <a class="btn btn-primary" href="#modal-signup" data-toggle="modal">Crear cuenta</a>
-                        </div>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-primary" href="#modal-signin" data-toggle="modal">Iniciar Sesión</a>
+                                <a class="btn btn-primary" href="#modal-signup" data-toggle="modal">Crear cuenta</a>
+                            </div>
                         @endauth
                     </li>
                 </ul>

@@ -1,6 +1,10 @@
 <div class="panel-heading">
     <h3 class="panel-title">Información de la Iniciativa de Innovación</h3>
 </div>
+<div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+    <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son
+        obligatorios</p>
+</div>
 <div class="panel-body">
     <div class="row">
         <div class="col-12">
@@ -16,8 +20,9 @@
         <div class="col-4">
             <div class="form-group">
                 <label class="control-label">* Año de inicio</label>
-                <input type="number" min="1900" max="<?php echo date('Y') ?>" required="required" class="form-control"
-                       name="anio" value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->anio:''}}"/>
+                <input type="number" min="1900" max="{{date('Y')}}" required="required" class="form-control"
+                       name="anio"
+                       value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->anio:date('Y')}}"/>
             </div>
         </div>
         <div class="col-8">
@@ -54,6 +59,7 @@
                                 data-ajax--data-type="json"
                                 data-ajax--cache="true"
                                 data-close-on-select="false"
+                                data-placeholder="Seleccionar población objetivo"
                                 required="required" multiple>
                             @if($model->iniciativaPoblaciones)
                                 @foreach($model->iniciativaPoblaciones as $poblacion)
@@ -75,6 +81,7 @@
                                 data-ajax--data-type="json"
                                 data-ajax--cache="true"
                                 data-close-on-select="false"
+                                data-placeholder="Seleccionar ODS"
                                 required="required" multiple>
                             @if($model->iniciativaOds)
                                 @foreach($model->iniciativaOds as $ods)
@@ -90,7 +97,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label class="control-label">* Componente Innovador</label>
-                        <input type="text" required="required" class="form-control" placeholder=""
+                        <input type="text" required="required" class="form-control" placeholder="Componente Innovador"
                                name="componente_innovador"
                                value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->componente_innovador:''}}"/>
                     </div>
@@ -101,17 +108,19 @@
                     <div class="form-group">
                         <label class="control-label">
                             * Descripción de la Iniciativa
-                            <span class="text-primary">(max. 100 palabras) (min. 50 palabras)</span>
+                            <span class="text-primary">(max. 50 palabras)</span>
                         </label>
                         <textarea
-                                oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion');"
+                                oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion',0,50);"
                                 class="form-control"
+                                placeholder="Describa la Iniciativa"
                                 name="descripcion_iniciativa"
                                 id="descripcion_iniciativa"
-                                oninvalid="setCustomValidity('Por favor complete este campo.')"
-                                onchange="try{setCustomValidity('')}catch(e){}" rows="20" required="required">
-                            {{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}
-                        </textarea>
+                                {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
+                                {{--onchange="try{setCustomValidity('')}catch(e){}" --}}
+                                rows="20"
+                                required="required"
+                        >{{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}</textarea>
                         <span style="color: gray" id="count-words"></span>
                         <div class="invalid-feedback" id='descripcion_iniciativa_enfoque-error'></div>
                     </div>

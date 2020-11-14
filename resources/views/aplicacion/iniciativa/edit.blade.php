@@ -136,6 +136,19 @@
                               class="needs-validation" novalidate>
                             @csrf
                             @method('PUT')
+                            <div class="row">
+                                <div class="col-12 text-right py-2">
+                                    <a href="" data-toggle="modal" data-target="#deleteModal"
+                                       data-id="{{ $model->id }}"
+                                       class="nav-link-style text-danger">
+                                        <i class="fe-trash-2 mr-2"></i>
+                                        Eliminar Iniciativa
+                                    </a>
+                                    {{--<a href="{{route('app.iniciativas.destroy',$model->id)}}" class="text-danger">
+                                    <i class="fe-trash-2 mr-2"></i>Eliminar Iniciativa</a>
+                                    --}}
+                                </div>
+                            </div>
 
                             <div class="panel panel-primary setup-content" id="step-1">
                                 @include('aplicacion.iniciativa._form_origen')
@@ -158,6 +171,7 @@
             </div>
         </div>
     </div>
+    @include('includes.forms.modal-delete',['name_route'=>'app.iniciativas.destroy'])
 @endsection
 
 @section('footer')
@@ -165,6 +179,8 @@
             async defer></script>
 
     <script>
+        window.deleteModalAjax('deleteModal');
+
         var input = document.getElementById('evento_direccion');
         $(document).ready(function () {
             // Stepper

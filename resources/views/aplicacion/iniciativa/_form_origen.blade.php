@@ -1,6 +1,11 @@
 <div class="panel-heading">
     <h3 class="panel-title">¿Cuál es el origen de la iniciativa?</h3>
 </div>
+
+<div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+    <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios</p>
+</div>
+
 <div class="panel-body">
     @foreach($iniciativasOrigen as $iniciativaOrigen)
         <div class="form-group">

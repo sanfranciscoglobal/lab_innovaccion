@@ -142,7 +142,7 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* URL del Evento</label>
-                                                        <input class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
+                                                        <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
                                                         <div class="invalid-feedback" id='url-error'></div>
                                                     </div>
                                                 </div>
@@ -165,7 +165,7 @@
                                                                        
                                                                     </select>
                                                                     <div class="invalid-tooltip">Por favor seleccione un cantón.</div>
-                                                                    <div class="valid-tooltip">Ok!</div>
+                                                                    <div class="valid-tooltip">Bien!</div>
                                                                 </div>
 
                                                                 {{-- <select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
@@ -187,7 +187,7 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="ubicacion">* Ubicación del Evento</label>
-                                                                <input class="form-control" type="text" id="evento_direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Direccion del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                                <input class="form-control" type="text" id="evento_direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Dirección del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -242,7 +242,7 @@
                                     @if ($method=='PUT')
                                         <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Actualizar</button>
                                     @else
-                                        <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
+                                        <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
                                     @endif
 
                                 </div>
@@ -288,10 +288,8 @@
     @endif
 @endsection
 @section('footer')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=initMap" async defer></script>
-{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>--}}
-<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script>
@@ -333,18 +331,20 @@
     //funcion url
     function validateURL() {
          var $URL= document.getElementById("url").value;
-         var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
-         var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
-         if((pattern_1.test($URL) || pattern_2.test($URL) )){
-            $("#url-error").removeClass('d-inline');
+         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$(:(\d+))?\/?/i;
+        //  var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
+        //  var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
+        //  if((pattern_1.test($URL) || pattern_2.test($URL) )){
+        if(pattern.test($URL) ){
+            //$("#url-error").removeClass('d-inline');
             $('#url').removeClass('is-invalid');
-            $('#submitbutton').removeAttr('disabled');
+           // $('#submitbutton').removeAttr('disabled');
             
          } else{
-            $("#url-error").html('Url invalido');
-            $("#url-error").addClass('d-inline');
+            //$("#url-error").html('Url invalido');
+           // $("#url-error").addClass('d-inline');
             $('#url').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');
+            //$('#submitbutton').attr('disabled','disabled');
          }
        }
 
@@ -367,9 +367,7 @@
                     $('.e-virtual .form-control').attr('required', true);
                     $('.e-virtual').removeClass('d-none');
                     $('#frm').removeClass('was-validated');
-                   
-                    
-                    
+                    initMap();
 
                 }else{
                     if ($(this).val() == 1){
@@ -379,7 +377,7 @@
                         $('.e-presencial').removeClass('d-none');
                         $('#frm').removeClass('was-validated');
                         $('#url').removeAttr('required');
-                        initMap();
+                        
                     }
 
                 }
@@ -394,8 +392,10 @@
 
     function initMap() {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var latUsuario = position.coords.latitude;
-            var lonUsuario = position.coords.longitude;
+            // var latUsuario = position.coords.latitude;
+            // var lonUsuario = position.coords.longitude;
+            var latUsuario = 0;
+            var lonUsuario = 0;
             var zoom = 16;
             var dragMarker = true;
             var placeSearch, autocomplete;
@@ -468,8 +468,10 @@
 
             function setnewAddress() {
                 var place = autocomplete.getPlace();
-                console.log(place.formatted_address);
+                //console.log(place.formatted_address);
+              
                 var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+                
                 //console.log(Latlng);
                 marker.setPosition( Latlng );
                 infowindow.setContent(place.formatted_address);
@@ -492,11 +494,8 @@
             $("#canton_id").select2("trigger", "select", {
                      data: { id: cantonidd , text:canton_nombre}
                  });
-
         }
-
     @endif
-
 
 
     $(function(){
@@ -509,6 +508,7 @@
                 break;
             case 1:
                 $('#evento_presencial').trigger('click');
+               
                 break;
             default:
                 break;

@@ -48,41 +48,48 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        if(Auth::attempt($credentials))
-        {
+        if (Auth::attempt($credentials)) {
+            if ($rolesUser = Auth::user()->roles()->pluck('name','roles.id')->all()) {
+                $array_json = json_encode($rolesUser);
+                Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
+            }
+
             return redirect()->route('app.escritorio')->with('status', 'Tu sesión ha iniciado exitosamente.');
         }
 
         return back()
-        ->with('error', 'No hemos podido iniciar sesión, intenta nuevamente.')
-        ->withInput(request(['email', 'login']));
+            ->with('error', 'No hemos podido iniciar sesión, intenta nuevamente.')
+            ->withInput(request(['email', 'login']));
         // ->with('error', 'No hemos podido iniciar sesión.')
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('home');
     }
 
     public function redirectTo()
     {
-        $roles = [];
-        if ($rolesUser = Auth::user()->rolUser()->get()) {
-            foreach ($rolesUser as $roluser) {
-                if ($roluser->estadoRegistro->codigo == 'AP') {
-                    $rol = $roluser->rol()->first();
-                    $roles[] = $rol->key;
-                }
-            }
-        }
-
-        $array_json = json_encode($roles);
-        Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
+//        $roles = [];
+//        if ($rolesUser = Auth::user()->rolUser()->get()) {
+//            foreach ($rolesUser as $roluser) {
+//                if ($roluser->estadoRegistro->codigo == 'AP') {
+//                    $rol = $roluser->rol()->first();
+//                    $roles[] = $rol->key;
+//                }
+//            }
+//        }
+//
+//        dd($roles);
+//        $array_json = json_encode($roles);
+//        Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
         return redirect('home');
     }
 
-    public function reset(User $user){
-        if($user->verification_token == $_GET['hash']){
+    public function reset(User $user)
+    {
+        if ($user->verification_token == $_GET['hash']) {
             $user->verification_token = null;
             $user->email_verified_at = date('Y-m-d H:i:s');
             $user->save();
