@@ -2,7 +2,7 @@
     <!-- Phone Input -->
     <div class="form-group">
         <label for="tel-input">* Teléfono de contacto</label>
-        <input class="form-control" type="tel" id="tel-input" name="telefono" value="{{ old('telefono', $problema->telefono) }}" required>
+        <input class="form-control" type="tel" id="tel-input" name="telefono" value="{{ old('telefono', $problema->telefono) }}" pattern="(09(9|8))?[0-9]{7}" required>
         @error('telefono')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <!-- URL Input -->

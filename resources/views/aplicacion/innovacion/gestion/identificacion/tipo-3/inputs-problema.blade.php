@@ -1,6 +1,25 @@
+@php
+    $sectores = $convocatoria->sectoresName($convocatoria);
+    $sectoresArray = '';
+    foreach ($sectores as $sector) {
+        $sectoresArray .= $sector;
+        if ($sector != $sectores->last()) {
+            $sectoresArray .= '; ';
+        }
+    }
+
+    $subsectores = $convocatoria->subsectoresName($convocatoria);
+    $subsectoresArray = '';
+    foreach ($subsectores as $subsector) {
+        $subsectoresArray .= $subsector;
+        if ($subsector != $subsectores->last()) {
+            $subsectoresArray .= '; ';
+        }
+    }
+@endphp
 <div class="form-group">
     <div class="controls-container mb-3">
-        <label class="control-label">* Pertenece al sector público: <span style="color:red; font-weight:bold; font-size: 18px;">QUITAR ESTO Y COLOCAR SECTOR DINAMICAMENTE</span></label>
+        <label class="control-label">* Pertenece al sector público: {{ $sectoresArray }}</label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
@@ -17,11 +36,11 @@
             @error('sector')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
         </div>
         <div class="message-for-no d-none">
-            <p>Esta convocatoria está dirigida al sector <span style="color:red; font-weight:bold; font-size: 18px;">QUITAR ESTO Y COLOCAR SECTOR DINAMICAMENTE</span>.</p>
+            <p>Esta convocatoria está dirigida al sector {{ $sectoresArray }}.</p>
         </div>
     </div>
     <div class="controls-container mb-3 has-parent sector {{ old('subsector', $problema->subsector) ? '' : 'd-none' }}">
-        <label class="control-label">* Pertenece al subsector público: <span style="color:red; font-weight:bold; font-size: 18px;">QUITAR ESTO Y COLOCAR SUBSECTOR DINAMICAMENTE</span></label>
+        <label class="control-label">* Pertenece al subsector público: {{ $subsectoresArray }}</label>
         <div class="row">
             <div class="col-sm-6 col-lg-1">
                 <div class="custom-control custom-radio">
@@ -38,7 +57,7 @@
             @error('subsector')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
         </div>
         <div class="message-for-no d-none">
-            <p>Esta convocatoria está dirigida al sector <span style="color:red; font-weight:bold; font-size: 18px;">QUITAR ESTO Y COLOCAR SECTOR DINAMICAMENTE</span>.</p>
+            <p>Esta convocatoria está dirigida al sector {{ $subsectoresArray }}.</p>
         </div>
     </div>
     <div class="controls-container mb-3 has-parent subsector {{ old('confidencial', $problema->confidencial) ? '' : 'd-none' }}">

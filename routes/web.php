@@ -40,7 +40,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
 Route::get('/verificacion', function(){
-    return redirect()->route('home')->with('error', 'Porfavor verifica tu correo electrónico.');
+    return redirect()->route('home')->with('error', 'Por favor verifica tu correo electrónico.');
 })->name('verification.notice');
 Route::get('reset-password', 'Auth\ForgotPasswordController@show')->middleware(['guest'])->name('reset');
 Route::post('reset-password', 'Auth\ResetPasswordController@send')->name('password.email');
