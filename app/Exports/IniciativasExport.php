@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Iniciativas;
+use App\Models\OdsCategoria;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -21,13 +22,12 @@ class IniciativasExport implements FromCollection
         Iniciativas::$search_tipo_poblacion = Request::has('tipo_poblacion') ? Request::get('tipo_poblacion') : [];
         $iniciativas = Iniciativas::obtenerIniciativasAll();
 
-        $filas[0] = self::cabecera() ?? [];
+        $ODS = OdsCategoria::obtenerOdsCategoriaPluckNameIdArray();
+        $filas[0] = self::cabecera($ODS) ?? [];
 
         foreach ($iniciativas as $iniciativa) {
-            $filas[] = self::filas($iniciativa);
+            $filas[] = self::filas($iniciativa, $ODS);
         }
-
-        //dd($filas);
 
         return new Collection($filas);
     }
@@ -35,15 +35,13 @@ class IniciativasExport implements FromCollection
     /**
      * @return array
      */
-    public static function cabecera()
+    public static function cabecera($ODS)
     {
-        $row = [
+        $inicio = [
             '#',
             'Nombre Institución',
             'Siglas',
             'Link',
-//            'Ciudad',
-//            'Dirección (link google)',
             'Categoría',
             'Enfoque (qué es)',
             'Nombre proyecto o programa',
@@ -51,50 +49,36 @@ class IniciativasExport implements FromCollection
             'Vigente',
             'Personas atendidas por esta iniciativa',
             'Descripción',
-            'Componente innovador',
-//            'ODS_1',
-//            'ODS_2',
-//            'ODS_3',
-//            'ODS_4',
-//            'ODS_5',
-//            'ODS_6',
-//            'ODS_7',
-//            'ODS_8',
-//            'ODS_9',
-//            'ODS_10',
-//            'ODS_11',
-//            'ODS_12',
-//            'ODS_13',
-//            'ODS_14',
-//            'ODS_15',
-//            'ODS_16',
+            'Componente innovador'
+        ];
+
+        $fin = [
             'Nombre del contacto de proyecto o programa',
             'Correo',
             'Teléfono',
-            'No tlf. solo redes',
-            'Extensión',
+            //'No tlf. solo redes',
+            //'Extensión',
             'Nombre',
-            'Cargo',
+            //'Cargo',
             'Correo',
             'Teléfono',
-            'Extensión'
+            //'Extensión'
         ];
 
-        return $row;
+        return array_merge($inicio, $ODS, $fin);
     }
 
     /**
      * @param Iniciativas $iniciativas
      */
-    public static function filas(Iniciativas $iniciativas)
+    public static function filas(Iniciativas $iniciativas, $ODS)
     {
-        $row = [
+        $ODSFila = [];
+        $inicio = [
             $iniciativas->id,
             $iniciativas->iniciativaActor->nombre_organizacion,
             $iniciativas->iniciativaActor->siglas,
             $iniciativas->iniciativaActor->sitio_web,
-//            'Ciudad',
-//            'Dirección (link google)',
             null,
             $iniciativas->iniciativaActor->enfoque,
             $iniciativas->iniciativaInformacion->nombre_iniciativa,
@@ -102,31 +86,23 @@ class IniciativasExport implements FromCollection
             $iniciativas->iniciativaInformacion->vigencia,
             null,
             $iniciativas->iniciativaInformacion->descripcion_iniciativa,
-            $iniciativas->iniciativaInformacion->componente_innovador,
-//            'ODS_1',
-//            'ODS_2',
-//            'ODS_3',
-//            'ODS_4',
-//            'ODS_5',
-//            'ODS_6',
-//            'ODS_7',
-//            'ODS_8',
-//            'ODS_9',
-//            'ODS_10',
-//            'ODS_11',
-//            'ODS_12',
-//            'ODS_13',
-//            'ODS_14',
-//            'ODS_15',
-//            'ODS_16',
-            null,
-            null,
-            null,
-            null,
-            null,
+            $iniciativas->iniciativaInformacion->componente_innovador
         ];
 
-        return $row;
-//        dd($iniciativas->iniciativaActor, $iniciativas->iniciativaInformacion);
+        $ODSRegistro = $iniciativas->iniciativaOds()->pluck('id', 'id')->all();
+        foreach ($ODS as $key => $name) {
+            $ODSFila[] = (in_array($key, $ODSRegistro)) ? 1 : 0;
+        }
+
+        $contactoFila = [];
+        $ContactoRegistro = $iniciativas->iniciativaContactos()->get();
+        foreach ($ContactoRegistro as $contacto) {
+            $contactoFila[] = $contacto->nombre_persona;
+            $contactoFila[] = $contacto->correo_electronico;
+            $contactoFila[] = $contacto->celular;
+
+        }
+
+        return array_merge($inicio, $ODSFila, $contactoFila);
     }
 }

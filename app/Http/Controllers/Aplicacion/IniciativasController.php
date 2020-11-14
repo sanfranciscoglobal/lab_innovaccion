@@ -253,7 +253,7 @@ class IniciativasController extends Controller
             $iniciativa->iniciativaInformacion()->delete();
             $iniciativa->delete();
             DB::commit();
-            return back()->with('status', 'Iniciativa eliminada exitosamente');
+            return redirect()->route('app.iniciativas.index')->with('status', 'Iniciativa eliminada con éxito');
         } catch (\Exception $e) {
             DB::rollback();
             throw $e;
