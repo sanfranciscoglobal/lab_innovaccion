@@ -327,7 +327,7 @@ window.Select2Cascade = function (window, $) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\lab_innovaccion\resources\js\helpers.js */"./resources/js/helpers.js");
+module.exports = __webpack_require__(/*! /home/martinvelez/Desktop/lab_innovaccion/resources/js/helpers.js */"./resources/js/helpers.js");
 
 
 /***/ })

@@ -13,7 +13,7 @@
             <div class="row d-flex">
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bombilla.svg') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Gestion_Innovacion.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-mora">Gestión de la Innovación</h3>
                         <p class="font-size-sm mb-0">Recogemos con convocatorias específicas los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras.</p>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/lupa.svg') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Ecosistema_Innovacion.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-uva">Ecosistema de Innovación</h3>
                         <p class="font-size-sm mb-0">Facilitamos la conexión entre agentes innovadores mapeando sus iniciativas para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/mapa.svg') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Mapa.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-naranja">Mapa</h3>
                         <p class="font-size-sm mb-0">Promovemos la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bloc.svg') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Recursos.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-tomate">Recursos</h3>
                         <p class="font-size-sm mb-0">Invitamos a compartir y recopilamos publicaciones, eventos, fondos y herramientas para promocionar conocimientos y oportunidades de innovación de manera colectiva.</p>
