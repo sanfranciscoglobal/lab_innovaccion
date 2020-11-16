@@ -84,7 +84,7 @@
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+                                                        
                                                         @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                     </div>
                                                 </div>

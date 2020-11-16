@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
             TipoSectorSeeder::class,
             TipoSubsectorSeeder::class,
             ObjetivosDesarrolloSeeder::class,
-            NivelSolucionSeeder::class,
-            SectorSolucionSeeder::class,
-            TipoPropuestaSeeder::class,
+            // NivelSolucionSeeder::class,
+            // SectorSolucionSeeder::class,
+            // TipoPropuestaSeeder::class,
         ]);
     }
 }

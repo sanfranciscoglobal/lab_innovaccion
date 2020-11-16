@@ -68,7 +68,7 @@
                         </div>
                         <div class="row send-button d-none">
                             <div class="col-12">
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="innovacion_fecha_inicio">* Fecha de inicio</label>
@@ -81,8 +81,39 @@
                                             <input class="form-control" type="date" id="innovacion_fecha_cierre" min="<?php echo date('d/m/Y'); ?>" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" name="fecha_cierre" required>
                                         </div>
                                     </div>
+                                </div> --}}
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="form-label">* Fecha de inicio</label>
+                                            <div class="input-group-overlay">
+                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Fecha de inicio" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fecha_inicio" value="{{isset($convocatoria->fecha_inicio)?$convocatoria->fecha_inicio:old('fecha_inicio')}}" name="fecha_inicio"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
+                                            <div class="input-group-append-overlay">
+                                                <span class="input-group-text">
+                                                <i class="fe-calendar"></i>
+                                                </span>
+                                            </div>
+                                            </div>
+                                            @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="form-label">* Fecha de cierre</label>
+                                            <div class="input-group-overlay">
+                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Fecha de cierre" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fecha_cierre" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" name="fecha_cierre"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
+                                            <div class="input-group-append-overlay">
+                                                <span class="input-group-text">
+                                                <i class="fe-calendar"></i>
+                                                </span>
+                                            </div>
+                                            </div>
+                                            @error('fecha_cierre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                                
                             <div class="col-12">
                                 <div class="form-group">
                                     <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span></label>
@@ -95,7 +126,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="innovacion_imagen">* Imagen</label>
                                     @if ($method=='PUT')
                                         <input type="file" class="dropify" name="imagen" id="innovacion_imagen " accept="image/gif, image/jpeg, image/png"  data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
@@ -105,6 +136,28 @@
                                     @endif
                                                                        
                                     
+                                </div> --}}
+                                <div class="form-group">
+                                    
+                                    <label for="imagen">* Imagen</label>
+
+                                    @if ($method=='PUT')
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
+
+                                    @else
+                                        <div class="cs-file-drop-area">
+                                            <div class="cs-file-drop-icon fe-upload"></div>
+                                            <span class="cs-file-drop-message">Arrastre y suelte para subir</span>
+                                            
+                                                <input type="file" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name='imagen' class="cs-file-drop-input" required>
+                                            
+                                            <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O seleccione una imagen</button>
+
+                                            <div class="invalid-feedback">Inserta una imagen.</div>
+                                        </div>
+                                    
+                                    @endif
+
                                 </div>
                             </div>
                             <div class="col-12">
@@ -118,7 +171,7 @@
                                     @if ($method=='PUT')
                                         <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i> Actualizar</button>
                                     @else
-                                        <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i> Publicar</button>
+                                        <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i> Guardar</button>
                                     @endif
                                     
                                 </div>

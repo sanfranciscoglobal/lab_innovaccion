@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <form role="form" action="{{$url}}"  class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
+    <form role="form" action="{{$url}}" id='frm' class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
 
     @csrf
     @method($method)
@@ -340,7 +340,7 @@
                     $('.m-publicacion').removeClass('d-none');
                     $("#label_url").html('* Fuente de la publicación');
                     $("#label_nombre").html('* Nombre de la publicación <span style="color: gray">(max. 250 caracteres)</span>');
-                   
+                    $('#frm').removeClass('was-validated');
                     document.getElementById("mat_url").placeholder='Link de la publicación';
                     document.getElementById("mat_nombre").placeholder='Nombre de la publicación';
 
@@ -354,7 +354,7 @@
                         
                         $("#label_url").html('* Fuente de la herramienta' );
                         $("#label_nombre").html('* Nombre de la herramienta <span style="color: gray">(max. 250 caracteres)</span>');
-                       
+                        $('#frm').removeClass('was-validated');
                         document.getElementById("mat_url").placeholder='Link de la herramienta';
                         document.getElementById("mat_nombre").placeholder='Nombre de la herramienta';
                     
