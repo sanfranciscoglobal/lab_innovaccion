@@ -39,7 +39,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="account-ln">* Celular</label>
-                                    <input class="form-control @error('celular') is-invalid @enderror" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="09(9|8)[0-9]{7}" required>
+                                    <input class="form-control @error('celular') is-invalid @enderror" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="(09(9|8))?[0-9]{7}" required>
                                     <span class="muted-text">Ex. 0987654321</span>
                                     @error('celular')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
@@ -87,15 +87,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="avatar">Imágen de Perfil</label>
+                                    <label for="avatar">Imagen de Perfil</label>
                                     @if($method == 'POST')
                                     <div class="cs-file-drop-area">
                                         <div class="cs-file-drop-icon fe-upload"></div>
                                         <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario">
+                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario" accept="image/gif, image/jpeg, image/png">
                                         <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                         <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
-                                        @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     @else
                                     @php
@@ -105,9 +104,10 @@
                                                 $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
                                             }
                                         }
-                                    @endphp
-                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}">
+                                        @endphp
+                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}" accept="image/gif, image/jpeg, image/png">
                                     @endif
+                                    @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-7 to-hide d-none">
@@ -247,7 +247,7 @@
     let user_lng = {{ old('longitud', $perfil->longitud) ?? 'null' }};
 </script>
 <script src="{{ asset('js/maps.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=initMap" async defer></script>
 
 <script>
     var canton = {{ old('canton_id', $perfil->canton_id) ?? 'null' }};

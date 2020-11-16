@@ -76,6 +76,6 @@ class RegisterController extends Controller
 
         // Mail::to($user->email)->send(new EmailVerification($user));
 
-        return redirect()->route('home')->with('status', 'Usuario creado con éxito, porfavor verifica tu correo electrónico.');
+        return redirect()->route('home')->with('status', 'Usuario creado con éxito, por favor verifica tu correo electrónico.');
     }
 }

@@ -1,28 +1,72 @@
-<div class="cs-offcanvas-collapse" id="blog-sidebar">
-    <div class="cs-offcanvas-body px-4 pt-3 pt-lg-0 pl-lg-0 pr-lg-2 pr-xl-4" data-simplebar>
-        <div class="cs-widget cs-widget-categories mb-5">
-            <ul id="menu">
-                    <li><a class="cs-widget-link collapsed" href="#gestion" data-toggle="collapse">Gestión de innovación</a>
+<div class="bg-light rounded-lg box-shadow-lg">
+    @if(Auth::check())
+        <div class="px-4 py-4 mb-1 text-center">
+            @php
+                $avatar = asset('img/logo/favicon/android-chrome-192x192.png');
+                if(isset(Auth::user()->perfil_id)){
+                    if(isset(Auth::user()->perfil->avatar)){
+                        $avatar = asset('storage/perfil/'.Auth::user()->perfil->avatar);
+                    }
+                }
+            @endphp
+            {{--<img class="d-block rounded-circle mx-auto my-2" width="110" src="{{ $avatar }}">--}}
+            <img class="d-block rounded-circle mx-auto my-2" width="110" src="{{asset('img/demo/presentation/logo/logo-icon-footer.png')}}">
+            <h6 class="mb-0 pt-1">{{ Auth::user()->name }}</h6>
+        </div>
+        <div class="d-lg-block collapse pb-2" id="account-menu">
+            <div class="cs-widget cs-widget-categories mb-5 pl-3">
+                <ul id="menu">
+                    <li>
+                        <a class="cs-widget-link px-4 py-3 collapsed" href="#gestion" data-toggle="collapse">
+                            Gestión de Innovación
+                        </a>
                         <ul class="collapse" id="gestion" data-parent="#menu">
-                            <li><a class="cs-widget-link" href="#">Innovación abierta <small class="text-muted pl-1 ml-2">5</small></a></li>
-                            <li><a class="cs-widget-link" href="#">Innovación pública <small class="text-muted pl-1 ml-2">12</small></a></li>
-                            <li><a class="cs-widget-link" href="#">Innovación social <small class="text-muted pl-1 ml-2">0</small></a></li>
+                            <li>
+                                <a class="cs-widget-link" href="#">
+                                    Administrador 1
+                                    <small class="text-muted pl-1 ml-2">5</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="cs-widget-link" href="#">
+                                    Administrador 2
+                                    <small class="text-muted pl-1 ml-2">12</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="cs-widget-link" href="#">
+                                    Administrador 3
+                                    <small class="text-muted pl-1 ml-2">0</small>
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                    <li><a class="cs-widget-link collapsed" href="#ecosistema" data-toggle="collapse">Ecosistema de innovación</a>
+                    <li>
+                        <a class="cs-widget-link px-4 py-3 collapsed" href="#ecosistema" data-toggle="collapse">
+                            Ecosistema de Innovación
+                        </a>
                         <ul class="collapse" id="ecosistema" data-parent="#menu">
-                            <li><a class="cs-widget-link" href="#">Mapa de iniciativas</a></li>
-                            <li><a class="cs-widget-link" href="#">Analítica</a></li>
+                            <li>
+                                <a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">
+                                    Administrador 4
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                    <li><a class="cs-widget-link collapsed" href="#recursos" data-toggle="collapse">Recursos</a>
-                        <ul class="collapse" id="recursos" data-parent="#menu">
-                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.fondos') }}">Fondos <small class="text-muted pl-1 ml-2">{{ App\Models\Fondo::count() }}</small></a></li>
-                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.eventos') }}">Eventos <small class="text-muted pl-1 ml-2">{{ App\Models\Evento::count() }}</small></a></li>
-                            <li><a class="cs-widget-link" href="{{ route('app.escritorio.material') }}">Publicaciones y Herramientas <small class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::count() }}</small></a></li>
+                    <li>
+                        <a class="cs-widget-link px-4 py-3 collapsed" href="#ecosistema" data-toggle="collapse">
+                            Paginas
+                        </a>
+                        <ul class="collapse" id="ecosistema" data-parent="#menu">
+                            <li>
+                                <a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">
+                                    Administrador 4
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
+            </div>
         </div>
-    </div>
+    @endif
 </div>

@@ -16,7 +16,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bombilla.svg') }}"
                             alt="Icon" />
                         <a href="{{route('innovaciones')}}" class="media meta-link "><h3 class="fs-14 mb-2 uppercase text-mora"> Gestión de la Innovación </h3></a>
-                        <p class="font-size-sm mb-0">A través de convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
+                        <p class="font-size-sm mb-0">Recogemos con convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -24,7 +24,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/lupa.svg') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-uva">Ecosistema de Innovación</h3>
-                        <p class="font-size-sm mb-0">A través de un mapeo de agentes de innovación facilitamos su conexión para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
+                        <p class="font-size-sm mb-0">Facilitamos la conexión entre agentes innovadores mapeando sus iniciativas para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -32,7 +32,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/mapa.svg') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-naranja">Mapa</h3>
-                        <p class="font-size-sm mb-0">A través de datos abiertos sobre el ecosistema y la gestión de innovación promovemos su uso para fines informativos e investigativos.</p>
+                        <p class="font-size-sm mb-0">Promovemos la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -40,7 +40,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bloc.svg') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-tomate">Recursos</h3>
-                        <p class="font-size-sm mb-0">A través de una recopilación de publicaciones, eventos, y fondos invitamos a compartir conocimientos y oportunidades de innovación de manera colectiva. </p>
+                        <p class="font-size-sm mb-0">Invitamos a compartir y recopilamos publicaciones, eventos, fondos y herramientas para promocionar conocimientos y oportunidades de innovación de manera colectiva.</p>
                     </div>
                 </div>
             </div>
@@ -53,9 +53,13 @@
                 style="background-image: url({{ asset('img/layout/home/laboratorio-side-bkg.png') }});">
             </div>
             <div class="col-md-6 px-3 pl-xl-0 pr-lg-5 pr-xl-7 py-2 py-lg-4 order-md-1">
-                <div class="ml-md-auto mr-sm-7 py-5 my-sm-0 py-md-6 pl-lg-8 pr-lg-8 py-lg-7 text-white">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-6 pl-lg-5  py-lg-7 text-white">
                     <h2 class="mb-3 pb-1 text-white">Laboratorio de Innovación</h2>
+                    <div class="row">
+                    <div class="col">
                     <p>Thinkia es un espacio que promueve el encuentro de diversos actores - academia, público, privado y sociedad civil - para trabajar de manera colaborativa y creativa en innovación. </p>
+                    </div>
+                    <div class="col">
                     <ul class="list-unstyled font-size-sm">
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
@@ -74,6 +78,7 @@
                             <span>Propón soluciones efectivas y de ágil implementación.</span>
                         </li>
                     </ul>
+                    </div>
                 </div>
             </div>
         </div>

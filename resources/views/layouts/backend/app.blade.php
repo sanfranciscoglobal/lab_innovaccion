@@ -5,18 +5,20 @@
     <title>Laboratorio de Innovación</title>
     <!-- SEO Meta Tags-->
     <meta name="description" content="Around - Multipurpose Bootstrap Template">
-    <meta name="keywords" content="bootstrap, business, consulting, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, multipurpose, product landing, shop, software, ui kit, web studio, landing, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="keywords"
+          content="bootstrap, business, consulting, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, multipurpose, product landing, shop, software, ui kit, web studio, landing, html5, css3, javascript, gallery, slider, touch, creative">
     <meta name="author" content="Createx Studio">
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon and Touch Icons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/favicon-16x16.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/logo/favicon/android-chrome-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/logo/favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/logo/favicon/favicon-16x16.png')}}">
     <link rel="manifest" href="{{asset('site.webmanifest')}}">
     <link rel="mask-icon" color="#5bbad5" href="{{asset('img/safari-pinned-tab.svg')}}">
     <meta name="msapplication-TileColor" content="#766df4">
     <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <!-- Page loading styles-->
@@ -94,6 +96,47 @@
             }
         }
 
+        .error-container {
+            position: fixed;
+            top: 20px;
+            right: 0px;
+            width: 100%;
+            z-index: 1051;
+        }
+
+        .select2-search--inline {
+            display: contents; /*this will make the container disappear, making the child the one who sets the width of the element*/
+        }
+
+        .select2-search__field:placeholder-shown {
+            width: 100% !important; /*makes the placeholder to be 100% of the width while there are no options selected*/
+        }
+
+        .list-item {
+            border-top: 1px solid #E9E9F2;
+        }
+
+        .list-item:last-child {
+            border-bottom: 1px solid #E9E9F2;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-spacer {
+                height: 93px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .desktop-spacer {
+                height: 125px;
+            }
+        }
+
+        .cs-widget-categories .cs-widget-link::before {
+            top: 0.9rem !important;
+            left: 0.1rem !important;
+        }
+
     </style>
     <!-- Page loading scripts-->
     <script>
@@ -116,7 +159,9 @@
 </head>
 <!-- Body-->
 <body class="cs-is-sidebar">
-<!-- Page loading spinner-->
+@include('includes.session-flash-status')
+@include('includes.session-flash-error')
+
 <div class="cs-page-loading active">
     <div class="cs-page-loading-inner">
         <div class="cs-page-spinner"></div>
@@ -124,99 +169,27 @@
     </div>
 </div>
 <main class="cs-page-wrapper">
-    <!-- Sign In Modal-->
-    <div class="modal fade" id="modal-signin" tabindex="-1">
+    <div class="modal fade" id="search" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
-                <div class="cs-view show" id="modal-signin-view">
-                    <div class="modal-header border-0 bg-dark px-4">
-                        <h4 class="modal-title text-light">Iniciar sesión</h4>
-                        <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body px-4">
-                        <p class="font-size-ms text-muted">
-                            Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su registro.
-                        </p>
-                        <form class="needs-validation" novalidate>
-                            <div class="input-group-overlay form-group">
-                                <div class="input-group-prepend-overlay">
-                                    <span class="input-group-text">
-                                        <i class="fe-mail"></i>
-                                    </span>
-                                </div>
-                                <input class="form-control prepended-form-control" type="email" placeholder="Correo Electrónico"
-                                       required>
-                            </div>
-                            <div class="input-group-overlay cs-password-toggle form-group">
-                                <div class="input-group-prepend-overlay">
-                                    <span class="input-group-text">
-                                        <i class="fe-lock"></i>
-                                    </span>
-                                </div>
-                                <input class="form-control prepended-form-control" type="password"
-                                       placeholder="Contraseña" required>
-                                <label class="cs-password-toggle-btn">
-                                    <input class="custom-control-input" type="checkbox">
-                                    <i class="fe-eye cs-password-toggle-indicator"></i>
-                                    <span class="sr-only">Show password</span>
-                                </label>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" id="keep-signed">
-                                    <label class="custom-control-label" for="keep-signed">Mantener sesión iniciada</label>
-                                </div>
-                                <a class="nav-link-style font-size-ms" href="password-recovery.html">
-                                    ¿Olvidó su contraseña?
-                                </a>
-                            </div>
-                            <button class="btn btn-primary btn-block" type="submit">Entrar</button>
-                            <p class="font-size-sm pt-3 mb-0">
-                                ¿No tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signup-view'>Registrese</a>
-                            </p>
-                        </form>
-                    </div>
+                <div class="modal-header border-0 bg-purple-gradient px-4">
+                    <h4 class="modal-title text-light">Buscar contenidos</h4>
+                    <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="cs-view" id="modal-signup-view">
-                    <div class="modal-header border-0 bg-dark px-4">
-                        <h4 class="modal-title text-light">Registro de Usuario</h4>
-                        <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body px-4">
-                        <!--
-                        <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
-                        -->
-                        <form class="needs-validation" novalidate>
-                            <div class="form-group">
-                                <input class="form-control" name="nombre" type="text" placeholder="Nombre Completo" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" name="email" type="email" placeholder="Correo electrónico" required>
-                            </div>
-                            <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="clave" type="password" placeholder="Contraseña" required>
-                                <label class="cs-password-toggle-btn">
-                                    <input class="custom-control-input" type="checkbox">
-                                    <i class="fe-eye cs-password-toggle-indicator"></i>
-                                    <span class="sr-only">Mostrar contraseña</span>
-                                </label>
-                            </div>
-                            <div class="cs-password-toggle form-group">
-                                <input class="form-control" name="clave_confirm" type="password" placeholder="Confirme la contraseña" required>
-                                <label class="cs-password-toggle-btn">
-                                    <input class="custom-control-input" type="checkbox">
-                                    <i class="fe-eye cs-password-toggle-indicator"></i>
-                                    <span class="sr-only">Mostrar contraseña</span>
-                                </label>
-                            </div>
-                            <button class="btn btn-primary btn-block" type="submit">Registrar</button>
-                            <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#' class='font-weight-medium' data-view='#modal-signin-view'>Entrar</a></p>
-                        </form>
-                    </div>
+                <div class="modal-body px-4">
+                    <!--
+                    <p class="font-size-ms text-muted">Registration takes less than a minute but gives you full control over your orders.</p>
+                    -->
+                    <form class="needs-validation" action="{{route('signin')}}" method="POST" novalidate>
+                        @csrf
+                        <div class="form-group">
+                            <input class="form-control" name="s" type="text" placeholder="Término de búsqueda" required>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Buscar</button>
+
+                    </form>
                 </div>
                 <?php /*
                 <div class="modal-body text-center px-4 pt-2 pb-4">
@@ -231,26 +204,33 @@
             </div>
         </div>
     </div>
-    <!-- Navbar Floating light for Index page only-->
-    @include('layouts.backend.header')
-    @include('includes.session-flash-status')
-    <!-- Page content-->
-    <div class="cs-sidebar-enabled">
-        <div class="container">
-            <div class="row">
-                <div class="cs-sidebar col-lg-2 pt-lg-5">
-                    @yield('sidebar-top')
-                    @include('layouts.backend.menu')
-                    @yield('sidebar-bottom')
-                </div>
-                <div class="col-lg-10 cs-content py-4 mb-2 mb-sm-0 pb-sm-5">
+
+    @include('layouts.aplicacion.header')
+
+    <div class="position-relative desktop-spacer mb-4 mb-md-5"></div>
+    <div class="container bg-overlay-content mb-md-5">
+        {{--<div class="cs-sidebar-enabled">--}}
+        {{--<div class="container">--}}
+        <div class="row">
+            <div class="col-lg-3 mb-4 mb-lg-0">
+                {{--@yield('sidebar-top')--}}
+                @include('layouts.backend.menu')
+                {{--@yield('sidebar-bottom')--}}
+            </div>
+
+            <div class="col-lg-9 cs-content mb-2 mb-sm-0 pb-sm-5">
+                <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-4">
                     @yield('content')
                 </div>
             </div>
         </div>
+        {{--</div>--}}
+        {{--</div>--}}
     </div>
 </main>
+
 @include('layouts.backend.footer')
+
 
 <!-- Vendor scrits: js libraries and plugins-->
 {{--<script src="vendor/jquery/dist/jquery.slim.min.js"></script>--}}
@@ -264,6 +244,66 @@
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/helpers.js')}}"></script>
+<script>
+    // var errorCard = $('#errorDiv .alert');
+    // if (errorCard.length > 0){
+    //     var iteraction = 0;
+    //     var interval = setInterval(function(){
+    //         iteraction++;
+    //         if (iteraction == 10) {
+    //             errorCard.css({
+    //                 'transform':'translateX(400px)',
+    //                 'transition': 'all ease .2s'
+    //             })
+    //             setTimeout(function(){
+    //                 $('.close').click();
+    //             },2000)
+    //             clearInterval(interval);
+    //         }
+    //     }, 1000);
+    // }
+    $('.modal-status').modal('show');
+    flatpickr(".js-input", {
+        allowInput: true,
+        altInput: true,
+        minDate: "today",
+        onOpen: function (selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', true);
+        },
+        onClose: function (selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', false);
+            $(instance.altInput).blur();
+        }
+    });
+    flatpickr(".js-input-hora", {
+        enableTime: true,
+        noCalendar: true,
+        allowInput: true,
+        altInput: true,
+        onOpen: function (selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', true);
+        },
+        onClose: function (selectedDates, dateStr, instance) {
+            $(instance.altInput).prop('readonly', false);
+            $(instance.altInput).blur();
+        }
+    });
+</script>
+
+@if($errors->any())
+    <script>
+        var isLogin = "{{ old('login') ?? 'null' }}";
+        if (isLogin != null) {
+            if (isLogin == 1) {
+                $('#modal-signin').modal('show');
+            } else {
+                $('#modal-signup').modal('show');
+            }
+        }
+    </script>
+@endif
+
+@yield('scripts')
 @yield('footer')
 {{--<script type="text/javascript">--}}
 {{--console.log(smoothScroll);--}}
