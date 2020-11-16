@@ -142,7 +142,7 @@
                                     <label for="imagen">* Imagen</label>
 
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name="imagen" data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
 
                                     @else
                                         <div class="cs-file-drop-area">
@@ -196,7 +196,7 @@
                             </button>
                     </div>
 
-                    <form action="{{ route('app.convocatoria.delete', $convocatoria->id) }}" role="form" method="POST">
+                    <form action="{{ route('admin.convocatoria.delete', $convocatoria->id) }}" role="form" method="POST">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">

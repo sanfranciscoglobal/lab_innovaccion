@@ -110,7 +110,7 @@
                                         <div class="form-group">
                                             <label class="form-label">* Fecha de publicación</label>
                                             <div class="input-group-overlay">
-                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altInput": true, "allowInput":true,"altFormat": "F j, Y", "dateFormat": "Y/m/d"}' id="mat_fecha" value="{{isset($material->fecha_publicacion)?$material->fecha_publicacion:old('fecha_publicacion')}}" name="fecha_publicacion"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
+                                            <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Elija una fecha" data-datepicker-options='{"altInput": true, "allowInput":true,"altFormat": "F j, Y", "dateFormat": "Y/m/d"}' id="mat_fecha" value="{{isset($material->fecha_publicacion)?$material->fecha_publicacion:old('fecha_publicacion')}}" name="fecha_publicacion"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
                                                 <div class="input-group-append-overlay">
                                                     <span class="input-group-text">
                                                     <i class="fe-calendar"></i>
@@ -304,18 +304,20 @@
 
     function validateURL() {
          var $URL= document.getElementById("mat_url").value;
-         var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
-         var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
-         if((pattern_1.test($URL) || pattern_2.test($URL) )){
-            $("#url-error").removeClass('d-inline');
+         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$(:(\d+))?\/?/i;
+        //  var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
+        //  var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
+        //  if((pattern_1.test($URL) || pattern_2.test($URL) )){
+        if(pattern.test($URL) ){
+            // $("#url-error").removeClass('d-inline');
             $('#mat_url').removeClass('is-invalid');
-            $('#submitbutton').removeAttr('disabled');
+            // $('#submitbutton').removeAttr('disabled');
             
          } else{
-            $("#url-error").html('Url invalido');
-            $("#url-error").addClass('d-inline');
+            // $("#url-error").html('Url inválido');
+            // $("#url-error").addClass('d-inline');
             $('#mat_url').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');
+            // $('#submitbutton').attr('disabled','disabled');
          }
        }
 
