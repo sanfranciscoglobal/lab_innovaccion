@@ -266,7 +266,7 @@
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
                             </div>
-                            <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
+                            <small class="form-text text-muted">Al menos 1 mayúscula, 1 minúscula, 1 número, 1 símbolo, mínimo 8 caracteres</small>
                             @error('password_confirmation')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                         </div>
                         @error('email')

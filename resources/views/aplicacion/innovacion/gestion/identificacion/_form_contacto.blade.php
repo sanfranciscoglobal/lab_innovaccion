@@ -18,7 +18,7 @@
                 <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta
                     plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
             </div>
-            <button class="btn btn-success" type="submit">
+            <button class="btn btn-success" type="submit" {{$problema->id == null ? 'disabled' : ''}}>
                 <i class="fe-save font-size-lg mr-2"></i> Guardar
             </button>
             <div id="error-message" class="text-danger"></div>
