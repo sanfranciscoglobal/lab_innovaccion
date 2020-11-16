@@ -32,7 +32,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/mapa.svg') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-naranja">Mapa</h3>
-                        <p class="font-size-sm mb-0">Promovemos la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
+                        <p class="font-size-sm mb-0">Promovemo la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
