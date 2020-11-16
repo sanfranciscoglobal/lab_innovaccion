@@ -4,10 +4,9 @@
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Acerca de nosotros</h1>
+                <h1 class="mt-5">¿Qué es Thinkia?</h1>
                 <div class="py-4">
-                    <p class="cs-callout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                    <p class="cs-callout">Thinkia es un espacio de innovación en donde actores de diversos sectores – público, privado, academia, y sociedad civil - se encuentran con el ánimo de trabajar de manera colaborativa compartiendo los retos que afrontan y buscando soluciones basadas en innovación abierta, pública y social. Este espacio creativo de co-creación permite forjar las bases del ecosistema de innovación poniendo en contacto a los agentes innovadores y compartiendo materiales y metodologías que forjen una cultura de innovación. </p>
                 </div>
                 <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
@@ -15,6 +14,7 @@
             </div>
         </div>
     </section>
+    <!--
     <section>
         <div class="container">
             <div class="row">
@@ -28,6 +28,7 @@
             </div>
         </div>
     </section>
+    --->
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <h2 class="pb-4 mb-4 text-center">Quienes somos</h2>
         <div class="row mb-3 mt-4">
@@ -136,33 +137,22 @@
                     <img class="img-fluid" src="http://placehold.it/800x600">
                 </div>
                 <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center">
-                    <h2>Nuestro trabajo</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut ducimus vitae voluptates hic. Dolore soluta deleniti dignissimos libero tenetur, saepe hic tempora alias ab itaque? Totam consequuntur voluptate ut.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium molestiae voluptatem! Tempore minus quasi totam porro deserunt. Iusto exercitationem explicabo reiciendis quod quasi saepe, suscipit similique expedita perspiciatis aliquam.Dolor enim dolores doloremque nam beatae, quas animi consectetur deleniti repellat neque. Laudantium accusantium ratione quisquam explicabo itaque officia quas possimus dolores! Illo, laudantium. Expedita recusandae nam autem repellendus fugit!</p>
-                    <p>Lorem ipsum dolor sit amet, consectet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusantium aperiam nobis obcaecati soluta quaerat, ea facere, qui omnis numquam nesciunt? Dolorum iusto incidunt corporis quibusdam, quod quasi maxime molestiae.</p>
+                    <h2>Misión</h2>
+                    <p>Consolidar la relación entre agentes innovadores para generar un ecosistema de innovación articulado y promocionar dentro de cada sector - público, privado, academia y sociedad civil 
+                    – que los retos internos pueden ser resueltos con procesos abiertos de participación pública que busquen soluciones efectivas y agiles que aporten al bienestar social. </p>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center">
-                    <h2>Nuestros valores</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium molestiae voluptatem! Tempore minus quasi totam porro deserunt. Iusto exercitationem explicabo reiciendis quod quasi saepe, suscipit similique expedita perspiciatis aliquam.Dolor enim dolores doloremque nam beatae, quas animi consectetur deleniti repellat neque. Laudantium accusantium ratione quisquam explicabo itaque officia quas possimus dolores! Illo, laudantium. Expedita recusandae nam autem repellendus fugit!</p>
-                    <p>Lorem ipsum dolor sit amet, consectet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusantium aperiam nobis obcaecati soluta quaerat, ea facere, qui omnis numquam nesciunt? Dolorum iusto incidunt corporis quibusdam, quod quasi maxime molestiae.</p>
+                    <h2>Visión</h2>
+                    <p>Buscar que los procesos de innovación abiertos, públicos y sociales se vuelvan una herramienta clave para la resolución de problemas complejos de desarrollo a nivel nacional. </p>
+                    <p>Se requiere involucrar a diversos actores conjugando su inteligencia colectiva para realizar acciones conjuntas que brinden soluciones sostenibles, creativas e inclusivas. </p>
                 </div>
                 <div class="col-12 col-lg-6">
                     <img class="img-fluid" src="http://placehold.it/800x600">
                 </div>
             </div>
-            <div class="row mb-5">
-                <div class="col-12 col-lg-6">
-                    <img class="img-fluid" src="http://placehold.it/800x600">
-                </div>
-                <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center">
-                    <h2>Súmate</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut ducimus vitae voluptates hic. Dolore soluta deleniti dignissimos libero tenetur, saepe hic tempora alias ab itaque? Totam consequuntur voluptate ut.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium molestiae voluptatem! Tempore minus quasi totam porro deserunt. Iusto exercitationem explicabo reiciendis quod quasi saepe, suscipit similique expedita perspiciatis aliquam.Dolor enim dolores doloremque nam beatae, quas animi consectetur deleniti repellat neque. Laudantium accusantium ratione quisquam explicabo itaque officia quas possimus dolores! Illo, laudantium. Expedita recusandae nam autem repellendus fugit!</p>
-                    <p>Lorem ipsum dolor sit amet, consectet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos accusantium aperiam nobis obcaecati soluta quaerat, ea facere, qui omnis numquam nesciunt? Dolorum iusto incidunt corporis quibusdam, quod quasi maxime molestiae.</p>
-                </div>
-            </div>
+            
         </div>
     </section>
     <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">

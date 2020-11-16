@@ -38,12 +38,12 @@ class ResetPasswordController extends Controller
         // dd($request->email);
         $user = User::where('email', $request->email);
         if(!$user->exists()){
-            return redirect()->route('home')->with('error', 'No hemos encontrado este correo electronico en nuestros registros.');
+            return redirect()->route('home')->with('error', 'No hemos encontrado este correo electrónico en nuestros registros.');
         }
         $user = $user->first();
         $user->verification_token = Hash::make(date('Y-m-d H:i:s'));
         $user->save();
         Mail::to($user->email)->send(new ResetPassword($user));
-        return redirect()->route('home')->with('status', 'Hemos enviado el link, revisa tu correo electronico.');
+        return redirect()->route('home')->with('status', 'Hemos enviado el link, revisa tu correo electrónico.');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Helpers\Helper;
 use Closure;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
@@ -17,12 +18,8 @@ class AccesosBackend extends Middleware
      */
     public function handle($request, Closure $next)
     {
-        if ($roles = json_decode(Cookie::get('roles'))) {
-            foreach ($roles as $rol) {
-                if ($rol == 'ADMIN') {
-                    return $next($request);
-                }
-            }
+        if (Helper::validarUsuarioAdmin()) {
+            return $next($request);
         }
 
         return back()->with('error', 'Perfil de usuario no administrador');

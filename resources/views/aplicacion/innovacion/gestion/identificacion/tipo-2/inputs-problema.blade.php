@@ -57,7 +57,7 @@
         <div class="cs-file-drop-area">
             <div class="cs-file-drop-icon fe-upload"></div>
             <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="archivo" id="pdf" required>
+            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="archivo" id="pdf" accept="image/pdf" required>
             <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
             <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
         </div>
@@ -68,7 +68,7 @@
                 $img =  asset('storage/problemas/'.$problema->archivo);
             }
             @endphp
-        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" required data-default-file="{{$img}}">
+        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" required data-default-file="{{$img}}" accept="image/pdf">
         @endif
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>

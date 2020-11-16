@@ -1,35 +1,17 @@
 @extends('layouts.aplicacion.app')
 
 @section('content')
-    <section class="container my-lg-2 pt-5 pb-lg-7">
-        <div class="row align-items-center">
-            <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">El equipo</h1>
-                <div class="py-4">
-                    <p class="cs-callout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                </div>
-                <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
-                    href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
-                    video</span>
-            </div>
-        </div>
-    </section>
-    <section>
+    
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, commodi incidunt voluptate nisi
-                        magnam accusantium possimus suscipit debitis. Consectetur culpa dolorem libero ratione reiciendis
-                        similique voluptas saepe placeat eveniet esse. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Est aspernatur laboriosam, libero voluptate doloribus recusandae distinctio maxime, ex nemo
-                        architecto magnam. Laboriosam quam beatae iste itaque? Non enim ipsum quasi?</p>
+                    <p>Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.  </p>
                 </div>
             </div>
         </div>
     </section>
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
-        <h2 class="pb-4 mb-4 text-center">Quienes somos</h2>
+        <h2 class="pb-4 mb-4 text-center">Nuestro aliados</h2>
         <div class="row mb-3 mt-4">
             <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a

@@ -40,7 +40,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
 Route::get('/verificacion', function(){
-    return redirect()->route('home')->with('error', 'Porfavor verifica tu correo electrónico.');
+    return redirect()->route('home')->with('error', 'Por favor verifica tu correo electrónico.');
 })->name('verification.notice');
 Route::get('reset-password', 'Auth\ForgotPasswordController@show')->middleware(['guest'])->name('reset');
 Route::post('reset-password', 'Auth\ResetPasswordController@send')->name('password.email');
@@ -62,7 +62,9 @@ Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\Materialdeapren
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
 
 
-Route::get('/mapa', 'Web\IniciativasController@mapa')->name('mapa');
+Route::get('/mapa',  function () {
+    return view('mapa');
+})->name('mapa');
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 

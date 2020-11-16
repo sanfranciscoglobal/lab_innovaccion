@@ -13,6 +13,7 @@ var locations = [
 
 
 function initMap() {
+  
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
         center: new google.maps.LatLng(-33.92, 151.25),
@@ -178,24 +179,53 @@ function initMap() {
             }
           ]
                   });
-      
-    
+       
+     
       var infowindow = new google.maps.InfoWindow();
     
-      var marker, i;
-    
+      var marker=[], i;
+      function cleanmarker(){
+        for (i = 0; i < locations.length; i++) {  
+          marker[i].setIcon('https://www.google.com/mapfiles/marker_yellow.png');
+        }
+      }
       for (i = 0; i < locations.length; i++) {  
-        marker = new google.maps.Marker({
+        marker.push(new google.maps.Marker({
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-          map: map
-        });
-    
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          }
+        })
+        );
+        
+        google.maps.event.addListener(marker[i], 'click', (function(marker, i) {
           return function() {
-            var html = '<b size="6" style="color:#4e2561"> Nombre institución  </b> <br/>' + locations[i][0] +'<br/><a style="color:orange">Ver más</a>';
+            var html = '<b size="6" style="color:#4e2561"> Nombre institución  </b> <br/>' + locations[i][0] +'<br/><a href="#" style="color:orange">Ver más</a>';
+           
             infowindow.setContent(html);
-            infowindow.open(map, marker);
+            infowindow.open(map, marker[i]);
+            cleanmarker();
+            marker[i].setIcon({
+              url:"https://www.google.com/mapfiles/marker_green.png",
+              fillColor: "#00F",
+              scale: 5,
+              fillOpacity: 0.7,
+              strokeWeight: 0.4
+
+            });
           }
         })(marker, i));
-      }
+        /*google.maps.event.addListener(infowindow, 'domready', (function(marker, i) {
+          
+          marker.setIcon('https://www.google.com/mapfiles/marker_yellow.png');
+            
+      })(marker, i));
+      */
+  
+    };
+    
+    
+    
+      
 }
