@@ -15,8 +15,8 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/bombilla.svg') }}"
                             alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-mora">Gestión de la Innovación</h3>
-                        <p class="font-size-sm mb-0">Recogemos con convocatorias específicas los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras.</p>
+                        <a href="{{route('innovaciones')}}" class="media meta-link "><h3 class="fs-14 mb-2 uppercase text-mora"> Gestión de la Innovación </h3></a>
+                        <p class="font-size-sm mb-0">Recogemos con convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -32,7 +32,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/mapa.svg') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-naranja">Mapa</h3>
-                        <p class="font-size-sm mb-0">Promovemos la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
+                        <p class="font-size-sm mb-0">Promovemo la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
