@@ -31,7 +31,11 @@
                                     {{ $fondo->organizacion }}</a></h4>
                                 {{-- <h4 class="h4">{{$evento->nombre}}</h4> --}}
                             </div>
+                            @isset($fondo->fecha_inicio)
                             <div class="col-sm-3 text-right text-muted">{{ date('M d, Y', strtotime($fondo->fecha_inicio)) }} - {{ date('M d, Y', strtotime($fondo->fecha_fin)) }}</div>
+                            @else
+                            <div class="col-sm-3 text-right text-muted">Fondo de Organización</div>
+                            @endisset
                         </div>
                         <p>{{ $fondo->nombre_fondo }}</p>
                     </div>

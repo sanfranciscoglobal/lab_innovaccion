@@ -7,7 +7,7 @@
 </style>
 @endsection
 @section('content')
-    <section class="container my-lg-2 pt-5 pb-lg-7">
+    <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5">Fondos</h1>
@@ -19,19 +19,19 @@
             </div>
         </div>
     </section>
-    {{-- <section>
+    <section>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <h2 class="h3 text-center">Agentes de cooperación</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, commodi incidunt voluptate nisi magnam accusantium possimus suscipit debitis. Consectetur culpa dolorem libero ratione reiciendis similique voluptas saepe placeat eveniet esse. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est aspernatur laboriosam, libero voluptate doloribus recusandae distinctio maxime, ex nemo architecto magnam. Laboriosam quam beatae iste itaque? Non enim ipsum quasi?</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam accusantium voluptatem pariatur minima earum sequi, autem, alias, dolorum totam excepturi mollitia eveniet ut corrupti exercitationem explicabo incidunt debitis possimus sapiente.</p>
+                    <h2 class="h3 text-center">Indicaciones</h2>
+                    <p class="text-center">Caso 1. Registra fondos propios o de otros organismos en el formulario.<br>
+                    Caso 2. Revisa las oportunidades de financiamiento pulsando en los íconos.</p>
                 </div>
             </div>
         </div>
-    </section> --}}
-    <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
-        <div class="row mb-3 mt-4">
+    </section>
+    <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-5">
+        <div class="row mb-3 mt-4 border">
             @foreach ($fondos as $fondo)
             @php
                 $img = isset($fondo->imagen) ? $fondo->imagen : '';
@@ -56,6 +56,9 @@
                 </div>
             </div>
             @endforeach
+            <div class="col-12 border border-info">
+                <div class="justify-content-center border border-danger">{{ $fondos->links() }}</div>
+            </div>
 
             {{-- <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">

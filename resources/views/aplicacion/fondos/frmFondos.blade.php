@@ -77,12 +77,13 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
                                                         <div class="input-group-overlay">
-                                                            <input class="form-control appended-form-control cs-date-picker cs-date-range" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate": "today"}' data-linked-input="#fondo_fecha_cierre">
+                                                            <input class="form-control appended-form-control cs-date-picker cs-date-range" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}"  placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate": "today"}' data-linked-input="#fondo_fecha_cierre">
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>
                                                                 </span>
                                                             </div>
+                                                            <input type="hidden" name="fecha_inicio" class="cs-date-range-ini" required>
                                                         </div>
                                                         <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
                                                         @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
@@ -92,12 +93,13 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_cierre">* Fecha de cierre</label>
                                                         <div class="input-group-overlay ">
-                                                            <input class="form-control cs-date-picker" type="text" data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" name="fecha_fin" placeholder="Fecha de finalización" required>
+                                                            <input class="form-control cs-date-picker" type="text" data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" placeholder="Fecha de finalización" required>
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>
                                                                 </span>
                                                             </div>
+                                                            <input type="hidden" name="fecha_fin" class="cs-date-range-end" required>
                                                         </div>
                                                         @error('fecha_fin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                     </div>
@@ -107,7 +109,7 @@
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="URL de la página oficial del fondo" required>
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="Link de la página web oficial del fondo" required>
                                                 @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                 <div class="invalid-feedback" id='url-error'></div>
                                             </div>
@@ -177,7 +179,7 @@
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                         @error('terminos')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
-                                    <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Enviar</button>
+                                    <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +209,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="submit" class="btn btn-warning btn-sm">Eliminar</button>
                     </div>
                 </form>
             </div>
@@ -238,7 +240,13 @@
                 $('#org_logo').removeAttr('required');
             }
         })
-    })
+    });
+
+    $('.cs-date-range').on('change', function(){
+        let old = $(this).val().split(' a ');
+        $('.cs-date-range-ini').val(old[0]);
+        $('.cs-date-range-end').val(old[1]);
+    });
 </script>
 <script>
     let fuente = {{ old('fuente', (int)$fondo->fuente) ?? 'null' }};

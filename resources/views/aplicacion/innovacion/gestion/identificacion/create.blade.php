@@ -177,8 +177,10 @@
 @section('footer')
 <script>
     //  SET TO NULL IF NO OLD DATA
-    let user_lat = {{ old('latitud', $problema->latitud) ?? 'null' }};
-    let user_lng = {{ old('longitud', $problema->longitud) ?? 'null' }};
+    let user_lat = {{ old('latitud', $problema->latitud) ?? -1.268749 }};
+    let user_lng = {{ old('longitud', $problema->longitud) ?? -78.626923 }};
+    // let user_lat = {{ old('latitud', $problema->latitud) ?? 'null' }};
+    // let user_lng = {{ old('longitud', $problema->longitud) ?? 'null' }};
 </script>
 <script src="{{ asset('js/maps.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=initMap" async defer></script>
