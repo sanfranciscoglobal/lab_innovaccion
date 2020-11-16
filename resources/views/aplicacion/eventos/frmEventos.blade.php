@@ -141,7 +141,7 @@
                                             <div class="col-md-12">
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
-                                                        <label for="url">* URL del Evento</label>
+                                                        <label for="url">* Link del Evento</label>
                                                         <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
                                                         <div class="invalid-feedback" id='url-error'></div>
                                                     </div>

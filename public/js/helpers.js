@@ -245,14 +245,12 @@ $('.select2').each(function (e, element) {
 });
 
 window.countWords = function countWords(element_id, element_error_id, submit_id, min, maxword) {
-  var maxlength = 300;
-
   if (maxword == undefined) {
     maxword = 100;
   }
 
   if (min == undefined) {
-    min = 49;
+    min = 0;
   }
 
   var str = document.getElementById(element_id).value;
@@ -260,11 +258,11 @@ window.countWords = function countWords(element_id, element_error_id, submit_id,
   var words = spaces ? spaces.length : 0;
   document.getElementById("count-words").innerHTML = words + " palabras";
 
-  if (words > 49 && words <= maxword || words == 0) {
+  if (words > min && words <= maxword || words == 0) {
     $("#" + element_error_id).removeClass('d-inline');
     $('#' + element_id).removeClass('is-invalid');
     $('#' + submit_id).removeAttr('disabled');
-  } else if (words < 49) {
+  } else if (words < min) {
     $("#" + element_error_id).html('Llene el mínimo de palabras necesarias');
     $("#" + element_error_id).addClass('d-inline');
     $('#' + element_id).addClass('is-invalid');

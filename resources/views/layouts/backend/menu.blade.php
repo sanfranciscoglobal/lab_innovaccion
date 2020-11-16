@@ -22,8 +22,8 @@
                         </a>
                         <ul class="collapse" id="gestion" data-parent="#menu">
                             <li>
-                                <a class="cs-widget-link" href="#">
-                                    Administrador 1
+                                <a class="cs-widget-link" href="{{ route('admin.escritorio.convocatoria') }}">
+                                    Convocatorias
                                     <small class="text-muted pl-1 ml-2">5</small>
                                 </a>
                             </li>
