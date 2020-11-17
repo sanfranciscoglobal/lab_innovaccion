@@ -15,7 +15,7 @@
                 <div class="card-header">Confirmar Contraseña</div>
 
                 <div class="card-body">
-                    porfavor confirma tu contraseña para continuar
+                    Por favor confirma tu contraseña para continuar
 
                     <form class="needs-validation" novalidate method="POST" action="{{ route('password.update') }}">
                         @csrf

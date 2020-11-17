@@ -40,7 +40,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
 Route::get('/verificacion', function(){
-    return redirect()->route('home')->with('error', 'Porfavor verifica tu correo electrónico.');
+    return redirect()->route('home')->with('error', 'Por favor verifica tu correo electrónico.');
 })->name('verification.notice');
 Route::get('reset-password', 'Auth\ForgotPasswordController@show')->middleware(['guest'])->name('reset');
 Route::post('reset-password', 'Auth\ResetPasswordController@send')->name('password.email');
@@ -61,6 +61,10 @@ Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\Materialdeapren
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
 
+
+Route::get('/mapa',  function () {
+    return view('mapa');
+})->name('mapa');
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
@@ -131,11 +135,11 @@ Route::as('app.')
 
             /** Rutas Innovacion */
             //FASE A
-            Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
-            Route::get('/innovacion/crear/{id}', 'Aplicacion\crudConvocatoria@edit')->name('convocatoria.edit');
-            Route::put('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@update')->name('convocatoria.put');
-            Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
-            Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
+            // Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
+            // Route::get('/innovacion/crear/{id}', 'Aplicacion\crudConvocatoria@edit')->name('convocatoria.edit');
+            // Route::put('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@update')->name('convocatoria.put');
+            // Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
+            // Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
             //FASE B
             Route::get('innovacion/gestion/ver/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
             Route::get('innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnovacion')->name('innovaciongestion');
@@ -168,6 +172,15 @@ Route::as('admin.')
         function () {
             // Route::resource('abreviatura', 'AbreviaturaController');
             Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
+            Route::get('/escritorio/inicial', 'Backend\EscritorioController@verInicial')->name('escritorio.incial');
+            Route::get('/escritorio/convocatorias', 'Backend\EscritorioController@verConvocatoria')->name('escritorio.convocatoria');
+            /** Rutas Innovacion */
+            //FASE A
+            Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
+            Route::get('/innovacion/crear/{id}', 'Aplicacion\crudConvocatoria@edit')->name('convocatoria.edit');
+            Route::put('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@update')->name('convocatoria.put');
+            Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
+            Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
         }
     );
 

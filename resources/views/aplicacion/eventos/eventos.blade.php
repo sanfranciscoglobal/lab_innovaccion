@@ -71,7 +71,7 @@
                                 data-ajax--data-type="json"
                                 data-ajax--data-cache="true"
                                 data-allow-clear="true"
-                                data-placeholder="Seleccione un Canton"
+                                data-placeholder="Seleccione un Cantón"
                                 data-close-on-select="false"
                                 disabled
                                 multiple>

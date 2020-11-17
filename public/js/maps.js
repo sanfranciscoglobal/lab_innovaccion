@@ -5,10 +5,11 @@ jQuery(document).ready(function() {
 });
 function initMap() {
 	navigator.geolocation.getCurrentPosition(function(position) {
-		var latUsuario = user_lat != null ? user_lat : position.coords.latitude;
-		var lonUsuario = user_lng != null ? user_lng : position.coords.longitude;
+		var latUsuario = user_lat != -0.1806532 ? user_lat : position.coords.latitude;
+		var lonUsuario = user_lng != -78.4678382 ? user_lng : position.coords.longitude;
 		var zoom = 16;
 		var dragMarker = true;
+
 		var placeSearch, autocomplete;
 		/*
         if (

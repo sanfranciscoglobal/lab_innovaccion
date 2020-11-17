@@ -21,11 +21,12 @@ use App\Helpers\Archivos; // $nombre, $archivo, $disk
 class crudConvocatoria extends Controller
 {
     //
+
     public function edit($id)
     {
 
         $convocatoria = Convocatoria::find($id);
-        return view('aplicacion.innovacion.create', compact('convocatoria'))->with(['url' => route('app.convocatoria.put',$convocatoria->id),'method'=>'PUT']);
+        return view('aplicacion.innovacion.create', compact('convocatoria'))->with(['url' => route('admin.convocatoria.put',$convocatoria->id),'method'=>'PUT']);
     }
 
 

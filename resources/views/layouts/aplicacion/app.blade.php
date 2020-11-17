@@ -129,7 +129,9 @@
     <!-- Vendor Styles-->
 {{--<link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>--}}
 <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="{{asset('css/theme.css')}}">
+    {{-- <link rel="stylesheet" media="screen" href="{{asset('css/theme.css')}}"> --}}
+    <link rel="stylesheet" media="screen" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" media="screen" href="{{asset('css/extra.css')}}">
     @yield('header-css')
 </head>
 <!-- Body-->
@@ -186,14 +188,16 @@
                                         <i class="fe-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" required>
+                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" required
+                                {{-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" --}}
+                                >
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Show password</span>
                                 </label>
                             </div>
-                            <small class="text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
+                            {{-- <small class="text-muted">Al menos 1 mayúscula, 1 minúscula, 1 número, 1 símbolo, mínimo 8 caracteres</small> --}}
                             @error('password')<br><div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                         </div>
 
@@ -251,7 +255,7 @@
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
                             </div>
-                            <small class="form-text text-muted">Al menos 1 Mayúscula, 1 minúscula, 1 número, 1 símbolo, Mínimo 8 caracteres</small>
+                            <small class="form-text text-muted">Al menos 1 mayúscula, 1 minúscula, 1 número, 1 símbolo, mínimo 8 caracteres</small>
                             @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                         </div>
                         <div class="form-group">
@@ -350,6 +354,13 @@
     //     }, 1000);
     // }
     $('.modal-status').modal('show');
+    $('#modal-signup').on('show.bs.modal', function () {
+        $('#modal-signin').modal('hide');
+    });
+    $('#modal-signin').on('show.bs.modal', function () {
+        $('#modal-signup').modal('hide');
+    });
+
     flatpickr(".js-input", {
         allowInput:true,
         altInput:true,

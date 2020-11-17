@@ -60,14 +60,14 @@
                                             <span>Datos de los fondos</span>
                                             <div class="form-group">
                                                 <label for="org_nombre">* Nombre de la organización</label>
-                                                <input class="form-control @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $fondo->organizacion) }}" name="organizacion" placeholder="Razón social" required>
+                                                <input class="form-control @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $fondo->organizacion) }}" name="organizacion" placeholder="Nombre de Organización" required>
                                                 @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
                                         <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
                                                 <label for="org_fondo">* Nombre del fondo</label>
-                                                <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_fondo" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del programa" required>
+                                                <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_fondo" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del Fondo" required>
                                                 @error('nombre_fondo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
@@ -77,14 +77,14 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_inicio">* Fecha de inicio</label>
                                                         <div class="input-group-overlay">
-                                                            <input class="form-control cs-date-picker cs-date-range" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate": "today"}' data-linked-input="#fondo_fecha_cierre">
+                                                            <input class="form-control appended-form-control cs-date-picker cs-date-range" type="text"  id="fondo_fecha_inicio" value="{{ old('fecha_inicio', $fondo->fecha_inicio) }}" name="fecha_inicio" placeholder="Fecha de inicio" required data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate": "today"}' data-linked-input="#fondo_fecha_cierre">
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+                                                        
                                                         @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                     </div>
                                                 </div>
@@ -122,7 +122,6 @@
                                                     <input type="file" class="cs-file-drop-input" id="org_logo" accept="image/gif, image/jpeg, image/png" name="imagen" title="Imagen del fondo" required>
                                                     <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                                     <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
-                                                    @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                 </div>    
                                                 @else
                                                 @php
@@ -131,9 +130,10 @@
                                                     } else {
                                                         $img = '';
                                                     }
-                                                @endphp
-                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}">
+                                                    @endphp
+                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png">
                                                 @endif
+                                                @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
                                     </div>
