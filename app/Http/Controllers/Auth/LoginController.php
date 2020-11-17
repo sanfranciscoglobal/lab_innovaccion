@@ -53,7 +53,9 @@ class LoginController extends Controller
                 $array_json = json_encode($rolesUser);
                 Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
             }
-
+            if(auth()->user()->roles()->pluck('name','roles.id')->first() != 'users'){
+                return redirect()->route('admin.escritorio')->with('status', 'Tu sesión ha iniciado exitosamente.');
+            }
             return redirect()->route('app.escritorio')->with('status', 'Tu sesión ha iniciado exitosamente.');
         }
 

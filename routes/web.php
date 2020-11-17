@@ -155,6 +155,7 @@ Route::as('app.')
             Route::get('/escritorio/eventos', 'Aplicacion\EscritorioController@verEventos')->name('escritorio.eventos')->middleware('auth');
             Route::get('/escritorio/publicacion-herramienta', 'Aplicacion\EscritorioController@verMateriales')->name('escritorio.material')->middleware('auth');
             Route::get('/escritorio/fondos', 'Aplicacion\EscritorioController@verFondos')->name('escritorio.fondos');
+            Route::get('/escritorio/problemas', 'Aplicacion\EscritorioController@verProblemas')->name('escritorio.problemas');
 
         }
     );
