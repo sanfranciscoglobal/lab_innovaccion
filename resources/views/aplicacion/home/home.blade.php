@@ -247,19 +247,19 @@
         <div class="row pb-lg-4 pt-3">
             <div class="col-lg-2 offset-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0">8050</h3>
-                <p class="text-muted font-size-lg mb-0">Visitas</p>
+                <p class="text-muted font-size-lg mb-0">Convocatorias</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0">1500</h3>
-                <p class="text-muted font-size-lg mb-0">Actores mapeados</p>
+                <p class="text-muted font-size-lg mb-0">Iniciativas</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0">40</h3>
-                <p class="text-muted font-size-lg mb-0">Retos resueltos</p>
+                <p class="text-muted font-size-lg mb-0">Fondos </p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0">18</h3>
-                <p class="text-muted font-size-lg mb-0">Convocatorias de innovación</p>
+                <p class="text-muted font-size-lg mb-0">Publicaciones y herramientas</p>
             </div>
         </div>
     </section>
