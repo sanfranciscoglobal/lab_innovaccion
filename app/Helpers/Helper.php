@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Models\Canton;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cookie;
 
@@ -25,10 +26,38 @@ class Helper
     {
         if ($roles = json_decode(Cookie::get('roles'))) {
             foreach ($roles as $rol) {
-                if (in_array(strtolower(trim($rol)), ['superadmin','admin'])){
+                if (in_array(strtolower(trim($rol)), ['superadmin', 'admin'])) {
                     return true;
                 }
             }
+        }
+
+        return false;
+    }
+
+
+    /**
+     * @param string $localidad
+     * @param string $area
+     * @param string $area2
+     * @return Canton|array|bool
+     */
+    public static function obtenerCiudadPorLocalidad($localidad, $area, $area2)
+    {
+        $localidad = mb_strtolower(trim($localidad));
+        $area = mb_strtolower(trim($area));
+        $area2 = mb_strtolower(trim($area2));
+
+        if ($ciudad = Canton::obtenerCantonNombre($localidad)) {
+            return $ciudad;
+        }
+
+        if ($ciudad = Canton::obtenerCantonNombre($area)) {
+            return $ciudad;
+        }
+
+        if ($ciudad = Canton::obtenerCantonNombre($area2)) {
+            return $ciudad;
         }
 
         return false;

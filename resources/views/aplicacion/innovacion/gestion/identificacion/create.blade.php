@@ -152,16 +152,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
-                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Usuario</h4>
+                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Problema</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="text-white">&times;</span>
                     </button>
                 </div>
                 <form action="{{ route('app.problemas.delete', $problema->id) }}" method="POST" role="form">
                     @csrf
-                    @method('DELETE')
+                    @method("DELETE")
                     <div class="modal-body">
-                        <div class="text-danger">Está seguro que desea eliminar este usuario?</div>
+                        <div class="text-danger">Está seguro que desea eliminar este problema?</div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
@@ -177,8 +177,10 @@
 @section('footer')
 <script>
     //  SET TO NULL IF NO OLD DATA
-    let user_lat = {{ old('latitud', $problema->latitud) ?? 'null' }};
-    let user_lng = {{ old('longitud', $problema->longitud) ?? 'null' }};
+    let user_lat = {{ old('latitud', $problema->latitud) ?? -1.268749 }};
+    let user_lng = {{ old('longitud', $problema->longitud) ?? -78.626923 }};
+    // let user_lat = {{ old('latitud', $problema->latitud) ?? 'null' }};
+    // let user_lng = {{ old('longitud', $problema->longitud) ?? 'null' }};
 </script>
 <script src="{{ asset('js/maps.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=initMap" async defer></script>

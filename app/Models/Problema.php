@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Problema extends Model
 {
     use SoftDeletes;
 
     protected $table = 'problemas';
+    public static $paginate = 10;
+    public static $own = false;
 
     /**
      * The attributes that are mass assignable.
@@ -26,5 +29,27 @@ class Problema extends Model
 
     public function canton(){
         return $this->belongsTo('App\Models\Canton');
+    }
+
+    /**
+     * @return Builder
+     */
+    public static function builder()
+    {
+        $query = Problema::orderBy('created_at', 'DESC');
+        if (self::$own) {
+            $query->where('user_id', Auth::id());
+        }
+        return $query;
+    }
+
+    /**
+     * Obtener paginador de problemas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerPaginate()
+    {
+        $rs = self::builder();
+        return $rs->paginate(self::$paginate) ?? [];
     }
 }

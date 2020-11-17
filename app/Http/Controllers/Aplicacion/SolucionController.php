@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class SolucionController extends Controller
 {
-    //
     public function verSoluciones(Request $request)
     {
        
