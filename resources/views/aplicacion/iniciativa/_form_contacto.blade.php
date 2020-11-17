@@ -89,7 +89,7 @@
     {{--</div>--}}
     <div class="py-2">
         <button class="btn btn-primary submitBtn float-right" type="submit">
-            <i class="fe-save font-size-lg mr-2"></i> Guardar
+            <i class="fe-save font-size-lg mr-2"></i> Registra tu iniciativa
         </button>
     </div>
 

@@ -160,26 +160,18 @@
 @endsection
 
 @section('footer')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=window.initMap"
+            async defer></script>
     <script type="text/javascript">
-        //initMap();
-        var input = document.getElementById('evento_direccion');
-        var selectPath = '{{route('api.canton.select2')}}';
-        console.log(selectPath);
-        var options = {
-            //types: ["locality", "political", "geocode"],
-            //types: ['(cities)'],
-            componentRestrictions: {country: 'ec'}
-        };
-        var map,
-            myLatlng,
-            currentAddressInput,
-            autocomplete,
-            marker,
-            geocoder,
-            infowindow,
-            Latlng,
-            infoService;
+        // initMap();
+        //var input = document.getElementById('evento_direccion');
+         {{--var selectPath = '{{route('api.canton.select2')}}';--}}
+        // var options = {
+        //     types: ["locality", "political", "geocode"],
+        //     types: ['(cities)'],
+        //     componentRestrictions: {country: 'ec'}
+        // };
+        // var currentAddressInput, autocomplete;
 
         $(document).ready(function () {
             //$('#map').hide();
@@ -215,7 +207,8 @@
                     encontro = false;
 
                 $(".form-group").removeClass("has-error");
-                console.log(curInputs);
+                //console.log(curInputs);
+
                 for (var i = 0; i < curInputs.length; i++) {
                     if (!curInputs[i].validity.valid) {
                         isValid = false;
@@ -247,7 +240,7 @@
                         $(allInputs[i]).closest(".form-group").addClass("has-error");
                         $('#error-message').html('<strong>Atención!</strong> Por favor revise los pasos anteriores, le falta completar algunos datos.');
                         $('a[href="#' + panelParent + '"]').addClass('panel-error');
-                        console.log($(allInputs[i]).closest('.panel').attr('id'))
+                        //console.log($(allInputs[i]).closest('.panel').attr('id'))
                     }
                 }
             });
@@ -274,155 +267,148 @@
 
             /* Agregar otro bloque para agregar otra ciudad */
             $('#add_city').click(function () {
-                var addressIterator = document.getElementsByClassName("ubicaciones").length;
-                console.log("Hay " + addressIterator + " elementos");
-
-                //var addressIterator = addressContainers.length++;
-
-                var html = '';
-                html += '<div class="form-group ubicaciones direccion" data-row="' + addressIterator + '">';
-                html += '<div class="row">';
-                html += '<div class="col-lg-12">';
-                html += '<label class="control-label">Dirección Sucursal</label>';
-                html += '<input maxlength="200" type="text" required="required" data-adresscontainer="' + addressIterator + '" class="form-control ubicacion ubicacion-' + addressIterator + '"';
-                html += 'placeholder="Escriba la dirección" name="Ubicaciones[' + addressIterator + '][direccion]"';
-                html += 'value=""/>';
-                html += '<input type="hidden" class="lat lat-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][latitud]" value="">';
-                html += '<input type="hidden" class="long long-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][longitud]" value="">';
-                html += '<input type="hidden" class="localidad localidad-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][localidad]" value="">';
-                html += '<input type="hidden" class="area1 area1-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][area1]" value="">';
-                html += '<input type="hidden" class="area2 area2-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][area2]" value="">';
-                html += '</div>';
-                html += '</div></div>';
-
-                $('#sedes-container').append(html);
-                var newInput = document.getElementsByClassName('ubicacion-' + addressIterator)[0];
-                newInput.focus();
-                autocomplete = new google.maps.places.Autocomplete(newInput, options);
-                autocomplete.addListener('place_changed', setnewAddress);
-            })
+                window.addSearchMap();
+                // var addressIterator = document.getElementsByClassName("ubicaciones").length;
+                // console.log("Hay " + addressIterator + " elementos");
+                //
+                // //var addressIterator = addressContainers.length++;
+                //
+                // var html = '';
+                // html += '<div class="form-group ubicaciones direccion border-bottom" data-row="' + addressIterator + '">';
+                // html += '<div class="row">';
+                // html += '<div class="col-lg-12">';
+                // html += '<label class="control-label">Dirección Sucursal</label>';
+                // html += '<input type="text" required="required" data-adresscontainer="' + addressIterator + '" class="form-control ubicacion ubicacion-' + addressIterator + '"';
+                // html += 'placeholder="Escriba la dirección" name="Ubicaciones[' + addressIterator + '][direccion]"';
+                // html += 'value=""/>';
+                // html += '<input type="text" class="lat lat-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][latitud]" value="">';
+                // html += '<input type="text" class="long long-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][longitud]" value="">';
+                // html += '<input type="text" class="localidad localidad-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][localidad]" value="">';
+                // html += '<input type="text" class="area1 area1-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][area1]" value="">';
+                // html += '<input type="text" class="area2 area2-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][area2]" value="">';
+                // html += '</div>';
+                // html += '</div></div>';
+                //
+                // $('#sedes-container').append(html);
+                // var newInput = document.getElementsByClassName('ubicacion-' + addressIterator)[0];
+                // newInput.focus();
+                // autocomplete = new google.maps.places.Autocomplete(newInput, window.options);
+                // autocomplete.addListener('place_changed', setnewAddress);
+            });
 
             $(document).on('focus', '.ubicacion', function () {
-                currentAddressInput = $(this).data('adresscontainer');
+                window.currentAddressInput = $(this).data('adresscontainer');
                 $('#map').show();
             })
 
         });
 
-        function initMap() {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var latUsuario = position.coords.latitude;
-                var lonUsuario = position.coords.longitude;
-                var zoom = 16;
-                var dragMarker = true;
-                var placeSearch;
-                /*
-                if (
-                    jQuery('#necesidad_lat').length > 0 &&
-                    jQuery('#necesidad_long').length > 0
-                ){
-                    latUsuario = jQuery('#necesidad_lat').val();
-                    lonUsuario = jQuery('#necesidad_long').val();
-                    zoom = zoom;
-                    dragMarker = false;
-                }*/
+        // console.log(window.initMap);
+        // function initMap() {
+        //     navigator.geolocation.getCurrentPosition(function (position) {
+        //         var latUsuario = position.coords.latitude;
+        //         var lonUsuario = position.coords.longitude;
+        //         var zoom = 16;
+        //         var dragMarker = true;
+        //         var placeSearch;
+        //
+        //         // var map;
+        //         myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
+        //         geocoder = new google.maps.Geocoder();
+        //         infowindow = new google.maps.InfoWindow();
+        //         autocomplete = new google.maps.places.Autocomplete(input, options);
+        //
+        //         map = new google.maps.Map(document.getElementById('map'), {
+        //             center: myLatlng,
+        //             zoom: zoom,
+        //             mapTypeId: google.maps.MapTypeId.ROADMAP
+        //         });
+        //         console.log(map);
+        //         marker = new google.maps.Marker({
+        //             position: myLatlng,
+        //             map: map,
+        //             //icon: baseURL + '/images/markers/me_icon.png',
+        //             draggable: dragMarker,
+        //             animation: google.maps.Animation.DROP,
+        //             title: 'Arrastre para seleccionar la ubicación'
+        //         });
+        //
+        //         geocoder.geocode({'latLng': myLatlng}, function (results, status) {
+        //             if (status == google.maps.GeocoderStatus.OK) {
+        //                 if (results[0]) {
+        //                     //jQuery('input[id="lat"],input[id="long"]').show();
+        //                     jQuery('input.ubicacion-' + currentAddressInput).val(results[0].formatted_address);
+        //                     jQuery('input.lat-' + currentAddressInput).val(marker.getPosition().lat());
+        //                     jQuery('input.long-' + currentAddressInput).val(marker.getPosition().lng());
+        //
+        //                     $.each(results[0].address_components, function (index, value) {
+        //                         if (value.types.indexOf('locality') > -1) {
+        //                             jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
+        //                         }
+        //                         if (value.types.indexOf('administrative_area_level_1') > -1) {
+        //                             jQuery('input.area1-' + currentAddressInput).val(value.short_name);
+        //                         }
+        //                         if (value.types.indexOf('administrative_area_level_2') > -1) {
+        //                             jQuery('input.area2-' + currentAddressInput).val(value.short_name);
+        //                         }
+        //                     })
+        //                     infowindow.setContent(results[0].formatted_address);
+        //                     infowindow.open(map, marker);
+        //                 }
+        //             }
+        //         });
+        //
+        //         google.maps.event.addListener(marker, 'dragend', function () {
+        //             geocoder.geocode({'latLng': marker.getPosition()}, function (results, status) {
+        //                 if (status == google.maps.GeocoderStatus.OK) {
+        //                     if (results[0]) {
+        //                         jQuery('input.ubicacion-' + currentAddressInput).val(results[0].formatted_address);
+        //                         jQuery('input.lat-' + currentAddressInput).val(marker.getPosition().lat());
+        //                         jQuery('input.long-' + currentAddressInput).val(marker.getPosition().lng());
+        //                         $.each(results[0].address_components, function (index, value) {
+        //                             if (value.types.indexOf('locality') > -1) {
+        //                                 jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
+        //                             }
+        //                             if (value.types.indexOf('administrative_area_level_1') > -1) {
+        //                                 jQuery('input.area1-' + currentAddressInput).val(value.short_name);
+        //                             }
+        //                             if (value.types.indexOf('administrative_area_level_2') > -1) {
+        //                                 jQuery('input.area2-' + currentAddressInput).val(value.short_name);
+        //                             }
+        //                         })
+        //                         infowindow.setContent(results[0].formatted_address);
+        //                         infowindow.open(map, marker);
+        //                     }
+        //                 }
+        //             });
+        //         });
+        //
+        //         autocomplete.addListener('place_changed', setnewAddress);
+        //
+        //     });
+        // }
 
-                // var map;
-                myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
-                geocoder = new google.maps.Geocoder();
-                infowindow = new google.maps.InfoWindow();
-                autocomplete = new google.maps.places.Autocomplete(input, options);
-
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: myLatlng,
-                    zoom: zoom,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                });
-                console.log(map);
-                marker = new google.maps.Marker({
-                    position: myLatlng,
-                    map: map,
-                    //icon: baseURL + '/images/markers/me_icon.png',
-                    draggable: dragMarker,
-                    animation: google.maps.Animation.DROP,
-                    title: 'Arrastre para seleccionar la ubicación'
-                });
-                geocoder.geocode({'latLng': myLatlng}, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                            //jQuery('input[id="lat"],input[id="long"]').show();
-                            jQuery('input.ubicacion-' + currentAddressInput).val(results[0].formatted_address);
-                            jQuery('input.lat-' + currentAddressInput).val(marker.getPosition().lat());
-                            jQuery('input.long-' + currentAddressInput).val(marker.getPosition().lng());
-
-                            $.each(results[0].address_components, function (index, value) {
-                                if (value.types.indexOf('locality') > -1) {
-                                    jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
-                                }
-                                if (value.types.indexOf('administrative_area_level_1') > -1) {
-                                    jQuery('input.area1-' + currentAddressInput).val(value.short_name);
-                                }
-                                if (value.types.indexOf('administrative_area_level_2') > -1) {
-                                    jQuery('input.area2-' + currentAddressInput).val(value.short_name);
-                                }
-                            })
-                            infowindow.setContent(results[0].formatted_address);
-                            infowindow.open(map, marker);
-                        }
-                    }
-                });
-
-                google.maps.event.addListener(marker, 'dragend', function () {
-                    geocoder.geocode({'latLng': marker.getPosition()}, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            if (results[0]) {
-                                jQuery('input.ubicacion-' + currentAddressInput).val(results[0].formatted_address);
-                                jQuery('input.lat-' + currentAddressInput).val(marker.getPosition().lat());
-                                jQuery('input.long-' + currentAddressInput).val(marker.getPosition().lng());
-                                $.each(results[0].address_components, function (index, value) {
-                                    if (value.types.indexOf('locality') > -1) {
-                                        jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
-                                    }
-                                    if (value.types.indexOf('administrative_area_level_1') > -1) {
-                                        jQuery('input.area1-' + currentAddressInput).val(value.short_name);
-                                    }
-                                    if (value.types.indexOf('administrative_area_level_2') > -1) {
-                                        jQuery('input.area2-' + currentAddressInput).val(value.short_name);
-                                    }
-                                })
-                                infowindow.setContent(results[0].formatted_address);
-                                infowindow.open(map, marker);
-                            }
-                        }
-                    });
-                });
-
-                autocomplete.addListener('place_changed', setnewAddress);
-
-            });
-        }
-
-        function setnewAddress() {
-            var place = autocomplete.getPlace();
-            Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
-            marker.setPosition(Latlng);
-            infowindow.setContent(place.formatted_address);
-            console.log(place)
-            map.panTo(Latlng);
-            $.each(place.address_components, function (index, value) {
-                if (value.types.indexOf('locality') > -1) {
-                    jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
-                }
-                if (value.types.indexOf('administrative_area_level_1') > -1) {
-                    jQuery('input.area1-' + currentAddressInput).val(value.short_name);
-                }
-                if (value.types.indexOf('administrative_area_level_2') > -1) {
-                    jQuery('input.area2-' + currentAddressInput).val(value.short_name);
-                }
-            })
-            jQuery('input.lat-' + currentAddressInput).val(place.geometry.location.lat());
-            jQuery('input.long-' + currentAddressInput).val(place.geometry.location.lng());
-        }
+        // function setnewAddress() {
+        //     var place = autocomplete.getPlace();
+        //     Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+        //     marker.setPosition(Latlng);
+        //     infowindow.setContent(place.formatted_address);
+        //     console.log(place)
+        //     map.panTo(Latlng);
+        //     $.each(place.address_components, function (index, value) {
+        //         if (value.types.indexOf('locality') > -1) {
+        //             jQuery('input.localidad-' + currentAddressInput).val(value.short_name);
+        //         }
+        //         if (value.types.indexOf('administrative_area_level_1') > -1) {
+        //             jQuery('input.area1-' + currentAddressInput).val(value.short_name);
+        //         }
+        //         if (value.types.indexOf('administrative_area_level_2') > -1) {
+        //             jQuery('input.area2-' + currentAddressInput).val(value.short_name);
+        //         }
+        //     })
+        //     jQuery('input.lat-' + currentAddressInput).val(place.geometry.location.lat());
+        //     jQuery('input.long-' + currentAddressInput).val(place.geometry.location.lng());
+        // }
 
         /* activar otro contacto */
         $('#add_contact').click(function () {
