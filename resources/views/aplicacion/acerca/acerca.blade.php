@@ -29,107 +29,7 @@
         </div>
     </section>
     --->
-    <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
-        <h2 class="pb-4 mb-4 text-center">Quienes somos</h2>
-        <div class="row mb-3 mt-4">
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:sarah.cole@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
-                            alt="Sarah Cole" />
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Sarah Cole</h3>
-                        <p class="font-size-xs text-body mb-0">CEO, Co-Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:charlie.welch@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
-                            alt="Charlie Welch" />
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Charlie Welch</h3>
-                        <p class="font-size-xs text-body mb-0">CTO, Co-Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:emma.brown@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
-                            alt="Emma Brown" />
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Emma Brown</h3>
-                        <p class="font-size-xs text-body mb-0">Director of Marketing</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:rosalie.lyons@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
-                            alt="Rosalie Lyons" />
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Rosalie Lyons</h3>
-                        <p class="font-size-xs text-body mb-0">Financial Director</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:jane.tanaka@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
-                            alt="Jane Tanaka" />
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Jane Tanaka</h3>
-                        <p class="font-size-xs text-body mb-0">Lead PR Strategist</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:sanomi.smith@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
-                            alt="Sanomi Smith" />
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Sanomi Smith</h3>
-                        <p class="font-size-xs text-body mb-0">Director of Human Resources</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:olivia.jones@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
-                            alt="Olivia Jones" />
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Olivia Jones</h3>
-                        <p class="font-size-xs text-body mb-0">Content Manager</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:richard.davis@example.com"><i class="fe-mail"></i></a>
-                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
-                            alt="Richard Davis" />
-                    </div>
-                    <div class="card-body text-center">
-                        <h3 class="h6 card-title mb-2">Richard Davis</h3>
-                        <p class="font-size-xs text-body mb-0">Lead Accountant</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
     <section>
         <div class="container">
             <div class="row mt-5 mb-5">
@@ -152,7 +52,111 @@
                     <img class="img-fluid" src="http://placehold.it/800x600">
                 </div>
             </div>
+            <div class="row mt-5 mb-5">
+            <h2>Valores</h2>
+            </div>
+            <div class="row mt-5 mb-5">
+                <div class="col-12 col-lg-6">
+                    
+                    <h4>Confianza</h4>
+                    <p>Las relaciones entre diversos agentes innovadores deben basarse en la seguridad que se tiene en otros y en sus obras sin perjuicio.</p>
+                    <h4>Transparencia</h4>
+                    <p>Para fortalecer y expandir la cultura de innovación se comunica con claridad el uso que se la da a la información compartida y los compromisos adquiridos por cada actor al participar de convocatorias de identificación de problemas o soluciones. La comunicación es franca y directa entre actores como regla de trabajo en equipo. </p>
+                    <h4>Colaboración </h4>
+                    <p>Para consolidar las bases del ecosistema de innovación se debe cooperar trabajando en común hacia ese objetivo sumando esfuerzos.</p>
+                    
+                    
+                </div>
+                <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center">
+                   <h4>Responsabilidad </h4>
+                    <p>El trabajo en innovación tanto identificando problemas o soluciones requiere que los actores cumplan con sus compromisos y obligaciones adquiridas ante los demás para garantizar que estos espacios de encuentro sean efectivos y respetuosos. </p>
+                    <h4>Creatividad</h4>
+                    <p>Los agentes innovadores deben buscar de manera consistente y persistentemente a través de varias iteraciones el encontrar una solución innovadora desarrollando e inventando nuevos conceptos y / o objetos que permitan resolver los problemas de desarrollo identificados. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
+        <h2 class="pb-4 mb-4 text-center">El Equipo</h2>
+        Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.
+        <div class="row mb-3 mt-4 align-items-center justify-content-center">
             
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
+                        class="card-floating-icon" href="mailto:charlie.welch@example.com"><i class="fe-mail"></i></a>
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('img/onu.svg')}}" 
+                            style="height: 220px;"/>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos mb-3">PNUD</p>
+                        <p class="font-size-xl text-body mb-2">IMPULSOR</p>
+                        <p class="font-size-xl text-body mb-0">https://www.ec.undp.org/</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
+                        class="card-floating-icon" href="mailto:emma.brown@example.com"><i class="fe-mail"></i></a>
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('img/sanfrancisco.svg')}}" 
+                    style="height: 220px;" />
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos mb-3">Fundación San Francisco Global</p>
+                        <p class="font-size-xl text-body mb-2">IMPULSOR</p>
+                        <p class="font-size-xl text-body mb-0">https://www.sanfranciscoglobal.org/</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 mt-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
+                        class="card-floating-icon" href="mailto:jane.tanaka@example.com"><i class="fe-mail"></i></a>
+                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
+                            alt="Jane Tanaka" />
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos">Jane Tanaka</p>
+                        <p class="font-size-xs text-body mb-0">Lead PR Strategist</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
+                        class="card-floating-icon" href="mailto:sanomi.smith@example.com"><i class="fe-mail"></i></a>
+                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
+                            alt="Sanomi Smith" />
+                    </div>
+                    <div class="card-body text-center">
+                        <h3 class="h6 card-title ">Sanomi Smith</h3>
+                        <p class="font-size-xs text-body mb-0">Director of Human Resources</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
+                        class="card-floating-icon" href="mailto:olivia.jones@example.com"><i class="fe-mail"></i></a>
+                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
+                            alt="Olivia Jones" />
+                    </div>
+                    <div class="card-body text-center">
+                        <h3 class="h6 card-title ">Olivia Jones</h3>
+                        <p class="font-size-xs text-body mb-0">Content Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
+                        class="card-floating-icon" href="mailto:richard.davis@example.com"><i class="fe-mail"></i></a>
+                    <div class="card-img-top card-img-gradient"><img src="http://placehold.it/280x300/?text=Team"
+                            alt="Richard Davis" />
+                    </div>
+                    <div class="card-body text-center">
+                        <h3 class="h6 card-title ">Richard Davis</h3>
+                        <p class="font-size-xs text-body mb-0">Lead Accountant</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
@@ -187,13 +191,13 @@
                         <li><a class="nav-link-style nav-link-light" href="tel:+5932345867">+593 234 5867</a></li>
                     </ul>
                     <h3 class="h6 pb-2 text-light">Síguenos en:</h3>
-                    <a class="social-btn sb-facebook sb-light sb-lg mr-2 mb-2" href="#"><i class="fe-facebook"></i></a>
-                    <a class="social-btn sb-twitter sb-light sb-lg mr-2 mb-2" href="#"><i class="fe-twitter"></i></a>
-                    <a class="social-btn sb-instagram sb-light sb-lg mr-2 mb-2" href="#"><i class="fe-instagram"></i></a>
-                    <a class="social-btn sb-linkedin sb-light sb-lg mr-2 mb-2" href="#"><i class="fe-linkedin"></i></a>
+                    <a class="social-btn sb-facebook sb-light sb-lg mr-2 " href="#"><i class="fe-facebook"></i></a>
+                    <a class="social-btn sb-twitter sb-light sb-lg mr-2 " href="#"><i class="fe-twitter"></i></a>
+                    <a class="social-btn sb-instagram sb-light sb-lg mr-2 " href="#"><i class="fe-instagram"></i></a>
+                    <a class="social-btn sb-linkedin sb-light sb-lg mr-2 " href="#"><i class="fe-linkedin"></i></a>
                 </div>
             </div>
         </div>
     </section>
-
+   
 @endsection

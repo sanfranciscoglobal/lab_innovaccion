@@ -52,7 +52,7 @@
             <div class="col-md-6 py-7 bg-size-cover order-md-2 overflow-hidden"
                 style="background-image: url({{ asset('img/layout/home/laboratorio-side-bkg.png') }});">
             </div>
-            <div class="col-md-6 px-3 pl-xl-0 pr-lg-5 pr-xl-7 py-2 py-lg-4 order-md-1">
+            <div class="col-md-6 px-3 pl-xl-0 pr-lg-5 py-2 py-lg-4 order-md-1">
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-6 pl-lg-5  py-lg-7 text-white">
                     <h2 class="mb-3 pb-1 text-white">Laboratorio de Innovación</h2>
                     <div class="row">
