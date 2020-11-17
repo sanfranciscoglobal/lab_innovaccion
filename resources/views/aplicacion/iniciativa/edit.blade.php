@@ -175,13 +175,13 @@
 @endsection
 
 @section('footer')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=window.initMap"
             async defer></script>
 
     <script>
         window.deleteModalAjax('deleteModal');
+        //var input = document.getElementById('evento_direccion');
 
-        var input = document.getElementById('evento_direccion');
         $(document).ready(function () {
             // Stepper
             var navListItems = $('div.setup-panel div a'),
@@ -250,119 +250,44 @@
 
 
             iniciativaOrigen();
+
             $(document).on('change', '.iniciativa_propiedad', function () {
                 iniciativaOrigen();
             });
-        });
 
-        function initMap() {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var latUsuario = position.coords.latitude;
-                var lonUsuario = position.coords.longitude;
-                var zoom = 16;
-                var dragMarker = true;
-                var placeSearch, autocomplete;
-                /*
-                if (
-                    jQuery('#necesidad_lat').length > 0 &&
-                    jQuery('#necesidad_long').length > 0
-                ){
-                    latUsuario = jQuery('#necesidad_lat').val();
-                    lonUsuario = jQuery('#necesidad_long').val();
-                    zoom = zoom;
-                    dragMarker = false;
-                }*/
-
-                // var map;
-                var marker;
-                var myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
-                var geocoder = new google.maps.Geocoder();
-                var infowindow = new google.maps.InfoWindow();
-
-
-                var options = {
-                    //types: ["locality", "political", "geocode"],
-                    //types: ['(cities)'],
-                    componentRestrictions: {country: 'ec'}
-                };
-                var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: myLatlng,
-                    zoom: zoom,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                });
-                marker = new google.maps.Marker({
-                    position: myLatlng,
-                    map: map,
-                    //icon: baseURL + '/images/markers/me_icon.png',
-                    draggable: dragMarker,
-                    animation: google.maps.Animation.DROP,
-                    title: 'Arrastre para seleccionar la ubicación'
-                });
-                geocoder.geocode({'latLng': myLatlng}, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                            jQuery('input[id="lat"],input[id="long"]').show();
-                            jQuery('input[id="evento_direccion"]').val(results[0].formatted_address);
-                            jQuery('input[id="lat"]').val(marker.getPosition().lat());
-                            jQuery('input[id="long"]').val(marker.getPosition().lng());
-                            infowindow.setContent(results[0].formatted_address);
-                            infowindow.open(map, marker);
-                        }
-                    }
-                });
-
-                google.maps.event.addListener(marker, 'dragend', function () {
-                    geocoder.geocode({'latLng': marker.getPosition()}, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            if (results[0]) {
-                                jQuery('input[id="evento_direccion"]').val(results[0].formatted_address);
-                                jQuery('input[id="lat"]').val(marker.getPosition().lat());
-                                jQuery('input[id="long"]').val(marker.getPosition().lng());
-                                infowindow.setContent(results[0].formatted_address);
-                                infowindow.open(map, marker);
-                            }
-                        }
-                    });
-                });
-
-                autocomplete.addListener('place_changed', setnewAddress);
-
-                function setnewAddress() {
-                    var place = autocomplete.getPlace();
-                    console.log(place.formatted_address);
-                    var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
-                    marker.setPosition(Latlng);
-                    //infowindow.setContent(place.formatted_address);
-                    //infowindow.hideInfoWindow();
-                    //infowindow.showInfoWindow();
-                    map.panTo(Latlng);
-                    jQuery('input[id="lat"]').val(place.geometry.location.lat());
-                    jQuery('input[id="long"]').val(place.geometry.location.lng());
-                }
+            /* activar otro contacto */
+            $('#add_contact').click(function () {
+                $('.is-hidden').toggleClass('d-none')
+                $(this).toggleClass('d-none');
             });
-        }
 
-        /* Agregar otro bloque para agregar otra ciudad */
-
-        // $('#add_city').click(function () {
-        //
-        // })
-
-        /* activar otro contacto */
-        $('#add_contact').click(function () {
-            $('.is-hidden').toggleClass('d-none')
-            $(this).toggleClass('d-none');
-        });
-
-        $('#remove_contact').click(function () {
-            $('.is-hidden').toggleClass('d-none')
-            $('#add_contact').toggleClass('d-none');
-            $('.is-hidden input').each(function () {
-                $(this).val('');
+            $('#remove_contact').click(function () {
+                $('.is-hidden').toggleClass('d-none')
+                $('#add_contact').toggleClass('d-none');
+                $('.is-hidden input').each(function () {
+                    $(this).val('');
+                })
             })
-        })
+
+            /* Agregar otro bloque para agregar otra ciudad */
+            $('#add_city').click(function () {
+                window.addSearchMap();
+            });
+
+            $(".ubicacion").each(function (index) {
+                var input = ($(this))[0];
+                setTimeout(function () {
+                    window.currentAddressInput = $(input).data('adresscontainer');
+                    window.initSearchMap(input);
+                }, 1000);
+
+            });
+
+            $(document).on('focus', '.ubicacion', function () {
+                window.currentAddressInput = $(this).data('adresscontainer');
+                $('#map').show();
+            })
+        });
 
         function iniciativaOrigen() {
             $('.iniciativa_propiedad').each(function (element) {
