@@ -152,10 +152,12 @@ Route::as('app.')
 
             //SOLUCION
             //Route::get('innovacion/solucion/ver', 'Aplicacion\SolucionController@verSoluciones')->name('innovacionsolucion.ver');
-            Route::get('innovacion/solucion/crear', 'Aplicacion\SolucionController@frmSolucion')->name('innovacionsolucion.crear');
+            Route::get('innovacion/solucion/crear/{problema}', 'Aplicacion\SolucionController@frmSolucion')->name('soluciones.crear');
             Route::post('innovacion/solucion/store', 'Aplicacion\crudSoluciones@store')->name('soluciones.store');
             Route::get('innovacion/solucion/edit', 'Aplicacion\SolucionController@frmSolucionEdit')->name('soluciones.edit');
             Route::put('innovacion/solucion/update', 'Aplicacion\crudSoluciones@update')->name('soluciones.update');
+            Route::put('innovacion/solucion/update/fase2', 'Aplicacion\crudSoluciones@updateFase2')->name('soluciones.update.fase2');
+            Route::put('innovacion/solucion/update/fase3', 'Aplicacion\crudSoluciones@updateFase3')->name('soluciones.update.fase3');
 
 
             /** Rutas Escritorio */

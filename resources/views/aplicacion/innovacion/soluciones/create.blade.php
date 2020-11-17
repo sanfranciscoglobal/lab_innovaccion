@@ -98,20 +98,20 @@
                         <div class="stepwizard">
                             <div class="stepwizard-row setup-panel">
                                 <div class="stepwizard-step col-xs-3">
-                                    <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                                    <a href="#step-1" type="button" class="btn btn-success btn-circle" id="step-1-btn">1</a>
                                     <p>
                                         <small>Solución Paso 1</small>
                                     </p>
                                 </div>
                                 <div class="stepwizard-step col-xs-3">
-                                    <a href="#step-2" type="button" class="btn btn-default btn-circle"
+                                    <a href="#step-2" type="button" class="btn btn-default btn-circle" id="step-2-btn"
                                        disabled="disabled">2</a>
                                     <p>
                                         <small>Solución Paso 2</small>
                                     </p>
                                 </div>
                                 <div class="stepwizard-step col-xs-3">
-                                    <a href="#step-3" type="button" class="btn btn-default btn-circle"
+                                    <a href="#step-3" type="button" class="btn btn-default btn-circle" id="step-3-btn"
                                        disabled="disabled">3</a>
                                     <p>
                                         <small>Solución Paso 3</small>
@@ -261,5 +261,21 @@
         });
 
 
+    </script>
+    <script>
+        var step = {{ session('step') ?? 'null' }};
+        $(function(){
+            console.log(step);
+            switch (parseInt(step)) { 
+                case 2: 
+                    $('#step-2-btn').click()
+                    break;
+                case 3: 
+                    $('#step-3-btn').click()
+                    break;
+                default:
+                    break;
+            }
+        });
     </script>
 @endsection

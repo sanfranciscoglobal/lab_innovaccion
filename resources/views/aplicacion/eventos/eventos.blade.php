@@ -24,22 +24,17 @@
     </style>
 @endsection
 @section('content')
-    <section class="container my-lg-2 pt-5 pb-lg-3">
+
+    <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5">Eventos</h1>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container my-5 py-5">
-            <div class="row">
-                <div class="col-12 col-lg-8 offset-lg-2">
-                    <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación! 
-                                        Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
-                    
+                <div class="py-3">
+                    <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!<br>
+                        Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
                 </div>
             </div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
         </div>
     </section>
     <section>

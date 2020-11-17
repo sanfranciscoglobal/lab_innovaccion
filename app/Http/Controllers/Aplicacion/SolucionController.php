@@ -17,20 +17,22 @@ class SolucionController extends Controller
         return view('aplicacion.innovacion.soluciones.create');
         
     }
-    public function frmSolucion(Request $request)
+    public function frmSolucion(Problema $problema)
     {
         session()->forget('step');
         $solucion = new Solucion;
         //$tipo = $convocatoria->tipoconvocatoria_id;
-        $url = $url2 = $url3 = route("app.soluciones.store");
-        return view('aplicacion.innovacion.soluciones.create', compact('solucion'))->with(['url' => $url, 'url2' => $url2, 'url3' => $url3, 'method' => 'POST']);
+        $url = $url1 = $url2 = route("app.soluciones.store");
+        return view('aplicacion.innovacion.soluciones.create', compact('solucion','problema'))->with(['url' => $url, 'url1' => $url1, 'url2' => $url2, 'method' => 'POST']);
     }
     public function frmSolucionEdit(Request $request)
     {
         $solucion = new Solucion;
         //$tipo = $convocatoria->tipoconvocatoria_id;
         $url = route("app.soluciones.update", [$solucion->id]);
-        return view('aplicacion.innovacion.soluciones.create', compact('solucion'))->with([ 'url' => $url, 'method' => 'PUT']);
+        $url1 = route("app.soluciones.update.fase2", [$solucion->id]);
+        $url2 = route("app.soluciones.update.fase3", [$solucion->id]);
+        return view('aplicacion.innovacion.soluciones.create', compact('solucion'))->with([ 'url' => $url, 'url1' => $url1,'url2' => $url2,'method' => 'PUT']);
 
     }
 }

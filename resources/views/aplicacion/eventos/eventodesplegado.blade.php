@@ -27,13 +27,17 @@
     </style>
 @endsection
 @section('content')
-    <section class="container my-lg-5 pt-5 pb-lg-3">
+    <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5">{{$evento->nombre}}</h1>
-                <p style="margin-bottom: 0">{{date('d M, Y', strtotime( $evento->fecha))}}</p>
-                <p>{{date('H:i', strtotime( $evento->hora))}}</p>
+                <div class="py-3">
+                    <p style="margin-bottom: 0">{{date('d M, Y', strtotime( $evento->fecha))}} <br>
+                        {{date('H:i', strtotime( $evento->hora))}}</p>
+
+                </div>
             </div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
         </div>
     </section>
     <section class="container bg-secondary">

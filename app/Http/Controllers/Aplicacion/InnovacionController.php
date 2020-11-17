@@ -54,7 +54,7 @@ class InnovacionController extends Controller
     {
         // $convocatoria = Convocatoria::find($convocatoria_id);
         if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
-            return back()->with('error', 'No ingresaste este fondo.');
+            return back()->with('error', 'No ingresaste este problema.');
         }
 
         $tipo = $convocatoria->tipoconvocatoria_id;
