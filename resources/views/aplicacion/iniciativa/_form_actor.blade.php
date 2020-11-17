@@ -73,11 +73,11 @@
                 <div class="form-group">
                     <label class="control-label">
                         * Enfoque: ¿Qué trabajo hace la organización?
-                        <span class="text-primary">(max. 100 palabras)</span>
+                        <span class="text-primary">(min. 25 palabras) (max. 100 palabras)</span>
                     </label>
 
                     <textarea
-                            oninput="window.countWords('enfoque','enfoque-error','submit-actor-id',0,100);"
+                            oninput="window.countWords('enfoque','enfoque-error','submit-actor-id',25,100);"
                             name="enfoque"
                             id="enfoque"
                             class="form-control"
