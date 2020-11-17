@@ -131,6 +131,7 @@
 <!-- Main Theme Styles + Bootstrap-->
     {{-- <link rel="stylesheet" media="screen" href="{{asset('css/theme.css')}}"> --}}
     <link rel="stylesheet" media="screen" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" media="screen" href="{{asset('css/extra.css')}}">
     @yield('header-css')
 </head>
 <!-- Body-->

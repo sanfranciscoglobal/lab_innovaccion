@@ -128,10 +128,6 @@
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Nosotros</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('acercade') }}">Acerca de</a></li>
-                            <li><a class="dropdown-item" href="{{ route('elequipo') }}">El equipo</a></li>
-                            <li><a class="dropdown-item" href="{{ route('valores') }}">Valores</a></li>
-                            <li><a class="dropdown-item" href="{{ route('terminoscondiciones') }}">Términos y
-                                    condiciones</a></li>
                             <li><a class="dropdown-item" href="{{ route('faq') }}">Preguntas frecuentes</a></li>
                         </ul>
                     </li>

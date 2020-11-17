@@ -8,7 +8,7 @@
                     <h4 class="cs-widget-title text-white">Laboratorio de Innovación</h4>
                     -->
                 </a>
-                <p class="font-size-sm text-light opacity-60 pb-2 pb-sm-3 mt-3">¡Conectate con otros actores, comparte tus retos e innova de manera colectiva!</p>
+                <p class="font-size-sm text-light opacity-60 pb-2 pb-sm-3 mt-3">¡Conéctate con otros actores, comparte tus retos e innova de manera colectiva!</p>
             </div>
             <div class="col-md-3 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
@@ -31,11 +31,11 @@
                     <a class="text-white" href="mailto:hola@thinkia.org">hola@thinkia.org</a>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4 ml-auto pb-1">
-            <img src="{{asset('img/onu.svg')}}" style="height:90px!important" width="80" alt="Creative Commons Attribution 3.0 International">
+            <div class="col-md-2 col-sm-4 ml-auto pb-1" style="margin-top: 2%;">
+            <img src="{{asset('img/onu.svg')}}" style="height:90px!important;" width="80" alt="Creative Commons Attribution 3.0 International">
                 <img src="{{asset('img/sanfrancisco.svg')}}" style="height:90px!important" width="100" height="100px" alt="Creative Commons Attribution 3.0 International">
             </div>
-            <div class="col-md-3 col-sm-4 ml-auto pb-1">
+            <div class="col-md-3 col-sm-4 ml-auto pb-1" style="margin-top: 2%;">
                 <div class="cs-widget cs-widget-light">
                                     <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución 4.0 internacional.</p>
                     <img src="{{asset('img/cc-badge.png')}}" width="80" alt="Creative Commons Attribution 3.0 International">

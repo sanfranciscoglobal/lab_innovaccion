@@ -61,6 +61,10 @@ Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\Materialdeapren
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
 
+
+Route::get('/mapa',  function () {
+    return view('mapa');
+})->name('mapa');
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 

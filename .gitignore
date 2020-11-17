@@ -16,3 +16,4 @@ composer.lock
 package-lock.json
 .idea/
 /resources/views/auth.backup
+laravel_guia
