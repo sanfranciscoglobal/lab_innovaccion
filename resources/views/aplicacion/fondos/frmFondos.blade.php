@@ -93,7 +93,7 @@
                                                     <div class="form-group">
                                                         <label for="fondo_fecha_cierre">* Fecha de cierre</label>
                                                         <div class="input-group-overlay ">
-                                                            <input class="form-control cs-date-picker" type="text" data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" placeholder="Fecha de finalización" required>
+                                                            <input class="form-control appended-form-control cs-date-picker" type="text" data-datepicker-options='{"altInput": true, "allowInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fondo_fecha_cierre" value="{{ old('fecha_fin', $fondo->fecha_fin) }}" placeholder="Fecha de finalización" required>
                                                             <div class="input-group-append-overlay">
                                                                 <span class="input-group-text">
                                                                     <i class="fe-calendar"></i>

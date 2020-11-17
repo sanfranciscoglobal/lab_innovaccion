@@ -120,10 +120,10 @@
                             </div>
                         </div>
                         <!-- END Timeline -->
-                        <form action="#" method="POST" enctype='multipart/form-data'
+                        {{-- <form action="#" method="POST" enctype='multipart/form-data'
                               class="needs-validation" novalidate>
                             @csrf
-                            @method('POST')
+                            @method('POST') --}}
 
                             <div class="panel panel-primary setup-content" id="step-1">
                                 @include('aplicacion.innovacion.soluciones._form_solucion1')
@@ -137,7 +137,7 @@
                                 @include('aplicacion.innovacion.soluciones._form_solucion3')
                             </div>
 
-                        </form>
+                        {{-- </form> --}}
                     </div>
                 </div>
             </div>

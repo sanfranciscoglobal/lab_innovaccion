@@ -147,7 +147,11 @@ Route::as('app.')
             Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
             //SOLUCION
-            Route::get('innovacion/solucion/ver', 'Aplicacion\SolucionController@verSoluciones')->name('innovacionsolucion.ver');
+            //Route::get('innovacion/solucion/ver', 'Aplicacion\SolucionController@verSoluciones')->name('innovacionsolucion.ver');
+            Route::get('innovacion/solucion/crear', 'Aplicacion\SolucionController@frmSolucion')->name('innovacionsolucion.crear');
+            Route::post('innovacion/solucion/store', 'Aplicacion\crudSoluciones@store')->name('soluciones.store');
+            Route::get('innovacion/solucion/edit', 'Aplicacion\SolucionController@frmSolucionEdit')->name('soluciones.edit');
+            Route::put('innovacion/solucion/update', 'Aplicacion\crudSoluciones@update')->name('soluciones.update');
 
 
             /** Rutas Escritorio */
