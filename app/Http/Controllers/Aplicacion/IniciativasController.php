@@ -86,6 +86,7 @@ class IniciativasController extends Controller
             }
 
             $modelActor = ($request->iniciativa_propiedad == 1) ? IniciativaActor::create($requestData) : [];
+
             if ($image = Archivos::storeImagen('iniciativas-' . date('his'), $request->logo, 'iniciativas')) {
                 $requestData['logo'] = $image;
                 $requestData['vigencia'] = $request->has('vigencia') ? 'SI' : 'NO';
@@ -282,13 +283,16 @@ class IniciativasController extends Controller
 
         if ($request->has('Ubicaciones')) {
             foreach ($request->Ubicaciones as $key => $info) {
-
                 $data[$key]['iniciativa_id'] = $iniciativa->id;
-                $data[$key]['canton_id'] = null;
+                $data[$key]['canton_id'] = ($ciudad = Helper::obtenerCiudadPorLocalidad($info['localidad'], $info['area1'], $info['area2'])) ? $ciudad->id : null;
                 $data[$key]['direccion'] = $info['direccion'];
                 $data[$key]['latitud'] = $info['latitud'];
                 $data[$key]['longitud'] = $info['longitud'];
+                $data[$key]['localidad'] = $info['localidad'];
+                $data[$key]['area1'] = $info['area1'];
+                $data[$key]['area2'] = $info['area2'];
             }
+
             return $data;
         }
 

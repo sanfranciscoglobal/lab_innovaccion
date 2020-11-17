@@ -96,10 +96,26 @@
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label class="control-label">* Componente Innovador</label>
-                        <input type="text" required="required" class="form-control" placeholder="Componente Innovador"
-                               name="componente_innovador"
-                               value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->componente_innovador:''}}"/>
+                        <label class="control-label">* Componente Innovador (max. 350 caractéres)</label>
+                        <textarea
+                                oninput="window.countCharacters('componente_innovador','componente_innovador_error','btn-siguiente-descripcion',0,350,'count_words_3');"
+                                name="componente_innovador"
+                                id="componente_innovador"
+                                class="form-control"
+                                placeholder="Componente Innovador"
+                                {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
+                                {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
+                                rows="6"
+                                {{--maxlength="350"--}}
+                                required
+                        >{{($model->iniciativaInformacion)?$model->iniciativaInformacion->componente_innovador:''}}</textarea>
+
+                        <span style="color: gray" id="count_words_3"></span>
+                        <div class="invalid-feedback" id='componente_innovador_error'></div>
+
+                        {{--<input type="text" required="required" class="form-control" placeholder="Componente Innovador"--}}
+                        {{--name="componente_innovador"--}}
+                        {{--value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->componente_innovador:''}}"/>--}}
                     </div>
                 </div>
             </div>
@@ -108,21 +124,21 @@
                     <div class="form-group">
                         <label class="control-label">
                             * Descripción de la Iniciativa
-                            <span class="text-primary">(max. 50 palabras)</span>
+                            <span class="text-primary">(min. 25 palabras) (max. 100 palabras)</span>
                         </label>
                         <textarea
-                                oninput="window.countWords('descripcion_iniciativa','descripcion_iniciativa_enfoque-error','btn-siguiente-descripcion',0,50);"
-                                class="form-control"
-                                placeholder="Describa la Iniciativa"
+                                oninput="window.countWords('descripcion_iniciativa','descripcion_error','btn-siguiente-descripcion',25,100,'count_words_2');"
                                 name="descripcion_iniciativa"
                                 id="descripcion_iniciativa"
+                                class="form-control"
+                                placeholder="Describa la iniciativa"
                                 {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
-                                {{--onchange="try{setCustomValidity('')}catch(e){}" --}}
-                                rows="20"
-                                required="required"
+                                {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
+                                rows="6"
+                                required
                         >{{($model->iniciativaInformacion)?$model->iniciativaInformacion->descripcion_iniciativa:''}}</textarea>
-                        <span style="color: gray" id="count-words"></span>
-                        <div class="invalid-feedback" id='descripcion_iniciativa_enfoque-error'></div>
+                        <span style="color: gray" id="count_words_2"></span>
+                        <div class="invalid-feedback" id='descripcion_error'></div>
                     </div>
                 </div>
             </div>
