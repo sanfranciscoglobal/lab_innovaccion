@@ -20,7 +20,7 @@
                 <img class="d-block rounded-circle mx-auto my-2" width="110" src="{{ $avatar }}">
                 <h6 class="mb-0 pt-1">{{ Auth::user()->name }}</h6>
             </div>
-            <div class="d-lg-block collapse pb-2" id="account-menu">
+            <div class="navbar-expand-md navbar-collapse" id="account-menu">
                 <div class="cs-widget cs-widget-categories mb-5 pl-3">
                     <ul id="menu">
                         <li><a class="cs-widget-link px-4 py-3 collapsed" href="#gestion" data-toggle="collapse">Gestión
@@ -36,6 +36,11 @@
                                 <li><a class="cs-widget-link" href="#">Innovación social
                                         <small class="text-muted pl-1 ml-2">0</small>
                                     </a></li>
+                                <li>
+                                    <a class="cs-widget-link" href="{{ route('app.escritorio.problemas') }}">Problemas Registrados
+                                        <small class="text-muted pl-1 ml-2">0</small>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li><a class="cs-widget-link px-4 py-3 collapsed" href="#ecosistema" data-toggle="collapse">Ecosistema

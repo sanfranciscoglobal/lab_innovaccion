@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary pull-right" type="submit" formaction="{{ $url2.'?continue=1' }}">Guargar y continuar</button>
-    <button class="btn btn-link" type="submit" formaction="{{ $url2.'?continue=0' }}">Guardar</button>
+    <button class="btn btn-primary pull-right" type="submit" formaction="{{ $url2.'?continue=1' }}" {{$problema->id == null ? 'disabled' : ''}}>Guargar y continuar</button>
+    <button class="btn btn-link" type="submit" formaction="{{ $url2.'?continue=0' }}" {{$problema->id == null ? 'disabled' : ''}}>Guardar</button>
 </div>
 </form>
