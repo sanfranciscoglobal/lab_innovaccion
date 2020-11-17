@@ -1,23 +1,23 @@
 @extends('layouts.aplicacion.app')
 @php
   $month_mini = array("","ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC");
-    $sectores = $convocatoria->sectoresName($convocatoria);
-    $sectoresArray = '';
-    foreach ($sectores as $sector) {
-        $sectoresArray .= $sector;
-        if ($sector != $sectores->last()) {
-            $sectoresArray .= '; ';
-        }
-    }
+  $sectores = $convocatoria->sectoresName($convocatoria);
+  $sectoresArray = '';
+  foreach ($sectores as $sector) {
+      $sectoresArray .= $sector;
+      if ($sector != $sectores->last()) {
+          $sectoresArray .= '; ';
+      }
+  }
 
-    // $subsectores = $convocatoria->subsectoresName($convocatoria);
-    // $subsectoresArray = '';
-    // foreach ($subsectores as $subsector) {
-    //     $subsectoresArray .= $subsector;
-    //     if ($subsector != $subsectores->last()) {
-    //         $subsectoresArray .= '; ';
-    //     }
-    // }
+  // $subsectores = $convocatoria->subsectoresName($convocatoria);
+  // $subsectoresArray = '';
+  // foreach ($subsectores as $subsector) {
+  //     $subsectoresArray .= $subsector;
+  //     if ($subsector != $subsectores->last()) {
+  //         $subsectoresArray .= '; ';
+  //     }
+  // }
 @endphp
 @section('header-css')
     <style>
@@ -145,18 +145,18 @@
                     </a>
                   </li>
                   <li class="list-inline-item m-0">
-                    <a class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="{{ $problema->instagram ?? '#' }}">
-                      <i class="fe-instagram"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2 mr-md-3" href="{{ $problema->twitter ?? '#' }}">
                       <i class="fe-twitter"></i>
                     </a>
                   </li>
                   <li class="list-inline-item m-0">
-                    <a class="social-btn sb-outline sb-youtube sb-dark sb-sm" href="{{ $problema->linkedin ?? '#' }}">
-                      <i class="fe-linkedin"></i>
+                    <a class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="{{ $problema->instagram ?? '#' }}">
+                      <i class="fe-instagram"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item m-0">
+                    <a class="social-btn sb-outline sb-youtube sb-dark sb-sm" href="{{ $problema->youtube ?? '#' }}">
+                      <i class="fe-youtube"></i>
                     </a>
                   </li>
                 </ul>

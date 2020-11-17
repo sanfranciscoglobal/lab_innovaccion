@@ -152,16 +152,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
-                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Usuario</h4>
+                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Problema</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="text-white">&times;</span>
                     </button>
                 </div>
                 <form action="{{ route('app.problemas.delete', $problema->id) }}" method="POST" role="form">
                     @csrf
-                    @method('DELETE')
+                    @method("DELETE")
                     <div class="modal-body">
-                        <div class="text-danger">Está seguro que desea eliminar este usuario?</div>
+                        <div class="text-danger">Está seguro que desea eliminar este problema?</div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>

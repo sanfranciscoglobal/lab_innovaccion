@@ -35,7 +35,7 @@
                            id="sitio_web"
                            value="{{ old('sitio_web', ($model->iniciativaActor)?$model->iniciativaActor->sitio_web:'') }}"
                            name="sitio_web"
-                           placeholder="URL del sitio web">
+                           placeholder="Link del sitio web">
                     @error('info')
                     <div class="invalid-feedback d-inline">{{ $message }}</div>
                     @enderror
@@ -73,11 +73,11 @@
                 <div class="form-group">
                     <label class="control-label">
                         * Enfoque: ¿Qué trabajo hace la organización?
-                        <span class="text-primary">(max. 50 palabras)</span>
+                        <span class="text-primary">(min. 25 palabras) (max. 100 palabras)</span>
                     </label>
 
                     <textarea
-                            oninput="window.countWords('enfoque','enfoque-error','submit-actor-id',0,50);"
+                            oninput="window.countWords('enfoque','enfoque-error','submit-actor-id',25,100);"
                             name="enfoque"
                             id="enfoque"
                             class="form-control"
@@ -132,7 +132,7 @@
 
         @if($model->iniciativaUbicaciones->count() > 0)
             @foreach($model->iniciativaUbicaciones as $key => $ubicacion)
-                <div class="form-group ubicaciones direccion" data-row="0">
+                <div class="form-group ubicaciones direccion border-bottom-light" data-row="{{$key}}">
                     <div class="row">
                         <div class="col-lg-12">
                             <label class="control-label">Dirección Principal</label>
@@ -141,7 +141,11 @@
                                    placeholder="Escriba la dirección"
                                    data-adresscontainer="{{$key}}"
                                    name="Ubicaciones[{{$key}}][direccion]"
-                                   value="{{$ubicacion->direccion}}"/>
+                                   value="{{$ubicacion->direccion}}"
+                                   data-latitud="{{$ubicacion->latitud}}"
+                                   data-longitud="{{$ubicacion->longitud}}"
+                                   @if($key==0) id="evento_direccion" @endif
+                            />
                             <input type="hidden" class="lat lat-{{$key}}" name="Ubicaciones[{{$key}}][latitud]"
                                    value="{{$ubicacion->latitud}}">
                             <input type="hidden" class="long long-{{$key}}" name="Ubicaciones[{{$key}}][longitud]"
@@ -151,14 +155,14 @@
                                    value="{{$ubicacion->localidad}}">
                             <input type="hidden" class="area1 area1-{{$key}}" name="Ubicaciones[{{$key}}][area1]"
                                    value="{{$ubicacion->area1}}">
-                            <input type="hidden" class="long long-{{$key}}" name="Ubicaciones[{{$key}}][area2]"
+                            <input type="hidden" class="area2 area2-{{$key}}" name="Ubicaciones[{{$key}}][area2]"
                                    value="{{$ubicacion->area2}}">
                         </div>
                     </div>
                 </div>
             @endforeach
         @else
-            <div class="form-group ubicaciones direccion" data-row="0">
+            <div class="form-group ubicaciones direccion border-bottom-light" data-row="0">
                 <div class="row">
                     <div class="col-lg-12">
                         <label class="control-label">Dirección Principal</label>
@@ -167,11 +171,12 @@
                                placeholder="Escriba la dirección" id="evento_direccion" data-adresscontainer="0"
                                name="Ubicaciones[0][direccion]"
                                value="{{($model->iniciativaActor)?$model->iniciativaActor->direccion:''}}"/>
-                        <input type="hidden" class="lat lat-0" name="Ubicaciones[0][latitud]" value="">
-                        <input type="hidden" class="long long-0" name="Ubicaciones[0][longitud]" value="">
-                        <input type="hidden" class="localidad localidad-0" name="Ubicaciones[0][localidad]" value="">
-                        <input type="hidden" class="area1 area1-0" name="Ubicaciones[0][area1]" value="">
-                        <input type="hidden" class="long long-0" name="Ubicaciones[0][area2]" value="">
+                        <input type="hidden" class="form-control lat lat-0" name="Ubicaciones[0][latitud]" value="">
+                        <input type="hidden" class="form-control long long-0" name="Ubicaciones[0][longitud]" value="">
+                        <input type="hidden" class="form-control localidad localidad-0" name="Ubicaciones[0][localidad]"
+                               value="">
+                        <input type="hidden" class="form-control area1 area1-0" name="Ubicaciones[0][area1]" value="">
+                        <input type="hidden" class="form-control area2 area2-0" name="Ubicaciones[0][area2]" value="">
                     </div>
                 </div>
             </div>

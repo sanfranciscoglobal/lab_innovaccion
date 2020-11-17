@@ -57,4 +57,10 @@ class Canton extends Model
 
         return $result;
     }
+
+
+    public static function obtenerCantonNombre($nombre)
+    {
+        return Canton::where('nombre', 'ilike', "%{$nombre}")->first() ?? [];
+    }
 }

@@ -8,6 +8,7 @@ use App\Models\Contacto;
 use App\Models\Fondo;
 use App\Models\Evento;
 use App\Models\MaterialAprendizaje;
+use App\Models\Problema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -25,13 +26,19 @@ class EscritorioController extends Controller
         return view('aplicacion.escritorio._content_escritorio');
     }
 
+    /**
+     * Muestra los fondos creados del usuario
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function verFondos(Request $request)
     {
         Fondo::$own = true;
+        // Fondo::$paginate = 2;
         $fondos = Fondo::obtenerPaginate();
         return view('aplicacion.escritorio.contenidofondos', compact('fondos'));
-
     }
+
     public function verEventos(Request $request)
     {
         Evento::$paginate = 2;
@@ -39,14 +46,25 @@ class EscritorioController extends Controller
         return view('aplicacion.escritorio.contenidoeventos',compact('eventos'));
 
     }
+
     public function verMateriales(Request $request)
     {
-
         MaterialAprendizaje::$paginate = 2;
         $materiales = MaterialAprendizaje::obtenerPaginate();
 
         return view('aplicacion.escritorio.contenidomateriales',compact('materiales'));
-
     }
 
+    /**
+     * Muestra los fondos creados del usuario
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function verProblemas(Request $request){
+        Problema::$own = true;
+        // Problema::$paginate = 2;
+        $problemas = Problema::obtenerPaginate();
+        return view('aplicacion.escritorio.contenidoproblemas', compact('problemas'));
+
+    }
 }

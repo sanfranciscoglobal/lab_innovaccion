@@ -11,7 +11,6 @@ use App\Models\Solucion;
 
 class SolucionController extends Controller
 {
-    //
     public function verSoluciones(Request $request)
     {
        
