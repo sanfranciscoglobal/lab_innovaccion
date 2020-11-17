@@ -36,6 +36,11 @@
                                 <li><a class="cs-widget-link" href="#">Innovación social
                                         <small class="text-muted pl-1 ml-2">0</small>
                                     </a></li>
+                                <li>
+                                    <a class="cs-widget-link" href="{{ route('app.escritorio.problemas') }}">Problemas Registrados
+                                        <small class="text-muted pl-1 ml-2">0</small>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li><a class="cs-widget-link px-4 py-3 collapsed" href="#ecosistema" data-toggle="collapse">Ecosistema

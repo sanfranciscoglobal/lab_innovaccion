@@ -38,9 +38,9 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="account-ln">* Celular</label>
+                                    <label for="account-ln">* Teléfono</label>
                                     <input class="form-control @error('celular') is-invalid @enderror" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="(09(9|8))?[0-9]{7}" required>
-                                    <span class="muted-text">Ex. 0987654321</span>
+                                    <span class="muted-text">Ejemplo. 0987654321 ó 2279183</span>
                                     @error('celular')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
