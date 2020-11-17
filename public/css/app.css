@@ -16131,9 +16131,11 @@ a.text-dark:focus {
 }
 
 .text-muted {
-  color: #9e9fb4 !important;
+  color: #737491 !important;
 }
-
+.media-body.pl-2.ml-1.mt-n1 {
+  color: orange;
+}
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important;
 }
