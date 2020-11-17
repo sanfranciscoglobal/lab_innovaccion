@@ -4,14 +4,25 @@
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Listado General</h1>
+                <h1 class="mt-5">Publicaciones y Herramientas</h1>
                 <div class="py-4">
-                    <p class="cs-callout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                    <p class="cs-callout">"¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!
+                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación. "</p>
                 </div>
                 <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
                     video</span>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8 offset-lg-2">
+                    <h2 class="h3 text-center">Indicaciones</h2>
+                    <p class="text-center">Caso 1. Publica el artículo o herramienta en el formulario. .<br>
+                    Caso 2. Revisa y descarga el material de aprendizaje y deja tus comentarios en los foros respectivos de cada publicación.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -32,11 +43,11 @@
                     <h1 class="mb-5">Blog</h1>
                 -->
                     <!-- Post-->
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col">
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet assumenda, sit reiciendis nemo impedit quos laborum iusto, magnam id dolorem corrupti earum eius. Eligendi culpa nihil error voluptate temporibus expedita. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus expedita natus, tempore, pariatur voluptas illum velit iure quidem nam sit eius dolore quae suscipit soluta harum! Id maxime modi eveniet.</p>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                         @foreach ($materiales as $material)
                             <div class="col col-lg-6">
