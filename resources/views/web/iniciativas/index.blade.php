@@ -33,7 +33,7 @@
     </style>
 @endsection
 @section('content')
-    <section class="container my-lg-2 pt-5 pb-lg-7">
+    <section class="container my-lg-2 pt-5 pb-lg-3">
         <div class="row align-items-center">
             <div class="col-lg-6 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5">Ecosistema de innovación</h1>
