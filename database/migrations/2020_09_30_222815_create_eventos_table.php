@@ -27,8 +27,7 @@ class CreateEventosTable extends Migration
             $table->string('org_lat')->nullable();
             $table->string('org_long')->nullable();
             $table->text('url')->nullable();
-            $table->boolean('estado')->default(FALSE)->comment('Publico-1/Privado-0');            
-            
+            $table->boolean('estado')->default(TRUE)->comment('Publico-1/Privado-0');                     
             $table->boolean('terminos');
             $table->foreignId('user_id')->constrained();
             $table->softDeletes();

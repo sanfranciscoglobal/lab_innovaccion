@@ -8,10 +8,14 @@ class SectorSolucion extends Model
 {
     //
     protected $table = 'sector_solucion';
+    public static $search = null;
 
-    public static function obtenersectorsolucionAll()
+    public static function obtenerSectorSolucionAll()
     {
-        $rs = SectorSolucion::orderBy('nombre');
-        return $rs->get();
+        $query =SectorSolucion::orderby('nombre');
+        if (self::$search) {
+            $query->orWhere('nombre', 'ilike', '%' . self::$search . '%');
+        }
+        return $query->get() ?? [];
     }
 }
