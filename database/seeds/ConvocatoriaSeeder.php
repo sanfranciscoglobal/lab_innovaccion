@@ -6,7 +6,7 @@ use App\Models\ConvocatoriaSector;
 use App\Models\ConvocatoriaSubsector;
 use App\Models\Convocatoria;
 
-class ConvocarotiaSeeder extends Seeder
+class ConvocatoriaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,7 +21,7 @@ class ConvocarotiaSeeder extends Seeder
         DB::connection()->getPdo()->exec($sql);
 
         DB::insert("insert into convocatorias (id,  user_id, tipoconvocatoria_id, fecha_inicio, fecha_cierre, descripcion,imagen,terminos) 
-        values('1','2','1','2020/11/16','2020/11/22','Convocatoia de prueba','imagenprueba.png','1')");
+        values('1','2','1','2020/11/19','2020/11/22','Convocatoia de prueba','imagenprueba.png','1')");
 
 
         $sql = "ALTER SEQUENCE convocatorias_ods_id_seq RESTART WITH 2;";

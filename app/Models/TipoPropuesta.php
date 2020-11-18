@@ -8,10 +8,15 @@ class TipoPropuesta extends Model
 {
     //
     protected $table = 'tipo_propuestas';
+    public static $search = null;
 
     public static function obtenertipopropuestaAll()
     {
-        $rs = TipoPropuesta::orderBy('nombre');
-        return $rs->get();
+
+        $query =TipoPropuesta::orderby('nombre');
+        if (self::$search) {
+            $query->orWhere('nombre', 'ilike', '%' . self::$search . '%');
+        }
+        return $query->get() ?? [];
     }
 }

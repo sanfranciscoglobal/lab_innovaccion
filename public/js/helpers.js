@@ -93,6 +93,15 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+window.optionsMaps = {
+  //types: ["locality", "political", "geocode"],
+  //types: ['(cities)'],
+  componentRestrictions: {
+    country: 'ec'
+  }
+};
+window.currentAddressInput = 0;
+window.autocomplete = null;
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
@@ -244,21 +253,16 @@ $('.select2').each(function (e, element) {
   }
 });
 
-window.countWords = function countWords(element_id, element_error_id, submit_id, min, maxword) {
-  if (maxword == undefined) {
-    maxword = 100;
-  }
-
-  if (min == undefined) {
-    min = 0;
-  }
-
+window.countWords = function countWords(element_id, element_error_id, submit_id, min, maxword, count_words_id) {
+  maxword = maxword == undefined ? 100 : maxword;
+  min = min == undefined ? 0 : min;
+  count_words_id = count_words_id == undefined ? 'count-words' : count_words_id;
   var str = document.getElementById(element_id).value;
   var spaces = str.match(/\S+/g);
   var words = spaces ? spaces.length : 0;
-  document.getElementById("count-words").innerHTML = words + " palabras";
+  document.getElementById(count_words_id).innerHTML = words + " palabras";
 
-  if (words > min && words <= maxword || words == 0) {
+  if (words >= min && words <= maxword || words == 0) {
     $("#" + element_error_id).removeClass('d-inline');
     $('#' + element_id).removeClass('is-invalid');
     $('#' + submit_id).removeAttr('disabled');
@@ -273,6 +277,175 @@ window.countWords = function countWords(element_id, element_error_id, submit_id,
     $('#' + element_id).addClass('is-invalid');
     $('#' + submit_id).attr('disabled', 'disabled');
   }
+};
+
+window.countCharacters = function countCharacters(element_id, element_error_id, submit_id, min, maxword, count_words_id) {
+  maxword = maxword == undefined ? 100 : maxword;
+  min = min == undefined ? 0 : min;
+  count_words_id = count_words_id == undefined ? 'count-words' : count_words_id;
+  var str = document.getElementById(element_id).value;
+  var words = str ? str.length : 0;
+  document.getElementById(count_words_id).innerHTML = words + " caracteres";
+
+  if (words >= min && words <= maxword || words == 0) {
+    $("#" + element_error_id).removeClass('d-inline');
+    $('#' + element_id).removeClass('is-invalid');
+    $('#' + submit_id).removeAttr('disabled');
+  } else if (words < min) {
+    $("#" + element_error_id).html('Llene el mínimo de caracteres necesarias');
+    $("#" + element_error_id).addClass('d-inline');
+    $('#' + element_id).addClass('is-invalid');
+    $('#submitbutton').attr('disabled', 'disabled');
+  } else {
+    $("#" + element_error_id).html('Ha sobrepasado el límite de caracteres permitido');
+    $("#" + element_error_id).addClass('d-inline');
+    $('#' + element_id).addClass('is-invalid');
+    $('#' + submit_id).attr('disabled', 'disabled');
+  }
+};
+
+window.initMap = function initMap() {
+  try {
+    var input = document.getElementById('evento_direccion');
+    var content = document.getElementById('map');
+    if (!content) throw 'No existe div content #map';
+    var latitud = $(input).data('latitud') ? $(input).data('latitud') : null;
+    var longitud = $(input).data('longitud') ? $(input).data('longitud') : null;
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var latUsuario = latitud != undefined ? latitud : position.coords.latitude;
+      var lonUsuario = longitud != undefined ? longitud : position.coords.longitude;
+      var zoom = 16;
+      var dragMarker = true;
+      myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
+      geocoder = new google.maps.Geocoder();
+      infowindow = new google.maps.InfoWindow();
+      window.autocomplete = input ? new google.maps.places.Autocomplete(input, window.optionsMaps) : null;
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: myLatlng,
+        zoom: zoom,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }); // console.log(map);
+
+      marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        //icon: baseURL + '/images/markers/me_icon.png',
+        draggable: dragMarker,
+        animation: google.maps.Animation.DROP,
+        title: 'Arrastre para seleccionar la ubicación'
+      });
+      geocoder.geocode({
+        'latLng': myLatlng
+      }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (results[0]) {
+            jQuery('input.ubicacion-' + window.currentAddressInput).val(results[0].formatted_address);
+            jQuery('input.lat-' + window.currentAddressInput).val(marker.getPosition().lat());
+            jQuery('input.long-' + window.currentAddressInput).val(marker.getPosition().lng());
+            $.each(results[0].address_components, function (index, value) {
+              if (value.types.indexOf('locality') > -1) {
+                jQuery('input.localidad-' + window.currentAddressInput).val(value.short_name);
+              }
+
+              if (value.types.indexOf('administrative_area_level_1') > -1) {
+                jQuery('input.area1-' + window.currentAddressInput).val(value.short_name);
+              }
+
+              if (value.types.indexOf('administrative_area_level_2') > -1) {
+                jQuery('input.area2-' + window.currentAddressInput).val(value.short_name);
+              }
+            });
+            infowindow.setContent(results[0].formatted_address);
+            infowindow.open(map, marker);
+          }
+        }
+      });
+      google.maps.event.addListener(marker, 'dragend', function () {
+        geocoder.geocode({
+          'latLng': marker.getPosition()
+        }, function (results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+              jQuery('input.ubicacion-' + window.currentAddressInput).val(results[0].formatted_address);
+              jQuery('input.lat-' + window.currentAddressInput).val(marker.getPosition().lat());
+              jQuery('input.long-' + window.currentAddressInput).val(marker.getPosition().lng());
+              $.each(results[0].address_components, function (index, value) {
+                if (value.types.indexOf('locality') > -1) {
+                  jQuery('input.localidad-' + window.currentAddressInput).val(value.short_name);
+                }
+
+                if (value.types.indexOf('administrative_area_level_1') > -1) {
+                  jQuery('input.area1-' + window.currentAddressInput).val(value.short_name);
+                }
+
+                if (value.types.indexOf('administrative_area_level_2') > -1) {
+                  jQuery('input.area2-' + window.currentAddressInput).val(value.short_name);
+                }
+              });
+              infowindow.setContent(results[0].formatted_address);
+              infowindow.open(map, marker);
+            }
+          }
+        });
+      });
+      window.autocomplete ? window.autocomplete.addListener('place_changed', window.setnewAddress) : null; //console.log('Init: ', window.autocomplete);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+window.setnewAddress = function setnewAddress() {
+  var place = window.autocomplete.getPlace();
+  console.log(place);
+  Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+  marker.setPosition(Latlng);
+  infowindow.setContent(place.formatted_address);
+  map.panTo(Latlng);
+  console.log('set: ', window.currentAddressInput);
+  $.each(place.address_components, function (index, value) {
+    if (value.types.indexOf('locality') > -1) {
+      jQuery('input.localidad-' + window.currentAddressInput).val(value.short_name);
+    }
+
+    if (value.types.indexOf('administrative_area_level_1') > -1) {
+      jQuery('input.area1-' + window.currentAddressInput).val(value.short_name);
+    }
+
+    if (value.types.indexOf('administrative_area_level_2') > -1) {
+      jQuery('input.area2-' + window.currentAddressInput).val(value.short_name);
+    }
+  });
+  jQuery('input.lat-' + window.currentAddressInput).val(place.geometry.location.lat());
+  jQuery('input.long-' + window.currentAddressInput).val(place.geometry.location.lng());
+};
+
+window.addSearchMap = function addSearchMap() {
+  var addressIterator = document.getElementsByClassName("ubicaciones").length;
+  var html = '';
+  html += '<div class="form-group ubicaciones direccion border-bottom" data-row="' + addressIterator + '">';
+  html += '<div class="row">';
+  html += '<div class="col-lg-12">';
+  html += '<label class="control-label">Dirección Sucursal</label>';
+  html += '<input type="text" required="required" data-adresscontainer="' + addressIterator + '" class="form-control ubicacion ubicacion-' + addressIterator + '"';
+  html += 'placeholder="Escriba la dirección" name="Ubicaciones[' + addressIterator + '][direccion]"';
+  html += 'value=""/>';
+  html += '<input type="hidden" class="lat lat-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][latitud]" value="">';
+  html += '<input type="hidden" class="long long-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][longitud]" value="">';
+  html += '<input type="hidden" class="localidad localidad-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][localidad]" value="">';
+  html += '<input type="hidden" class="area1 area1-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][area1]" value="">';
+  html += '<input type="hidden" class="area2 area2-' + addressIterator + '" name="Ubicaciones[' + addressIterator + '][area2]" value="">';
+  html += '</div>';
+  html += '</div></div>';
+  $('#sedes-container').append(html);
+  var newInput = document.getElementsByClassName('ubicacion-' + addressIterator)[0];
+  window.initSearchMap(newInput);
+};
+
+window.initSearchMap = function initSearchMap(element) {
+  element.focus();
+  window.autocomplete = new google.maps.places.Autocomplete(element, window.optionsMaps);
+  window.autocomplete.addListener('place_changed', setnewAddress);
 };
 /**
  * A Javascript module to loadeding/refreshing options of a select2 list box using ajax based on selection of another select2 list box.
@@ -325,7 +498,7 @@ window.Select2Cascade = function (window, $) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Volumes/Pedro/WORK/lab_innovaccion/resources/js/helpers.js */"./resources/js/helpers.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\lab_innovaccion\resources\js\helpers.js */"./resources/js/helpers.js");
 
 
 /***/ })

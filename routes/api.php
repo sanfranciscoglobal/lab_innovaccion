@@ -27,7 +27,7 @@ Route::get('/obtener-ods-categoria-select2', 'Api\OdsCategoriaController@odsCate
 
 Route::get('/obtener-tipo-sector-select2/{id}', 'Api\TipoSectorController@tipoSectorSelect2')->name('api.tipo-sector.select2');
 
-//Route::get('/obtener-tipo-subsector-select2', 'Api\TipoSectorController@tipoSubsectorSelect2')->name('api.tipo-subsector.select2');
+Route::get('/obtener-tipo-subsector-select2', 'Api\TipoSectorController@tipoSubsectorSelect2')->name('api.tipo-subsector.select2');
 Route::post('/obtener-tipo-subsector-select2', 'Api\TipoSectorController@tipoSubsectorSelect2')->name('api.tipo-subsector.select2');
 
 
@@ -37,4 +37,8 @@ Route::get('/obtener-objetivos-desarrollo-select2', 'Api\ObjetivosDesarrolloCont
 Route::get('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->name('api.canton.select2');
 Route::post('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->name('api.canton.select2');
 
+/** Soluciones api */
 
+Route::get('/obtener-sector-solucion-select2', 'Api\SectorSolucionController@SectorSolucionSelect2')->name('api.sector-solucion.select2');
+Route::get('/obtener-nivel-solucion-select2', 'Api\NivelSolucionController@NivelSolucionSelect2')->name('api.nivel-solucion.select2');
+Route::get('/obtener-tipo-propuesta-select2', 'Api\TipoPropuestaController@TipoPropuestaSelect2')->name('api.tipo-propuesta.select2');

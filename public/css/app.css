@@ -16131,11 +16131,9 @@ a.text-dark:focus {
 }
 
 .text-muted {
-  color: #737491 !important;
+  color: #9e9fb4 !important;
 }
-.media-body.pl-2.ml-1.mt-n1 {
-  color: orange;
-}
+
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important;
 }
@@ -16371,7 +16369,7 @@ dd {
 
 @font-face {
   font-family: "feather";
-  src: url(/fonts/feather.ttf?a72d7a4eaf8a9cbfdf90da45e4a3d7f1) format("truetype"), url(/fonts/feather.woff?5073be683799e63a500edb38365e3019) format("woff"), url(/fonts/feather.svg?1ab1abc6cb2c57e12fa568ba607c7419) format("svg");
+  src: url(/fonts/feather.ttf?a72d7a4eaf8a9cbfdf90da45e4a3d7f1) format("truetype"), url(/fonts/feather.woff?5073be683799e63a500edb38365e3019) format("woff"), url(/fonts/feather.svg?3f802c919d701cf9a5fdfd028c51777f) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -18120,6 +18118,7 @@ label:not(.form-check-label):not(.custom-control-label):not(.custom-file-label):
   border-radius: 0.75rem;
   box-shadow: -0.0625rem 0 0.625rem 0 rgba(0, 0, 0, 0.07), 0.3125rem 1.25rem 2.5rem 0 rgba(0, 0, 0, 0.04);
   border: 0;
+  width: auto;
 }
 
 .flatpickr-innerContainer {
@@ -24319,6 +24318,9 @@ a[class*=bg-] {
   padding: 5px 0;
 }
 
+.navbar-floating-logo {
+  width: 90%;
+}
 
 .bg-gradient-orange-purple {
   background: #ef9300;
