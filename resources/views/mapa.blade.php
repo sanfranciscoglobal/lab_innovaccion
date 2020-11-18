@@ -19,23 +19,27 @@
                                     <div class="offset-lg-2 offset-rg-2">
                                         <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-2">
                                             <div class="row">
-                                                <div class="col">
-                                                    <a class="btn btn-primary" href="#modal-signin" >Registra tu iniciativa</a>
+                                                <div class="col-3">
+                                                    <a class="btn btn-primary"  style="border-color:#fd972b;background: #fd972b;" href="#modal-signin" >Registra tu iniciativa</a>
                                                 </div>
-                                                <div class="col-lg-2 ">
+                                                <div class="col ">
                                                     Encuentra tu inovación
                                                 </div>
-                                                <div class="col-lg-2">
+                                                <div class="col-2">
                                                     <input type="search" id="pac-input"  class="form-control"   placeholder="Buscar"/>
                                                 </div>
-                                                <div class="col">
-                                                    <a class="btn btn-primary" href="#modal-signin" >MAPA</a>
-                                                </div>
-                                                <div class="col">
-                                                    <a class="btn btn-primary" href="#modal-signin" >ACTORES</a>
-                                                </div>
-                                                <div class="col">
-                                                    <a class="btn btn-primary" href="#modal-signin" >ANALÍTICA</a>
+                                                <div style="width:37%">
+                                                    <div class="row" >
+                                                        <div class="col-3">
+                                                            <a class="btn btn-primary" href="#modal-signin" >MAPA</a>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <a class="btn btn-primary" href="#modal-signin" >ACTORES</a>
+                                                        </div>
+                                                        <div class="col">
+                                                            <a class="btn btn-primary" href="#modal-signin" >ANALÍTICA</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -49,34 +53,73 @@
                                         @error('latitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         @error('longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     
-                               
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-6">
-                                        <span class="text-black-50 d-block" for="from-destination">Ciudad</span>
-                                        <select id="canton_id" class="form-control custom-select select2 select2-hidden-accessible" name="canton_id[]" data-ajax--url="http://127.0.0.1:8000/api/obtener-canton-select2" data-ajax--data-type="json" data-ajax--cache="true" style="width:100%;" data-placeholder="Seleccionar ciudad" multiple="" data-select2-id="canton_id" tabindex="-1" aria-hidden="true">
-                                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="Seleccionar ciudad" style="width: 225.983px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <span class="text-black-50 d-block" for="to-destination">Tipo Institución</span>
-                                        <select id="tipo_institucion" name="tipo_institucion[]" class="form-control custom-select select2 select2-hidden-accessible" data-ajax--url="http://127.0.0.1:8000/api/obtener-tipo-institucion-select2" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false" data-placeholder="Seleccionar tipo institución" style="width:100%;" multiple="" data-select2-id="tipo_institucion" tabindex="-1" aria-hidden="true">
-                                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="Seleccionar tipo institución" style="width: 225.983px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <span style="white-space: nowrap;" class="text-black-50 d-block">Objetivo de Desarrollo Sostenible <small><strong>(ODS)</strong></small></span>
-                                        <select id="ods_categorias" class="form-control custom-select select2 select2-hidden-accessible" name="ods_categorias[]" data-ajax--url="http://127.0.0.1:8000/api/obtener-ods-categoria-select2" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false" style="width:100%;" data-placeholder="Seleccionar ODS" multiple="" data-select2-id="ods_categorias" tabindex="-1" aria-hidden="true">
-                                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="3" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="Seleccionar ODS" style="width: 225.983px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6">
-                                        <span class="text-black-50 d-block">Población Objetivo</span>
-                                        <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]" class="form-control select2 select2-hidden-accessible" data-ajax--url="http://127.0.0.1:8000/api/obtener-tipo-poblacion-select2" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false" data-placeholder="Seleccionar población objetivo" multiple="" data-select2-id="tipo_poblacion" tabindex="-1" aria-hidden="true">
-                                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="4" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="Seleccionar población objetivo" style="width: 225.983px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-
-                                </div>
+    <div class=" row d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-2">
+       
+        <div class="row align-items-center">
+            <div class="col-xs-12 center-block text-center pt-5">
+            <h2 style="color:#531c6a">Filtros</h2> 
+                <div class="row pt-4 ml-2 mr-2 align-items-center">
+                    
+                    <div class="col">
+                        <span class="font-weight-bold  d-block" style="color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
+                        <select id="tipo_institucion" name="tipo_institucion[]"
+                                class="form-control custom-select select2"
+                                data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                data-ajax--data-type="json"
+                                data-ajax--cache="true"
+                                data-close-on-select="false"
+                                data-placeholder="Seleccionar tipo institución"
+                                style="width:100%;"
+                                multiple>
                            
-                            
-                        </div>
+                        </select>
                     </div>
+                    <div class="col">
+                        <span class="font-weight-bold  d-block" style="color:#531c6a " >ODS</span>
+                        <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
+                                data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                data-ajax--data-type="json"
+                                data-ajax--cache="true"
+                                data-close-on-select="false"
+                                style="width:100%;"
+                                data-placeholder="Seleccionar ODS"
+                                multiple>
+                           
+                        </select>
+                    </div>
+                    <div class="col">
+                        <span class="font-weight-bold  d-block" style="color:#531c6a " >Población Objetivo</span>
+                        <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
+                                class="form-control select2"
+                                data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                                data-ajax--data-type="json"
+                                data-ajax--cache="true"
+                                data-close-on-select="false"
+                                data-placeholder="Seleccionar población objetivo"
+                                multiple>
+                            
+                        </select>
+                    </div>
+                    <div class="col">
+                    <button type="button" class="btn btn-primary btn-filter-submit" style="border-color:#fd972b;background: #fd972b;" data-action="{{route('web.iniciativas.index')}}">
+                        Aplicar
+                    </button>
+                    </div>
+                </div>
+        
+
+        <p class="text-center pt-3 mt-3">
+            <button type="button" class="btn btn-primary mr-3 btn-filter-submit"
+                    data-action="{{route('web.iniciativas.exportar-excel')}}">
+                Descargar datos
+            </button>
+
+        
+        </p>
+    </div>
+                                
+                            
+                      
             <!-- Content-->
             
         </div>

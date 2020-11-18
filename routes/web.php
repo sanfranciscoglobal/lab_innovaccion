@@ -191,6 +191,7 @@ Route::as('web.')
             Route::resource('iniciativas', 'Web\IniciativasController');
             Route::post('iniciativas', 'Web\IniciativasController@index')->name('iniciativas.index');
             Route::post('iniciativas/export', 'Web\IniciativasController@exportarExcel')->name('iniciativas.exportar-excel');
+            Route::get('data', 'Web\IniciativasController@data')->name('iniciativas.data');;
         }
     );
 

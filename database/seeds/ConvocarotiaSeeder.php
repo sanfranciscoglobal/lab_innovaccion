@@ -42,5 +42,7 @@ class ConvocarotiaSeeder extends Seeder
         DB::connection()->getPdo()->exec($sql);
         DB::insert("insert into convocatorias_subsectores (id, convocatoria_id, subsector_id) 
         values('1','1','1')");
+
+        
     }
 }

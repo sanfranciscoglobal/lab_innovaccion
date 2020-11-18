@@ -15,8 +15,8 @@ var locations = [
 function initMap() {
   
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: new google.maps.LatLng(-33.92, 151.25),
+        zoom: 8,
+        center: new google.maps.LatLng(-1.831239, -78.18340599999999),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true,
         styles : [
@@ -236,10 +236,14 @@ function initMap() {
             +'<div id="vermas" style="display:none" ><b size="6" style="color:#4e2561"> Iniciativa </b> <br/> <b size="6" style="color:red">'
           + locations[i][0]+'</b></br>Texto mas textoo </br> sfdfsdfs fsfdsfsdfsfdfsd <br/>'+
           '<a id="ver" onclick="F()" style="color:orange">url</a></br>'+
-          '<div class="row"> <img class="d-inline-block mb-4 mt-2" src="http://127.0.0.1:8000/img/home/Gestion_Innovacion.png" alt="Icon" width="80">'+
-           '<div style="color:black" class="row">dfds</div><div class="row">dfds</div></div>'
-           +'<a class="btn btn-primary" href="#modal-signin" >Descargar datos</a>'
-           + '<ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">'
+          '<div class="row"> <div class="col">' +
+          '<img class="d-inline-block mb-4 mt-2" src="http://127.0.0.1:8000/img/home/Gestion_Innovacion.png" alt="Icon" width="80">'
+          +'</div>'
+          +'<div style="color:black" class="col">'
+          +'<div class="row">dfds</div>'
+          +'<div class="row">dfds</div></div></div>'
+           +'<a class="btn btn-primary " href="#modal-signin" >Descargar datos</a>'
+           + '<ul class=" pt-2 d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">'
            
        
            +'<li class="list-inline-item m-0"><a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="#">'
@@ -287,6 +291,7 @@ function initMap() {
     autocomplete.addListener('place_changed', setnewAddress);
 
 		function setnewAddress() {
+      map.zoom=15;
       var place = autocomplete.getPlace();
 			console.log(place.formatted_address);
 			var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
