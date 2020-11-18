@@ -4,27 +4,8 @@ jQuery(document).ready(function() {
 	initMap();
 });
 function initMap() {
-
-	var latCurrentPosition = -1.268749;
-	var lonCurrentPosition = -78.626923
-  
-// 	navigator.geolocation.getCurrentPosition(function(position) {
-		var latUsuario = user_lat != -0.1806532 ? user_lat : latCurrentPosition;
-		var lonUsuario = user_lng != -78.4678382 ? user_lng : lonCurrentPosition;
-		var zoom = 16;
-		var dragMarker = true;
-
-		var placeSearch, autocomplete;
-		/*
-        if (
-            jQuery('#necesidad_lat').length > 0 &&
-            jQuery('#necesidad_long').length > 0
-        ){
-            latUsuario = jQuery('#necesidad_lat').val();
-            lonUsuario = jQuery('#necesidad_long').val();
-            zoom = zoom;
-            dragMarker = false;
-        }*/
+	var latCurrentPosition = -0.1626833;
+	var lonCurrentPosition = -78.4607939;
 
 	// navigator.geolocation.getCurrentPosition(function(position) {
 	// 	latCurrentPosition = position.coords.latitude;
