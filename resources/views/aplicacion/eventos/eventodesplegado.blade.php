@@ -33,7 +33,7 @@
                 <h1 class="mt-5">{{$evento->nombre}}</h1>
                 <div class="py-3">
                     <p style="margin-bottom: 0">{{date('d M, Y', strtotime( $evento->fecha))}} <br>
-                        {{date('H:i', strtotime( $evento->hora))}}</p>
+                        {{date('H\Hi', strtotime( $evento->hora))}}</p>
 
                 </div>
             </div>
@@ -49,15 +49,15 @@
                         <img  width="42" src="{{ asset('img/layout/home/profile4.jpg') }}"
                             alt="Sanomi Smith" />
                         <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$evento->nombre}}</h3>
-                                <p class="font-weight-semibold ml-1" style="margin-bottom: 0">{{$evento->organizador}}</p></div>
+                                <p class="font-weight-semibold ml-1" style="margin-bottom: 0; color: #a13d8f">{{$evento->organizador}}</p></div>
                     </a>
-                    <div class="mt-3 text-nowrap text-muted">
-                        <p style="margin-bottom: 0"><small>{{date('d M, Y', strtotime( $evento->fecha))}}</small></p>
-                        <p><small>{{date('H:i', strtotime( $evento->hora))}}</small></p>
+                    <div class="mt-3 text-primary font-weight-semibold">
+                        <p style="margin-bottom: 0"><small >{{date('d M, Y', strtotime( $evento->fecha))}}</small></p>
+                        <p><small >{{date('H\Hi', strtotime( $evento->hora))}}</small></p>
                     </div>
                 </div>
                 <div class="px-2 px-xl-2 pt-0" >
-                    <p>{{$evento->description}}</p>
+                    <p>{{$evento->descripcion}}</p>
                     <span class="font-weight-bold e-presencial"><i class="fe-map-pin font-size-xl mr-2"></i> Ubicación</span>
                     <span class="font-weight-bold e-virtual"><i class="fe-link font-size-xl mr-2"></i> Link del Evento</span>
                 </div>

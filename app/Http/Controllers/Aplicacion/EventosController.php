@@ -37,8 +37,10 @@ class EventosController extends Controller
             // The user is logged in...
             $autentificacion=true;
         }
+        Evento::$paginate = 9;
+        $eventos = Evento::obtenerPaginate();
 
-        $eventos = Evento::orderbyDesc('fecha','hora')->get();
+        // $eventos = Evento::orderbyDesc('fecha','hora')->get();
 
         return view('aplicacion.eventos.eventos', compact('eventos','autentificacion'));
     }
