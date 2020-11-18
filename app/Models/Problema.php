@@ -27,6 +27,10 @@ class Problema extends Model
         return $this->belongsTo('App\Models\TipoConvocatoria');
     }
 
+    public function convocatoria(){
+        return $this->belongsTo('App\Models\Convocatoria');
+    }
+
     public function canton(){
         return $this->belongsTo('App\Models\Canton');
     }

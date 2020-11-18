@@ -34,22 +34,25 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label for="tipo_abierta">
-                                    <input class="innovacion_tipo" type="radio" id="tipo_abierta" value="1" name="tipoconvocatoria_id" required>
-                                    Innovación Abierta
-                                </label>
+                                
+                                <div class="custom-control custom-radio">
+                                    <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_abierta" value="1" name="tipoconvocatoria_id" required>
+                                    <label class="custom-control-label" for="tipo_abierta">Innovación Abierta</label>
+                                </div>
                             </div>
                             <div class="col-sm-3">
-                                <label for="tipo_social">
-                                    <input class="innovacion_tipo" type="radio" id="tipo_social" value="2" name="tipoconvocatoria_id">
-                                    Innovación Social
-                                </label>
+                                
+                                <div class="custom-control custom-radio">
+                                    <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_social" value="2" name="tipoconvocatoria_id">
+                                    <label class="custom-control-label" for="tipo_social">Innovación Social</label>
+                                </div>
                             </div>
                             <div class="col-sm-3">
-                                <label for="tipo_publica">
-                                    <input class="innovacion_tipo" type="radio" id="tipo_publica" value="3" name="tipoconvocatoria_id">
-                                    Innovación Pública
-                                </label>
+                                
+                                <div class="custom-control custom-radio">
+                                    <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_publica" value="3" name="tipoconvocatoria_id">
+                                    <label class="custom-control-label" for="tipo_publica">Innovación Pública</label>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -87,12 +90,13 @@
                                         <div class="form-group">
                                             <label class="form-label">* Fecha de inicio</label>
                                             <div class="input-group-overlay">
-                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Fecha de inicio" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fecha_inicio" value="{{isset($convocatoria->fecha_inicio)?$convocatoria->fecha_inicio:old('fecha_inicio')}}" name="fecha_inicio"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
-                                            <div class="input-group-append-overlay">
-                                                <span class="input-group-text">
-                                                <i class="fe-calendar"></i>
-                                                </span>
-                                            </div>
+                                                <input class="form-control appended-form-control cs-date-picker cs-date-range" type="text" placeholder="Fecha de inicio" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate": "today"}' id="fecha_inicio" value="{{isset($convocatoria->fecha_inicio)?$convocatoria->fecha_inicio:old('fecha_inicio')}}" data-linked-input="#fecha_cierre">
+                                                <div class="input-group-append-overlay">
+                                                    <span class="input-group-text">
+                                                    <i class="fe-calendar"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="hidden" name="fecha_inicio" class="cs-date-range-ini" value="{{isset($convocatoria->fecha_inicio)?$convocatoria->fecha_inicio:old('fecha_inicio')}}" required>
                                             </div>
                                             @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
@@ -101,12 +105,13 @@
                                         <div class="form-group">
                                             <label class="form-label">* Fecha de cierre</label>
                                             <div class="input-group-overlay">
-                                            <input class="form-control appended-form-control cs-date-picker js-input" type="text" placeholder="Fecha de cierre" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d"}' id="fecha_cierre" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" name="fecha_cierre"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
-                                            <div class="input-group-append-overlay">
-                                                <span class="input-group-text">
-                                                <i class="fe-calendar"></i>
-                                                </span>
-                                            </div>
+                                                <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Fecha de cierre" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate": "today"}' id="fecha_cierre" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}">
+                                                <div class="input-group-append-overlay">
+                                                    <span class="input-group-text">
+                                                    <i class="fe-calendar"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="hidden" name="fecha_cierre" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" class="cs-date-range-end" required>
                                             </div>
                                             @error('fecha_cierre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
@@ -116,7 +121,7 @@
                                 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(max. 100 palabras) (min. 50 palabras)</span></label>
+                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(max. 100 palabras) (min. 25 palabras)</span></label>
                                     <textarea onkeyup="countWords();" onkeydown="countWords();"  class="form-control" name="descripcion" id="descripcion_convocatoria"
                                               rows="10" required="required"
                                               >{{ old('descripcion', $convocatoria->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
@@ -205,7 +210,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                            <button type="submit" class="btn btn-warning btn-sm">Eliminar</button>
                         </div>
                         
                         
@@ -277,12 +282,12 @@
         //     $('#descripcion').addClass('is-invalid');
         // }
         document.getElementById("count-words").innerHTML=words+" palabras";
-        if (words>49 && words<=maxword || words==0){
+        if (words>=25 && words<=maxword || words==0){
             $("#descripcion-error").removeClass('d-inline');
             $('#descripcion_convocatoria').removeClass('is-invalid');
             $('#submitbutton').removeAttr('disabled');
         }
-        else if (words<49){
+        else if (words<25){
             $("#descripcion-error").html('Llene el mínimo de palabras necesarias');
             $("#descripcion-error").addClass('d-inline');
             $('#descripcion_convocatoria').addClass('is-invalid');
@@ -344,6 +349,11 @@
         
             recargarlista(listasectores,idsubsector);
         });
+    });
+    $('.cs-date-range').on('change', function(){
+        let old = $(this).val().split(' a ');
+        $('.cs-date-range-ini').val(old[0]);
+        $('.cs-date-range-end').val(old[1]);
     });
 
 </script>

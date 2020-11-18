@@ -26,19 +26,17 @@ class UpdatePost extends FormRequest
     {
         return [
             'iniciativa_propiedad' => 'required',
-            'nombre_organizacion' => 'required',
-            'siglas' => 'required',
-            'sitio_web' => 'required',
-//            'tipo_institucion' => 'required',
-            'enfoque' => 'required',
-//            'ubicaciones' => 'required',
-//            'canton_id' => 'required',
-            'Ubicaciones' => 'required',
+
+            'nombre_organizacion' => 'nullable',
+            'siglas' => 'nullable',
+            'sitio_web' => 'nullable',
+            'enfoque' => 'nullable',
+            'direccion' => 'nullable',
+            'canton_id' => 'nullable',
+            'direccion' => 'nullable',
             'nombre_iniciativa' => 'required',
             'anio' => 'required',
-            'vigencia' => 'required',
-//            'tipo_poblacion' => 'required',
-//            'ods_categorias' => 'required',
+            'Ubicaciones' => 'required',
             'componente_innovador' => 'required',
             'descripcion_iniciativa' => 'required',
             'url_facebook' => 'nullable',
@@ -48,12 +46,7 @@ class UpdatePost extends FormRequest
             'url_youtube' => 'nullable',
             'latitud' => 'nullable',
             'longitud' => 'nullable',
-//            'iniciativa_contacto' => '',
-//            'iniciativa_verificada' => 'on',
-//            'name' => 'required|max:250',
-//            'email' => 'required|email|max:250',
-//            'subject' => 'required|max:250',
-//            'message' => 'required|max:250'
+            'vigencia' => 'required',
         ];
     }
 

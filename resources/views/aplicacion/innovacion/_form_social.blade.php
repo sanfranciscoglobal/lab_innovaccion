@@ -5,7 +5,7 @@
                                                                     
                 <select style="width:100%;" id="innovacion_sector_productivo" name="innovacion_ods[]"
                     class="form-control custom-select select2"
-                    data-ajax--url="{{route('api.objetivo-desarrollo.select2')}}"
+                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
                     data-ajax--data-type="json"
                     data-placeholder="Seleccione uno o varios ODS"
                     data-ajax--cache="true"

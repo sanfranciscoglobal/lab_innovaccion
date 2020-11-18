@@ -18,25 +18,25 @@ class CreateSolucionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('problema_id');
             $table->unsignedBigInteger('sectorsolucion_id');
-            $table->string('nombre');
-            $table->text('descripcion');
-            $table->boolean('estado_descrip')->default(FALSE)->comment('Abieta-1/Soloponente-0');    
+            $table->string('nombre')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->boolean('estado_descrip')->default(True)->comment('Abieta-1/Soloponente-0');    
             $table->string('archivo')->nullable();
             
-            $table->unsignedBigInteger('nivelsolucion_id');
-            $table->string('concepto1');
-            $table->string('concepto2'); 
-            $table->string('concepto3');
+            $table->unsignedBigInteger('nivelsolucion_id')->nullable();
+            $table->string('concepto1')->nullable();
+            $table->string('concepto2')->nullable(); 
+            $table->string('concepto3')->nullable();
 
-            $table->string('telefono');
+            $table->string('telefono')->nullable();
             $table->string('web')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('linkededin')->nullable();
             $table->string('twitter')->nullable();
             $table->string('youtube')->nullable();
-            $table->boolean('terminos');
-            $table->foreignId('user_id')->constrained();
+            $table->boolean('terminos')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->foreign('nivelsolucion_id')
                 ->references('id')
                 ->on('nivel_solucion')

@@ -35,6 +35,7 @@
                 <select style="width:100%;" id="innovacion_publica_subsector_productivo" name="innovacion_subsector_productivo[]"
                     class="form-control custom-select select2"
                     data-placeholder="Seleccione uno o varios subsectores"
+                    data-close-on-select="false"
                     required="required" multiple>
       
                 </select>
@@ -52,7 +53,7 @@
                                                                     
                 <select style="width:100%;" id="innovacion_publica_ods" name="innovacion_ods[]"
                     class="form-control custom-select select2"
-                    data-ajax--url="{{route('api.objetivo-desarrollo.select2')}}"
+                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
                     data-ajax--data-type="json"
                     data-placeholder="Seleccione uno o varios ODS"
                     data-ajax--cache="true"

@@ -14,7 +14,7 @@ class OdsCategoriaController extends Controller
         $odsCategorias = OdsCategoria::obtenerOdsCategoriaAll() ?? [];
 
         foreach ($odsCategorias as $odsCategoria) {
-            $data[] = ['id' => $odsCategoria->id, 'text' => $odsCategoria->nombre];
+            $data[] = ['id' => $odsCategoria->id, 'text' => "ODS {$odsCategoria->id}: {$odsCategoria->nombre}"];
         }
 
         return $data;

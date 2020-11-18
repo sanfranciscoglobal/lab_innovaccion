@@ -47,7 +47,6 @@ class crudProblemas extends Controller
                 $problema->archivo = $imageName;
                 $problema->save();
             }
-
             if($request->get('continue')){
                 $request->session()->put('step', '2');
                 return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema creada con éxito', 'method' => 'PUT']);

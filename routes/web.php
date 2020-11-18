@@ -50,16 +50,20 @@ Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->na
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
+Route::get('/eventos/download', function(){
+    return Storage::disk('eventos')->download('1605557970_erdfadf-df_1.jpeg');
+})->name('eventos.download');
 Route::get('/eventos/{evento}', 'Aplicacion\EventosController@verEventodetalle')->name('eventodetalle');
 //Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
 Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');
 Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
-Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
+Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
+Route::get('gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
 
 
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
@@ -138,7 +142,6 @@ Route::as('app.')
             // Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             // Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
             //FASE B
-            Route::get('innovacion/gestion/ver/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
             Route::get('innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnovacion')->name('innovaciongestion');
             Route::get('innovacion/gestion/{convocatoria}/{problema}', 'Aplicacion\InnovacionController@frmGestionInnovacionEdit')->name('problemas.edit');
             Route::post('innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
@@ -148,7 +151,13 @@ Route::as('app.')
             Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
             //SOLUCION
-            Route::get('innovacion/solucion/ver', 'Aplicacion\SolucionController@verSoluciones')->name('innovacionsolucion.ver');
+            Route::get('innovacion/solucion/ver/{problema}', 'Aplicacion\SolucionController@verSoluciones')->name('soluciones.ver');
+            Route::get('innovacion/solucion/crear/{problema}', 'Aplicacion\SolucionController@frmSolucion')->name('soluciones.crear');
+            Route::post('innovacion/solucion/store', 'Aplicacion\crudSoluciones@store')->name('soluciones.store');
+            Route::get('innovacion/solucion/edit/{problema}/{solucion}', 'Aplicacion\SolucionController@frmSolucionEdit')->name('soluciones.edit');
+            Route::put('innovacion/solucion/update/{solucion}', 'Aplicacion\crudSoluciones@update')->name('soluciones.update');
+            Route::put('innovacion/solucion/update/fase2/{solucion}', 'Aplicacion\crudSoluciones@updateFase2')->name('soluciones.update.fase2');
+            Route::put('innovacion/solucion/update/fase3/{solucion}', 'Aplicacion\crudSoluciones@updateFase3')->name('soluciones.update.fase3');
 
 
             /** Rutas Escritorio */

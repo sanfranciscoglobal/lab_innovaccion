@@ -20,13 +20,16 @@ class EventosController extends Controller
     // public function __construct(){
     //     $this->middleware('auth');
     // }
+
     public function __construct(){
-        $this->middleware('acceso-app:user,admin,superadmin')->except('verEventos','searchEventos');
+        $this->middleware('acceso-app:user,admin,superadmin')->except('verEventos','searchEventos', 'verEventodetalle');
     }
+
     public function verEventodetalle(Evento $evento)
     {
         return view('aplicacion.eventos.eventodesplegado', compact('evento'));
     }
+    
     public function verEventos(Request $request)
     {
         $autentificacion=false;
@@ -34,11 +37,14 @@ class EventosController extends Controller
             // The user is logged in...
             $autentificacion=true;
         }
+        Evento::$paginate = 9;
+        $eventos = Evento::obtenerPaginate();
 
-        $eventos = Evento::orderbyDesc('fecha','hora')->get();
+        // $eventos = Evento::orderbyDesc('fecha','hora')->get();
 
         return view('aplicacion.eventos.eventos', compact('eventos','autentificacion'));
     }
+    
     public function searchEventos(Request $request)
     {
         $autentificacion=false;

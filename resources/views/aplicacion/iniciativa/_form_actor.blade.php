@@ -13,7 +13,12 @@
                     <label class="control-label">* Nombre de la organización</label>
                     <input maxlength="200" type="text" required="required" class="form-control"
                            placeholder="Nombre de la organización" name="nombre_organizacion"
-                           value="{{($model->iniciativaActor)?$model->iniciativaActor->nombre_organizacion:''}}"/>
+                           value="{{($model->iniciativaActor)?$model->iniciativaActor->nombre_organizacion:''}}"
+                           {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
+                           {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
+                    />
+                    {{--<div class="invalid-feedback">Por favor ingresar Nombre de la organización</div>--}}
+                    {{--<div class="valid-feedback"><i class="fe-check-circle"></i></div>--}}
                 </div>
             </div>
             <div class="col-lg-4">
@@ -40,11 +45,6 @@
                     <div class="invalid-feedback d-inline">{{ $message }}</div>
                     @enderror
                     <div class="invalid-feedback" id='url-error'></div>
-
-                    {{--<label class="control-label">Sitio web</label>--}}
-                    {{--<input maxlength="200" type="url" class="form-control" placeholder="Ejem. https://www.sitioweb.com"--}}
-                    {{--id="sitio_web" name="sitio_web"--}}
-                    {{--value="{{($model->iniciativaActor)?$model->iniciativaActor->sitio_web:''}}"/>--}}
                 </div>
             </div>
             <div class="col-lg-12">
@@ -65,6 +65,7 @@
                             @endforeach
                         @endif
                     </select>
+                    <div class="invalid-feedback">Por favor seleccione tipo de institución</div>
                 </div>
             </div>
         </div>
@@ -73,11 +74,11 @@
                 <div class="form-group">
                     <label class="control-label">
                         * Enfoque: ¿Qué trabajo hace la organización?
-                        <span class="text-primary">(max. 100 palabras)</span>
+                        <span class="text-primary">(min. 25 palabras) (max. 100 palabras)</span>
                     </label>
 
                     <textarea
-                            oninput="window.countWords('enfoque','enfoque-error','submit-actor-id',0,100);"
+                            oninput="window.countWords('enfoque','enfoque-error','submit-actor-id',25,100);"
                             name="enfoque"
                             id="enfoque"
                             class="form-control"
@@ -166,9 +167,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <label class="control-label">Dirección Principal</label>
-                        <input maxlength="200" type="text" required="required"
+                        <input maxlength="200"
+                               type="text"
+                               required="required"
                                class="form-control ubicacion ubicacion-0"
-                               placeholder="Escriba la dirección" id="evento_direccion" data-adresscontainer="0"
+                               placeholder="Escriba la dirección"
+                               id="evento_direccion"
+                               data-adresscontainer="0"
                                name="Ubicaciones[0][direccion]"
                                value="{{($model->iniciativaActor)?$model->iniciativaActor->direccion:''}}"/>
                         <input type="hidden" class="form-control lat lat-0" name="Ubicaciones[0][latitud]" value="">
@@ -198,7 +203,8 @@
         <button class="btn btn-primary nextBtn pull-right mt-4" type="button" id="submit-actor-id">Siguiente</button>
     </div>
 </div>
-{{--<div class="info-box opc-2 d-none">--}}
-{{--<h3 class="text-center">Haga clic en siguiente</h3>--}}
-{{--<button class="btn btn-primary nextBtn pull-right" id="submit-actor-id" type="button">Siguiente</button>--}}
-{{--</div>--}}
+
+<div class="info-box opc-2 d-none">
+    <h3 class="text-center">Haga clic en siguiente</h3>
+    <button class="btn btn-primary nextBtn pull-right" id="submit-actor-next-id" type="button">Siguiente</button>
+</div>

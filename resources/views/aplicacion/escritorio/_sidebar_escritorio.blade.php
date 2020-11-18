@@ -38,7 +38,7 @@
                                     </a></li>
                                 <li>
                                     <a class="cs-widget-link" href="{{ route('app.escritorio.problemas') }}">Problemas Registrados
-                                        <small class="text-muted pl-1 ml-2">0</small>
+                                        <small class="text-muted pl-1 ml-2">{{ App\Models\Problema::where('user_id', Auth::id())->count() }}</small>
                                     </a>
                                 </li>
                             </ul>
