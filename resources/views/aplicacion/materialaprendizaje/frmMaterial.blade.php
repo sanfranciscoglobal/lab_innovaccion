@@ -127,7 +127,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="mat_files">Adjuntar archivos</label>
+                                            <label for="mat_files">Adjuntar archivos<span style="color: gray">(max. 2 Mb)</span></label>
 
                                             @if ($method=='PUT')
 
@@ -143,8 +143,10 @@
                                             @else
                                                 <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]" multiple/>
                                             @endif
+                                            @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
 
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>

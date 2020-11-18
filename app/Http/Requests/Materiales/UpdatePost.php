@@ -31,6 +31,7 @@ class UpdatePost extends FormRequest
             'tipo_documento' => 'string|required',
             'tipo' => 'boolean|required',
             //'imagen_portada' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
+            'mat_files.*'=>['file', 'max:10240', 'nullable'],
             'fuente_publicacion' => 'required|string',
             'autor_publicacion' => 'nullable|string|required_if:tipo,"0"',
             'terminos'=>'required|boolean'
