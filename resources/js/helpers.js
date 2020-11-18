@@ -384,24 +384,23 @@ window.validateFormEvent = function validateFormEvent(btn, class_content, scroll
     var curStep = btn.closest("." + class_content);
     var curInputs = curStep.find("input,select,textarea,file, radio");
     var isValid = true;
-    // var error = false;
-
-    // $(".form-group").removeClass("d-inline");
-    $(".form-group").removeClass("has-error");
 
     for (var i = 0; i < curInputs.length; i++) {
         var element = curInputs[i];
         if (!element.validity.valid) {
+            console.log(element);
             isValid = false;
             $(element).addClass('d-inline');
             $(element).addClass('is-invalid');
+            $(element).removeClass('is-valid');
         } else {
             $(element).removeClass('d-inline');
             $(element).removeClass('is-invalid');
+            $(element).addClass('is-valid');
         }
     }
 
-    if(!isValid && scroll){
+    if (!isValid && scroll) {
         $("html, body").animate({
             scrollTop: $(curStep).offset().top - 130,
         }, 500)

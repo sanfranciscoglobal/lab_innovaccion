@@ -188,6 +188,7 @@
             formControls.on('change', function () {
                 if (clickSubmit) {
                     window.validateFormEvent($(this), 'setup-content', false);
+                    // setCustomValidity();
                     // if (window.validateFormEvent($(this), 'setup-content')) {
                     //
                     // }
