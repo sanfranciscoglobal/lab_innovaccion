@@ -220,7 +220,7 @@ window.countCharacters = function countCharacters(element_id, element_error_id, 
         $("#" + element_error_id).html('Llene el mínimo de caracteres necesarias');
         $("#" + element_error_id).addClass('d-inline');
         $('#' + element_id).addClass('is-invalid');
-        $('#submitbutton').attr('disabled', 'disabled');
+        $('#' + submit_id).attr('disabled', 'disabled');
     }
     else {
         $("#" + element_error_id).html('Ha sobrepasado el límite de caracteres permitido');
@@ -333,7 +333,7 @@ window.setnewAddress = function setnewAddress() {
     infowindow.setContent(place.formatted_address);
     map.panTo(Latlng);
 
-    console.log('set: ',window.currentAddressInput);
+    console.log('set: ', window.currentAddressInput);
 
     $.each(place.address_components, function (index, value) {
         if (value.types.indexOf('locality') > -1) {
@@ -378,6 +378,35 @@ window.initSearchMap = function initSearchMap(element) {
     element.focus();
     window.autocomplete = new google.maps.places.Autocomplete(element, window.optionsMaps);
     window.autocomplete.addListener('place_changed', setnewAddress);
+}
+
+window.validateFormEvent = function validateFormEvent(btn, class_content, scroll) {
+    var curStep = btn.closest("." + class_content);
+    var curInputs = curStep.find("input,select,textarea,file, radio");
+    var isValid = true;
+
+    for (var i = 0; i < curInputs.length; i++) {
+        var element = curInputs[i];
+        if (!element.validity.valid) {
+            console.log(element);
+            isValid = false;
+            $(element).addClass('d-inline');
+            $(element).addClass('is-invalid');
+            $(element).removeClass('is-valid');
+        } else {
+            $(element).removeClass('d-inline');
+            $(element).removeClass('is-invalid');
+            $(element).addClass('is-valid');
+        }
+    }
+
+    if (!isValid && scroll) {
+        $("html, body").animate({
+            scrollTop: $(curStep).offset().top - 130,
+        }, 500)
+    }
+
+    return isValid;
 }
 
 /**
