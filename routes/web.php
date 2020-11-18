@@ -50,6 +50,9 @@ Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->na
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
+Route::get('/eventos/download', function(){
+    return Storage::disk('eventos')->download('1605557970_erdfadf-df_1.jpeg');
+})->name('eventos.download');
 Route::get('/eventos/{evento}', 'Aplicacion\EventosController@verEventodetalle')->name('eventodetalle');
 //Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
@@ -60,6 +63,7 @@ Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeC
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
+Route::get('gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
 
 
 Route::get('/mapa',  function () {
@@ -141,7 +145,6 @@ Route::as('app.')
             // Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             // Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
             //FASE B
-            Route::get('innovacion/gestion/ver/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
             Route::get('innovacion/gestion/{convocatoria}', 'Aplicacion\InnovacionController@frmGestionInnovacion')->name('innovaciongestion');
             Route::get('innovacion/gestion/{convocatoria}/{problema}', 'Aplicacion\InnovacionController@frmGestionInnovacionEdit')->name('problemas.edit');
             Route::post('innovacion/gestion/store', 'Aplicacion\crudProblemas@store')->name('problemas.store');
