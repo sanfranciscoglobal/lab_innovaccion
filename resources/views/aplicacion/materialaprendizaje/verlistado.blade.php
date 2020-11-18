@@ -50,54 +50,19 @@
                             <div class="col col-lg-6">
                                 <article class="card card-hover mb-grid-gutter">
                                     <div class="card-body">
-                                        {{-- <div class="row">
-                                            <div class="col">
-                                                @if ($material->tipo==0)
-                                                    <span class="badge badge-lg badge-floating badge-floating-right btn-primary">Publicación</span>
-                                                @else
-                                                    <span class="badge badge-lg badge-floating badge-floating-right btn-primary">Herramienta</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <h2 class="h4 nav-heading mb-4">
-                                                    <a href="#">{{$material->nombre_publicacion}}</a>
-                                                </h2>
-                          
-                                                <p>{{$material->tema_tratado}}</p>
-                                                <p>{{$material->tipo_documento}}</p>
-                                            </div>
-
-                                        </div>   --}}
-                                        <div class="row">
-                                            <div class="col-sm-9">
-                                                <h2 class="h4 nav-heading mb-4 text-primary">
-                                                   {{$material->nombre_publicacion}}
-                                                </h2>
-                                                
-                                                
-                                            </div>
-                                            <div class="col-sm-3">
-                                                @if ($material->tipo==0)
-                                                    <span class="btn-primary badge badge-lg badge-floating badge-floating-right">Publicación</span>
-                                                  
-                                                @else
-                                                 
-                                                    <span class="btn-primary badge badge-lg badge-floating badge-floating-right">Herramienta</span>
-                                                
-                                                @endif
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <p>{{$material->tema_tratado}}</p>
-                                                <p>{{$material->tipo_documento}}</p>
-                                            </div>
-                                            
-                                        </div>                                      
+                                        <h2 class="h4 nav-heading mb-4">
+                                            <a href="#">{{$material->nombre_publicacion}}</a>
+                                        </h2>
+                                        
+                                        <p class="d-flex">
+                                            <span class="mr-auto">{{$material->tema_tratado}}</span>
+                                            @if ($material->tipo==0)
+                                            <span class="badge badge-lg bg-primary text-white">Publicación</span>
+                                            @else
+                                            <span class="badge badge-lg bg-primary text-white">Herramienta</span>
+                                            @endif
+                                        </p>
+                                        <p>{{$material->tipo_documento}}</p>
                                   
                                         <div class="row">
                                             <div class="col">
