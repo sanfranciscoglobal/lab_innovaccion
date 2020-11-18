@@ -152,7 +152,6 @@
                             <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png"
                                    name="logo"
                                    id="logo"
-                                   required
                                    data-default-file="{{asset('storage/iniciativas/'.$model->iniciativaInformacion->logo)}}"
                             >
                             <div class="invalid-feedback">Inserta una imagen.</div>
@@ -166,6 +165,7 @@
                                        maxlength='250'
                                        name='logo'
                                        class="cs-file-drop-input"
+                                       required
                                        {{--data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"--}}
                                 >
                                 <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">
