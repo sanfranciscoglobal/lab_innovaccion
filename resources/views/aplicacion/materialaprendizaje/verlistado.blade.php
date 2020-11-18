@@ -50,8 +50,8 @@
                             <div class="col col-lg-6">
                                 <article class="card card-hover mb-grid-gutter">
                                     <div class="card-body">
-                                        <h2 class="h4 nav-heading mb-4">
-                                            <a href="#">{{$material->nombre_publicacion}}</a>
+                                        <h2 class="h4 nav-heading mb-4 text-primary">
+                                            {{$material->nombre_publicacion}}
                                         </h2>
                                         
                                         <p class="d-flex">
