@@ -15,7 +15,7 @@ class ConvocarotiaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        /*
         $sql = "ALTER SEQUENCE convocatorias_id_seq RESTART WITH 2;";
         $sql .= "TRUNCATE convocatorias CASCADE;";
         DB::connection()->getPdo()->exec($sql);
@@ -43,6 +43,6 @@ class ConvocarotiaSeeder extends Seeder
         DB::insert("insert into convocatorias_subsectores (id, convocatoria_id, subsector_id) 
         values('1','1','1')");
 
-        
+        */
     }
 }

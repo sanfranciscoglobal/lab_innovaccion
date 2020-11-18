@@ -6,13 +6,10 @@ use App\Models\RoleUser;
 
 class UsersSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
+     
     public function run()
-    {
+    {/*
         $sql  = "ALTER SEQUENCE users_id_seq RESTART WITH 1;";
         $sql .= 'TRUNCATE users CASCADE;';
         DB::connection()->getPdo()->exec($sql);
@@ -45,5 +42,8 @@ class UsersSeeder extends Seeder
         foreach($usersRoles as $ur){
           RoleUser::create($ur);
         }
+        */
     }
+    
+     
 }
