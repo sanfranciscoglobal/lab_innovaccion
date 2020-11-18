@@ -53,13 +53,15 @@
                                         <h2 class="h4 nav-heading mb-4">
                                             <a href="#">{{$material->nombre_publicacion}}</a>
                                         </h2>
-                                        @if ($material->tipo==0)
-                                            <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicación</span>
-                                        @else
-                                            <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Herramienta</span>
-                                        @endif
                                         
-                                        <p>{{$material->tema_tratado}}</p>
+                                        <p class="d-flex">
+                                            <span class="mr-auto">{{$material->tema_tratado}}</span>
+                                            @if ($material->tipo==0)
+                                            <span class="badge badge-lg bg-primary text-white">Publicación</span>
+                                            @else
+                                            <span class="badge badge-lg bg-primary text-white">Herramienta</span>
+                                            @endif
+                                        </p>
                                         <p>{{$material->tipo_documento}}</p>
                                   
                                         <div class="row">
