@@ -10,7 +10,7 @@
     <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Fondos</h1>
+                <h1 class="mt-5 text-primary">Fondos</h1>
                 <div class="py-3">
                     <p class="cs-callout">¡Fomentemos oportunidades de financiamiento para la innovación!<br>
                         Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.
@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <h2 class="h3 text-center">Indicaciones</h2>
+                    <h2 class="h3 text-center text-primary">Indicaciones</h2>
                     <p class="text-center">Caso 1. Registra fondos propios o de otros organismos en el formulario.<br>
                     Caso 2. Revisa las oportunidades de financiamiento pulsando en los íconos.</p>
                 </div>
@@ -38,7 +38,8 @@
                 $img = isset($fondo->imagen) ? $fondo->imagen : '';
                 $img = Storage::disk('fondos')->exists($img) ? asset('storage/fondos/'.$img) : asset('img/logo/thinkia_color_no_slogan.svg');
             @endphp
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter" data-toggle="modal" data-target="#modelId" data-content="{{$fondo}}">
+            {{-- <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter" data-toggle="modal" data-target="#modelId" data-content="{{$fondo}}"> --}}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
                     <a class="card-floating-icon" href="mailto:{{ $fondo->user->email }}"><i class="fe-mail"></i></a>
                     <div class="card-img-top card-img-gradient">
@@ -94,7 +95,7 @@
     </section>
 
     {{-- MODAL DETALLE --}}
-    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    {{-- <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -107,7 +108,7 @@
                     </div>
                     {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button> --}}
+                    </button> --}
                 </div>
                 <div class="modal-body border-0">
                     <div class="container-fluid">
@@ -125,7 +126,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @section('scripts')

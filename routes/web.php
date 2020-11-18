@@ -50,6 +50,9 @@ Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->na
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
+Route::get('/eventos/download', function(){
+    return Storage::disk('eventos')->download('1605557970_erdfadf-df_1.jpeg');
+})->name('eventos.download');
 Route::get('/eventos/{evento}', 'Aplicacion\EventosController@verEventodetalle')->name('eventodetalle');
 //Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');

@@ -87,7 +87,7 @@
                     
                 </div>
                <div class="text-center text-sm-left mt-2 mt-sm-4 mb-4">
-                        <button class="btn btn-primary" type="submit">Filtrar</button>
+                        <button class="btn btn-warning" type="submit">Filtrar</button>
                     </div>
                 </div>
             </div>
@@ -104,6 +104,7 @@
                         <div class="card-body text-center">
                             <a class=" meta-link font-size-lg font-weight-bold align-items-center" href="{{route('eventodetalle',$evento->id)}}">{{$evento->nombre}}</a>
                         </div>
+                        
                         {{-- <div class="card-hover-info px-4 py-4">
                             <h3 class="h5 text-center">{{$evento->nombre}}</h3>
                             <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
@@ -130,7 +131,7 @@
                         
                     </div>
                 </div>
-                
+                <a href="{{route('eventos.download')}}">DOWNLOAD</a>
                 
             @endforeach
             <!-- Loop Start -->
