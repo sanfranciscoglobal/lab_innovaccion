@@ -25,11 +25,13 @@ class Store1Post extends FormRequest
     {
         return [
             //
-            'sectorsolucion_id' => 'int|required',
-            'nombre' => 'string|required',
-            'descripcion'=>'string|required',
+            'problema_id'=>['int','required'],
+            'convocatoria_id'=>['int','required'],
+            'sectorsolucion_id' => ['int','required'],
+            'nombre' => ['string','required'],
+            'descripcion'=>['string','required'],
             // 'estado_descrip'=>
-            'archivo'=>'nullable|string'
+            'archivo'=>['file', 'max:10240', 'mimes:pdf', 'nullable']
       
         ];
     }

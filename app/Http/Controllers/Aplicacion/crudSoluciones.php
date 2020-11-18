@@ -23,49 +23,64 @@ class crudSoluciones extends Controller
 {
     //
     public function store(Store1Post $request){
+   
         $validatedData = $request->validated();
-        if($request->get('continue')){
-            $request->session()->put('step', '2');
-            return redirect()->route('app.soluciones.edit')->with(['status' => 'Innovación solución creada con éxito', 'method' => 'PUT']);
-        } else {
-            return redirect()->route('app.escritorio')->with(['status' => 'Innovación solución creada con éxito']);
+        if($solucion=Solucion::create($validatedData)){
+            $solucion->user_id = auth()->id();
+            $solucion->save();
+            if(isset($validatedData['archivo'])){
+                $imageName = Archivos::storeImagen($solucion->id, $validatedData['archivo'], 'soluciones');
+                $solucion->archivo = $imageName;
+                $solucion->save();
+            }
+            if($request->get('continue')){
+                $request->session()->put('step', '2');
+                return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 1 completada con éxito, continue con el siguiente paso', 'method' => 'PUT']);
+            } else {
+                return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 1 completada con éxito, no se olvide de completarla más tarde']);
+            }
+
         }
-        // if($solucion = Solucion::create($validatedData)){
-        //     $solucion->user_id = auth()->id();
-        //     //$solucion->save();
-        //     $request->session()->put('step', '2');
-        //     return redirect()->route('app.soluciones.store')->with(['status' => 'Innovación problema creada con éxito', 'method' => 'PUT']);
-            
-        // }
-        // return ('valio verga');
+        return back()->with('error', 'Solución no fue creada');
        
     }
-    public function update(Request $request){
+    public function update(Request $request,Solucion $solucion){
         if($request->get('continue')){
             $request->session()->put('step', '2');
-            return redirect()->route('app.soluciones.edit')->with(['status' => 'Innovación fase 1', 'method' => 'PUT']);
+            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Innovación fase 1', 'method' => 'PUT']);
         } else {
             return redirect()->route('app.escritorio')->with(['status' => 'Innovación fase 1']);
         }
 
     }
-    public function updateFase2(Store2Post $request){
-        dd($request->all());
+    public function updateFase2(Store2Post $request,Solucion $solucion){
+        $validatedData = $request->validated();
+        $solucion->update($validatedData);
+        Soluciontipoinnova::where('solucion_id',$solucion->id)->delete();
+        foreach ($validatedData['tipo_institucion'] as $propuesta){
+            $conpropuesta=Soluciontipoinnova::create([
+                'solucion_id'=>$solucion['id'],
+                'tipoinnovacion_id' =>$propuesta
+            ]);
+            $conpropuesta->save();
+        }
+
         if($request->get('continue')){
             $request->session()->put('step', '3');
-            return redirect()->route('app.soluciones.edit')->with(['status' => 'Innovación fase 2', 'method' => 'PUT']);
+            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 2 completada con éxito, continue con el último paso', 'method' => 'PUT']);
         } else {
-            return redirect()->route('app.escritorio')->with(['status' => 'Innovación fase 2']);
+            return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 2 completada con éxito, no se olvide de completarla más tarde']);
         }
 
     }
-    public function updateFase3(Request $request){
-        dd($request->all());
+    public function updateFase3(Store3Post $request,Solucion $solucion){
+        $validatedData = $request->validated();
+        $solucion->update($validatedData);
         if($request->get('continue')){
             $request->session()->put('step', '3');
-            return redirect()->route('app.soluciones.edit')->with(['status' => 'Innovación solución creada con éxito', 'method' => 'PUT']);
+            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Innovación solución creada con éxito', 'method' => 'PUT']);
         } else {
-            return redirect()->route('app.escritorio')->with(['status' => 'Innovación solución creada con éxito']);
+            return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solucón exitosamente']);
         }
 
     }

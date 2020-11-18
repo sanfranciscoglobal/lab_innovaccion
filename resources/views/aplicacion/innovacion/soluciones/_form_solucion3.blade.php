@@ -64,7 +64,7 @@
                     <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                 
                 </div>
-                <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
+                <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit" {{$solucion->id == null ? 'disabled' : ''}} ><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
                 
             </div>
         </div>

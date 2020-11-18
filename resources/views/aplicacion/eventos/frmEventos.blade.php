@@ -187,15 +187,15 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label for="ubicacion">* Ubicación del Evento</label>
-                                                                <input class="form-control" type="text" id="evento_direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Dirección del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                                <input class="form-control" type="text" id="direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Dirección del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col">
                                                             <div id="map" style="width:100%; height: 350px;"></div>
-                                                            <input type="hidden" type="text" id="lat" name="org_lat" value="{{isset($evento->org_lat)?$evento->org_lat:'0'}}">
-                                                            <input type="hidden" type="text" id="long" name="org_long" value="{{isset($evento->org_long)?$evento->org_long:'0'}}">
+                                                            <input type="hidden" type="text" id="latitud" name="org_lat" value="{{isset($evento->org_lat)?$evento->org_lat:'0'}}">
+                                                            <input type="hidden" type="text" id="longitud" name="org_long" value="{{isset($evento->org_long)?$evento->org_long:'0'}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -275,7 +275,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
+                            <button type="submit" class="btn btn-warning btn-sm">Eliminar</button>
                         </div>
 
 
@@ -288,7 +288,14 @@
     @endif
 @endsection
 @section('footer')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script> --}}
+<script>
+    //  SET TO NULL IF NO OLD DATA
+    let user_lat = {{ old('org_lat', $evento->org_lat) ?? 'null' }};
+    let user_lng = {{ old('org_long', $evento->longitud) ?? 'null' }};
+</script>
+<script src="{{ asset('js/maps.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=initMap" async defer></script>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
@@ -337,9 +344,7 @@
     function validateURL() {
          var $URL= document.getElementById("url").value;
          var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$(:(\d+))?\/?/i;
-        //  var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
-        //  var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
-        //  if((pattern_1.test($URL) || pattern_2.test($URL) )){
+
         if(pattern.test($URL) ){
             //$("#url-error").removeClass('d-inline');
             $('#url').removeClass('is-invalid');
@@ -356,9 +361,6 @@
     //
 
     var baseURL = '{{ URL::to('/') }}';
-    var input = document.getElementById('evento_direccion');
-    	
-    
     $(document).ready(function(){
         countWords();
         $('.lugar').change(function(){
@@ -372,7 +374,7 @@
                     $('.e-virtual .form-control').attr('required', true);
                     $('.e-virtual').removeClass('d-none');
                     $('#frm').removeClass('was-validated');
-                    initMap();
+                    
 
                 }else{
                     if ($(this).val() == 1){
@@ -395,99 +397,6 @@
         image.src = URL.createObjectURL(event.target.files[0]);
     };
 
-    function initMap() {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            // var latUsuario = position.coords.latitude;
-            // var lonUsuario = position.coords.longitude;
-            var latUsuario = 0;
-            var lonUsuario = 0;
-            var zoom = 16;
-            var dragMarker = true;
-            var placeSearch, autocomplete;
-
-            if (
-                jQuery('input[id="lat"]').val() != 0 &&
-                jQuery('input[id="long"]').val()  != 0
-            ){
-
-                latUsuario = jQuery('#lat').val();
-                lonUsuario = jQuery('#long').val();
-                zoom = zoom;
-                //dragMarker = false;
-            }
-
-            // var map;
-            var marker;
-            var myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
-            var geocoder = new google.maps.Geocoder();
-            var infowindow = new google.maps.InfoWindow();
-
-            var options = {
-                //types: ["locality", "political", "geocode"],
-                //types: ['(cities)'],
-                componentRestrictions: {country: 'ec'}
-            };
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: myLatlng,
-                zoom: zoom,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-            marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                //icon: baseURL + '/images/markers/me_icon.png',
-                draggable: dragMarker,
-                animation: google.maps.Animation.DROP,
-                title: 'Arrastre para seleccionar la ubicación'
-            });
-            geocoder.geocode({ 'latLng': myLatlng }, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    if (results[0]) {
-                        jQuery('input[id="lat"],input[id="long"]').show();
-                        jQuery('input[id="evento_direccion"]').val(results[0].formatted_address);
-                        jQuery('input[id="lat"]').val(marker.getPosition().lat());
-                        jQuery('input[id="long"]').val(marker.getPosition().lng());
-                        infowindow.setContent(results[0].formatted_address);
-                        infowindow.open(map, marker);
-                    }
-                }
-            });
-
-            google.maps.event.addListener(marker, 'dragend', function () {
-                geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                            jQuery('input[id="evento_direccion"]').val(results[0].formatted_address);
-                            jQuery('input[id="lat"]').val(marker.getPosition().lat());
-                            jQuery('input[id="long"]').val(marker.getPosition().lng());
-                            infowindow.setContent(results[0].formatted_address);
-                            infowindow.open(map, marker);
-                        }
-                    }
-                });
-            });
-
-            autocomplete.addListener('place_changed', setnewAddress);
-
-            function setnewAddress() {
-                var place = autocomplete.getPlace();
-                //console.log(place.formatted_address);
-              
-                var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
-                
-                //console.log(Latlng);
-                marker.setPosition( Latlng );
-                infowindow.setContent(place.formatted_address);
-                //infowindow.hideInfoWindow();
-                //infowindow.showInfoWindow();
-                map.panTo( Latlng );
-                jQuery('input[id="lat"]').val(place.geometry.location.lat());
-                jQuery('input[id="long"]').val(place.geometry.location.lng());
-            }
-        });
-    };
 </script>
 
 <script>

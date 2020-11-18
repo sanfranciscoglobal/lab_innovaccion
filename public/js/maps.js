@@ -5,12 +5,12 @@ jQuery(document).ready(function() {
 });
 function initMap() {
 
-	var latCurrentPosition = -1.268749;
-	var lonCurrentPosition = -78.626923
+	var latCurrentPosition = -0.1626484;
+	var lonCurrentPosition = -78.4606464;
   
 // 	navigator.geolocation.getCurrentPosition(function(position) {
-		var latUsuario = user_lat != -0.1806532 ? user_lat : latCurrentPosition;
-		var lonUsuario = user_lng != -78.4678382 ? user_lng : lonCurrentPosition;
+		var latUsuario = user_lat != -0.1626484 ? user_lat : latCurrentPosition;
+		var lonUsuario = user_lng != -78.4606464 ? user_lng : lonCurrentPosition;
 		var zoom = 16;
 		var dragMarker = true;
 

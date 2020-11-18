@@ -26,4 +26,8 @@ class Solucion extends Model
     public function nivelsolucionid(){
         return $this->belongsTo('App\Models\NivelSolucion', "nivelsolucion_id","id");
     }
+    public function tipopropuestas(){
+        return $this->hasMany('App\Models\Soluciontipoinnova','solucion_id','id');
+
+    }
 }

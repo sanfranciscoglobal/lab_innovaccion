@@ -18,9 +18,9 @@ class CreateSolucionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('problema_id');
             $table->unsignedBigInteger('sectorsolucion_id');
-            $table->string('nombre');
-            $table->text('descripcion');
-            $table->boolean('estado_descrip')->default(FALSE)->comment('Abieta-1/Soloponente-0');    
+            $table->string('nombre')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->boolean('estado_descrip')->default(True)->comment('Abieta-1/Soloponente-0');    
             $table->string('archivo')->nullable();
             
             $table->unsignedBigInteger('nivelsolucion_id')->nullable();
@@ -36,7 +36,7 @@ class CreateSolucionsTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('youtube')->nullable();
             $table->boolean('terminos')->nullable();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->foreign('nivelsolucion_id')
                 ->references('id')
                 ->on('nivel_solucion')

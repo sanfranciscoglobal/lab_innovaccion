@@ -151,13 +151,13 @@ Route::as('app.')
             Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
             //SOLUCION
-            //Route::get('innovacion/solucion/ver', 'Aplicacion\SolucionController@verSoluciones')->name('innovacionsolucion.ver');
+            Route::get('innovacion/solucion/ver/{problema}', 'Aplicacion\SolucionController@verSoluciones')->name('soluciones.ver');
             Route::get('innovacion/solucion/crear/{problema}', 'Aplicacion\SolucionController@frmSolucion')->name('soluciones.crear');
             Route::post('innovacion/solucion/store', 'Aplicacion\crudSoluciones@store')->name('soluciones.store');
-            Route::get('innovacion/solucion/edit', 'Aplicacion\SolucionController@frmSolucionEdit')->name('soluciones.edit');
-            Route::put('innovacion/solucion/update', 'Aplicacion\crudSoluciones@update')->name('soluciones.update');
-            Route::put('innovacion/solucion/update/fase2', 'Aplicacion\crudSoluciones@updateFase2')->name('soluciones.update.fase2');
-            Route::put('innovacion/solucion/update/fase3', 'Aplicacion\crudSoluciones@updateFase3')->name('soluciones.update.fase3');
+            Route::get('innovacion/solucion/edit/{problema}/{solucion}', 'Aplicacion\SolucionController@frmSolucionEdit')->name('soluciones.edit');
+            Route::put('innovacion/solucion/update/{solucion}', 'Aplicacion\crudSoluciones@update')->name('soluciones.update');
+            Route::put('innovacion/solucion/update/fase2/{solucion}', 'Aplicacion\crudSoluciones@updateFase2')->name('soluciones.update.fase2');
+            Route::put('innovacion/solucion/update/fase3/{solucion}', 'Aplicacion\crudSoluciones@updateFase3')->name('soluciones.update.fase3');
 
 
             /** Rutas Escritorio */

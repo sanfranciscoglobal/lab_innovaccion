@@ -29,11 +29,11 @@
                             @if ($material->tipo==0)
                                 <div class="col-sm-3 text-right  text-muted">{{date('M d, Y', strtotime( $material->fecha_publicacion))}}</div>
                                 <div class="col">
-                                    <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicación</span>
+                                    <span class="btn btn-primary badge badge-lg badge-floating badge-floating-right">Publicación</span>
                                 </div>
                             @else
                                 <div class="col">
-                                    <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Herramienta</span>
+                                    <span class="btn btn-primary badge badge-lg badge-floating badge-floating-right">Herramienta</span>
                                 </div>
                             @endif
                             
