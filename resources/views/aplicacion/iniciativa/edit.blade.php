@@ -186,8 +186,18 @@
             // Stepper
             var navListItems = $('div.setup-panel div a'),
                 allWells = $('.setup-content'),
-                allSiguienteBtn = $('.nextBtn');
-            submitBtn = $('.submitBtn');
+                allSiguienteBtn = $('.nextBtn'),
+                formControls = $('.form-control'),
+                submitBtn = $('.submitBtn');
+
+
+            var clickSubmit = false;
+
+            formControls.on('change', function () {
+                if (clickSubmit) {
+                    window.validateFormEvent($(this), 'setup-content', false);
+                }
+            });
 
             allWells.hide();
 
@@ -208,27 +218,17 @@
             allSiguienteBtn.click(function () {
                 var curStep = $(this).closest(".setup-content"),
                     curStepBtn = curStep.attr("id"),
-                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                    curInputs = curStep.find("input,select,textarea"),
-                    isValid = true,
-                    encontro = false;
+                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a");
 
-                $(".form-group").removeClass("has-error");
-                for (var i = 0; i < curInputs.length; i++) {
-                    if (!curInputs[i].validity.valid) {
-                        isValid = false;
-                        $(curInputs[i]).closest(".form-group").addClass("has-error");
-                        if (encontro != true) {
-                            encontro = true;
-                            $("html, body").animate({
-                                scrollTop: $(curInputs[i]).offset().top - 130
-                            }, 500)
-                            console.log($(curInputs[i]));
-                        }
-                    }
+                if (window.validateFormEvent($(this), 'setup-content', true)) {
+                    nextStepWizard.removeAttr('disabled').trigger('click');
+                    $("html, body").animate({
+                        scrollTop: 0
+                    }, 500)
+                    clickSubmit = false;
+                } else {
+                    clickSubmit = true;
                 }
-
-                if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
             });
 
             submitBtn.click(function () {

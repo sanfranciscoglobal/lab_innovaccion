@@ -1,9 +1,12 @@
+{{--<div class="info-box">--}}
 <div class="panel-heading">
     <h3 class="panel-title">Información de la Iniciativa de Innovación</h3>
 </div>
 <div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
-    <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son
-        obligatorios</p>
+    <p>
+        Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco*
+        son obligatorios
+    </p>
 </div>
 <div class="panel-body">
     <div class="row">
@@ -20,29 +23,23 @@
         <div class="col-4">
             <div class="form-group">
                 <label class="control-label">* Año de inicio</label>
-                <input type="number" min="1900" max="{{date('Y')}}" required="required" class="form-control"
+                <input type="number"
+                       min="1900"
+                       max="{{date('Y')}}"
+                       required="required"
+                       class="form-control"
                        name="anio"
                        value="{{($model->iniciativaInformacion)?$model->iniciativaInformacion->anio:date('Y')}}"/>
             </div>
         </div>
         <div class="col-8">
-            {{--<div class="form-group">--}}
-            {{--<label for="representante_curso" class="bmd-label-floating">¿Representante de curso?</label>--}}
-            {{--<input type="checkbox" name="representante_curso" id="representante_curso" class="form-control check-toggle"--}}
-            {{--data-toggle="toggle" data-style="slow" data-on="{{__('SI')}}" data-off="{{__('NO')}}">--}}
-
-            {{--<div class="invalid-feedback">Por favor seleccione el año lectivo</div>--}}
-            {{--<div class="valid-feedback"><i class="fe-check-circle"></i></div>--}}
-
-            {{--@error('representante_curso')--}}
-            {{--<small class="text-danger">{{ $message }}</small>--}}
-            {{--@enderror--}}
-            {{--</div>--}}
             <div class="form-group">
                 <label class="control-label">* ¿Esta vigente?</label>
                 <div class="custom-control custom-switch">
-                    <input class="custom-control-input" type="checkbox" id="vigencia-switch" name="vigencia" checked>
-                    <label class="custom-control-label" for="vigencia-switch">Active para marcar como vigente</label>
+                    <input class="custom-control-input" type="checkbox" id="vigencia-switch" name="vigencia"
+                           checked>
+                    <label class="custom-control-label" for="vigencia-switch">Active para marcar como
+                        vigente</label>
                 </div>
             </div>
         </div>
@@ -69,6 +66,8 @@
                             @endif
                         </select>
 
+                        <div class="invalid-feedback">Por favor seleccione población objetivo de la iniciativa</div>
+
                     </div>
                 </div>
             </div>
@@ -90,15 +89,16 @@
                                 @endforeach
                             @endif
                         </select>
+                        <div class="invalid-feedback">Por favor seleccione trabajo de la iniciativa por ODS</div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label class="control-label">* Componente Innovador (max. 350 caractéres)</label>
+                        <label class="control-label">* Componente Innovador <span class="text-primary">(min. 85 caractéres) (max. 350 caractéres)</span></label>
                         <textarea
-                                oninput="window.countCharacters('componente_innovador','componente_innovador_error','btn-siguiente-descripcion',0,350,'count_words_3');"
+                                oninput="window.countCharacters('componente_innovador','componente_innovador_error','btn-siguiente-descripcion',85,350,'count_words_3');"
                                 name="componente_innovador"
                                 id="componente_innovador"
                                 class="form-control"
@@ -148,11 +148,33 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="evento_img">* Logotipo</label>
-                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" name="logo"
-                               id="logo"
-                               {{($model->iniciativaInformacion)?'':'required'}}
-                               data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"
-                        >
+                        @if($model->iniciativaInformacion && $model->iniciativaInformacion->logo)
+                            <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png"
+                                   name="logo"
+                                   id="logo"
+                                   data-default-file="{{asset('storage/iniciativas/'.$model->iniciativaInformacion->logo)}}"
+                            >
+                            <div class="invalid-feedback">Inserta una imagen.</div>
+                        @else
+                            <div class="cs-file-drop-area">
+                                <div class="cs-file-drop-icon fe-upload"></div>
+                                <span class="cs-file-drop-message">Arrastre y suelte para subir</span>
+                                <input type="file"
+                                       accept="image/gif, image/jpeg, image/png"
+                                       id="logo"
+                                       maxlength='250'
+                                       name='logo'
+                                       class="cs-file-drop-input"
+                                       required
+                                       {{--data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"--}}
+                                >
+                                <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">
+                                    O seleccione una imagen
+                                </button>
+
+                                <div class="invalid-feedback">Inserta una imagen.</div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -192,5 +214,7 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-primary nextBtn pull-right" id="btn-siguiente-descripcion" type="button">Siguiente</button>
+    <button class="btn btn-primary nextBtn pull-right" id="btn-siguiente-descripcion" type="button">Siguiente
+    </button>
 </div>
+{{--</div>--}}
