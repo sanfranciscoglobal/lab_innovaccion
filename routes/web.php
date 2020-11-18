@@ -62,9 +62,6 @@ Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\Materialdeapren
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
 
 
-Route::get('/mapa',  function () {
-    return view('mapa');
-})->name('mapa');
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
@@ -191,7 +188,8 @@ Route::as('web.')
             Route::resource('iniciativas', 'Web\IniciativasController');
             Route::post('iniciativas', 'Web\IniciativasController@index')->name('iniciativas.index');
             Route::post('iniciativas/export', 'Web\IniciativasController@exportarExcel')->name('iniciativas.exportar-excel');
-            Route::get('data', 'Web\IniciativasController@data')->name('iniciativas.data');;
+            Route::get('mapa', 'Web\IniciativasController@data')->name('iniciativas.mapa');
+            Route::post('mapa', 'Web\IniciativasController@data')->name('iniciativas.data');
         }
     );
 
