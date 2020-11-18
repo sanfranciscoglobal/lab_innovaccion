@@ -14,6 +14,7 @@ class MaterialAprendizaje extends Model
     protected $table = 'materialesaprendizaje';
     protected $fillable = ['nombre_publicacion', 'fecha_publicacion', 'tema_tratado', 'tipo_documento', 'imagen_portada', 'fuente_publicacion', 'autor_publicacion', 'tipo','terminos'];
     public static $paginate = 10;
+    public static $own = false;
     
     public function user(){
         return $this->belongsTo('App\Models\User');
@@ -27,9 +28,11 @@ class MaterialAprendizaje extends Model
      */
     public static function builder()
     {
-        $query = MaterialAprendizaje::orderbyDesc('created_at', 'DESC')->where('user_id',Auth::id());
-        // if (self::$search) {
-        // }
+        $query = MaterialAprendizaje::orderbyDesc('created_at', 'DESC');
+  
+        if (self::$own) {
+            $query->where('user_id', Auth::id());
+        }
         return $query;
     }
 

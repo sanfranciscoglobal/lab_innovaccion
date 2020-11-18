@@ -46,48 +46,49 @@
                     Caso 2. Revisa la lista de eventos y participa de estos espacios de intercambio.</p>
 
                     @if ($autentificacion)
-                        <p class="text-center"><a class="btn btn-primary" href="{{route('app.eventos')}}">Publicar evento</a>
+                        <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.eventos')}}">Publicar evento</a>
                         </p>
                     @endif
                 </div>
             </div>
         </div>
     </section>
-    <section class="searchbar-container bg-secondary">
+    <section class="searchbar-container align-items-center" style="background: #f2f2f2">
         <form class="container" action="{{route('eventos.search')}}" method="POST">
             @csrf
             @method("POST")
-            <div class="d-lg-flex align-items-center px-4 pt-4 pb-3">
-                <div class="d-sm-flex align-items-center">
-                    <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                        <label class="form-label" for="to-destination">Tipo de evento</label>
-                        <select class="form-control custom-select" id="to-destination" name="tipoevento">
-                            <option value="" selected disabled hidden>Seleccione un tipo</option>
-                            <option value="2">Todos</option>
-                            <option value="0">Virtual</option>
-                            <option value="1">Presencial</option>
+            <div class="d-sm-flex align-items-center px-4 pt-4 pb-3">
+                <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                    <label class="form-label" for="to-destination" style="color: #a13d8f">Tipo de evento</label>
+                    <select class="form-control custom-select" id="to-destination" name="tipoevento">
+                        <option value="" selected disabled hidden>Seleccione un tipo</option>
+                        <option value="2">Todos</option>
+                        <option value="0">Virtual</option>
+                        <option value="1">Presencial</option>
 
-                        </select>
+                    </select>
 
-                    </div>
-                    <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                        <label class="form-label" for="from-destination">Cantón</label>
-                 
-                        <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
-                                data-ajax--url="{{route('api.canton.select2')}}"
-                                data-ajax--data-type="json"
-                                data-ajax--data-cache="true"
-                                data-allow-clear="true"
-                                data-placeholder="Seleccione un Cantón"
-                                data-close-on-select="false"
-                                disabled
-                                multiple>
-                        </select>
-                    </div>
-                    
                 </div>
+                <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                    <label class="form-label" for="from-destination" style="color: #a13d8f">Cantón</label>
+             
+                    <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
+                            data-ajax--url="{{route('api.canton.select2')}}"
+                            data-ajax--data-type="json"
+                            data-ajax--data-cache="true"
+                            data-allow-clear="true"
+                            data-placeholder="Seleccione un Cantón"
+                            data-close-on-select="false"
+                            disabled
+                            multiple>
+                    </select>
+                </div>
+                {{-- <div class="d-sm-flex align-items-center">
+                    
+                    
+                </div> --}}
                <div class="text-center text-sm-left mt-2 mt-sm-4 mb-4">
-                        <button class="btn btn-warning" type="submit">Filtrar</button>
+                        <button class="btn " style="background: #ff7f00; color:#fafafc;" type="submit">Filtrar</button>
                     </div>
                 </div>
             </div>
@@ -99,41 +100,20 @@
             @foreach ($eventos as $evento)
                 
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                    <div class="card card-hover border-0 box-shadow mx-auto" style="max-width: 400px;">
+                   
+                    <div class="card card-hover border-0 box-shadow mx-auto" data-href="{{route('eventodetalle',$evento->id)}}" style="max-width: 400px;">
                         <img class="card-img-top" style="height: 58ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
                         <div class="card-body text-center">
                             <a class=" meta-link font-size-lg font-weight-bold align-items-center" href="{{route('eventodetalle',$evento->id)}}">{{$evento->nombre}}</a>
                         </div>
                         
-                        {{-- <div class="card-hover-info px-4 py-4">
-                            <h3 class="h5 text-center">{{$evento->nombre}}</h3>
-                            <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
-                            <p class="text-justify">{{$evento->descripcion}}</p>
-                            <p class="text-center font-weight-bold font-size-lg"><span>{{$evento->fecha}} - {{$evento->hora}}</span></p>
-                           
-                            @if ($evento->tipo)
-                               
-                                <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Presencial</span>
-                                <p class="text-justify">{{$evento->cantonid->nombre}}</p>
-                                <p class="text-justify">{{$evento->ubicacion}}</p>
-                           
-                                <div class="event-map w-100 mt-1"  style="min-height: 250px; background: red;"></div>
-                            @else
-                               
-                                <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Virtual</span>
-                                <p class="text-justify"><a Target="_blank" href="{{$evento->url}}" blank="_">{{$evento->url}}</a></p>
-                                <div class="w-100 mt-1"  style="min-height: 250px; background: white;"></div>
-                            @endif
-                            
-                           
-                                
-                        </div> --}}
-                        
                     </div>
                 </div>
-                <a href="{{route('eventos.download')}}">DOWNLOAD</a>
+                {{-- Descargar archivos --}}
+                {{-- <a href="{{route('eventos.download')}}">DOWNLOAD</a> --}}
                 
             @endforeach
+            <div class="col-12">{{ $eventos->links() }}</div>
             <!-- Loop Start -->
             {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                 <div class="card card-hover border-0 box-shadow mx-auto" style="max-width: 400px;">
@@ -211,43 +191,7 @@
             
         </div>
     </section>
-    <aside>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="d-md-flex justify-content-between align-items-center pt-3 pb-2">
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <label class="pr-1 mr-2">Mostrar</label>
-                            <select class="form-control custom-select mr-2" style="width: 5rem;">
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
-                            </select>
-                            <div class="font-size-sm text-nowrap pl-1 mb-1">eventos por página</div>
-                        </div>
-                        <nav class="mb-4" aria-label="Page navigation">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><i
-                                            class="fe-chevron-left"></i></a></li>
-                                <li class="page-item d-sm-none"><span class="page-link page-link-static">2 / 10</span></li>
-                                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">2<span
-                                            class="sr-only">(current)</span></span></li>
-                                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item d-none d-sm-block">...</li>
-                                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">10</a></li>
-                                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i
-                                            class="fe-chevron-right"></i></a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
+    
 
 @endsection
 @section('footer')

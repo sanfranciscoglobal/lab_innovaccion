@@ -41,7 +41,8 @@ class EscritorioController extends Controller
 
     public function verEventos(Request $request)
     {
-        Evento::$paginate = 2;
+        //Evento::$paginate = 2;
+        Evento::$own = true;
         $eventos = Evento::obtenerPaginate();
         return view('aplicacion.escritorio.contenidoeventos',compact('eventos'));
 
@@ -49,6 +50,7 @@ class EscritorioController extends Controller
 
     public function verMateriales(Request $request)
     {
+        MaterialAprendizaje::$own = true;
         MaterialAprendizaje::$paginate = 2;
         $materiales = MaterialAprendizaje::obtenerPaginate();
 

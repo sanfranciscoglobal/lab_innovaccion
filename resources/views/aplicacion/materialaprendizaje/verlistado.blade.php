@@ -50,17 +50,54 @@
                             <div class="col col-lg-6">
                                 <article class="card card-hover mb-grid-gutter">
                                     <div class="card-body">
-                                        <h2 class="h4 nav-heading mb-4">
-                                            <a href="#">{{$material->nombre_publicacion}}</a>
-                                        </h2>
-                                        @if ($material->tipo==0)
-                                            <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicación</span>
-                                        @else
-                                            <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Herramienta</span>
-                                        @endif
-                                        
-                                        <p>{{$material->tema_tratado}}</p>
-                                        <p>{{$material->tipo_documento}}</p>
+                                        {{-- <div class="row">
+                                            <div class="col">
+                                                @if ($material->tipo==0)
+                                                    <span class="badge badge-lg badge-floating badge-floating-right btn-primary">Publicación</span>
+                                                @else
+                                                    <span class="badge badge-lg badge-floating badge-floating-right btn-primary">Herramienta</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <h2 class="h4 nav-heading mb-4">
+                                                    <a href="#">{{$material->nombre_publicacion}}</a>
+                                                </h2>
+                          
+                                                <p>{{$material->tema_tratado}}</p>
+                                                <p>{{$material->tipo_documento}}</p>
+                                            </div>
+
+                                        </div>   --}}
+                                        <div class="row">
+                                            <div class="col-sm-9">
+                                                <h2 class="h4 nav-heading mb-4 text-primary">
+                                                   {{$material->nombre_publicacion}}
+                                                </h2>
+                                                
+                                                
+                                            </div>
+                                            <div class="col-sm-3">
+                                                @if ($material->tipo==0)
+                                                    <span class="btn-primary badge badge-lg badge-floating badge-floating-right">Publicación</span>
+                                                  
+                                                @else
+                                                 
+                                                    <span class="btn-primary badge badge-lg badge-floating badge-floating-right">Herramienta</span>
+                                                
+                                                @endif
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>{{$material->tema_tratado}}</p>
+                                                <p>{{$material->tipo_documento}}</p>
+                                            </div>
+                                            
+                                        </div>                                      
                                   
                                         <div class="row">
                                             <div class="col">
@@ -86,38 +123,10 @@
                             </div>
                             
                         @endforeach
+                        <div class="col-12">{{ $materiales->links() }}</div>
                         
                     </div>
-                    <!-- Pagination-->
-                    <div class="d-md-flex justify-content-between align-items-center pt-3 pb-2">
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <label class="pr-1 mr-2">Mostrar</label>
-                            <select class="form-control custom-select mr-2" style="width: 5rem;">
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
-                            </select>
-                            <div class="font-size-sm text-nowrap pl-1 mb-1">publicaciones por página</div>
-                        </div>
-                        <nav class="mb-4" aria-label="Page navigation">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><i
-                                            class="fe-chevron-left"></i></a></li>
-                                <li class="page-item d-sm-none"><span class="page-link page-link-static">2 / 10</span></li>
-                                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active d-none d-sm-block" aria-current="page"><span
-                                        class="page-link">2<span class="sr-only">(current)</span></span></li>
-                                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item d-none d-sm-block">...</li>
-                                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">10</a></li>
-                                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i
-                                            class="fe-chevron-right"></i></a></li>
-                            </ul>
-                        </nav>
-                    </div>
+                    
                 </div>
                 <!-- Sidebar-->
                 <div class="cs-sidebar col-lg-3 pt-lg-5">
