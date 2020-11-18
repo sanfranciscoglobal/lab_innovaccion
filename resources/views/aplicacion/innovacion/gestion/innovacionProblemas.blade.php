@@ -62,6 +62,7 @@
                 </div>
               </div>
             </div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
         </div>
     </section>
     <section>
