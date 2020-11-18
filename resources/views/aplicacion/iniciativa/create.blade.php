@@ -194,8 +194,6 @@
                 }
             });
 
-            console.log(formControls);
-
             allWells.hide();
 
             navListItems.click(function (e) {

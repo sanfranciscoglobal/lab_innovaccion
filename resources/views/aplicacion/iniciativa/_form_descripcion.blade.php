@@ -148,32 +148,33 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="evento_img">* Logotipo</label>
-                        <div class="cs-file-drop-area">
-                            <div class="cs-file-drop-icon fe-upload"></div>
-                            <span class="cs-file-drop-message">Arrastre y suelte para subir</span>
-                            <input type="file"
-                                   accept="image/gif, image/jpeg, image/png"
+                        @if($model->iniciativaInformacion && $model->iniciativaInformacion->logo)
+                            <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png"
+                                   name="logo"
                                    id="logo"
-                                   maxlength='250'
-                                   name='logo'
-                                   class="cs-file-drop-input"
-                                   {{($model->iniciativaInformacion)?'':' required '}}
-                                   data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"
+                                   required
+                                   data-default-file="{{asset('storage/iniciativas/'.$model->iniciativaInformacion->logo)}}"
                             >
-
-                            <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">
-                                O seleccione una imagen
-                            </button>
-
                             <div class="invalid-feedback">Inserta una imagen.</div>
-                        </div>
+                        @else
+                            <div class="cs-file-drop-area">
+                                <div class="cs-file-drop-icon fe-upload"></div>
+                                <span class="cs-file-drop-message">Arrastre y suelte para subir</span>
+                                <input type="file"
+                                       accept="image/gif, image/jpeg, image/png"
+                                       id="logo"
+                                       maxlength='250'
+                                       name='logo'
+                                       class="cs-file-drop-input"
+                                       {{--data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"--}}
+                                >
+                                <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">
+                                    O seleccione una imagen
+                                </button>
 
-                        {{--<input type="file" class="dropify" accept="image/gif, image/jpeg, image/png"--}}
-                        {{--name="logo"--}}
-                        {{--id="logo"--}}
-                        {{--{{($model->iniciativaInformacion)?'':'required'}}--}}
-                        {{--data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"--}}
-                        {{-->--}}
+                                <div class="invalid-feedback">Inserta una imagen.</div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
