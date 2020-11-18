@@ -89,7 +89,7 @@
                                     <div class="col-8 ">
                                         <div class="form-group m-publicacion m-herramienta d-none">
                                             <label for="mat_url" id="label_url">* Fuente de la publicación</label>
-                                            <input class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             <div class="invalid-feedback" id='url-error'></div>
                                         </div>
                                     </div>
@@ -262,7 +262,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-warning text-white">
-                        <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Evento</h4>
+                        <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Material</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="text-white">&times;</span>
                             </button>
@@ -272,7 +272,7 @@
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">
-                            <div class="text-warning">Está seguro que desea eliminar este evento?</div>
+                            <div class="text-warning">Está seguro que desea eliminar este material?</div>
 
                         </div>
                         <div class="modal-footer">

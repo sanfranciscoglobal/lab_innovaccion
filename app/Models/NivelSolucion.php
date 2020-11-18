@@ -8,10 +8,13 @@ class NivelSolucion extends Model
 {
     //
     protected $table = 'nivel_solucion';
-
-    public static function obtenernivelsolucionAll()
+    public static $search = null;
+    public static function obtenerNivelSolucionAll()
     {
-        $rs = NivelSolucion::orderBy('nombre');
-        return $rs->get();
+        $query =NivelSolucion::orderby('nombre');
+        if (self::$search) {
+            $query->orWhere('nombre', 'ilike', '%' . self::$search . '%');
+        }
+        return $query->get() ?? [];
     }
 }

@@ -17,7 +17,7 @@ class CreateIniciativaContactoTable extends Migration
             $table->id();
             $table->unsignedBigInteger('iniciativa_id');
             $table->string('nombre_persona', 250);
-            $table->string('celular', 50);
+            $table->string('celular', 50)->nullable();
             $table->string('correo_electronico', 150);
 
             $table->foreign('iniciativa_id')

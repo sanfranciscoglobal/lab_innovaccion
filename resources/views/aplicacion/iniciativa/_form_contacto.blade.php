@@ -5,7 +5,8 @@
     <h3 class="panel-title">Información de contacto</h3>
 </div>
 <div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
-    <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios</p>
+    <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son
+        obligatorios</p>
 </div>
 <div class="panel-body">
     <div class="contact_container">
@@ -17,10 +18,21 @@
                        value="{{(isset($contactos[0]))?$contactos[0]->nombre_persona:''}}">
             </div>
             <div class="form-group">
-                <label class="control-label">Teléfono móvil</label>
-                <input name="iniciativa_contacto[0][celular]" type="text" required="required" class="form-control"
-                       value="{{(isset($contactos[0]))?$contactos[0]->celular:''}}">
+                <label for="account-ln">Teléfono</label>
+                <input class="form-control"
+                       type="text"
+                       name="iniciativa_contacto[0][celular]"
+                       value="{{(isset($contactos[0]))?$contactos[0]->celular:''}}"
+                       {{--name="celular"--}}
+                       pattern="(09(9|8))?[0-9]{7}">
+                <span class="muted-text">Ejemplo. 0987654321 ó 2279183</span>
+                {{--<div class="invalid-feedback">Ingresar un teléfono valido</div>--}}
             </div>
+            {{--<div class="form-group">--}}
+            {{--<label class="control-label">Teléfono móvil</label>--}}
+            {{--<input name="iniciativa_contacto[0][celular]" type="text" required="required" class="form-control"--}}
+            {{--value="{{(isset($contactos[0]))?$contactos[0]->celular:''}}">--}}
+            {{--</div>--}}
             <div class="form-group">
                 <label class="control-label">* Correo electrónico</label>
                 <input name="iniciativa_contacto[0][correo_electronico]" maxlength="200" type="email"
@@ -44,9 +56,14 @@
                        value="{{(isset($contactos[1]))?$contactos[1]->nombre_persona:''}}">
             </div>
             <div class="form-group">
-                <label class="control-label">Teléfono móvil (2)</label>
-                <input name="iniciativa_contacto[1][celular]" type="text" class="form-control"
-                       value="{{(isset($contactos[1]))?$contactos[1]->celular:''}}">
+                <label for="account-ln">Teléfono</label>
+                <input class="form-control"
+                       type="text"
+                       name="iniciativa_contacto[1][celular]"
+                       value="{{(isset($contactos[1]))?$contactos[1]->celular:''}}"
+                       pattern="(09(9|8))?[0-9]{7}">
+                <span class="muted-text">Ejemplo. 0987654321 ó 2279183</span>
+                {{--<div class="invalid-feedback">Ingresar un teléfono valido</div>--}}
             </div>
             <div class="form-group">
                 <label class="control-label">* Correo electrónico (2)</label>
@@ -69,7 +86,7 @@
             <div class="custom-control custom-checkbox d-block">
                 <input class="custom-control-input @error('terminos') is-invalid @enderror" type="checkbox"
                        id="verificada" name="iniciativa_verificada" value="1"
-                       required >
+                       required>
                 <label class="custom-control-label" for="verificada">
                     * Declaro que conozco los términos y condiciones de
                     esta plataforma y autorizo que se publiquen todos los datos

@@ -70,6 +70,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/problemas',
         ],
+        'soluciones' => [
+            'driver' => 'local',
+            'root' => storage_path('app') . '/public/soluciones',
+        ], 
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

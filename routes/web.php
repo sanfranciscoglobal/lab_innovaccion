@@ -55,7 +55,7 @@ Route::get('/eventos/{evento}', 'Aplicacion\EventosController@verEventodetalle')
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
 Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');
 Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
-Route::get('/material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
+Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
 Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 
@@ -151,7 +151,13 @@ Route::as('app.')
             Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
             //SOLUCION
-            Route::get('innovacion/solucion/ver', 'Aplicacion\SolucionController@verSoluciones')->name('innovacionsolucion.ver');
+            //Route::get('innovacion/solucion/ver', 'Aplicacion\SolucionController@verSoluciones')->name('innovacionsolucion.ver');
+            Route::get('innovacion/solucion/crear/{problema}', 'Aplicacion\SolucionController@frmSolucion')->name('soluciones.crear');
+            Route::post('innovacion/solucion/store', 'Aplicacion\crudSoluciones@store')->name('soluciones.store');
+            Route::get('innovacion/solucion/edit', 'Aplicacion\SolucionController@frmSolucionEdit')->name('soluciones.edit');
+            Route::put('innovacion/solucion/update', 'Aplicacion\crudSoluciones@update')->name('soluciones.update');
+            Route::put('innovacion/solucion/update/fase2', 'Aplicacion\crudSoluciones@updateFase2')->name('soluciones.update.fase2');
+            Route::put('innovacion/solucion/update/fase3', 'Aplicacion\crudSoluciones@updateFase3')->name('soluciones.update.fase3');
 
 
             /** Rutas Escritorio */

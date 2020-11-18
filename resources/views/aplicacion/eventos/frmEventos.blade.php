@@ -93,9 +93,9 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label  class="control-label" for="descripcion">Descripción del Evento <span style="color: gray">(max. 50 palabras)</span></label>
+                                            <label  class="control-label" for="descripcion">Descripción del Evento <span style="color: gray">(min. 25 palabras)(max. 100 palabras)</span></label>
 
-                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento"  rows="6"
+                                            <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento" required rows="6"
                                             >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
                                             <br>
                                             <div class="invalid-feedback" id='descripcion-error'></div>
@@ -142,7 +142,7 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* Link del Evento</label>
-                                                        <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="URL del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
+                                                        <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Link del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
                                                         <div class="invalid-feedback" id='url-error'></div>
                                                     </div>
                                                 </div>
@@ -298,7 +298,7 @@
     var maxlength=300;
     var maxword=100;
     function countWords(){
-
+        
         let str = document.getElementById("descripcion").value;
         var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
@@ -314,17 +314,22 @@
         //     $('#descripcion').addClass('is-invalid');
         // }
         document.getElementById("count-words").innerHTML=words+" palabras";
-        if (words>50){
-            $("#descripcion-error").html('Ha sobrepasado el límite de palabras permitido');
-            $("#descripcion-error").addClass('d-inline');
-            $('#descripcion').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');
-        }
-        else{
-
+        if (words>=25 && words<=maxword || words==0){
             $("#descripcion-error").removeClass('d-inline');
             $('#descripcion').removeClass('is-invalid');
             $('#submitbutton').removeAttr('disabled');
+        }
+        else if (words<25){
+            $("#descripcion-error").html('Llene el mínimo de palabras necesarias');
+            $("#descripcion-error").addClass('d-inline');
+            $('#descripcion').addClass('is-invalid');
+            $('#submitbutton').attr('disabled','disabled');   
+        }
+        else{
+            $("#descripcion-error").html('Ha sobrepasado el límite de palabras permitido');
+            $("#descripcion-error").addClass('d-inline');
+            $('#descripcion').addClass('is-invalid');
+            $('#submitbutton').attr('disabled','disabled');  
         }
     };
     //

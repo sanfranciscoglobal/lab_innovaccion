@@ -24,20 +24,27 @@
     </style>
 @endsection
 @section('content')
-    <section class="container my-lg-2 pt-5 pb-lg-3">
+
+    <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5">Eventos</h1>
+                <div class="py-3">
+                    <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!<br>
+                        Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
+                </div>
             </div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
         </div>
     </section>
     <section>
-        <div class="container my-5 py-5">
+        <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    {{-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam accusantium voluptatem pariatur
-                        minima earum sequi, autem, alias, dolorum totam excepturi mollitia eveniet ut corrupti
-                        exercitationem explicabo incidunt debitis possimus sapiente.</p> --}}
+                    <h2 class="h3 text-center">Indicaciones</h2>
+                    <p class="text-center">Caso 1. Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.<br>
+                    Caso 2. Revisa la lista de eventos y participa de estos espacios de intercambio.</p>
+
                     @if ($autentificacion)
                         <p class="text-center"><a class="btn btn-primary" href="{{route('app.eventos')}}">Publicar evento</a>
                         </p>

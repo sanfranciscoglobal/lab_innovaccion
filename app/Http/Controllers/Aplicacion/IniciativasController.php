@@ -172,62 +172,71 @@ class IniciativasController extends Controller
         $requestData = $request->validated();
 
         try {
-            if ($iniciativa->iniciativaActor->update($requestData)) {
-                if (($request->hasFile('logo')) && ($image = Archivos::storeImagen('iniciativas-' . date('his'), $request->logo, 'iniciativas'))) {
-                    $requestData['logo'] = $image;
+
+
+            if ($iniciativa->iniciativaActor) {
+                $iniciativa->iniciativaActor->update($requestData);
+            } else {
+                if ($modelActor = ($request->iniciativa_propiedad == 1) ? IniciativaActor::create($requestData) : []) {
+                    $iniciativa->iniciativa_actor_id = $modelActor->id;
+                } else {
+                    $iniciativa->iniciativa_actor_id = null;
                 }
+            }
 
-                if ($iniciativa->iniciativaInformacion->update($requestData)) {
-                    $iniciativa->iniciativa_origen_id = $request->iniciativa_propiedad;
+            if (($request->hasFile('logo')) && ($image = Archivos::storeImagen('iniciativas-' . date('his'), $request->logo, 'iniciativas'))) {
+                $requestData['logo'] = $image;
+            }
 
-                    if ($iniciativa->update()) {
-                        $statusInsert = true;
+            if ($iniciativa->iniciativaInformacion && $iniciativa->iniciativaInformacion->update($requestData)) {
+                $iniciativa->iniciativa_origen_id = $request->iniciativa_propiedad;
 
-                        $iniciativa->iniciativaInstituciones()->delete();
-                        if ($dataInstitucion = self::dataTipoInstitucion($request, $iniciativa) ?? []) {
-                            if (!(IniciativaInstitucion::insert($dataInstitucion))) {
-                                throw new Exception;
-                            }
-                        }
+                if ($iniciativa->update()) {
+                    $statusInsert = true;
 
-                        $iniciativa->iniciativaUbicaciones()->delete();
-                        if ($dataUbicaciones = self::dataUbicaciones($request, $iniciativa) ?? []) {
-                            if (!(IniciativaUbicacion::insert($dataUbicaciones))) {
-                                $statusInsert = false;
-                            }
-                        }
-
-                        $iniciativa->iniciativaPoblaciones()->delete();
-                        if ($dataTipoPoblacion = self::dataTipoPoblacion($request, $iniciativa) ?? []) {
-                            if (!(IniciativaPoblacion::insert($dataTipoPoblacion))) {
-                                $statusInsert = false;
-                            }
-                        }
-
-                        $iniciativa->iniciativaOds()->delete();
-                        if ($dataOdsCategorias = self::dataOdsCategorias($request, $iniciativa) ?? []) {
-                            if (!(IniciativaOds::insert($dataOdsCategorias))) {
-                                $statusInsert = false;
-                            }
-                        }
-
-                        $iniciativa->iniciativaContactos()->delete();
-                        if ($dataIniciativaContacto = self::dataIniciativaContacto($request, $iniciativa) ?? []) {
-                            if (!(IniciativaContacto::insert($dataIniciativaContacto))) {
-                                $statusInsert = false;
-                            }
-                        }
-
-
-                        if ($statusInsert) {
-                            DB::commit();
-                            return redirect()
-                                ->route('app.iniciativas.index')
-                                ->with('status', 'Iniciativa cargada con éxito');
+                    $iniciativa->iniciativaInstituciones()->delete();
+                    if ($dataInstitucion = self::dataTipoInstitucion($request, $iniciativa) ?? []) {
+                        if (!(IniciativaInstitucion::insert($dataInstitucion))) {
+                            throw new Exception;
                         }
                     }
-                }
 
+                    $iniciativa->iniciativaUbicaciones()->delete();
+                    if ($dataUbicaciones = self::dataUbicaciones($request, $iniciativa) ?? []) {
+                        if (!(IniciativaUbicacion::insert($dataUbicaciones))) {
+                            $statusInsert = false;
+                        }
+                    }
+
+                    $iniciativa->iniciativaPoblaciones()->delete();
+                    if ($dataTipoPoblacion = self::dataTipoPoblacion($request, $iniciativa) ?? []) {
+                        if (!(IniciativaPoblacion::insert($dataTipoPoblacion))) {
+                            $statusInsert = false;
+                        }
+                    }
+
+                    $iniciativa->iniciativaOds()->delete();
+                    if ($dataOdsCategorias = self::dataOdsCategorias($request, $iniciativa) ?? []) {
+                        if (!(IniciativaOds::insert($dataOdsCategorias))) {
+                            $statusInsert = false;
+                        }
+                    }
+
+                    $iniciativa->iniciativaContactos()->delete();
+                    if ($dataIniciativaContacto = self::dataIniciativaContacto($request, $iniciativa) ?? []) {
+                        if (!(IniciativaContacto::insert($dataIniciativaContacto))) {
+                            $statusInsert = false;
+                        }
+                    }
+
+
+                    if ($statusInsert) {
+                        DB::commit();
+                        return redirect()
+                            ->route('app.iniciativas.index')
+                            ->with('status', 'Iniciativa cargada con éxito');
+                    }
+                }
             }
 
         } catch (\Exception $e) {
@@ -332,10 +341,9 @@ class IniciativasController extends Controller
         if ($request->has('iniciativa_contacto') && is_array($request->iniciativa_contacto)) {
             foreach ($request->iniciativa_contacto as $key => $contacto) {
                 $contacto['iniciativa_id'] = $iniciativa->id;
-                if ($contacto['nombre_persona'] && $contacto['celular'] && $contacto['correo_electronico']) {
+                if ($contacto['nombre_persona'] && $contacto['correo_electronico']) {
                     $data[$key] = $contacto;
                 }
-
             }
 
             return $data;

@@ -1,7 +1,11 @@
 @php
-    $causas = json_decode($problema->causas, true) ?? null;
-    $efectos = json_decode($problema->efectos, true) ?? null;
-    $keyword = json_decode($problema->keyword, true) ?? null;
+    $causas = json_decode($problema->causas, true) ?? [null,null,null,null];
+    $efectos = json_decode($problema->efectos, true) ?? [null,null,null,null];
+    $keyword = json_decode($problema->keyword, true) ?? [null,null,null,null];
+    // $causas =  [null,null,null];
+    // $efectos = [null,null,null];
+    // $keyword = [null,null,null];
+    //dd(old('causas.1',$problema->causas));
 @endphp
 <div class="form-group">
     <div class="controls-container mb-3">

@@ -22,11 +22,11 @@ class TipoSector extends Model
      */ 
     public static function obtenerSectorAll($id)
     {
-        $query =TipoSector::all()->where('convocatoria_id',$id);
+        $query =TipoSector::orderby('nombre');
         if (self::$search) {
-            //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');
+            $query->orWhere('nombre', 'ilike', '%' . self::$search . '%');
         }
-        return $query ?? [];
+        return $query->where('convocatoria_id',$id)->get() ?? [];
     }
 
     /**

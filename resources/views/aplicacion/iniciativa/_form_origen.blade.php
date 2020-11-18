@@ -16,6 +16,7 @@
             <label for="iniciativa_propiedad_{{$iniciativaOrigen->id}}">
                 {{$iniciativaOrigen->descripcion}}
             </label>
+            <div class="invalid-feedback">Seleccionar una opci&oacute;n</div>
         </div>
     @endforeach
 
