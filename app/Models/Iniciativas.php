@@ -69,10 +69,13 @@ class Iniciativas extends Model
     {
         return $this->hasMany(IniciativaPoblacion::class, 'iniciativa_id', 'id');
     }
-    public function iniciativaPoblacionesCompleto(){
-        return $this->belongsToMany(TipoPoblacion::class,'iniciativa_poblacion',
-        'id','tipo_poblacion_id');        
+
+    public function iniciativaPoblacionesCompleto()
+    {
+        return $this->belongsToMany(TipoPoblacion::class, 'iniciativa_poblacion',
+            'id', 'tipo_poblacion_id');
     }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -96,7 +99,7 @@ class Iniciativas extends Model
     {
         return ($this->iniciativaActor) ? $this->iniciativaActor->nombre_organizacion : null;
     }
-    
+
     /**
      * @return string|null
      */
@@ -242,6 +245,17 @@ class Iniciativas extends Model
     {
         $rs = self::builderIniciativa();
         return $rs->get() ?? [];
+    }
+
+    /**
+     * Obtener paginador de iniciativas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerIniciativasUserPaginate(User $user)
+    {
+        $rs = self::builderIniciativa();
+        $rs->where('user_id', (is_object($user)) ? $user->id : $user);
+        return $rs->paginate(self::$paginate) ?? [];
     }
 
 

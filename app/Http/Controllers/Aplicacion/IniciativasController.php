@@ -45,7 +45,7 @@ class IniciativasController extends Controller
     public function index(Request $request)
     {
         Iniciativas::$paginate = 10;
-        $iniciativas = Iniciativas::obtenerIniciativasPaginate();
+        $iniciativas = Iniciativas::obtenerIniciativasUserPaginate(Auth::user());
         return view('aplicacion.iniciativa.index', compact('iniciativas'));
     }
 
