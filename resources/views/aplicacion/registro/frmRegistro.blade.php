@@ -32,14 +32,14 @@
                             <div class="col-sm-8">
                                 <div class="form-group">
                                     <label for="account-fn">Nombre</label>
-                                    <input class="form-control" type="text" id="account-fn" value="{{ old('name', $user->name) }}" name="name" readonly>
+                                    <input class="form-control" type="text" id="account-fn" value="{{ old('name', $user->name) }}" name="name" maxlength="250" readonly>
                                     @error('name')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="account-ln">* Teléfono</label>
-                                    <input class="form-control @error('celular') is-invalid @enderror" type="text" id="account-ln" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="(09(9|8))?[0-9]{7}" required>
+                                    <input class="form-control @error('celular') is-invalid @enderror" type="text" id="account-ln" maxlength="250" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="(09(9|8))?[0-9]{7}" required>
                                     <span class="muted-text">Ejemplo. 0987654321 ó 2279183</span>
                                     @error('celular')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
@@ -47,7 +47,7 @@
                             <div class="col-sm-8">
                                 <div class="form-group">
                                     <label for="account-email">Correo electrónico</label>
-                                    <input class="form-control" type="email" id="account-email" value="{{ old('email', $user->email) }}" name="email" readonly>
+                                    <input class="form-control" type="email" id="account-email" value="{{ old('email', $user->email) }}" maxlength="250" name="email" readonly>
                                     @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                                 <div class="form-group">
@@ -92,7 +92,7 @@
                                     <div class="cs-file-drop-area">
                                         <div class="cs-file-drop-icon fe-upload"></div>
                                         <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario" accept="image/gif, image/jpeg, image/png">
+                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario" accept="image/gif, image/jpeg, image/png" size="2000000">
                                         <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                         <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
                                     </div>
@@ -105,7 +105,7 @@
                                             }
                                         }
                                         @endphp
-                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}" accept="image/gif, image/jpeg, image/png">
+                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}" accept="image/gif, image/jpeg, image/png" size="2000000">
                                     @endif
                                     @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
@@ -113,14 +113,14 @@
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_nombre">* Nombre de la organización a la que pertenece</label>
-                                    <input class="form-control req @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Nombre de la Organización" required>
+                                    <input class="form-control req @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" maxlength="250" value="{{ old('organizacion', $perfil->organizacion) }}" name="organizacion" placeholder="Nombre de la Organización" required>
                                     @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
                             <div class="col-md-5 to-hide d-none">
                                 <div class="form-group">
                                     <label for="org_web">* Página Web de la Organización</label>
-                                    <input class="form-control req @error('web') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" placeholder="https://www.sitioweb.com" required>
+                                    <input class="form-control req @error('web') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_web" value="{{ old('web', $perfil->web) }}" name="web" maxlength="250" placeholder="https://www.sitioweb.com" required>
                                     @error('web')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="org_direccion">* Ubicación de su organización</label>
-                                            <input class="form-control req @error('direccion') is-invalid @enderror" type="text" id="direccion" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Dirección del lugar" required>
+                                            <input class="form-control req @error('direccion') is-invalid @enderror" type="text" id="direccion" maxlength="250" value="{{ old('direccion', $perfil->direccion) }}" name="direccion" placeholder="Dirección del lugar" required>
                                         </div>
                                         @error('direccion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
@@ -174,22 +174,22 @@
                                     <span>Redes Sociales de la Organización</span>
                                     <div class="form-group">
                                         <label for="org_twitter">Twitter</label>
-                                        <input class="form-control @error('twitter') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_twitter" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('twitter') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_twitter" maxlength="250" value="{{ old('twitter', $perfil->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                         @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_facebook">Facebook</label>
-                                        <input class="form-control @error('facebook') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_facebook" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('facebook') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_facebook" maxlength="250" value="{{ old('facebook', $perfil->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                         @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_linkedin">LinkedIn</label>
-                                        <input class="form-control @error('linkedin') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_linkedin" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('linkedin') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_linkedin" maxlength="250" value="{{ old('linkedin', $perfil->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                         @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="org_instagram">Instagram</label>
-                                        <input class="form-control @error('instagram') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_instagram" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
+                                        <input class="form-control @error('instagram') is-invalid @enderror" type="text" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" id="org_instagram" maxlength="250" value="{{ old('instagram', $perfil->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                         @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
                                 </div>

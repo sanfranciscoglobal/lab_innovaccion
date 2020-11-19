@@ -60,14 +60,14 @@
                                             <span>Datos de los fondos</span>
                                             <div class="form-group">
                                                 <label for="org_nombre">* Nombre de la organización</label>
-                                                <input class="form-control @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $fondo->organizacion) }}" name="organizacion" placeholder="Nombre de Organización" required>
+                                                <input class="form-control @error('organizacion') is-invalid @enderror" type="text" id="org_nombre" value="{{ old('organizacion', $fondo->organizacion) }}" name="organizacion" maxlength="250" placeholder="Nombre de Organización" required>
                                                 @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
                                         <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
                                                 <label for="org_fondo">* Nombre del fondo</label>
-                                                <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_fondo" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" placeholder="Nombre del Fondo" required>
+                                                <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_fondo" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" maxlength="250" placeholder="Nombre del Fondo" required>
                                                 @error('nombre_fondo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
@@ -109,7 +109,7 @@
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" value="{{ old('info', $fondo->info) }}" name="info" placeholder="Link de la página web oficial del fondo" required>
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" maxlength="250" value="{{ old('info', $fondo->info) }}" name="info" placeholder="Link de la página web oficial del fondo" required>
                                                 @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                 <div class="invalid-feedback" id='url-error'></div>
                                             </div>
@@ -121,7 +121,7 @@
                                                 <div class="cs-file-drop-area">
                                                     <div class="cs-file-drop-icon fe-upload"></div>
                                                     <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-                                                    <input type="file" class="cs-file-drop-input" id="org_logo" accept="image/gif, image/jpeg, image/png" name="imagen" title="Imagen del fondo" required>
+                                                    <input type="file" class="cs-file-drop-input" id="org_logo" accept="image/gif, image/jpeg, image/png" size="2000000" name="imagen" title="Imagen del fondo" required>
                                                     <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                                     <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
                                                 </div>    
@@ -133,7 +133,7 @@
                                                         $img = '';
                                                     }
                                                     @endphp
-                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png">
+                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png" size="2000000">
                                                 @endif
                                                 @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
@@ -144,27 +144,27 @@
                                             <span>Redes Sociales</span>
                                             <div class="form-group">
                                                 <label for="org_twitter">Twitter</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" maxlength="250" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                                 @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_facebook">Facebook</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" maxlength="250" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                                 @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_linkedin">LinkedIn</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" maxlength="250" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                                 @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Instagram</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" maxlength="250" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                                 @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Youtube</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('youtube') is-invalid @enderror" type="url" id="org_youtube" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('youtube') is-invalid @enderror" type="url" id="org_youtube" maxlength="250" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
                                                 @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>

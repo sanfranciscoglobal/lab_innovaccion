@@ -177,7 +177,7 @@
                                         <i class="fe-mail"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control @error('email') is-invalid @enderror" type="email" placeholder="Correo Electrónico" name='email' value="{{ old('email') }}" required>
+                                <input class="form-control prepended-form-control @error('email') is-invalid @enderror" type="email" placeholder="Correo Electrónico" name='email' maxlength="250" value="{{ old('email') }}" required>
                             </div>
                             @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                         </div>
@@ -188,7 +188,7 @@
                                         <i class="fe-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" required
+                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" maxlength="250" name="password" required
                                 {{-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" --}}
                                 >
                                 <label class="cs-password-toggle-btn">
@@ -239,16 +239,16 @@
                         @csrf
                         <input type="hidden" name="login" value="0">
                         <div class="form-group">
-                            <input class="form-control @error('name') is-invalid @enderror" name="name" type="text" placeholder="Nombre Completo" value="{{ old('name') }}" required>
+                            <input class="form-control @error('name') is-invalid @enderror" name="name" type="text" placeholder="Nombre Completo" maxlength="250" value="{{ old('name') }}" required>
                             @error('name')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                         </div>
                         <div class="form-group">
-                            <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
+                            <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" placeholder="Correo electrónico" maxlength="250" value="{{ old('email') }}" required>
                             @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                         </div>
                         <div class="form-group">
                             <div class="cs-password-toggle">
-                                <input class="form-control @error('password') is-invalid @enderror" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password') }}" required>
+                                <input class="form-control @error('password') is-invalid @enderror" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" maxlength="250" value="{{ old('password') }}" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
@@ -260,7 +260,7 @@
                         </div>
                         <div class="form-group">
                             <div class="cs-password-toggle">
-                                <input class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
+                                <input class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" maxlength="250" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
