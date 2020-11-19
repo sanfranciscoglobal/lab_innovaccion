@@ -8,13 +8,13 @@
     <!-- URL Input -->
     <div class="form-group">
         <label for="url-input">Sitio web</label>
-        <input class="form-control" type="url" id="url-input" name="web" value="{{ old('web', $problema->web) }}">
+        <input class="form-control" type="url" id="url-input" name="web" maxlength="250" value="{{ old('web', $problema->web) }}">
         @error('web')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <!-- URL Input -->
     <div class="form-group">
         <label for="url-input">Video relacionado</label>
-        <input class="form-control" type="url" id="url-input" name="youtube" value="{{ old('youtube', $problema->youtube) }}">
+        <input class="form-control" type="url" id="url-input" name="youtube" maxlength="250" value="{{ old('youtube', $problema->youtube) }}">
         @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="form-group">
@@ -41,9 +41,10 @@
         <div class="cs-file-drop-area">
             <div class="cs-file-drop-icon fe-upload"></div>
             <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="imagen" id="foto" accept="image/gif, image/jpeg, image/png">
+            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="imagen" id="foto" accept="image/gif, image/jpeg, image/png" size="1000000">
             <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
             <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+        <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
         </div>
         @else
         @php
@@ -52,29 +53,30 @@
                 $img =  asset('storage/problemas/'.$problema->imagen);
             }
             @endphp
-        <input type="file" class="dropify" title="Avatar del usuario" name="imagen" id="foto" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png">
+        <input type="file" class="dropify" title="Avatar del usuario" name="imagen" id="foto" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png" size="1000000">
+        <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
         @endif
         @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <h4 class="h3">Redes sociales de los problemas identificados</h4>
     <div class="form-group">
         <label for="url-input">Facebook</label>
-        <input class="form-control" type="url" id="url-input" name="facebook" value="{{ old('facebook', $problema->facebook) }}" placeholder="Link a tu usuario">
+        <input class="form-control" type="url" id="url-input" name="facebook" maxlength="250" value="{{ old('facebook', $problema->facebook) }}" placeholder="Link a tu usuario">
         @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="form-group">
         <label for="url-input">Instagram</label>
-        <input class="form-control" type="url" id="url-input" name="instagram" value="{{ old('instagram', $problema->instagram) }}" placeholder="Link a tu usuario">
+        <input class="form-control" type="url" id="url-input" name="instagram" maxlength="250" value="{{ old('instagram', $problema->instagram) }}" placeholder="Link a tu usuario">
         @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="form-group">
         <label for="url-input">LinkedIn</label>
-        <input class="form-control" type="url" id="url-input" name="linkedin" value="{{ old('linkedin', $problema->linkedin) }}" placeholder="Link a tu usuario">
+        <input class="form-control" type="url" id="url-input" name="linkedin" maxlength="250" value="{{ old('linkedin', $problema->linkedin) }}" placeholder="Link a tu usuario">
         @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="form-group">
         <label for="url-input">Twitter</label>
-        <input class="form-control" type="url" id="url-input" name="twitter" value="{{ old('twitter', $problema->twitter) }}" placeholder="Link a tu usuario">
+        <input class="form-control" type="url" id="url-input" name="twitter" maxlength="250" value="{{ old('twitter', $problema->twitter) }}" placeholder="Link a tu usuario">
         @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>

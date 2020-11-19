@@ -12,6 +12,8 @@
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
                     video</span>
             </div>
+            <div class="col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden" style="background-image: url(http://127.0.0.1:8000/img/layout/home/laboratorio-side-bkg.png);">
+            </div>
         </div>
     </section>
     <!--
