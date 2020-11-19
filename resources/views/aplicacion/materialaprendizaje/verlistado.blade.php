@@ -48,6 +48,14 @@
                     <div class="row">
                        
                         @foreach ($materiales as $material)
+                        @php
+                            $imagen = asset('img/layout/home/profile2.jpg');
+                            if(isset($material->user->perfil_id)){
+                                if(isset($material->user->perfil->avatar)){
+                                    $imagen = asset('storage/perfil/'.$material->user->perfil->avatar);
+                                }
+                            }
+                        @endphp
                         <div class="col col-lg-6">
                             <div class="pb-2">
                                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
@@ -66,13 +74,13 @@
                                     
                                     </div>
                                     <div class="px-4 px-xl-5 pt-2">
-                                        @if ($material->tipo==0)
+                                        
                                             <a class="media meta-link font-size-sm align-items-center" href="#">
-                                                <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile2.jpg') }}"
+                                                <img class="rounded-circle" width="42" src="{{ $imagen }}"
                                                     alt="Sanomi Smith" />
-                                                <div class="media-body pl-2 ml-1 mt-n1 text-primary">por<span class="font-weight-semibold ml-1">{{$material->autor_publicacion}}</span></div>
+                                                <div class="media-body pl-2 ml-1 mt-n1 text-primary">por<span class="font-weight-semibold ml-1">{{$material->user->name}}</span></div>
                                             </a>
-                                        @endif
+                                        
                                         
                                         <div class="row">
                                             <div class="col">
