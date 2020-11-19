@@ -33,7 +33,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand order-lg-1 ml-lg-0 pr-lg-2 mr-lg-4 justify-content-start" href="{{route('home')}}">
-            <img class="navbar-floating-logo d-none d-lg-block my-2" width="80"
+            <img class="d-none d-lg-block my-2" width="80"
                  src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
             <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_color.svg')}}"

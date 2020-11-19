@@ -1,142 +1,198 @@
 @extends('layouts.aplicacion.app')
-@section('header-css')
-    <style>
-        .card {
-            overflow: hidden;
-        }
 
-        .card-lab-orange .card-body * {
-            color: white;
-        }
-
-        .card-lab-orange .card-body,
-        .card-lab-orange .card-body:before {
-            background-color: #FF9F40;
-        }
-
-        .card:hover .card-hover-info {
-            position: absolute;
-            display: block
-        }
-
-        .card-hover-info {
-            display: none;
-            z-index: 99;
-            background: white;
-        }
-
-        .custom-select {
-            width: 250px;
-            max-width: 250px;
-        }
-
-    </style>
-@endsection
 @section('content')
-    <section class="container my-lg-2 pt-5 pb-lg-7">
-        <div class="row align-items-center">
-            <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Iniciativas</h1>
-                <div class="py-4">
-                    <p class="cs-callout">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
+  
+    <div class="position-relative bg-purple-gradient" style="height: 480px;">
+        <div class="cs-shape cs-shape-bottom cs-shape-slant bg-secondary d-none d-lg-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
+                <polygon fill="currentColor" points="0,257 0,260 3000,260 3000,0"></polygon>
+            </svg>
+        </div>
+    </div>
+    <div class="bg-overlay-content pb-2 mb-md-3" style="margin-top: -350px;">
+        <div class="row">
+ 
+                        <!-- Title + Delete link-->
+                        
+                  
+                                <div  style="margin: 2% 0% 0% 1%; position:absolute; z-index:10; width: 90%;">
+                                    <div class="offset-lg-2 offset-rg-2">
+                                        <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-2">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <a class="btn btn-primary"  style="border-color:#fd972b;background: #fd972b;" href="{{route('app.iniciativas.create')}}" >Registra tu iniciativa</a>
+                                                </div>
+                                                <div class="col ">
+                                                    Encuentra tu inovación
+                                                </div>
+                                                <div class="col-2">
+                                                    <input type="search" id="pac-input"  class="form-control"   placeholder="Buscar"/>
+                                                </div>
+                                                <div style="width:37%">
+                                                    <div class="row" >
+                                                        <div class="col-3">
+                                                            <a class="btn btn-primary" href="#" >MAPA</a>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <a class="btn btn-primary" href="#modal-signin" >ACTORES</a>
+                                                        </div>
+                                                        <div class="col">
+                                                            <a class="btn btn-primary" href="#modal-signin" >ANALÍTICA</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                    
+                                        <div id="map" style="width: 100%; height: 750px;"></div>
+                                        <input type="hidden" type="text" id="latitud" name="latitud" value="1">
+                                        <input type="hidden" type="text" id="longitud" name="longitud" value="1">
+                                        @error('latitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        @error('longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+
+        <div  style="margin: 40% 0% 0% 1%; position:absolute; z-index:10; width: 85%;">
+            <div class="offset-lg-3 offset-rg-2">
+                <div class=" d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-2">
+                <form action="{{route('web.iniciativas.data')}}" method="POST">
+                                @method('POST')
+                                @csrf
+                    <div class="row ">
+                        <div class="col-xs-12 center-block text-center pt-1">
+                        <h2 style="color:#531c6a">Filtros</h2> 
+                            <div class="row pt-1 ml-2 mr-2 align-items-center">
+                                                                    
+                                
+
+                                <div class="col">
+                                    <span class="font-weight-bold  d-block" style="color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
+                                    <select id="tipo_institucion" name="tipo_institucion[]"
+                                            class="form-control custom-select select2"
+                                            data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--cache="true"
+                                            data-close-on-select="false"
+                                            data-placeholder="Seleccionar tipo institución"
+                                            style="width:100%;"
+                                            multiple>
+                                    
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <span class="font-weight-bold  d-block" style="color:#531c6a " >ODS</span>
+                                    <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
+                                            data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--cache="true"
+                                            data-close-on-select="false"
+                                            style="width:100%;"
+                                            data-placeholder="Seleccionar ODS"
+                                            multiple>
+                                    
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <span class="font-weight-bold  d-block" style="color:#531c6a " >Población Objetivo</span>
+                                    <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
+                                            class="form-control select2"
+                                            data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--cache="true"
+                                            data-close-on-select="false"
+                                            data-placeholder="Seleccionar población objetivo"
+                                            multiple>
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-2">
+                                <button type="submit" class="btn btn-primary btn-filter-submit" style="border-color:#fd972b;background: #fd972b;" >
+                                    Aplicar
+                                </button>
+                                </div>
+                   
+                            </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    <p class="text-center pt-1 mt-3">
+                    
+                        <button type="button" class="btn btn-primary mr-3 btn-filter-submit"
+                    
+                                data-action="{{route('web.iniciativas.exportar-excel')}}">
+                    
+                            Descargar datos
+                    
+                        </button>
+
+
+                    
+                    
+                    
                     </p>
+                </form>
                 </div>
             </div>
+        </div>                            
+                          
+                      
+            <!-- Content-->
+            
         </div>
-    </section>
-    <section class="searchbar-container bg-secondary">
-        <form class="container" action="{{route('web.iniciativas.index')}}" method="POST">
-            @method('POST')
-            @csrf
-            @include('web.iniciativas._filter', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones'))
-        </form>
-        <p class="text-center">
-            <a class="btn btn-primary" href="/app/registro-de-eventos/">Descargar datos</a>
-        </p>
-    </section>
+    </div>
 
-    <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
-        <div class="cs-masonry-grid" data-columns="3">
-            <!-- Loop Start -->
-            @foreach($iniciativas as $iniciativa)
-                <div class="cs-grid-item" data-groups="[&quot;3d&quot;]">
-                    <div class="card card-hover border-0 box-shadow mx-auto">
-                        <img class="card-img-top" src="{{ asset('storage/iniciativas/'.$iniciativa->logo) }}"/>
-                        <div class="card-body my-2 mx-3">
-                            <h3 class="h5 mb-0">
-                                {{$iniciativa->nombre_organizacion}}
-                            </h3>
-                            <p class="text-justify">
-                                {{$iniciativa->enfoque}}
-                            </p>
-                            <h4 class="h5 mb-0">{{$iniciativa->nombre_iniciativa}}</h4>
-                            <p class="font-size-sm font-weight-normal text-muted">06/09/2020</p>
-                            <p class="text-justify">
-                                {{$iniciativa->descripcion_iniciativa}}
-                            </p>
-                            <div class="media meta-link align-items-center pt-2">
-                                <img class="rounded-circle" width="50" src="http://placehold.it/50x50">
-                                <div class="media-body pl-2 ml-1">
-                                    <span class="font-weight-semibold d-block w-100">
-                                        {{$iniciativa->user_name}}
-                                    </span>
-                                    <span class="font-size-sm w-100">
-                                        <a href="mailto:{{$iniciativa->user_email}}">{{$iniciativa->user_email}}</a>
-                                        -
-                                        <a href="tel:{{$iniciativa->user_celular}}">{{$iniciativa->user_celular}}</a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        @endforeach
-        <!-- loop end -->
-        </div>
-    </section>
-    @php
-        $iniciativas->links()
-    @endphp
-    {{--<aside>--}}
-    {{--<div class="container">--}}
-    {{--<div class="row">--}}
-    {{--<div class="col-12">--}}
-    {{--<div class="d-md-flex justify-content-between align-items-center pt-3 pb-2">--}}
-    {{--<div class="d-flex justify-content-center align-items-center mb-4">--}}
-    {{--<label class="pr-1 mr-2">Mostrar</label>--}}
-    {{--<select class="form-control custom-select mr-2" style="width: 5rem;">--}}
-    {{--<option value="10">10</option>--}}
-    {{--<option value="20">20</option>--}}
-    {{--<option value="30">30</option>--}}
-    {{--<option value="40">40</option>--}}
-    {{--<option value="50">50</option>--}}
-    {{--</select>--}}
-    {{--<div class="font-size-sm text-nowrap pl-1 mb-1">eventos por página</div>--}}
-    {{--</div>--}}
-    {{--<nav class="mb-4" aria-label="Page navigation">--}}
-    {{--<ul class="pagination justify-content-center">--}}
-    {{--<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><i--}}
-    {{--class="fe-chevron-left"></i></a></li>--}}
-    {{--<li class="page-item d-sm-none"><span class="page-link page-link-static">2 / 10</span>--}}
-    {{--</li>--}}
-    {{--<li class="page-item d-none d-sm-block"><a class="page-link" href="#">1</a></li>--}}
-    {{--<li class="page-item active d-none d-sm-block" aria-current="page"><span--}}
-    {{--class="page-link">2<span--}}
-    {{--class="sr-only">(current)</span></span></li>--}}
-    {{--<li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>--}}
-    {{--<li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>--}}
-    {{--<li class="page-item d-none d-sm-block">...</li>--}}
-    {{--<li class="page-item d-none d-sm-block"><a class="page-link" href="#">10</a></li>--}}
-    {{--<li class="page-item"><a class="page-link" href="#" aria-label="Next"><i--}}
-    {{--class="fe-chevron-right"></i></a></li>--}}
-    {{--</ul>--}}
-    {{--</nav>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</aside>--}}
 
+    
+@endsection
+@section('footer')
+
+<script src="{{ asset('js/mapacompleto.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
+
+<script>
+
+    iniciativas={!! json_encode($iniciativas ->toArray()) !!};
+    locations=[]
+    c=0
+    for(i=0;i<iniciativas.length;i++){
+        /*descripcion=""
+        des=iniciativas[0].iniciativa_informacion.descripcion_iniciativa.match(/.{1,15}/g)
+        for(z=0;z<des.length;z++){
+            descripcion+="<b>"+des[z]+"</b></br>"
+        }*/
+        txtods=""
+        ods=iniciativas[i].iniciativa_ods;
+        for(z=0;z<ods.length;z++){
+            txtods=ods[z].id+", ";
+        }
+        txtpobla="";
+        pobla=iniciativas[i].iniciativa_poblaciones_completo;
+        for(z=0;z<pobla.length;z++){
+            txtpobla=pobla[z].descripcion+", ";
+        }
+        info=
+        '<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
+        + '<b size="5" style="color:#fd972b">Descripción de la iniciativa:</b></br>'
+        + '<div  style="max-width:175px">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
+        +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
+        + '<div  style="max-width:175px">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
+        +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>' 
+        + '<div  style="max-width:175px">'+txtods.slice(0, -2)+".</div></br>"
+        +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
+        + '<div  style="max-width:175px">'+txtpobla.slice(0, -2)+".</div></br>" 
+        for(j=0;j<iniciativas[i].iniciativa_ubicaciones.length;j++){
+            locations.push([])
+            locations[c].push(info)
+            locations[c].push(iniciativas[i].iniciativa_ubicaciones[j].latitud)
+            locations[c].push(iniciativas[i].iniciativa_ubicaciones[j].longitud)
+            c++;
+        }
+    }
+
+</script>
 @endsection

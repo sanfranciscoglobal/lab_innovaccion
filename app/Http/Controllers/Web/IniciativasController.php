@@ -50,10 +50,18 @@ class IniciativasController extends Controller
 
         return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar'));
     }
+    public static function data(Request $request)
+    {
+        $iniciativas=Iniciativas::all();
+        return Iniciativas::all();
+    }
 
     public function exportarExcel(Request $request)
     {
         $fecha = Carbon::now()->format('Ymdhi');
         return Excel::download(new IniciativasExport(), 'download-iniciativa-' . $fecha . '.xlsx');
+    }
+    public function mapa(){
+        return view('mapa');
     }
 }
