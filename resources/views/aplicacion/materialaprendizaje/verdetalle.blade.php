@@ -29,7 +29,7 @@
                 <h1 class="mt-5 text-primary">{{ $material->nombre_publicacion }}</h1>
                 @if ($material->tipo==0)
                     <div class="py-3">
-                        <p style="margin-bottom: 0">{{date('d', strtotime( $material->fecha_publicacion))}} {{$month_mini[date('m', strtotime( $material->fecha_publicacion))]}}</p>
+                        <p style="margin-bottom: 0">{{date('d M , Y', strtotime( $material->fecha_publicacion))}}</p>
                         
                     </div>    
                 @endif
@@ -77,25 +77,83 @@
                     </div>
                 </div>
                 <div class="px-2 px-xl-2 pt-0" >
-                    <span class="font-weight-bold e-presencial"><i class="fe-message-square font-size-xl mr-2"></i> Comentarios</span>
-                    
+                    <span class="font-weight-bold e-presencial"><i class="fe-message-square font-size-xl mr-2"></i> Comentarios </span>
+                        <br>
+                        <br>
+                        
+
+                    @foreach ($comentarios as $comment)
+                        
+                        <p>{{$comment->comentario}}</p>
+                        <div class="row">
+                            <a class="media meta-link font-size-sm align-items-center" href="#">
+                                <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile4.jpg') }}"
+                                    alt="Sanomi Smith" />
+                                <div class="media-body pl-2 ml-1 mt-n1 text-primary"><span class="font-weight-semibold ml-1">{{$comment->user->name}}</span><br>
+                                    <span>Hace 3 días</span></div>
+                            </a>
+                        </div>
+                        <br>
+                        <hr>
+                    @endforeach
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="row">
+                        <a class="media meta-link font-size-sm align-items-center" href="#">
+                            <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile2.jpg') }}"
+                                alt="Sanomi Smith" />
+                            <div class="media-body pl-2 ml-1 mt-n1 text-primary"><span class="font-weight-semibold ml-1">Barbara Palson</span><br>
+                                <span>Hace 3 días</span></div>
+                        </a>
+                    </div>
+                    <br>
+                    <hr>
                 </div>
                 
             </div>
 
             <div class="card-footer text-center font-size-sm text-muted">
 
-                <div class="row e-virtual">
-                    <div class="col">
-                        <div class="form-group">
-                            <label  class="form-control" style="text-align: left">Comentarios</label>
+                <form action="{{route("app.material-de-aprendizaje.comentario",$material->id)}}" class="needs-validation" novalidate>
+                    <input type="hidden" name="material_id" value="{{$material->id}}">
+                    <div class="pb-2">
+                        <div class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1 text-left" style="padding: 2%; background:#f2f2f2">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>Escribe un comentario</h3>
+
+                                    <div class="form-group">
+                                        <label for="nombre"><i class="fe-user font-size-lg mr-2"></i>*Tu nombe</label>
+                                        <input class="form-control" type="text" id="nombre" name="nombre_user" required>
+                                        @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label  for="correo"><i class="fe-mail font-size-lg mr-2"></i>*Tu correo</label>
+                                        <input type='email' class="form-control" id="correo" name='correo_user' required>
+                                        @error('correo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comentario"><i class="fe-message-square font-size-lg mr-2"></i>*Comentario</label>
+                                        <textarea id="comentario" class="form-control" name="comentario" placeholder="Escriba su comentario" required rows="6"
+                                        ></textarea>
+                                        <br>
+                                        @error('comentario')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                               
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-send font-size-lg mr-2"></i>Enviar</button>
+                  
                         </div>
                     </div>
-                </div>
+                </form>
 
-                {{-- <div class="row" style="margin-top:3%;padding-left:50%;">
+                <div class="row" style="margin-top:3%;padding-left:50%;">
                     <a href="{{route('material')}}" class="btn btn-sm btn-primary">Cerrar</a>
-                </div> --}}
+                </div>
                 
             </div>
             

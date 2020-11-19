@@ -51,7 +51,7 @@ class EscritorioController extends Controller
     public function verMateriales(Request $request)
     {
         MaterialAprendizaje::$own = true;
-        MaterialAprendizaje::$paginate = 2;
+        //MaterialAprendizaje::$paginate = 2;
         $materiales = MaterialAprendizaje::obtenerPaginate();
 
         return view('aplicacion.escritorio.contenidomateriales',compact('materiales'));

@@ -7,6 +7,7 @@ use App\Http\Requests\Contacto\StorePost;
 use Illuminate\Support\Facades\Storage;
 use App\Models\MaterialAprendizaje;
 use App\Models\Articulo;
+use App\Models\MaterialComentario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -34,7 +35,8 @@ class MaterialdeaprendizajeController extends Controller
     }
     public function verDetalle(MaterialAprendizaje $material)
     {
-        return view('aplicacion.materialaprendizaje.verdetalle',compact('material'));
+        $comentarios = MaterialComentario::where('material_id',$material->id)->get();
+        return view('aplicacion.materialaprendizaje.verdetalle',compact('material','comentarios'));
     }
     public function verCategoriasmateriales(Request $request)
     {

@@ -123,6 +123,7 @@ Route::as('app.')
             Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@edit')->name('material-de-aprendizaje.edit');
             Route::put('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@update')->name('material-de-aprendizaje.put');
             Route::delete('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@destroy')->name('material-de-aprendizaje.delete');
+            Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\crudMaterialesaprendizaje@comment')->name('material-de-aprendizaje.comentario');
 
             // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
              Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
