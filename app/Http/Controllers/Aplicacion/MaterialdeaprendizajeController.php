@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Aplicacion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contacto\StorePost;
+use Illuminate\Support\Facades\Storage;
 use App\Models\MaterialAprendizaje;
 use App\Models\Articulo;
 use Illuminate\Http\Request;
@@ -20,14 +21,20 @@ class MaterialdeaprendizajeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function __construct(){
-        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetallematerial');
+        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetalle');
     }
+
+
     public function verListadomateriales(Request $request)
     {
         MaterialAprendizaje::$paginate = 6;
         $materiales = MaterialAprendizaje::obtenerPaginate();
         //$materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
         return view('aplicacion.materialaprendizaje.verlistado',compact('materiales'));
+    }
+    public function verDetalle(MaterialAprendizaje $material)
+    {
+        return view('aplicacion.materialaprendizaje.verdetalle',compact('material'));
     }
     public function verCategoriasmateriales(Request $request)
     {
@@ -51,9 +58,12 @@ class MaterialdeaprendizajeController extends Controller
     public function edit(MaterialAprendizaje $material)
     {
         
-        //$material = MaterialAprendizaje::find($id);
     
         return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
+    }
+    public function download($articulo)
+    {
+        return Storage::disk('materiales')->download($articulo);
     }
 
 }

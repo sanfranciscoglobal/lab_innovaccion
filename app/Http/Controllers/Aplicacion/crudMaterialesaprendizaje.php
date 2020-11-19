@@ -27,7 +27,6 @@ class crudMaterialesaprendizaje extends Controller
     }
     public function store(StorePost $request){
        
-        
         try{
             $validatedData=$request->validated();
             

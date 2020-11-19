@@ -5,7 +5,7 @@
     <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Publicaciones y Herramientas</h1>
+                <h1 class="mt-5 text-primary">Publicaciones y Herramientas</h1>
                 <div class="py-3">
                     <p class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!<br>
                         Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</p>
@@ -39,7 +39,7 @@
                     <!-- Post-->
                     <div class="row">
                         <div class="col">
-                            <h2 class="h3 text-center">Indicaciones</h2>
+                            <h2 class="h3 text-center text-primary">Indicaciones</h2>
                             <p>Caso 1. Publica el artículo o herramienta en el formulario.<br>
                             Caso 2. Revisa y descarga el material de aprendizaje y deja tus comentarios en los foros respectivos de cada publicación.</p>
                             
@@ -82,7 +82,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a class="btn btn-primary" href="#">Ver publicación</a>
+                                    <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver publicación</a>
                                     </div>
                                 </article>
                             </div>
