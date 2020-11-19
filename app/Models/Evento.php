@@ -14,6 +14,7 @@ class Evento extends Model
     protected $table = 'eventos';
     protected $fillable = ['nombre', 'organizador', 'fecha', 'hora', 'imagen', 'descripcion', 'tipo', 'canton', 'ubicacion', 'org_lat','org_long','url','terminos'];
     public static $paginate = 10;
+    public static $own = false;
 
     public function user(){
         return $this->belongsTo('App\Models\User');
@@ -26,9 +27,12 @@ class Evento extends Model
      */
     public static function builder()
     {
-        $query = Evento::orderbyDesc('created_at', 'DESC')->where('user_id',Auth::id());
+        $query = Evento::orderbyDesc('created_at', 'DESC');
         // if (self::$search) {
         // }
+        if (self::$own) {
+            $query->where('user_id', Auth::id());
+        }
         return $query;
     }
 

@@ -24,7 +24,9 @@ class MaterialdeaprendizajeController extends Controller
     }
     public function verListadomateriales(Request $request)
     {
-        $materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
+        MaterialAprendizaje::$paginate = 6;
+        $materiales = MaterialAprendizaje::obtenerPaginate();
+        //$materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
         return view('aplicacion.materialaprendizaje.verlistado',compact('materiales'));
     }
     public function verCategoriasmateriales(Request $request)

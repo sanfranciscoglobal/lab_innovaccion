@@ -88,15 +88,16 @@
     <section class="bg-secondary" id="demos">
         <div class="container pt-5 pb-4 py-md-6 py-lg-7">
             <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h2 class="h1 mb-4 uppercase">¡Próximos eventos!</span>
-                </h2>
+                <h3 class="text-mora h1 mb-4 uppercase">Eventos</span>
+                </h3>
+                <p>Mira nuestros próximos eventos</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center">Hackaton</h3>
+                            <h3 class="h5 mb-0 text-center text-tomate">Hackaton</h3>
                         </div>
                     </a>
                 </div>
@@ -104,7 +105,7 @@
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/03.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center">Conferencia de innovación</h3>
+                            <h3 class="h5 mb-0 text-center text-tomate">Conferencia de innovación</h3>
                         </div>
                     </a>
                 </div>
@@ -112,14 +113,14 @@
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/01.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center">Webinar de innovación</h3>
+                            <h3 class="h5 mb-0 text-center text-tomate">Webinar de innovación</h3>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <a class="btn btn-primary" href="/eventos/">Ver más</a>
+                    <a class="btn btn-primary " style=" width: 17%;border-color:#B5095B;background-color:#B5095B;" href="/eventos/">Ver Todos</a>
                 </div>
             </div>
         </div>
@@ -141,7 +142,7 @@
                 <!-- Article-->
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Fondos</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">
@@ -152,7 +153,7 @@
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile1.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Empresa
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
                                         1</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
@@ -166,7 +167,7 @@
                 <!-- Article-->
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">
@@ -177,7 +178,7 @@
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile2.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Empresa
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
                                         1</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
@@ -191,7 +192,7 @@
                 <!-- Article-->
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Iniciativas</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">
@@ -202,7 +203,7 @@
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile3.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Empresa
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
                                         1</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
@@ -216,7 +217,7 @@
                 <!-- Article-->
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Nuevo</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicaciones y herramientas</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">

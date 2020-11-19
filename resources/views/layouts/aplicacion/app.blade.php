@@ -164,7 +164,7 @@
                     </button>
                 </div>
                 <div class="modal-body px-4">
-                    <p class="font-size-ms text-muted">
+                    <p class="font-size-ms ">
                         Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su registro.
                     </p>
                     <form class="needs-validation" novalidate action="{{ route('login') }}" method="POST">

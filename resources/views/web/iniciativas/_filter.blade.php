@@ -41,7 +41,7 @@
 
         
             <div class="col ">
-                <a class="btn btn-primary" style="border-color:#fd972b;background: #fd972b;" >Registra tu iniciativa</a>
+                <a href="{{route('app.iniciativas.create')}}" class="btn btn-primary" style="border-color:#fd972b;background: #fd972b;" >Registra tu iniciativa</a>
             </div>      
         </div>
         <div class="row align-items-center">
