@@ -69,7 +69,10 @@ class Iniciativas extends Model
     {
         return $this->hasMany(IniciativaPoblacion::class, 'iniciativa_id', 'id');
     }
-
+    public function iniciativaPoblacionesCompleto(){
+        return $this->belongsToMany(TipoPoblacion::class,'iniciativa_poblacion',
+        'id','tipo_poblacion_id');        
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -93,7 +96,7 @@ class Iniciativas extends Model
     {
         return ($this->iniciativaActor) ? $this->iniciativaActor->nombre_organizacion : null;
     }
-
+    
     /**
      * @return string|null
      */
