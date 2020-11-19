@@ -65,7 +65,7 @@ Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeC
 Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
-Route::get('gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
+Route::get('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
 
 
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');

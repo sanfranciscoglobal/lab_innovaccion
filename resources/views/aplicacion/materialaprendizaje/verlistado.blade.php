@@ -52,9 +52,9 @@
                             <div class="pb-2">
                                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                                     @if ($material->tipo==0)
-                                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicación</span>
+                                        <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">Publicación</span>
                                     @else
-                                        <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Herramienta</span>
+                                        <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">Herramienta</span>
                                     @endif
                                     <div class="card-body pt-5 px-4 px-xl-5">
                                         <h2 class="h4 nav-heading mb-4 text-primary">
