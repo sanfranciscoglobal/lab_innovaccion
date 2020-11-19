@@ -52,8 +52,24 @@ class IniciativasController extends Controller
     }
     public static function data(Request $request)
     {
-        $iniciativas=Iniciativas::all();
-        return Iniciativas::all();
+        
+        Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
+        Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
+        Iniciativas::$search_tipo_institucion = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
+        Iniciativas::$search_ods_categorias = $request->has('ods_categorias') ? $request->ods_categorias : [];
+        Iniciativas::$search_tipo_poblacion = $request->has('tipo_poblacion') ? $request->tipo_poblacion : [];
+        $cantones = Canton::whereIn('id', Iniciativas::$search_canton_id)->get();
+        $tipoInstituciones = TipoInstitucion::whereIn('id', Iniciativas::$search_tipo_institucion)->get();
+        $odsCategorias = OdsCategoria::whereIn('id', Iniciativas::$search_ods_categorias)->get();
+        $tipoPoblaciones = TipoPoblacion::whereIn('id', Iniciativas::$search_tipo_poblacion)->get();
+        $buscar = $request->buscar;
+        $iniciativas=Iniciativas::obtenerIniciativasAll();
+        foreach( $iniciativas as $x){
+           $x->iniciativaUbicaciones; 
+           $x->iniciativaOds;
+           $x->iniciativaPoblacionesCompleto;
+        }
+        return view('web.iniciativas.mapa',compact('iniciativas'));
     }
 
     public function exportarExcel(Request $request)
