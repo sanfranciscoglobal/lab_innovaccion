@@ -142,6 +142,7 @@
             <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
             <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
         </div>
+        <small id="emailHelp" class="form-text text-muted">Max. 10Mb</small>
         @else
         @php
             $img = asset('img/logo/logo-icon-footer.png');
@@ -150,6 +151,7 @@
             }
             @endphp
         <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" required data-default-file="{{$img}}" accept=".pdf" size="10000000">
+        <small id="emailHelp" class="form-text text-muted">Max. 10Mb</small>
         @endif
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>

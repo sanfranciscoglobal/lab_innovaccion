@@ -44,6 +44,7 @@
             <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="imagen" id="foto" accept="image/gif, image/jpeg, image/png" size="1000000">
             <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
             <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
+        <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
         </div>
         @else
         @php
@@ -53,6 +54,7 @@
             }
             @endphp
         <input type="file" class="dropify" title="Avatar del usuario" name="imagen" id="foto" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png" size="1000000">
+        <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
         @endif
         @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
