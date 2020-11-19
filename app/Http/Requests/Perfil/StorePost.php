@@ -1,4 +1,4 @@
-|max:250<?php
+<?php
 
 namespace App\Http\Requests\Perfil;
 

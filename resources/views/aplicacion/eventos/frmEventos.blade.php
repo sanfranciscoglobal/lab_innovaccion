@@ -160,7 +160,6 @@
                                                                     data-ajax--data-cache="true"
                                                                     data-allow-clear="true"
                                                                     data-placeholder="Seleccione un Cantón"
-                                                                    data-close-on-select="false"
                                                                     >
                                                                        
                                                                     </select>

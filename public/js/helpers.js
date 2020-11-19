@@ -137,8 +137,8 @@ if (document.querySelector('.dropify')) {
       preview: '<div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-infos-message fs-12">Arrastra y suelta o haz clic para reemplazar</p></div></div></div>',
       filename: '<p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p>',
       clearButton: '<button type="button" class="dropify-clear">Quitar</button>',
-      errorLine: '<p class="dropify-error">{{ error }}</p>',
-      errorsContainer: '<div class="dropify-errors-container"><ul></ul></div>'
+      errorLine: '<p class="dropify-error">Lo sentimos, algo ha salido mal</p>',
+      errorsContainer: '<div class="dropify-errors-container"><ul></ul></div>',
     }
   });
 }
