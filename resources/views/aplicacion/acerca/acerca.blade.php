@@ -6,7 +6,7 @@
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5">¿Qué es Thinkia?</h1>
                 <div class="py-4">
-                    <p class="cs-callout">Thinkia es un espacio de innovación en donde actores de diversos sectores – público, privado, academia, y sociedad civil - se encuentran con el ánimo de trabajar de manera colaborativa compartiendo los retos que afrontan y buscando soluciones basadas en innovación abierta, pública y social. Este espacio creativo de co-creación permite forjar las bases del ecosistema de innovación poniendo en contacto a los agentes innovadores y compartiendo materiales y metodologías que forjen una cultura de innovación. </p>
+                    <p class="cs-callout text-justify">Thinkia es un espacio de innovación en donde actores de diversos sectores – público, privado, academia, y sociedad civil - se encuentran con el ánimo de trabajar de manera colaborativa compartiendo los retos que afrontan y buscando soluciones basadas en innovación abierta, pública y social. Este espacio creativo de co-creación permite forjar las bases del ecosistema de innovación poniendo en contacto a los agentes innovadores y compartiendo materiales y metodologías que forjen una cultura de innovación. </p>
                 </div>
                 <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
@@ -47,8 +47,8 @@
             <div class="row mb-5">
                 <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center">
                     <h2>Visión</h2>
-                    <p>Buscar que los procesos de innovación abiertos, públicos y sociales se vuelvan una herramienta clave para la resolución de problemas complejos de desarrollo a nivel nacional. </p>
-                    <p>Se requiere involucrar a diversos actores conjugando su inteligencia colectiva para realizar acciones conjuntas que brinden soluciones sostenibles, creativas e inclusivas. </p>
+                    <p class="text-justify">Buscar que los procesos de innovación abiertos, públicos y sociales se vuelvan una herramienta clave para la resolución de problemas complejos de desarrollo a nivel nacional. </p>
+                    <p class="text-justify">Se requiere involucrar a diversos actores conjugando su inteligencia colectiva para realizar acciones conjuntas que brinden soluciones sostenibles, creativas e inclusivas. </p>
                 </div>
                 <div class="col-12 col-lg-6">
                     <img class="img-fluid" src="http://placehold.it/800x600">
@@ -60,27 +60,27 @@
             <div class="row mt-5 mb-5">
                 <div class="col-12 col-lg-6">
                     
-                    <h4>Confianza</h4>
-                    <p>Las relaciones entre diversos agentes innovadores deben basarse en la seguridad que se tiene en otros y en sus obras sin perjuicio.</p>
+                    <h4 >Confianza</h4>
+                    <p class="text-justify">Las relaciones entre diversos agentes innovadores deben basarse en la seguridad que se tiene en otros y en sus obras sin perjuicio.</p>
                     <h4>Transparencia</h4>
-                    <p>Para fortalecer y expandir la cultura de innovación se comunica con claridad el uso que se la da a la información compartida y los compromisos adquiridos por cada actor al participar de convocatorias de identificación de problemas o soluciones. La comunicación es franca y directa entre actores como regla de trabajo en equipo. </p>
+                    <p class="text-justify">Para fortalecer y expandir la cultura de innovación se comunica con claridad el uso que se la da a la información compartida y los compromisos adquiridos por cada actor al participar de convocatorias de identificación de problemas o soluciones. La comunicación es franca y directa entre actores como regla de trabajo en equipo. </p>
                     <h4>Colaboración </h4>
-                    <p>Para consolidar las bases del ecosistema de innovación se debe cooperar trabajando en común hacia ese objetivo sumando esfuerzos.</p>
+                    <p class="text-justify">Para consolidar las bases del ecosistema de innovación se debe cooperar trabajando en común hacia ese objetivo sumando esfuerzos.</p>
                     
                     
                 </div>
                 <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center">
                    <h4>Responsabilidad </h4>
-                    <p>El trabajo en innovación tanto identificando problemas o soluciones requiere que los actores cumplan con sus compromisos y obligaciones adquiridas ante los demás para garantizar que estos espacios de encuentro sean efectivos y respetuosos. </p>
+                    <p class="text-justify">El trabajo en innovación tanto identificando problemas o soluciones requiere que los actores cumplan con sus compromisos y obligaciones adquiridas ante los demás para garantizar que estos espacios de encuentro sean efectivos y respetuosos. </p>
                     <h4>Creatividad</h4>
-                    <p>Los agentes innovadores deben buscar de manera consistente y persistentemente a través de varias iteraciones el encontrar una solución innovadora desarrollando e inventando nuevos conceptos y / o objetos que permitan resolver los problemas de desarrollo identificados. </p>
+                    <p class="text-justify">Los agentes innovadores deben buscar de manera consistente y persistentemente a través de varias iteraciones el encontrar una solución innovadora desarrollando e inventando nuevos conceptos y / o objetos que permitan resolver los problemas de desarrollo identificados. </p>
                 </div>
             </div>
         </div>
     </section>
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <h2 class="pb-4 mb-4 text-center">El Equipo</h2>
-        Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.
+        <p class="text-justify">Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.</p>
         <div class="row mb-3 mt-4 align-items-center justify-content-center">
             
             <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter">
