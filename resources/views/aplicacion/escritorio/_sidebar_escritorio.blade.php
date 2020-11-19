@@ -46,8 +46,11 @@
                         <li><a class="cs-widget-link px-4 py-3 collapsed" href="#ecosistema" data-toggle="collapse">Ecosistema
                                 de innovación</a>
                             <ul class="collapse" id="ecosistema" data-parent="#menu">
-                                <li><a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">Mapa de
-                                        iniciativas</a></li>
+                                <li>
+                                    <a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">
+                                        Iniciativas
+                                    </a>
+                                </li>
                                 {{-- <li><a class="cs-widget-link" href="#">Analítica</a></li> --}}
                             </ul>
                         </li>
