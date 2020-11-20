@@ -136,12 +136,10 @@
                                                         "@foreach ($material->articuloss as $articulo)
                                                             {{$articulo->nombre}}
                                                             <br>
-
                                                         @endforeach"
-
                                                 multiple/>
                                             @else
-                                                <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]" multiple/>
+                                                <input class="form-control" type="file" id="mat_adjuntar" value="" name="mat_files[]" multiple/>
                                             @endif
                                             @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
 

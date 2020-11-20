@@ -9,7 +9,7 @@
     </div> --}}
 
     {{-- MODAL --}}
-    <div class="modal modal-status" tabindex="-1" role="dialog">
+    <div class="modal modal-status" tabindex="1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger">
@@ -22,7 +22,11 @@
                     <p>{{ session('error') }}</p>
                 </div>
                 <div class="modal-footer">
+                    @if (old('login'))
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" id="open-signin-error">Cerrar</button>
+                    @else
                     <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+                    @endif
                     {{-- <button type="button" class="btn btn-primary btn-sm">Save changes</button> --}}
                 </div>
             </div>
