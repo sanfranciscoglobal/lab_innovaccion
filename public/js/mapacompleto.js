@@ -207,7 +207,7 @@ function initMap() {
       var marker=[], i;
       function cleanmarker(){
         
-          marker[marcador].setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+          marker[marcador].setIcon($("#marker1").val(),);
         
       }
       function setMapOnAll(map) {
@@ -224,7 +224,7 @@ function initMap() {
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
           map: map,
           icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+            url: $("#marker1").val()
           }
         })
         );
@@ -266,7 +266,7 @@ function initMap() {
             
             cleanmarker();
             marker[i].setIcon({
-              url:"https://www.google.com/mapfiles/marker_green.png",
+              url: $("#marker").val(),
               fillColor: "#00F",
               scale: 5,
               fillOpacity: 0.7,

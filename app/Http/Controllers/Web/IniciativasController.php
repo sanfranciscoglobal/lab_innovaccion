@@ -69,7 +69,7 @@ class IniciativasController extends Controller
            $x->iniciativaOds;
            $x->iniciativaPoblacionesCompleto;
         }
-        return view('web.iniciativas.mapa',compact('iniciativas'));
+        return view('web.iniciativas.visualmapa',compact('iniciativas'));
     }
 
     public function exportarExcel(Request $request)
