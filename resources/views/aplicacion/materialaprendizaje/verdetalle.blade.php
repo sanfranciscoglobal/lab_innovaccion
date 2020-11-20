@@ -83,11 +83,18 @@
                         
 
                     @foreach ($comentarios as $comment)
-                        
+                        @php
+                            $imagen = asset('img/layout/home/profile4.jpg');
+                            if(isset($comment->user->perfil_id)){
+                                if(isset($comment->user->perfil->avatar)){
+                                    $imagen = asset('storage/perfil/'.$comment->user->perfil->avatar);
+                                }
+                            }
+                        @endphp
                         <p>{{$comment->comentario}}</p>
                         <div class="row">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
-                                <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile4.jpg') }}"
+                                <img class="rounded-circle" width="42" src="{{ $imagen}}"
                                     alt="Sanomi Smith" />
                                 <div class="media-body pl-2 ml-1 mt-n1 text-primary"><span class="font-weight-semibold ml-1">{{$comment->user->name}}</span><br>
                                     <span>Hace 3 días</span></div>
@@ -114,7 +121,7 @@
                 </div>
                 
             </div>
-
+            
             <div class="card-footer text-center font-size-sm text-muted">
 
                 <form action="{{route("app.material-de-aprendizaje.comentario",$material->id)}}" class="needs-validation" novalidate>
