@@ -15,7 +15,7 @@ class OdsCategoria extends Model
      */
     public static function builderOdsCategoria()
     {
-        $query = OdsCategoria::orderBy('created_at', request('created_at', 'DESC'));
+        $query = OdsCategoria::orderBy('ods_categorias.id', request('created_at', 'ASC'));
 
         if (self::$search) {
             //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');
