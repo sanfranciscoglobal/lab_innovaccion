@@ -12,7 +12,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            RolesSeeder::class,
             BackupSeeder::class,
+            TipoSectorSeeder::class,
+            TipoSubsectorSeeder::class,
+            OdsCategoriasSeeder::class,
+            NivelSolucionSeeder::class,
+            IniciativaOrigenSeeder::class,
+            EstadoRegistroSeeder::class,
+            SectorSolucionSeeder::class,
+            TipoInstitucionSeeder::class,
+            TipoPoblacionSeeder::class,
+            TipoPropuestaSeeder::class,
+            TipoSubConvocatoriaSeeder::class,
+            ProvinciaSeeder::class,
+            CantonSeeder::class,
+
         ]);
     }
 }
