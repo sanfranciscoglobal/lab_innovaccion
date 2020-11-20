@@ -111,9 +111,9 @@
                             style="height: 220px;"/>
                     </div>
                     <div class="card-body text-center">
-                        <p class="logos mb-5 mt-5">PNUD</p>
+                        <p class="logos mb-4 mt-4">PNUD</p>
                         <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-0">https://www.ec.undp.org/</p>
+                        <p class="font-size-xl text-body mb-4">https://www.ec.undp.org/</p>
                     </div>
                 </div>
             </div>
