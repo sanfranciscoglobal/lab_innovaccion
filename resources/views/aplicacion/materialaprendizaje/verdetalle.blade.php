@@ -39,12 +39,19 @@
         </div>
     </section>
     <section class="container bg-secondary">
-
+        @php
+            $imagen1 = asset('img/logo/thinkia_color.svg');
+            if(isset($material->user->perfil_id)){
+                if(isset($material->user->perfil->avatar)){
+                    $imagen1 = asset('storage/perfil/'.$material->user->perfil->avatar);
+                }
+            }
+        @endphp
         <div class="card mb-5">
             <div class="card-body">
                 <div class="px-0 px-xl-2 pt-0" >
                     <a class="media meta-link font-size-sm align-items-center" href="#">
-                        <img  width="42" src="{{ asset('img/layout/home/profile4.jpg') }}"
+                        <img  width="42" src="{{ $imagen1}}"
                             alt="Sanomi Smith" />
                             <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$material->tema_tratado}}</h3>
                                 @if ($material->tipo==0)
