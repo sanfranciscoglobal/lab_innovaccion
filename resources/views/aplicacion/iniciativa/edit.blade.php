@@ -239,7 +239,7 @@
                         isValid = false;
                         var panelParent = $(allInputs[i]).closest('.panel').attr('id');
                         $(allInputs[i]).closest(".form-group").addClass("has-error");
-                        $('#error-message').html('<strong>Atención!</strong> Por favor revise los pasos anteriores, le falta completar algunos datos.');
+                        //$('#error-message').html('<strong>Atención!</strong> Por favor revise los pasos anteriores, le falta completar algunos datos.');
                         $('a[href="#' + panelParent + '"]').addClass('panel-error');
                         console.log($(allInputs[i]).closest('.panel').attr('id'))
                     }
