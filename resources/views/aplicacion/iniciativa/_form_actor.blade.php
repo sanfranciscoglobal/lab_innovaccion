@@ -175,7 +175,10 @@
                                id="evento_direccion"
                                data-adresscontainer="0"
                                name="Ubicaciones[0][direccion]"
-                               value="{{($model->iniciativaActor)?$model->iniciativaActor->direccion:''}}"/>
+                               value="{{($model->iniciativaActor)?$model->iniciativaActor->direccion:''}}"
+                               data-latitud = '-0.1626484'
+                               data-longitud = '-78.4606464'
+                        />
                         <input type="hidden" class="form-control lat lat-0" name="Ubicaciones[0][latitud]" value="">
                         <input type="hidden" class="form-control long long-0" name="Ubicaciones[0][longitud]" value="">
                         <input type="hidden" class="form-control localidad localidad-0" name="Ubicaciones[0][localidad]"
