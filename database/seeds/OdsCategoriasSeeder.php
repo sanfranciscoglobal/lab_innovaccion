@@ -16,8 +16,8 @@ class OdsCategoriasSeeder extends Seeder
         $sql .= 'TRUNCATE ods_categorias CASCADE;';
         DB::connection()->getPdo()->exec($sql);
 
-        OdsCategoria::create(['nombre' => 'Poner fin a la pobreza']);
-        OdsCategoria::create(['nombre' => 'Hambre y seguridad alimentaria']);
+        OdsCategoria::create(['nombre' => 'Fin de la pobreza']);
+        OdsCategoria::create(['nombre' => 'Hambre cero']);
         OdsCategoria::create(['nombre' => 'Salud y bienestar']);
         OdsCategoria::create(['nombre' => 'Educación de calidad']);
         OdsCategoria::create(['nombre' => 'Igualdad de género']);
