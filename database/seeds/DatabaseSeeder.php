@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             TipoSectorSeeder::class,
             TipoSubsectorSeeder::class,
             ObjetivosDesarrolloSeeder::class,
-            //BackupSeeder::class,
+            BackupSeeder::class,
             //ConvocatoriaSeeder::class,
             NivelSolucionSeeder::class,
             SectorSolucionSeeder::class,
