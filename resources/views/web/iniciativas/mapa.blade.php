@@ -6,7 +6,7 @@
                         
                   
                                 <div  style="margin: 2% 0% 0% 1%; position:absolute; z-index:10; width: 90%;">
-                                    <div class="offset-lg-2 offset-rg-2">
+                                    <div class="offset-lg-2 offset-rg-2 align-items-center">
                                         <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-2">
                                             <div class="row">
                                                 <div class="col-3">
@@ -44,7 +44,7 @@
                                         @error('longitud')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
 
         <div  style="margin: 40% 0% 0% 1%; position:absolute; z-index:10; width: 85%;">
-            <div class="offset-lg-3 offset-rg-2">
+            <div class="offset-lg-3 offset-rg-2 align-items-center">
                 <div class=" d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-2">
                 <form action="{{route('web.iniciativas.data')}}" method="POST">
                                 @method('POST')
