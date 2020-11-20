@@ -10,6 +10,15 @@ class OdsCategoria extends Model
     public static $search = null;
     protected $table = 'ods_categorias';
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function IniciativaOds()
+    {
+        return $this->hasMany(IniciativaOds::class, 'ods_categoria_id', 'id');
+    }
+
     /**
      * @return Builder
      */

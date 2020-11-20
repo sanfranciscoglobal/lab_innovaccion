@@ -258,5 +258,9 @@ class Iniciativas extends Model
         return $rs->paginate(self::$paginate) ?? [];
     }
 
+    public static function obtenerIniciativasCount()
+    {
+        return self::builderIniciativa()->count() ?? 0;
+    }
 
 }

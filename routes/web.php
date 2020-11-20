@@ -181,9 +181,9 @@ Route::as('admin.')
     ->group(
         function () {
             // Route::resource('abreviatura', 'AbreviaturaController');
-            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
-            Route::get('/escritorio/inicial', 'Backend\EscritorioController@verInicial')->name('escritorio.incial');
-            Route::get('/escritorio/convocatorias', 'Backend\EscritorioController@verConvocatoria')->name('escritorio.convocatoria');
+            Route::get('dashboard', 'Backend\DashboardController@dashboard')->name('escritorio');
+            Route::get('/escritorio/inicial', 'Backend\DashboardController@verInicial')->name('escritorio.incial');
+            Route::get('/escritorio/convocatorias', 'Backend\DashboardController@verConvocatoria')->name('escritorio.convocatoria');
             /** Rutas Innovacion */
             //FASE A
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
