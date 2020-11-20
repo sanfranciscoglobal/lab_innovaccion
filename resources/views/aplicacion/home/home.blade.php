@@ -85,19 +85,19 @@
     </section>
 
     <!-- Demos-->
-    <section class="bg-secondary" id="demos">
+    <section class="bg-secondary fondoseccion" id="demos">
         <div class="container pt-5 pb-4 py-md-6 py-lg-7">
             <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class="text-mora h1 mb-4 uppercase">Eventos</span>
+                <h3 class=" h1 mb-4 eventos-titulo uppercase">Eventos</span>
                 </h3>
-                <p>Mira nuestros próximos eventos</p>
+                <p class="textoeventos">Mira nuestros próximos eventos</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center text-tomate">Hackaton</h3>
+                            <h3 class="h5 mb-0 text-center textoevento">Hackaton</h3>
                         </div>
                     </a>
                 </div>
@@ -105,7 +105,7 @@
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/03.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center text-tomate">Conferencia de innovación</h3>
+                            <h3 class="h5 mb-0 text-center textoevento">Conferencia de innovación</h3>
                         </div>
                     </a>
                 </div>
@@ -113,14 +113,14 @@
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/01.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center text-tomate">Webinar de innovación</h3>
+                            <h3 class="h5 mb-0 text-center textoevento">Webinar de innovación</h3>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <a class="btn btn-primary " style=" width: 17%;border-color:#B5095B;background-color:#B5095B;" href="/eventos/">Ver Todos</a>
+                    <a class="btn font-weight-bold botonmora " style=" width: 17%;border-color:#B5095B;background-color:#B5095B;" href="/eventos/">Ver todos</a>
                 </div>
             </div>
         </div>
@@ -247,20 +247,20 @@
     <section class="container py-4 pt-md-6 pt-lg-7 pb-md-5">
         <div class="row pb-lg-4 pt-3">
             <div class="col-lg-2 offset-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">8050</h3>
-                <p class="text-muted font-size-lg mb-0">Convocatorias</p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">8050</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Convocatorias</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">1500</h3>
-                <p class="text-muted font-size-lg mb-0">Iniciativas</p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">1500</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Iniciativas</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">40</h3>
-                <p class="text-muted font-size-lg mb-0">Fondos </p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">40</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Fondos </p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">18</h3>
-                <p class="text-muted font-size-lg mb-0">Publicaciones y herramientas</p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">18</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Publicaciones y herramientas</p>
             </div>
         </div>
     </section>
