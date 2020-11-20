@@ -34,16 +34,15 @@
                         Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
                 </div>
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/evento-baner1.png') }}" alt="Side banner"></div>
         </div>
     </section>
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <h2 class="h3 text-center text-primary">Indicaciones</h2>
-                    <p class="text-center">Caso 1. Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.<br>
-                    Caso 2. Revisa la lista de eventos y participa de estos espacios de intercambio.</p>
+                    {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
+                    <p class="text-center font-size-lg">Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</p>
 
                     @if ($autentificacion)
                         <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.eventos')}}">Publicar evento</a>
@@ -94,7 +93,7 @@
             </div>
         </form>
     </section>
-
+    <p class="text-center font-size-lg pt-4">Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</p>
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <div class="row mb-4">
             @foreach ($eventos as $evento)

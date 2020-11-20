@@ -116,14 +116,21 @@ class crudMaterialesaprendizaje extends Controller
         $material->delete();
         return redirect()->route('app.escritorio.material')->with('status', 'Material eliminado con éxito');
     }
-    public function comment(ComentarioPost $request, MaterialAprendizaje $material) {
-        $validatedData=$request->validated();
-        if($comentario=MaterialComentario::create($validatedData)){
-            $comentario->user_id = auth()->id();
-            $comentario->save();
-            return redirect()->route('material.detalle',$material->id)->with('status', 'Comentario registrado con éxito');
-        }
+    // public function comment(ComentarioPost $request, MaterialAprendizaje $material) {
+
+    //     if (Auth::check()) {
+    //         $validatedData=$request->validated();
+    //         if($comentario=MaterialComentario::create($validatedData)){
+    //             $comentario->user_id = auth()->id();
+    //             $comentario->save();
+    //             return redirect()->route('material.detalle',$material->id)->with('status', 'Comentario registrado con éxito');
+    //         }
+    //     }
+    //     else{
+    //         return redirect()->route('material')->with('status', 'Debe registrarse para ingresar un comentario.');
+    //     }
+        
             
         
-    }
+    // }
 }
