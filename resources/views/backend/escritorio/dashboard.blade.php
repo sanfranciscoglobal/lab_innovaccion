@@ -53,7 +53,7 @@
                              style="max-width: 264px;">
                             <a class="d-block" href="#">
                                 <img class="d-block rounded-circle" width="70"
-                                     src="{{($usuario->perfil)?asset('storage/perfil/'.$usuario->perfil->avatar):''}}"
+                                     src="{{($usuario->perfil && $usuario->perfil->avatar)?asset('storage/perfil/'.$usuario->perfil->avatar):asset('img/demo/presentation/logo/logo-icon-footer.png')}}"
                                      alt="{{$usuario->name}}">
                             </a>
                             <div class="media-body pl-3">
@@ -71,8 +71,8 @@
         </div>
         <div class="col col-lg-6">
             <div class="card card-hover py-4 px-4">
-                {{--<h2 class="h4 mb-3">ODS</h2>--}}
-                <!-- Dark table with hoverable rows -->
+            {{--<h2 class="h4 mb-3">ODS</h2>--}}
+            <!-- Dark table with hoverable rows -->
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead class="thead-dark">
