@@ -89,7 +89,7 @@
                                     <div class="col-8 ">
                                         <div class="form-group m-publicacion m-herramienta d-none">
                                             <label for="mat_url" id="label_url">* Fuente de la publicación</label>
-                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             <div class="invalid-feedback" id='url-error'></div>
                                         </div>
                                     </div>
@@ -103,10 +103,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8 m-publicacion d-none">
-                                        {{-- <div class="form-group">
-                                            <label for="mat_fecha">* Fecha de publicación</label>
-                                            <input class="form-control" type="date" id="mat_fecha" value="{{isset($material->fecha_publicacion)?$material->fecha_publicacion:old('fecha_publicacion')}}" name="fecha_publicacion" oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                        </div> --}}
+                                        
                                         <div class="form-group">
                                             <label class="form-label">* Fecha de publicación</label>
                                             <div class="input-group-overlay">
@@ -127,23 +124,23 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
+                                            <label for="mat_adjuntar">Adjuntar archivos <span style="color: gray">(max. 2Mb)</span></label>
                                             
-
                                             @if ($method=='PUT')
 
-                                                <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]"
+                                                <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" name="mat_files[]"
                                                 data-default-file=
                                                         "@foreach ($material->articuloss as $articulo)
                                                             {{$articulo->nombre}}
                                                             <br>
-
                                                         @endforeach"
 
-                                                multiple/>
+                                                multiple>
                                             @else
-                                                <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" value="" name="mat_files[]" multiple/>
+                                                <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" name="mat_files[]" multiple>
+                                                @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             @endif
-                                            @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                            
 
                                         </div>
                                         
@@ -200,7 +197,6 @@
                                     
                                     <img class="dropify" disabled id="evento_img" data-default-file="">
                                     
-
                                 </div>
                                 <hr class="mt-2 mb-4">
                                 <div class="custom-control custom-checkbox d-block">
