@@ -120,7 +120,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <a class="btn font-weight-bold botonmora " style=" width: 17%;border-color:#B5095B;background-color:#B5095B;" href="/eventos/">Ver todos</a>
+                    <a class="btn font-weight-bold botonmora " style=" width: 17%;" href="/eventos/">Ver todos</a>
                 </div>
             </div>
         </div>
@@ -140,25 +140,32 @@
             <div class="cs-carousel-inner"
                 data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 16},&quot;850&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 16}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 23}}}">
                 <!-- Article-->
+                
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Fondos</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                            <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
+                            @if($fondos->fuente)
+                                <a class="meta-link font-size-sm mb-2" href="#">Propia</a>
+                            @else
+                                <a class="meta-link font-size-sm mb-2" href="#">Organización</a>
+                            @endif
                             <h3 class="h4 nav-heading mb-4">
-                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                            
+                                <a href="#">{{ $fondos->nombre_fondo }}</a>
                             </h3>
+                            {{ $fondos->info }}
                         </div>
+                            
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile1.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
-                                        1</span></div>
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1"> {{ $fondos->organizacion }}</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
-                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
+                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;{{$fondos->fecha_inicio}}
                                 </a>
                             </div>
                         </div>
@@ -169,7 +176,11 @@
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                            <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
+                        @if($fondos->fuente)
+                            <a class="meta-link font-size-sm mb-2" href="#">Propia</a>
+                        @else
+                            <a class="meta-link font-size-sm mb-2" href="#">Organización</a>
+                        @endif
                             <h3 class="h4 nav-heading mb-4">
                                 <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
                             </h3>
@@ -219,21 +230,28 @@
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicaciones y herramientas</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                            <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
+                        @if($materiales->tipo)
+                                    <a class="meta-link font-size-sm mb-2" href="#">Publicación</a>
+                                @else
+                                    <a class="meta-link font-size-sm mb-2" href="#">Herramienta</a>
+                                @endif
                             <h3 class="h4 nav-heading mb-4">
-                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                               
+                                {{ $materiales->nombre_publicacion }}
                             </h3>
+                            {{ $materiales->fuente_publicacion }}
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile4.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Empresa
-                                        1</span></div>
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">
+                                {{ $materiales->autor_publicacion }}
+                                </span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
-                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
+                                    <i class="fe-calendar mr-1 mt-n1 "></i>&nbsp;{{ $materiales->fecha_publicacion }}
                                 </a>
                             </div>
                         </div>

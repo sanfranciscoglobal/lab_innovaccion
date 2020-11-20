@@ -9,6 +9,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+
+use App\Models\Fondo;
+use App\Models\EstadoRegistro;
+use App\Models\IniciativaActor;
+use App\Models\IniciativaContacto;
+use App\Models\IniciativaInformacion;
+use App\Models\IniciativaInstitucion;
+use App\Models\IniciativaOds;
+use App\Models\IniciativaOrigen;
+use App\Models\IniciativaPoblacion;
+use App\Models\Iniciativas;
+use App\Models\IniciativaUbicacion;
+use App\Models\MaterialAprendizaje;
 class HomeController extends Controller
 {
     /**
@@ -16,6 +29,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function home(Request $request)
+    {
+        
+        $fondos = Fondo::latest()->first();
+        //$fondos->updated_at->format('Y-m-d H:i:s');
+        //Iniciativas::$paginate = 1;
+        $iniciativas = Iniciativas::latest()->first();
+        //$iniciativas->updated_at->format('Y-m-d H:i:s');
+
+        $materiales = MaterialAprendizaje::latest()->first();;
+        //return compact('fondos','materiales','iniciativas');
+        return view('aplicacion.home.home',compact('fondos','iniciativas','materiales'));
+    }
     public function contacto(Request $request)
     {
         $contacto = new Contacto();
