@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 /** RUTAS PUBLICAS */
 // Index
-Route::get('/', function () {
-    return view('aplicacion.home.home');
-})->name('home');
+Route::get('/', 'Aplicacion\HomeController@home')->name('home');
 Route::get('/acerca-de', function () {
     return view('aplicacion.acerca.acerca');
 })->name('acercade');
@@ -59,11 +57,15 @@ Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
 Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');
 Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
-Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
-Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
+Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@verDetalle')->name('material.detalle');
+Route::get('/publicacion-herramienta/download/{articulo}', 'Aplicacion\MaterialdeaprendizajeController@download')->name('material.download');
+Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\MaterialdeaprendizajeController@comment')->name('material-de-aprendizaje.comentario');
+// Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
+// Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
-Route::get('gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
+Route::get('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
+
 
 
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
@@ -121,6 +123,7 @@ Route::as('app.')
             Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@edit')->name('material-de-aprendizaje.edit');
             Route::put('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@update')->name('material-de-aprendizaje.put');
             Route::delete('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@destroy')->name('material-de-aprendizaje.delete');
+            // Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\crudMaterialesaprendizaje@comment')->name('material-de-aprendizaje.comentario');
 
             // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
              Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
@@ -178,9 +181,9 @@ Route::as('admin.')
     ->group(
         function () {
             // Route::resource('abreviatura', 'AbreviaturaController');
-            Route::get('escritorio', 'Backend\EscritorioController@escritorio')->name('escritorio');
-            Route::get('/escritorio/inicial', 'Backend\EscritorioController@verInicial')->name('escritorio.incial');
-            Route::get('/escritorio/convocatorias', 'Backend\EscritorioController@verConvocatoria')->name('escritorio.convocatoria');
+            Route::get('dashboard', 'Backend\DashboardController@dashboard')->name('escritorio');
+            Route::get('/escritorio/inicial', 'Backend\DashboardController@verInicial')->name('escritorio.incial');
+            Route::get('/escritorio/convocatorias', 'Backend\DashboardController@verConvocatoria')->name('escritorio.convocatoria');
             /** Rutas Innovacion */
             //FASE A
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');

@@ -10,12 +10,21 @@ class OdsCategoria extends Model
     public static $search = null;
     protected $table = 'ods_categorias';
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function IniciativaOds()
+    {
+        return $this->hasMany(IniciativaOds::class, 'ods_categoria_id', 'id');
+    }
+
     /**
      * @return Builder
      */
     public static function builderOdsCategoria()
     {
-        $query = OdsCategoria::orderBy('created_at', request('created_at', 'DESC'));
+        $query = OdsCategoria::orderBy('ods_categorias.id', request('created_at', 'ASC'));
 
         if (self::$search) {
             //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');

@@ -28,22 +28,21 @@
     <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Eventos</h1>
+                <h1 class="mt-5 text-primary">Eventos</h1>
                 <div class="py-3">
                     <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!<br>
                         Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
                 </div>
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/evento-baner1.png') }}" alt="Side banner"></div>
         </div>
     </section>
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <h2 class="h3 text-center">Indicaciones</h2>
-                    <p class="text-center">Caso 1. Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.<br>
-                    Caso 2. Revisa la lista de eventos y participa de estos espacios de intercambio.</p>
+                    {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
+                    <p class="text-center font-size-lg">Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</p>
 
                     @if ($autentificacion)
                         <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.eventos')}}">Publicar evento</a>
@@ -59,7 +58,7 @@
             @method("POST")
             <div class="d-sm-flex align-items-center px-4 pt-4 pb-3">
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label class="form-label" for="to-destination" style="color: #a13d8f">Tipo de evento</label>
+                    <label class="form-label font-weight-bold" for="to-destination" style="color: #a13d8f">Tipo de evento</label>
                     <select class="form-control custom-select" id="to-destination" name="tipoevento">
                         <option value="" selected disabled hidden>Seleccione un tipo</option>
                         <option value="2">Todos</option>
@@ -70,7 +69,7 @@
 
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label class="form-label" for="from-destination" style="color: #a13d8f">Cantón</label>
+                    <label class="form-label font-weight-bold" for="from-destination" style="color: #a13d8f">Cantón</label>
              
                     <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
                             data-ajax--url="{{route('api.canton.select2')}}"
@@ -94,18 +93,21 @@
             </div>
         </form>
     </section>
-
+    <p class="text-center font-size-lg pt-4">Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</p>
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <div class="row mb-4">
             @foreach ($eventos as $evento)
                 
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                    
-                    <div class="card card-hover border-0 box-shadow mx-auto" data-href="{{route('eventodetalle',$evento->id)}}" style="max-width: 400px;">
-                        <img class="card-img-top" style="height: 58ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
-                        <div class="card-body text-center">
-                            <a class=" meta-link font-size-lg font-weight-bold align-items-center" href="{{route('eventodetalle',$evento->id)}}">{{$evento->nombre}}</a>
-                        </div>
+                    <div class="card  border-0 box-shadow mx-auto" style="max-width: 400px;">
+                        <a class="media meta-link font-size-sm align-items-center" href="{{route('eventodetalle',$evento->id)}}">
+                            <img class="card-img-top" style="height: 58ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
+                            <div class="card-body text-center">
+                                <a class=" meta-link font-size-lg font-weight-bold align-items-center text-primary" href="{{route('eventodetalle',$evento->id)}}">{{$evento->nombre}}</a>
+                            </div>
+                        </a>
+                        
                         
                     </div>
                 </div>

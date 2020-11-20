@@ -12,25 +12,24 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            
+            RolesSeeder::class,
+            
+            OdsCategoriasSeeder::class,
+            NivelSolucionSeeder::class,
+            IniciativaOrigenSeeder::class,
             EstadoRegistroSeeder::class,
+            SectorSolucionSeeder::class,
+            TipoInstitucionSeeder::class,
+            TipoPoblacionSeeder::class,
+            TipoPropuestaSeeder::class,
+            TipoSubConvocatoriaSeeder::class,
             ProvinciaSeeder::class,
             CantonSeeder::class,
-            TipoInstitucionSeeder::class,
-            IniciativaOrigenSeeder::class,
-            TipoPoblacionSeeder::class,
-            OdsCategoriasSeeder::class,
-            RolesSeeder::class,
-            UsersSeeder::class,
-            TipoSubConvocatoriaSeeder::class,
+            BackupSeeder::class,
             TipoSectorSeeder::class,
             TipoSubsectorSeeder::class,
-            ObjetivosDesarrolloSeeder::class,
-            ConvocarotiaSeeder::class,
-            BackupSeeder::class,
             ConvocatoriaSeeder::class,
-            NivelSolucionSeeder::class,
-            SectorSolucionSeeder::class,
-            TipoPropuestaSeeder::class,
         ]);
     }
 }

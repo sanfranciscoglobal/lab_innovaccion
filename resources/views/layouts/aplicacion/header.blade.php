@@ -33,12 +33,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand order-lg-1 ml-lg-0 pr-lg-2 mr-lg-4 justify-content-start" href="{{route('home')}}">
-            <img class="d-none d-lg-block my-2" width="80"
+            <img class="navbar-floating-logo d-none d-lg-block my-2" style="width: 150px;max-width: none;" width="100"
                  src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
-            <img class="navbar-stuck-logo my-1" width="60" src="{{asset('img/logo/thinkia_color.svg')}}"
+            <img class="navbar-stuck-logo my-1" style="width: 150px;max-width: none;" src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
-            <img class="d-lg-none" width="58" src="{{asset('img/logo/thinkia_color.svg')}}"
+            <img class="d-lg-none" width="100" src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
         </a>
         <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
@@ -96,7 +96,7 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Gestión de Innovación</a>
+                        <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">Gestión de Innovación</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/identificacion-de-problemas/">Innovación abierta</a>
                             </li>
@@ -105,7 +105,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
+                        <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('web.iniciativas.index')}}">Mapa de
                                     iniciativas</a></li>
@@ -113,19 +113,19 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="/mapa/">Mapa</a>
+                        <a class="nav-link font-weight-bold" href="/mapa/">Mapa</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Recursos</a>
+                        <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('fondos')}}">Fondos</a></li>
-                            <li><a class="dropdown-item" href="{{route('eventos')}}">Eventos</a></li>
-                            <li><a class="dropdown-item" href="{{route('material')}}">Publicaciones y herramientas</a>
+                            <li><a class="dropdown-item " href="{{route('fondos')}}">Fondos</a></li>
+                            <li><a class="dropdown-item " href="{{route('eventos')}}">Eventos</a></li>
+                            <li><a class="dropdown-item " href="{{route('material')}}">Publicaciones y herramientas</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Nosotros</a>
+                        <a class="nav-link dropdown-toggle font-weight-bold font-weight-bold" href="#" data-toggle="dropdown">Nosotros</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('acercade') }}">Acerca de</a></li>
                             <li><a class="dropdown-item" href="{{ route('faq') }}">Preguntas frecuentes</a></li>

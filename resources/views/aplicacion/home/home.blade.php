@@ -85,19 +85,19 @@
     </section>
 
     <!-- Demos-->
-    <section class="bg-secondary" id="demos">
+    <section class="bg-secondary fondoseccion" id="demos">
         <div class="container pt-5 pb-4 py-md-6 py-lg-7">
             <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class="text-mora h1 mb-4 uppercase">Eventos</span>
+                <h3 class=" h1 mb-4 eventos-titulo uppercase">Eventos</span>
                 </h3>
-                <p>Mira nuestros próximos eventos</p>
+                <p class="textoeventos">Mira nuestros próximos eventos</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center text-tomate">Hackaton</h3>
+                            <h3 class="h5 mb-0 text-center textoevento">Hackaton</h3>
                         </div>
                     </a>
                 </div>
@@ -105,7 +105,7 @@
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/03.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center text-tomate">Conferencia de innovación</h3>
+                            <h3 class="h5 mb-0 text-center textoevento">Conferencia de innovación</h3>
                         </div>
                     </a>
                 </div>
@@ -113,14 +113,14 @@
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/01.jpg') }}" alt="Life Science" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center text-tomate">Webinar de innovación</h3>
+                            <h3 class="h5 mb-0 text-center textoevento">Webinar de innovación</h3>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <a class="btn btn-primary " style=" width: 17%;border-color:#B5095B;background-color:#B5095B;" href="/eventos/">Ver Todos</a>
+                    <a class="btn font-weight-bold botonmora " style=" width: 17%;" href="/eventos/">Ver todos</a>
                 </div>
             </div>
         </div>
@@ -140,25 +140,32 @@
             <div class="cs-carousel-inner"
                 data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 16},&quot;850&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 16}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 23}}}">
                 <!-- Article-->
+                
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Fondos</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                            <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
+                            @if($fondos->fuente)
+                                <a class="meta-link font-size-sm mb-2" href="#">Propia</a>
+                            @else
+                                <a class="meta-link font-size-sm mb-2" href="#">Organización</a>
+                            @endif
                             <h3 class="h4 nav-heading mb-4">
-                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                            
+                                <a href="#">{{ $fondos->nombre_fondo }}</a>
                             </h3>
+                            {{ $fondos->info }}
                         </div>
+                            
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile1.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
-                                        1</span></div>
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1"> {{ $fondos->organizacion }}</span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
-                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
+                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;{{$fondos->fecha_inicio}}
                                 </a>
                             </div>
                         </div>
@@ -169,7 +176,11 @@
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                            <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
+                        @if($fondos->fuente)
+                            <a class="meta-link font-size-sm mb-2" href="#">Propia</a>
+                        @else
+                            <a class="meta-link font-size-sm mb-2" href="#">Organización</a>
+                        @endif
                             <h3 class="h4 nav-heading mb-4">
                                 <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
                             </h3>
@@ -219,21 +230,28 @@
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicaciones y herramientas</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                            <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
+                        @if($materiales->tipo)
+                                    <a class="meta-link font-size-sm mb-2" href="#">Publicación</a>
+                                @else
+                                    <a class="meta-link font-size-sm mb-2" href="#">Herramienta</a>
+                                @endif
                             <h3 class="h4 nav-heading mb-4">
-                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                               
+                                {{ $materiales->nombre_publicacion }}
                             </h3>
+                            {{ $materiales->fuente_publicacion }}
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile4.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1">por<span class="font-weight-semibold ml-1">Empresa
-                                        1</span></div>
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">
+                                {{ $materiales->autor_publicacion }}
+                                </span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
-                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
+                                    <i class="fe-calendar mr-1 mt-n1 "></i>&nbsp;{{ $materiales->fecha_publicacion }}
                                 </a>
                             </div>
                         </div>
@@ -247,20 +265,20 @@
     <section class="container py-4 pt-md-6 pt-lg-7 pb-md-5">
         <div class="row pb-lg-4 pt-3">
             <div class="col-lg-2 offset-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">8050</h3>
-                <p class="text-muted font-size-lg mb-0">Convocatorias</p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">8050</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Convocatorias</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">1500</h3>
-                <p class="text-muted font-size-lg mb-0">Iniciativas</p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">1500</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Iniciativas</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">40</h3>
-                <p class="text-muted font-size-lg mb-0">Fondos </p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">40</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Fondos </p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0">18</h3>
-                <p class="text-muted font-size-lg mb-0">Publicaciones y herramientas</p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">18</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Publicaciones y herramientas</p>
             </div>
         </div>
     </section>
