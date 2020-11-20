@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -55,16 +56,32 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Perfil::class);
     }
 
-    public function hasRole($role){
+    public function hasRole($role)
+    {
         return $this->roles()->where('name', $role)->exists();
     }
 
     public function perfilUser()
     {
-        return $this->belongsTo(Perfil::class,'perfil_id','id');
+        return $this->belongsTo(Perfil::class, 'perfil_id', 'id');
     }
 
-    public function fondos(){
+    public function fondos()
+    {
         return $this->hasMany(Fondo::class);
+    }
+
+    /**
+     * @return Builder
+     */
+    public static function builder()
+    {
+        $rs = User::orderby('created_at', 'DESC');
+        return $rs;
+    }
+
+    public static function obtenerUsuariosLimit($limit)
+    {
+        return self::builder()->limit($limit)->get() ?? [0];
     }
 }
