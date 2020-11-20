@@ -67,7 +67,7 @@
                         </select>
 
                         <div class="invalid-feedback">Por favor seleccione población objetivo de la iniciativa</div>
-
+                        <div class="valid-feedback">Ok!</div>
                     </div>
                 </div>
             </div>
@@ -90,6 +90,7 @@
                             @endif
                         </select>
                         <div class="invalid-feedback">Por favor seleccione trabajo de la iniciativa por ODS</div>
+                        <div class="valid-feedback">Ok!</div>
                     </div>
                 </div>
             </div>
@@ -166,7 +167,7 @@
                                        name='logo'
                                        class="cs-file-drop-input"
                                        required
-                                       {{--data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"--}}
+                                        {{--data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"--}}
                                 >
                                 <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">
                                     O seleccione una imagen

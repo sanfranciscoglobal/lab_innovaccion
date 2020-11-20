@@ -14,8 +14,8 @@
                     <input maxlength="200" type="text" required="required" class="form-control"
                            placeholder="Nombre de la organización" name="nombre_organizacion"
                            value="{{($model->iniciativaActor)?$model->iniciativaActor->nombre_organizacion:''}}"
-                           {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
-                           {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
+                            {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
+                            {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
                     />
                     {{--<div class="invalid-feedback">Por favor ingresar Nombre de la organización</div>--}}
                     {{--<div class="valid-feedback"><i class="fe-check-circle"></i></div>--}}
@@ -66,6 +66,7 @@
                         @endif
                     </select>
                     <div class="invalid-feedback">Por favor seleccione tipo de institución</div>
+                    <div class="valid-feedback">Ok!</div>
                 </div>
             </div>
         </div>
@@ -176,8 +177,8 @@
                                data-adresscontainer="0"
                                name="Ubicaciones[0][direccion]"
                                value="{{($model->iniciativaActor)?$model->iniciativaActor->direccion:''}}"
-                               data-latitud = '-0.1626484'
-                               data-longitud = '-78.4606464'
+                               data-latitud='-0.1626484'
+                               data-longitud='-78.4606464'
                         />
                         <input type="hidden" class="form-control lat lat-0" name="Ubicaciones[0][latitud]" value="">
                         <input type="hidden" class="form-control long long-0" name="Ubicaciones[0][longitud]" value="">
