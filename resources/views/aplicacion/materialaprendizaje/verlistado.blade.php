@@ -43,7 +43,7 @@
                             {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
                             <p class="text-center font-size-lg">Publica el artículo o herramienta en el formulario a continuación.</p>
                             @if ($autentificacion)
-                            <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.material-de-aprendizaje.post')}}">Publica un artículo o herramienta</a>
+                            <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.material-de-aprendizaje.post')}}">Publica un artículo o herramienta.</a>
                             </p>
                             <p class="font-size-lg">Revisa y descarga el material de aprendiaje y deja tus comentarios en los foros respectivos de cada publicación.</p>
                         @endif
