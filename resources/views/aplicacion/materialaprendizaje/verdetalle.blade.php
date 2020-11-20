@@ -124,7 +124,7 @@
             
             <div class="card-footer text-center font-size-sm text-muted">
 
-                <form action="{{route("app.material-de-aprendizaje.comentario",$material->id)}}" class="needs-validation" novalidate>
+                <form action="{{route("material-de-aprendizaje.comentario",$material->id)}}" class="needs-validation" novalidate>
                     <input type="hidden" name="material_id" value="{{$material->id}}">
                     <div class="pb-2">
                         <div class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1 text-left" style="padding: 2%; background:#f2f2f2">

@@ -9,12 +9,13 @@
                 <div class="py-3">
                     <p class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!<br>
                         Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</p>
+                    
                 </div>
                 <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
                     video</span>
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/material-baner1.png') }}" alt="Side banner"></div>
         </div>
     </section>
 
@@ -39,9 +40,13 @@
                     <!-- Post-->
                     <div class="row">
                         <div class="col">
-                            <h2 class="h3 text-center text-primary">Indicaciones</h2>
-                            <p>Caso 1. Publica el artículo o herramienta en el formulario.<br>
-                            Caso 2. Revisa y descarga el material de aprendizaje y deja tus comentarios en los foros respectivos de cada publicación.</p>
+                            {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
+                            <p class="text-center font-size-lg">Publica el artículo o herramienta en el formulario a continuación.</p>
+                            @if ($autentificacion)
+                            <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.material-de-aprendizaje.post')}}">Publica un artículo o herramienta.</a>
+                            </p>
+                            <p class="font-size-lg">Revisa y descarga el material de aprendiaje y deja tus comentarios en los foros respectivos de cada publicación.</p>
+                        @endif
                             
                         </div>
                     </div>
