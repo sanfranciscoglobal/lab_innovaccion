@@ -19,7 +19,7 @@ class EscritorioController extends Controller
      */
     public function escritorio(Request $request)
     {
-        return view('backend.escritorio.inicialvista');
+        return view('backend.escritorio.dashboard');
     }
     // public function verEscritorio(Request $request)
     // {
