@@ -16,7 +16,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Gestion_Innovacion.png') }}"
                             alt="Icon" />
                         <a href="{{route('innovaciones')}}" class="media meta-link "><h3 class="fs-14 mb-2 uppercase text-mora"> Gestión de la Innovación </h3></a>
-                        <p class="font-size-sm mb-0">Recogemos con convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
+                        <p class="font-size-sm mb-0 text-justify">Recogemos con convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -24,7 +24,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Ecosistema_Innovacion.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-uva">Ecosistema de Innovación</h3>
-                        <p class="font-size-sm mb-0">Facilitamos la conexión entre agentes innovadores mapeando sus iniciativas para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
+                        <p class="font-size-sm mb-0 text-justify">Facilitamos la conexión entre agentes innovadores mapeando sus iniciativas para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -32,7 +32,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Mapa.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-naranja">Mapa</h3>
-                        <p class="font-size-sm mb-0">Promovemo la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
+                        <p class="font-size-sm mb-0 text-justify">Promovemo la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -40,7 +40,7 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Recursos.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-tomate">Recursos</h3>
-                        <p class="font-size-sm mb-0">Invitamos a compartir y recopilamos publicaciones, eventos, fondos y herramientas para promocionar conocimientos y oportunidades de innovación de manera colectiva.</p>
+                        <p class="font-size-sm mb-0 text-justify">Invitamos a compartir y recopilamos publicaciones, eventos, fondos y herramientas para promocionar conocimientos y oportunidades de innovación de manera colectiva.</p>
                     </div>
                 </div>
             </div>
@@ -57,25 +57,25 @@
                     <h2 class="mb-3 pb-1 text-white">Laboratorio de Innovación</h2>
                     <div class="row">
                     <div class="col">
-                    <p>Thinkia es un espacio que promueve el encuentro de diversos actores - academia, público, privado y sociedad civil - para trabajar de manera colaborativa y creativa en innovación. </p>
+                    <p class="text-justify">Thinkia es un espacio que promueve el encuentro de diversos actores - academia, público, privado y sociedad civil - para trabajar de manera colaborativa y creativa en innovación. </p>
                     </div>
                     <div class="col">
                     <ul class="list-unstyled font-size-sm">
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span>Conoce y conéctate con otros innovadores. </span>
+                            <span class="text-justify">Conoce y conéctate con otros innovadores. </span>
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span>Aprende y profundiza sobre metodologías de innovación.</span>
+                            <span class="text-justify">Aprende y profundiza sobre metodologías de innovación.</span>
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span>Comparte tus retos e intenta darles una solución desde otro enfoque.</span>
+                            <span class="text-justify">Comparte tus retos e intenta darles una solución desde otro enfoque.</span>
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span>Propón soluciones efectivas y de ágil implementación.</span>
+                            <span class="text-justify">Propón soluciones efectivas y de ágil implementación.</span>
                         </li>
                     </ul>
                     </div>
