@@ -24,7 +24,7 @@
     </div>
     <div class="controls-container mb-3">
         <label for="pdf">* Describe cómo le afecta al sector/grupo social en el cual detecatse el problema (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="4" name="descripcion_grupo" placeholder="CUANDO el grupo comunitario de mujeres QUIEREN comercializar mayores volúmenes SON AFECTADOS POR las características del producto que no aprovecha con acabados, imagén, empaque, información un mejor desempeño en el mercado." required>{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
+        <textarea class="form-control" id="textarea-input" rows="4" name="descripcion_grupo" minlength="10" maxlength="500" placeholder="CUANDO el grupo comunitario de mujeres QUIEREN comercializar mayores volúmenes SON AFECTADOS POR las características del producto que no aprovecha con acabados, imagén, empaque, información un mejor desempeño en el mercado." required>{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
         @error('descripcion_grupo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3">

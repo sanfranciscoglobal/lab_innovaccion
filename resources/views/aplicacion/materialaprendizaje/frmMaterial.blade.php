@@ -89,7 +89,7 @@
                                     <div class="col-8 ">
                                         <div class="form-group m-publicacion m-herramienta d-none">
                                             <label for="mat_url" id="label_url">* Fuente de la publicación</label>
-                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             <div class="invalid-feedback" id='url-error'></div>
                                         </div>
                                     </div>
@@ -127,7 +127,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="mat_files">Adjuntar archivos<span style="color: gray">(max. 2 Mb)</span></label>
+                                            
 
                                             @if ($method=='PUT')
 
@@ -141,7 +141,7 @@
 
                                                 multiple/>
                                             @else
-                                                <input class="form-control dropify" type="file" id="mat_adjuntar" value="" name="mat_files[]" multiple/>
+                                                <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" value="" name="mat_files[]" multiple/>
                                             @endif
                                             @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
 
@@ -194,22 +194,10 @@
                                           <div class="valid-feedback">Ok!</div>
                                         </div>
                                     </div>
-                                    {{-- <select class="form-control select2" name="tipo_documento" oninvalid="setCustomValidity('Por favor seleccione una opción de la lista.')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                        <option value="">Seleccione un Tipo</option>
-                                        <option value="Tipo 1" {{old('tipo_documento',$material->tipo_documento)=="Tipo 1"? 'selected':''}}>Tipo 1</option>
-                                        <option value="Tipo 2" {{old('tipo_documento',$material->tipo_documento)=="Tipo 2"? 'selected':''}}>Tipo 2</option>
-                                        <option value="Tipo 3" {{old('tipo_documento',$material->tipo_documento)=="Tipo 3"? 'selected':''}}>Tipo 3</option>
-                                    </select> --}}
+                                    
                                 </div>
                                 <div class="form-group">
-                                    {{-- <label for="evento_img">* Imagen asociada a la temática</label>
-
-
-                                    @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" data-default-file="{{asset('storage/materiales').'/'.$material->imagen_portada}}">                            
-                                    @else
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="evento_img" value="" name="imagen_portada" oninvalid="setCustomValidity('Por favor seleccion una imagen.')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                    @endif --}}
+                                    
                                     <img class="dropify" disabled id="evento_img" data-default-file="">
                                     
 
@@ -290,7 +278,6 @@
     @endif
 @endsection
 @section('footer')
-{{--<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script>
     @if ($method=='PUT')
@@ -306,10 +293,7 @@
 
     function validateURL() {
          var $URL= document.getElementById("mat_url").value;
-         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$(:(\d+))?\/?/i;
-        //  var pattern_1 = /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;
-        //  var pattern_2 = /^(www)((\.[A-Z0-9][A-Z0-9_-]*)+.(com|org|net|dk|at|us|tv|info|uk|co.uk|biz|se)$)(:(\d+))?\/?/i;       
-        //  if((pattern_1.test($URL) || pattern_2.test($URL) )){
+         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$(:(\d+))?\/?/i;
         if(pattern.test($URL) ){
             // $("#url-error").removeClass('d-inline');
             $('#mat_url').removeClass('is-invalid');
@@ -322,12 +306,6 @@
             // $('#submitbutton').attr('disabled','disabled');
          }
        }
-
-    // CKEDITOR.replace('wysiwyg-editor', {
-    //     filebrowserUploadUrl: "{{route('app.ckeditor.image-upload', ['_token' => csrf_token() ])}}",
-    //     filebrowserUploadMethod: 'form'
-    // });
-    // CKEDITOR.config.height = 400;
 
    
 </script>
@@ -391,4 +369,5 @@
         });
 
 </script>
+
 @endsection

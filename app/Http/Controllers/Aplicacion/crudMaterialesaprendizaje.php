@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Models\MaterialAprendizaje;
 use App\Models\Articulo;
+use App\Models\MaterialComentario;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Materiales\StorePost;
 use App\Http\Requests\Materiales\UpdatePost;
+use App\Http\Requests\Materiales\ComentarioPost;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -27,7 +29,6 @@ class crudMaterialesaprendizaje extends Controller
     }
     public function store(StorePost $request){
        
-        
         try{
             $validatedData=$request->validated();
             
@@ -114,5 +115,15 @@ class crudMaterialesaprendizaje extends Controller
         Articulo::where('material_id',$material->id)->delete();
         $material->delete();
         return redirect()->route('app.escritorio.material')->with('status', 'Material eliminado con éxito');
+    }
+    public function comment(ComentarioPost $request, MaterialAprendizaje $material) {
+        $validatedData=$request->validated();
+        if($comentario=MaterialComentario::create($validatedData)){
+            $comentario->user_id = auth()->id();
+            $comentario->save();
+            return redirect()->route('material.detalle',$material->id)->with('status', 'Comentario registrado con éxito');
+        }
+            
+        
     }
 }

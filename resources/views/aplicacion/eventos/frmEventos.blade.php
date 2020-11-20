@@ -142,7 +142,7 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* Link del Evento</label>
-                                                        <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Link del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
+                                                        <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Link del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
                                                         <div class="invalid-feedback" id='url-error'></div>
                                                     </div>
                                                 </div>
@@ -160,7 +160,6 @@
                                                                     data-ajax--data-cache="true"
                                                                     data-allow-clear="true"
                                                                     data-placeholder="Seleccione un Cantón"
-                                                                    data-close-on-select="false"
                                                                     >
                                                                        
                                                                     </select>
@@ -343,7 +342,7 @@
     //funcion url
     function validateURL() {
          var $URL= document.getElementById("url").value;
-         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$(:(\d+))?\/?/i;
+         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$(:(\d+))?\/?/i;;
 
         if(pattern.test($URL) ){
             //$("#url-error").removeClass('d-inline');
