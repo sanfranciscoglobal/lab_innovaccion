@@ -86,7 +86,7 @@ class MaterialdeaprendizajeController extends Controller
             }
         }
         else{
-            return redirect()->route('home')->with('error', 'Debe registrarse para ingresar un comentario.');
+            return redirect()->route('home')->with('error', 'Debe iniciar sesión para ingresar un comentario.');
         }
         
             
