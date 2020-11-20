@@ -109,7 +109,7 @@
                                         <div class="col-md-12 to-hide d-none">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" maxlength="250" value="{{ old('info', $fondo->info) }}" name="info" placeholder="Link de la página web oficial del fondo" required>
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$" class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" maxlength="250" value="{{ old('info', $fondo->info) }}" name="info" placeholder="Link de la página web oficial del fondo" required>
                                                 @error('info')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                 <div class="invalid-feedback" id='url-error'></div>
                                             </div>
@@ -146,27 +146,27 @@
                                             <span>Redes Sociales</span>
                                             <div class="form-group">
                                                 <label for="org_twitter">Twitter</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" maxlength="250" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$" class="form-control @error('twitter') is-invalid @enderror" type="url" id="org_twitter" maxlength="250" value="{{ old('twitter', $fondo->twitter) }}" name="twitter" placeholder="Link a tu usuario">
                                                 @error('twitter')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_facebook">Facebook</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" maxlength="250" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$" class="form-control @error('facebook') is-invalid @enderror" type="url" id="org_facebook" maxlength="250" value="{{ old('facebook', $fondo->facebook) }}" name="facebook" placeholder="Link a tu usuario">
                                                 @error('facebook')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_linkedin">LinkedIn</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" maxlength="250" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$" class="form-control @error('linkedin') is-invalid @enderror" type="url" id="org_linkedin" maxlength="250" value="{{ old('linkedin', $fondo->linkedin) }}" name="linkedin" placeholder="Link a tu usuario">
                                                 @error('linkedin')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Instagram</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" maxlength="250" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$" class="form-control @error('instagram') is-invalid @enderror" type="url" id="org_instagram" maxlength="250" value="{{ old('instagram', $fondo->instagram) }}" name="instagram" placeholder="Link a tu usuario">
                                                 @error('instagram')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="org_instagram">Youtube</label>
-                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" class="form-control @error('youtube') is-invalid @enderror" type="url" id="org_youtube" maxlength="250" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
+                                                <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$" class="form-control @error('youtube') is-invalid @enderror" type="url" id="org_youtube" maxlength="250" value="{{ old('youtube', $fondo->youtube) }}" name="youtube" placeholder="Link a tu usuario">
                                                 @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>

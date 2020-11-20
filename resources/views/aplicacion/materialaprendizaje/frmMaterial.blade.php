@@ -89,7 +89,7 @@
                                     <div class="col-8 ">
                                         <div class="form-group m-publicacion m-herramienta d-none">
                                             <label for="mat_url" id="label_url">* Fuente de la publicación</label>
-                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             <div class="invalid-feedback" id='url-error'></div>
                                         </div>
                                     </div>
@@ -293,7 +293,7 @@
 
     function validateURL() {
          var $URL= document.getElementById("mat_url").value;
-         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$(:(\d+))?\/?/i;
+         var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$(:(\d+))?\/?/i;
         if(pattern.test($URL) ){
             // $("#url-error").removeClass('d-inline');
             $('#mat_url').removeClass('is-invalid');

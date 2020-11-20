@@ -49,23 +49,22 @@ class EventosController extends Controller
     {
         $autentificacion=false;
         if (Auth::check()) {
-            // The user is logged in...
             $autentificacion=true;
         }
-        $eventos = Evento::orderbyDesc('fecha','hora')->get();
+        $eventos = Evento::orderbyDesc('fecha','hora')->paginate(Evento::$paginate);
         if ($request->tipoevento!=null) {
             if($request->tipoevento!=2){
                 if ($request->canton!=null){
-                    $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->whereIn('canton',$request->canton)->get();
+                    $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->whereIn('canton',$request->canton)->paginate(Evento::$paginate);
                 }
                 else{
-                    $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->get();
+                    $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->paginate(Evento::$paginate);
 
                 }
 
             }
             else{
-                $eventos = Evento::orderbyDesc('fecha','hora')->get();
+                $eventos = Evento::orderbyDesc('fecha','hora')->paginate(Evento::$paginate);
             }
         }
         return view('aplicacion.eventos.eventos', compact('eventos','autentificacion'));

@@ -114,7 +114,7 @@ function initMap() {
 		console.log(place.formatted_address);
 		var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
 		marker.setPosition(Latlng);
-		//infowindow.setContent(place.formatted_address);
+		infowindow.setContent(place.formatted_address);
 		//infowindow.hideInfoWindow();
 		//infowindow.showInfoWindow();
 		map.panTo(Latlng);
