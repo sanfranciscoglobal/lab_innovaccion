@@ -1,0 +1,22 @@
+<svg id="hotspot" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <filter id="Oval" x="4" y="4" width="49" height="49" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.196"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Oval-2" data-name="Oval" fill="none" stroke="#8ac186" stroke-miterlimit="10" stroke-width="1">
+    <circle cx="28" cy="28" r="28" stroke="none"/>
+    <circle cx="28" cy="28" r="27.5" fill="none"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Oval)">
+    <circle id="Oval-3" data-name="Oval" cx="18.5" cy="18.5" r="18.5" transform="translate(10 10)" fill="#8ac186"/>
+  </g>
+  <g id="icon_plus" data-name="icon/plus" transform="translate(25 25)">
+    <path id="Path" d="M.5,0V7" transform="translate(3)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <path id="Path-2" data-name="Path" d="M0,.5H7" transform="translate(0 3)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  </g>
+</svg>

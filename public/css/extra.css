@@ -2,3 +2,12 @@
     font-size: 250%;
     color: black;
 }
+.linea{
+top: -229px;
+left: 798px;
+width: 971px;
+height: 971px;
+border: 80px solid var(--unnamed-color-ff7f00);
+border: 80px solid #FF7F00;
+opacity: 0.08;
+}
