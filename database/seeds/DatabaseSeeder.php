@@ -12,10 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            
             RolesSeeder::class,
-            BackupSeeder::class,
-            TipoSectorSeeder::class,
-            TipoSubsectorSeeder::class,
+            
             OdsCategoriasSeeder::class,
             NivelSolucionSeeder::class,
             IniciativaOrigenSeeder::class,
@@ -27,7 +26,10 @@ class DatabaseSeeder extends Seeder
             TipoSubConvocatoriaSeeder::class,
             ProvinciaSeeder::class,
             CantonSeeder::class,
-
+            BackupSeeder::class,
+            TipoSectorSeeder::class,
+            TipoSubsectorSeeder::class,
+            ConvocatoriaSeeder::class,
         ]);
     }
 }
