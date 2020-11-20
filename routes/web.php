@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 /** RUTAS PUBLICAS */
 // Index
-Route::get('/', function () {
-    return view('aplicacion.home.home');
-})->name('home');
+Route::get('/', 'Aplicacion\HomeController@home')->name('home');
 Route::get('/acerca-de', function () {
     return view('aplicacion.acerca.acerca');
 })->name('acercade');
