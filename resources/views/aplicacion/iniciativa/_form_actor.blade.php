@@ -11,12 +11,13 @@
             <div class="col-lg-8">
                 <div class="form-group">
                     <label class="control-label">* Nombre de la organización</label>
-                    <input maxlength="200" type="text" required="required" class="form-control"
-                           placeholder="Nombre de la organización" name="nombre_organizacion"
-                           value="{{($model->iniciativaActor)?$model->iniciativaActor->nombre_organizacion:''}}"
-                            {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
-                            {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
-                    />
+                    <input maxlength="200"
+                           type="text"
+                           required="required"
+                           class="form-control"
+                           placeholder="Nombre de la organización"
+                           name="nombre_organizacion"
+                           value="{{($model->iniciativaActor)?$model->iniciativaActor->nombre_organizacion:''}}">
                     {{--<div class="invalid-feedback">Por favor ingresar Nombre de la organización</div>--}}
                     {{--<div class="valid-feedback"><i class="fe-check-circle"></i></div>--}}
                 </div>
@@ -24,8 +25,11 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label class="control-label">Siglas</label>
-                    <input type="text" class="form-control" placeholder="Siglas"
-                           id="siglas" name="siglas"
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Siglas"
+                           id="siglas"
+                           name="siglas"
                            value="{{($model->iniciativaActor)?$model->iniciativaActor->siglas:''}}"/>
                 </div>
             </div>
@@ -38,8 +42,8 @@
                            class="form-control @error('sitio_web') is-invalid @enderror"
                            type="text"
                            id="sitio_web"
-                           value="{{ old('sitio_web', ($model->iniciativaActor)?$model->iniciativaActor->sitio_web:'') }}"
                            name="sitio_web"
+                           value="{{ old('sitio_web', ($model->iniciativaActor)?$model->iniciativaActor->sitio_web:'') }}"
                            placeholder="Link del sitio web">
                     @error('info')
                     <div class="invalid-feedback d-inline">{{ $message }}</div>

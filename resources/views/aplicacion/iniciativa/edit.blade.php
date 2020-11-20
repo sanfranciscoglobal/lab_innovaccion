@@ -295,9 +295,14 @@
                     if ($(this).val() > 0) {
                         $('.info-box').addClass('d-none');
                         $('.info-box.opc-' + $(this).val()).removeClass('d-none');
-
                         if ($(this).val() == 1) {
-                            $('.opc-1 .form-control').attr('required', true);
+                            $('.opc-1 .form-control').each(function (index) {
+                                if ($(this).length && (elementR = $(this)[0])) {
+                                    if ($(elementR).attr('id') != 'siglas' && $(elementR).attr('id') != 'sitio_web') {
+                                        $(elementR).attr('required', true);
+                                    }
+                                }
+                            });
                         } else {
                             $('.opc-1 .form-control').removeAttr('required');
                         }
