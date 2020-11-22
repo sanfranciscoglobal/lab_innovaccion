@@ -26,7 +26,7 @@
         <div class="card mb-5">
             <div class="card-body">
                 <div class="px-0 px-xl-2 pt-0" >
-                    <a class="media meta-link font-size-sm align-items-center" href="#">
+                    <a class="media meta-link font-size-sm align-items-center">
                         <img  width="42" src="{{ $imagen1 }}"
                             alt="Sanomi Smith" />
                         <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$evento->nombre}}</h3>
@@ -49,8 +49,11 @@
 
                 <div class="row e-virtual">
                     <div class="col">
+                        
                         <div class="form-group">
-                            <label  class="form-control" style="text-align: left"><a Target="_blank" href="{{$evento->url}}">{{isset($evento->url)?$evento->url:old('url')}}</a></label>
+                            <a Target="_blank" href="{{$evento->url}}">
+                            <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($evento->url)?$evento->url:null}}">
+                            </a>
                         </div>
                     </div>
                 </div>
