@@ -92,11 +92,11 @@
                                     <div class="cs-file-drop-area">
                                         <div class="cs-file-drop-icon fe-upload"></div>
                                         <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario" accept="image/gif, image/jpeg, image/png" size="2000000">
+                                        <input type="file" class="cs-file-drop-input" id="avatar" name="avatar" title="Avatar del usuario" accept="image/gif, image/jpeg, image/png" size="1MB">
                                         <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                         <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
                                     </div>
-                                    <small id="emailHelp" class="form-text text-muted">Max. 2Mb</small>
+                                    <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
                                     @else
                                     @php
                                         $avatar = asset('img/logo/logo-icon-footer.png');
@@ -106,8 +106,8 @@
                                             }
                                         }
                                         @endphp
-                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}" accept="image/gif, image/jpeg, image/png" size="2000000">
-                                    <small id="emailHelp" class="form-text text-muted">Max. 2Mb</small>
+                                    <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}" accept="image/*" size="1MB">
+                                    <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
                                     @endif
                                     @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>

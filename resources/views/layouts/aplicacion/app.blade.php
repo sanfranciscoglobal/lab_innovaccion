@@ -335,31 +335,32 @@
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/helpers.js')}}"></script>
+@if($errors->any())
 <script>
-    // var errorCard = $('#errorDiv .alert');
-    // if (errorCard.length > 0){
-    //     var iteraction = 0;
-    //     var interval = setInterval(function(){
-    //         iteraction++;
-    //         if (iteraction == 10) {
-    //             errorCard.css({
-    //                 'transform':'translateX(400px)',
-    //                 'transition': 'all ease .2s'
-    //             })
-    //             setTimeout(function(){
-    //                 $('.close').click();
-    //             },2000)
-    //             clearInterval(interval);
-    //         }
-    //     }, 1000);
-    // }
-    $('.modal-status').modal('show');
+    var isLogin = {{ old('login') ?? 'null' }};
+    if(isLogin != null){
+        if(isLogin == 1){
+            $('#modal-signin').modal('show');
+        } else {
+            $('#modal-signup').modal('show');
+        }
+    }
+</script>
+@endif
+<script>
+    $('#open-signin-error').on('click', function () {
+        $('#modal-signin').modal('show');
+    });
+
     $('#modal-signup').on('show.bs.modal', function () {
         $('#modal-signin').modal('hide');
     });
+    
     $('#modal-signin').on('show.bs.modal', function () {
         $('#modal-signup').modal('hide');
     });
+
+    $('.modal-status').modal('show');
 
     flatpickr(".js-input", {
         allowInput:true,
@@ -387,18 +388,6 @@
         }
     });
 </script>
-@if($errors->any())
-<script>
-    var isLogin = {{ old('login') ?? 'null' }};
-    if(isLogin != null){
-        if(isLogin == 1){
-            $('#modal-signin').modal('show');
-        } else {
-            $('#modal-signup').modal('show');
-        }
-    }
-</script>
-@endif
 
 @yield('scripts')
 @yield('footer')

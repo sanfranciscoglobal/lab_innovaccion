@@ -23,15 +23,16 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8 offset-lg-2">
-                    <h2 class="h3 text-center text-primary">Indicaciones</h2>
-                    <p class="text-center">Caso 1. Registra fondos propios o de otros organismos en el formulario.<br>
-                    Caso 2. Revisa las oportunidades de financiamiento pulsando en los íconos.</p>
+                <div class="col-12 col-lg-8 offset-lg-2 text-center">
+                    {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
+                    <p class="h5">Registra fondos propios o de otros organismos en el formulario.</p>
+                    <a class="btn btn-primary" href="{{ route('app.fondos') }}">Registra una oportunidad de financiamiento</a>
                 </div>
             </div>
         </div>
     </section>
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-5">
+        <p class="h5 text-center">Revisa las oportunidades de financiamiento pulsando en los íconos.</p>
         <div class="row mb-3 mt-4">
             @foreach ($fondos as $fondo)
             @php

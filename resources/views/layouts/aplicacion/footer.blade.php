@@ -1,6 +1,6 @@
 <footer class="cs-footer bg-dark bg-purple-gradient pt-5" style="text-align: center;">
     <div class="">
-        <div class="row">
+        <div class="row" style="margin-right: 0px;">
             <div class="col-md-4 mt-n2 pb-3 pb-md-0">
                 <a class="d-block text-white mx-auto" href="index.html" style="width: 153px; color: white">
                     <img src="{{asset('img/logo/thinkia_white.svg')}}" width="120" alt="Thinkia"/>

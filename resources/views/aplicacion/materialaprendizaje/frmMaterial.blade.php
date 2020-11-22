@@ -134,16 +134,12 @@
                                                             {{$articulo->nombre}}
                                                             <br>
                                                         @endforeach"
-
                                                 multiple>
                                             @else
                                                 <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" name="mat_files[]" multiple>
-                                                @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             @endif
-                                            
-
+                                            @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>

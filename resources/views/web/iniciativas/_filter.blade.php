@@ -3,7 +3,7 @@
 <form id="filter-iniciativas" class="container" action="{{route('web.iniciativas.index')}}" method="POST">
     @method('POST')
     @csrf
-    <div class=" row d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-2">
+    <div class=" align-items-center row d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg p-2">
         <div class="row mt-5 ml-3 mr-3 align-items-center">
             
         

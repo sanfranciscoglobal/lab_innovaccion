@@ -60,8 +60,8 @@ class LoginController extends Controller
         }
 
         return back()
-            ->with('error', 'No hemos podido iniciar sesión, intenta nuevamente.')
-            ->withInput(request(['email', 'login']));
+            ->withInput(request(['email', 'login']))
+            ->with('error', 'No hemos podido iniciar sesión, intenta nuevamente.');
         // ->with('error', 'No hemos podido iniciar sesión.')
     }
 
