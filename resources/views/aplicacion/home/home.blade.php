@@ -176,25 +176,24 @@
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                        @if($fondos->fuente)
-                            <a class="meta-link font-size-sm mb-2" href="#">Propia</a>
-                        @else
-                            <a class="meta-link font-size-sm mb-2" href="#">Organización</a>
-                        @endif
+                    
+                            <a class="meta-link font-size-sm mb-2" href="#">{{ $convocatoria->tipoconvocatoriaid->nombre}}</a>
+                      
                             <h3 class="h4 nav-heading mb-4">
-                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                                <a href="#">Convocatoria # {{ $convocatoria->id}}</a>
                             </h3>
+                            {{ $convocatoria->descripcion}}
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile2.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
-                                        1</span></div>
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">{{$convocatoria->user->name}}</span></div>
                             </a>
+                            
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
-                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
+                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;{{ $convocatoria->fecha_inicio}}
                                 </a>
                             </div>
                         </div>
@@ -207,15 +206,17 @@
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
                             <h3 class="h4 nav-heading mb-4">
-                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                                <a href="#">{{$iniciativaInfo->nombre_iniciativa}}</a>
                             </h3>
+                            {{$iniciativaInfo->descripcion_iniciativa}}
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile3.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
-                                        1</span></div>
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">
+                                {{ $iniciativaAutor->nombre_organizacion }}
+                                </span></div>
                             </a>
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
