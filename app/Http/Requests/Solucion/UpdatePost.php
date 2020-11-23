@@ -4,7 +4,7 @@ namespace App\Http\Requests\Solucion;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Store1Post extends FormRequest
+class UpdatePost extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,7 +32,6 @@ class Store1Post extends FormRequest
             'descripcion'=>['string','required'],
             'estado_descrip'=>['bool','required'],
             'archivo'=>['file', 'max:10240', 'mimes:pdf', 'nullable']
-      
         ];
     }
 }

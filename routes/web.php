@@ -161,6 +161,7 @@ Route::as('app.')
             Route::put('innovacion/solucion/update/{solucion}', 'Aplicacion\crudSoluciones@update')->name('soluciones.update');
             Route::put('innovacion/solucion/update/fase2/{solucion}', 'Aplicacion\crudSoluciones@updateFase2')->name('soluciones.update.fase2');
             Route::put('innovacion/solucion/update/fase3/{solucion}', 'Aplicacion\crudSoluciones@updateFase3')->name('soluciones.update.fase3');
+            Route::delete('innovacion/solucion/delete/{solucion}', 'Aplicacion\crudSoluciones@destroy')->name('soluciones.delete');
 
 
             /** Rutas Escritorio */
@@ -169,6 +170,7 @@ Route::as('app.')
             Route::get('/escritorio/publicacion-herramienta', 'Aplicacion\EscritorioController@verMateriales')->name('escritorio.material')->middleware('auth');
             Route::get('/escritorio/fondos', 'Aplicacion\EscritorioController@verFondos')->name('escritorio.fondos');
             Route::get('/escritorio/problemas', 'Aplicacion\EscritorioController@verProblemas')->name('escritorio.problemas');
+            Route::get('/escritorio/soluciones', 'Aplicacion\EscritorioController@verSoluciones')->name('escritorio.soluciones');
 
         }
     );

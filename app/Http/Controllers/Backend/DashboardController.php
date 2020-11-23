@@ -40,8 +40,11 @@ class DashboardController extends Controller
 
     public function verConvocatoria(Request $request)
     {
-        $convocatorias = Convocatoria::all();
-        return view('backend.escritorio.convocatoriavista', compact('convocatorias'));
+
+        Convocatoria::$own = true;
+        $convocatorias = Convocatoria::obtenerPaginate();
+        
+        return view('backend.escritorio.convocatoriavista',compact('convocatorias'));
     }
 
 }

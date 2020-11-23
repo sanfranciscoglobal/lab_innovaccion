@@ -72,7 +72,8 @@ class crudConvocatoria extends Controller
                     $consubsector->save();
                 }
             }
-            return redirect()->route('home')->with('status', 'Convocatoria creada con éxito');
+            
+            return redirect()->route('admin.escritorio.convocatoria')->with('status', 'Convocatoria creada con éxito');
 
         }
 

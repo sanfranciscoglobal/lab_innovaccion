@@ -26,6 +26,7 @@ Route::get('/obtener-tipo-poblacion-select2', 'Api\TipoPoblacionController@tipoP
 Route::get('/obtener-ods-categoria-select2', 'Api\OdsCategoriaController@odsCategoriaSelect2')->name('api.ods-categoria.select2');
 
 Route::get('/obtener-tipo-sector-select2/{id}', 'Api\TipoSectorController@tipoSectorSelect2')->name('api.tipo-sector.select2');
+Route::post('/obtener-tipo-sector-select2/{id}', 'Api\TipoSectorController@tipoSectorSelect2')->name('api.tipo-sector.select2');
 
 Route::get('/obtener-tipo-subsector-select2', 'Api\TipoSectorController@tipoSubsectorSelect2')->name('api.tipo-subsector.select2');
 Route::post('/obtener-tipo-subsector-select2', 'Api\TipoSectorController@tipoSubsectorSelect2')->name('api.tipo-subsector.select2');

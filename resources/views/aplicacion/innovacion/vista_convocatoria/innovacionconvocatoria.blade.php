@@ -14,7 +14,79 @@
         <form class="container" action="{{route('eventos.search')}}" method="POST">
             @csrf
             @method("POST")
-            <div class="d-lg-flex align-items-center px-4 pt-4 pb-3">
+
+            <div class="d-sm-flex align-items-center px-4 pt-4 pb-3">
+                <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                    <label class="form-label" for="tipoconvocatoria">Tipo de convocatoria</label>
+                    <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
+                        <option value="" selected disabled hidden>Seleccione un tipo</option>
+                        <option value="1">Convocatoria Abierta</option>
+                        <option value="2">Convocatoria Social</option>
+                        <option value="3">Convocatoria Pública</option>
+                    </select>
+
+                </div>
+               
+                <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                    <label for="innovacion_abierta_sector_productivo" class="control-label">Sector productivo</label>
+                    <div class= "m-0 p-0 w-100 form-group">
+                                                                            
+                        <select style="width:100%;" id="innovacion_abierta_sector_productivo" name="innovacion_sector_productivo[]"
+                            class="form-control custom-select select2"
+                           
+                            data-placeholder="Seleccione uno o varios sectores"
+                            data-close-on-select="false"
+                            multiple>
+                      
+                        </select>
+
+                    </div>
+                    
+
+                </div>
+                <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                    <label for="innovacion_abierta_subsector_productivo" class="control-label">Subsector productivo</label>
+                    <div class= "m-0 p-0 w-100 form-group">
+                                                                            
+                        <select style="width:100%;" id="innovacion_abierta_subsector_productivo" name="subsector_productivo[]"
+                            class="form-control custom-select select2"
+                            data-placeholder="Seleccione uno o varios subsectores"
+                            data-close-on-select="false"
+                            multiple>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                    <label for="innovacion_abierta_ods" class="control-label">ODS</label>
+                    <div class= "m-0 p-0 w-100 form-group">
+                                                                            
+                        <select style="width:100%;" id="innovacion_abierta_ods" name="ods[]"
+                            class="form-control custom-select select2"
+                            data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                            data-ajax--data-type="json"
+                            data-placeholder="Seleccione uno o varios ODS"
+                            data-ajax--cache="true"
+                            data-close-on-select="false"
+                            multiple>
+                        </select>
+                    </div>
+        
+                </div>
+                {{-- <div class="d-sm-flex align-items-center">
+                    
+                    
+                </div> --}}
+               <div class="text-center text-sm-left mt-2 mt-sm-4 mb-4">
+                        <button class="btn " style="background: #ff7f00; color:#fafafc;" type="submit">Filtrar</button>
+                </div>
+
+            </div>
+
+            {{-- <div class="d-sm-flex align-items-center px-4 pt-4 pb-3">
                 <div class="d-sm-flex align-items-center">
                     <div class="form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="form-label" for="tipoconvocatoria">Tipo de convocatoria</label>
@@ -84,7 +156,7 @@
                         <button class="btn btn-primary" type="submit">Filtrar</button>
                     
                 </div>
-            </div>
+            </div> --}}
 
          
         </form>
@@ -156,6 +228,107 @@
     }
     
 
+    });
+
+</script>
+<script>
+    $(document).ready(function(){
+        var listasectores=[];
+        var idsubsector;
+        $('#tipoconvocatoria').change(function(){
+            if ($('#tipoconvocatoria').val()==2){
+                idsector='#innovacion_abierta_sector_productivo';
+                value=$('#tipoconvocatoria').val()
+                recargarlistasectores(idsector,value);
+                idsubsector='#innovacion_abierta_subsector_productivo';
+                listasectores=[]
+                recargarlista(listasectores,idsubsector);
+                $("#innovacion_abierta_subsector_productivo").attr('disabled','disabled');   
+                $("#innovacion_abierta_sector_productivo").attr('disabled','disabled');  
+            }
+            else{
+                $("#innovacion_abierta_subsector_productivo").removeAttr('disabled'); 
+                $("#innovacion_abierta_sector_productivo").removeAttr('disabled');
+                idsector='#innovacion_abierta_sector_productivo';
+                value=$('#tipoconvocatoria').val()
+                recargarlistasectores(idsector,value);
+                idsubsector='#innovacion_abierta_subsector_productivo';
+                listasectores=[]
+                recargarlista(listasectores,idsubsector);
+            }
+            
+        });
+        function recargarlistasectores(idsector,value){
+            // data-ajax--url="{{route('api.tipo-sector.select2',1)}}"
+            // data-ajax--data-type="json"
+            //                 data-ajax--data-cache="true"
+            if (value==1){
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('api.tipo-sector.select2',1)}}",
+                    data: "json",
+
+                    success:function(r){
+                        $(idsector).find('option').remove();
+                        $(r).each(function(i,v){
+                        
+                            $(idsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
+                            
+                        });
+                    },
+                    error:function(){
+                        alert('Ocurrio un error en el servidor ..');
+                    }
+
+                });
+                
+            }
+            else if (value==3){
+                $.ajax({
+
+                    type:"POST",
+                    url:"{{route('api.tipo-sector.select2',3)}}",
+                    data: "json",
+
+                    success:function(r){
+                        $(idsector).find('option').remove();
+                        $(r).each(function(i,v){
+                        
+                            $(idsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
+                            
+                        });
+                    },
+                    error:function(){
+                        alert('Ocurrio un error en el servidor ..');
+                    }
+
+                });
+
+            }
+            else{
+                $.ajax({
+
+                    type:"POST",
+                    url:"{{route('api.tipo-sector.select2',2)}}",
+                    data: "json",
+
+                    success:function(r){
+                        $(idsector).find('option').remove();
+                        $(r).each(function(i,v){
+                        
+                            $(idsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
+                            
+                        });
+                    },
+                    error:function(){
+                        alert('Ocurrio un error en el servidor ..');
+                    }
+
+                });
+
+            }
+            
+        };
     });
 
 </script>

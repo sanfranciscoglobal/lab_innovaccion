@@ -119,6 +119,12 @@
                                 </div>
                             </div>
                         </div>
+
+                        @if ($method == 'PUT')
+                        <div class="d-flex w-100 justify-content-end">
+                            <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar solución</button>
+                        </div>
+                        @endif
                         <!-- END Timeline -->
                         {{-- <form action="#" method="POST" enctype='multipart/form-data'
                               class="needs-validation" novalidate>
@@ -143,6 +149,33 @@
             </div>
         </div>
     </div>
+
+    @if ($method == 'PUT')
+    <!-- danger modal -->
+    <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Solución</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('app.soluciones.delete', $solucion->id) }}" method="POST" role="form">
+                    @csrf
+                    @method("DELETE")
+                    <div class="modal-body">
+                        <div class="text-warning">Está seguro que desea eliminar esta solución?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-warning btn-sm">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
 @endsection
 
 @section('footer')
@@ -151,6 +184,7 @@
         console.log(selectPath);       
 
         $(document).ready(function () {
+            
             //$('#map').hide();
             //var addressContainers = $('.direccion');
             // Stepper
@@ -223,13 +257,11 @@
             $('#retro-switch').change(function() {
 
                 if($(this).is(':checked')){
-                    $('.retroal').removeClass('d-none');
                     $("#retro-error").removeClass('d-inline');
                     $('#label-retro').html('Si');
                     console.log('encendido');
                 }
                 else{
-                    $('.retroal').addClass('d-none');
                     $("#retro-error").html('Esta convocatoria busca generar procesos de innovación pública que requieren la interacción de diversos actores del sistema nacional de innovación');
                     $("#retro-error").addClass('d-inline');
                     $('#label-retro').html('No');
@@ -241,13 +273,11 @@
             $('#dispo-switch').change(function() {
 
                 if($(this).is(':checked')){
-                    $('.disponi').removeClass('d-none');
                     $("#disponi-error").removeClass('d-inline');
                     $('#label-disponi').html('Si');
                     console.log('encendido');
                 }
                 else{
-                    $('.disponi').addClass('d-none');
                     $("#disponi-error").html('Esta convocatoria busca generar procesos de innovación pública que requieren la interacción de diversos actores del sistema nacional de innovación');
                     $("#disponi-error").addClass('d-inline');
                     $('#label-disponi').html('No');
@@ -256,6 +286,19 @@
             });
 
             $('div.setup-panel div a.btn-success').trigger('click');
+            $('.conditional').change(function(){
+                var input = $(this)
+                var target = input.data('target')
+                if(input.is(':checked')){
+                    input.parents('.controls-container').find('.message-for-no').addClass('d-none')
+                    $('.'+target).removeClass('d-none')
+                    console.log('si');
+                }else{
+                    input.parents('.controls-container').find('.message-for-no').removeClass('d-none')
+                    $('.'+target).addClass('d-none')
+                    console.log('no');
+                }
+            })
 
           
         });
@@ -277,5 +320,9 @@
                     break;
             }
         });
+    </script>
+    <script>
+        
+
     </script>
 @endsection

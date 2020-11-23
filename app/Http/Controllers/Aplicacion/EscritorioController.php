@@ -9,6 +9,7 @@ use App\Models\Fondo;
 use App\Models\Evento;
 use App\Models\MaterialAprendizaje;
 use App\Models\Problema;
+use App\Models\Solucion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -67,6 +68,13 @@ class EscritorioController extends Controller
         // Problema::$paginate = 2;
         $problemas = Problema::obtenerPaginate();
         return view('aplicacion.escritorio.contenidoproblemas', compact('problemas'));
+
+    }
+    public function verSoluciones(Request $request){
+        Solucion::$own = true;
+        // Problema::$paginate = 2;
+        $soluciones = Solucion::obtenerPaginate();
+        return view('aplicacion.escritorio.contenidosoluciones', compact('soluciones'));
 
     }
 }
