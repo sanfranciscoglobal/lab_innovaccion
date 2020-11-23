@@ -22,6 +22,7 @@ use App\Models\IniciativaPoblacion;
 use App\Models\Iniciativas;
 use App\Models\IniciativaUbicacion;
 use App\Models\MaterialAprendizaje;
+use App\Models\Convocatoria;
 class HomeController extends Controller
 {
     /**
@@ -36,11 +37,16 @@ class HomeController extends Controller
         //$fondos->updated_at->format('Y-m-d H:i:s');
         //Iniciativas::$paginate = 1;
         $iniciativas = Iniciativas::latest()->first();
-        //$iniciativas->updated_at->format('Y-m-d H:i:s');
-
+        $iniciativaInfo=$iniciativas->iniciativaInformacion;
+        $iniciativaAutor=$iniciativas->iniciativaActor;
+        $iniciativaDate=$iniciativas->updated_at->format('Y-m-d');
+        $convocatoria=Convocatoria::latest()->first();
+        $convocatoria->tipoconvocatoriaid;
+        $convocatoria->user;
         $materiales = MaterialAprendizaje::latest()->first();;
-        //return compact('fondos','materiales','iniciativas');
-        return view('aplicacion.home.home',compact('fondos','iniciativas','materiales'));
+        
+        //return compact('fondos','materiales','convocatoria','iniciativaDate','iniciativaInfo','iniciativaAutor');
+        return view('aplicacion.home.home',compact('fondos','convocatoria','iniciativaDate','iniciativaInfo','iniciativaAutor','materiales'));
     }
     public function contacto(Request $request)
     {
