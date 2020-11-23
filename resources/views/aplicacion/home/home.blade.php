@@ -172,6 +172,7 @@
                     </article>
                 </div>
                 <!-- Article-->
+             
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
@@ -199,7 +200,10 @@
                         </div>
                     </article>
                 </div>
+                
                 <!-- Article-->
+                @isset($iniciativaInfo)
+                @isset($iniciativaAutor)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Iniciativas</span>
@@ -226,7 +230,10 @@
                         </div>
                     </article>
                 </div>
+                @endisset
+                @endisset
                 <!-- Article-->
+                @isset($materiales)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicaciones y herramientas</span>
@@ -258,6 +265,7 @@
                         </div>
                     </article>
                 </div>
+                @endisset
             </div>
         </div>
     </section>
