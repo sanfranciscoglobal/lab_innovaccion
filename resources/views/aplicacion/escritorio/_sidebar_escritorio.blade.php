@@ -41,6 +41,11 @@
                                         <small class="text-muted pl-1 ml-2">{{ App\Models\Problema::where('user_id', Auth::id())->count() }}</small>
                                     </a>
                                 </li>
+                                <li>
+                                    <a class="cs-widget-link" href="{{ route('app.escritorio.soluciones') }}">Soluciones Registradas
+                                        <small class="text-muted pl-1 ml-2">{{ App\Models\Solucion::where('user_id', Auth::id())->count() }}</small>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li><a class="cs-widget-link px-4 py-3 collapsed" href="#ecosistema" data-toggle="collapse">Ecosistema

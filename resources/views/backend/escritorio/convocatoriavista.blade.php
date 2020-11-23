@@ -3,7 +3,7 @@
 
                     <div class="py-2 p-md-3">
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
-                            <h1 class="h3 mb-2 text-nowrap">Convocatorias Registradas <span class="badge badge-secondary ml-1">5</span></h1>
+                            <h1 class="h3 mb-2 text-nowrap">Convocatorias Registradas <span class="badge badge-secondary ml-1">{{ $convocatorias->total() }}</span></h1>
                             <a href="{{route('admin.convocatoria.post')}}" class="btn btn-primary">
                                 <i class="fe fe-plus mr-1"></i>
                                 Crear Convocatorias
@@ -65,8 +65,10 @@
                                     
             
                             @endforeach
+
                             
                         </div>
+                        <div>{{ $convocatorias->links() }}</div>
                     </div>
 
 @endsection

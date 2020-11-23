@@ -19,4 +19,5 @@ class TipoPropuesta extends Model
         }
         return $query->get() ?? [];
     }
+
 }
