@@ -48,9 +48,6 @@ Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->na
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
-Route::get('/eventos/download', function(){
-    return Storage::disk('eventos')->download('1605557970_erdfadf-df_1.jpeg');
-})->name('eventos.download');
 Route::get('/eventos/{evento}', 'Aplicacion\EventosController@verEventodetalle')->name('eventodetalle');
 //Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
@@ -64,6 +61,7 @@ Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\Materia
 // Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
+Route::post('/gestion-innovacion', 'Aplicacion\InnovacionController@searchConvocatorias')->name('convocatorias.search');
 Route::get('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
 
 

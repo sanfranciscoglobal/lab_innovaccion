@@ -26,6 +26,12 @@ class MaterialAprendizaje extends Model
         return $this->hasMany('App\Models\Articulo', 'material_id', 'id');
 
     }
+    public function comentarios()
+    {
+        return $this->hasMany('App\Models\MaterialComentario', 'material_id', 'id');
+
+    }
+
 
     /**
      * @return Builder

@@ -25,10 +25,14 @@ class ConvocatoriasOds extends Migration
             ->constrained()
             ->onDelete('cascade');
             $table->foreign('ods_id')
-            ->references('id')
-            ->on('objetivosdesarrollo')
-            ->constrained()
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('ods_categorias')->constrained()
+                ->onDelete('cascade');
+            // $table->foreign('ods_id')
+            // ->references('id')
+            // ->on('objetivosdesarrollo')
+            // ->constrained()
+            // ->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
      

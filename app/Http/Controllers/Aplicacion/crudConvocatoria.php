@@ -86,7 +86,6 @@ class crudConvocatoria extends Controller
         $validatedData = $request->validated();
 
         $convocatoria->update( $validatedData);
-
         if(isset($validatedData['imagen'])){
             $name = CustomUrl::urlTitle('convocatoria'.'_'.$convocatoria->tipoconvocatoria_id.'_'.$convocatoria->id);
             $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'convocatorias');
@@ -96,6 +95,7 @@ class crudConvocatoria extends Controller
         ConvocatoriaODS::where('convocatoria_id',$convocatoria->id)->delete();
         ConvocatoriaSector::where('convocatoria_id',$convocatoria->id)->delete();
         ConvocatoriaSubsector::where('convocatoria_id',$convocatoria->id)->delete();
+        
         foreach ($validatedData['innovacion_ods'] as $ods){
 
             $conods=ConvocatoriaODS::create([
@@ -124,7 +124,7 @@ class crudConvocatoria extends Controller
             }
         }
 
-        return redirect()->route('home')->with('status', 'Convocatoria modificada con éxito');
+        return redirect()->route('admin.escritorio.convocatoria')->with('status', 'Convocatoria modificada con éxito');
 
 
     }
@@ -139,7 +139,7 @@ class crudConvocatoria extends Controller
         ConvocatoriaSector::where('convocatoria_id',$convocatoria->id)->delete();
         ConvocatoriaSubsector::where('convocatoria_id',$convocatoria->id)->delete();
         $convocatoria->delete();
-        return redirect()->route('home')->with('status', 'Convocatoria eliminada con éxito');
+        return redirect()->route('admin.escritorio.convocatoria')->with('status', 'Convocatoria eliminada con éxito');
     }
 
 }
