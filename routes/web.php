@@ -65,6 +65,7 @@ Route::post('/gestion-innovacion', 'Aplicacion\InnovacionController@searchConvoc
 
 Route::get('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
 Route::get('/gestion-innovacion/soluciones/{problema}', 'Aplicacion\SolucionController@verSoluciones')->name('soluciones.ver');
+Route::get('/gestion-innovacion/soluciones/detalle/{solucion}', 'Aplicacion\SolucionController@verSoluciondetalle')->name('soluciondetalle.ver');
 Route::get('/gestion-innovacion/soluciones/download/{solucion}', 'Aplicacion\SolucionController@download')->name('soluciones.download');
 
 

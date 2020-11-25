@@ -90,12 +90,6 @@
   
                   </ul>
               </div>
-              @if ($solucion->estado_descrip)
-                <div class="mb-3">
-                  <h4 class="card-title">Describe la Solución</h4>
-                  <p class="card-text">{{ $solucion->descripcion }}</p>
-                </div>
-              @endif
               
               <div class="mb-3">
                 <h4 class="card-title">Nivel actual de desarrollo de la Solución</h4>
@@ -110,16 +104,6 @@
                   <li>{{ $solucion->concepto3 }}</li>
                 </ul>
               </div>
-              @if ($solucion->estado_descrip)
-                <div class="mt-3 text-primary font-weight-semibold">
-                  <h4 class="card-title"><i class="fe-file font-size-xl mr-2"></i>Archivos</h4>
-                              
-                  <span class="card-text text-muted"><i class="czi-message text-muted mr-2"></i>{{$solucion->archivo}}
-                  </span>
-                  <a class="badge badge-lg" href="{{route('soluciones.download',$solucion->archivo)}}"><i class="fe-download text-muted mr-2"></i></a>
-                </div>
-                  
-              @endif
 
               {{-- COMENTARIOS + RATING --}}
               <div class="text-center">
@@ -186,95 +170,8 @@
                 </ul>
               </div>
             </div>
-            @if ($solucion->problemaid->user->id== Auth::id() && $solucion->observacionesid==null )
-                <div class="text-center font-size-sm text-muted">
-
-                  <form action="{{route('app.soluciones.observacioncrear')}}" class="needs-validation" novalidate>
-                      <input type="hidden" name="solucion_id" value="{{$solucion->id}}">
-                      <div class="pb-2">
-                          <div class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1 text-left" style="padding: 2%; background:#f2f2f2">
-                              <div class="row">
-                                  <div class="col-12">
-                                      <h3>Observaciones</h3>
-                                      <div class="form-group">
-                                        <label class="control-label ">* ¿Encuentras esta solución viable?</label>
-                                        
-                                        <div class="row">
-                                          <div class="col-2">
-                                              <div class="custom-control custom-radio">
-                                                  <input class="custom-control-input form-control" type="radio" id='viable1.{{$solucion->id}}'  name="viable" value="1" checked required>
-                                                  <label class="custom-control-label" for='viable1.{{$solucion->id}}'  >Si</label>
-                                              </div>
-                                          </div>
-                                          <div class="col-2">
-                                              <div class="custom-control custom-radio">
-                                                  <input class="custom-control-input form-control"  type="radio" id='viable2.{{$solucion->id}}' name="viable" value="0">
-                                                  <label class="custom-control-label" for='viable2.{{$solucion->id}}'>No</label>
-                                              </div>
-                                          </div>
-                                          
-                                        </div>
-                                        
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label ">* ¿Cómo mejorar la propuesta? Escribe tus comentarios técnicos a la solución</label>
-                                        <textarea id="comentario" class="form-control" name="comentario" placeholder="Escribe tus comentarios" required rows="6"
-                                          ></textarea>
-                                          <br>
-                                          @error('comentario')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                                      </div>
-                                      
-                                  </div>
-                              </div>
-                            
-                                <div class="custom-control custom-checkbox d-block">
-                                    <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required>
-                                    <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
-                                    
-                                </div>
-                                
-                              <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-send font-size-lg mr-2"></i>Enviar</button>
-                    
-                          </div>
-                      </div>
-                  </form>
-      
-                  <div class="row" style="margin-top:3%;padding-left:50%;">
-                      <a href="{{route('material')}}" class="btn btn-sm btn-primary">Cerrar</a>
-                  </div>
-                </div>
-              
-            @elseif ($solucion->observacionesid!=null && $solucion->user_id== Auth::id() )
-                <div class="pb-2">
-                  <div class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1 text-left" style="padding: 2%; background:#f2f2f2">
-                      <div class="row">
-                          <div class="col-12">
-                              <h3>Observaciones</h3>
-                              <div class="form-group">
-                                <label class="control-label ">¿Encuentras esta solución viable?</label>
-                                
-                                  <input  disabled class="form-control bx-label" style="cursor: auto; background:white" type="text" value="{{ old('viable', $solucion->observacionesid->viable) == '1' ? 'Si' : 'No' }}">
-                                    {{-- <input class="custom-control-input form-control" value="{{ old('viable', $solucion->observacionesid->viable) == '1' ? 'Si' : 'No' }}">
-                                    <label class="custom-control-label" for='viable1.{{$solucion->observacionesid->id}}'  >{{ old('viable', $solucion->observacionesid->viable) == '1' ? 'Si' : 'No' }}</label> --}}
-                        
-                                
-                              </div>
-                              <div class="form-group">
-                                <label class="control-label ">¿Cómo mejorar la propuesta?</label>
-                                <textarea disabled id="comentario" style="cursor: auto;" class="form-control" name="comentario" placeholder="Escribe tus comentarios" required rows="6"
-                              >{{$solucion->observacionesid->comentario}}</textarea>
-                                  <br>
-                                  @error('comentario')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                              </div>
-                              
-                          </div>
-                      </div>
-                        
-                      <a class="btn btn-primary mt-3 mt-sm-0" href="#"><i class="fe-send font-size-lg mr-2"></i>Solución Mejorada</a>
-            
-                  </div>
-              </div>
-            @endif
+            </div>
+            <a class="btn btn-primary" href="{{route('soluciondetalle.ver',$solucion->id)}}">Ver solución</a>
           
           </div>
         </div>
