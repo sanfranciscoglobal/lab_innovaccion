@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             BackupSeeder::class,
             TipoSectorSeeder::class,
             TipoSubsectorSeeder::class,
-            ConvocatoriaSeeder::class,
+            // ConvocatoriaSeeder::class,
         ]);
     }
 }
