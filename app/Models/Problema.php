@@ -23,6 +23,10 @@ class Problema extends Model
         'convocatoria_id', 'tipo_convocatoria_id', 'sector', 'subsector', 'confidencial', 'recomendaciones', 'datos', 'actividad', 'problema', 'archivo',     'telefono', 'web', 'facebook', 'instagram', 'linkedin', 'twitter', 'youtube', 'imagen', 'canton_id', 'ubicacion', 'latitud', 'longitud', 'terminos'
     ];
 
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
     public function tipo_convocatoria(){
         return $this->belongsTo('App\Models\TipoConvocatoria');
     }

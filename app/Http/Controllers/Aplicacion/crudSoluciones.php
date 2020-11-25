@@ -14,12 +14,14 @@ use App\Helpers\Archivos; // $nombre, $archivo, $disk
 // Modelos
 use App\Models\Solucion;
 use App\Models\Soluciontipoinnova;
+use App\Models\SolucionObservacion;
 
 // Reglas de validacion
 use App\Http\Requests\Solucion\Store1Post;
 use App\Http\Requests\Solucion\Store2Post;
 use App\Http\Requests\Solucion\Store3Post;
 use App\Http\Requests\Solucion\UpdatePost;
+use App\Http\Requests\Solucion\ObservacionPost;
 class crudSoluciones extends Controller
 {
     //
@@ -112,5 +114,15 @@ class crudSoluciones extends Controller
         $solucion->delete();
         Soluciontipoinnova::where('solucion_id',$solucion->id)->delete();
         return redirect()->route('home')->with('status', 'Solución eliminada con éxito.');
+    }
+
+    public function observacioncrear(ObservacionPost $request) {
+
+        $validatedData = $request->validated();
+        if($observacion=SolucionObservacion::create($validatedData)){
+            
+            return back()->with('status', 'Observación creada con éxito.' );
+        }
+        
     }
 }

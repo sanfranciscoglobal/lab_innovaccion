@@ -62,7 +62,10 @@ Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\Materia
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
 Route::post('/gestion-innovacion', 'Aplicacion\InnovacionController@searchConvocatorias')->name('convocatorias.search');
+
 Route::get('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
+Route::get('/gestion-innovacion/soluciones/{problema}', 'Aplicacion\SolucionController@verSoluciones')->name('soluciones.ver');
+Route::get('/gestion-innovacion/soluciones/download/{solucion}', 'Aplicacion\SolucionController@download')->name('soluciones.download');
 
 
 
@@ -152,7 +155,7 @@ Route::as('app.')
             Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
             //SOLUCION
-            Route::get('innovacion/solucion/ver/{problema}', 'Aplicacion\SolucionController@verSoluciones')->name('soluciones.ver');
+            
             Route::get('innovacion/solucion/crear/{problema}', 'Aplicacion\SolucionController@frmSolucion')->name('soluciones.crear');
             Route::post('innovacion/solucion/store', 'Aplicacion\crudSoluciones@store')->name('soluciones.store');
             Route::get('innovacion/solucion/edit/{problema}/{solucion}', 'Aplicacion\SolucionController@frmSolucionEdit')->name('soluciones.edit');
@@ -160,7 +163,7 @@ Route::as('app.')
             Route::put('innovacion/solucion/update/fase2/{solucion}', 'Aplicacion\crudSoluciones@updateFase2')->name('soluciones.update.fase2');
             Route::put('innovacion/solucion/update/fase3/{solucion}', 'Aplicacion\crudSoluciones@updateFase3')->name('soluciones.update.fase3');
             Route::delete('innovacion/solucion/delete/{solucion}', 'Aplicacion\crudSoluciones@destroy')->name('soluciones.delete');
-
+            Route::get('innovacion/solucion/observacioncrear', 'Aplicacion\crudSoluciones@observacioncrear')->name('soluciones.observacioncrear');
 
             /** Rutas Escritorio */
             Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Convocatoria;
 use App\Models\Problema;
 use App\Models\Solucion;
@@ -33,5 +34,9 @@ class SolucionController extends Controller
         $url2 = route("app.soluciones.update.fase3", [$solucion->id]);
         return view('aplicacion.innovacion.soluciones.create', compact('solucion', 'problema'))->with([ 'url' => $url, 'url1' => $url1,'url2' => $url2,'method' => 'PUT']);
 
+    }
+    public function download($solucion)
+    {
+        return Storage::disk('soluciones')->download($solucion);
     }
 }
