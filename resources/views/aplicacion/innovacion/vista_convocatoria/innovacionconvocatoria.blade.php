@@ -141,7 +141,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body ">
-                                @if ($convocatoria->tipoconvocatoria_id ==2)
+                                @if ($convocatoria->tipoconvocatoria_id == 2)
                                     @foreach ($convocatoria->conods as $objetivo)
                                         <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
                                     @endforeach
@@ -150,10 +150,7 @@
                                         <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$sector->sectorid->nombre}}</a> </h3>
                                     @endforeach
                                 @endif
-                                
                                 <p class="card-text font-size-sm">{{$convocatoria->descripcion}}</p>
-                                
-                                
                             </div>
                         </div>
                         

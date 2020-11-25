@@ -165,6 +165,10 @@ Route::as('app.')
             Route::delete('innovacion/solucion/delete/{solucion}', 'Aplicacion\crudSoluciones@destroy')->name('soluciones.delete');
             Route::get('innovacion/solucion/observacioncrear', 'Aplicacion\crudSoluciones@observacioncrear')->name('soluciones.observacioncrear');
 
+            Route::post('innovacion/solucion/rating/{solucion}', 'Aplicacion\crudSoluciones@rating')->name('solucion.rating');
+            Route::post('innovacion/solucion/comentario/{solucion}', 'Aplicacion\crudSoluciones@comentario')->name('solucion.comentario');
+
+
             /** Rutas Escritorio */
             Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');
             Route::get('/escritorio/eventos', 'Aplicacion\EscritorioController@verEventos')->name('escritorio.eventos')->middleware('auth');

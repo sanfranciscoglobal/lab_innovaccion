@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 // Helpers
 use App\Helpers\CustomUrl; // $string
@@ -15,6 +16,8 @@ use App\Helpers\Archivos; // $nombre, $archivo, $disk
 use App\Models\Solucion;
 use App\Models\Soluciontipoinnova;
 use App\Models\SolucionObservacion;
+use App\Models\SolucionRating;
+use App\Models\SolucionComentario;
 
 // Reglas de validacion
 use App\Http\Requests\Solucion\Store1Post;
@@ -123,6 +126,35 @@ class crudSoluciones extends Controller
             
             return back()->with('status', 'Observación creada con éxito.' );
         }
+    }
         
+    /**
+     * Guarda el rating de una solucion
+     * @param Request $request
+     * @param App\Models\Solucion $solucion
+     * @return Response
+     */
+    public function rating(Request $request, Solucion $solucion) {
+        // dd($request->value);
+
+        SolucionRating::create([
+            'rating' => (int)$request->value, 'solucion_id' => $solucion->id, 'user_id' => auth()->id()
+        ]);
+        return redirect()->back()->with('status', 'Rating guardado con éxito.');
+    }
+
+    /**
+     * Guarda el rating de una solucion
+     * @param Request $request
+     * @param App\Models\Solucion $solucion
+     * @return Response
+     */
+    public function comentario(Request $request, Solucion $solucion) {
+        // dd($request);
+
+        SolucionComentario::create([
+            'comentario' => $request->comentario, 'solucion_id' => $solucion->id, 'user_id' => auth()->id()
+        ]);
+        return redirect()->back()->with('status', 'Comentario guardado con éxito.');
     }
 }

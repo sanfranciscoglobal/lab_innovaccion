@@ -82,8 +82,18 @@
             </div>
           </div>
           @auth
+          @if ($convocatoria->fecha_inicio >= date('Y-m-d') || $convocatoria->fecha_cierre <= date('Y-m-d'))
+          <div class="w-100 d-flex justify-content-center mt-3">
+            <p class="text-center text-primary">Esta convocatoria esta cerrada y no admite mas problemas.</p>
+          </div>
+          @else
           <div class="w-100 d-flex justify-content-center mt-3">
             <a class="btn btn-primary" href="{{ route('app.innovaciongestion', $convocatoria->id) }}" role="button">Registra un nuevo problema</a>
+          </div>
+          @endif
+          @else
+          <div class="w-100 d-flex justify-content-center mt-3">
+            <p class="text-center text-primary">Para registra un nuevo problema inicia session primero.</p>
           </div>
           @endauth
         </div>
@@ -138,7 +148,7 @@
                 </ul>
               </div>
               <div class="text-center">
-                <a class="btn btn-primary btn-small mb-4" href="{{route("soluciones.ver",$problema->id)}}">PROPÓN UNA SOLUCIÓN</a>
+                <a class="btn btn-primary btn-small mb-4" href="{{route("soluciones.ver",$problema->id)}}">SOLUCIONES REGISTRADAS</a>
                 <ul class="d-flex justify-content-center list-inline">
                   <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="{{ $problema->facebook ?? '#' }}">
