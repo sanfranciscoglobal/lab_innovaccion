@@ -33,6 +33,15 @@ class Solucion extends Model
         return $this->hasMany('App\Models\Soluciontipoinnova','solucion_id','id');
 
     }
+    
+    public function rating(){
+        return $this->hasMany('App\Models\SolucionRating');
+
+    }
+    
+    public function comentarios(){
+        return $this->hasMany('App\Models\SolucionComentario');
+    }
 
     public static function builder()
     {

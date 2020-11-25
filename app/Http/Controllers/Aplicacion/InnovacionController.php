@@ -42,6 +42,9 @@ class InnovacionController extends Controller
      */
     public function frmGestionInnovacion(Convocatoria $convocatoria)
     {
+        if($convocatoria->fecha_inicio >= date('Y-m-d') || $convocatoria->fecha_cierre <= date('Y-m-d')){
+            return redirect()->back()->with('error', 'Esta convocatoria esta cerrada, y no se admiten mas problemas.');
+        }
         session()->forget('step');
         $problema = new Problema;
         $tipo = $convocatoria->tipoconvocatoria_id;
@@ -98,6 +101,7 @@ class InnovacionController extends Controller
         $soluciones = Solucion::where('problema_id', $problema->id)->get();
         return view('aplicacion.innovacion.gestion.innovacionProblemas', compact('convocatoria', 'soluciones'));
     }
+    
     public function searchConvocatorias(Request $request)
     {
         // $str_ods = json_encode($request->ods);

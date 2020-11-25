@@ -161,6 +161,9 @@ Route::as('app.')
             Route::put('innovacion/solucion/update/fase3/{solucion}', 'Aplicacion\crudSoluciones@updateFase3')->name('soluciones.update.fase3');
             Route::delete('innovacion/solucion/delete/{solucion}', 'Aplicacion\crudSoluciones@destroy')->name('soluciones.delete');
 
+            Route::post('innovacion/solucion/rating/{solucion}', 'Aplicacion\crudSoluciones@rating')->name('solucion.rating');
+            Route::post('innovacion/solucion/comentario/{solucion}', 'Aplicacion\crudSoluciones@comentario')->name('solucion.comentario');
+
 
             /** Rutas Escritorio */
             Route::get('/escritorio', 'Aplicacion\EscritorioController@verEscritorio')->name('escritorio')->middleware('auth');
