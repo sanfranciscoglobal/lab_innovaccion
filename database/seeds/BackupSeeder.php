@@ -59,7 +59,7 @@ DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, de
 DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, deleted_at) values(8, 1, '2020-11-13 08:46:06', '2020-11-13 08:46:06', NULL)");
 DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, deleted_at) values(9, 1, '2020-11-13 10:24:46', '2020-11-13 10:24:46', NULL)");
 DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, deleted_at) values( 10, 3, '2020-11-14 14:30:00', '2020-11-14 14:30:00', NULL)");
-DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, deleted_at) values( 11, 3, '2020-11-14 15:47:17', '2020-11-14 15:47:17', NULL)");
+DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, deleted_at) values( 11, 2, '2020-11-14 15:47:17', '2020-11-14 15:47:17', NULL)");
 DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, deleted_at) values( 12, 1, '2020-11-14 17:05:17', '2020-11-14 17:05:17', NULL)");
 DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, deleted_at) values( 13, 1, '2020-11-14 18:00:20', '2020-11-14 18:00:20', NULL)");
 DB::insert("insert into role_user ( user_id, role_id, created_at, updated_at, deleted_at) values( 14, 1, '2020-11-17 09:00:23', '2020-11-17 09:00:23', NULL)");

@@ -89,7 +89,7 @@
                     <span class="font-weight-bold e-presencial"><i class="fe-message-square font-size-xl mr-2"></i> Comentarios </span>
                         <br>
                         <br>
-                        
+                    
 
                     @foreach ($comentarios as $comment)
                         @php
@@ -99,6 +99,7 @@
                                     $imagen = asset('storage/perfil/'.$comment->user->perfil->avatar);
                                 }
                             }
+                            
                         @endphp
                         <p>{{$comment->comentario}}</p>
                         <div class="row">

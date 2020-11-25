@@ -15,6 +15,7 @@ use App\Helpers\Archivos; // $nombre, $archivo, $disk
 // Modelos
 use App\Models\Solucion;
 use App\Models\Soluciontipoinnova;
+use App\Models\SolucionObservacion;
 use App\Models\SolucionRating;
 use App\Models\SolucionComentario;
 
@@ -23,6 +24,7 @@ use App\Http\Requests\Solucion\Store1Post;
 use App\Http\Requests\Solucion\Store2Post;
 use App\Http\Requests\Solucion\Store3Post;
 use App\Http\Requests\Solucion\UpdatePost;
+use App\Http\Requests\Solucion\ObservacionPost;
 class crudSoluciones extends Controller
 {
     //
@@ -117,6 +119,15 @@ class crudSoluciones extends Controller
         return redirect()->route('home')->with('status', 'Solución eliminada con éxito.');
     }
 
+    public function observacioncrear(ObservacionPost $request) {
+
+        $validatedData = $request->validated();
+        if($observacion=SolucionObservacion::create($validatedData)){
+            
+            return back()->with('status', 'Observación creada con éxito.' );
+        }
+    }
+        
     /**
      * Guarda el rating de una solucion
      * @param Request $request

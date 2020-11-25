@@ -90,10 +90,7 @@
   
                   </ul>
               </div>
-              <div class="mb-3">
-                <h4 class="card-title">Describe la Solución</h4>
-                <p class="card-text">{{ $solucion->descripcion }}</p>
-              </div>
+              
               <div class="mb-3">
                 <h4 class="card-title">Nivel actual de desarrollo de la Solución</h4>
                 <p class="card-text">{{ $solucion->nivelsolucionid->nombre }}</p>
@@ -109,15 +106,17 @@
               </div>
 
               {{-- COMENTARIOS + RATING --}}
+              <div class="text-center">
+              
               <div class="mt-5">
-                <div class="row">
+                {{-- <div class="row">
                   <div class="col-12 col-md-6">
                     <div class="rating">
-                      {{-- <a class="btn btn-primary btn-small mb-4" href="#"></a> --}}
+                     
                       <h4>Califica esta solución</h4>
                       <form action="{{ route('app.solucion.rating', $solucion->id)}}" method="POST" class="rating">
                         @csrf
-                        {{-- <input type="hidden" class="rating-value"> --}}
+                        
                         <select id="example" name="value" required class="border border-warning">
                           <option value="1" {{ $rating == 1 ? 'selected' : ""}}>1</option>
                           <option value="2" {{ $rating == 2 ? 'selected' : ""}}>2</option>
@@ -144,7 +143,7 @@
                     <p>{{ $com->comentario }}</p>
                     @endforeach
                   </div>
-                </div>
+                </div> --}}
                 
 
                 <ul class="d-flex justify-content-center list-inline">
@@ -171,8 +170,12 @@
                 </ul>
               </div>
             </div>
+            </div>
+            <a class="btn btn-primary" href="{{route('soluciondetalle.ver',$solucion->id)}}">Ver solución</a>
+          
           </div>
         </div>
+
         @endforeach
       </div>
     </section>
