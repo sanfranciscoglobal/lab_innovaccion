@@ -140,7 +140,7 @@
             <div class="cs-carousel-inner"
                 data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 16},&quot;850&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 16}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 23}}}">
                 <!-- Article-->
-                
+                @isset($fondos)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Fondos</span>
@@ -172,6 +172,8 @@
                     </article>
                 </div>
                 <!-- Article-->
+                @endisset
+                @isset($convocatoria)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
@@ -199,7 +201,10 @@
                         </div>
                     </article>
                 </div>
+                @endisset
                 <!-- Article-->
+                @isset($iniciativaInfo)
+                @isset($iniciativaAutor)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Iniciativas</span>
@@ -226,7 +231,10 @@
                         </div>
                     </article>
                 </div>
+                @endisset
+                @endisset
                 <!-- Article-->
+                @isset($materiales)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicaciones y herramientas</span>
@@ -258,6 +266,7 @@
                         </div>
                     </article>
                 </div>
+                @endisset
             </div>
         </div>
     </section>
