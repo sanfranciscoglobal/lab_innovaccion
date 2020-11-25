@@ -39,4 +39,10 @@ class SolucionController extends Controller
     {
         return Storage::disk('soluciones')->download($solucion);
     }
+    public function verSoluciondetalle(Solucion $solucion)
+    {
+        return view('aplicacion.innovacion.soluciones.Soluciondetallada',compact('solucion'));
+    }
+
+    
 }
