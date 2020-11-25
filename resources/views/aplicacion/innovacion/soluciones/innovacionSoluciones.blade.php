@@ -67,7 +67,6 @@
           $rating = (int)round($avg, 0);
           $comentarios = $solucion->comentarios->sortByDesc('created_at')->slice(0, 3);
         @endphp
-        {{$rating.'  '.$avg}}
         <div class="col-12 col-md-6 p-2">
           <div class="card text-left">
             <img class="card-img-top" src="holder.js/100px180/" alt="">
