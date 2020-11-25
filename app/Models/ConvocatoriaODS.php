@@ -16,6 +16,6 @@ class ConvocatoriaODS extends Model
         return $this->belongsTo('App\Models\Convocatoria', "convocatoria_id","id");
     }
     public function objetivoid(){
-        return $this->belongsTo('App\Models\ObjetivoDesarrollo', "ods_id","id");
+        return $this->belongsTo('App\Models\OdsCategoria', "ods_id","id");
     }
 }

@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="px-4 px-xl-5 pt-2">
                                         
-                                            <a class="media meta-link font-size-sm align-items-center" href="#">
+                                            <a class="media meta-link font-size-sm align-items-center">
                                                 <img class="rounded-circle" width="42" src="{{ $imagen }}"
                                                     alt="Sanomi Smith" />
                                                 <div class="media-body pl-2 ml-1 mt-n1 text-primary">por<span class="font-weight-semibold ml-1">{{$material->user->name}}</span></div>
@@ -93,8 +93,8 @@
                                             </div>
                                             <div class="col">
                                                 <div class="mt-3 text-right text-nowrap">
-                                                    <a class="meta-link font-size-xs" href="#">
-                                                        <i class="fe-message-square mr-1"></i>&nbsp;6</a><span class="meta-divider"></span>
+                                                    <a class="meta-link font-size-xs">
+                                                    <i class="fe-message-square mr-1"></i>&nbsp;{{$material->comentarios->count()}}</a><span class="meta-divider"></span>
                                                     <span class="meta-link font-size-xs " ><i class="fe-calendar mr-1 mt-n1"></i>&nbsp;{{date('M d, Y', strtotime( $material->fecha_publicacion))}}</span>
                                                 </div>
                                             </div>

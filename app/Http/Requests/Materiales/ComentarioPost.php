@@ -25,8 +25,8 @@ class ComentarioPost extends FormRequest
     {
         return [
             //
-            'nombre_user' => 'string|required',
-            'correo_user' => 'string|required',
+            // 'nombre_user' => 'string|required',
+            // 'correo_user' => 'string|required',
             'comentario' => 'string|required',
             'material_id'=> 'int|required'
         ];

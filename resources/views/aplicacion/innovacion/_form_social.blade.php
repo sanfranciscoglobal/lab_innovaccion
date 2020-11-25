@@ -14,7 +14,7 @@
                     @if($convocatoria->conods && $convocatoria->tipoconvocatoria_id=='2')
                         @foreach($convocatoria->conods as $objetivo)
                             <option value="{{$objetivo->ods_id}}"
-                                selected>{{$objetivo->objetivoid->nombre}}</option>
+                                selected>ODS {{$objetivo->ods_id}}: {{$objetivo->objetivoid->nombre}}</option>
                         @endforeach
                     @endif
                 </select>
