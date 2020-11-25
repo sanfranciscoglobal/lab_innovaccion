@@ -3,21 +3,21 @@
     <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">CONVOCATORIAS</h1>
+                <h1 class="mt-5 text-primary">CONVOCATORIAS</h1>
                 
             </div>
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
         </div>
     </section>
 
-    <section class="searchbar-container bg-secondary">
+    <section class="searchbar-container" style="background: #f2f2f2">
     <form class="container" action="{{route('convocatorias.search')}}" method="POST">
             @csrf
             @method("POST")
 
             <div class="d-sm-flex align-items-center px-4 pt-4 pb-3">
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label class="form-label" for="tipoconvocatoria">Tipo de convocatoria</label>
+                    <label class="form-label font-weight-bold" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
                     <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
                         <option value="" selected disabled hidden>Seleccione un tipo</option>
                         <option value="1">Innovación Abierta</option>
@@ -28,7 +28,7 @@
                 </div>
                
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label for="innovacion_abierta_sector_productivo" class="control-label">Sector productivo</label>
+                    <label for="innovacion_abierta_sector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Sector productivo</label>
                     <div class= "m-0 p-0 w-100 form-group">
                                                                             
                         <select style="width:100%;" id="innovacion_abierta_sector_productivo" name="sector_productivo[]"
@@ -45,7 +45,7 @@
 
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label for="innovacion_abierta_subsector_productivo" class="control-label">Subsector productivo</label>
+                    <label for="innovacion_abierta_subsector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Subsector productivo</label>
                     <div class= "m-0 p-0 w-100 form-group">
                                                                             
                         <select style="width:100%;" id="innovacion_abierta_subsector_productivo" name="subsector_productivo[]"
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label for="innovacion_abierta_ods" class="control-label">ODS</label>
+                    <label for="innovacion_abierta_ods" class="control-label  font-weight-bold" style="color: #a13d8f">ODS</label>
                     <div class= "m-0 p-0 w-100 form-group">
                                                                             
                         <select style="width:100%;" id="innovacion_abierta_ods" name="ods[]"
@@ -141,7 +141,7 @@
                         </div>
                         
                     </div>
-                    <h2 class="text-right font-weight-bold font-size-lg pr-4">FINALIZA {{date('d M', strtotime( $convocatoria->fecha_fin))}}</h2>
+                    <h2 class="text-right font-weight-bold font-size-lg pr-4">FINALIZA {{date('d M', strtotime( $convocatoria->fecha_cierre))}}</h2>
                     
                 </article>
             </div>
