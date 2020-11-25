@@ -63,7 +63,8 @@
 
         @foreach ($soluciones as $solucion)
         @php
-          $rating = (int)round($solucion->rating->avg('rating'), 0);
+          $avg = $solucion->rating->avg('rating') >= 1 ?? 5; 
+          $rating = (int)round(, 0);
           $comentarios = $solucion->comentarios->sortByDesc('created_at')->slice(0, 3);
         @endphp
         <div class="col-12 col-md-6 p-2">
