@@ -1,4 +1,10 @@
 @extends('layouts.aplicacion.app')
+@section('header-css')
+    <style>
+        .cs-sidebar { background: #f2f2f2; }
+        
+    </style>
+@endsection
 
 @section('content')
 
@@ -11,15 +17,45 @@
                         Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</p>
                     
                 </div>
-                <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                {{-- <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
-                    video</span>
+                    video</span> --}}
             </div>
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/material-baner1.png') }}" alt="Side banner"></div>
         </div>
     </section>
+    <div class="position-relative bg-purple-gradient" style="height: 420px;">
+        <div class="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+                <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z">
+                </path>
+            </svg>
+        </div>
+    </div>
+    <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;margin-bottom: 100px;">
+      
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
+                <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">Revisa y descarga el material de aprendiaje y deja tus comentarios en los foros respectivos de cada publicación.</h2>
+                
+                <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
+               
+                    <p class="h5 text-light">Publica el artículo o herramienta en el formulario a continuación.</p>
+                    @if ($autentificacion)
+                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje.post') }}">Publica un artículo o herramienta.</a>
+                    
+                    </p>
+                @endif
+                </div>
 
-    <div class="cs-sidebar-enabled cs-sidebar-right">
+                
+            </div>
+        </div>
+
+    </section>
+    
+    <div class="cs-sidebar-enabled cs-sidebar-right" >
         
         <div class="container">
             
@@ -38,9 +74,9 @@
                     <h1 class="mb-5">Blog</h1> --}}
                 
                     <!-- Post-->
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col">
-                            {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
+                            
                             <p class="text-center font-size-lg">Publica el artículo o herramienta en el formulario a continuación.</p>
                             @if ($autentificacion)
                             <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.material-de-aprendizaje.post')}}">Publica un artículo o herramienta.</a>
@@ -49,7 +85,7 @@
                         @endif
                             
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                        
                         @foreach ($materiales as $material)
@@ -62,7 +98,7 @@
                             }
                         @endphp
                         <div class="col col-lg-6">
-                            <div class="pb-2">
+                            <div class="pb-2" style="min-width: 300px;">
                                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                                     @if ($material->tipo==0)
                                         <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">Publicación</span>
@@ -89,7 +125,12 @@
                                         
                                         <div class="row">
                                             <div class="col">
-                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver publicación</a>
+                                                @if ($material->tipo==0)
+                                                    <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver publicación</a>
+                                                @else
+                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver herramienta</a>
+                                                @endif
+                                                
                                             </div>
                                             <div class="col">
                                                 <div class="mt-3 text-right text-nowrap">

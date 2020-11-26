@@ -121,7 +121,7 @@
                                 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(max. 100 palabras) (min. 25 palabras)</span></label>
+                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(min. 25 palabras)(max. 100 palabras)</span></label>
                                     <textarea onkeyup="countWords();" onkeydown="countWords();"  class="form-control" name="descripcion" id="descripcion_convocatoria"
                                               rows="10" required="required"
                                               >{{ old('descripcion', $convocatoria->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
@@ -147,14 +147,14 @@
                                     <label for="imagen">* Imagen</label>
 
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name="imagen" data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' size="2000000" name="imagen" data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
 
                                     @else
                                         <div class="cs-file-drop-area">
                                             <div class="cs-file-drop-icon fe-upload"></div>
                                             <span class="cs-file-drop-message">Arrastre y suelte para subir</span>
                                             
-                                                <input type="file" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name='imagen' class="cs-file-drop-input" required>
+                                                <input type="file" accept="image/gif, image/jpeg, image/png" id="imagen" size="2000000" maxlength='250' name='imagen' class="cs-file-drop-input" required>
                                             
                                             <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O seleccione una imagen</button>
 

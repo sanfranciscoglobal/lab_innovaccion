@@ -156,7 +156,7 @@
                                                 @endif
                                             </select>
                                             <div class="invalid-feedback">Selecciona un canton.</div>
-                                            <div class="valid-feedback">Ok!</div>
+                                            <div class="valid-feedback">Bien!</div>
                                             @error('canton_id')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
                                     </div>

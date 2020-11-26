@@ -206,17 +206,17 @@
                             <div class="col-lg-5">
                                 <div class="form-group">
                                     
-                                    <label for="imagen">* Imagen del Evento</label>
+                                    <label for="imagen">* Imagen del Evento <span style="color: gray">(max. 2 Mb)</span></label>
 
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name="imagen" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
+                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name="imagen" size="2000000" data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
 
                                     @else
                                         <div class="cs-file-drop-area">
                                             <div class="cs-file-drop-icon fe-upload"></div>
                                             <span class="cs-file-drop-message">Arrastre y suelte para subir</span>
                                             
-                                                <input type="file" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name='imagen' class="cs-file-drop-input" required>
+                                                <input type="file" accept="image/gif, image/jpeg, image/png" id="imagen" maxlength='250' name='imagen' size="2000000" class="cs-file-drop-input" required>
                                             
                                             <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O seleccione una imagen</button>
 
