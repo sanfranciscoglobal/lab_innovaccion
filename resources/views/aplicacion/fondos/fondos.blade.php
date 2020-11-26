@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces" 
-            style="background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}});">
+            style="background-image:url({{ asset('img/layout/home/laboratorio-side-bkg.png')}})">
             </div>
         </div>
     </section>
