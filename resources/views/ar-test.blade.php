@@ -49,7 +49,7 @@
 			<a-entity camera></a-entity>
 		</a-scene>
 
-		<a-scene
+		<!a-scene
 				renderer="logarithmicDepthBuffer: true;"
 				embedded
 				loading-screen="enabled: false;"
@@ -58,7 +58,7 @@
 			<a-assets>
 				<a-asset-item
 					id="animated-asset"
-					src="assets/asset.glb"
+					src="{{asset('AR/Chaly_dance_002.gltf')}}"
 				></a-asset-item>
 			</a-assets>
 
@@ -82,7 +82,7 @@
 			<a-assets>
 				<a-asset-item
 					id="animated-asset"
-					src="assets/asset.glb"
+					src="{{asset('AR/Chaly_dance_002.gltf')}}"
 				></a-asset-item>
 			</a-assets>
 
