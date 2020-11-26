@@ -3,7 +3,7 @@
 @section('content')
 <style scoped>
     .carousel-item {min-height: 550px;}
-
+/* 
     @media (max-width: 768px) {
         .carousel-item {
             min-height: 350px!important;
@@ -16,7 +16,7 @@
         .itemhome{
             min-width: 50%;
         }
-    }
+    } */
 </style>
 <section id="home-hero-banner">
     @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
