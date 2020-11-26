@@ -1,3 +1,10 @@
+.scrollable{
+    overflow:hidden;
+}
+.scrollable:hover{
+    overflow: scroll!important; 
+    max-height:150px
+}
 .logos{
     font-size: 200%;
     color: #370C60!important;
