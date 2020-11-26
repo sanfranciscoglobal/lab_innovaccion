@@ -231,3 +231,8 @@ Route::get('/admin/acerca-de', function () {
 //            // Route::post('logout', 'Aplicacion\AuthController@logout')->name('logout');
 //        }
 //    );
+
+
+Route::get('ar-test', function(){
+    return view('ar-test');
+});
