@@ -166,6 +166,9 @@ Route::as('app.')
             Route::delete('innovacion/solucion/delete/{solucion}', 'Aplicacion\crudSoluciones@destroy')->name('soluciones.delete');
             Route::get('innovacion/solucion/observacioncrear', 'Aplicacion\crudSoluciones@observacioncrear')->name('soluciones.observacioncrear');
 
+            Route::post('innovacion/solucion/mejorada/{solucion}', 'Aplicacion\crudSoluciones@mejorada')->name('solucion.mejorada');
+            Route::put('innovacion/solucion/mejorada/update/{solucion_mejorada}', 'Aplicacion\crudSoluciones@mejoradaUpdate')->name('solucion.mejorada.update');
+
             Route::post('innovacion/solucion/rating/{solucion}', 'Aplicacion\crudSoluciones@rating')->name('solucion.rating');
             Route::post('innovacion/solucion/comentario/{solucion}', 'Aplicacion\crudSoluciones@comentario')->name('solucion.comentario');
 

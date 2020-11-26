@@ -36,9 +36,12 @@ class Solucion extends Model
         return $this->hasOne('App\Models\SolucionObservacion','solucion_id','id');
     }
     
+    public function mejorada(){
+        return $this->hasOne('App\Models\SolucionMejorada');
+    }
+    
     public function rating(){
         return $this->hasMany('App\Models\SolucionRating');
-
     }
     
     public function comentarios(){

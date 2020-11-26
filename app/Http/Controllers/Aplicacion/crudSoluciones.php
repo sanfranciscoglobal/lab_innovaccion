@@ -18,6 +18,7 @@ use App\Models\Soluciontipoinnova;
 use App\Models\SolucionObservacion;
 use App\Models\SolucionRating;
 use App\Models\SolucionComentario;
+use App\Models\SolucionMejorada;
 
 // Reglas de validacion
 use App\Http\Requests\Solucion\Store1Post;
@@ -25,6 +26,7 @@ use App\Http\Requests\Solucion\Store2Post;
 use App\Http\Requests\Solucion\Store3Post;
 use App\Http\Requests\Solucion\UpdatePost;
 use App\Http\Requests\Solucion\ObservacionPost;
+use App\Http\Requests\Solucion\StoreMejorada;
 class crudSoluciones extends Controller
 {
     //
@@ -128,6 +130,47 @@ class crudSoluciones extends Controller
         }
     }
         
+    /**
+     * Guarda el rating de una solucion
+     * @param StoreMejorada $request
+     * @param App\Models\Solucion $solucion
+     * @return Response
+     */
+    public function mejorada(StoreMejorada $request, Solucion $solucion) {
+        $validatedData = $request->validated();
+        // dd($validatedData);
+        $validatedData['solucion_id'] = $solucion->id;
+
+        $solucion = SolucionMejorada::create($validatedData);
+        if(isset($validatedData['archivo'])){
+            $imageName = Archivos::storeImagen($solucion->id, $validatedData['archivo'], 'soluciones');
+            $solucion->archivo = $imageName;
+            $solucion->save();
+        }
+
+        return redirect()->back()->with('status', 'Solucion mejorada guardada con éxito.');
+    }
+        
+    /**
+     * Guarda el rating de una solucion
+     * @param StoreMejorada $request
+     * @param App\Models\SolucionMejorada $solucion
+     * @return Response
+     */
+    public function mejoradaUpdate(StoreMejorada $request, SolucionMejorada $solucion_mejorada) {
+        $validatedData = $request->validated();
+        // dd($validatedData);
+
+        $solucion_mejorada->update($validatedData);
+        if(isset($validatedData['archivo'])){
+            $imageName = Archivos::storeImagen($solucion_mejorada->id, $validatedData['archivo'], 'soluciones');
+            $solucion_mejorada->archivo = $imageName;
+            $solucion_mejorada->save();
+        }
+
+        return redirect()->back()->with('status', 'Solucion mejorada modificada con éxito.');
+    }
+
     /**
      * Guarda el rating de una solucion
      * @param Request $request

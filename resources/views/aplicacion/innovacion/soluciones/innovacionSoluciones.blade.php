@@ -62,11 +62,6 @@
         </div>
 
         @foreach ($soluciones as $solucion)
-        @php
-          $avg = $solucion->rating->avg('rating') >= 1 ? $solucion->rating->avg('rating') : 5; 
-          $rating = (int)round($avg, 0);
-          $comentarios = $solucion->comentarios->sortByDesc('created_at')->slice(0, 3);
-        @endphp
         <div class="col-12 col-md-6 p-2">
           <div class="card text-left">
             <img class="card-img-top" src="holder.js/100px180/" alt="">
@@ -105,47 +100,8 @@
                 </ul>
               </div>
 
-              {{-- COMENTARIOS + RATING --}}
-              <div class="text-center">
-              
-              <div class="mt-5">
-                {{-- <div class="row">
-                  <div class="col-12 col-md-6">
-                    <div class="rating">
-                     
-                      <h4>Califica esta solución</h4>
-                      <form action="{{ route('app.solucion.rating', $solucion->id)}}" method="POST" class="rating">
-                        @csrf
-                        
-                        <select id="example" name="value" required class="border border-warning">
-                          <option value="1" {{ $rating == 1 ? 'selected' : ""}}>1</option>
-                          <option value="2" {{ $rating == 2 ? 'selected' : ""}}>2</option>
-                          <option value="3" {{ $rating == 3 ? 'selected' : ""}}>3</option>
-                          <option value="4" {{ $rating == 4 ? 'selected' : ""}}>4</option>
-                          <option value="5" {{ $rating == 5 ? 'selected' : ""}}>5</option>
-                        </select>
-                      </form>
-                    </div>
-                    <div class="comentario mt-3">
-                      <h4>Comenta esta solución</h4>
-                      <form action="{{ route('app.solucion.comentario', $solucion->id) }}" method="POST" class="needs-validation" novalidate>
-                        @csrf
-                        <div class="form-group">
-                          <textarea class="form-control" name="comentario" rows="2" maxlength="200" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Comentar</button>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6">
-                    @foreach($comentarios as $com)
-                    <h6>{{ $com->user->name }}</h6>
-                    <p>{{ $com->comentario }}</p>
-                    @endforeach
-                  </div>
-                </div> --}}
-                
-
+              <div class="text-center">  
+                <a class="btn btn-primary mb-3" href="{{route('soluciondetalle.ver',$solucion->id)}}">Ver solución</a>
                 <ul class="d-flex justify-content-center list-inline">
                   <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="{{ $solucion->facebook ?? '#' }}">
@@ -170,30 +126,9 @@
                 </ul>
               </div>
             </div>
-            </div>
-            <a class="btn btn-primary" href="{{route('soluciondetalle.ver',$solucion->id)}}">Ver solución</a>
-          
           </div>
         </div>
-
         @endforeach
       </div>
     </section>
-@endsection
-
-@section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.2/jquery.barrating.min.js" integrity="sha512-nUuQ/Dau+I/iyRH0p9sp2CpKY9zrtMQvDUG7iiVY8IBMj8ZL45MnONMbgfpFAdIDb7zS5qEJ7S056oE7f+mCXw==" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.2/themes/css-stars.min.css" integrity="sha512-Epht+5WVzDSqn0LwlaQm6dpiVhajT713iLdBEr3NLbKYsiVB2RiN9kLlrR0orcvaKSbRoZ/qYYsmN1vk/pKSBg==" crossorigin="anonymous" />
-<script type="text/javascript">
-
-   $(function() {
-      $('#example').barrating({
-        theme: 'css-stars',
-        onSelect:function(value, text, event){
-          // saveRating(value);
-          $('.rating').submit();
-        }
-      });
-   });
-</script>
 @endsection

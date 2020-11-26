@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Convocatoria;
 use App\Models\Problema;
 use App\Models\Solucion;
+use App\Models\SolucionMejorada;
 
 class SolucionController extends Controller
 {
@@ -41,7 +42,23 @@ class SolucionController extends Controller
     }
     public function verSoluciondetalle(Solucion $solucion)
     {
-        return view('aplicacion.innovacion.soluciones.Soluciondetallada',compact('solucion'));
+        $solucion_mejorada = $solucion->mejorada ?? new SolucionMejorada;
+        $data = [];
+        if($solucion->mejorada){
+            $data = [
+                'method'=> "PUT",
+                'path'=> route('app.solucion.mejorada.update', $solucion_mejorada->id),
+            ];
+        } else {
+            $data = [
+                'method'=> "POST",
+                'path'=> route('app.solucion.mejorada', $solucion->id),
+            ];
+        }
+        $avg = $solucion->rating->avg('rating') >= 1 ? $solucion->rating->avg('rating') : 5; 
+        $rating = (int)round($avg, 0);
+        $comentarios = $solucion->comentarios->sortByDesc('created_at')->slice(0, 3);
+        return view('aplicacion.innovacion.soluciones.Soluciondetallada',compact('solucion', 'rating', 'comentarios', 'solucion_mejorada'))->with($data);
     }
 
     
