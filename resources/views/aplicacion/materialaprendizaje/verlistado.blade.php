@@ -11,9 +11,9 @@
                         Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</p>
                     
                 </div>
-                <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                {{-- <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
-                    video</span>
+                    video</span> --}}
             </div>
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/material-baner1.png') }}" alt="Side banner"></div>
         </div>
@@ -62,7 +62,7 @@
                             }
                         @endphp
                         <div class="col col-lg-6">
-                            <div class="pb-2">
+                            <div class="pb-2" style="min-width: 300px;">
                                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                                     @if ($material->tipo==0)
                                         <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">Publicación</span>
@@ -89,7 +89,12 @@
                                         
                                         <div class="row">
                                             <div class="col">
-                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver publicación</a>
+                                                @if ($material->tipo==0)
+                                                    <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver publicación</a>
+                                                @else
+                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver herramienta</a>
+                                                @endif
+                                                
                                             </div>
                                             <div class="col">
                                                 <div class="mt-3 text-right text-nowrap">
