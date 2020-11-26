@@ -46,22 +46,6 @@
 				></a-entity>
 			</a-marker>
 
-			<a-entity camera></a-entity>
-		</a-scene>
-
-		<!a-scene
-				renderer="logarithmicDepthBuffer: true;"
-				embedded
-				loading-screen="enabled: false;"
-				arjs="sourceType: webcam; debugUIEnabled: false;"
-		>
-			<a-assets>
-				<a-asset-item
-					id="animated-asset"
-					src="{{asset('AR/Chaly_dance_002.gltf')}}"
-				></a-asset-item>
-			</a-assets>
-
 			<a-entity
 				look-at="[gps-camera]"
 				animation-mixer="loop: repeat"
@@ -69,22 +53,6 @@
 				scale="0.1 0.1 0.1"
 				gps-entity-place="latitude: -0.116913; longitude: -78.499079;"
 			></a-entity>
-
-			<a-camera gps-camera rotation-reader></a-camera>
-		</a-scene>
-
-		<a-scene
-				renderer="logarithmicDepthBuffer: true;"
-				embedded
-				loading-screen="enabled: false;"
-				arjs="sourceType: webcam; debugUIEnabled: false;"
-		>
-			<a-assets>
-				<a-asset-item
-					id="animated-asset"
-					src="{{asset('AR/Chaly_dance_002.gltf')}}"
-				></a-asset-item>
-			</a-assets>
 
 			<a-entity
 				look-at="[gps-camera]"
@@ -94,7 +62,7 @@
 				gps-entity-place="latitude: 0.40267; longitude: -78.1750884;"
 			></a-entity>
 
-			<a-camera gps-camera rotation-reader></a-camera>
+			<a-entity camera gps-camera rotation-reader></a-entity>
 		</a-scene>
 	</body>
 </html>
