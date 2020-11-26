@@ -34,19 +34,20 @@ class HomeController extends Controller
     {
         
         $fondos = Fondo::latest()->first();
-        //$fondos->updated_at->format('Y-m-d H:i:s');
-        //Iniciativas::$paginate = 1;
+        // //$fondos->updated_at->format('Y-m-d H:i:s');
+        // //Iniciativas::$paginate = 1;
         $iniciativas = Iniciativas::latest()->first();
-        $iniciativaInfo=$iniciativas->iniciativaInformacion;
-        $iniciativaAutor=$iniciativas->iniciativaActor;
-        $iniciativaDate=$iniciativas->updated_at->format('Y-m-d');
+        // $iniciativaInfo=$iniciativas->iniciativaInformacion;
+        //$iniciativaAutor=$iniciativas->iniciativaActor;
+        // $iniciativaDate=$iniciativas->updated_at->format('Y-m-d');
         $convocatoria=Convocatoria::latest()->first();
-        $convocatoria->tipoconvocatoriaid;
-        $convocatoria->user;
+        // $convocatoria->tipoconvocatoriaid;
+        // $convocatoria->user;
         $materiales = MaterialAprendizaje::latest()->first();;
         
-        //return compact('fondos','materiales','convocatoria','iniciativaDate','iniciativaInfo','iniciativaAutor');
-        return view('aplicacion.home.home',compact('fondos','convocatoria','iniciativaDate','iniciativaInfo','iniciativaAutor','materiales'));
+        // //return compact('fondos','materiales','convocatoria','iniciativaDate','iniciativaInfo','iniciativaAutor');
+        // return view('aplicacion.home.home',compact('fondos','convocatoria','iniciativaDate','iniciativaInfo','iniciativaAutor','materiales'));
+        return view('aplicacion.home.home',compact('fondos','convocatoria','materiales','iniciativas'));
     }
     public function contacto(Request $request)
     {

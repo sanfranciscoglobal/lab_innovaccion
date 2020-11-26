@@ -13,7 +13,7 @@ class Convocatoria extends Model
     use SoftDeletes;
     protected $table = 'convocatorias';
     protected $fillable = ['tipoconvocatoria_id', 'fecha_inicio', 'fecha_cierre', 'descripcion', 'imagen', 'terminos'];
-    public static $paginate = 10;
+    public static $paginate = 9;
     public static $own = false;
     public function user()
     {

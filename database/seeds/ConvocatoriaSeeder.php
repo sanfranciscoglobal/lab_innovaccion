@@ -21,7 +21,7 @@ class ConvocatoriaSeeder extends Seeder
         DB::connection()->getPdo()->exec($sql);
 
         DB::insert("insert into convocatorias (id,  user_id, tipoconvocatoria_id, fecha_inicio, fecha_cierre, descripcion,imagen,terminos) 
-        values('1','5','1','2020/11/19','2020/11/22','Convocatoia de prueba','imagenprueba.png','1')");
+        values('1','5','1','2020/11/19','2020/12/22','Convocatoia de prueba','imagenprueba.png','1')");
 
 
         $sql = "ALTER SEQUENCE convocatorias_ods_id_seq RESTART WITH 2;";

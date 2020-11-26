@@ -228,20 +228,24 @@
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Iniciativas</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
-                            <h3 class="h4 nav-heading mb-4">
+                            {{-- <h3 class="h4 nav-heading mb-4">
                                 <a href="#">{{$iniciativaInfo->nombre_iniciativa}}</a>
                             </h3>
+<<<<<<< HEAD
                             <div  class="scrollable" style="overflow: hidden; max-height:200px">
                             {{$iniciativaInfo->descripcion_iniciativa}}
                             </div>
+=======
+                            {{$iniciativaInfo->descripcion_iniciativa}} --}}
+>>>>>>> 879c76805c61e92985b9eb859d1a5848ba6e129e
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile3.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">
+                                {{-- <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">
                                 {{ $iniciativaAutor->nombre_organizacion }}
-                                </span></div>
+                                </span></div> --}}
                             </a>
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
@@ -297,19 +301,19 @@
     <section class="container py-4 pt-md-6 pt-lg-7 pb-md-5">
         <div class="row pb-lg-4 pt-3">
             <div class="col-lg-2 offset-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">8050</h3>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Convocatoria::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Convocatorias</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">1500</h3>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Iniciativas::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Iniciativas</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">40</h3>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Fondo::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Fondos </p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">18</h3>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\MaterialAprendizaje::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Publicaciones y herramientas</p>
             </div>
         </div>
