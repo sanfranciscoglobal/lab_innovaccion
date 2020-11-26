@@ -27,14 +27,14 @@
 				type="pattern"
 				preset="custom"
 				url="{{asset('AR/marker.patt')}}"
-				raycaster="objects: .clickable"
+				raycaster="objects:.clickable"
 				emitevents="true"
-				cursor="fuse: false; rayOrigin: mouse;"
+				cursor="fuse:false;rayOrigin:mouse;"
 				id="markerA"
 			>
 				<a-entity
 					id="bowser-model"
-					scale="0.6670015155726945 0.6670015155726945 0.6670015155726945"
+					scale="0.1 0.1 0.1"
 					animation-mixer="loop: repeat"
 					gltf-model="#animated-asset"
 					class="clickable"
