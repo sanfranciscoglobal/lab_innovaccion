@@ -16,7 +16,16 @@ class SolucionController extends Controller
     public function verSoluciones(Problema $problema)
     {
         $soluciones = Solucion::where('problema_id', $problema->id)->where('terminos','1')->get();
-        return view('aplicacion.innovacion.soluciones.innovacionSoluciones',compact('soluciones','problema'));
+        $c = new Convocatoria;
+        $sectores = $c->sectoresName($problema->convocatoria);
+        $sectoresArray = '';
+        foreach ($sectores as $sector) {
+            $sectoresArray .= $sector;
+            if ($sector != $sectores->last()) {
+                $sectoresArray .= '; ';
+            }
+        }
+        return view('aplicacion.innovacion.soluciones.innovacionSoluciones',compact('soluciones','problema', 'sectoresArray'));
         
     }
     public function frmSolucion(Problema $problema)
@@ -55,10 +64,19 @@ class SolucionController extends Controller
                 'path'=> route('app.solucion.mejorada', $solucion->id),
             ];
         }
+        $c = new Convocatoria;
+        $sectores = $c->sectoresName($solucion->problemaid->convocatoria);
+        $sectoresArray = '';
+        foreach ($sectores as $sector) {
+            $sectoresArray .= $sector;
+            if ($sector != $sectores->last()) {
+                $sectoresArray .= '; ';
+            }
+        }
         $avg = $solucion->rating->avg('rating') >= 1 ? $solucion->rating->avg('rating') : 5; 
         $rating = (int)round($avg, 0);
         $comentarios = $solucion->comentarios->sortByDesc('created_at')->slice(0, 3);
-        return view('aplicacion.innovacion.soluciones.Soluciondetallada',compact('solucion', 'rating', 'comentarios', 'solucion_mejorada'))->with($data);
+        return view('aplicacion.innovacion.soluciones.Soluciondetallada',compact('solucion', 'rating', 'comentarios', 'solucion_mejorada', 'sectoresArray'))->with($data);
     }
 
     

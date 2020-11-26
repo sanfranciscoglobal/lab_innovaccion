@@ -34,19 +34,17 @@
   <section class="container my-lg-2 pt-5 pb-lg-5">
     <div class="row align-items-center">
         <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-            <h1 class="mt-5">{{$problema->problema}}</h1>
-            
+          <h1 class="mt-5">{{$sectoresArray}}</h1>
         </div>
         <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
     </div>
   </section>
     <section>
         <div class="container my-5">
-          <div class="row">
-            <div class="col-12 col-lg-7 offset-lg-2">
-              <p>{{ $problema->descripcion_grupo }}</p>
+          <div class="row text-center">
+            <div class="col-12 col-lg-7 mx-auto">
+              <p>{{ $problema->problema }}</p>
             </div>
-            
           </div>
           @auth
           <div class="w-100 d-flex justify-content-center mt-3">
