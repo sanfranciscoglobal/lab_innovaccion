@@ -9,13 +9,23 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Convocatoria;
 use App\Models\Problema;
 use App\Models\Solucion;
+use App\Models\SolucionMejorada;
 
 class SolucionController extends Controller
 {
     public function verSoluciones(Problema $problema)
     {
         $soluciones = Solucion::where('problema_id', $problema->id)->where('terminos','1')->get();
-        return view('aplicacion.innovacion.soluciones.innovacionSoluciones',compact('soluciones','problema'));
+        $c = new Convocatoria;
+        $sectores = $c->sectoresName($problema->convocatoria);
+        $sectoresArray = '';
+        foreach ($sectores as $sector) {
+            $sectoresArray .= $sector;
+            if ($sector != $sectores->last()) {
+                $sectoresArray .= '; ';
+            }
+        }
+        return view('aplicacion.innovacion.soluciones.innovacionSoluciones',compact('soluciones','problema', 'sectoresArray'));
         
     }
     public function frmSolucion(Problema $problema)
@@ -41,7 +51,32 @@ class SolucionController extends Controller
     }
     public function verSoluciondetalle(Solucion $solucion)
     {
-        return view('aplicacion.innovacion.soluciones.Soluciondetallada',compact('solucion'));
+        $solucion_mejorada = $solucion->mejorada ?? new SolucionMejorada;
+        $data = [];
+        if($solucion->mejorada){
+            $data = [
+                'method'=> "PUT",
+                'path'=> route('app.solucion.mejorada.update', $solucion_mejorada->id),
+            ];
+        } else {
+            $data = [
+                'method'=> "POST",
+                'path'=> route('app.solucion.mejorada', $solucion->id),
+            ];
+        }
+        $c = new Convocatoria;
+        $sectores = $c->sectoresName($solucion->problemaid->convocatoria);
+        $sectoresArray = '';
+        foreach ($sectores as $sector) {
+            $sectoresArray .= $sector;
+            if ($sector != $sectores->last()) {
+                $sectoresArray .= '; ';
+            }
+        }
+        $avg = $solucion->rating->avg('rating') >= 1 ? $solucion->rating->avg('rating') : 5; 
+        $rating = (int)round($avg, 0);
+        $comentarios = $solucion->comentarios->sortByDesc('created_at')->slice(0, 3);
+        return view('aplicacion.innovacion.soluciones.Soluciondetallada',compact('solucion', 'rating', 'comentarios', 'solucion_mejorada', 'sectoresArray'))->with($data);
     }
 
     

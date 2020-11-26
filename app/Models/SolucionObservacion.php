@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class SolucionObservacion extends Model
 {
-    //
     use SoftDeletes;
     protected $table = 'solucion_observaciones';
     protected $fillable = ['viable','solucion_id','comentario', 'terminos'];

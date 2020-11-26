@@ -32,8 +32,8 @@
                 </div>
             </div>
             <div class="col-md-2 col-sm-4 ml-auto pb-1" style="margin-top: 2%;">
-            <img src="{{asset('img/onu.svg')}}" style="height:90px!important;" width="80" alt="Creative Commons Attribution 3.0 International">
-                <img src="{{asset('img/sanfrancisco.svg')}}" style="height:90px!important" width="100" height="100px" alt="Creative Commons Attribution 3.0 International">
+            <img src="{{asset('img/layout/footer/PNUD_LAB.svg')}}" style="height:90px!important;" width="80" alt="Creative Commons Attribution 3.0 International">
+                <img src="{{asset('img/layout/footer/SFG_Logo.svg')}}" style="height:90px!important" width="100" height="100px" alt="Creative Commons Attribution 3.0 International">
             </div>
             <div class="col-md-3 col-sm-4 ml-auto pb-1" style="margin-top: 2%;">
                 <div class="cs-widget cs-widget-light">

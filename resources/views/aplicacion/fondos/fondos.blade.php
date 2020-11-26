@@ -1,48 +1,61 @@
 @extends('layouts.aplicacion.app')
 @section('header-css')
 <style>
+@media (max-width: 768px) {
+       
+       #bannerluces{
+           background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
+       }
+   }
     .card-lab-orange .card-body * { color: white; }
     .card-lab-orange .card-body,
     .card-lab-orange .card-body:before { background-color: #FF9F40; }
+    
 </style>
 @endsection
 @section('content')
-    <section class="container my-lg-2 pt-5 pb-lg-5">
+
+    <section class="container mt-lg-2 pt-5 pt-sm-7  mt-md-4 pt-lg-7 pt-md-5 pb-0">
         <div class="row align-items-center">
-            <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5 text-primary">Fondos</h1>
-                <div class="py-3">
+            <div class="col-md-6 bg-size-cover order-md-2 py-5">
+                <h1 clas="" s="mt-5 text-primary">Fondos</h1>
+                <div class="">
                     <p class="cs-callout">¡Fomentemos oportunidades de financiamiento para la innovación!<br>
                         Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.
                         Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación. </p>
                 </div>
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-8 offset-lg-2 text-center">
-                    {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
-                    <p class="h5">Registra fondos propios o de otros organismos en el formulario.</p>
-                    <a class="btn btn-primary" href="{{ route('app.fondos') }}">Registra una oportunidad de financiamiento</a>
-                </div>
+            <div class="col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces" 
+            style="background-image:url({{ asset('img/layout/home/laboratorio-side-bkg.png')}})">
             </div>
         </div>
     </section>
-    <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-5">
-        <p class="h5 text-center">Revisa las oportunidades de financiamiento pulsando en los íconos.</p>
+
+    <div class="position-relative bg-purple-gradient" style="height: 420px;">
+        <div class="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+                <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z">
+                </path>
+            </svg>
+        </div>
+    </div>
+    <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
+        <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">Revisa las oportunidades de financiamiento pulsando en los íconos.</h2>
+        <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
+                   
+                    <p class="h5 text-light">Registra fondos propios o de otros organismos en el formulario.</p>
+                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.fondos') }}">Registra una oportunidad de financiamiento</a>
+        </div>
         <div class="row mb-3 mt-4">
             @foreach ($fondos as $fondo)
             @php
                 $img = isset($fondo->imagen) ? $fondo->imagen : '';
                 $img = Storage::disk('fondos')->exists($img) ? asset('storage/fondos/'.$img) : asset('img/logo/thinkia_color_no_slogan.svg');
             @endphp
-            {{-- <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter" data-toggle="modal" data-target="#modelId" data-content="{{$fondo}}"> --}}
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <a class="card-floating-icon" href="mailto:{{ $fondo->user->email }}"><i class="fe-mail"></i></a>
+            {{-- <div class=" d-inline-block col-lg-3 col-md-4 col-sm-6 mb-grid-gutter" data-toggle="modal" data-target="#modelId" data-content="{{$fondo}}"> --}}
+            <div class="col-lg-4 col-sm-6 mb-grid-gutter" >
+                <div class=" h-100  card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
+                {{--<a class="card-floating-icon" href="mailto:{{ $fondo->user->email }}"><i class="fe-mail"></i></a>--}}
                     <div class="card-img-top card-img-gradient">
                         <img src="{{ $img }}" alt="{{ $fondo->organizacion }}" style="height: 300px"/>
                     </div>
@@ -52,9 +65,9 @@
                         @if($fondo->fuente)
                         <p class="font-size-xs mb-0">{{ $fondo->nombre_fondo }}</p>
                         <p class="font-size-xs mb-0">{{ 'Del: '.$fondo->fecha_inicio.' al '.$fondo->fecha_fin }}</p>
-                        <a href="{{ $fondo->info }}" class="font-size-xs mb-0">{{ $fondo->info }}</a>
+                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-xs mb-0">Ver página</a>
                         @else
-                        <a href="{{ $fondo->info }}" class="font-size-xs mb-0">{{ $fondo->info }}</a>
+                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-xs mb-0">Ver página</a>
                         @endif
 
                         <ul class="d-flex justify-content-center list-inline mt-3">
