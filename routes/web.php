@@ -37,7 +37,7 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
-Route::get('/verificacion', function(){
+Route::get('/verificacion', function () {
     return redirect()->route('home')->with('error', 'Por favor verifica tu correo electrónico.');
 })->name('verification.notice');
 Route::get('reset-password', 'Auth\ForgotPasswordController@show')->middleware(['guest'])->name('reset');
@@ -128,7 +128,7 @@ Route::as('app.')
             // Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\crudMaterialesaprendizaje@comment')->name('material-de-aprendizaje.comentario');
 
             // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
-             Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
+            Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
             /**
@@ -156,7 +156,7 @@ Route::as('app.')
             Route::delete('innovacion/gestion/delete/{problema}', 'Aplicacion\crudProblemas@destroy')->name('problemas.delete');
 
             //SOLUCION
-            
+
             Route::get('innovacion/solucion/crear/{problema}', 'Aplicacion\SolucionController@frmSolucion')->name('soluciones.crear');
             Route::post('innovacion/solucion/store', 'Aplicacion\crudSoluciones@store')->name('soluciones.store');
             Route::get('innovacion/solucion/edit/{problema}/{solucion}', 'Aplicacion\SolucionController@frmSolucionEdit')->name('soluciones.edit');
@@ -202,6 +202,10 @@ Route::as('admin.')
             Route::put('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@update')->name('convocatoria.put');
             Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
+
+            /** Iniciativas */
+            Route::resource('iniciativas', 'Backend\IniciativasController');
+            Route::get('iniciativas/{id}/activar', 'Backend\IniciativasController@activar')->name('iniciativas.activar');
         }
     );
 
