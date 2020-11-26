@@ -1,5 +1,5 @@
 <footer class="cs-footer bg-dark bg-purple-gradient pt-5" style="text-align: center;">
-    <div class="">
+    <div class="container">
         <div class="row" style="margin-right: 0px;">
             <div class="col-md-4 mt-n2 pb-3 pb-md-0">
                 <a class="d-block text-white mx-auto" href="index.html" style="width: 153px; color: white">
@@ -31,15 +31,24 @@
                     <a class="text-white" href="mailto:hola@thinkia.org">hola@thinkia.org</a>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4 ml-auto pb-1" style="margin-top: 2%;">
-            <img src="{{asset('img/layout/footer/PNUD_LAB.svg')}}" style="height:90px!important;" width="80" alt="Creative Commons Attribution 3.0 International">
-                <img src="{{asset('img/layout/footer/SFG_Logo.svg')}}" style="height:90px!important" width="100" height="100px" alt="Creative Commons Attribution 3.0 International">
-            </div>
-            <div class="col-md-3 col-sm-4 ml-auto pb-1" style="margin-top: 2%;">
-                <div class="cs-widget cs-widget-light">
-                                    <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución 4.0 internacional.</p>
-                    <img src="{{asset('img/cc-badge.png')}}" width="80" alt="Creative Commons Attribution 3.0 International">
+            
+                <div class="col-md-3 col-sm-4 ml-auto pb-1" style="margin-top: 2%;">
+                    <div class="cs-widget cs-widget-light">
+                                        <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución 4.0 internacional.</p>
+                        <img src="{{asset('img/cc-badge.png')}}" width="80" alt="Creative Commons Attribution 3.0 International">
+                    </div>
                 </div>
+
+
+            <div class="row justify-content-center center-block text-center mx-auto my-5 pl-sm-7 ">
+              
+                    <div class="col-6 ml-auto pb-1 h-100" style="margin-top: 2%;">
+                    <img src="{{asset('img/layout/footer/PNUD_LAB.svg')}}" style="height:130px!important;"  alt="Creative Commons Attribution 3.0 International">
+                    </div>
+                    <div class="col-6 ml-auto pb-1 h-100" style="margin-top: 2%;">    
+                    <img src="{{asset('img/layout/footer/SFG_Logo.svg')}}" style="height:130px!important"  height="100px" alt="Creative Commons Attribution 3.0 International">
+                    </div>
+    
             </div>
             <?php /*
             <div class="col-md-2 col-sm-4 ml-auto pb-1 mb-4">
