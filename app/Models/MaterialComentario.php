@@ -10,7 +10,7 @@ class MaterialComentario extends Model
     //
     use SoftDeletes;
     protected $table = 'material_comentarios';
-    protected $fillable = ['nombre_user', 'correo_user', 'comentario', 'material_id'];
+    protected $fillable = ['comentario', 'material_id'];
     public function user(){
         return $this->belongsTo('App\Models\User');
     }

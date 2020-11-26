@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center">
                     <h2>Misión</h2>
-                    <p>Consolidar la relación entre agentes innovadores para generar un ecosistema de innovación articulado y promocionar dentro de cada sector - público, privado, academia y sociedad civil 
+                    <p class="text-justify">Consolidar la relación entre agentes innovadores para generar un ecosistema de innovación articulado y promocionar dentro de cada sector - público, privado, academia y sociedad civil 
                     – que los retos internos pueden ser resueltos con procesos abiertos de participación pública que busquen soluciones efectivas y agiles que aporten al bienestar social. </p>
                 </div>
             </div>
@@ -57,6 +57,7 @@
             
             <div class="row mt-5 mb-5">
                 <div class="col-12 col-lg-6">
+                        <h2>Valores</h2>
                         <img class="img-fluid" src="{{asset('images/acerca/image-3.png')}}">
                 </div>
                 <div class="col-12 col-lg-6">

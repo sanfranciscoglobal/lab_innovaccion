@@ -89,7 +89,7 @@
                                     <div class="col-8 ">
                                         <div class="form-group m-publicacion m-herramienta d-none">
                                             <label for="mat_url" id="label_url">* Fuente de la publicación</label>
-                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\%\+,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&%'\(\)\*\+,;=.]+$"  class="form-control" oninput="validateURL()" type="text" id="mat_url"  value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:old('fuente_publicacion')}}" name="fuente_publicacion" oninvalid="setCustomValidity('Ingrese una dirección web valida.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             <div class="invalid-feedback" id='url-error'></div>
                                         </div>
                                     </div>
@@ -134,16 +134,12 @@
                                                             {{$articulo->nombre}}
                                                             <br>
                                                         @endforeach"
-
                                                 multiple>
                                             @else
                                                 <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" name="mat_files[]" multiple>
-                                                @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             @endif
-                                            
-
+                                            @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>

@@ -14,8 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             
             RolesSeeder::class,
-            
-            OdsCategoriasSeeder::class,
             NivelSolucionSeeder::class,
             IniciativaOrigenSeeder::class,
             EstadoRegistroSeeder::class,
@@ -27,9 +25,11 @@ class DatabaseSeeder extends Seeder
             ProvinciaSeeder::class,
             CantonSeeder::class,
             BackupSeeder::class,
+            OdsCategoriasSeeder::class,
+            //ObjetivosDesarrolloSeeder::class,
             TipoSectorSeeder::class,
             TipoSubsectorSeeder::class,
-            ConvocatoriaSeeder::class,
+            // ConvocatoriaSeeder::class,
         ]);
     }
 }

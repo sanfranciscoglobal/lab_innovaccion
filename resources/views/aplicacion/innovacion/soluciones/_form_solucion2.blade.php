@@ -9,43 +9,64 @@
        <div class="row">
            <div class="col-12">
                 <div class="form-group">
-                    <label class="control-label">* Tipo de innovación propuesta</label><br/>
-                    <select style="width:100%;" id="tipo_propuesta" name="tipo_institucion[]"
+
+                    <label class="control-label">* Tipo de innovación propuesta</label>
+                    <div class= "m-0 p-0 w-100 form-group">
+                        
+                        <select style="width:100%;" id="tipo_propuesta" name="tipo_institucion[]"
                             class="form-control select2"
                             data-ajax--url="{{route('api.tipo-propuesta.select2')}}"
                             data-ajax--data-type="json"
                             data-ajax--cache="true"
                             data-allow-clear="true"
+                            data-placeholder="Seleccione uno o varios tipos"
                             data-close-on-select="false"
                             required="required" multiple>
-                        {{-- @if($model->iniciativaInstituciones)
-                            @foreach($model->iniciativaInstituciones as $institucion)
-                                <option value="{{$institucion->tipo_institucion_id}}"
-                                        selected>{{$institucion->tipoInstitucion->descripcion}}</option>
-                            @endforeach
-                        @endif --}}
-                    </select>
+                            @if($solucion->tipopropuestas)
+                                @foreach($solucion->tipopropuestas as $propuesta)
+                                    <option value="{{$propuesta->tipoinnovacion_id}}"
+                                            selected>{{$propuesta->tipoinnovacionid->nombre}}</option>
+                                @endforeach
+                            @endif
+                        </select>
+ 
+                        <div class="invalid-tooltip">Por favor seleccione uno o varios tipos.</div>
+                        <div class="valid-tooltip">Bien!</div>
+                    </div>
+
+                    
+                    
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
+
+
                     <label class="control-label">* Nivel actual de desarrollo de la solución</label>
-                    <select style="width:100%;" id="tipo_poblacion2" name="nivelsolucion_id"
+                    <div class= "m-0 p-0 w-100 form-group">
+                        
+                        <select style="width:100%;" id="tipo_poblacion2" name="nivelsolucion_id"
                             class="form-control select2"
                             data-ajax--url="{{route('api.nivel-solucion.select2')}}"
                             data-ajax--data-type="json"
                             data-ajax--cache="true"
-                            data-close-on-select="false"
+                            data-placeholder="Seleccione un nivel"
                             required="required">
-                        {{-- @if($model->iniciativaPoblaciones)
-                            @foreach($model->iniciativaPoblaciones as $poblacion)
-                                <option value="{{$poblacion->tipo_poblacion_id}}"
-                                        selected>{{$poblacion->tipoPoblacion->descripcion}}</option>
-                            @endforeach
-                        @endif --}}
-                    </select>
+                            @if($solucion->nivelsolucion_id)
+                                <option value="{{$solucion->nivelsolucion_id}}"
+                                    selected>{{$solucion->nivelsolucionid->nombre}}</option>
+                                
+                            @endif
+                        </select>
+ 
+                        <div class="invalid-tooltip">Por favor seleccione un nivel.</div>
+                        <div class="valid-tooltip">Bien!</div>
+                    </div>
+
+                    
+                    
     
                 </div>
             </div>
@@ -53,16 +74,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="form-group">
-                    <label class="control-label">* Escribe tres palabras o conceptos clave que se refieran a la solución</label>
+                    <label class="control-label">* Escribe tres palabras o conceptos clave que se refieran a la solución</label><br>
+                    <label class="control-label">Campo 1</label>
                     <input maxlength="200" type="text" required="required" class="form-control"
-                           placeholder="Ejm:Desarrollo de una plataforma web" name="concepto1"
-                           value="">
+                           placeholder="Ejemplo:Desarrollo de una plataforma web" name="concepto1"
+                            value="{{$solucion->concepto1}}">
+                    <label class="control-label">Campo 2</label>
                     <input maxlength="200" type="text" required="required" class="form-control"
-                           placeholder="Ejm:Reingeniería de proceso" name="concepto2"
-                           value="">
+                           placeholder="Ejemplo:Reingeniería de proceso" name="concepto2"
+                           value="{{$solucion->concepto2}}">
+                    <label class="control-label">Campo 3</label>
                     <input maxlength="200" type="text" required="required" class="form-control"
-                           placeholder="Ejm:Turnero web" name="concepto3"
-                           value="">
+                           placeholder="Ejemplo:Turnero web" name="concepto3"
+                           value="{{$solucion->concepto3}}">
                 </div>
             </div>
             

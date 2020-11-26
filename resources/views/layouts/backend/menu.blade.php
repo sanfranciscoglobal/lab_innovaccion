@@ -24,7 +24,8 @@
                             <li>
                                 <a class="cs-widget-link" href="{{ route('admin.escritorio.convocatoria') }}">
                                     Convocatorias
-                                    <small class="text-muted pl-1 ml-2">5</small>
+                                    <small class="text-muted pl-1 ml-2">{{ App\Models\Convocatoria::where('user_id', Auth::id())->count() }}</small>
+                                    {{-- <small class="text-muted pl-1 ml-2">5</small> --}}
                                 </a>
                             </li>
                             <li>

@@ -50,7 +50,7 @@
         <div class="card mb-5">
             <div class="card-body">
                 <div class="px-0 px-xl-2 pt-0" >
-                    <a class="media meta-link font-size-sm align-items-center" href="#">
+                    <a class="media meta-link font-size-sm align-items-center">
                         <img  class='rounded-circle' width="42" src="{{ $imagen1}}"
                             alt="Sanomi Smith" />
                             <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$material->tema_tratado}}</h3>
@@ -79,7 +79,9 @@
                         <span class="font-weight-bold e-presencial"><i class="fe-link font-size-xl mr-2"></i> Fuente de la publicación</span>
             
                         <div class="form-group">
-                            <label  class="form-control" style="text-align: left"><a Target="_blank" href="{{$material->fuente_publicacion}}">{{isset($material->fuente_publicacion)?$material->fuente_publicacion:null}}</a></label>
+                            <a Target="_blank" href="{{$material->fuente_publicacion}}">
+                            <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:null}}">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -87,7 +89,7 @@
                     <span class="font-weight-bold e-presencial"><i class="fe-message-square font-size-xl mr-2"></i> Comentarios </span>
                         <br>
                         <br>
-                        
+                    
 
                     @foreach ($comentarios as $comment)
                         @php
@@ -97,6 +99,7 @@
                                     $imagen = asset('storage/perfil/'.$comment->user->perfil->avatar);
                                 }
                             }
+                            
                         @endphp
                         <p>{{$comment->comentario}}</p>
                         <div class="row">
@@ -139,7 +142,7 @@
                                 <div class="col-12">
                                     <h3>Escribe un comentario</h3>
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="nombre"><i class="fe-user font-size-lg mr-2"></i>*Tu nombe</label>
                                         <input class="form-control" type="text" id="nombre" name="nombre_user" required>
                                         @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
@@ -148,7 +151,7 @@
                                         <label  for="correo"><i class="fe-mail font-size-lg mr-2"></i>*Tu correo</label>
                                         <input type='email' class="form-control" id="correo" name='correo_user' required>
                                         @error('correo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <label for="comentario"><i class="fe-message-square font-size-lg mr-2"></i>*Comentario</label>
                                         <textarea id="comentario" class="form-control" name="comentario" placeholder="Escriba su comentario" required rows="6"

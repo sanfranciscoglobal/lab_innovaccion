@@ -140,7 +140,7 @@
             <div class="cs-carousel-inner"
                 data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 16},&quot;850&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 16}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 23}}}">
                 <!-- Article-->
-                
+                @isset($fondos)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Fondos</span>
@@ -172,50 +172,56 @@
                     </article>
                 </div>
                 <!-- Article-->
+                @endisset
+                @isset($convocatoria)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                        @if($fondos->fuente)
-                            <a class="meta-link font-size-sm mb-2" href="#">Propia</a>
-                        @else
-                            <a class="meta-link font-size-sm mb-2" href="#">Organización</a>
-                        @endif
+                    
+                            <a class="meta-link font-size-sm mb-2" href="#">{{ $convocatoria->tipoconvocatoriaid->nombre}}</a>
+                      
                             <h3 class="h4 nav-heading mb-4">
-                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                                <a href="#">Convocatoria # {{ $convocatoria->id}}</a>
                             </h3>
+                            {{ $convocatoria->descripcion}}
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile2.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
-                                        1</span></div>
+                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">{{$convocatoria->user->name}}</span></div>
                             </a>
+                            
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
-                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;22 Ago
+                                    <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;{{ $convocatoria->fecha_inicio}}
                                 </a>
                             </div>
                         </div>
                     </article>
                 </div>
+                @endisset
                 <!-- Article-->
+                @isset($iniciativaInfo)
+                @isset($iniciativaAutor)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Iniciativas</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
                             <a class="meta-link font-size-sm mb-2" href="#">Categoría 1</a>
-                            <h3 class="h4 nav-heading mb-4">
-                                <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed.</a>
+                            {{-- <h3 class="h4 nav-heading mb-4">
+                                <a href="#">{{$iniciativaInfo->nombre_iniciativa}}</a>
                             </h3>
+                            {{$iniciativaInfo->descripcion_iniciativa}} --}}
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile3.jpg') }}"
                                     alt="Sanomi Smith" />
-                                <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">Empresa
-                                        1</span></div>
+                                {{-- <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">
+                                {{ $iniciativaAutor->nombre_organizacion }}
+                                </span></div> --}}
                             </a>
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
@@ -225,7 +231,10 @@
                         </div>
                     </article>
                 </div>
+                @endisset
+                @endisset
                 <!-- Article-->
+                @isset($materiales)
                 <div class="pb-2">
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Publicaciones y herramientas</span>
@@ -257,6 +266,7 @@
                         </div>
                     </article>
                 </div>
+                @endisset
             </div>
         </div>
     </section>
@@ -265,19 +275,19 @@
     <section class="container py-4 pt-md-6 pt-lg-7 pb-md-5">
         <div class="row pb-lg-4 pt-3">
             <div class="col-lg-2 offset-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">8050</h3>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Convocatoria::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Convocatorias</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">1500</h3>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Iniciativas::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Iniciativas</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">40</h3>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Fondo::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Fondos </p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">18</h3>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\MaterialAprendizaje::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Publicaciones y herramientas</p>
             </div>
         </div>
