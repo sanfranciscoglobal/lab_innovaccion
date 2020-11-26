@@ -183,7 +183,8 @@ function initMap() {
                   });
        
       var marcador=0;
-      var infowindow = new google.maps.InfoWindow();
+      var infowindow = new google.maps.InfoWindow({maxWidth: 350,
+      });
       
       const input = document.getElementById("pac-input");
       const searchBox = new google.maps.places.SearchBox(input);

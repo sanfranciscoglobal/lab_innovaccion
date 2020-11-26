@@ -3,6 +3,20 @@
 @section('content')
 <style scoped>
     .carousel-item {min-height: 550px;}
+
+    @media (max-width: 768px) {
+        .carousel-item {
+            min-height: 350px!important;
+            }
+        #bannerluces{
+            background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1250px) {
+        .itemhome{
+            min-width: 50%;
+        }
+    }
 </style>
 <section id="home-hero-banner">
     @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
@@ -10,8 +24,8 @@
 
     <section id="funciones">
         <div class="container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5">
-            <div class="row d-flex">
-                <div class="col-md-3">
+            <div class="row justify-content-center">
+                <div class="itemhome col-md-5  col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Gestion_Innovacion.png') }}"
                             alt="Icon" />
@@ -19,7 +33,7 @@
                         <p class="font-size-sm mb-0 text-justify">Recogemos con convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="itemhome col-md-5  col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Ecosistema_Innovacion.png') }}"
                             alt="Icon" />
@@ -27,7 +41,7 @@
                         <p class="font-size-sm mb-0 text-justify">Facilitamos la conexión entre agentes innovadores mapeando sus iniciativas para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="itemhome col-md-5 col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Mapa.png') }}"
                             alt="Icon" />
@@ -35,7 +49,7 @@
                         <p class="font-size-sm mb-0 text-justify">Promovemo la generación de datos abiertos del ecosistema y la gestión de innovación para fines informativos e investigativos.</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="itemhome col-md-5 col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Recursos.png') }}"
                             alt="Icon" />
@@ -48,12 +62,12 @@
     </section>
 
     <section class="bg-secondary bg-gradient-orange-purple">
-        <div class="row no-gutters">
-            <div class="col-md-6 py-7 bg-size-cover order-md-2 overflow-hidden"
+        <div class=" container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5 row no-gutters">
+            <div class="col-md-6 py-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces"
                 style="background-image: url({{ asset('img/layout/home/laboratorio-side-bkg.png') }});">
             </div>
-            <div class="col-md-6 px-3 pl-xl-0 pr-lg-5 py-2 py-lg-4 order-md-1">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-6 pl-lg-5  py-lg-7 text-white">
+            <div class="col-md-6 px-3  py-2 py-lg-4 order-md-1">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-5  py-lg-4 text-white">
                     <h2 class="mb-3 pb-1 text-white">Laboratorio de Innovación</h2>
                     <div class="row">
                     <div class="col">
@@ -120,7 +134,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <a class="btn font-weight-bold botonmora " style=" width: 17%;" href="/eventos/">Ver todos</a>
+                    <a class="btn font-weight-bold botonmora " style=" width: 150px;" href="/eventos/">Ver todos</a>
                 </div>
             </div>
         </div>
@@ -154,7 +168,9 @@
                             
                                 <a href="#">{{ $fondos->nombre_fondo }}</a>
                             </h3>
+                            <div  class="scrollable" style="overflow: hidden; max-height:200px">
                             {{ $fondos->info }}
+                            </div>
                         </div>
                             
                         <div class="px-4 px-xl-5 pt-2">
@@ -184,7 +200,9 @@
                             <h3 class="h4 nav-heading mb-4">
                                 <a href="#">Convocatoria # {{ $convocatoria->id}}</a>
                             </h3>
+                            <div  class="scrollable" style="overflow: hidden; max-height:200px">
                             {{ $convocatoria->descripcion}}
+                            </div>
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
@@ -213,7 +231,13 @@
                             {{-- <h3 class="h4 nav-heading mb-4">
                                 <a href="#">{{$iniciativaInfo->nombre_iniciativa}}</a>
                             </h3>
+<<<<<<< HEAD
+                            <div  class="scrollable" style="overflow: hidden; max-height:200px">
+                            {{$iniciativaInfo->descripcion_iniciativa}}
+                            </div>
+=======
                             {{$iniciativaInfo->descripcion_iniciativa}} --}}
+>>>>>>> 879c76805c61e92985b9eb859d1a5848ba6e129e
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
@@ -248,7 +272,9 @@
                                
                                 {{ $materiales->nombre_publicacion }}
                             </h3>
+                            <div  class="scrollable" style="overflow: hidden; max-height:200px">
                             {{ $materiales->fuente_publicacion }}
+                            </div>
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">

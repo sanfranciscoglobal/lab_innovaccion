@@ -1,6 +1,12 @@
 @extends('layouts.aplicacion.app')
 @section('header-css')
     <style>
+       
+         @media (min-width: 992px) and (max-width: 1250px) {
+            .itemhome{
+                min-width: 50%;
+            }
+        }
         .card {
             overflow: hidden;
         }
@@ -90,16 +96,17 @@
         for(z=0;z<pobla.length;z++){
             txtpobla=pobla[z].descripcion+", ";
         }
-        info=
-        '<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
+        info='<div class="">'
+        +'<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
         + '<b size="5" style="color:#fd972b">Descripción de la iniciativa:</b></br>'
-        + '<div  style="max-width:175px">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
+        + '<div class="">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
         +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
-        + '<div  style="max-width:175px">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
+        + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
         +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>' 
-        + '<div  style="max-width:175px">'+txtods.slice(0, -2)+".</div></br>"
+        + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
         +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
-        + '<div  style="max-width:175px">'+txtpobla.slice(0, -2)+".</div></br>" 
+        + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>" 
+        +'</div>'
         for(j=0;j<iniciativas[i].iniciativa_ubicaciones.length;j++){
             locations.push([])
             locations[c].push(info)
