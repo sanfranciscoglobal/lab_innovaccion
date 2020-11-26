@@ -57,7 +57,7 @@ class LoginController extends Controller
                 $array_json = json_encode($rolesUser);
                 session()->put('roles', $array_json);
             }
-            
+
             if (auth()->user()->roles()->pluck('name', 'roles.id')->first() != 'user') {
                 return redirect()->route('admin.escritorio')->with('status', 'Tu sesión ha iniciado exitosamente.');
             }
