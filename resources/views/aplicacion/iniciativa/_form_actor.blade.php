@@ -70,7 +70,7 @@
                         @endif
                     </select>
                     <div class="invalid-feedback">Por favor seleccione tipo de institución</div>
-                    <div class="valid-feedback">Ok!</div>
+                    <div class="valid-feedback">Bien!</div>
                 </div>
             </div>
         </div>

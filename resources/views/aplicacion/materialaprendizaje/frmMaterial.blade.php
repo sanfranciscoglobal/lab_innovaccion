@@ -160,7 +160,7 @@
                                             <option value="Tema 3" {{old('tema_tratado',$material->tema_tratado)=="Tema 3"? 'selected':''}}>Tema 3</option>
                                           </select>
                                           <div class="invalid-feedback">Seleccione un tema.</div>
-                                          <div class="valid-feedback">Ok!</div>
+                                          <div class="valid-feedback">Bien!</div>
                                         </div>
                                     </div>
 
@@ -184,7 +184,7 @@
                                             <option value="Tipo 3" {{old('tipo_documento',$material->tipo_documento)=="Tipo 3"? 'selected':''}}>Tipo 3</option>
                                           </select>
                                           <div class="invalid-feedback">Seleccione un tipo.</div>
-                                          <div class="valid-feedback">Ok!</div>
+                                          <div class="valid-feedback">Bien!</div>
                                         </div>
                                     </div>
                                     
