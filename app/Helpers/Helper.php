@@ -63,4 +63,25 @@ class Helper
         return false;
     }
 
+    /**
+     * @param $estado
+     * @return string
+     */
+    public static function obtenerEtiquetaEstado($estado)
+    {
+        if ($estado) {
+            return '<span class="badge badge-pill badge-danger">EIMINADO</span>';
+        } else {
+            return '<span class="badge badge-pill badge-success">ACTIVO</span>';
+        }
+    }
+
+    public static function returnAdmin()
+    {
+        if (session()->has('admin')) {
+            return session()->get('admin');
+        }
+
+        return false;
+    }
 }

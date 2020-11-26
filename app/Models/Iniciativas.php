@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
 
 class Iniciativas extends Model
 {
+    use SoftDeletes;
+
     public static $paginate = 10;
     public static $search = null;
     public static $search_canton_id = [];
@@ -20,7 +23,6 @@ class Iniciativas extends Model
         'iniciativa_actor_id',
         'iniciativa_informacion_id',
     ];
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -44,6 +46,14 @@ class Iniciativas extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaOrigen()
+    {
+        return $this->belongsTo(IniciativaOrigen::class, 'iniciativa_origen_id');
     }
 
     /**
@@ -135,6 +145,14 @@ class Iniciativas extends Model
     /**
      * @return string|null
      */
+    public function getComponenteInnovadorAttribute()
+    {
+        return ($this->iniciativaInformacion) ? $this->iniciativaInformacion->componente_innovador : null;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getUserNameAttribute()
     {
         return ($this->user) ? $this->user->name : null;
@@ -159,9 +177,25 @@ class Iniciativas extends Model
     /**
      * @return string|null
      */
+    public function getIniciativaOrigenDescripcionAttribute()
+    {
+        return ($this->iniciativaOrigen) ? $this->iniciativaOrigen->descripcion : null;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getUserImagenAttribute()
     {
         return ($this->user->perfilUser) ? $this->user->perfilUser->avatar : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeletedAtStatusAttribute()
+    {
+        return ($this->deleted_at) ? true : false;
     }
 
     /**
@@ -258,9 +292,35 @@ class Iniciativas extends Model
         return $rs->paginate(self::$paginate) ?? [];
     }
 
+    /**
+     * @return int
+     */
     public static function obtenerIniciativasCount()
     {
         return self::builderIniciativa()->count() ?? 0;
+    }
+
+    /**
+     * Obtener paginador de iniciativas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerIniciativasWithTrashedAll()
+    {
+        $rs = self::builderIniciativa();
+        return $rs->withTrashed()->get() ?? [];
+    }
+
+    /**
+     * Obtener paginador de iniciativas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerIniciativaWithTrashedRestore($id)
+    {
+        if(Iniciativas::withTrashed()->find($id)->restore()){
+            return true;
+        }
+
+        return false;
     }
 
 }

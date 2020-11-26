@@ -8,7 +8,8 @@ window.currentAddressInput = 0;
 window.autocomplete = null;
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.datatables-demo').dataTable();
 })
 
 if (document.querySelector('.check-toggle')) {

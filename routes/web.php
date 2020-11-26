@@ -37,7 +37,7 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/signin', 'Auth\RegisterController@create')->name('signin');
 Route::get('/verificar/{id}', 'Auth\VerificationController@verify')->name('verify');
-Route::get('/verificacion', function(){
+Route::get('/verificacion', function () {
     return redirect()->route('home')->with('error', 'Por favor verifica tu correo electrónico.');
 })->name('verification.notice');
 Route::get('reset-password', 'Auth\ForgotPasswordController@show')->middleware(['guest'])->name('reset');
@@ -48,7 +48,7 @@ Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->na
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
-Route::get('/eventos/download', function(){
+Route::get('/eventos/download', function () {
     return Storage::disk('eventos')->download('1605557970_erdfadf-df_1.jpeg');
 })->name('eventos.download');
 Route::get('/eventos/{evento}', 'Aplicacion\EventosController@verEventodetalle')->name('eventodetalle');
@@ -65,7 +65,6 @@ Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\Materia
 
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
 Route::get('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
-
 
 
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
@@ -126,7 +125,7 @@ Route::as('app.')
             // Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\crudMaterialesaprendizaje@comment')->name('material-de-aprendizaje.comentario');
 
             // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
-             Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
+            Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
             /**
@@ -191,6 +190,10 @@ Route::as('admin.')
             Route::put('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@update')->name('convocatoria.put');
             Route::post('/innovacion/crear', 'Aplicacion\crudConvocatoria@store')->name('convocatoria.post');
             Route::delete('/innovacion/crear/{convocatoria}', 'Aplicacion\crudConvocatoria@destroy')->name('convocatoria.delete');
+
+            /** Iniciativas */
+            Route::resource('iniciativas', 'Backend\IniciativasController');
+            Route::get('iniciativas/{id}/activar', 'Backend\IniciativasController@activar')->name('iniciativas.activar');
         }
     );
 

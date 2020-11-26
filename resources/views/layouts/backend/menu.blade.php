@@ -47,7 +47,7 @@
                         </a>
                         <ul class="collapse" id="ecosistema" data-parent="#menu">
                             <li>
-                                <a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">
+                                <a class="cs-widget-link" href="{{route('admin.iniciativas.index')}}">
                                     Iniciativas
                                 </a>
                             </li>
