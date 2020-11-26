@@ -1,4 +1,10 @@
 @extends('layouts.aplicacion.app')
+@section('header-css')
+    <style>
+        .cs-sidebar { background: #f2f2f2; }
+        
+    </style>
+@endsection
 
 @section('content')
 
@@ -18,8 +24,38 @@
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/material-baner1.png') }}" alt="Side banner"></div>
         </div>
     </section>
+    <div class="position-relative bg-purple-gradient" style="height: 420px;">
+        <div class="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+                <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z">
+                </path>
+            </svg>
+        </div>
+    </div>
+    <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;margin-bottom: 100px;">
+      
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
+                <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">Revisa y descarga el material de aprendiaje y deja tus comentarios en los foros respectivos de cada publicación.</h2>
+                
+                <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
+               
+                    <p class="h5 text-light">Publica el artículo o herramienta en el formulario a continuación.</p>
+                    @if ($autentificacion)
+                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje.post') }}">Publica un artículo o herramienta.</a>
+                    
+                    </p>
+                @endif
+                </div>
 
-    <div class="cs-sidebar-enabled cs-sidebar-right">
+                
+            </div>
+        </div>
+
+    </section>
+    
+    <div class="cs-sidebar-enabled cs-sidebar-right" >
         
         <div class="container">
             
@@ -38,9 +74,9 @@
                     <h1 class="mb-5">Blog</h1> --}}
                 
                     <!-- Post-->
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col">
-                            {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
+                            
                             <p class="text-center font-size-lg">Publica el artículo o herramienta en el formulario a continuación.</p>
                             @if ($autentificacion)
                             <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.material-de-aprendizaje.post')}}">Publica un artículo o herramienta.</a>
@@ -49,7 +85,7 @@
                         @endif
                             
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                        
                         @foreach ($materiales as $material)

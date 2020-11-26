@@ -22,6 +22,12 @@
   $month_mini = array("","ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC");
 @endphp
 @extends('layouts.aplicacion.app')
+@section('header-css')
+    <style>
+        .cs-sidebar { background: #f2f2f2; }
+        
+    </style>
+@endsection
 @section('content')
     <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
