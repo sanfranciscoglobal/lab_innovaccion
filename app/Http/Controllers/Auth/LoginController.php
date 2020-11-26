@@ -39,6 +39,10 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->middleware(function ($request, $next) {
+            session()->forget('roles');
+            return $next($request);
+        });
     }
 
     public function login()
@@ -49,11 +53,12 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            if ($rolesUser = Auth::user()->roles()->pluck('name','roles.id')->all()) {
+            if ($rolesUser = Auth::user()->roles()->pluck('name', 'roles.id')->all()) {
                 $array_json = json_encode($rolesUser);
-                Cookie::queue(Cookie::make('roles', $array_json, 60 * 24 * 365));
+                session()->put('roles', $array_json);
             }
-            if(auth()->user()->roles()->pluck('name','roles.id')->first() != 'user'){
+            
+            if (auth()->user()->roles()->pluck('name', 'roles.id')->first() != 'user') {
                 return redirect()->route('admin.escritorio')->with('status', 'Tu sesión ha iniciado exitosamente.');
             }
             return redirect()->route('app.escritorio')->with('status', 'Tu sesión ha iniciado exitosamente.');
