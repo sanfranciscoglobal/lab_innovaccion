@@ -96,13 +96,8 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">Gestión de Innovación</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/identificacion-de-problemas/">Innovación abierta</a>
-                            </li>
-                            <li><a class="dropdown-item" href="/soluciones-innovadoras/">Innovación pública</a></li>
-                            <li><a class="dropdown-item" href="/soluciones-innovadoras/">Innovación social</a></li>
-                        </ul>
+                        <a class="nav-link dropdown-toggle font-weight-bold" href="/gestion-innovacion" data-toggle="dropdown">Gestión de Innovación</a>
+                        
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">Ecosistema de innovación</a>

@@ -55,11 +55,10 @@
                     <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
                    
                         <p class="h5 text-light">Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</p>
-                        @if ($autentificacion)
+                        
                         <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.eventos') }}">Publicar evento</a>
                         {{-- <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.eventos')}}">Publicar evento</a> --}}
                         </p>
-                    @endif
                     </div>
 
                     

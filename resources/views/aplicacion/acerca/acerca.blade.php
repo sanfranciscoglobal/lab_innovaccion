@@ -54,14 +54,9 @@
                     <img class="img-fluid" src="{{asset('images/acerca/image-2.jpg')}}">
                 </div>
             </div>
-            
+            <h2 class="justify-content-center center-block text-center">Valores</h2>
             <div class="row mt-5 mb-5">
                 <div class="col-12 col-lg-6">
-                        <h2>Valores</h2>
-                        <img class="img-fluid" src="{{asset('images/acerca/image-3.png')}}">
-                </div>
-                <div class="col-12 col-lg-6">
-                    
                     <div class="row" style="align-items: center;">
                         <div class="col-2"><img src="{{asset('images/acerca/Group 312.svg')}}"> 
                         </div>
@@ -78,6 +73,11 @@
                             <p class="text-justify">Para fortalecer y expandir la cultura de innovación se comunica con claridad el uso que se la da a la información compartida y los compromisos adquiridos por cada actor al participar de convocatorias de identificación de problemas o soluciones. La comunicación es franca y directa entre actores como regla de trabajo en equipo. </p>
                         </div>
                     </div>
+                      
+                </div>
+                <div class="col-12 col-lg-6">
+                    
+                    
                     <div class="row" style="align-items: center;">
                         <div class="col-2"><img src="{{asset('images/acerca/Group 316.svg')}}"> 
                         </div> 
