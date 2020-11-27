@@ -92,7 +92,7 @@
                             {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
                             {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
                             required
-                    >{{($model->iniciativaActor)?$model->iniciativaActor->enfoque:''}}</textarea>
+                    >{{($model->iniciativa_actor_enfoque)?$model->iniciativa_actor_enfoque:''}}</textarea>
                     <span style="color: gray" id="count-words"></span>
                     <div class="invalid-feedback" id='enfoque-error'></div>
                 </div>

@@ -30,6 +30,14 @@
             max-width: 250px;
         }
 
+        .instituciones > label:not(:last-child):after {
+            content: ",";
+        }
+
+        .scrolling {
+            height: 150px;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -63,9 +71,17 @@
                         <img class="d-block  mx-auto my-2"
                              src="{{ asset('storage/iniciativas/'.$iniciativa->logo) }}"/>
                         <div class="card-body my-2 mx-3">
+                            <h4 class="h5 mb-0">
+                                {{$iniciativa->nombre_iniciativa}}
+                            </h4>
+                            <div class="text-justify my-2 scrolling" id="scrolling-{{rand(0,100)}}">
+                                {{$iniciativa->descripcion_iniciativa}}
+                            </div>
+
                             <h3 class="h5 mb-0">
                                 {{$iniciativa->nombre_organizacion}}
                             </h3>
+<<<<<<< HEAD
                             <p class="text-justify">
                                 {{$iniciativa->enfoque}}
                             </p>
@@ -86,7 +102,42 @@
                                         -
                                         <a href="tel:{{$iniciativa->user_celular}}">{{$iniciativa->user_celular}}</a>
                                     </span>
+=======
+                            <div class="text-justify instituciones">
+                                @if($iniciativa->iniciativaInstituciones()->count()>0)
+                                    @foreach($iniciativa->iniciativaInstituciones as $institucion)
+                                        <label for="">{{$institucion->tipoInstitucion->descripcion}}</label>
+                                    @endforeach
+                                @endif
+                            </div>
+
+                            @if($iniciativa->iniciativa_actor_enfoque)
+                                <div class="text-justify scrolling" id="scrolling-{{rand(0,100)}}">
+                                    {{$iniciativa->iniciativa_actor_enfoque}}
+>>>>>>> 1b47c352a6aef7475af15c314436bd4ed6a429e8
                                 </div>
+                            @endif
+
+                            <div class="text-justify py-2">
+                                @if($iniciativa->iniciativaContactos()->count()>0)
+                                    @foreach($iniciativa->iniciativaContactos as $contacto)
+                                        <div for="">{{$contacto->correo_electronico}}</div>
+                                        <div for="">{{$contacto->celular}}</div>
+                                    @endforeach
+                                @endif
+                                @if($iniciativa->iniciativa_actor_sitio_web)
+                                    <div for="">
+                                        <a class="nav-link-style"
+                                           href="{{url($iniciativa->iniciativa_actor_sitio_web)}}" target="_blank">
+                                            {{$iniciativa->iniciativa_actor_sitio_web}}
+                                        </a>
+                                    </div>
+                                @endif
+                                @if($iniciativa->iniciativaActor)
+                                    <div for="">
+                                        {{$iniciativa->iniciativa_ubicaciones_canton_nombres}}
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -106,7 +157,7 @@
         $(document).ready(function () {
             $(document).on('click', '.btn-filter-submit', function () {
                 var action = $(this).data('action');
-                $('#filter-iniciativas').attr('action',action);
+                $('#filter-iniciativas').attr('action', action);
                 $('#filter-iniciativas').submit();
                 //console.log(action);
             });
