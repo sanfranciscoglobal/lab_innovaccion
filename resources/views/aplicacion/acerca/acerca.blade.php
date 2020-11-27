@@ -12,7 +12,7 @@
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
                     video</span>
             </div>
-            <div class="col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden" style="background-image: url('{{asset('images/acerca/image.png')}}');">
+            <div class="col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden" style="background-image: url('{{asset('images/acerca/acerca_de_thinkia.png')}}');">
             </div>
         </div>
     </section>
