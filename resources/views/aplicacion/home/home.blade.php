@@ -35,9 +35,12 @@
                 </div>
                 <div class="itemhome col-md-5  col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                        
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Ecosistema_Innovacion.png') }}"
                             alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-uva">Ecosistema de Innovación</h3>
+                        <a href="/iniciativas" class="media meta-link ">
+                            <h3 class="fs-14 mb-2 uppercase text-uva">Ecosistema de Innovación</h3>
+                        </a>
                         <p class="font-size-sm mb-0 text-justify">Facilitamos la conexión entre agentes innovadores mapeando sus iniciativas para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
                     </div>
                 </div>

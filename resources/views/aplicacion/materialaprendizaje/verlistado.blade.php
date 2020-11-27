@@ -42,11 +42,11 @@
                 <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
                
                     <p class="h5 text-light">Publica el artículo o herramienta en el formulario a continuación.</p>
-                    @if ($autentificacion)
+     
                     <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje.post') }}">Publica un artículo o herramienta.</a>
                     
                     </p>
-                @endif
+
                 </div>
 
                 
