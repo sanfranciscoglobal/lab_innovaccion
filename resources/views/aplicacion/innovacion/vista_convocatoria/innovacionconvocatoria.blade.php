@@ -3,7 +3,7 @@
     <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5 text-primary">CONVOCATORIAS</h1>
+                <h1 class="mt-5 text-primary uppercase">Gestión de la Innovación</h1>
                 
             </div>
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
@@ -110,22 +110,19 @@
         </div>
     </div>
     <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
-        <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">CONVOCATORIAS</h2>
+        <h2 class="text-light text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS</h2>
+        <h3 class="text-light text-center mb-5 uppercase">vigentes</h3>
         
         <div class="row mb-4">
         @foreach ($convocatorias as $convocatoria)
         <div class="col-lg-4 col-sm-6 mb-grid-gutter">
             <div class="pb-2">
                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                    
                     @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
-                        
                         <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
                     @else
                         <span class="badge badge-lg badge-floating badge-floating-right text-white btn-primary">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-                   
                     @endif
-                    
                     <div class="row pt-3 no-gutters">
                         <div class="col-md-4 justify-content-md-center">
                             <div class="card-body text center">
