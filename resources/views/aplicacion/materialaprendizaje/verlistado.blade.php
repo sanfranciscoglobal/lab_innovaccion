@@ -115,21 +115,15 @@
                                     
                                     </div>
                                     <div class="px-4 px-xl-5 pt-2">
-                                        
-                                            <a class="media meta-link font-size-sm align-items-center">
-                                                <img class="rounded-circle" width="42" src="{{ $imagen }}"
-                                                    alt="Sanomi Smith" />
-                                                <div class="media-body pl-2 ml-1 mt-n1 text-primary">por<span class="font-weight-semibold ml-1">{{$material->user->name}}</span></div>
-                                            </a>
-                                        
-                                        
+   
                                         <div class="row">
                                             <div class="col">
-                                                @if ($material->tipo==0)
-                                                    <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver publicación</a>
-                                                @else
-                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver herramienta</a>
-                                                @endif
+                                                <a class="media meta-link font-size-sm align-items-center">
+                                                    <img class="rounded-circle" width="42" src="{{ $imagen }}"
+                                                        alt="Sanomi Smith" />
+                                                    <div class="media-body pl-2 ml-1 mt-n1 text-primary">por<span class="font-weight-semibold ml-1">{{$material->user->name}}</span></div>
+                                                </a>
+                                                
                                                 
                                             </div>
                                             <div class="col">
@@ -140,9 +134,25 @@
                                                 </div>
                                             </div>
                                         </div>
-                                
+                                        <br>
+                                        <div class="row" style="margin-left:31%">
+                                            @if ($material->tipo==0)
+                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver publicación</a>
+                                            @else
+                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver herramienta</a>
+                                            @endif
+                                        </div>
+                                        
+                                        
+                                        
                                     </div>
+                                
+                                        
+    
+                                    
+                                    
                                 </article>
+                                
                             </div>
                         </div>
                             
