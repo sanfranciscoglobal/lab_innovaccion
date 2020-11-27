@@ -1,27 +1,349 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--[if (gte mso 9)|(IE)]>
+			<xml>
+				<o:OfficeDocumentSettings>
+					<o:AllowPNG />
+					<o:PixelsPerInch>96</o:PixelsPerInch>
+				</o:OfficeDocumentSettings>
+			</xml>
+		<![endif]-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="date=no" />
+		<meta name="format-detection" content="address=no" />
+		<meta name="format-detection" content="email=no" />
+		<title>THINKIALAB</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-      <h1>MAIL VERIFICATION</h1>
+		<link rel="stylesheet" href="{{ asset('css/email.css') }}">
+	</head>
 
-      <h3>{{ $user->name }}</h3>
+	<body
+		style="margin-top:0; margin-bottom:0;padding-top:0;padding-bottom:0;width:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;"
+	>
 
-      <p>mail de verificacion</p>
+		<!-- HEADER -->
+		@include('mails.header')
 
-      <a href="{{ route('verify', ['id' => $user->id, 'hash' => $user->verification_token]) }}" class="btn btn-primary">Verificar</a>
+		<!-- 30px Spacer 2 Open -->
+		<table
+			class="bodyBgColor"
+			width="100%"
+			border="0"
+			align="center"
+			cellpadding="0"
+			cellspacing="0"
+			bgcolor="#F7F7F7"
+			style="width:100%;max-width:100%;"
+		>
+			<tr>
+				<td align="center" valign="top">
+					<table
+						class="row"
+						width="700"
+						border="0"
+						align="center"
+						cellpadding="0"
+						cellspacing="0"
+						style="width:700px;max-width:700px;"
+					>
+						<tr>
+							<td class="whiteBgcolor" align="center" valign="top" bgcolor="#FFFFFF">
+								<table
+									class="row"
+									width="600"
+									border="0"
+									align="center"
+									cellpadding="0"
+									cellspacing="0"
+									style="width:600px;max-width:600px;"
+								>
+									<tr>
+										<td align="center" valign="middle" height="30" style="font-size:30px;line-height:30px;">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+		
+		<table
+			class="bodyBgColor"
+			width="100%"
+			border="0"
+			align="center"
+			cellpadding="0"
+			cellspacing="0"
+			bgcolor="#F7F7F7"
+			style="width:100%;max-width:100%;"
+		>
+			<tr>
+				<td align="center" valign="top">
+					<table
+						class="row"
+						width="700"
+						border="0"
+						align="center"
+						cellpadding="0"
+						cellspacing="0"
+						style="width:700px;max-width:700px;"
+					>
+						<tr>
+							<td class="whiteBgcolor" align="center" valign="top" bgcolor="#FFFFFF">
+								<table
+									class="row"
+									width="600"
+									border="0"
+									align="center"
+									cellpadding="0"
+									cellspacing="0"
+									style="width:600px;max-width:600px;"
+								>
+									<tr>
+										<td align="center" valign="middle" height="30" style="font-size:30px;line-height:30px;">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+		<!-- 30px Spacer 3 Close -->
+
+		<!-- Title Description With Line 8 Open -->
+		<table
+			class="bodyBgColor"
+			width="100%"
+			border="0"
+			align="center"
+			cellpadding="0"
+			cellspacing="0"
+			bgcolor="#F7F7F7"
+			style="width:100%;max-width:100%;"
+		>
+			<tr>
+				<td align="center" valign="top">
+					<table
+						class="row"
+						width="700"
+						border="0"
+						align="center"
+						cellpadding="0"
+						cellspacing="0"
+						style="width:700px;max-width:700px;"
+					>
+						<tr>
+							<td class="whiteBgcolor" align="center" valign="top" bgcolor="#FFFFFF">
+								<table
+									class="row"
+									width="600"
+									border="0"
+									align="center"
+									cellpadding="0"
+									cellspacing="0"
+									style="width:600px;max-width:600px;"
+								>
+									<tr>
+										<td height="30" align="center" valign="top" style="font-size:30px;line-height:30px;">&nbsp;</td>
+									</tr>
+
+									<tr>
+										<td class="containerPadding" align="center" valign="top" style="font-size:0;padding:0">
+											<table
+												class="row"
+												border="0"
+												width="600"
+												align="center"
+												cellpadding="0"
+												cellspacing="0"
+												style="width:600px;max-width:600px;"
+											>
+												<tr>
+													<td
+														class="Section Headlines"
+														align="center"
+														valign="middle"
+														style="font-family:'Poppins',Arial,Helvetica,sans-serif;color:#191919;font-size:32px;line-height:44px;font-weight:700;letter-spacing:0px;padding:0px;padding-bottom: 20px;"
+													>
+														Verificar correo electónico
+													</td>
+												</tr>
+
+												<tr>
+													<td align="center">
+														<table
+															class="centerFloat"
+															border="0"
+															align="center"
+															cellpadding="0"
+															cellspacing="0"
+															style="padding:0px;padding-bottom:20px;"
+														>
+															<tr>
+																<td
+																	align="center"
+																	class="Divider"
+																	style="border-bottom:3px solid #5f27cd; line-height:3px;font-size:1px;"
+																	height="3"
+																	width="80"
+																>
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+
+												<tr>
+													<td
+														class="Section Paragraphs"
+														align=""
+														valign="middle"
+														style="font-family:'Poppins', sans-serif;color:#4c5267;font-size:14px;line-height:22px;font-weight:400;letter-spacing:0px;"
+													>
+														Bienvenido {{ $user->name }}.<br />
+														Gracias por unirte a nuestra plataforma.<br />
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td height="30" align="center" valign="top" style="font-size:30px;line-height:30px;">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+		<!-- Title Description With Line 8 Close -->
+
+		<!-- Call To Action Open -->
+		<table
+			class="bodyBgColor"
+			width="100%"
+			border="0"
+			align="center"
+			cellpadding="0"
+			cellspacing="0"
+			bgcolor="#F7F7F7"
+			style="width:100%;max-width:100%;"
+		>
+			<tr>
+				<td align="center" valign="top">
+					<table
+						class="row"
+						width="700"
+						border="0"
+						align="center"
+						cellpadding="0"
+						cellspacing="0"
+						style="width:700px;max-width:700px;"
+					>
+						<tr>
+							<td class="whiteBgcolor" align="center" valign="top" bgcolor="#FFFFFF">
+								<table
+									class="row"
+									border="0"
+									width="100%"
+									align="center"
+									cellpadding="0"
+									cellspacing="0"
+									style="width:100%;max-width:100%;"
+								>
+									<tr>
+										<td height="30" align="center" valign="top" style="font-size:30px;line-height:30px;">&nbsp;</td>
+									</tr>
+									<tr>
+										<td
+											class="bg-cta"
+											bgcolor="#5f27cd"
+											align="center"
+											valign="top"
+											style="background-size:cover;background-position:center top;"
+										>
+											<!-- Outlook Background Image// -->
+											<!--[if (gte mso 9)|(IE)]>
+									<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:700px;height:550px;">
+									<v:fill type="frame" src="images/bg-cta.png" color="#FFFFFF"></v:fill>
+									<v:textbox style="v-text-anchor:middle;" inset="0,0,0,0">
+									<![endif]-->
+
+											<table
+												class="row"
+												width="600"
+												border="0"
+												align="center"
+												cellpadding="0"
+												cellspacing="0"
+												style="width:600px;max-width:600px;"
+											>
+												<tr>
+													<td height="50" align="center" valign="top" style="font-size:50px;line-height:50px;">
+														&nbsp;
+													</td>
+												</tr>
+
+												<tr>
+													<td
+														class="ctaTitle"
+														align="center"
+														valign="middle"
+														style="font-family:'Poppins',Arial,Helvetica,sans-serif;color:#FFFFFF;font-size:32px;line-height:42px;font-weight:600;letter-spacing:0px;padding:0;padding-bottom:20px;"
+													>
+														Para verificar tu correo da click en el enlase siguiente
+													</td>
+												</tr>
+
+												<tr>
+													<td align="center" valign="top">
+														<table border="0" align="center" cellpadding="0" cellspacing="0" class="centerFloat">
+															<tr>
+																<td
+																	class="Button2"
+																	align="center"
+																	style="background-color:#FFFFFF;font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:12px; font-weight:600; color:#5f27cd; line-height:24px;letter-spacing:1px;padding:10px 28px;border-radius:0px;"
+																>
+																	<a href="{{ route('verify', ['id' => $user->id, 'hash' => $user->verification_token]) }}" style="text-decoration:none; color:#5f27cd;">Verificar correo</a>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+
+												<tr>
+													<td height="50" align="center" valign="top" style="font-size:50px;line-height:50px;">
+														&nbsp;
+													</td>
+												</tr>
+											</table>
+
+											<!--[if (gte mso 9)|(IE)]></v:textbox></v:rect><![endif]-->
+										</td>
+									</tr>
+									<tr>
+										<td height="30" align="center" valign="top" style="font-size:30px;line-height:30px;">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+    </table>
+    
+		<!-- FOOTER -->
+		@include('mails.footer')
+	</body>
 </html>

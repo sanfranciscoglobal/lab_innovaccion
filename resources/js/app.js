@@ -22,6 +22,9 @@ Shuffle = require('shufflejs/dist/shuffle.min');
 Parallax = require('parallax-js/dist/parallax');
 SmoothScroll = require('smooth-scroll/dist/smooth-scroll');
 
+dt = require( 'datatables.net' );
+require('datatables.net-bs4');
+
 require('../../resources/js/theme.min.js');
 
 window.ClassicEditor = require('@ckeditor/ckeditor5-build-classic');

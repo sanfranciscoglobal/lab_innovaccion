@@ -46,14 +46,13 @@
         <div class="col col-lg-6">
             <div class="card card-hover py-4 px-4">
                 <h2 class="h4 mb-3">Usuarios</h2>
-                {{--<img class="img-fluid" src="http://placehold.it/800x300?text=Grafico%20Area">--}}
                 @foreach($usuarios as $usuario)
                     <div class="d-md-flex align-items-center py-grid-gutter border-bottom">
                         <div class="media media-ie-fix align-items-center mr-md-4 mb-4 mb-md-0"
                              style="max-width: 264px;">
                             <a class="d-block" href="#">
                                 <img class="d-block rounded-circle" width="70"
-                                     src="{{($usuario->perfil && $usuario->perfil->avatar)?asset('storage/perfil/'.$usuario->perfil->avatar):asset('img/demo/presentation/logo/logo-icon-footer.png')}}"
+                                     src="{{$usuario->path_avatar}}"
                                      alt="{{$usuario->name}}">
                             </a>
                             <div class="media-body pl-3">

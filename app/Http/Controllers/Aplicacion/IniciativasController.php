@@ -232,6 +232,13 @@ class IniciativasController extends Controller
 
                     if ($statusInsert) {
                         DB::commit();
+
+                        if ($action = Helper::returnAdmin()) {
+                            return redirect()
+                                ->route($action)
+                                ->with('status', 'Iniciativa cargada con éxito');
+                        }
+
                         return redirect()
                             ->route('app.iniciativas.index')
                             ->with('status', 'Iniciativa cargada con éxito');
