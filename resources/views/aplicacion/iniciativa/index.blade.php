@@ -72,11 +72,12 @@
                                      src="{{asset('storage/iniciativas/'.$iniciativa->iniciativaInformacion->logo)}}"
                                      alt="{{$iniciativa->iniciativaInformacion->logo}}"/>
                                 <div class="media-body pl-2 ml-1">
+                                    {!! $iniciativa->iniciativa_origen_descripcion !!}
                                     <h6 class="font-size-sm mb-n1">
                                         @if($iniciativa->iniciativaActor)
                                             {!! $iniciativa->iniciativaActor->nombre_organizacion !!}
-                                        @else
-                                            {!! $iniciativa->iniciativaInformacion->componente_innovador !!}
+                                        {{--@else--}}
+                                            {{--{!! $iniciativa->iniciativaInformacion->anio !!}--}}
                                         @endif
                                     </h6>
                                     {{--<span class="font-size-xs text-muted">3 days ago</span>--}}

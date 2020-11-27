@@ -113,9 +113,32 @@ class Iniciativas extends Model
     /**
      * @return string|null
      */
-    public function getEnfoqueAttribute()
+    public function getIniciativaActorEnfoqueAttribute()
     {
         return ($this->iniciativaActor) ? $this->iniciativaActor->enfoque : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getIniciativaActorSitioWebAttribute()
+    {
+        return ($this->iniciativaActor) ? $this->iniciativaActor->sitio_web : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getIniciativaUbicacionesCantonNombresAttribute()
+    {
+        $cantones = [];
+        if ($this->iniciativaUbicaciones) {
+            foreach ($this->iniciativaUbicaciones as $ubicacion) {
+                $cantones[$ubicacion->canton->nombre] = $ubicacion->canton->nombre;
+            }
+        }
+
+        return implode(', ', $cantones);
     }
 
     /**
@@ -316,7 +339,7 @@ class Iniciativas extends Model
      */
     public static function obtenerIniciativaWithTrashedRestore($id)
     {
-        if(Iniciativas::withTrashed()->find($id)->restore()){
+        if (Iniciativas::withTrashed()->find($id)->restore()) {
             return true;
         }
 
