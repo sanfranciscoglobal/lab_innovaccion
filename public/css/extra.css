@@ -22,6 +22,10 @@ border: 80px solid var(--unnamed-color-ff7f00);
 border: 80px solid #FF7F00;
 opacity: 0.08;
 }
+
+.select2-selection.select2-selection--multiple {
+    border-radius: 10px;
+}
 .eventos-titulo{
 
 color: #A13D8F;

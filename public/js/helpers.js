@@ -216,21 +216,26 @@ window.disableInputForm = function disableInputForm(id) {
 window.initSelect2 = function initSelect2(element) {
   // console.log('Nr', element);
   $(element).select2({
+    placeholder: '<i class="fa fa-sitemap"></i>Branch name', 
     language: "es"
   });
 };
+
+
 
 window.initAjaxSelect2 = function initAjaxSelect2(element) {
   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content'); // console.log('Ajax: ', element);
 
   $(element).select2({
     language: "es",
+
     ajax: {
       data: function data(params) {
         var query = {
           _token: CSRF_TOKEN,
           search: params.term,
-          type: 'public'
+          type: 'public',
+          
         };
         return query;
       },
