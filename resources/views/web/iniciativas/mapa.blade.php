@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="mapacabezapequeño" style="background-color: rgba(255, 255,255, 0.7);" class="py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg p-2">
+                    {{--<div id="mapacabezapequeño" style="background-color: rgba(255, 255,255, 0.7);" class="py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg p-2">
                         <div class="row justify-content-center center-block text-center">
                             <div class="col-4 py-2">
                                 <div class="input-group">
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                         <!-- Title + Delete link-->
                 <div id="map" style="width: 97%; height: 950px;">
