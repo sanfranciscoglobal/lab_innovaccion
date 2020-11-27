@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\Archivos;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
@@ -154,7 +155,7 @@ class Iniciativas extends Model
      */
     public function getLogoAttribute()
     {
-        return ($this->iniciativaInformacion) ? $this->iniciativaInformacion->logo : null;
+        return ($this->iniciativaInformacion) ? Archivos::validarUrlImagenIniciativa($this->iniciativaInformacion->logo) : null;
     }
 
     /**
