@@ -157,6 +157,7 @@
                                    id="logo"
                                    {{--required="required"--}}
                                    data-default-file="{{asset('storage/iniciativas/'.$model->iniciativaInformacion->logo)}}"
+                                   value="{{asset('storage/iniciativas/'.$model->iniciativaInformacion->logo)}}"
                                    data-max-file-size="2M"
                             >
                         @else
