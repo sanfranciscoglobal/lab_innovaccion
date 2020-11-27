@@ -107,19 +107,17 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('web.iniciativas.index')}}">Mapa de
-                                    Iniciativas</a></li>
-                            <li><a class="dropdown-item" href="{{route('web.iniciativas.index')}}">Mapa de
+                            <li><a class="dropdown-item" href="/mapa">Mapa de
+                            Iniciativas</a></li>
+                            <li><a class="dropdown-item" href="/iniciativas">Mapa de
                             Actores</a></li>
                             <li><a class="dropdown-item" href="/analitica/">Analítica</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link font-weight-bold" href="/mapa/">Mapa</a>
-                    </li>
-                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">Recursos</a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item " href="">Mapa General</a></li>
                             <li><a class="dropdown-item " href="{{route('fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item " href="{{route('eventos')}}">Eventos</a></li>
                             <li><a class="dropdown-item " href="{{route('material')}}">Publicaciones y herramientas</a>
