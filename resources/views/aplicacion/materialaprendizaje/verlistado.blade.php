@@ -8,9 +8,9 @@
 
 @section('content')
 
-    <section class="container my-lg-2 pt-5 pb-lg-5">
+    <section class="container container pt-md-5">
         <div class="row align-items-center">
-            <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
+            <div class="col-lg-5 pt-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary">Publicaciones y Herramientas</h1>
                 <div class="py-3">
                     <p class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!<br>
@@ -21,7 +21,7 @@
                 <span class="font-size-sm text-muted">Ver
                     video</span> --}}
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/material-baner1.png') }}" alt="Side banner"></div>
+            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url({{ asset('images/publicaciones_banner.png') }})" alt="Side banner"></div>
         </div>
     </section>
     <div class="position-relative bg-purple-gradient" style="height: 420px;">
@@ -42,11 +42,11 @@
                 <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
                
                     <p class="h5 text-light">Publica el artículo o herramienta en el formulario a continuación.</p>
-                    @if ($autentificacion)
+     
                     <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje.post') }}">Publica un artículo o herramienta.</a>
                     
                     </p>
-                @endif
+
                 </div>
 
                 

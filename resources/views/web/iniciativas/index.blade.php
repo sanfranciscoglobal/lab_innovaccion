@@ -44,7 +44,7 @@
     <section class="container my-lg-2 pt-5 pb-lg-3">
         <div class="row align-items-center">
             <div class="col-lg-6 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Ecosistema de innovación</h1>
+                <h1 class="mt-5">Iniciativas de los actores</h1>
                 <div class="py-4">
                     <p class="cs-callout">
                         ¡Se parte del ecosistema de innovación!<span class="clearfix"></span>
@@ -55,6 +55,8 @@
                         * Construyamos lazos de trabajo colaborativos. <span class="clearfix"></span>
                     </p>
                 </div>
+            </div>
+            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
             </div>
         </div>
     </section>
@@ -68,7 +70,7 @@
             @foreach($iniciativas as $iniciativa)
                 <div class="cs-grid-item" data-groups="[&quot;3d&quot;]">
                     <div class="card card-hover border-0 box-shadow mx-auto">
-                        <img class="d-block rounded-circle mx-auto my-2"
+                        <img class="d-block  mx-auto my-2"
                              src="{{ asset('storage/iniciativas/'.$iniciativa->logo) }}"/>
                         <div class="card-body my-2 mx-3">
                             <h4 class="h5 mb-0">
