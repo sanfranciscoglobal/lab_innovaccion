@@ -44,7 +44,7 @@
     <section class="container my-lg-2 pt-5 pb-lg-3">
         <div class="row align-items-center">
             <div class="col-lg-6 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Ecosistema de innovación</h1>
+                <h1 class="mt-5">Iniciativas de los actores</h1>
                 <div class="py-4">
                     <p class="cs-callout">
                         ¡Se parte del ecosistema de innovación!<span class="clearfix"></span>
@@ -81,28 +81,6 @@
                             <h3 class="h5 mb-0">
                                 {{$iniciativa->nombre_organizacion}}
                             </h3>
-<<<<<<< HEAD
-                            <p class="text-justify">
-                                {{$iniciativa->enfoque}}
-                            </p>
-                            <h4 class="h5 mb-0">{{$iniciativa->nombre_iniciativa}}</h4>
-                            <p class="font-size-sm font-weight-normal text-muted">06/09/2020</p>
-                            <p class="text-justify">
-                                {{$iniciativa->descripcion_iniciativa}}
-                            </p>
-                            <div class="media meta-link align-items-center pt-2">
-                                <img class="" width="50"
-                                     src="{{asset('storage/perfil/'.$iniciativa->user_imagen)}}">
-                                <div class="media-body pl-2 ml-1">
-                                    <span class="font-weight-semibold d-block w-100">
-                                        {{$iniciativa->user_name}}
-                                    </span>
-                                    <span class="font-size-sm w-100">
-                                        <a href="mailto:{{$iniciativa->user_email}}">{{$iniciativa->user_email}}</a>
-                                        -
-                                        <a href="tel:{{$iniciativa->user_celular}}">{{$iniciativa->user_celular}}</a>
-                                    </span>
-=======
                             <div class="text-justify instituciones">
                                 @if($iniciativa->iniciativaInstituciones()->count()>0)
                                     @foreach($iniciativa->iniciativaInstituciones as $institucion)
@@ -114,7 +92,6 @@
                             @if($iniciativa->iniciativa_actor_enfoque)
                                 <div class="text-justify scrolling" id="scrolling-{{rand(0,100)}}">
                                     {{$iniciativa->iniciativa_actor_enfoque}}
->>>>>>> 1b47c352a6aef7475af15c314436bd4ed6a429e8
                                 </div>
                             @endif
 
