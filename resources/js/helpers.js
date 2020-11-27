@@ -411,14 +411,13 @@ window.validateFormEvent = function validateFormEvent(btn, class_content, scroll
             $(element).addClass('is-invalid');
             $(element).removeClass('is-valid');
 
-            // console.log($(element), element.validity);
-            // var file_preload = "";
-            // if (file_preload = $(element).attr('data-default-file')) {
-            //     isValid = true;
-            //     $(element).closest(".form-group").removeClass("has-error");
-            //     $(element).removeClass('is-invalid');
-            //     $(element).addClass('is-valid');
-            // }
+            var file_preload = "";
+            if (file_preload = $(element).attr('data-default-file')) {
+                isValid = true;
+                $(element).closest(".form-group").removeClass("has-error");
+                $(element).removeClass('is-invalid');
+                $(element).addClass('is-valid');
+            }
         } else {
             $(element).closest(".form-group").removeClass("has-error");
             $(element).removeClass('d-inline');

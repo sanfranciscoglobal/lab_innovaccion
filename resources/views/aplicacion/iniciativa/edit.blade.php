@@ -235,15 +235,25 @@
                 var allInputs = $('form').find("input,select,textarea"),
                     isValid = true;
                 for (var i = 0; i < allInputs.length; i++) {
+                    // var file_preload;
+                    // if (file_preload = $(allInputs[i]).attr('data-default-file')) {
+                    //     console.log(allInputs[i], file_preload);
+                    //     isValid = true;
+                    //     $(allInputs[i]).closest(".form-group").removeClass("has-error");
+                    //     $(allInputs[i]).removeClass('is-invalid');
+                    //     $(allInputs[i]).addClass('is-valid');
+                    // }
+
                     if (!allInputs[i].validity.valid) {
                         isValid = false;
                         var panelParent = $(allInputs[i]).closest('.panel').attr('id');
                         $(allInputs[i]).closest(".form-group").addClass("has-error");
                         //$('#error-message').html('<strong>Atención!</strong> Por favor revise los pasos anteriores, le falta completar algunos datos.');
                         $('a[href="#' + panelParent + '"]').addClass('panel-error');
-                        console.log($(allInputs[i]).closest('.panel').attr('id'))
                     }
                 }
+
+                //console.log(isValid);
             });
 
             $('div.setup-panel div a.btn-success').trigger('click');

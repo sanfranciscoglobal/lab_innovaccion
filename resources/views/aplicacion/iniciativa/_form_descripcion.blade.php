@@ -149,15 +149,18 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="evento_img">* Logotipo</label>
-                        @if($model->iniciativaInformacion && $model->iniciativaInformacion->logo)
+                        @if($model->logo)
+                            {{--{{\App\Helpers\Archivos::validarUrlImagenIniciativa($model->iniciativaInformacion->logo)}}--}}
                             <input type="file"
                                    class="form-control dropify"
                                    accept="image/gif, image/jpeg, image/png"
                                    name="logo"
                                    id="logo"
-                                   {{--required="required"--}}
-                                   data-default-file="{{asset('storage/iniciativas/'.$model->iniciativaInformacion->logo)}}"
-                                   value="{{asset('storage/iniciativas/'.$model->iniciativaInformacion->logo)}}"
+                                   @if($model->logo)
+                                   data-default-file="{{asset('storage/iniciativas/'.$model->logo)}}"
+                                   @else
+                                   required="required"
+                                   @endif
                                    data-max-file-size="2M"
                             >
                         @else
