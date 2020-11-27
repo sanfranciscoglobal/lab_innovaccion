@@ -44,7 +44,7 @@
     <section class="container my-lg-2 pt-5 pb-lg-3">
         <div class="row align-items-center">
             <div class="col-lg-6 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Ecosistema de innovación</h1>
+                <h1 class="mt-5">Mapa de iniciativas</h1>
                 <div class="py-4">
                     <p class="cs-callout">
                         ¡Se parte del ecosistema de innovación!<span class="clearfix"></span>
