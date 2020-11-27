@@ -56,6 +56,8 @@
                     </p>
                 </div>
             </div>
+            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('images/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
+            </div>
         </div>
     </section>
     <section class="searchbar-container bg-secondary">
