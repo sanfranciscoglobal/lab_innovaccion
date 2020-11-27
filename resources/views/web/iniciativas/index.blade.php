@@ -60,7 +60,7 @@
             @foreach($iniciativas as $iniciativa)
                 <div class="cs-grid-item" data-groups="[&quot;3d&quot;]">
                     <div class="card card-hover border-0 box-shadow mx-auto">
-                        <img class="d-block rounded-circle mx-auto my-2"
+                        <img class="d-block  mx-auto my-2"
                              src="{{ asset('storage/iniciativas/'.$iniciativa->logo) }}"/>
                         <div class="card-body my-2 mx-3">
                             <h3 class="h5 mb-0">
@@ -75,7 +75,7 @@
                                 {{$iniciativa->descripcion_iniciativa}}
                             </p>
                             <div class="media meta-link align-items-center pt-2">
-                                <img class="rounded-circle" width="50"
+                                <img class="" width="50"
                                      src="{{asset('storage/perfil/'.$iniciativa->user_imagen)}}">
                                 <div class="media-body pl-2 ml-1">
                                     <span class="font-weight-semibold d-block w-100">
