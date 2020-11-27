@@ -17,9 +17,20 @@ function initMap() {
   
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
+        zoomControl: true,
+        zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.SMALL,
+          position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl:false,
+        rotateControl: false,
+        fullscreenControl: false,
+
         center: new google.maps.LatLng(-1.831239, -78.18340599999999),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        disableDefaultUI: true,
+        //disableDefaultUI: true,
         styles : [
             {
               "elementType": "geometry",
@@ -183,7 +194,7 @@ function initMap() {
                   });
        
       var marcador=0;
-      var infowindow = new google.maps.InfoWindow({maxWidth: 350,
+      var infowindow = new google.maps.InfoWindow({maxWidth: 550,
       });
       
       const input = document.getElementById("pac-input");
