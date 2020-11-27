@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <section class="container my-lg-2 pt-5 pb-lg-5">
+    <section class="container container pt-md-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary">Publicaciones y Herramientas</h1>
@@ -21,7 +21,7 @@
                 <span class="font-size-sm text-muted">Ver
                     video</span> --}}
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/material-baner1.png') }}" alt="Side banner"></div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('images/publicaciones_banner.png') }}" alt="Side banner"></div>
         </div>
     </section>
     <div class="position-relative bg-purple-gradient" style="height: 420px;">
