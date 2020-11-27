@@ -150,32 +150,28 @@
                     <div class="form-group">
                         <label for="evento_img">* Logotipo</label>
                         @if($model->iniciativaInformacion && $model->iniciativaInformacion->logo)
-                            <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png"
+                            <input type="file"
+                                   class="form-control dropify"
+                                   accept="image/gif, image/jpeg, image/png"
                                    name="logo"
                                    id="logo"
+                                   {{--required="required"--}}
                                    data-default-file="{{asset('storage/iniciativas/'.$model->iniciativaInformacion->logo)}}"
+                                   data-max-file-size="2M"
                             >
-                            <div class="invalid-feedback">Inserta una imagen.</div>
                         @else
-                            <div class="cs-file-drop-area">
-                                <div class="cs-file-drop-icon fe-upload"></div>
-                                <span class="cs-file-drop-message">Arrastre y suelte para subir</span>
-                                <input type="file"
-                                       accept="image/gif, image/jpeg, image/png"
-                                       id="logo"
-                                       maxlength='250'
-                                       name='logo'
-                                       class="cs-file-drop-input"
-                                       required
-                                        {{--data-default-file="{{($model->iniciativaInformacion)?asset('storage/iniciativas/'.$model->iniciativaInformacion->logo):''}}"--}}
-                                >
-                                <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">
-                                    O seleccione una imagen
-                                </button>
-
-                                <div class="invalid-feedback">Inserta una imagen.</div>
-                            </div>
+                            <input type="file"
+                                   class="form-control dropify"
+                                   accept="image/gif, image/jpeg, image/png"
+                                   name="logo"
+                                   id="logo"
+                                   data-show-errors="true"
+                                   required="required"
+                                   data-max-file-size="2M"
+                            >
                         @endif
+                        <div class="invalid-feedback" id='logo_error'>Inserta una imagen.</div>
+                        <div class="valid-feedback">Bien!</div>
                     </div>
                 </div>
             </div>

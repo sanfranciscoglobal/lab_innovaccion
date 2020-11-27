@@ -509,3 +509,12 @@ label {
 		}
 	}
 }
+
+.dropify-wrapper {
+	border-radius: 1rem;
+	border: 2px dashed #dfdfeb;
+}
+
+.form-group.has-error .invalid-feedback {
+	display: block;
+}
