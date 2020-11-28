@@ -107,7 +107,7 @@
 				<a-entity
 						gltf-model='#animated-asset'
 						scale="10 10 10"
-						position="0 0 0"
+						{{-- position="0 0 0" --}}
 						animation-mixer="loop: repeat"
 						class="clickable"
 						gesture-handler
