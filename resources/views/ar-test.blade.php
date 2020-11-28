@@ -90,7 +90,8 @@
 		<a-scene
 			vr-mode-ui='enabled: false;'
 			renderer="logarithmicDepthBuffer: true;"
-			embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+			embedded
+			arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
 			<a-assets>
 				<a-asset-item id="animated-asset" src="{{ asset('AR/Chaly_dance_002.gltf') }}"></a-asset-item>
@@ -106,7 +107,7 @@
 				smoothThreshold='5'>
 				<a-entity
 						gltf-model='#animated-asset'
-						scale="1 1 1"
+						scale="10 10 10"
 						animation-mixer="loop: repeat"
 						class="clickable"
 						gesture-handler
