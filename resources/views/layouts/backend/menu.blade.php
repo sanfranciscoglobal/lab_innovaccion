@@ -66,7 +66,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">
+                                <a class="cs-widget-link" href="{{route('admin.eventos.index')}}">
                                     Eventos
                                 </a>
                             </li>

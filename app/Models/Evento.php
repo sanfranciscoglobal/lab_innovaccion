@@ -27,6 +27,14 @@ class Evento extends Model
     }
 
     /**
+     * @return string|null
+     */
+    public function getDeletedAtStatusAttribute()
+    {
+        return ($this->deleted_at) ? true : false;
+    }
+
+    /**
      * @return Builder
      */
     public static function builder()
@@ -53,6 +61,29 @@ class Evento extends Model
     public static function obtenerEventosCount()
     {
         return self::builder()->count() ?? 0;
+    }
+
+    /**
+     * Obtener paginador de iniciativas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerEventosWithTrashedAll()
+    {
+        $rs = self::builder();
+        return $rs->withTrashed()->get() ?? [];
+    }
+
+    /**
+     * Obtener paginador de iniciativas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerEventoWithTrashedRestore($id)
+    {
+        if (Evento::withTrashed()->find($id)->restore()) {
+            return true;
+        }
+
+        return false;
     }
 
 }

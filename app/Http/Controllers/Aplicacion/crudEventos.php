@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Aplicacion;
+
+use App\Helpers\Helper;
 use App\Models\Evento;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -18,19 +20,20 @@ use App\Helpers\Archivos; // $nombre, $archivo, $disk
 class crudEventos extends Controller
 {
     //
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('acceso-app:user,admin,superadmin')->except('destroy');
         $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
 
     public function store(StorePost $request)
     {
-        $validatedData=$request->validated();
+        $validatedData = $request->validated();
 
-        if($evento=Evento::create($validatedData)){
+        if ($evento = Evento::create($validatedData)) {
 
-            if(isset($validatedData['imagen'])){
-                $name = CustomUrl::urlTitle($validatedData['organizador']).'_'.$evento->id;
+            if (isset($validatedData['imagen'])) {
+                $name = CustomUrl::urlTitle($validatedData['organizador']) . '_' . $evento->id;
                 $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'eventos');
                 $evento->imagen = $imageName;
                 $evento->save();
@@ -41,29 +44,36 @@ class crudEventos extends Controller
         return redirect()->route('app.escritorio.eventos')->with('status', 'Evento no creado');
     }
 
-    public function update(UpdatePost $request, Evento $evento )
+    public function update(UpdatePost $request, Evento $evento)
     {
 
         $validatedData = $request->validated();
 
-        $evento->update( $validatedData);
+        $evento->update($validatedData);
 
-        if(isset($validatedData['imagen'])){
+        if (isset($validatedData['imagen'])) {
 
-            $name = CustomUrl::urlTitle($validatedData['organizador']).'_'.$evento->id;
+            $name = CustomUrl::urlTitle($validatedData['organizador']) . '_' . $evento->id;
             $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'eventos');
             $evento->imagen = $imageName;
             $evento->save();
+        }
+
+        if ($action = Helper::returnAdmin()) {
+            return redirect()
+                ->route($action)
+                ->with('status', 'Evento modificado con éxito');
         }
 
         return redirect()->route('app.escritorio.eventos')->with('status', 'Evento modificado con éxito');
     }
 
 
-    public function destroy(Evento $evento) {
+    public function destroy(Evento $evento)
+    {
 
 
-        if(Auth::id() != $evento->user_id){
+        if (Auth::id() != $evento->user_id) {
             return back()->with('status', 'No ingresaste este evento.');
         }
 
