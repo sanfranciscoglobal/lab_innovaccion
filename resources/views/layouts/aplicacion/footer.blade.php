@@ -22,8 +22,8 @@
                     <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="#">
                         <i class="fe-instagram"></i>
                     </a>
-                    <a class="social-btn sb-outline sb-youtube sb-light sb-lg mr-2 mb-2" href="#">
-                        <i class="fe-youtube"></i>
+                    <a class="social-btn sb-outline sb-linkedin sb-light sb-lg mr-2 mb-2" href="#">
+                        <i class="fe-linkedin"></i>
                     </a>
                 </div>
                 <div class="cs-widget cs-widget-light">

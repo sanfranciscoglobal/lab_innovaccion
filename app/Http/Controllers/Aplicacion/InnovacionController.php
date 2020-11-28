@@ -72,8 +72,9 @@ class InnovacionController extends Controller
 
     public function verInnovaciones(Request $request)
     {
-        $convocatorias= Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
-        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+        $convocatorias = Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
+        $convocatorias_antiguas = Convocatoria::where('fecha_cierre','<=',date('Y/m/d'))->paginate(8);
+        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias', 'convocatorias_antiguas'));
     }
 
     /**
