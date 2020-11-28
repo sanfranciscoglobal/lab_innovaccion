@@ -212,9 +212,13 @@ Route::as('admin.')
             Route::resource('fondos', 'Backend\FondosController');
             Route::get('fondos/{id}/activar', 'Backend\FondosController@activar')->name('fondos.activar');
 
-            /** Fondos */
+            /** Eventos */
             Route::resource('eventos', 'Backend\EventosController');
             Route::get('eventos/{id}/activar', 'Backend\EventosController@activar')->name('eventos.activar');
+
+            /** Publicaciones */
+            Route::resource('material-aprendizaje', 'Backend\MaterialAprendizajeController');
+            Route::get('material-aprendizaje/{id}/activar', 'Backend\MaterialAprendizajeController@activar')->name('material-aprendizaje.activar');
         }
     );
 
