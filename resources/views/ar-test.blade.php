@@ -107,7 +107,7 @@
 				smoothThreshold='5'>
 				<a-entity
 						gltf-model='#animated-asset'
-						scale="1 1 1"
+						scale="0.1 0.1 0.1"
 						{{-- position="0 0 0" --}}
 						animation-mixer="loop: repeat"
 						class="clickable"
