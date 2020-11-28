@@ -19,7 +19,7 @@
     <meta name="msapplication-TileColor" content="#766df4">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
-     {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">--}}
+    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <!-- Page loading styles-->
     <style>
@@ -127,7 +127,7 @@
 
     </script>
     <!-- Vendor Styles-->
-{{--<link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>--}}
+    {{--<link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>--}}
 <!-- Main Theme Styles + Bootstrap-->
     {{-- <link rel="stylesheet" media="screen" href="{{asset('css/theme.css')}}"> --}}
     <link rel="stylesheet" media="screen" href="{{asset('css/app.css')}}">
@@ -137,13 +137,13 @@
 <!-- Body-->
 <body>
 
-    {{-- <div class="error-container" id="errorDiv"> --}}
-        @include('includes.session-flash-status')
-        @include('includes.session-flash-error')
-        {{-- @include('includes.validation-error')
-        {{ json_encode(session()->all()) }}
-        {{ json_encode(Auth::user()) }} --}}
-    {{-- </div> --}}
+{{-- <div class="error-container" id="errorDiv"> --}}
+@include('includes.session-flash-status')
+@include('includes.session-flash-error')
+{{-- @include('includes.validation-error')
+{{ json_encode(session()->all()) }}
+{{ json_encode(Auth::user()) }} --}}
+{{-- </div> --}}
 
 <!-- Page loading spinner-->
 <div class="cs-page-loading active">
@@ -165,7 +165,8 @@
                 </div>
                 <div class="modal-body px-4">
                     <p class="font-size-ms ">
-                        Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su registro.
+                        Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su
+                        registro.
                     </p>
                     <form class="needs-validation" novalidate action="{{ route('login') }}" method="POST">
                         @csrf
@@ -177,9 +178,13 @@
                                         <i class="fe-mail"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control @error('email') is-invalid @enderror" type="email" placeholder="Correo Electrónico" name='email' maxlength="250" value="{{ old('email') }}" required>
+                                <input class="form-control prepended-form-control @error('email') is-invalid @enderror"
+                                       type="email" placeholder="Correo Electrónico" name='email' maxlength="250"
+                                       value="{{ old('email') }}" required>
                             </div>
-                            @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                            @error('email')
+                            <div class="invalid-feedback d-inline">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <div class="input-group-overlay cs-password-toggle">
@@ -188,8 +193,9 @@
                                         <i class="fe-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" maxlength="250" name="password" required
-                                {{-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" --}}
+                                <input class="form-control prepended-form-control @error('password') is-invalid @enderror"
+                                       type="password" placeholder="Contraseña" maxlength="250" name="password" required
+                                        {{-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" --}}
                                 >
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
@@ -198,7 +204,9 @@
                                 </label>
                             </div>
                             {{-- <small class="text-muted">Al menos 1 mayúscula, 1 minúscula, 1 número, 1 símbolo, mínimo 8 caracteres</small> --}}
-                            @error('password')<br><div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                            @error('password')<br>
+                            <div class="invalid-feedback d-inline">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         {{-- <div class="d-flex justify-content-between align-items-center form-group">
@@ -211,11 +219,13 @@
                             </a>
                         </div> --}}
                         <p class="font-size-sm mb-3">
-                            ¿Olvidaste tu contraseña? <a href='{{ route('reset') }}' class='font-weight-medium'>Recuperar contraseña</a>
+                            ¿Olvidaste tu contraseña? <a href='{{ route('reset') }}' class='font-weight-medium'>Recuperar
+                                contraseña</a>
                         </p>
                         <button class="btn btn-primary btn-block" type="submit">Entrar</button>
                         <p class="font-size-sm pt-3 mb-0">
-                            ¿No tiene una cuenta? <a href='#modal-signup' data-toggle="modal" class='font-weight-medium'>Regístrese</a>
+                            ¿No tiene una cuenta? <a href='#modal-signup' data-toggle="modal"
+                                                     class='font-weight-medium'>Regístrese</a>
                         </p>
                     </form>
                 </div>
@@ -239,42 +249,68 @@
                         @csrf
                         <input type="hidden" name="login" value="0">
                         <div class="form-group">
-                            <input class="form-control @error('name') is-invalid @enderror" name="name" type="text" placeholder="Nombre Completo" maxlength="250" value="{{ old('name') }}" required>
-                            @error('name')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                            <input class="form-control @error('name') is-invalid @enderror" name="name" type="text"
+                                   placeholder="Nombre Completo" maxlength="250" value="{{ old('name') }}" required>
+                            @error('name')
+                            <div class="invalid-feedback d-inline">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" placeholder="Correo electrónico" maxlength="250" value="{{ old('email') }}" required>
-                            @error('email')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                            <input class="form-control @error('email') is-invalid @enderror" name="email" type="email"
+                                   placeholder="Correo electrónico" maxlength="250" value="{{ old('email') }}" required>
+                            @error('email')
+                            <div class="invalid-feedback d-inline">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <div class="cs-password-toggle">
-                                <input class="form-control @error('password') is-invalid @enderror" name="password" type="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" maxlength="250" value="{{ old('password') }}" required>
+                                <input class="form-control @error('password') is-invalid @enderror" name="password"
+                                       type="password" placeholder="Contraseña"
+                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" maxlength="250"
+                                       value="{{ old('password') }}" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
                             </div>
-                            <small class="form-text text-muted">Al menos 1 mayúscula, 1 minúscula, 1 número, 1 símbolo, mínimo 8 caracteres</small>
-                            @error('password')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                            <small class="form-text text-muted">Al menos 1 mayúscula, 1 minúscula, 1 número, 1 símbolo,
+                                mínimo 8 caracteres
+                            </small>
+                            @error('password')
+                            <div class="invalid-feedback d-inline">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <div class="cs-password-toggle">
-                                <input class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" maxlength="250" type="password" placeholder="Confirme la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}" value="{{ old('password_confirmation') }}" required>
+                                <input class="form-control @error('password_confirmation') is-invalid @enderror"
+                                       name="password_confirmation" maxlength="250" type="password"
+                                       placeholder="Confirme la contraseña"
+                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[\S]{8,}"
+                                       value="{{ old('password_confirmation') }}" required>
                                 <label class="cs-password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox">
                                     <i class="fe-eye cs-password-toggle-indicator"></i>
                                     <span class="sr-only">Mostrar contraseña</span>
                                 </label>
                             </div>
-                            <small class="form-text text-muted">Al menos 1 mayúscula, 1 minúscula, 1 número, 1 símbolo, mínimo 8 caracteres</small>
-                            @error('password_confirmation')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                            <small class="form-text text-muted">Al menos 1 mayúscula, 1 minúscula, 1 número, 1 símbolo,
+                                mínimo 8 caracteres
+                            </small>
+                            @error('password_confirmation')
+                            <div class="invalid-feedback d-inline">{{ $message }}</div>
+                            @enderror
                         </div>
                         @error('email')
-                        <div class="font-size-lg text-danger d-inline mb-3">Para recuperar tu cuenta ponte en contacto.</div>
+                        <div class="font-size-lg text-danger d-inline mb-3">Para recuperar tu cuenta ponte en
+                            contacto.
+                        </div>
                         @enderror
                         <button class="btn btn-primary btn-block" type="submit">Registrar</button>
-                        <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#modal-signin' data-toggle="modal" class='font-weight-medium'>Entrar</a></p>
+                        <p class="font-size-sm pt-3 mb-0">¿Ya tiene una cuenta? <a href='#modal-signin'
+                                                                                   data-toggle="modal"
+                                                                                   class='font-weight-medium'>Entrar</a>
+                        </p>
                     </form>
                 </div>
             </div>
@@ -335,19 +371,32 @@
 <!-- Main theme script-->
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/helpers.js')}}"></script>
+<link rel="stylesheet" href="{{asset('assets/simple-scrollbar-master/simple-scrollbar.css')}}"/>
+<script src="{{ asset('assets/simple-scrollbar-master/simple-scrollbar.min.js') }}"></script>
 @if($errors->any())
-<script>
-    var isLogin = {{ old('login') ?? 'null' }};
-    if(isLogin != null){
-        if(isLogin == 1){
-            $('#modal-signin').modal('show');
-        } else {
-            $('#modal-signup').modal('show');
+    <script>
+        var isLogin = {{ old('login') ?? 'null' }};
+        if (isLogin != null) {
+            if (isLogin == 1) {
+                $('#modal-signin').modal('show');
+            } else {
+                $('#modal-signup').modal('show');
+            }
         }
-    }
-</script>
+    </script>
 @endif
 <script>
+    (function ($) {
+        $(function () {
+            $(document).ready(function(){
+                $('.scrolling').each(function(){
+                    var id = $(this).attr('id');
+                    SimpleScrollbar.initEl(document.getElementById(id));
+                });
+            });
+        });
+    })(jQuery);
+
     $('#open-signin-error').on('click', function () {
         $('#modal-signin').modal('show');
     });
@@ -355,7 +404,7 @@
     $('#modal-signup').on('show.bs.modal', function () {
         $('#modal-signin').modal('hide');
     });
-    
+
     $('#modal-signin').on('show.bs.modal', function () {
         $('#modal-signup').modal('hide');
     });
@@ -363,26 +412,26 @@
     $('.modal-status').modal('show');
 
     flatpickr(".js-input", {
-        allowInput:true,
-        altInput:true,
-        minDate:"today",
-        onOpen: function(selectedDates, dateStr, instance) {
+        allowInput: true,
+        altInput: true,
+        minDate: "today",
+        onOpen: function (selectedDates, dateStr, instance) {
             $(instance.altInput).prop('readonly', true);
         },
-        onClose: function(selectedDates, dateStr, instance) {
+        onClose: function (selectedDates, dateStr, instance) {
             $(instance.altInput).prop('readonly', false);
             $(instance.altInput).blur();
         }
     });
     flatpickr(".js-input-hora", {
-        enableTime: true, 
+        enableTime: true,
         noCalendar: true,
-        allowInput:true,
-        altInput:true,
-        onOpen: function(selectedDates, dateStr, instance) {
+        allowInput: true,
+        altInput: true,
+        onOpen: function (selectedDates, dateStr, instance) {
             $(instance.altInput).prop('readonly', true);
         },
-        onClose: function(selectedDates, dateStr, instance) {
+        onClose: function (selectedDates, dateStr, instance) {
             $(instance.altInput).prop('readonly', false);
             $(instance.altInput).blur();
         }

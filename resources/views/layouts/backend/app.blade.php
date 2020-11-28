@@ -227,6 +227,7 @@
         {{--</div>--}}
         {{--</div>--}}
     </div>
+    @yield('modal')
 </main>
 
 @include('layouts.backend.footer')

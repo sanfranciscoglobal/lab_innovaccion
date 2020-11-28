@@ -8,7 +8,8 @@ window.currentAddressInput = 0;
 window.autocomplete = null;
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.datatables-demo').dataTable();
 })
 
 if (document.querySelector('.check-toggle')) {
@@ -46,6 +47,20 @@ if (document.querySelector('.dropify')) {
             clearButton: '<button type="button" class="dropify-clear">Quitar</button>',
             errorLine: '<p class="dropify-error">{{ error }}</p>',
             errorsContainer: '<div class="dropify-errors-container"><ul></ul></div>'
+        },
+        error: {
+            'fileSize': 'El tamaño del archivo es demasiado grande ({{ value }} máximo).',
+            'minWidth': 'El ancho de la imagen es demasiado pequeño ({{ value }}}px mínimo).',
+            'maxWidth': 'El ancho de la imagen es demasiado grande ({{ value }}}px máximo).',
+            'minHeight': 'La altura de la imagen es demasiado pequeña ({{ value }}}px mínimo).',
+            'maxHeight': 'La altura de la imagen es demasiado grande ({{ value }}px máximo).',
+            'imageFormat': 'El formato de imagen no está permitido ({{ value }} solamente).'
+        },
+        messages: {
+            'default': 'Arrastre y suelte un archivo aquí o haga clic en',
+            'replace': 'Arrastra y suelta o haz clic para reemplazar',
+            'remove': 'Eliminar',
+            'error': 'Tenemos problemas con a imagen a cargar'
         }
     });
 }
@@ -387,13 +402,24 @@ window.validateFormEvent = function validateFormEvent(btn, class_content, scroll
 
     for (var i = 0; i < curInputs.length; i++) {
         var element = curInputs[i];
+
         if (!element.validity.valid) {
-            console.log(element);
             isValid = false;
+
+            $(element).closest(".form-group").addClass("has-error");
             $(element).addClass('d-inline');
             $(element).addClass('is-invalid');
             $(element).removeClass('is-valid');
+
+            var file_preload = "";
+            if (file_preload = $(element).attr('data-default-file')) {
+                isValid = true;
+                $(element).closest(".form-group").removeClass("has-error");
+                $(element).removeClass('is-invalid');
+                $(element).addClass('is-valid');
+            }
         } else {
+            $(element).closest(".form-group").removeClass("has-error");
             $(element).removeClass('d-inline');
             $(element).removeClass('is-invalid');
             $(element).addClass('is-valid');

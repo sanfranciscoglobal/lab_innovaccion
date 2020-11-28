@@ -232,6 +232,13 @@ class IniciativasController extends Controller
 
                     if ($statusInsert) {
                         DB::commit();
+
+                        if ($action = Helper::returnAdmin()) {
+                            return redirect()
+                                ->route($action)
+                                ->with('status', 'Iniciativa cargada con éxito');
+                        }
+
                         return redirect()
                             ->route('app.iniciativas.index')
                             ->with('status', 'Iniciativa cargada con éxito');
@@ -292,14 +299,16 @@ class IniciativasController extends Controller
 
         if ($request->has('Ubicaciones')) {
             foreach ($request->Ubicaciones as $key => $info) {
-                $data[$key]['iniciativa_id'] = $iniciativa->id;
-                $data[$key]['canton_id'] = ($ciudad = Helper::obtenerCiudadPorLocalidad($info['localidad'], $info['area1'], $info['area2'])) ? $ciudad->id : null;
-                $data[$key]['direccion'] = $info['direccion'];
-                $data[$key]['latitud'] = $info['latitud'];
-                $data[$key]['longitud'] = $info['longitud'];
-                $data[$key]['localidad'] = $info['localidad'];
-                $data[$key]['area1'] = $info['area1'];
-                $data[$key]['area2'] = $info['area2'];
+                if (isset($info['direccion'])) {
+                    $data[$key]['iniciativa_id'] = $iniciativa->id;
+                    $data[$key]['canton_id'] = ($ciudad = Helper::obtenerCiudadPorLocalidad($info['localidad'], $info['area1'], $info['area2'])) ? $ciudad->id : null;
+                    $data[$key]['direccion'] = $info['direccion'];
+                    $data[$key]['latitud'] = (isset($info['latitud'])) ? $info['latitud'] : null;
+                    $data[$key]['longitud'] = (isset($info['longitud'])) ? $info['longitud'] : null;
+                    $data[$key]['localidad'] = (isset($info['localidad'])) ? $info['localidad'] : null;
+                    $data[$key]['area1'] = (isset($info['area1'])) ? $info['area1'] : null;
+                    $data[$key]['area2'] = (isset($info['area2'])) ? $info['area2'] : null;
+                }
             }
 
             return $data;

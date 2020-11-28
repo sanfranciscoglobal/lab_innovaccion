@@ -24,7 +24,7 @@ class Helper
      */
     public static function validarUsuarioAdmin()
     {
-        if ($roles = json_decode(Cookie::get('roles'))) {
+        if ($roles = json_decode(session()->get('roles'))) {
             foreach ($roles as $rol) {
                 if (in_array(strtolower(trim($rol)), ['superadmin', 'admin'])) {
                     return true;
@@ -63,4 +63,25 @@ class Helper
         return false;
     }
 
+    /**
+     * @param $estado
+     * @return string
+     */
+    public static function obtenerEtiquetaEstado($estado)
+    {
+        if ($estado) {
+            return '<span class="badge badge-pill badge-danger">ELIMINADO</span>';
+        } else {
+            return '<span class="badge badge-pill badge-success">ACTIVO</span>';
+        }
+    }
+
+    public static function returnAdmin()
+    {
+        if (session()->has('admin')) {
+            return session()->get('admin');
+        }
+
+        return false;
+    }
 }

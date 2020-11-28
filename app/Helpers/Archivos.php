@@ -11,7 +11,7 @@ class Archivos
 
     /**
      * @param string $nombre
-     * @param File   $archivo
+     * @param File $archivo
      * @param string $disk
      * @return string
      */
@@ -24,7 +24,7 @@ class Archivos
 
     /**
      * @param string $nombre
-     * @param File   $archivo
+     * @param File $archivo
      * @param string $disk
      * @return string
      */
@@ -33,6 +33,12 @@ class Archivos
         $nombreArchivo = strtotime("now") . '_' . str_replace(" ", "_", $nombre) . '.' . $archivo->getClientOriginalExtension();
         Storage::disk($disk)->put($nombreArchivo, file_get_contents($archivo->getRealPath()));
         return $nombreArchivo;
+    }
+
+
+    public static function validarUrlImagenIniciativa($imagen)
+    {
+        return Storage::disk('iniciativas')->exists($imagen) ? $imagen : false;
     }
 
 }

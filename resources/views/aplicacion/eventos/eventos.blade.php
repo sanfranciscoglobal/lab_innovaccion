@@ -25,16 +25,16 @@
 @endsection
 @section('content')
 
-    <section class="container my-lg-2 pt-5 pb-lg-5">
+    <section  class="container mt-lg-2 pt-5 pt-sm-7  mt-md-4 pt-lg-7 pt-md-5 pb-0">
         <div class="row align-items-center">
-            <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
+            <div class="col-md-6 bg-size-cover order-md-2 py-5">
                 <h1 class="mt-5 text-primary">Eventos</h1>
                 <div class="py-3">
                     <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!<br>
                         Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
                 </div>
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/evento-baner1.png') }}" alt="Side banner"></div>
+            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/eventos.png') }}')" alt="Side banner"></div>
         </div>
     </section>
     <div class="position-relative bg-purple-gradient" style="height: 420px;">
@@ -55,11 +55,10 @@
                     <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
                    
                         <p class="h5 text-light">Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</p>
-                        @if ($autentificacion)
+                        
                         <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.eventos') }}">Publicar evento</a>
                         {{-- <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.eventos')}}">Publicar evento</a> --}}
                         </p>
-                    @endif
                     </div>
 
                     

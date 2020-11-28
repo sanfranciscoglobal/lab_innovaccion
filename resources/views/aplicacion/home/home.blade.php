@@ -3,7 +3,7 @@
 @section('content')
 <style scoped>
     .carousel-item {min-height: 550px;}
-/* 
+
     @media (max-width: 768px) {
         .carousel-item {
             min-height: 350px!important;
@@ -16,7 +16,7 @@
         .itemhome{
             min-width: 50%;
         }
-    } */
+    } 
 </style>
 <section id="home-hero-banner">
     @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
@@ -35,9 +35,12 @@
                 </div>
                 <div class="itemhome col-md-5  col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                        
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Ecosistema_Innovacion.png') }}"
                             alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-uva">Ecosistema de Innovación</h3>
+                        <a href="/iniciativas" class="media meta-link ">
+                            <h3 class="fs-14 mb-2 uppercase text-uva">Ecosistema de Innovación</h3>
+                        </a>
                         <p class="font-size-sm mb-0 text-justify">Facilitamos la conexión entre agentes innovadores mapeando sus iniciativas para promover lazos de trabajo colaborativo que forjen las bases del ecosistema. </p>
                     </div>
                 </div>
@@ -70,10 +73,10 @@
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-5  py-lg-4 text-white">
                     <h2 class="mb-3 pb-1 text-white">Laboratorio de Innovación</h2>
                     <div class="row">
-                    <div class="col">
+                    <div class="col-sm-6">
                     <p class="text-justify">Thinkia es un espacio que promueve el encuentro de diversos actores - academia, público, privado y sociedad civil - para trabajar de manera colaborativa y creativa en innovación. </p>
                     </div>
-                    <div class="col">
+                    <div class="col-sm-6">
                     <ul class="list-unstyled font-size-sm">
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>

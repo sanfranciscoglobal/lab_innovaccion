@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\CanResetPassword;
+use Storage;
 
 // Models
 use App\Models\Perfil;
@@ -69,6 +70,17 @@ class User extends Authenticatable implements MustVerifyEmail
     public function fondos()
     {
         return $this->hasMany(Fondo::class);
+    }
+
+    public function getPathAvatarAttribute()
+    {
+        if ($this->perfil) {
+            if ($this->perfil->avatar && ($url = public_path('storage/perfil/' . $this->perfil->avatar)) && file_exists($url)) {
+                return asset('storage/perfil/' . $this->perfil->avatar);
+            }
+        }
+
+        return asset('img/demo/presentation/logo/logo-icon-footer.png');
     }
 
     /**
