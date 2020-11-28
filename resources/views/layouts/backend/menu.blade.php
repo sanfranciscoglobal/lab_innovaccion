@@ -10,7 +10,8 @@
                 }
             @endphp
             {{--<img class="d-block rounded-circle mx-auto my-2" width="110" src="{{ $avatar }}">--}}
-            <img class="d-block rounded-circle mx-auto my-2" width="110" src="{{asset('img/demo/presentation/logo/logo-icon-footer.png')}}">
+            <img class="d-block rounded-circle mx-auto my-2" width="110"
+                 src="{{asset('img/demo/presentation/logo/logo-icon-footer.png')}}">
             <h6 class="mb-0 pt-1">{{ Auth::user()->name }}</h6>
         </div>
         <div class="d-lg-block collapse pb-2" id="account-menu">
@@ -55,13 +56,23 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="cs-widget-link px-4 py-3 collapsed" href="#ecosistema" data-toggle="collapse">
-                            Paginas
+                        <a class="cs-widget-link px-4 py-3 collapsed" href="#recursos" data-toggle="collapse">
+                            Recursos
                         </a>
-                        <ul class="collapse" id="ecosistema" data-parent="#menu">
+                        <ul class="collapse" id="recursos" data-parent="#menu">
                             <li>
-                                <a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">
-                                    Administrador 4
+                                <a class="cs-widget-link" href="{{route('admin.fondos.index')}}">
+                                    Fondos
+                                </a>
+                            </li>
+                            <li>
+                                <a class="cs-widget-link" href="{{route('admin.eventos.index')}}">
+                                    Eventos
+                                </a>
+                            </li>
+                            <li>
+                                <a class="cs-widget-link" href="{{route('admin.material-aprendizaje.index')}}">
+                                    Publicaciones y Herramientas
                                 </a>
                             </li>
                         </ul>
