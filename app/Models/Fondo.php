@@ -17,8 +17,17 @@ class Fondo extends Model
     public static $paginate = 10;
     public static $own = false;
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo('App\Models\User')->withTrashed();
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeletedAtStatusAttribute()
+    {
+        return ($this->deleted_at) ? true : false;
     }
 
     /**
@@ -41,5 +50,29 @@ class Fondo extends Model
     {
         $rs = self::builder();
         return $rs->paginate(self::$paginate) ?? [];
+    }
+
+
+    /**
+     * Obtener paginador de iniciativas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerFondosWithTrashedAll()
+    {
+        $rs = self::builder();
+        return $rs->withTrashed()->get() ?? [];
+    }
+
+    /**
+     * Obtener paginador de iniciativas
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerFondoWithTrashedRestore($id)
+    {
+        if (Fondo::withTrashed()->find($id)->restore()) {
+            return true;
+        }
+
+        return false;
     }
 }

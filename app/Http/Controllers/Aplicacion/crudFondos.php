@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Aplicacion;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,6 +71,12 @@ class crudFondos extends Controller
             $imageName = Archivos::storeImagen($name, $validatedData['imagen'], 'fondos');
             $fondo->imagen = $imageName;
             $fondo->save();
+        }
+
+        if ($action = Helper::returnAdmin()) {
+            return redirect()
+                ->route($action)
+                ->with('status', 'Fondo modificado con éxito');
         }
 
         return redirect()->route('app.escritorio.fondos')->with('status', 'Fondo modificado con éxito');

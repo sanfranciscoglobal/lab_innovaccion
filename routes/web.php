@@ -206,6 +206,11 @@ Route::as('admin.')
             /** Iniciativas */
             Route::resource('iniciativas', 'Backend\IniciativasController');
             Route::get('iniciativas/{id}/activar', 'Backend\IniciativasController@activar')->name('iniciativas.activar');
+
+
+            /** Iniciativas */
+            Route::resource('fondos', 'Backend\FondosController');
+            Route::get('fondos/{id}/activar', 'Backend\FondosController@activar')->name('fondos.activar');
         }
     );
 
