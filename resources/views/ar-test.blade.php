@@ -99,7 +99,6 @@
 			<!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
 			<a-nft
 				type='nft'
-				{{-- url='{{ asset('Ar/fset/6') }}' --}}
 				url='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
 				smooth='true' 
 				smoothCount='10' 
@@ -108,7 +107,7 @@
 				<a-entity
 						gltf-model='#animated-asset'
 						scale="0.1 0.1 0.1"
-						{{-- position="0 0 0" --}}
+						position="0 0 0"
 						animation-mixer="loop: repeat"
 						class="clickable"
 						gesture-handler
