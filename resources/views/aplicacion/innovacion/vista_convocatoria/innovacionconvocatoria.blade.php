@@ -110,8 +110,7 @@
         </div>
     </div>
     <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
-        <h2 class="text-light text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS</h2>
-        <h3 class="text-light text-center mb-5 uppercase">vigentes</h3>
+        <h2 class="text-light text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS vigentes</h2>
         
         <div class="row mb-4">
         @foreach ($convocatorias as $convocatoria)
@@ -126,13 +125,15 @@
                     <div class="row pt-3 no-gutters">
                         <div class="col-md-4 justify-content-md-center">
                             <div class="card-body text center">
-                                <h1 class="text-center font-weight-bold font-size-lg">INICIO</h1>
-                                <h1 class="text-center font-weight-bold" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>    
-                                <p class="text-center font-weight-bold font-size-lg">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
-                                <div class="row justify-content-center ">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></button>
-                                    <button type="button" class="btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></button>
-                                    
+                                <h1 class="text-center font-weight-bold font-size-lg m-0">INICIO</h1>
+                                <h1 class="text-center m-0" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>    
+                                <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
+
+                                <div class="row justify-content-center mt-2">
+                                    <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></button>
+                                    <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></button>
+                                    <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></button>
+                                    <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +153,63 @@
                         </div>
                         
                     </div>
-                    <h2 class="text-right font-weight-bold font-size-lg pr-4">FINALIZA {{date('d M', strtotime( $convocatoria->fecha_cierre))}}</h2>
+                    <h2 class="text-right font-size-lg pr-4">FINALIZA <span style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_cierre))}}</span> {{date('M', strtotime( $convocatoria->fecha_cierre))}}</h2>
+                    
+                </article>
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+     
+    <div class="col-12">{{ $convocatorias->links() }}</div>
+    </section>
+    
+    <section class="container">
+        <h2 class="text-primary text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS pasadas</h2>
+        
+        <div class="row mb-4">
+        @foreach ($convocatorias_antiguas as $convocatoria)
+        <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+            <div class="pb-2">
+                <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+                    @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
+                        <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                    @else
+                        <span class="badge badge-lg badge-floating badge-floating-right text-white btn-primary">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                    @endif
+                    <div class="row pt-3 no-gutters">
+                        <div class="col-md-4 justify-content-md-center">
+                            <div class="card-body text center">
+                                <h1 class="text-center font-weight-bold font-size-lg m-0">INICIO</h1>
+                                <h1 class="text-center m-0" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>    
+                                <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
+
+                                <div class="row justify-content-center mt-2">
+                                    <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></button>
+                                    <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></button>
+                                    <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></button>
+                                    <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body ">
+                                @if ($convocatoria->tipoconvocatoria_id == 2)
+                                    @foreach ($convocatoria->conods as $objetivo)
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                    @endforeach
+                                @else
+                                    @foreach ($convocatoria->consectores as $sector)
+                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                    @endforeach
+                                @endif
+                                <p class="card-text font-size-sm">{{$convocatoria->descripcion}}</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <h2 class="text-right font-size-lg pr-4">FINALIZA <span style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_cierre))}}</span> {{date('M', strtotime( $convocatoria->fecha_cierre))}}</h2>
                     
                 </article>
             </div>
