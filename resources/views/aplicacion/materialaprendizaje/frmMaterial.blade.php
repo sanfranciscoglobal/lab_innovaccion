@@ -124,11 +124,11 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="mat_adjuntar">Adjuntar archivos <span style="color: gray">(max. 2Mb)</span></label>
+                                            <label for="mat_adjuntar">Adjuntar archivos <span style="color: gray">(max. 10MB)</span></label>
                                             
                                             @if ($method=='PUT')
 
-                                                <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" name="mat_files[]"
+                                                <input class="form-control dropify" data-max-file-size="10M" type="file" id="mat_adjuntar" name="mat_files[]"
                                                 data-default-file=
                                                         "@foreach ($material->articuloss as $articulo)
                                                             {{$articulo->nombre}}
@@ -136,7 +136,7 @@
                                                         @endforeach"
                                                 multiple>
                                             @else
-                                                <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" name="mat_files[]" multiple>
+                                                <input class="form-control dropify" data-max-file-size="10M" type="file" id="mat_adjuntar" name="mat_files[]" multiple>
                                             @endif
                                             @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>

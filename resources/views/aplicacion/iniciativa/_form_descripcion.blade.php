@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="evento_img">* Logotipo</label>
+                        <label for="evento_img">* Logotipo <span style="color: gray">(max. 2 MB)</span></label>
                         @if($model->logo)
                             {{--{{\App\Helpers\Archivos::validarUrlImagenIniciativa($model->iniciativaInformacion->logo)}}--}}
                             <input type="file"
