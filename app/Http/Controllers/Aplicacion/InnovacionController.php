@@ -42,7 +42,7 @@ class InnovacionController extends Controller
      */
     public function frmGestionInnovacion(Convocatoria $convocatoria)
     {
-        if($convocatoria->fecha_inicio >= date('Y-m-d') || $convocatoria->fecha_cierre <= date('Y-m-d')){
+        if($convocatoria->fecha_inicio > date('Y-m-d') || $convocatoria->fecha_cierre <= date('Y-m-d')){
             return redirect()->back()->with('error', 'Esta convocatoria esta cerrada, y no se admiten mas problemas.');
         }
         session()->forget('step');

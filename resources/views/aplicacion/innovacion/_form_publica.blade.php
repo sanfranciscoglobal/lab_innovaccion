@@ -5,7 +5,7 @@
 
             <div class= "m-0 p-0 w-100 form-group">
                                                                     
-                <select style="width:100%;" id="innovacion_publica_sector_productivo" name="innovacion_sector_productivo[]"
+                <select style="width:100%;" id="innovacion_publica_sector_productivo" name="innovacion_sector_productivo3[]"
                     class="form-control custom-select select2"
                     data-ajax--url="{{route('api.tipo-sector.select2','3')}}"
                     data-ajax--data-type="json"
@@ -32,7 +32,7 @@
             <label for="innovacion_publica_subsector_productivo" class="control-label">* Subsector productivo</label>
             <div class= "m-0 p-0 w-100 form-group">
                                                                         
-                <select style="width:100%;" id="innovacion_publica_subsector_productivo" name="innovacion_subsector_productivo[]"
+                <select style="width:100%;" id="innovacion_publica_subsector_productivo" name="innovacion_subsector_productivo3[]"
                     class="form-control custom-select select2"
                     data-placeholder="Seleccione uno o varios subsectores"
                     data-close-on-select="false"
@@ -51,7 +51,7 @@
 
             <div class= "m-0 p-0 w-100 form-group">
                                                                     
-                <select style="width:100%;" id="innovacion_publica_ods" name="innovacion_ods[]"
+                <select style="width:100%;" id="innovacion_publica_ods" name="innovacion_ods3[]"
                     class="form-control custom-select select2"
                     data-ajax--url="{{route('api.ods-categoria.select2')}}"
                     data-ajax--data-type="json"

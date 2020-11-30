@@ -31,11 +31,11 @@
                                                 CONVOCATORIA -> {{$convocatoria->id}}
                                             </a></h4>
                                         </div>
-                                        @if ($convocatoria->tipoconvocatoria_id==1)
+                                        <div class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">{{$convocatoria->tipoconvocatoriaid->nombre}}</div>
+                                        
+                                        {{-- @if ($convocatoria->tipoconvocatoria_id==1)
                                             <div class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Innovación Abierta</div>
-                                            {{-- <div class="col">
-                                                    <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatoria Abierta</span>
-                                            </div> --}}
+                                            
  
                                         @elseif ($convocatoria->tipoconvocatoria_id==2)
                                             <div class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Innovación Social</div>
@@ -45,7 +45,7 @@
                                             <div class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Innovación Pública</div>
                                        
                                         
-                                        @endif
+                                        @endif --}}
                                         
                                         
                                     </div>

@@ -9,6 +9,42 @@
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
         </div>
     </section>
+    <section id="funciones">
+        <div class="container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5">
+            <h4 class="text-center pt-3 pt-md-2 mb-5 uppercase text-mora">Convocatorias</h4>
+            <div class="row justify-content-center">
+                <div class="itemhome col-md-5 col-lg-3 my-3" >
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_abierta.png') }}"
+                            alt="Icon" />
+                        <h3 class="fs-14 mb-2 uppercase text-naranja text-center">sector productivo</h3>
+                        <p class="font-size-sm mb-0 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+                <div class="itemhome col-md-5  col-lg-3 my-3" >
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_publica.png') }}"
+                            alt="Icon" />
+                        <h3 class="fs-14 mb-2 uppercase text-mora text-center">gestión pública </h3>
+                        <p class="font-size-sm mb-0 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+         
+                
+                <div class="itemhome col-md-5 col-lg-3 my-3" >
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                        
+                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_social.png') }}"
+                        alt="Icon" />
+                        
+                        
+                        <h3 class="fs-14 mb-2 uppercase text-tomate text-center">Ciudadanía</h3>
+                        <p class="font-size-sm mb-0 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="searchbar-container" style="background: #f2f2f2">
     <form class="container" action="{{route('convocatorias.search')}}" method="POST">
@@ -19,10 +55,10 @@
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label class="form-label font-weight-bold" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
                     <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
-                        <option value="" selected disabled hidden>Seleccione un tipo</option>
-                        <option value="1">Innovación Abierta</option>
-                        <option value="2">Innovación Social</option>
-                        <option value="3">Innovación Pública</option>
+                        <option value="" selected hidden>Todos</option>
+                        <option value="1">Sector Productivo</option>
+                        <option value="2">Ciudadanía</option>
+                        <option value="3">Gestión Pública</option>
                     </select>
 
                 </div>
@@ -32,7 +68,7 @@
                         <option value="" selected disabled hidden>Seleccione un estado</option>
                         <option value="1">Ambos</option>
                         <option value="2">Vigente</option>
-                        <option value="3">Caducada</option>
+                        <option value="3">Pasado</option>
                     </select>
 
                 </div>
