@@ -124,7 +124,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="mat_adjuntar">Adjuntar archivos <span style="color: gray">(max. 10MB)</span></label>
+                                            <label for="mat_adjuntar">Adjuntar archivos <span style="color: gray">(máx. 10MB)</span></label>
                                             
                                             @if ($method=='PUT')
 

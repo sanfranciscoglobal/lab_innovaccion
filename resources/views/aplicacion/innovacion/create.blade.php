@@ -37,21 +37,21 @@
                                 
                                 <div class="custom-control custom-radio">
                                     <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_abierta" value="1" name="tipoconvocatoria_id" required>
-                                    <label class="custom-control-label" for="tipo_abierta">Innovación Abierta</label>
+                                    <label class="custom-control-label" for="tipo_abierta">Sector Productivo</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 
                                 <div class="custom-control custom-radio">
                                     <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_social" value="2" name="tipoconvocatoria_id">
-                                    <label class="custom-control-label" for="tipo_social">Innovación Social</label>
+                                    <label class="custom-control-label" for="tipo_social">Ciudadanía</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 
                                 <div class="custom-control custom-radio">
                                     <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_publica" value="3" name="tipoconvocatoria_id">
-                                    <label class="custom-control-label" for="tipo_publica">Innovación Pública</label>
+                                    <label class="custom-control-label" for="tipo_publica">Gestión Pública</label>
                                 </div>
                             </div>
                         </div>
