@@ -121,7 +121,7 @@
                                 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(min. 25 palabras)(max. 100 palabras)</span></label>
+                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(mín. 25 palabras)(máx. 100 palabras)</span></label>
                                     <textarea onkeyup="countWords();" onkeydown="countWords();"  class="form-control" name="descripcion" id="descripcion_convocatoria"
                                               rows="10" required="required"
                                               >{{ old('descripcion', $convocatoria->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
@@ -173,7 +173,7 @@
 
                                 </div> --}}
                                 <div class="form-group">
-                                    <label for="imagen">* Imagen <span style="color: gray">(max. 2 MB)</span></label>
+                                    <label for="imagen">* Imagen <span style="color: gray">(máx. 2 MB)</span></label>
                                     @if ($method=='PUT')
                                         <input type="file" 
                                             class="form-control dropify" 

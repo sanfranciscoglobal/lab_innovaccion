@@ -233,7 +233,7 @@
                                             accept="image/gif, image/jpeg, image/png" 
                                             id="imagen" maxlength='250' 
                                             name="imagen"  
-                                            data-máx-file-size="2M" 
+                                            data-max-file-size="2M" 
                                             data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
                                         
                                     @else
@@ -244,7 +244,7 @@
                                                 name="imagen" 
                                                 size="2000000"
                                                 required
-                                                data-máx-file-size="2M">
+                                                data-max-file-size="2M">
 
                                         
                                     

@@ -52,7 +52,7 @@
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label class="form-label font-weight-bold" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
                     <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
-                        <option value="" selected disabled hidden>Seleccione un tipo</option>
+                        <option value="" selected hidden>Todos</option>
                         <option value="1">Sector Productivo</option>
                         <option value="2">Ciudadanía</option>
                         <option value="3">Gestión Pública</option>
@@ -65,7 +65,7 @@
                         <option value="" selected disabled hidden>Seleccione un estado</option>
                         <option value="1">Ambos</option>
                         <option value="2">Vigente</option>
-                        <option value="3">Caducada</option>
+                        <option value="3">Pasado</option>
                     </select>
 
                 </div>
