@@ -24,39 +24,41 @@
                             <button type="button" class="btn btn-link text-danger font-weight-medium btn-sm mb-2" data-toggle="modal" data-target="#deleteAlert"><i class="fe-trash-2 font-size-base mr-2"></i>Eliminar fondo</button>
                             @endif
                         </div>
-                        <div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+                        <div class="d-sm-flex pb-2 text-left text-muted text-sm-left">
                             <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios</p>
                         </div>
                         <!-- Content-->
                         <div class="row">
-                            <div class="col-12">
+                            <input type="hidden" id="fondos_otros" value="0" name="fuente">
+                            {{-- <div class="col-12">
                                 <h2 class="h4 mb-2 text-nowrap">Procedencia de los fondos</h2>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == '1' ? 'checked' : '' }}>
-                                    <label class="custom-control-label" for="fondos_propios">Fondos propios</label>
+                            <div class="col-12 row">
+                                <div class="col-sm-3">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input fondos" type="radio" id="fondos_propios" value="1" name="fuente" required {{ old('fuente', $fondo->fuente) == '1' ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="fondos_propios">Fondos propios</label>
+                                    </div>
+                                    @error('fuente')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
-                                @error('fuente')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input fondos" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
-                                    <label class="custom-control-label" for="fondos_otros">Fondos de otra organización</label>
+                                <div class="col-sm-4">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input fondos" type="radio" id="fondos_otros" value="0" name="fuente" {{ old('fuente', $fondo->fuente) == '0' ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="fondos_otros">Fondos de otra organización</label>
+                                    </div>
+                                    @error('fuente')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
-                                {{-- @error('fuente')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror --}}
-                            </div>
-                            <div class="col-12">
                                 <div class="row to-hide d-none">
                                     <div class="col mb-4 mt-4">
                                         <hr />
                                     </div>
                                 </div>
+                            </div> --}}
+
+                            <div class="col-12">
                                 <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="col-md-12 to-hide d-none">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
                                             <span>Datos de los fondos</span>
                                             <div class="form-group">
                                                 <label for="org_nombre">* Nombre de la organización</label>
@@ -64,14 +66,14 @@
                                                 @error('organizacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-12 to-hide f-propios d-none">
+                                        {{-- <div class="col-md-12 to-hide f-propios d-none">
                                             <div class="form-group">
                                                 <label for="org_fondo">* Nombre del fondo</label>
                                                 <input class="form-control @error('nombre_fondo') is-invalid @enderror" type="text" id="org_fondo" value="{{ old('nombre_fondo', $fondo->nombre_fondo) }}" name="nombre_fondo" maxlength="250" placeholder="Nombre del Fondo" required>
                                                 @error('nombre_fondo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
-                                        </div>
-                                        <div class="col-12">
+                                        </div> --}}
+                                        {{-- <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-6 to-hide f-propios d-none">
                                                     <div class="form-group">
@@ -105,8 +107,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12 to-hide d-none">
+                                        </div> --}}
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="org_web">* Para más información</label>
                                                 <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$" class="form-control @error('info') is-invalid @enderror" type="text" id="org_web" maxlength="250" value="{{ old('info', $fondo->info) }}" name="info" placeholder="Link de la página web oficial del fondo" required>
@@ -114,19 +116,9 @@
                                                 <div class="invalid-feedback" id='url-error'></div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 to-hide f-propios d-none">
+                                        <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="org_logo">* Logotipo</label>
-                                                @if ($method == 'POST')
-                                                <div class="cs-file-drop-area">
-                                                    <div class="cs-file-drop-icon fe-upload"></div>
-                                                    <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-                                                    <input type="file" class="cs-file-drop-input" id="org_logo" accept="image/gif, image/jpeg, image/png" size="2000000" name="imagen" title="Imagen del fondo" required>
-                                                    <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
-                                                    <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
-                                                </div>
-                                                <small id="emailHelp" class="form-text text-muted">Max. 2Mb</small> 
-                                                @else
+                                                <label for="org_logo">* Logotipo <small class="text-muted">(Máx. 2Mb)</small></label>
                                                 @php
                                                     if($fondo->imagen){
                                                         $img = asset('storage/fondos/'.$fondo->imagen);
@@ -134,14 +126,13 @@
                                                         $img = '';
                                                     }
                                                     @endphp
-                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png" size="2000000">
-                                                <small id="emailHelp" class="form-text text-muted">Max. 2Mb</small>
-                                                @endif
+                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" data-max-file-size="2M" accept="image/gif, image/jpeg, image/png" id="org_logo" @if($method == 'POST') required @endif>
+                                                <div class="invalid-feedback" id='org_logo_error'>Inserta una imagen.</div>
                                                 @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-4 to-hide d-none">
+                                    {{-- <div class="col-12 col-md-4 to-hide d-none">
                                         <div class="form-group">
                                             <span>Redes Sociales</span>
                                             <div class="form-group">
@@ -170,18 +161,18 @@
                                                 @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="col-12">
-                                <hr class="mt-2 mb-4">
+                                <hr class="my-3">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="custom-control custom-checkbox d-block">
                                         <input class="custom-control-input @error('terminos') is-invalid @enderror" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $fondo->terminos) == 1 ? 'checked' : "" }}>
                                         <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                         @error('terminos')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
-                                    <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
+                                    <button class="btn btn-primary mt-3" id='submitbutton' type="submit"><i class="fe-save font-size-lg mr-2"></i>Guardar</button>
                                 </div>
                             </div>
                         </div>
