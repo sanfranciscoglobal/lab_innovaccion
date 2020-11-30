@@ -59,8 +59,8 @@ if (document.querySelector('.dropify')) {
         messages: {
             'default': 'Arrastre y suelte un archivo aquí o haga clic en',
             'replace': 'Arrastra y suelta o haz clic para reemplazar',
-            'remove':  'Eliminar',
-            'error':   'Tenemos problemas con a imagen a cargar'
+            'remove': 'Eliminar',
+            'error': 'Tenemos problemas con a imagen a cargar'
         }
     });
 }
@@ -402,14 +402,22 @@ window.validateFormEvent = function validateFormEvent(btn, class_content, scroll
 
     for (var i = 0; i < curInputs.length; i++) {
         var element = curInputs[i];
+
         if (!element.validity.valid) {
-            console.log(element, $(element).closest(".form-group"));
             isValid = false;
 
             $(element).closest(".form-group").addClass("has-error");
             $(element).addClass('d-inline');
             $(element).addClass('is-invalid');
             $(element).removeClass('is-valid');
+
+            var file_preload = "";
+            if (file_preload = $(element).attr('data-default-file')) {
+                isValid = true;
+                $(element).closest(".form-group").removeClass("has-error");
+                $(element).removeClass('is-invalid');
+                $(element).addClass('is-valid');
+            }
         } else {
             $(element).closest(".form-group").removeClass("has-error");
             $(element).removeClass('d-inline');

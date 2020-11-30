@@ -19,9 +19,9 @@
                                     class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="#">
                                 <i class="fe-instagram"></i>
                             </a></li>
-                        <li class="list-inline-item m-0"><a class="social-btn sb-outline sb-youtube sb-dark sb-sm"
+                        <li class="list-inline-item m-0"><a class="social-btn sb-outline sb-linkedin sb-dark sb-sm"
                                                             href="#">
-                                <i class="fe-youtube"></i>
+                                <i class="fe-linkedin"></i>
                             </a></li>
                     </ul>
                 </div>

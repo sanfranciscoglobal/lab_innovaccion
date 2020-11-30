@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Aplicacion;
 
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 
 use App\Models\MaterialAprendizaje;
@@ -98,6 +99,12 @@ class crudMaterialesaprendizaje extends Controller
                 $articulo->save();
                 $cont=$cont+1;
             }
+        }
+
+        if ($action = Helper::returnAdmin()) {
+            return redirect()
+                ->route($action)
+                ->with('status', 'Material modificado con éxito');
         }
 
         return redirect()->route('app.escritorio.material')->with('status', 'Material modificado con éxito');

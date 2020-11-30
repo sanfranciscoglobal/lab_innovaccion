@@ -54,46 +54,46 @@
             @endphp
             {{-- <div class=" d-inline-block col-lg-3 col-md-4 col-sm-6 mb-grid-gutter" data-toggle="modal" data-target="#modelId" data-content="{{$fondo}}"> --}}
             <div class="col-lg-4 col-sm-6 mb-grid-gutter" >
-                <div class=" h-100  card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
+                <div class=" h-100 card card-lab-orange card-curved-body card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
                 {{--<a class="card-floating-icon" href="mailto:{{ $fondo->user->email }}"><i class="fe-mail"></i></a>--}}
-                    <div class="card-img-top card-img-gradient">
+                    <div class="card-img-top ">
                         <img src="{{ $img }}" alt="{{ $fondo->organizacion }}" style="height: 300px"/>
                     </div>
                     <div class="card-body text-center" style="z-index: 1000">
                         <h3 class="card-title">{{ $fondo->organizacion }}</h3>
-                        <h6 class="card-subtitle mb-2">{{ $fondo->fuente == 1 ? 'Fondos propios' : 'Fondos de otra organización' }}</h6>
+                        {{-- <h6 class="card-subtitle mb-2">{{ $fondo->fuente == 1 ? 'Fondos propios' : 'Fondos de otra organización' }}</h6> --}}
                         @if($fondo->fuente)
                         <p class="font-size-xs mb-0">{{ $fondo->nombre_fondo }}</p>
                         <p class="font-size-xs mb-0">{{ 'Del: '.$fondo->fecha_inicio.' al '.$fondo->fecha_fin }}</p>
-                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-xs mb-0">Ver página</a>
+                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-xs mb-0 mt-3">Ver página</a>
                         @else
-                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-xs mb-0">Ver página</a>
+                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-xs mb-0 mt-3">Ver página</a>
                         @endif
 
-                        <ul class="d-flex justify-content-center list-inline mt-3">
+                        <ul class="d-flex justify-content-center list-inline">
                             @isset($problema->facebook)
-                            <li class="list-inline-item m-0">
+                            <li class="list-inline-item m-3">
                                 <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="{{ $problema->facebook ?? '#' }}">
                                     <i class="fe-facebook"></i>
                                 </a>
                             </li>
                             @endisset
                             @isset($problema->twitter)
-                            <li class="list-inline-item m-0">
+                            <li class="list-inline-item m-3">
                                 <a class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2 mr-md-3" href="{{ $problema->twitter ?? '#' }}">
                                 <i class="fe-twitter"></i>
                                 </a>
                             </li>
                             @endisset
                             @isset($problema->instagram)
-                            <li class="list-inline-item m-0">
+                            <li class="list-inline-item m-3">
                                 <a class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="{{ $problema->instagram ?? '#' }}">
                                 <i class="fe-instagram"></i>
                                 </a>
                             </li>
                             @endisset
                             @isset($problema->youtube)
-                            <li class="list-inline-item m-0">
+                            <li class="list-inline-item m-3">
                                 <a class="social-btn sb-outline sb-youtube sb-dark sb-sm" href="{{ $problema->youtube ?? '#' }}">
                                 <i class="fe-youtube"></i>
                                 </a>

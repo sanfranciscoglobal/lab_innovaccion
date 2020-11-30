@@ -32,6 +32,14 @@ class MaterialAprendizaje extends Model
 
     }
 
+    /**
+     * @return string|null
+     */
+    public function getDeletedAtStatusAttribute()
+    {
+        return ($this->deleted_at) ? true : false;
+    }
+
 
     /**
      * @return Builder
@@ -66,5 +74,27 @@ class MaterialAprendizaje extends Model
         return self::builder()->where('tipo', false)->count() ?? 0;
     }
 
+    /**
+     *
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerMaterialAprendizajesWithTrashedAll()
+    {
+        $rs = self::builder();
+        return $rs->withTrashed()->get() ?? [];
+    }
+
+    /**
+     *
+     * @return array|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function obtenerMaterialAprendizajeWithTrashedRestore($id)
+    {
+        if (MaterialAprendizaje::withTrashed()->find($id)->restore()) {
+            return true;
+        }
+
+        return false;
+    }
 
 }

@@ -2,7 +2,7 @@
 @section('contenido')
     {{--<div class="card">--}}
     <h6 class="card-header">
-        <span class="text-muted font-weight-light">Registros /</span> Iniciativas
+        <span class="text-muted font-weight-light">Registros /</span> Fondos
         {{--<a href="{{route('app.branch_office.create')}}" class=" btn btn-sm btn-outline-primary float-right">--}}
         {{--<i class="fas fa-plus mr-2"></i>CREAR--}}
         {{--</a>--}}
@@ -12,63 +12,53 @@
         <table class="datatables-demo table table-striped table-bordered">
             <thead class="thead-dark">
             <tr>
-                <th>Iniciativa</th>
-                <th>Origen</th>
-                <th>Componente Innovador</th>
-                <th>Descripci&oacute;n</th>
+                <th>Procedencia</th>
+                <th>Organización</th>
+                {{--<th>Sitio web</th>--}}
+                <th>Nombre del fondo</th>
                 <th>Estado</th>
-                <th class="text-center">
+                <th class="text-left">
                     <i class="fa fa-cog"></i>
                 </th>
             </tr>
             </thead>
             <tbody>
-            @foreach($iniciativas as $iniciativa)
+            @foreach($fondos as $fondo)
                 <tr>
                     <td>
-                        <div class="border-bottom">
-                            {{$iniciativa->nombre_iniciativa}}
-                        </div>
-                        @if($iniciativa->nombre_organizacion)
-                            <div class="border-bottom">
-                                {{$iniciativa->nombre_organizacion}}
-                            </div>
-                        @endif
-
-                        @if($iniciativa->user_name)
-                            <div class="border-bottom">
-                                {{$iniciativa->user_name}}
-                            </div>
-                        @endif
+                        {{$fondo->fuente?'Fondos propios':'Fondos de otra organización'}}
                     </td>
-                    <td>{{$iniciativa->iniciativa_origen_descripcion}}</td>
-                    <td>{!! $iniciativa->descripcion_iniciativa !!}</td>
-                    <td>{!! $iniciativa->descripcion_iniciativa !!}</td>
                     <td>
-                        {!! \App\Helpers\Helper::obtenerEtiquetaEstado($iniciativa->deleted_at) !!}
+                        <a href="{{$fondo->info}}" class="nav-link-style" target="_blank">
+                            {{$fondo->organizacion}}
+                        </a>
                     </td>
-                    <td class="text-center">
-                        <div style="width: 123px;">
-                            <a href="{{$iniciativa->deleted_at_status ? '#' : route('admin.fondos.edit',$iniciativa->id)}}"
-                               class="btn btn-sm btn-outline-primary mr-1 {{$iniciativa->deleted_at_status?'disabled':''}}"
+                    <td>{!! $fondo->nombre_fondo!!}</td>
+                    <td class="text-left">
+                        {!! \App\Helpers\Helper::obtenerEtiquetaEstado($fondo->deleted_at) !!}
+                    </td>
+                    <td>
+                        <div class="text-center" style="width: 123px;">
+                            <a href="{{$fondo->deleted_at_status ? '#' : route('admin.fondos.edit',$fondo->id)}}"
+                               class="btn btn-sm btn-outline-primary mr-1 {{$fondo->deleted_at_status?'disabled':''}}"
                                data-toggle="tooltip"
                                data-placement="left"
                                data-state="primary"
                                title="EDITAR"
-                               @if($iniciativa->deleted_at_status) disabled="disabled" @endif
+                               @if($fondo->deleted_at_status) disabled="disabled" @endif
                             >
                                 <i class="fe-edit"></i>
                             </a>
 
-                            @if($iniciativa->deleted_at_status)
-                                <a href="{{route('admin.iniciativas.activar',$iniciativa->id)}}"
+                            @if($fondo->deleted_at_status)
+                                <a href="{{route('admin.fondos.activar',$fondo->id)}}"
                                    class="btn btn-sm btn-outline-success" data-toggle="tooltip"
                                    data-placement="right" data-state="primary" title="ACTIVAR">
                                     <i class="fe-check-circle"></i>
                                 </a>
                             @else
                                 <a href="" data-toggle="modal" data-target="#deleteModal"
-                                   data-id="{{ $iniciativa->id }}"
+                                   data-id="{{ $fondo->id }}"
                                    class="btn btn-sm btn-outline-danger">
                                     <i class="fe-trash-2"></i>
                                 </a>
@@ -86,7 +76,7 @@
     {{--</div>--}}
 @endsection
 @section('modal')
-    @include('includes.forms.modal-delete',['name_route'=>'admin.iniciativas.destroy'])
+    @include('includes.forms.modal-delete',['name_route'=>'admin.fondos.destroy'])
 @endsection
 @section('footer')
     <script>

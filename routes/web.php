@@ -206,6 +206,19 @@ Route::as('admin.')
             /** Iniciativas */
             Route::resource('iniciativas', 'Backend\IniciativasController');
             Route::get('iniciativas/{id}/activar', 'Backend\IniciativasController@activar')->name('iniciativas.activar');
+
+
+            /** Fondos */
+            Route::resource('fondos', 'Backend\FondosController');
+            Route::get('fondos/{id}/activar', 'Backend\FondosController@activar')->name('fondos.activar');
+
+            /** Eventos */
+            Route::resource('eventos', 'Backend\EventosController');
+            Route::get('eventos/{id}/activar', 'Backend\EventosController@activar')->name('eventos.activar');
+
+            /** Publicaciones */
+            Route::resource('material-aprendizaje', 'Backend\MaterialAprendizajeController');
+            Route::get('material-aprendizaje/{id}/activar', 'Backend\MaterialAprendizajeController@activar')->name('material-aprendizaje.activar');
         }
     );
 
