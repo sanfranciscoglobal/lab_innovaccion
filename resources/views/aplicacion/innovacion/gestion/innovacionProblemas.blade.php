@@ -82,7 +82,7 @@
             </div>
           </div>
           @auth
-          @if ($convocatoria->fecha_inicio >= date('Y-m-d') || $convocatoria->fecha_cierre <= date('Y-m-d'))
+          @if ($convocatoria->fecha_inicio > date('Y-m-d') || $convocatoria->fecha_cierre < date('Y-m-d'))
           <div class="w-100 d-flex justify-content-center mt-3">
             <p class="text-center text-primary">Esta convocatoria esta cerrada y no admite mas problemas.</p>
           </div>
