@@ -27,7 +27,7 @@
                     </a>
                 </div>
                 <div class="cs-widget cs-widget-light">
-                    <h4 class="cs-widget-title">Contáctanos</h4>
+                    <h4 class="cs-widget-title pt-2">Contáctanos</h4>
                     <a class="text-white" href="mailto:hola@thinkia.org">hola@thinkia.org</a>
                 </div>
             </div>
