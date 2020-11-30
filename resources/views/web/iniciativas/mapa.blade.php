@@ -2,7 +2,7 @@
     <div  class="bg-overlay-content pb-2 mb-md-3" style="margin-top: -50px;">
         <div class="row">
             <div style="top:15px; position:absolute; z-index:10;  width: 100%;">
-                <div class="ml-lg-5 mx-md-3 px-7 align-items-center ">
+                <div class="ml-lg-5 mx-md-3 px-7 align-items-center d-none d-lg-block ">
                     <div id="mapacabezagrande" style="background-color: rgba(255, 255,255, 0.7);" class="py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg p-2">
                         <div class="row justify-content-center center-block text-center">
                         
@@ -51,9 +51,15 @@
                             </div>
                         </div>
                     </div>
-                    {{--<div id="mapacabezapequeño" style="background-color: rgba(255, 255,255, 0.7);" class="py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg p-2">
+                    <div id="mapacabezapequeño" style="background-color: rgba(255, 255,255, 0.7);" class="d-block d-lg-none py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg p-2 mx-4">
                         <div class="row justify-content-center center-block text-center">
-                            <div class="col-4 py-2">
+                            <div class="col-2">
+                                <a id="filtros" href="#modal-filtros" data-toggle="modal" class="btn btn-primary">
+                                    <i class="fas fa-filter"></i>
+                                </a >
+                            </div>
+
+                            <div class="col">
                                 <div class="input-group">
                                         <span class="input-group-prepend">
                                             <div class="input-group-text  border-right-0"><i class="fa fa-search"></i></div>
@@ -65,14 +71,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div> 
                 </div>
                         <!-- Title + Delete link-->
                 <div id="map" style="width: 97%; height: 950px;">
                 </div>  
 
                 <!-- Filtros-->    
-                <div  id="mapafiltrosgrande" style="bottom:20px; position:absolute; z-index:10; width: 100%;">
+                <div  id="mapafiltrosgrande" class="d-none d-lg-block" style="bottom:20px; position:absolute; z-index:10; width: 100%;">
                     <div class="px-lg-7 align-items-center">
                         <div class=" d-flex flex-column h-100 rounded-lg box-shadow-lg p-2" style="background-color: rgba(255, 255,255, 0.7);">
                         <form action="{{route('web.iniciativas.data')}}" method="POST">
@@ -143,6 +149,7 @@
                             </form>
                     </div>
                 </div>
+                    
             </div>
                           
                       
@@ -151,7 +158,4 @@
         </div>
     </div>
 
-
-    
-
-     
+   

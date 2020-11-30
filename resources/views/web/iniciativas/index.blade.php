@@ -121,8 +121,8 @@
                         </div>
                     </div>
                 </div>
-        @endforeach
-        <!-- loop end -->
+            @endforeach
+            <!-- loop end -->
         </div>
     </section>
     @php

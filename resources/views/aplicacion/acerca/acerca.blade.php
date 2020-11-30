@@ -105,34 +105,58 @@
         <p class="text-justify">Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.</p>
         <div class="row mb-3 mt-4 align-items-center justify-content-center">
             
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:charlie.welch@example.com"><i class="fe-mail"></i></a>
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
                     <div class="card-img-top card-img-gradient"><img src="{{asset('img/onu.svg')}}" 
                             style="height: 220px;"/>
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-4 mt-4">PNUD</p>
                         <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-4">https://www.ec.undp.org/</p>
+                        <p class="font-size-xl text-body mb-5">https://www.ec.undp.org/</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter">
-                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;"><a
-                        class="card-floating-icon" href="mailto:emma.brown@example.com"><i class="fe-mail"></i></a>
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
                     <div class="card-img-top card-img-gradient"><img src="{{asset('img/sanfrancisco.svg')}}" 
                     style="height: 220px;" />
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">Fundación San Francisco Global</p>
                         <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-0">https://www.sanfranciscoglobal.org/</p>
+                        <p class="font-size-xl text-body mb-2">https://www.sanfranciscoglobal.org/</p>
                     </div>
                 </div>
             </div>
         </div>
-       
+        <div class="row mb-3 mt-4 align-items-center justify-content-center">
+            
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('img/onu.svg')}}" 
+                            style="height: 220px;"/>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos mb-4 mt-4">PNUD</p>
+                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
+                        <p class="font-size-xl text-body mb-5">https://www.ec.undp.org/</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('img/sanfrancisco.svg')}}" 
+                    style="height: 220px;" />
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos mb-3 ">Fundación San Francisco Global</p>
+                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
+                        <p class="font-size-xl text-body mb-2">https://www.sanfranciscoglobal.org/</p>
+                    </div>
+                </div>
+            </div>
+        </div>
        
     </section>
     <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">

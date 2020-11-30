@@ -171,7 +171,7 @@
                     <div class="card-body">
                         <h3 class="h5 mb-0 text-center">{{$evento->nombre}}</h3>
                     </div>
-                    <div class="card-hover-info px-4 py-4 bg-secondary">
+                    <div class="card-hover-info px-4 py-4 bg-secondary h-100">
                         <h3 class="h5 text-center">{{$evento->nombre}}</h3>
                         <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
                         <div class="mt-3 font-weight-bold text-primary">
@@ -179,7 +179,7 @@
                             <p><small >{{date('H\Hi', strtotime( $evento->hora))}}</small></p>
                         </div>
                         <span class="font-weight-bold"><i class="fe-message-square font-size-lg mr-2"></i> Descripción del Evento</span><br>
-                        <p >{{$evento->descripcion}}</p>
+                        <p class="scrollable"  >{{$evento->descripcion}}</p>
                         <div class="form-group">
                             
                             
