@@ -27,7 +27,7 @@
                     </a>
                 </div>
                 <div class="cs-widget cs-widget-light">
-                    <h4 class="cs-widget-title pt-2">Contáctanos</h4>
+                    <h4 class="cs-widget-title pt-3">Contáctanos</h4>
                     <a class="text-white" href="mailto:hola@thinkia.org">hola@thinkia.org</a>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     <img src="{{asset('img/layout/footer/PNUD_LAB.svg')}}" style="height:130px!important;"  alt="Creative Commons Attribution 3.0 International">
                     </div>
                     <div class="col-6 ml-auto pb-1 h-100" style="margin-top: 2%;">    
-                    <img src="{{asset('img/layout/footer/SFG_Logo.svg')}}" style="height:130px!important"  height="100px" alt="Creative Commons Attribution 3.0 International">
+                    <img src="{{asset('img/layout/footer/SFG_Logo.png')}}" style="height:130px!important"  height="100px" alt="Creative Commons Attribution 3.0 International">
                     </div>
     
             </div>
