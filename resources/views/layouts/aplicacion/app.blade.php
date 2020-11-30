@@ -376,7 +376,7 @@
                                 
                                         <div class="col-12">
                                             <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
-                                            {{--<select id="tipo_institucion" name="tipo_institucion[]"
+                                            <select id="etipo_institucion" name="tipo_institucion[]"
                                                     class="form-control custom-select select2"
                                                     data-ajax--url="{{route('api.tipo-institucion.select2')}}"
                                                     data-ajax--data-type="json"
@@ -386,11 +386,11 @@
                                                     style="width:100%;"
                                                     multiple>
 
-                                            </select>--}}
+                                            </select>
                                         </div>
                                         <div class="col-12">
                                             <span class="ml-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >ODS</span>
-                                            {{--<select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
+                                            <select id="eods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
                                                     data-ajax--url="{{route('api.ods-categoria.select2')}}"
                                                     data-ajax--data-type="json"
                                                     data-ajax--cache="true"
@@ -398,11 +398,11 @@
                                                     style="width:100%;"
                                                     data-placeholder="Seleccionar ODS"
                                                     multiple>
-                                            </select>--}}
+                                            </select>
                                         </div>
                                         <div class="col-12">
                                             <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Población Objetivo</span>
-                                            {{--<select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
+                                            <select style="width:100%;" id="etipo_poblacion" name="tipo_poblacion[]"
                                                     class="form-control select2"
                                                     data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
                                                     data-ajax--data-type="json"
@@ -410,7 +410,7 @@
                                                     data-close-on-select="false"
                                                     data-placeholder="Seleccionar población objetivo"
                                                     multiple>
-                                            </select>--}}
+                                            </select>
                                         </div>
                                         <div class="col-lg-2 col-xl-2  col-md-2 col-sm-3 pt-3">
                                         <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit" style="border-color:#FF7F00;background: #FF7F00;" >
