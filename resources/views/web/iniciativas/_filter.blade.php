@@ -10,33 +10,33 @@
             
             
             <div class="">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="row">
-                            <div class="col-md-4 col-lg-4 col-sm-4">
+                            <div class="my-2 p-0 col">
                                 <a class="btn btn-primary"  >ACTORES</a>
                             </div>
-                            <div class="col-md-3 col-lg-4 col-sm-4">
+                            <div class="my-2 px-3 col">
                                 <a class="btn btn-primary"  >MAPA</a>
                             </div>
-                            <div class="col-md-4 col-lg-4 col-sm-4">
+                            <div class="my-2 p-0 col">
                                 <a class="btn btn-primary"  >ANALÍTICA</a>
                             </div>  
                         </div>            
                     </div>
-                    <div class="col-md-2 col-lg-2 col-sm-12 ">
-                        Encuentra tu inovación
+                    <div class="my-2 col-md-2 col-lg-2 col-sm-12 ">
+                        Encuentra tu innovación
                     </div>
-                    <div class="input-group col-lg-3 col-sm-12 col-md-2">
+                    <div class="my-2 col-lg-3 col-sm-12 col-md-2">
                         
                         <div class="input-group">
                             <span class="input-group-prepend">
-                                <div class="input-group-text bg-transparent border-right-0"><i class="fa fa-search"></i></div>
+                                <div class="input-group-text  border-right-0"><i class="fa fa-search"></i></div>
                             </span>
-                            <input style=" border-top-right-radius:15px;; border-bottom-right-radius:15px;" class="form-control py-2 border-left-0 border" placeholder="Buscar" type="" value="Buscar" id="example-search-input">
+                            <input id="pac-input" style=" border-top-right-radius:15px;; border-bottom-right-radius:15px;" class="form-control py-2 border-left-0 border pac-target-input" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
                             <span class="input-group-append">
-                            
-                        </span>
+
+                            </span>
                         </div>
                 
                     </div>

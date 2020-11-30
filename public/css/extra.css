@@ -1,4 +1,7 @@
 
+.ss-content{
+    height: 90%!important;
+}
 .scrollable{
     overflow:hidden;
 }
