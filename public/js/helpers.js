@@ -216,7 +216,7 @@ window.disableInputForm = function disableInputForm(id) {
 window.initSelect2 = function initSelect2(element) {
   // console.log('Nr', element);
   $(element).select2({
-    placeholder: '<i class="fa fa-sitemap"></i>Branch name', 
+    // placeholder: '<i class="fa fa-sitemap"></i>Branch name', 
     language: "es"
   });
 };

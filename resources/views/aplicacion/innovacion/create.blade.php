@@ -142,12 +142,19 @@
                                                                        
                                     
                                 </div> --}}
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     
                                     <label for="imagen">* Imagen <span style="color: gray">(max. 2 Mb)</span></label>
 
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png, image/jpg" id="imagen" maxlength='250' size="2000000" name="imagen" data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
+                                        <input type="file" 
+                                            class="form-control dropify" 
+                                            accept="image/gif, image/jpeg, image/png, image/jpg" 
+                                            id="imagen" 
+                                            maxlength='250' 
+                                            name="imagen"
+                                            data-max-file-size="2M"  
+                                            data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
 
                                     @else
                                         <div class="cs-file-drop-area">
@@ -162,7 +169,39 @@
                                         </div>
                                     
                                     @endif
+                                    @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
 
+                                </div> --}}
+                                <div class="form-group">
+                                    <label for="imagen">* Imagen <span style="color: gray">(max. 2 MB)</span></label>
+                                    @if ($method=='PUT')
+                                        <input type="file" 
+                                            class="form-control dropify" 
+                                            accept="image/gif, image/jpeg, image/png, image/jpg" 
+                                            id="imagen"
+                                            size="2000000" 
+                                            maxlength='250' 
+                                            name="imagen"
+                                            data-max-file-size="2M"  
+                                            data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
+                                            
+                                    @else
+                                        <input type="file" 
+                                                class="form-control dropify" 
+                                                accept="image/gif, image/jpeg, image/png, image/jpg" 
+                                                id="imagen" 
+                                                maxlength='250' 
+                                                name="imagen"
+                                                size="2000000"
+                                                required
+                                                data-max-file-size="2M">
+
+                                        
+                                    
+                                    @endif
+                                    <div class="invalid-feedback" id='imagen_error'>Inserta una imagen.</div>
+                                    <div class="valid-feedback">Bien!</div>
+                                    
                                 </div>
                             </div>
                             <div class="col-12">
