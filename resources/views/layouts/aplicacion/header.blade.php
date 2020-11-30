@@ -95,11 +95,11 @@
             <div class="cs-offcanvas-body">
                 <!-- Menu-->
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link justify-content-center center-block text-center font-weight-bold" href="/gestion-innovacion" data-toggle="dropdown">Gestión de la Innovación</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link font-weight-bold" href="/gestion-innovacion">Gestión de la Innovación</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link justify-content-center center-block text-center font-weight-bold" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
+                        <a class="nav-link  font-weight-bold" href="#" data-toggle="dropdown">Ecosistema de innovación</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/mapa">Mapa de
                             Iniciativas</a></li>

@@ -165,7 +165,7 @@
     <div class="col-12">{{ $convocatorias->links() }}</div>
     </section>
     
-    <section class="container">
+    {{-- <section class="container">
         <h2 class="text-primary text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS pasadas</h2>
         
         <div class="row mb-4">
@@ -219,7 +219,7 @@
     </div>
      
     <div class="col-12">{{ $convocatorias->links() }}</div>
-    </section>
+    </section> --}}
    
 @endsection
 @section('footer')
