@@ -4,6 +4,7 @@
 }
 .scrollable{
     overflow:hidden;
+    max-height:150px;
 }
 .scrollable:hover{
     overflow: scroll!important; 
