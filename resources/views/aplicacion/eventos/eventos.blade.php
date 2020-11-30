@@ -192,15 +192,15 @@
                                 <span class="font-weight-bold"><i class="fe-link font-size-xl mr-2"></i> Fuente de la publicación</span>
                     
                                 <div class="form-group">
-                                    <a Target="_blank" href="{{$evento->url}}">
-                                    <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($evento->url)?$evento->url:null}}">
+                                    <a  href="{{$evento->url}}">
+                                    <input  class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($evento->url)?$evento->url:null}}">
                                     </a>
                                 </div>
                             @else
                                 <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Ubicación</span>
                                 <div class="form-group">
-                                    <a Target="_blank" href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
-                                    <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
+                                    <a  href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
+                                    <input  class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
                                     
                                     </a>
                                 </div>

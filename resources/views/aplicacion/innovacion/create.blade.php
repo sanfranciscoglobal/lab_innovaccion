@@ -59,6 +59,13 @@
                             <div class="col mb-4 mt-4">
                                 <hr />
                             </div>
+                            <div class="col-12 send-button d-none">
+                                <div class="form-group">
+                                    <label for="nombre">* Nombre de la Convocatoria <span style="color: gray">(máx. 250 caracteres)</span></label>
+                                    <input class="form-control" type="text" id="nombre" value="{{isset($convocatoria->nombre)?$convocatoria->nombre:old('nombre')}}" maxlength='150' name="nombre" placeholder="Nombre de la convocatoria" required>
+                                    @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                </div>
+                            </div>
                         </div>
                         <div id="control-1" class="row controls d-none">
                             @include('aplicacion.innovacion._form_abierta')
@@ -71,20 +78,7 @@
                         </div>
                         <div class="row send-button d-none">
                             <div class="col-12">
-                                {{-- <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="innovacion_fecha_inicio">* Fecha de inicio</label>
-                                            <input class="form-control" type="date" id="innovacion_fecha_inicio" min="<?php echo date('d/m/Y'); ?>"  value="{{isset($convocatoria->fecha_inicio)?$convocatoria->fecha_inicio:old('fecha_inicio')}}" name="fecha_inicio" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="innovacion_fecha_cierre">* Fecha de fin</label>
-                                            <input class="form-control" type="date" id="innovacion_fecha_cierre" min="<?php echo date('d/m/Y'); ?>" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" name="fecha_cierre" required>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                                
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">

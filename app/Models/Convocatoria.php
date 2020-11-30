@@ -12,7 +12,7 @@ class Convocatoria extends Model
     //
     use SoftDeletes;
     protected $table = 'convocatorias';
-    protected $fillable = ['tipoconvocatoria_id', 'fecha_inicio', 'fecha_cierre', 'descripcion', 'imagen', 'terminos'];
+    protected $fillable = ['tipoconvocatoria_id', 'nombre','fecha_inicio', 'fecha_cierre', 'descripcion', 'imagen', 'terminos'];
     public static $paginate = 9;
     public static $own = false;
     public function user()
@@ -59,6 +59,14 @@ class Convocatoria extends Model
         $subsectores = $convocatoria->consubsectores;
         return $subsectores->map(function ($s) {
             return $s->subsectorid->nombre;
+        });
+    }
+
+    public function odsName(Convocatoria $convocatoria)
+    {
+        $odss = $convocatoria->conods;
+        return $odss->map(function ($s) {
+            return $s->objetivoid->nombre;
         });
     }
 

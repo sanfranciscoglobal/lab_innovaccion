@@ -18,6 +18,7 @@ class Convocatorias extends Migration
             
             $table->id();
             $table->unsignedBigInteger('tipoconvocatoria_id');
+            $table->string('nombre');
             $table->date('fecha_inicio');
             $table->date('fecha_cierre');
             $table->text('descripcion');

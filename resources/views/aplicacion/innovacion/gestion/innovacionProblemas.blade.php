@@ -10,14 +10,23 @@
       }
   }
 
-  // $subsectores = $convocatoria->subsectoresName($convocatoria);
-  // $subsectoresArray = '';
-  // foreach ($subsectores as $subsector) {
-  //     $subsectoresArray .= $subsector;
-  //     if ($subsector != $subsectores->last()) {
-  //         $subsectoresArray .= '; ';
-  //     }
-  // }
+  $subsectores = $convocatoria->subsectoresName($convocatoria);
+  $subsectoresArray = '';
+  foreach ($subsectores as $subsector) {
+      $subsectoresArray .= $subsector;
+      if ($subsector != $subsectores->last()) {
+          $subsectoresArray .= '; ';
+      }
+  }
+  $odss = $convocatoria->odsName($convocatoria);
+  $odsArray = '';
+  foreach ($odss as $ods) {
+      $odsArray .= $ods;
+      if ($ods != $odss->last()) {
+          $odsArray .= '; ';
+      }
+  }
+  
 @endphp
 @section('header-css')
     <style>
@@ -50,8 +59,10 @@
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-              {{-- <h3 class="mt-5 text-muted">Convocatoria</h3> --}}
+              <h3 class="mt-5 text-muted">Convocatoria</h3>
               <h1 class="mt-2 text-primary">{{ $sectoresArray }}</h1>
+              <h1 class="mt-2 text-primary">{{ $subsectoresArray }}</h1>
+              <h1 class="mt-2 text-primary">{{ $odsArray }}</h1>
               <div class="d-flex align-items-center">
                 <div class="mx-1">
                   <h6 class="text-muted m-0 text-right">INICIA</h6>
@@ -112,7 +123,7 @@
         @endphp
         <div class="col-12 col-md-6 p-2">
           <div class="card text-left">
-            <img class="card-img-top" src="holder.js/100px180/" alt="">
+            {{-- <img class="card-img-top" src="holder.js/100px180/" alt=""> --}}
             <div class="card-body">
               <div class="mb-3">
                 <h4 class="card-title">Title</h4>
