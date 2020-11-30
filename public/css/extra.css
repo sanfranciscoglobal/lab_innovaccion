@@ -1,16 +1,4 @@
-@media(max-width:1200){
-    #mapacabezagrande{
-     display:none;
-    }
-    #mapafiltrosgrande{
-        display:none;
-       }
-}
-@media(min-width:1200){
-    #mapacabezapequeño{
-     display:none;
-    }
-}
+
 .scrollable{
     overflow:hidden;
 }
