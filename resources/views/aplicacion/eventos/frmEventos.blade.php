@@ -97,7 +97,6 @@
 
                                             <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento" required rows="6"
                                             >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
-                                            <br>
                                             <div class="invalid-feedback" id='descripcion-error'></div>
 
 
@@ -204,7 +203,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     
                                     <label for="imagen">* Imagen del Evento <span style="color: gray">(max. 2 Mb)</span></label>
 
@@ -224,7 +223,35 @@
                                         </div>
                                     
                                     @endif
+                                    @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                </div> --}}
+                                <div class="form-group">
+                                    <label for="imagen">* Imagen del Evento <span style="color: gray">(max. 2 MB)</span></label>
+                                    @if ($method=='PUT')
+                                        <input type="file" 
+                                            class="form-control dropify" 
+                                            accept="image/gif, image/jpeg, image/png" 
+                                            id="imagen" maxlength='250' 
+                                            name="imagen"  
+                                            data-max-file-size="2M" 
+                                            data-default-file="{{asset('storage/eventos').'/'.$evento->imagen}}">
+                                        
+                                    @else
+                                        <input type="file" 
+                                                class="form-control dropify" 
+                                                accept="image/gif, image/jpeg, image/png" 
+                                                id="imagen" maxlength='250' 
+                                                name="imagen" 
+                                                size="2000000"
+                                                required
+                                                data-max-file-size="2M">
 
+                                        
+                                    
+                                    @endif
+                                    <div class="invalid-feedback" id='imagen_error'>Inserta una imagen.</div>
+                                    <div class="valid-feedback">Bien!</div>
+                                    
                                 </div>
                             </div>
                         </div>

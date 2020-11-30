@@ -85,9 +85,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="mat_files">Cargar un archivo complementario (Max. 10Mb)</label>
+                            <label for="mat_files">Cargar un archivo complementario (max. 10MB)</label>
 
-                            @if($method == 'POST')
+                            {{-- @if($method == 'POST')
                                 <div class="cs-file-drop-area">
                                     <div class="cs-file-drop-icon fe-upload"></div>
                                     <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
@@ -95,7 +95,7 @@
                                     <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                     <div class="invalid-feedback">Agrega un archivo antes de enviar.</div>
                                 </div>
-                                <small id="emailHelp" class="form-text text-muted">Max. 10Mb</small>
+                                
                                 @else
                                 @php
                                     $img = null;
@@ -105,7 +105,15 @@
                                     @endphp
                                 <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" size="10000000">
                                 <small id="emailHelp" class="form-text text-muted">Max. 10Mb</small>
+                            @endif --}}
+                            @if ($method=='PUT')
+
+                                <input class="form-control dropify" data-max-file-size="10M" type="file" id="archivo" accept=".pdf" size="10000000" name="archivo"
+                                data-default-file="{{asset('storage/soluciones/'.$solucion->archivo)}}">
+                            @else
+                                <input class="form-control dropify" data-max-file-size="10M" type="file" id="archivo" accept=".pdf" size="10000000" name="archivo">
                             @endif
+               
                             @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
         
                     
