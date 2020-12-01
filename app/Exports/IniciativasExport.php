@@ -76,11 +76,11 @@ class IniciativasExport implements FromCollection
         $ODSFila = [];
         $inicio = [
             $iniciativas->id,
-            $iniciativas->iniciativaActor->nombre_organizacion,
-            $iniciativas->iniciativaActor->siglas,
-            $iniciativas->iniciativaActor->sitio_web,
+            ($iniciativas->iniciativaActor) ? $iniciativas->iniciativaActor->nombre_organizacion : null,
+            ($iniciativas->iniciativaActor) ? $iniciativas->iniciativaActor->siglas : null,
+            ($iniciativas->iniciativaActor) ? $iniciativas->iniciativaActor->sitio_web : null,
             null,
-            $iniciativas->iniciativaActor->enfoque,
+            ($iniciativas->iniciativaActor) ? $iniciativas->iniciativaActor->enfoque : null,
             $iniciativas->iniciativaInformacion->nombre_iniciativa,
             $iniciativas->iniciativaInformacion->anio,
             $iniciativas->iniciativaInformacion->vigencia,
