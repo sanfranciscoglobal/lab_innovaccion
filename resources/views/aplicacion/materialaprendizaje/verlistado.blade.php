@@ -30,6 +30,15 @@
                 <span class="font-size-sm text-muted">Ver
                     video</span>
     </section>
+    <section class="container bg-overlay-content pt-3 mb-4" >
+      
+        <div class="row">
+            <div class="text-center  col-12 col-lg-8 offset-lg-2">
+                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje') }}">Publicar un material</a>
+            </div>
+        </div>
+
+    </section>
    
     
     

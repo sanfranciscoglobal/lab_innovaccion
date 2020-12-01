@@ -72,9 +72,10 @@ class InnovacionController extends Controller
 
     public function verInnovaciones(Request $request)
     {
-        $convocatorias = Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
-        $convocatorias_antiguas = Convocatoria::where('fecha_cierre','<=',date('Y/m/d'))->paginate(8);
-        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias', 'convocatorias_antiguas'));
+        $convocatorias = Convocatoria::orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
+        // $convocatorias = Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
+        // $convocatorias_antiguas = Convocatoria::where('fecha_cierre','<=',date('Y/m/d'))->paginate(8);
+        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
     }
 
     /**
@@ -110,11 +111,11 @@ class InnovacionController extends Controller
         // tipoconvocatoria_id=2 and ods_id in '.$str_ods;
         // dd($sql);
 
-        $convocatorias = Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
+        $convocatorias = Convocatoria::orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
 
         if ($request->tipoconvocatoria!=null) {
             if($request->tipoconvocatoria==2){
-                $convocatorias= Convocatoria::where('tipoconvocatoria_id',$request->tipoconvocatoria);
+                $convocatorias= Convocatoria::where('tipoconvocatoria_id',$request->tipoconvocatoria)->orderBy('created_at','DESC');
                 if ($request->ods!=null){
                     
                     $odslista=ConvocatoriaODS::select('convocatoria_id')->whereIn('ods_id',$request->ods)->get();
@@ -140,7 +141,7 @@ class InnovacionController extends Controller
 
             }
             else{ 
-                $convocatorias= Convocatoria::where('tipoconvocatoria_id',$request->tipoconvocatoria);
+                $convocatorias= Convocatoria::where('tipoconvocatoria_id',$request->tipoconvocatoria)->orderBy('created_at','DESC');
                 if ($request->ods!=null){
                     $odslista=ConvocatoriaODS::select('convocatoria_id')->whereIn('ods_id',$request->ods)->get();
                     $convocatorias=$convocatorias->whereIn('id',$odslista);
@@ -174,17 +175,17 @@ class InnovacionController extends Controller
         }
         if($request->estadoconvocatoria!=null){
             if($request->estadoconvocatoria==1){
-                $convocatorias= Convocatoria::paginate(Convocatoria::$paginate);
+                $convocatorias= Convocatoria::orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
             }
             else if($request->estadoconvocatoria==2){
-                $convocatorias= Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
+                $convocatorias= Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
             }
             else{
-                $convocatorias= Convocatoria::where('fecha_cierre','<',date('Y/m/d'))->paginate(Convocatoria::$paginate);
+                $convocatorias= Convocatoria::where('fecha_cierre','<',date('Y/m/d'))->orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
             }
         }
         else{
-            $convocatorias= Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
+            $convocatorias= Convocatoria::orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
         }
         return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
     }
