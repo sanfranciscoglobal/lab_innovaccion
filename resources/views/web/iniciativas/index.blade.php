@@ -125,7 +125,8 @@
                                 @endif
                             </div>
 
-                            <div class="media meta-link align-items-center pt-2">
+                            <span class="text-warning d-block small pt-2">Registro</span>
+                            <div class="media meta-link align-items-center">
                                 <img class="rounded-circle" width="50"
                                      src="{{asset('storage/perfil/'.$iniciativa->user_imagen)}}">
                                 <div class="media-body pl-2 ml-1 small">
