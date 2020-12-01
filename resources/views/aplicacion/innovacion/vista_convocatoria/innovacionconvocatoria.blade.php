@@ -146,7 +146,7 @@
         </div>
     </div>
     <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
-        <h2 class="text-light text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS vigentes</h2>
+        <h2 class="text-light text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS</h2>
         
         <div class="row mb-4">
         @foreach ($convocatorias as $convocatoria)
@@ -184,7 +184,12 @@
                                         <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$sector->sectorid->nombre}}</a> </h3>
                                     @endforeach
                                 @endif
-                                <p class="card-text font-size-sm">{{$convocatoria->descripcion}}</p>
+                                @php
+                                    $descripcion=$convocatoria->descripcion;
+                                    $descripcionlim=substr($descripcion, 0, 99);
+                                @endphp
+                              
+                                <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
                             </div>
                         </div>
                         
