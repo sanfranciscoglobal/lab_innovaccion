@@ -1,27 +1,25 @@
-@media(max-width:1200){
-    #mapacabezagrande{
-     display:none;
-    }
-    #mapafiltrosgrande{
-        display:none;
-       }
+
+.img-fluid {
+    max-width: 105%;
+    height: auto;
 }
-@media(min-width:1200){
-    #mapacabezapequeño{
-     display:none;
-    }
+.ss-content{
+    height: 90%!important;
+    width: 100%!important;
 }
 .scrollable{
     overflow:hidden;
+    max-height:200px;
 }
 .scrollable:hover{
     overflow: scroll!important; 
-    max-height:150px
+    max-height:200px
 }
 .logos{
     font-size: 200%;
     color: #370C60!important;
     font-weight: bold;
+    line-height: 30px;
 }
 .black{
     color:black!important;

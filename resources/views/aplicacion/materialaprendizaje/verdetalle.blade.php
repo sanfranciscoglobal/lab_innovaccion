@@ -105,8 +105,11 @@
                                     <span class="font-weight-bold e-presencial"><i class="fe-link font-size-xl mr-2"></i> Fuente de la publicación</span>
                         
                                     <div class="form-group">
-                                        <a Target="_blank" href="{{$material->fuente_publicacion}}">
-                                        <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:null}}">
+                                        
+                                        
+                                        
+                                        <a  href="{{$material->fuente_publicacion}}">
+                                        <input  class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:null}}">
                                         </a>
                                     </div>
                                 </div>

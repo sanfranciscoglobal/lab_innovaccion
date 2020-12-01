@@ -26,14 +26,21 @@ class UpdatePost extends FormRequest
         return [
             //
             'tipoconvocatoria_id' => 'string|required',
+            'nombre'=>'string|required|max:250',
             'fecha_inicio' => 'date|required',
             'fecha_cierre' => 'date|required|after:fecha_inicio',
             'descripcion' => 'string|required',
             'imagen' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
             'terminos'=>'required|boolean',
-            'innovacion_ods.*'=>'required',
-            'innovacion_sector_productivo.*'=>'required_if:tipoconvocatoria_id,["1","2"]',
-            'innovacion_subsector_productivo.*'=>'required_if:tipoconvocatoria_id,["1","2"]'
+            'innovacion_ods1.*'=>'required',
+            'innovacion_sector_productivo1.*'=>'required_if:tipoconvocatoria_id,"1"',
+            'innovacion_subsector_productivo1.*'=>'required_if:tipoconvocatoria_id,"1"',
+
+            'innovacion_ods2.*'=>'required_if:tipoconvocatoria_id,"2"',
+
+            'innovacion_ods3.*'=>'required',
+            'innovacion_sector_productivo3.*'=>'required_if:tipoconvocatoria_id,"3"',
+            'innovacion_subsector_productivo3.*'=>'required_if:tipoconvocatoria_id,"3"'
         ];
     }
 }

@@ -97,7 +97,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label class="control-label">* Componente Innovador <span class="text-primary small">(mín. 85 caractéres) (máx. 350 caractéres)</span></label>
+                        <label class="control-label">* Componente Innovador <span class="text-black-50">(mín. 85 caractéres) (máx. 350 caractéres)</span></label>
                         <textarea
                                 oninput="window.countCharacters('componente_innovador','componente_innovador_error','btn-siguiente-descripcion',85,350,'count_words_3');"
                                 name="componente_innovador"
@@ -125,7 +125,7 @@
                     <div class="form-group">
                         <label class="control-label">
                             * Descripción de la Iniciativa
-                            <span class="text-primary">(mín. 25 palabras) (máx. 100 palabras)</span>
+                            <span class="text-black-50">(mín. 25 palabras) (máx. 100 palabras)</span>
                         </label>
                         <textarea
                                 oninput="window.countWords('descripcion_iniciativa','descripcion_error','btn-siguiente-descripcion',25,100,'count_words_2');"
@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="evento_img">* Logotipo <span class="text-primary small">(máx. 2MB)</span></label>
+                        <label for="evento_img">* Logotipo <span class="text-black-50">(máx. 2MB)</span></label>
                         @if($model->logo)
                             {{--{{\App\Helpers\Archivos::validarUrlImagenIniciativa($model->iniciativaInformacion->logo)}}--}}
                             <input type="file"

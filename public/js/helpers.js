@@ -104,6 +104,7 @@ window.currentAddressInput = 0;
 window.autocomplete = null;
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
+  $('.datatables-demo').dataTable();
 });
 
 if (document.querySelector('.check-toggle')) {
@@ -139,6 +140,20 @@ if (document.querySelector('.dropify')) {
       clearButton: '<button type="button" class="dropify-clear">Quitar</button>',
       errorLine: '<p class="dropify-error">{{ error }}</p>',
       errorsContainer: '<div class="dropify-errors-container"><ul></ul></div>'
+    },
+    error: {
+      'fileSize': 'El tamaño del archivo es demasiado grande ({{ value }} máximo).',
+      'minWidth': 'El ancho de la imagen es demasiado pequeño ({{ value }}}px mínimo).',
+      'maxWidth': 'El ancho de la imagen es demasiado grande ({{ value }}}px máximo).',
+      'minHeight': 'La altura de la imagen es demasiado pequeña ({{ value }}}px mínimo).',
+      'maxHeight': 'La altura de la imagen es demasiado grande ({{ value }}px máximo).',
+      'imageFormat': 'El formato de imagen no está permitido ({{ value }} solamente).'
+    },
+    messages: {
+      'default': 'Arrastre y suelte un archivo aquí o haga clic en',
+      'replace': 'Arrastra y suelta o haz clic para reemplazar',
+      'remove': 'Eliminar',
+      'error': 'Tenemos problemas con a imagen a cargar'
     }
   });
 }
@@ -216,26 +231,21 @@ window.disableInputForm = function disableInputForm(id) {
 window.initSelect2 = function initSelect2(element) {
   // console.log('Nr', element);
   $(element).select2({
-    placeholder: '<i class="fa fa-sitemap"></i>Branch name', 
     language: "es"
   });
 };
-
-
 
 window.initAjaxSelect2 = function initAjaxSelect2(element) {
   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content'); // console.log('Ajax: ', element);
 
   $(element).select2({
     language: "es",
-
     ajax: {
       data: function data(params) {
         var query = {
           _token: CSRF_TOKEN,
           search: params.term,
-          type: 'public',
-          
+          type: 'public'
         };
         return query;
       },
@@ -462,12 +472,21 @@ window.validateFormEvent = function validateFormEvent(btn, class_content, scroll
     var element = curInputs[i];
 
     if (!element.validity.valid) {
-      console.log(element);
       isValid = false;
+      $(element).closest(".form-group").addClass("has-error");
       $(element).addClass('d-inline');
       $(element).addClass('is-invalid');
       $(element).removeClass('is-valid');
+      var file_preload = "";
+
+      if (file_preload = $(element).attr('data-default-file')) {
+        isValid = true;
+        $(element).closest(".form-group").removeClass("has-error");
+        $(element).removeClass('is-invalid');
+        $(element).addClass('is-valid');
+      }
     } else {
+      $(element).closest(".form-group").removeClass("has-error");
       $(element).removeClass('d-inline');
       $(element).removeClass('is-invalid');
       $(element).addClass('is-valid');
@@ -533,7 +552,7 @@ window.Select2Cascade = function (window, $) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/martinvelez/Desktop/lab_innovaccion/resources/js/helpers.js */"./resources/js/helpers.js");
+module.exports = __webpack_require__(/*! /home/martinvelez/Desktop/urba/lab_innovaccion/resources/js/helpers.js */"./resources/js/helpers.js");
 
 
 /***/ })

@@ -24,26 +24,30 @@
                         Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.
                         Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación. </p>
                 </div>
+                <p class="shadow-lg p-3 mb-5 btn-primary rounded" style="">
+                    <strong>Indicaciones</strong>
+                    <br>Caso 1. Registra fondos propios o de otros organismos en el formulario
+                    <br>Caso 2. Revisa las oportunidades de financiamiento pulsando en los íconos
+                </p>
             </div>
-            <div class="col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces" 
-            style="background-image:url({{ asset('img/layout/home/laboratorio-side-bkg.png')}})">
+            <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces" 
+            style="background-image:url({{ asset('img/fondos.png')}})">
             </div>
         </div>
+        <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                <span class="font-size-sm text-muted">Ver
+                    video</span>
     </section>
 
-    <div class="position-relative bg-purple-gradient" style="height: 420px;">
-        <div class="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
-                <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z">
-                </path>
-            </svg>
-        </div>
-    </div>
-    <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
-        <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">Revisa las oportunidades de financiamiento pulsando en los íconos.</h2>
+    
+    <section class="container bg-overlay-content pt-5 pt-md-6" >
+        {{-- <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">
+            Revisa las oportunidades de financiamiento pulsando en los íconos.</h2> --}}
         <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
                    
-                    <p class="h5 text-light">Registra fondos propios o de otros organismos en el formulario.</p>
+                {{--<p class="h5 text-light">
+                        Registra fondos propios o de otros organismos en el formulario.</p>
+                        --}}
                     <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.fondos') }}">Registra una oportunidad de financiamiento</a>
         </div>
         <div class="row mb-3 mt-4">
@@ -63,11 +67,11 @@
                         <h3 class="card-title">{{ $fondo->organizacion }}</h3>
                         {{-- <h6 class="card-subtitle mb-2">{{ $fondo->fuente == 1 ? 'Fondos propios' : 'Fondos de otra organización' }}</h6> --}}
                         @if($fondo->fuente)
-                        <p class="font-size-xs mb-0">{{ $fondo->nombre_fondo }}</p>
-                        <p class="font-size-xs mb-0">{{ 'Del: '.$fondo->fecha_inicio.' al '.$fondo->fecha_fin }}</p>
-                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-xs mb-0 mt-3">Ver página</a>
+                        <p class="font-size-md mb-0">{{ $fondo->nombre_fondo }}</p>
+                        <p class="font-size-md mb-0">{{ 'Del: '.$fondo->fecha_inicio.' al '.$fondo->fecha_fin }}</p>
+                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-md mb-0 mt-3">Ver página</a>
                         @else
-                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-xs mb-0 mt-3">Ver página</a>
+                        <a href="{{ $fondo->info }}" class="btn btn-primary font-size-md mb-0 mt-3">Ver página</a>
                         @endif
 
                         <ul class="d-flex justify-content-center list-inline">

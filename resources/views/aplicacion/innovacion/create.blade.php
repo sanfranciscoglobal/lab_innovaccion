@@ -37,27 +37,34 @@
                                 
                                 <div class="custom-control custom-radio">
                                     <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_abierta" value="1" name="tipoconvocatoria_id" required>
-                                    <label class="custom-control-label" for="tipo_abierta">Innovación Abierta</label>
+                                    <label class="custom-control-label" for="tipo_abierta">Sector Productivo</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 
                                 <div class="custom-control custom-radio">
                                     <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_social" value="2" name="tipoconvocatoria_id">
-                                    <label class="custom-control-label" for="tipo_social">Innovación Social</label>
+                                    <label class="custom-control-label" for="tipo_social">Ciudadanía</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 
                                 <div class="custom-control custom-radio">
                                     <input class="innovacion_tipo custom-control-input" type="radio" id="tipo_publica" value="3" name="tipoconvocatoria_id">
-                                    <label class="custom-control-label" for="tipo_publica">Innovación Pública</label>
+                                    <label class="custom-control-label" for="tipo_publica">Gestión Pública</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mb-4 mt-4">
                                 <hr />
+                            </div>
+                            <div class="col-12 send-button d-none">
+                                <div class="form-group">
+                                    <label for="nombre">* Nombre de la Convocatoria <span style="color: gray">(máx. 250 caracteres)</span></label>
+                                    <input class="form-control" type="text" id="nombre" value="{{isset($convocatoria->nombre)?$convocatoria->nombre:old('nombre')}}" maxlength='150' name="nombre" placeholder="Nombre de la convocatoria" required>
+                                    @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                </div>
                             </div>
                         </div>
                         <div id="control-1" class="row controls d-none">
@@ -71,20 +78,7 @@
                         </div>
                         <div class="row send-button d-none">
                             <div class="col-12">
-                                {{-- <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="innovacion_fecha_inicio">* Fecha de inicio</label>
-                                            <input class="form-control" type="date" id="innovacion_fecha_inicio" min="<?php echo date('d/m/Y'); ?>"  value="{{isset($convocatoria->fecha_inicio)?$convocatoria->fecha_inicio:old('fecha_inicio')}}" name="fecha_inicio" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="innovacion_fecha_cierre">* Fecha de fin</label>
-                                            <input class="form-control" type="date" id="innovacion_fecha_cierre" min="<?php echo date('d/m/Y'); ?>" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" name="fecha_cierre" required>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                                
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
@@ -121,7 +115,7 @@
                                 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(min. 25 palabras)(max. 100 palabras)</span></label>
+                                    <label class="control-label">* Descripción de la Convocatoria <span style="color: gray">(mín. 25 palabras)(máx. 100 palabras)</span></label>
                                     <textarea onkeyup="countWords();" onkeydown="countWords();"  class="form-control" name="descripcion" id="descripcion_convocatoria"
                                               rows="10" required="required"
                                               >{{ old('descripcion', $convocatoria->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
@@ -142,12 +136,19 @@
                                                                        
                                     
                                 </div> --}}
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     
                                     <label for="imagen">* Imagen <span style="color: gray">(max. 2 Mb)</span></label>
 
                                     @if ($method=='PUT')
-                                        <input type="file" class="dropify" accept="image/gif, image/jpeg, image/png, image/jpg" id="imagen" maxlength='250' size="2000000" name="imagen" data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
+                                        <input type="file" 
+                                            class="form-control dropify" 
+                                            accept="image/gif, image/jpeg, image/png, image/jpg" 
+                                            id="imagen" 
+                                            maxlength='250' 
+                                            name="imagen"
+                                            data-max-file-size="2M"  
+                                            data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
 
                                     @else
                                         <div class="cs-file-drop-area">
@@ -162,7 +163,39 @@
                                         </div>
                                     
                                     @endif
+                                    @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
 
+                                </div> --}}
+                                <div class="form-group">
+                                    <label for="imagen">* Imagen <span style="color: gray">(máx. 2 MB)</span></label>
+                                    @if ($method=='PUT')
+                                        <input type="file" 
+                                            class="form-control dropify" 
+                                            accept="image/gif, image/jpeg, image/png, image/jpg" 
+                                            id="imagen"
+                                            size="2000000" 
+                                            maxlength='250' 
+                                            name="imagen"
+                                            data-max-file-size="2M"  
+                                            data-default-file="{{asset('storage/convocatorias').'/'.$convocatoria->imagen}}">
+                                            
+                                    @else
+                                        <input type="file" 
+                                                class="form-control dropify" 
+                                                accept="image/gif, image/jpeg, image/png, image/jpg" 
+                                                id="imagen" 
+                                                maxlength='250' 
+                                                name="imagen"
+                                                size="2000000"
+                                                required
+                                                data-max-file-size="2M">
+
+                                        
+                                    
+                                    @endif
+                                    <div class="invalid-feedback" id='imagen_error'>Inserta una imagen.</div>
+                                    <div class="valid-feedback">Bien!</div>
+                                    
                                 </div>
                             </div>
                             <div class="col-12">

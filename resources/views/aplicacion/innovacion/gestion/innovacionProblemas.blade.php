@@ -10,14 +10,23 @@
       }
   }
 
-  // $subsectores = $convocatoria->subsectoresName($convocatoria);
-  // $subsectoresArray = '';
-  // foreach ($subsectores as $subsector) {
-  //     $subsectoresArray .= $subsector;
-  //     if ($subsector != $subsectores->last()) {
-  //         $subsectoresArray .= '; ';
-  //     }
-  // }
+  $subsectores = $convocatoria->subsectoresName($convocatoria);
+  $subsectoresArray = '';
+  foreach ($subsectores as $subsector) {
+      $subsectoresArray .= $subsector;
+      if ($subsector != $subsectores->last()) {
+          $subsectoresArray .= '; ';
+      }
+  }
+  $odss = $convocatoria->odsName($convocatoria);
+  $odsArray = '';
+  foreach ($odss as $ods) {
+      $odsArray .= $ods;
+      if ($ods != $odss->last()) {
+          $odsArray .= '; ';
+      }
+  }
+  
 @endphp
 @section('header-css')
     <style>
@@ -50,8 +59,9 @@
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-              {{-- <h3 class="mt-5 text-muted">Convocatoria</h3> --}}
-              <h1 class="mt-2 text-primary">{{ $sectoresArray }}</h1>
+              
+              <h1 class="mt-2 text-primary">{{ $convocatoria->nombre }}</h1>
+              
               <div class="d-flex align-items-center">
                 <div class="mx-1">
                   <h6 class="text-muted m-0 text-right">INICIA</h6>
@@ -61,28 +71,98 @@
                   <h1 class="text-warning m-0 h-100">{{ date('d', strtotime($convocatoria->fecha_inicio)) }}</h1>
                 </div>
               </div>
+              <br>
+              
+              <div class="d-flex align-items-center">
+             
+                <div class="mx-1">
+                  <h1 class="text-primary m-0 h-100">{{ date('d', strtotime($convocatoria->fecha_cierre)) }}</h1>
+                </div>
+                <div class="mx-1">
+                  <h6 class="text-muted m-0 text-righ">FINALIZA</h6>
+                  <h6 class="text-muted m-0 text-righ">{{ $month_mini[date('m', strtotime($convocatoria->fecha_cierre))] }}</h6>
+                </div>
+              
+            </div>
+            
             </div>
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
         </div>
     </section>
+
+    <section class="container bg-secondary">
+      @php
+          $imagen1 = asset('img/logo/thinkia_color.svg');
+          if(isset($convocatoria->user->perfil_id)){
+              if(isset($convocatoria->user->perfil->avatar)){
+                  $imagen1 = asset('storage/perfil/'.$convocatoria->user->perfil->avatar);
+              }
+          }
+      @endphp
+
+      <div class="col ">
+        <div class="pb-5" style="min-width: 300px;">
+            <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+              <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+              <div class=" pt-5 px-4 px-xl-5" >
+                <a class="media meta-link font-size-sm align-items-center">
+                    <img  width="42" src="{{ $imagen1 }}"
+                        alt="Sanomi Smith" />
+                    <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$convocatoria->nombre}}</h3>
+                            <p class="font-weight-semibold ml-1" style="margin-bottom: 0; color: #a13d8f">{{$convocatoria->user->name}}</p></div>
+                </a>
+                
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li><h3 class="mt-2 text-primary">Sectores: </h3>{{ $sectoresArray }}</li>
+                  <li><h3 class="mt-2 text-primary">Subsectores: </h3>{{ $subsectoresArray }}</li>
+                  <li><h3 class="mt-2 text-primary">Ods: </h3>{{ $odsArray }}</li>
+                </ul>
+                <hr>
+                <br>
+                
+                
+                <div class="px-2 px-xl-2 pt-0" >
+                  <h4 class="font-weight-bold"><i class="fe-message-square font-size-xl mr-2"></i> Descripción </h4>
+                      <ul>
+                        <p>{{$convocatoria->descripcion}}</p>
+                      </ul>
+                </div>
+
+                {{-- <div class="row">
+                  
+                  <div class="col-12 col-md-1 d-flex justify-content-center align-items-center">
+                    <div class="mx-1">
+                      <h1 class="text-primary m-0">{{ date('d', strtotime($convocatoria->fecha_cierre)) }}</h1>
+                    </div>
+                    <div class="mx-1">
+                      <h6 class="text-muted m-0">FINALIZA</h6>
+                      <h6 class="text-muted m-0">{{ $month_mini[date('m', strtotime($convocatoria->fecha_cierre))] }}</h6>
+                    </div>
+                  </div>
+                </div> --}}
+              </div>
+              
+    
+ 
+            </article>    
+        </div>
+      </div>
+     
+    </section>
+
+
+
+
+
+
+
     <section>
         <div class="container my-5">
-          <div class="row">
-            <div class="col-12 col-lg-7 offset-lg-2">
-              <p>{{ $convocatoria->descripcion }}</p>
-            </div>
-            <div class="col-12 col-md-1 d-flex justify-content-center align-items-center">
-              <div class="mx-1">
-                <h1 class="text-primary m-0">{{ date('d', strtotime($convocatoria->fecha_cierre)) }}</h1>
-              </div>
-              <div class="mx-1">
-                <h6 class="text-muted m-0">FINALIZA</h6>
-                <h6 class="text-muted m-0">{{ $month_mini[date('m', strtotime($convocatoria->fecha_cierre))] }}</h6>
-              </div>
-            </div>
-          </div>
+          
           @auth
-          @if ($convocatoria->fecha_inicio >= date('Y-m-d') || $convocatoria->fecha_cierre <= date('Y-m-d'))
+          @if ($convocatoria->fecha_inicio > date('Y-m-d') || $convocatoria->fecha_cierre < date('Y-m-d'))
           <div class="w-100 d-flex justify-content-center mt-3">
             <p class="text-center text-primary">Esta convocatoria esta cerrada y no admite mas problemas.</p>
           </div>
@@ -112,7 +192,7 @@
         @endphp
         <div class="col-12 col-md-6 p-2">
           <div class="card text-left">
-            <img class="card-img-top" src="holder.js/100px180/" alt="">
+            {{-- <img class="card-img-top" src="holder.js/100px180/" alt=""> --}}
             <div class="card-body">
               <div class="mb-3">
                 <h4 class="card-title">Title</h4>

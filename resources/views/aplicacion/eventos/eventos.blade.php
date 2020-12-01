@@ -33,40 +33,30 @@
                     <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!<br>
                         Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
                 </div>
+                <p class="shadow-lg p-3 mb-5 btn-primary rounded" style="">
+                    <strong>Indicaciones</strong>
+                    <br>Revisa la lista de eventos y participa de estos espacios de intercambio.
+                    <br>Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.
+                </p>
             </div>
-            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/eventos.png') }}')" alt="Side banner"></div>
+            
+            <div class="d-none d-md-block col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/eventos.png') }}')" alt="Side banner"></div>
         </div>
+        <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                <span class="font-size-sm text-muted">Ver
+                    video</span>
     </section>
-    <div class="position-relative bg-purple-gradient" style="height: 420px;">
-        <div class="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
-                <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z">
-                </path>
-            </svg>
-        </div>
-    </div>
-    <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
+   
+    <section class="container bg-overlay-content pt-3" >
       
             <div class="row">
-                <div class="col-12 col-lg-8 offset-lg-2">
-                    {{-- <h2 class="h3 text-center text-primary">Indicaciones</h2> --}}
-                    <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">Revisa la lista de eventos y participa de estos espacios de intercambio.</h2>
-                    
-                    <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
-                   
-                        <p class="h5 text-light">Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</p>
-                        
+                <div class="text-center  col-12 col-lg-8 offset-lg-2">
                         <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.eventos') }}">Publicar evento</a>
-                        {{-- <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.eventos')}}">Publicar evento</a> --}}
-                        </p>
-                    </div>
-
-                    
                 </div>
             </div>
    
     </section>
-    <section class="searchbar-container bg-overlay-content align-items-center" style="background: #f2f2f2;margin-top: 130px;">
+    <section class="searchbar-container bg-overlay-content align-items-center" style="background: #f2f2f2;">
         <form class="container" action="{{route('eventos.search')}}" method="POST">
             @csrf
             @method("POST")
@@ -171,39 +161,34 @@
                     <div class="card-body">
                         <h3 class="h5 mb-0 text-center">{{$evento->nombre}}</h3>
                     </div>
-                    <div class="card-hover-info px-4 py-4 bg-secondary">
+                    <div class="card-hover-info px-4 py-4 bg-secondary h-100">
                         <h3 class="h5 text-center">{{$evento->nombre}}</h3>
                         <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
-                        <div class="mt-3 font-weight-bold text-primary">
-                            <p style="margin-bottom: 0"><small >{{date('d M, Y', strtotime( $evento->fecha))}}</small></p>
+                        <div class="mt-3 font-weight-bold font-weight-md text-primary">
+                            <p style="margin-bottom: 0; font-size:14;"><small >{{date('d M, Y', strtotime( $evento->fecha))}}</small></p>
                             <p><small >{{date('H\Hi', strtotime( $evento->hora))}}</small></p>
                         </div>
                         <span class="font-weight-bold"><i class="fe-message-square font-size-lg mr-2"></i> Descripción del Evento</span><br>
-                        <p >{{$evento->descripcion}}</p>
-                        <div class="form-group">
-                            
-                            
-                            
-                        </div>
+                        <p class="scrollable"  >{{$evento->descripcion}}</p>
+                       
                         
                         <div class="mt-3 text-primary font-weight-semibold">
                             
                             @if ($evento->tipo==0)
-                                <span class="font-weight-bold"><i class="fe-link font-size-xl mr-2"></i> Fuente de la publicación</span>
-                    
-                                <div class="form-group">
-                                    <a Target="_blank" href="{{$evento->url}}">
-                                    <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($evento->url)?$evento->url:null}}">
+                                <span class="font-weight-bold">
+                                <a class="btn btn-primary"  href="{{$evento->url}}">    
+                                    <i class="fe-link font-size-xl mr-2"></i> Fuente de la publicación
                                     </a>
-                                </div>
+                                </span>
+                          
                             @else
-                                <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Ubicación</span>
-                                <div class="form-group">
-                                    <a Target="_blank" href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
-                                    <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
-                                    
+                                <span class="font-weight-bold">
+                                <a class="btn btn-primary" href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
+                                    <i class="fe-map-pin font-size-xl mr-2"></i> Ubicación
+
                                     </a>
-                                </div>
+                                    </span>
+                               
                             @endif
                             
                         </div>

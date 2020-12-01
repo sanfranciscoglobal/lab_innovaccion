@@ -41,7 +41,7 @@
     </style>
 @endsection
 @section('content')
-    <section class="container my-lg-2 pt-5 pb-lg-3">
+    <section class="container mt-4 pt-5">
         <div class="row align-items-center">
             <div class="col-lg-6 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary">Iniciativas de los actores</h1>
@@ -56,7 +56,8 @@
                     </p>
                 </div>
             </div>
-            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
+            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden "
+                 style="background-image: url('{{ asset('img/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
             </div>
         </div>
     </section>
@@ -77,6 +78,7 @@
                                 {{$iniciativa->nombre_iniciativa}}
                             </h4>
                             <div class="text-justify my-2 scrolling" id="scrolling-{{rand(0,100)}}">
+                                <span class="text-warning d-block small">Descripci&oacute;n</span>
                                 {{$iniciativa->descripcion_iniciativa}}
                             </div>
 
@@ -86,52 +88,73 @@
                             <div class="text-justify instituciones">
                                 @if($iniciativa->iniciativaInstituciones()->count()>0)
                                     @foreach($iniciativa->iniciativaInstituciones as $institucion)
-                                        <span class="text-warning">{{$institucion->tipoInstitucion->descripcion}}@if(!$loop->last), @endif</span>
+                                        <span class="text-primary">
+                                            {{$institucion->tipoInstitucion->descripcion}}@if(!$loop->last), @endif
+                                        </span>
                                     @endforeach
                                 @endif
                             </div>
 
                             @if($iniciativa->iniciativa_actor_enfoque)
+                                <span class="text-warning small">Enfoque</span>
                                 <div class="text-justify scrolling" id="scrolling-{{rand(0,100)}}">
                                     {{$iniciativa->iniciativa_actor_enfoque}}
                                 </div>
                             @endif
 
-                            {{--<div class="text-justify py-2">--}}
-                                {{--@if($iniciativa->iniciativaContactos()->count()>0)--}}
-                                    {{--@foreach($iniciativa->iniciativaContactos as $contacto)--}}
-                                        {{--<div for="">{{$contacto->correo_electronico}}</div>--}}
-                                        {{--<div for="">{{$contacto->celular}}</div>--}}
-                                    {{--@endforeach--}}
-                                {{--@endif--}}
-                                {{--@if($iniciativa->iniciativa_actor_sitio_web)--}}
+                            <div class="text-justify py-2 small">
+                                @if($iniciativa->iniciativaContactos()->count()>0)
+                                    <label class="text-warning">Contacto</label>
+                                    @foreach($iniciativa->iniciativaContactos as $contacto)
+                                        <div for="">{{$contacto->correo_electronico}}</div>
+                                        <div for="">{{$contacto->celular}}</div>
+                                    @endforeach
+                                @endif
+                                @if($iniciativa->iniciativa_actor_sitio_web)
                                     {{--<div class="">--}}
-                                        {{--<a class="nav-link-style text-warning"--}}
-                                           {{--href="{{url($iniciativa->iniciativa_actor_sitio_web)}}" target="_blank">--}}
-                                            {{--{{$iniciativa->iniciativa_actor_sitio_web}}--}}
-                                        {{--</a>--}}
+                                        <a class="nav-link-style text-warning"
+                                           href="{{url($iniciativa->iniciativa_actor_sitio_web)}}" target="_blank">
+                                            {{$iniciativa->iniciativa_actor_sitio_web}}
+                                        </a>
                                     {{--</div>--}}
-                                {{--@endif--}}
-                                {{--@if($iniciativa->iniciativaActor)--}}
-                                    {{--<div for="">--}}
-                                        {{--{{$iniciativa->iniciativa_ubicaciones_canton_nombres}}--}}
-                                    {{--</div>--}}
-                                {{--@endif--}}
-                            {{--</div>--}}
+                                @endif
+                                @if($iniciativa->iniciativaActor)
+                                    <div class="text-black-50">
+                                        {{$iniciativa->iniciativa_ubicaciones_canton_nombres}}
+                                    </div>
+                                @endif
+                            </div>
 
                             <div class="media meta-link align-items-center pt-2">
                                 <img class="rounded-circle" width="50"
                                      src="{{asset('storage/perfil/'.$iniciativa->user_imagen)}}">
-                                <div class="media-body pl-2 ml-1">
+                                <div class="media-body pl-2 ml-1 small">
                                     <span class="font-weight-semibold d-block w-100">
                                         {{$iniciativa->user_name}}
                                     </span>
                                     <span class="font-size-sm w-100">
-                                        <a href="mailto:{{$iniciativa->user_email}}">{{$iniciativa->user_email}}</a>
+                                        <a class="nav-link-style" href="mailto:{{$iniciativa->user_email}}">
+                                            {{$iniciativa->user_email}}
+                                        </a>
                                     </span>
                                     <span class="font-size-sm w-100">
-                                        <a href="tel:{{$iniciativa->user_celular}}">{{$iniciativa->user_celular}}</a>
+                                        <a class="nav-link-style" href="tel:{{$iniciativa->user_celular}}">
+                                            {{$iniciativa->user_celular}}
+                                        </a>
                                     </span>
+                                    {{--@if($iniciativa->iniciativa_actor_sitio_web)--}}
+                                        {{--<div class="">--}}
+                                            {{--<a class="nav-link-style text-warning"--}}
+                                               {{--href="{{url($iniciativa->iniciativa_actor_sitio_web)}}" target="_blank">--}}
+                                                {{--{{$iniciativa->iniciativa_actor_sitio_web}}--}}
+                                            {{--</a>--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
+                                    {{--@if($iniciativa->iniciativaActor)--}}
+                                        {{--<div for="">--}}
+                                            {{--{{$iniciativa->iniciativa_ubicaciones_canton_nombres}}--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
                                 </div>
                             </div>
                         </div>

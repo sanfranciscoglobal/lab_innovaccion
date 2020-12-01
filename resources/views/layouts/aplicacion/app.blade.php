@@ -154,6 +154,7 @@
 </div>
 <main class="cs-page-wrapper">
     <!-- Sign In Modal-->
+    
     <div class="modal fade" id="modal-signin" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
@@ -354,7 +355,78 @@
     <!-- Navbar Floating light for Index page only-->
     @include('layouts.aplicacion.header')
     @yield('content')
+    <div  class="modal fade" id="modal-filtros" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="modal-header border-0 bg-purple-gradient px-4">
+                    <h4 class="modal-title text-light">Filtros</h4>
+                    <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body px-4">
+                    <p class="font-size-ms ">
+                        Inicie sesión en su cuenta, usando el correo electrónico y la contraseña que guardó durante su
+                        registro.
+                    </p>
+                    <form action="{{route('web.iniciativas.data')}}" method="POST">
+                                        @method('POST')
+                                        @csrf
+                            <div class="row justify-content-center">
+                                
+                                        <div class="col-12">
+                                            <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
+                                            <select id="etipo_institucion" name="tipo_institucion[]"
+                                                    class="form-control custom-select select2"
+                                                    data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                                    data-ajax--data-type="json"
+                                                    data-ajax--cache="true"
+                                                    data-close-on-select="false"
+                                                    data-placeholder="Seleccionar tipo institución"
+                                                    style="width:100%;"
+                                                    multiple>
 
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <span class="ml-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >ODS</span>
+                                            <select id="eods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
+                                                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                                    data-ajax--data-type="json"
+                                                    data-ajax--cache="true"
+                                                    data-close-on-select="false"
+                                                    style="width:100%;"
+                                                    data-placeholder="Seleccionar ODS"
+                                                    multiple>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Población Objetivo</span>
+                                            <select style="width:100%;" id="etipo_poblacion" name="tipo_poblacion[]"
+                                                    class="form-control select2"
+                                                    data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                                                    data-ajax--data-type="json"
+                                                    data-ajax--cache="true"
+                                                    data-close-on-select="false"
+                                                    data-placeholder="Seleccionar población objetivo"
+                                                    multiple>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-2 col-xl-2  col-md-2 col-sm-3 pt-3">
+                                        <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit" style="border-color:#FF7F00;background: #FF7F00;" >
+                                            Aplicar
+                                        </button>
+                                        </div>
+                                    
+                                  
+                            </div>
+            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  
 </main>
 
 @include('layouts.aplicacion.footer')

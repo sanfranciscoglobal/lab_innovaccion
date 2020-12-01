@@ -78,7 +78,7 @@
                                 <div class="row">
                                     <div class="col-12 ">
                                         <div class="form-group m-publicacion m-herramienta d-none">
-                                            <label id='label_nombre' for="mat_nombre">* Nombre de la publicación<span style="color: gray">(max. 250 caracteres)</span> </label>
+                                            <label id='label_nombre' for="mat_nombre">* Nombre de la publicación <span style="color: gray">(máx. 250 caracteres)</span> </label>
                                             <input class="form-control" type="text" id="mat_nombre" placeholder="Nombre de la publicación" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" maxlength='150' name="nombre_publicacion" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             @error('nombre_publicacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
@@ -124,11 +124,11 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="mat_adjuntar">Adjuntar archivos <span style="color: gray">(max. 2Mb)</span></label>
+                                            <label for="mat_adjuntar">Adjuntar archivos <span style="color: gray">(máx. 10MB)</span></label>
                                             
                                             @if ($method=='PUT')
 
-                                                <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" name="mat_files[]"
+                                                <input class="form-control dropify" data-max-file-size="10M" type="file" id="mat_adjuntar" name="mat_files[]"
                                                 data-default-file=
                                                         "@foreach ($material->articuloss as $articulo)
                                                             {{$articulo->nombre}}
@@ -136,7 +136,7 @@
                                                         @endforeach"
                                                 multiple>
                                             @else
-                                                <input class="form-control dropify" data-max-file-size="2M" type="file" id="mat_adjuntar" name="mat_files[]" multiple>
+                                                <input class="form-control dropify" data-max-file-size="10M" type="file" id="mat_adjuntar" name="mat_files[]" multiple>
                                             @endif
                                             @error('mat_files')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
@@ -313,7 +313,7 @@
                     $('.m-publicacion .form-control').attr('required', true);
                     $('.m-publicacion').removeClass('d-none');
                     $("#label_url").html('* Fuente de la publicación');
-                    $("#label_nombre").html('* Nombre de la publicación <span style="color: gray">(max. 250 caracteres)</span>');
+                    $("#label_nombre").html('* Nombre de la publicación <span style="color: gray">(máx. 250 caracteres)</span>');
                     $('#frm').removeClass('was-validated');
                     document.getElementById("mat_url").placeholder='Link de la publicación';
                     document.getElementById("mat_nombre").placeholder='Nombre de la publicación';
@@ -327,7 +327,7 @@
                         $('.m-herramienta').removeClass('d-none');
                         
                         $("#label_url").html('* Fuente de la herramienta' );
-                        $("#label_nombre").html('* Nombre de la herramienta <span style="color: gray">(max. 250 caracteres)</span>');
+                        $("#label_nombre").html('* Nombre de la herramienta <span style="color: gray">(máx. 250 caracteres)</span>');
                         $('#frm').removeClass('was-validated');
                         document.getElementById("mat_url").placeholder='Link de la herramienta';
                         document.getElementById("mat_nombre").placeholder='Nombre de la herramienta';
