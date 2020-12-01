@@ -376,7 +376,7 @@
                                 
                                         <div class="col-12">
                                             <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
-                                            <select id="tipo_institucion" name="tipo_institucion[]"
+                                            <select id="etipo_institucion" name="tipo_institucion[]"
                                                     class="form-control custom-select select2"
                                                     data-ajax--url="{{route('api.tipo-institucion.select2')}}"
                                                     data-ajax--data-type="json"
@@ -390,7 +390,7 @@
                                         </div>
                                         <div class="col-12">
                                             <span class="ml-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >ODS</span>
-                                            <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
+                                            <select id="eods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
                                                     data-ajax--url="{{route('api.ods-categoria.select2')}}"
                                                     data-ajax--data-type="json"
                                                     data-ajax--cache="true"
@@ -402,7 +402,7 @@
                                         </div>
                                         <div class="col-12">
                                             <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Población Objetivo</span>
-                                            <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
+                                            <select style="width:100%;" id="etipo_poblacion" name="tipo_poblacion[]"
                                                     class="form-control select2"
                                                     data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
                                                     data-ajax--data-type="json"
