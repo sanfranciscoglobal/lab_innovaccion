@@ -133,12 +133,12 @@
                                     <span class="font-weight-semibold d-block w-100">
                                         {{$iniciativa->user_name}}
                                     </span>
-                                    <span class="font-size-sm w-100">
+                                    <span class="font-size-sm d-block w-100">
                                         <a class="nav-link-style" href="mailto:{{$iniciativa->user_email}}">
                                             {{$iniciativa->user_email}}
                                         </a>
                                     </span>
-                                    <span class="font-size-sm w-100">
+                                    <span class="font-size-sm d-block w-100">
                                         <a class="nav-link-style" href="tel:{{$iniciativa->user_celular}}">
                                             {{$iniciativa->user_celular}}
                                         </a>
