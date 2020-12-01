@@ -13,13 +13,13 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="row">
-                            <div class="col py-2 px-2">
+                            <div class="col py-2 ">
                                     <a class="font-weight-bold btn btn-primary btn-block"  href="#">MAPA</a>
                             </div>
-                            <div class="col py-2 pr-2">
+                            <div class="col py-2 ">
                                     <a href="#modal-signin" style="border-color:#8B8B8B;background:#8B8B8B" class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
                             </div>
-                            <div class="col col-lg-5 py-2 pr-5">
+                            <div class="col  py-2">
                                     <a href="#modal-signin" class="font-weight-bold btn btn-primary btn-block">ANALÍTICA</a>
                             </div>
                             
@@ -52,7 +52,22 @@
         <div class="w-100 center-block text-left pl-md-5 pt-1">
                                 <h2 style="color:#531c6a" class="align-items-center">Filtros</h2> 
                                     <div class="row pt-1 ml-md-2 mr-md-2 align-items-center">
-                                        <div class="col-md-3 col-12">
+                                        <div class="col">
+                                            <span class="font-weight-bold  d-block" style="color:#531c6a " for="from-destination">Ciudad</span>
+                                            <select id="canton_id" class="form-control custom-select select2"
+                                                    name="canton_id[]"
+                                                    data-ajax--url="{{route('api.canton.select2')}}"
+                                                    data-ajax--data-type="json"
+                                                    data-ajax--cache="true"
+                                                    style="width:100%;"
+                                                    data-placeholder="Seleccionar ciudad"
+                                                    multiple>
+                                                @foreach($cantones as $canton)
+                                                    <option value="{{$canton->id}}" selected>{{$canton->nombre}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col">
                                             <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
                                             <select id="tipo_institucion" name="tipo_institucion[]"
                                                     class="form-control custom-select select2"
@@ -66,7 +81,7 @@
 
                                             </select>
                                         </div>
-                                        <div class="col-md-3 col-12">
+                                        <div class="col">
                                             <span class="ml-md-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >ODS</span>
                                             <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
                                                     data-ajax--url="{{route('api.ods-categoria.select2')}}"
@@ -78,7 +93,7 @@
                                                     multiple>
                                             </select>
                                         </div>
-                                        <div class="col-md-3 col-12">
+                                        <div class="col">
                                             <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Población Objetivo</span>
                                             <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
                                                     class="form-control select2"
@@ -98,11 +113,11 @@
                                     </div>
                                     <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
                                             
-                                    <button style="width: 220px;" type="button" class="col-sm-12 col-md-6 col-lg-3 font-weight-bold btn btn-primary mr-5 btn-filter-submit"
+                                    <button style="width: 220px;" type="button" class="col-sm-12 col-md-6 col-lg-4 font-weight-bold btn btn-primary mr-5 btn-filter-submit"
                                             data-action="{{route('web.iniciativas.exportar-excel')}}">
                                         Descargar datos
                                     </button>
-                                    <button type="button" class="col-sm-12 col-md-6 col-lg-3 font-weight-bold btn btn-primary mr-3 btn-filter-submit"
+                                    <button type="button" class="col-sm-12 col-md-6 col-lg-4 font-weight-bold btn btn-primary mr-3 btn-filter-submit"
                                             style="border-color:#7A3240;background:#7A3240 "
                                             data-action="{{route('web.iniciativas.exportar-excel')}}">
                                             <img src="{{ asset('images/Group 161.svg')}}"/>
