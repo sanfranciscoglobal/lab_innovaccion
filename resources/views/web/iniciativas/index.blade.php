@@ -61,7 +61,7 @@
             </div>
         </div>
     </section>
-    <section class="searchbar-container bg-secondary">
+    <section class="searchbar-container bg-secondary mt-2">
         @include('web.iniciativas._filter', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones','buscar'))
     </section>
 
