@@ -35,6 +35,7 @@ class crudConvocatoria extends Controller
 
 
         $validatedData=$request->validated();
+        
 
         if($convocatoria=Convocatoria::create($validatedData)){
 
@@ -45,17 +46,10 @@ class crudConvocatoria extends Controller
                 $convocatoria->save();
             }
 
-            foreach ($validatedData['innovacion_ods'] as $ods){
-
-                $conods=ConvocatoriaODS::create([
-                    'convocatoria_id'=>$convocatoria['id'],
-                    'ods_id' =>$ods
-                ]);
-                $conods->save();
-            }
-
-            if($convocatoria->tipoconvocatoria_id!=2){
-                foreach ($validatedData['innovacion_sector_productivo'] as $sector){
+            if ($convocatoria['tipoconvocatoria_id']==1){
+                
+               
+                foreach ($validatedData['innovacion_sector_productivo1'] as $sector){
 
                     $consector=ConvocatoriaSector::create([
                         'convocatoria_id'=>$convocatoria['id'],
@@ -63,7 +57,7 @@ class crudConvocatoria extends Controller
                     ]);
                     $consector->save();
                 }
-                foreach ($validatedData['innovacion_subsector_productivo'] as $subsector){
+                foreach ($validatedData['innovacion_subsector_productivo1'] as $subsector){
 
                     $consubsector=ConvocatoriaSubsector::create([
                         'convocatoria_id'=>$convocatoria['id'],
@@ -71,7 +65,54 @@ class crudConvocatoria extends Controller
                     ]);
                     $consubsector->save();
                 }
+                foreach ($validatedData['innovacion_ods1'] as $ods){
+
+                    $conods=ConvocatoriaODS::create([
+                        'convocatoria_id'=>$convocatoria['id'],
+                        'ods_id' =>$ods
+                    ]);
+                    $conods->save();
+                }
             }
+            else if($convocatoria['tipoconvocatoria_id']==2){
+                
+                foreach ($validatedData['innovacion_ods2'] as $ods){
+
+                    $conods=ConvocatoriaODS::create([
+                        'convocatoria_id'=>$convocatoria['id'],
+                        'ods_id' =>$ods
+                    ]);
+                    $conods->save();
+                }
+            }
+            else{
+            
+                foreach ($validatedData['innovacion_sector_productivo3'] as $sector){
+
+                    $consector=ConvocatoriaSector::create([
+                        'convocatoria_id'=>$convocatoria['id'],
+                        'sector_id' =>$sector
+                    ]);
+                    $consector->save();
+                }
+                foreach ($validatedData['innovacion_subsector_productivo3'] as $subsector){
+
+                    $consubsector=ConvocatoriaSubsector::create([
+                        'convocatoria_id'=>$convocatoria['id'],
+                        'subsector_id' =>$subsector
+                    ]);
+                    $consubsector->save();
+                }
+                foreach ($validatedData['innovacion_ods3'] as $ods){
+
+                    $conods=ConvocatoriaODS::create([
+                        'convocatoria_id'=>$convocatoria['id'],
+                        'ods_id' =>$ods
+                    ]);
+                    $conods->save();
+                }
+            }
+            
             
             return redirect()->route('admin.escritorio.convocatoria')->with('status', 'Convocatoria creada con éxito');
 
@@ -96,17 +137,10 @@ class crudConvocatoria extends Controller
         ConvocatoriaSector::where('convocatoria_id',$convocatoria->id)->delete();
         ConvocatoriaSubsector::where('convocatoria_id',$convocatoria->id)->delete();
         
-        foreach ($validatedData['innovacion_ods'] as $ods){
-
-            $conods=ConvocatoriaODS::create([
-                'convocatoria_id'=>$convocatoria['id'],
-                'ods_id' =>$ods
-            ]);
-            $conods->save();
-        }
-
-        if($convocatoria->tipoconvocatoria_id!=2){
-            foreach ($validatedData['innovacion_sector_productivo'] as $sector){
+        
+        if ($convocatoria['tipoconvocatoria_id']==1){
+               
+            foreach ($validatedData['innovacion_sector_productivo1'] as $sector){
 
                 $consector=ConvocatoriaSector::create([
                     'convocatoria_id'=>$convocatoria['id'],
@@ -114,13 +148,58 @@ class crudConvocatoria extends Controller
                 ]);
                 $consector->save();
             }
-            foreach ($validatedData['innovacion_subsector_productivo'] as $subsector){
+            foreach ($validatedData['innovacion_subsector_productivo1'] as $subsector){
 
                 $consubsector=ConvocatoriaSubsector::create([
                     'convocatoria_id'=>$convocatoria['id'],
                     'subsector_id' =>$subsector
                 ]);
                 $consubsector->save();
+            }
+            foreach ($validatedData['innovacion_ods1'] as $ods){
+
+                $conods=ConvocatoriaODS::create([
+                    'convocatoria_id'=>$convocatoria['id'],
+                    'ods_id' =>$ods
+                ]);
+                $conods->save();
+            }
+        }
+        else if($convocatoria['tipoconvocatoria_id']==2){
+            
+            foreach ($validatedData['innovacion_ods2'] as $ods){
+
+                $conods=ConvocatoriaODS::create([
+                    'convocatoria_id'=>$convocatoria['id'],
+                    'ods_id' =>$ods
+                ]);
+                $conods->save();
+            }
+        }
+        else{
+            foreach ($validatedData['innovacion_sector_productivo3'] as $sector){
+
+                $consector=ConvocatoriaSector::create([
+                    'convocatoria_id'=>$convocatoria['id'],
+                    'sector_id' =>$sector
+                ]);
+                $consector->save();
+            }
+            foreach ($validatedData['innovacion_subsector_productivo3'] as $subsector){
+
+                $consubsector=ConvocatoriaSubsector::create([
+                    'convocatoria_id'=>$convocatoria['id'],
+                    'subsector_id' =>$subsector
+                ]);
+                $consubsector->save();
+            }
+            foreach ($validatedData['innovacion_ods3'] as $ods){
+
+                $conods=ConvocatoriaODS::create([
+                    'convocatoria_id'=>$convocatoria['id'],
+                    'ods_id' =>$ods
+                ]);
+                $conods->save();
             }
         }
 

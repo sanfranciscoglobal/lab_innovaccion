@@ -49,7 +49,7 @@ if (document.querySelector('.dropify')) {
             errorsContainer: '<div class="dropify-errors-container"><ul></ul></div>'
         },
         error: {
-            'fileSize': 'El tamaño del archivo es demasiado grande ({{ value }} máximo).',
+            'fileSize': 'El tamaño del archivo es demasiado grande ({{ value }}B máximo).',
             'minWidth': 'El ancho de la imagen es demasiado pequeño ({{ value }}}px mínimo).',
             'maxWidth': 'El ancho de la imagen es demasiado grande ({{ value }}}px máximo).',
             'minHeight': 'La altura de la imagen es demasiado pequeña ({{ value }}}px mínimo).',

@@ -209,7 +209,7 @@
         @endif
       </div>
 
-      @if ($solucion->problemaid->user->id == Auth::id() && $solucion->observacionesid==null )
+      @if ($solucion->problemaid->user->id == Auth::id() && $solucion->observacionesid==null  && $solucion->mejorada == null )
       <div class="text-center font-size-sm text-muted">
         <form action="{{route('app.soluciones.observacioncrear')}}" class="needs-validation" novalidate>
           <input type="hidden" name="solucion_id" value="{{$solucion->id}}">
@@ -236,7 +236,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label ">* ¿Cómo mejorar la propuesta? Escribe tus comentarios técnicos a la solución</label>
+                    <label class="control-label ">* ¿Cómo mejorar la propuesta? Escribe tus comentarios técnicos a la solución?</label>
                     <textarea id="comentario" class="form-control" name="comentario" placeholder="Escribe tus comentarios" required rows="6"
                     ></textarea>
                     <br>
@@ -253,7 +253,7 @@
           </div>
         </form>
       </div>
-      @elseif ($solucion->observacionesid != null && $solucion->user_id == Auth::id() )
+      @elseif ($solucion->observacionesid != null && $solucion->user_id == Auth::id() && $solucion->mejorada == null )
       <div class="pb-2">
         <div class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1 text-left" style="padding: 2%; background:#f2f2f2">
           <div class="row">
@@ -346,7 +346,7 @@
               @error('financiamiento')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
             </div>
             <div class="form-group">
-              <label for="archivo">Carga un archivo complementario (Max. 10Mb)</label>
+              <label for="archivo">Carga un archivo complementario (máx. 10MB)</label>
               {{-- @if($method == 'POST') --}}
               @if($method == 'POST')
               <div class="cs-file-drop-area">
@@ -356,7 +356,7 @@
                   <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                   <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
               </div>
-              <small id="emailHelp" class="form-text text-muted">Max. 10Mb</small>
+              <small id="emailHelp" class="form-text text-muted">máx. 10Mb</small>
               @else
               @php
                   $img = asset('img/logo/logo-icon-footer.png');
@@ -365,7 +365,7 @@
                   }
                   @endphp
               <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" size="10000000">
-              <small id="emailHelp" class="form-text text-muted">Max. 10Mb</small>
+              <small id="emailHelp" class="form-text text-muted">máx. 10Mb</small>
               @endif
               @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
             </div>

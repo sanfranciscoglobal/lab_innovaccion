@@ -47,7 +47,7 @@
                     video</span>
     </section>
    
-    <section class="container bg-overlay-content pt-5 pt-md-6" >
+    <section class="container bg-overlay-content pt-3" >
       
             <div class="row">
                 <div class="text-center  col-12 col-lg-8 offset-lg-2">
@@ -56,7 +56,7 @@
             </div>
    
     </section>
-    <section class="searchbar-container bg-overlay-content align-items-center" style="background: #f2f2f2;margin-top: 130px;">
+    <section class="searchbar-container bg-overlay-content align-items-center" style="background: #f2f2f2;">
         <form class="container" action="{{route('eventos.search')}}" method="POST">
             @csrf
             @method("POST")

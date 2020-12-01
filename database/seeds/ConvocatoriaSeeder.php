@@ -20,8 +20,8 @@ class ConvocatoriaSeeder extends Seeder
         $sql .= "TRUNCATE convocatorias CASCADE;";
         DB::connection()->getPdo()->exec($sql);
 
-        DB::insert("insert into convocatorias (id,  user_id, tipoconvocatoria_id, fecha_inicio, fecha_cierre, descripcion,imagen,terminos) 
-        values('1','5','1','2020/11/19','2020/12/22','Convocatoia de prueba','imagenprueba.png','1')");
+        DB::insert("insert into convocatorias (id, nombre, user_id, tipoconvocatoria_id, fecha_inicio, fecha_cierre, descripcion,imagen,terminos) 
+        values('1','Convocatoria Prueba','5','1','2020/11/19','2020/12/22','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.','imagenprueba.png','1')");
 
 
         $sql = "ALTER SEQUENCE convocatorias_ods_id_seq RESTART WITH 2;";
