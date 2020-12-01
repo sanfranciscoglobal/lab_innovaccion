@@ -79,7 +79,7 @@
                 <div class="form-group">
                     <label class="control-label">
                         * Enfoque: ¿Qué trabajo hace la organización?
-                        <span class="text-primary">(min. 25 palabras) (max. 100 palabras)</span>
+                        <span class="text-primary small">(mín. 25 palabras) (máx. 100 palabras)</span>
                     </label>
 
                     <textarea
