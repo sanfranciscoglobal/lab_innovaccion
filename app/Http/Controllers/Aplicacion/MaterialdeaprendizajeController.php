@@ -24,21 +24,17 @@ class MaterialdeaprendizajeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function __construct(){
-        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetalle','comment');
+        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetalle','comment','searchMateriales');
     }
 
 
     public function verListadomateriales(Request $request)
     {
-        $autentificacion=false;
-        if (Auth::check()) {
-            // The user is logged in...
-            $autentificacion=true;
-        }
+    
         MaterialAprendizaje::$paginate = 6;
         $materiales = MaterialAprendizaje::obtenerPaginate();
         //$materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
-        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales','autentificacion'));
+        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales'));
     }
     public function verDetalle(MaterialAprendizaje $material)
     {
@@ -91,6 +87,13 @@ class MaterialdeaprendizajeController extends Controller
         
             
         
+    }
+    public function searchMateriales($tipo)
+    {
+
+        $materiales = MaterialAprendizaje::where('tipo',$tipo)->orderbyDesc('created_at')->paginate(MaterialAprendizaje::$paginate);
+
+        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales'));
     }
 
 }

@@ -226,6 +226,18 @@
                                     <input class="form-control prepended-form-control" type="text" placeholder="Buscar">
                                 </div>
                             </div>
+                            <!-- Tipos-->
+                            <div class="cs-widget cs-widget-categories mb-4">
+                                <h3 class="cs-widget-title">Tipos</h3>
+                                <ul>
+                                    <li><a class="cs-widget-link" href="{{ route('material') }}">Publicaciones y Herramientas<small
+                                        class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::count() }}</small></a></li>
+                                    <li><a class="cs-widget-link" href="{{ route('material.search',0) }}">Publicaciones<small
+                                                class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::where('tipo','0')->count() }}</small></a></li>
+                                    <li><a class="cs-widget-link" href="{{ route('material.search',1) }}">Herramientas<small
+                                                class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::where('tipo','1')->count() }}</small></a></li>
+                                </ul>
+                            </div>
                             <!-- Categories-->
                             <div class="cs-widget cs-widget-categories mb-5">
                                 <h3 class="cs-widget-title">Categorías</h3>

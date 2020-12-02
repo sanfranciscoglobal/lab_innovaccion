@@ -46,11 +46,11 @@
               <p>{{ $problema->problema }}</p>
             </div>
           </div>
-          @auth
+          
           <div class="w-100 d-flex justify-content-center mt-3">
             <a class="btn btn-primary" href="{{ route('app.soluciones.crear', $problema->id) }}" role="button">Registra una nueva solución</a>
           </div>
-          @endauth
+          
         </div>
     </section>
     <section class="container mb-5">

@@ -57,6 +57,8 @@ Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeControll
 Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@verDetalle')->name('material.detalle');
 Route::get('/publicacion-herramienta/download/{articulo}', 'Aplicacion\MaterialdeaprendizajeController@download')->name('material.download');
 Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\MaterialdeaprendizajeController@comment')->name('material-de-aprendizaje.comentario');
+
+Route::get('/publicacion-herramienta/tipo/{tipo}', 'Aplicacion\MaterialdeaprendizajeController@searchMateriales')->name('material.search');
 // Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 // Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 
@@ -195,7 +197,7 @@ Route::as('admin.')
             // Route::resource('abreviatura', 'AbreviaturaController');
             Route::get('dashboard', 'Backend\DashboardController@dashboard')->name('escritorio');
             Route::get('/escritorio/inicial', 'Backend\DashboardController@verInicial')->name('escritorio.incial');
-            Route::get('/escritorio/convocatorias', 'Backend\DashboardController@verConvocatoria')->name('escritorio.convocatoria');
+            Route::get('/dashboard/convocatorias', 'Backend\DashboardController@verConvocatoria')->name('escritorio.convocatoria');
             /** Rutas Innovacion */
             //FASE A
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
@@ -230,8 +232,10 @@ Route::as('web.')
             Route::get('analiticas', 'Web\IniciativasController@analiticas')->name('iniciativas.analiticas');
             Route::post('iniciativas', 'Web\IniciativasController@index')->name('iniciativas.index');
             Route::post('iniciativas/export', 'Web\IniciativasController@exportarExcel')->name('iniciativas.exportar-excel');
-            Route::get('mapa', 'Web\IniciativasController@data')->name('iniciativas.mapa');
-            Route::post('mapa', 'Web\IniciativasController@data')->name('iniciativas.data');
+            Route::get('iniciativasmapa', 'Web\IniciativasController@data')->name('iniciativas.mapa');
+            Route::post('iniciativasmapa', 'Web\IniciativasController@data')->name('iniciativas.data');
+            Route::post('mapa', 'Web\MapaProblemas@data')->name('mapaproblemas.data');
+            Route::get('mapa', 'Web\MapaProblemas@data')->name('mapaproblemas.mapa');
         }
     );
 

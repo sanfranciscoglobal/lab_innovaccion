@@ -115,9 +115,18 @@
               </div>
               <div class="card-body">
                 <ul>
+                  @if ($sectoresArray)
                   <li><h3 class="mt-2 text-primary">Sectores: </h3>{{ $sectoresArray }}</li>
+                  @endif
+
+                  @if ($subsectoresArray)
                   <li><h3 class="mt-2 text-primary">Subsectores: </h3>{{ $subsectoresArray }}</li>
+                  @endif
+                  
+                  
+                  @if ($odsArray)
                   <li><h3 class="mt-2 text-primary">Ods: </h3>{{ $odsArray }}</li>
+                  @endif
                 </ul>
                 <hr>
                 <br>

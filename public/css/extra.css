@@ -12,7 +12,7 @@
     max-height:200px;
 }
 .scrollable:hover{
-    overflow: scroll!important; 
+    overflow: scroll!important;
     max-height:200px
 }
 .logos{
@@ -60,12 +60,19 @@ opacity: 1;
 font-size: 17px;
 }
 .textoevento{
- 
+
     color: #7A3240;
- 
+
 }
 .color-morado{
     color:#4e2561
+}
+.btn-purple-gradient {
+  background: rgb(78,37,97);
+  background: linear-gradient(180deg, rgba(78,37,97,1) 0%, rgba(86,47,104,1) 24%, rgba(93,55,110,1) 44%, rgba(111,65,133,1) 100%, rgba(129,100,143,1) 100%, rgba(180,163,188,1) 100%);
+}
+.text-color-white {
+  color: #ffffff;
 }
 .colornumero{
 color: #370C60!important;
