@@ -172,7 +172,7 @@
                         <p class="scrollable"  >{{$evento->descripcion}}</p>
 
 
-                        <div class="mt-3 text-primary font-weight-semibold">
+                        <div class="mt-3 text-primary font-weight-semibold text-center">
 
                             @if ($evento->tipo==0)
                                 <span class="font-weight-bold">
