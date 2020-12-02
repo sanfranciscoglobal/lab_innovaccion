@@ -57,6 +57,8 @@ Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeControll
 Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@verDetalle')->name('material.detalle');
 Route::get('/publicacion-herramienta/download/{articulo}', 'Aplicacion\MaterialdeaprendizajeController@download')->name('material.download');
 Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\MaterialdeaprendizajeController@comment')->name('material-de-aprendizaje.comentario');
+
+Route::get('/publicacion-herramienta/tipo/{tipo}', 'Aplicacion\MaterialdeaprendizajeController@searchMateriales')->name('material.search');
 // Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 // Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 

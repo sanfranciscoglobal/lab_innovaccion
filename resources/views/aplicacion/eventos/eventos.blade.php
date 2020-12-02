@@ -177,7 +177,7 @@
                             @if ($evento->tipo==0)
                                 <span class="font-weight-bold">
                                 <a class="btn btn-primary"  href="{{$evento->url}}">    
-                                    <i class="fe-link font-size-xl mr-2"></i> Fuente de la publicación
+                                    <i class="fe-link font-size-xl mr-2"></i> Link del evento
                                     </a>
                                 </span>
                           
