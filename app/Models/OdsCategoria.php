@@ -19,6 +19,11 @@ class OdsCategoria extends Model
         return $this->hasMany(IniciativaOds::class, 'ods_categoria_id', 'id');
     }
 
+    public function getNombreOdsAttribute()
+    {
+        return 'ODS '.$this->id . ': ' . $this->nombre;
+    }
+
     /**
      * @return Builder
      */
@@ -46,6 +51,6 @@ class OdsCategoria extends Model
      */
     public static function obtenerOdsCategoriaPluckNameIdArray()
     {
-        return self::builderOdsCategoria()->pluck('nombre','id')->all() ?? [];
+        return self::builderOdsCategoria()->pluck('nombre', 'id')->all() ?? [];
     }
 }

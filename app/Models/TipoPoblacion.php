@@ -10,6 +10,15 @@ class TipoPoblacion extends Model
     public static $search = null;
     protected $table = 'tipo_poblacion';
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function IniciativaPoblacion()
+    {
+        return $this->hasMany(IniciativaPoblacion::class, 'tipo_poblacion_id', 'id');
+    }
+
     /**
      * @return Builder
      */

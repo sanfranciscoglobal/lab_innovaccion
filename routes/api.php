@@ -43,3 +43,13 @@ Route::post('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->na
 Route::get('/obtener-sector-solucion-select2', 'Api\SectorSolucionController@SectorSolucionSelect2')->name('api.sector-solucion.select2');
 Route::get('/obtener-nivel-solucion-select2', 'Api\NivelSolucionController@NivelSolucionSelect2')->name('api.nivel-solucion.select2');
 Route::get('/obtener-tipo-propuesta-select2', 'Api\TipoPropuestaController@TipoPropuestaSelect2')->name('api.tipo-propuesta.select2');
+
+
+Route::as('api.analitica.')
+    ->prefix('analitica')
+    ->group(
+        function () {
+            Route::post('iniciativas-ods', 'Api\IniciativasController@analiticaIniciativaOds')->name('iniciativa-ods');
+            Route::post('iniciativas-poblacion', 'Api\IniciativasController@analiticaIniciativaPoblacion')->name('iniciativa-poblacion');
+        }
+    );

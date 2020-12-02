@@ -50,9 +50,10 @@ class IniciativasController extends Controller
 
         return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar'));
     }
+
     public static function data(Request $request)
     {
-        
+
         Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
         Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
         Iniciativas::$search_tipo_institucion = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
@@ -63,13 +64,13 @@ class IniciativasController extends Controller
         $odsCategorias = OdsCategoria::whereIn('id', Iniciativas::$search_ods_categorias)->get();
         $tipoPoblaciones = TipoPoblacion::whereIn('id', Iniciativas::$search_tipo_poblacion)->get();
         $buscar = $request->buscar;
-        $iniciativas=Iniciativas::obtenerIniciativasAll();
-        foreach( $iniciativas as $x){
-           $x->iniciativaUbicaciones; 
-           $x->iniciativaOds;
-           $x->iniciativaPoblacionesCompleto;
+        $iniciativas = Iniciativas::obtenerIniciativasAll();
+        foreach ($iniciativas as $x) {
+            $x->iniciativaUbicaciones;
+            $x->iniciativaOds;
+            $x->iniciativaPoblacionesCompleto;
         }
-        return view('web.iniciativas.visualmapa',compact('iniciativas'));
+        return view('web.iniciativas.visualmapa', compact('iniciativas'));
     }
 
     public function exportarExcel(Request $request)
@@ -77,7 +78,41 @@ class IniciativasController extends Controller
         $fecha = Carbon::now()->format('Ymdhi');
         return Excel::download(new IniciativasExport(), 'download-iniciativa-' . $fecha . '.xlsx');
     }
-    public function mapa(){
+
+    public function mapa()
+    {
         return view('mapa');
+    }
+
+//    public function show(Iniciativas $iniciativa)
+//    {
+//
+//    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function analiticas(Request $request)
+    {
+        Iniciativas::$paginate = 10;
+        Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
+        Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
+        Iniciativas::$search_tipo_institucion = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
+        Iniciativas::$search_ods_categorias = $request->has('ods_categorias') ? $request->ods_categorias : [];
+        Iniciativas::$search_tipo_poblacion = $request->has('tipo_poblacion') ? $request->tipo_poblacion : [];
+
+        $cantones = Canton::whereIn('id', Iniciativas::$search_canton_id)->get();
+        $tipoInstituciones = TipoInstitucion::whereIn('id', Iniciativas::$search_tipo_institucion)->get();
+        $odsCategorias = OdsCategoria::whereIn('id', Iniciativas::$search_ods_categorias)->get();
+        $tipoPoblaciones = TipoPoblacion::whereIn('id', Iniciativas::$search_tipo_poblacion)->get();
+        $buscar = $request->buscar;
+
+        $iniciativas = Iniciativas::obtenerIniciativasPaginate();
+
+        //dd($request);
+
+        return view('web.iniciativas.analiticas', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar'));
     }
 }
