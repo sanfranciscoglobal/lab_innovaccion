@@ -316,8 +316,12 @@
                 <p class="text-muted font-size-lg mb-0 colornumero">Fondos </p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\MaterialAprendizaje::count() }}</h3>
-                <p class="text-muted font-size-lg mb-0 colornumero">Publicaciones y herramientas</p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\MaterialAprendizaje::where('tipo','0')->count() }}</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Publicaciones</p>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\MaterialAprendizaje::where('tipo','1')->count() }}</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Herramientas</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Evento::count() }}</h3>
