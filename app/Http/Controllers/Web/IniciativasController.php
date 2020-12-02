@@ -84,10 +84,10 @@ class IniciativasController extends Controller
         return view('mapa');
     }
 
-//    public function show(Iniciativas $iniciativa)
-//    {
-//
-//    }
+    public function show(Iniciativas $iniciativa)
+    {
+        return view('web.iniciativas.show',compact('iniciativa'));
+    }
 
     /**
      * Display a listing of the resource.
