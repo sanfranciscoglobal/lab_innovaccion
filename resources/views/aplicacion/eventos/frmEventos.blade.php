@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="organizador">* Nombre del Organizador <span style="color: gray">(max. 250 caracteres)</span></label>
+                                    <label for="organizador">* Nombre del Organizador <span style="color: gray">(máx. 250 caracteres)</span></label>
                                     <input class="form-control" type="text" id="organizador" value="{{isset($evento->organizador)?$evento->organizador:old('organizador')}}" maxlength='150' name="organizador" placeholder="Nombre del organizador"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                     @error('organizador')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="nombre">* Nombre del Evento <span style="color: gray">(max. 250 caracteres)</span></label>
+                                            <label for="nombre">* Nombre del Evento <span style="color: gray">(máx. 250 caracteres)</span></label>
                                             <input class="form-control" type="text" id="nombre" value="{{isset($evento->nombre)?$evento->nombre:old('nombre')}}" maxlength='150' name="nombre" placeholder="Nombre del evento"  oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
@@ -93,7 +93,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label  class="control-label" for="descripcion">Descripción del Evento <span style="color: gray">(min. 25 palabras)(max. 100 palabras)</span></label>
+                                            <label  class="control-label" for="descripcion">Descripción del Evento <span style="color: gray">(mín. 25 palabras)(máx. 100 palabras)</span></label>
 
                                             <textarea oninput="countWords();" id="descripcion" class="form-control" name="descripcion" placeholder="Describa su evento" required rows="6"
                                             >{{ old('descripcion', $evento->descripcion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
@@ -226,7 +226,7 @@
                                     @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div> --}}
                                 <div class="form-group">
-                                    <label for="imagen">* Imagen del Evento <span style="color: gray">(max. 2 MB)</span></label>
+                                    <label for="imagen">* Imagen del Evento <span style="color: gray">(máx. 2 MB)</span></label>
                                     @if ($method=='PUT')
                                         <input type="file" 
                                             class="form-control dropify" 
@@ -343,7 +343,7 @@
         //     // words=maxword;
         //     // alert('Ha rebasado el limite');
         //     $("#descripcion").focus();
-        //     $("#descripcion-error-max").addClass('d-inline');
+        //     $("#descripcion-error-máx").addClass('d-inline');
         //     $('#descripcion').addClass('is-invalid');
         // }
         document.getElementById("count-words").innerHTML=words+" palabras";

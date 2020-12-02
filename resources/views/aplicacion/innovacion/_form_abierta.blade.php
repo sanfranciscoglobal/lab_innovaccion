@@ -3,7 +3,7 @@
             <label for="innovacion_abierta_sector_productivo" class="control-label">* Sector productivo</label>
             <div class= "m-0 p-0 w-100 form-group">
                                                                     
-                <select style="width:100%;" id="innovacion_abierta_sector_productivo" name="innovacion_sector_productivo[]"
+                <select style="width:100%;" id="innovacion_abierta_sector_productivo" name="innovacion_sector_productivo1[]"
                     class="form-control custom-select select2"
                     data-ajax--url="{{route('api.tipo-sector.select2','1')}}"
                     data-ajax--data-type="json"
@@ -30,7 +30,7 @@
             <label for="innovacion_abierta_subsector_productivo" class="control-label">* Subsector productivo</label>
             <div class= "m-0 p-0 w-100 form-group">
                                                                     
-                <select style="width:100%;" id="innovacion_abierta_subsector_productivo" name="innovacion_subsector_productivo[]"
+                <select style="width:100%;" id="innovacion_abierta_subsector_productivo" name="innovacion_subsector_productivo1[]"
                     class="form-control custom-select select2"
                     data-placeholder="Seleccione uno o varios subsectores"
                     data-close-on-select="false"
@@ -48,7 +48,7 @@
             <label for="innovacion_abierta_ods" class="control-label">* Objetivo de Desarrollo Sostenible (ODS)</label>
             <div class= "m-0 p-0 w-100 form-group">
                                                                     
-                <select style="width:100%;" id="innovacion_abierta_ods" name="innovacion_ods[]"
+                <select style="width:100%;" id="innovacion_abierta_ods" name="innovacion_ods1[]"
                     class="form-control custom-select select2"
                     data-ajax--url="{{route('api.ods-categoria.select2')}}"
                     data-ajax--data-type="json"
