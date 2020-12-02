@@ -77,14 +77,95 @@
                             <h3 class="mb-0 text-primary">
                                 {{$iniciativa->nombre_iniciativa}}
                             </h3>
-                            {{--<div class="text-justify my-2 scrolling" id="scrolling-{{rand(0,100)}}">--}}
-                            {{--<span class="text-warning d-block small">Descripci&oacute;n</span>--}}
-                            {{--{{$iniciativa->descripcion_iniciativa}}--}}
-                            {{--</div>--}}
 
                             <label class="mb-0 text-warning">
                                 {{$iniciativa->nombre_organizacion}}
                             </label>
+
+                            <div class="clearfix"></div>
+                            <a href="#accordion-example-{{$iniciativa->id}}" class="btn btn-primary btn-sm my-2"
+                               data-toggle="collapse" role="button" aria-expanded="false"
+                               aria-controls="multiCollapseExample1">
+                                Ver mas
+                            </a>
+                            <div class="collapse multi-collapse my-2" id="accordion-example-{{$iniciativa->id}}">
+                                <div class="card card-body mb-2">
+                                    <div class="text-justify">
+                                        <label for="" class="text-warning d-block">Componente Innovador</label>
+                                        {{$iniciativa->componente_innovador}}
+                                    </div>
+                                    <div class="text-justify">
+                                        @if($iniciativa->iniciativaOds()->count()>0)
+                                            <label for="" class="text-warning d-block mt-1">ODS</label>
+                                            @foreach($iniciativa->iniciativaOds as $ods)
+                                                {{--<span class="text-primary">--}}
+                                                {{$ods->OdsCategoria->nombre}}@if(!$loop->last), @endif
+                                                {{--</span>--}}
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                    <div class="text-justify">
+                                        @if($iniciativa->iniciativaPoblaciones()->count()>0)
+                                            <label for="" class="text-warning d-block mt-1">Grupo Objetivo</label>
+                                            @foreach($iniciativa->iniciativaPoblaciones as $iniciativaPoblacion)
+                                                {{$iniciativaPoblacion->tipoPoblacion->nombre}}@if(!$loop->last), @endif
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                    <div class="text-justify">
+                                        @if($iniciativaPoblacion->nombre_organizacion)
+                                            <label for="" class="text-warning">Nombre de la organización</label>
+                                            {{$iniciativaPoblacion->nombre_organizacion}}
+                                        @endif
+                                    </div>
+                                    <div class="text-justify">
+                                        @if($iniciativa->iniciativaInstituciones()->count()>0)
+                                            <label for="" class="text-warning d-block mt-1">Tipo de organización</label>
+                                            @foreach($iniciativa->iniciativaInstituciones as $iniciativaInstitucion)
+                                                {{$iniciativaInstitucion->tipoInstitucion->nombre}}@if(!$loop->last)
+                                                    , @endif
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                    <div class="text-justify">
+                                        @if($iniciativa->iniciativa_actor_enfoque)
+                                            <label for="" class="text-warning d-block mt-1">Enfoque</label>
+                                            {{$iniciativaInstitucion->iniciativa_actor_enfoque}}
+                                        @endif
+                                    </div>
+
+                                    <div class="text-justify">
+                                        @foreach($iniciativa->iniciativaContactos as $contacto)
+                                            <div for="">{{$contacto->correo_electronico}}</div>
+                                            <div for="">{{$contacto->celular}}</div>
+                                        @endforeach
+                                    </div>
+
+                                    <div class="text-justify">
+                                        @if($iniciativa->iniciativa_actor_sitio_web)
+                                            <div class="">
+                                                <a class="nav-link-style text-warning"
+                                                   href="{{url($iniciativa->iniciativa_actor_sitio_web)}}"
+                                                   target="_blank">
+                                                    {{$iniciativa->iniciativa_actor_sitio_web}}
+                                                </a>
+                                            </div>
+                                        @endif
+                                    </div>
+
+                                    <div class="text-justify">
+                                        @if($iniciativa->iniciativaActor)
+                                            <div class="text-black-50">
+                                                {{$iniciativa->iniciativa_ubicaciones_canton_nombres}}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            {{--</div>--}}
+
                             {{--<div class="text-justify instituciones">--}}
                             {{--@if($iniciativa->iniciativaInstituciones()->count()>0)--}}
                             {{--@foreach($iniciativa->iniciativaInstituciones as $institucion)--}}
