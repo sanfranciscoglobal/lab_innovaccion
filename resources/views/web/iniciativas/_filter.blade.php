@@ -20,10 +20,10 @@
                     <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12">
                         <div class="row">
                             <div class="col py-2 px-1">
-                                <a class="font-weight-bold btn btn-primary btn-block" href="#">MAPA</a>
+                                <a class="font-weight-bold btn btn-primary btn-block" href="{{route('web.iniciativas.mapa')}}">MAPA</a>
                             </div>
                             <div class="col py-2 pr-1">
-                                <a href="#modal-signin" style="border-color:#8B8B8B;background:#8B8B8B"
+                                <a href="{{route('web.iniciativas.index')}}" style="border-color:#8B8B8B;background:#8B8B8B"
                                    class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
                             </div>
                             <div class="col py-2 pr-3">
