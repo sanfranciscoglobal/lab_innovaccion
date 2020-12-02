@@ -74,17 +74,17 @@
                         <img class="d-block  mx-auto"
                              src="{{ asset('storage/iniciativas/'.$iniciativa->logo) }}"/>
                         <div class="card-body my-2 mx-3">
-                            <h4 class="h5 mb-0 text-primary">
+                            <h3 class="mb-0 text-primary">
                                 {{$iniciativa->nombre_iniciativa}}
-                            </h4>
+                            </h3>
                             {{--<div class="text-justify my-2 scrolling" id="scrolling-{{rand(0,100)}}">--}}
                             {{--<span class="text-warning d-block small">Descripci&oacute;n</span>--}}
                             {{--{{$iniciativa->descripcion_iniciativa}}--}}
                             {{--</div>--}}
 
-                            <h3 class="h5 mb-0 text-primary">
+                            <label class="mb-0 text-warning">
                                 {{$iniciativa->nombre_organizacion}}
-                            </h3>
+                            </label>
                             {{--<div class="text-justify instituciones">--}}
                             {{--@if($iniciativa->iniciativaInstituciones()->count()>0)--}}
                             {{--@foreach($iniciativa->iniciativaInstituciones as $institucion)--}}
