@@ -33,28 +33,28 @@
                     <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!<br>
                         Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
                 </div>
-                <p class="shadow-lg p-3 mb-5 btn-primary rounded" style="">
+                <p class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                     <strong>Indicaciones</strong>
                     <br>Revisa la lista de eventos y participa de estos espacios de intercambio.
                     <br>Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.
                 </p>
             </div>
-            
+
             <div class="d-none d-md-block col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/eventos.png') }}')" alt="Side banner"></div>
         </div>
         <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
                     video</span>
     </section>
-   
+
     <section class="container bg-overlay-content pt-3" >
-      
+
             <div class="row">
                 <div class="text-center  col-12 col-lg-8 offset-lg-2">
                         <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.eventos') }}">Publicar evento</a>
                 </div>
             </div>
-   
+
     </section>
     <section class="searchbar-container bg-overlay-content align-items-center" style="background: #f2f2f2;">
         <form class="container" action="{{route('eventos.search')}}" method="POST">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label class="form-label font-weight-bold" for="from-destination" style="color: #a13d8f">Cantón</label>
-             
+
                     <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
                             data-ajax--url="{{route('api.canton.select2')}}"
                             data-ajax--data-type="json"
@@ -87,8 +87,8 @@
                     </select>
                 </div>
                 {{-- <div class="d-sm-flex align-items-center">
-                    
-                    
+
+
                 </div> --}}
                <div class="text-center text-sm-left mt-2 mt-sm-4 mb-4">
                         <button class="btn " style="background: #ff7f00; color:#fafafc;" type="submit">Filtrar</button>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label class="form-label font-weight-bold" for="from-destination" style="color: #a13d8f">Cantón</label>
-             
+
                     <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
                             data-ajax--url="{{route('api.canton.select2')}}"
                             data-ajax--data-type="json"
@@ -127,7 +127,7 @@
                             multiple>
                     </select>
                 </div>
-                
+
                <div class="text-center text-sm-left mt-2 mt-sm-4 mb-4">
                         <button class="btn " style="background: #ff7f00; color:#fafafc;" type="submit">Filtrar</button>
                     </div>
@@ -135,13 +135,13 @@
             </div>
         </form>
     </section> --}}
-    
+
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <div class="row mb-4">
             @foreach ($eventos as $evento)
-                
+
                 {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                   
+
                     <div class="card  border-0 box-shadow mx-auto" style="max-width: 400px;">
                         <a class="media meta-link font-size-sm align-items-center" href="{{route('eventodetalle',$evento->id)}}">
                             <img class="card-img-top" style="height: 58ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
@@ -149,13 +149,13 @@
                                 <a class=" meta-link font-size-lg font-weight-bold align-items-center text-primary" href="{{route('eventodetalle',$evento->id)}}">{{$evento->nombre}}</a>
                             </div>
                         </a>
-                        
-                        
+
+
                     </div>
                 </div> --}}
-                    
+
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                
+
                 <div class="card card-hover border-0 box-shadow mx-auto">
                     <img class="card-img-top" style="height: 50ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}" />
                     <div class="card-body">
@@ -170,17 +170,17 @@
                         </div>
                         <span class="font-weight-bold"><i class="fe-message-square font-size-lg mr-2"></i> Descripción del Evento</span><br>
                         <p class="scrollable"  >{{$evento->descripcion}}</p>
-                       
-                        
+
+
                         <div class="mt-3 text-primary font-weight-semibold">
-                            
+
                             @if ($evento->tipo==0)
                                 <span class="font-weight-bold">
-                                <a class="btn btn-primary"  href="{{$evento->url}}">    
+                                <a class="btn btn-primary"  href="{{$evento->url}}">
                                     <i class="fe-link font-size-xl mr-2"></i> Link del evento
                                     </a>
                                 </span>
-                          
+
                             @else
                                 <span class="font-weight-bold">
                                 <a class="btn btn-primary" href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
@@ -188,14 +188,14 @@
 
                                     </a>
                                     </span>
-                               
+
                             @endif
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
-                
+
             @endforeach
             <div class="col-12">{{ $eventos->links() }}</div>
             <!-- Loop Start -->
@@ -272,31 +272,31 @@
                     </div>
                 </a>
             </div> --}}
-            
+
         </div>
     </section>
-    
+
 
 @endsection
 @section('footer')
 <script>
     $(document.body).on("change","#to-destination",function(){
-    
+
     $("#from-destination").empty();
     if (this.value==1) {
-        
+
         $("#from-destination").removeAttr('disabled');
-         
-    }
-    else{
-       
-        $("#from-destination").attr('disabled','disabled');   
 
     }
-    
+    else{
+
+        $("#from-destination").attr('disabled','disabled');
+
+    }
+
 
     });
 
 </script>
-    
+
 @endsection

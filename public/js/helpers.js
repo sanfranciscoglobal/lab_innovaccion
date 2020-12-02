@@ -142,7 +142,7 @@ if (document.querySelector('.dropify')) {
       errorsContainer: '<div class="dropify-errors-container"><ul></ul></div>'
     },
     error: {
-      'fileSize': 'El tamaño del archivo es demasiado grande ({{ value }} máximo).',
+      'fileSize': 'El tamaño del archivo es demasiado grande ({{ value }}B máximo).',
       'minWidth': 'El ancho de la imagen es demasiado pequeño ({{ value }}}px mínimo).',
       'maxWidth': 'El ancho de la imagen es demasiado grande ({{ value }}}px máximo).',
       'minHeight': 'La altura de la imagen es demasiado pequeña ({{ value }}}px mínimo).',
@@ -552,7 +552,7 @@ window.Select2Cascade = function (window, $) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/martinvelez/Desktop/urba/lab_innovaccion/resources/js/helpers.js */"./resources/js/helpers.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\lab_innovaccion\resources\js\helpers.js */"./resources/js/helpers.js");
 
 
 /***/ })
