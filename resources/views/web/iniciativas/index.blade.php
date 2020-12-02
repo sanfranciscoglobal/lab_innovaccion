@@ -108,7 +108,7 @@
                                         @if($iniciativa->iniciativaPoblaciones()->count()>0)
                                             <label for="" class="text-warning d-block mt-1">Grupo Objetivo</label>
                                             @foreach($iniciativa->iniciativaPoblaciones as $iniciativaPoblacion)
-                                                {{$iniciativaPoblacion->tipoPoblacion->nombre}}@if(!$loop->last), @endif
+                                                {{$iniciativaPoblacion->tipoPoblacion->descripcion}}@if(!$loop->last), @endif
                                             @endforeach
                                         @endif
                                     </div>
@@ -122,7 +122,7 @@
                                         @if($iniciativa->iniciativaInstituciones()->count()>0)
                                             <label for="" class="text-warning d-block mt-1">Tipo de organización</label>
                                             @foreach($iniciativa->iniciativaInstituciones as $iniciativaInstitucion)
-                                                {{$iniciativaInstitucion->tipoInstitucion->nombre}}@if(!$loop->last)
+                                                {{$iniciativaInstitucion->tipoInstitucion->descripcion}}@if(!$loop->last)
                                                     , @endif
                                             @endforeach
                                         @endif
