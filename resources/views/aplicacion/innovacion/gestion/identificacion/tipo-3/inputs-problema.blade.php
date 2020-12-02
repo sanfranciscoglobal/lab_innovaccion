@@ -104,7 +104,9 @@
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('problema', $problema->problema) ? '' : 'd-none' }}">
         <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="5" name="problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar." minlength="20" maxlength="500" required>{{ old('problema', $problema->problema) }}</textarea>
+        <textarea class="form-control" id="problema" rows="5" name="problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar." minlength="20" maxlength="500" required oninput="window.countCharacters('problema','problema_error','submit',25,500,'count_words_1');">{{ old('problema', $problema->problema) }}</textarea>
+        <span style="color: gray" id="count_words_1"></span>
+        <div class="invalid-feedback" id="problema_error"></div>
         @error('problema')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('sector', $problema->sector) ? '' : 'd-none' }}">
@@ -117,7 +119,6 @@
             <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
             <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
         </div>
-        <small id="emailHelp" class="form-text text-muted">Max. 10Mb</small>
         @else
         @php
             $img = asset('img/logo/logo-icon-footer.png');
@@ -126,7 +127,6 @@
             }
             @endphp
         <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" required data-default-file="{{$img}}" accept=".pdf" size="10000000">
-        <small id="emailHelp" class="form-text text-muted">Max. 10Mb</small>
         @endif
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>

@@ -68,7 +68,7 @@
 
                             </p>
                             <div class="media media-ie-fix align-items-center mr-3">
-                                <img class="rounded-sm" width="80"
+                                <img class="" width="80"
                                      src="{{asset('storage/iniciativas/'.$iniciativa->iniciativaInformacion->logo)}}"
                                      alt="{{$iniciativa->iniciativaInformacion->logo}}"/>
                                 <div class="media-body pl-2 ml-1">

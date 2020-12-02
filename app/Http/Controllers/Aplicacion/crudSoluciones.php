@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 // Helpers
 use App\Helpers\CustomUrl; // $string
 use App\Helpers\Archivos; // $nombre, $archivo, $disk
+use App\Mail\SolucionEmail;
+use App\Mail\Feedback;
 
 // Modelos
 use App\Models\Solucion;
@@ -41,11 +44,12 @@ class crudSoluciones extends Controller
                 $solucion->archivo = $imageName;
                 $solucion->save();
             }
+            Mail::to($solucion->problemaid->user->email)->send(new SolucionEmail($solucion));
             if($request->get('continue')){
                 $request->session()->put('step', '2');
-                return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 1 completada con éxito, continue con el siguiente paso', 'method' => 'PUT']);
+                return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 1 completada con éxito, continue con el siguiente paso.', 'method' => 'PUT']);
             } else {
-                return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 1 completada con éxito, no se olvide de completarla más tarde']);
+                return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 1 completada con éxito, recuerda de completarla más tarde.']);
             }
 
         }
@@ -124,8 +128,8 @@ class crudSoluciones extends Controller
     public function observacioncrear(ObservacionPost $request) {
 
         $validatedData = $request->validated();
-        if($observacion=SolucionObservacion::create($validatedData)){
-            
+        if($observacion = SolucionObservacion::create($validatedData)){
+            Mail::to($observacion->solucionid->user->email)->send(new Feedback($observacion));
             return back()->with('status', 'Observación creada con éxito.' );
         }
     }
