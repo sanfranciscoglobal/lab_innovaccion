@@ -82,12 +82,12 @@
                     {{$iniciativa->descripcion_iniciativa}}
                 </div>
                 <div class="text-justify">
-                    <label for="" class="text-primary d-block">Componente Innovador</label>
+                    <label for="" class="text-primary d-block font-weight-bold">Componente Innovador</label>
                     {{$iniciativa->componente_innovador}}
                 </div>
                 <div class="text-justify">
                     @if($iniciativa->iniciativaOds()->count()>0)
-                        <label for="" class="text-primary d-block mt-1">ODS</label>
+                        <label for="" class="text-primary d-block mt-1 font-weight-bold">ODS</label>
                         @foreach($iniciativa->iniciativaOds as $ods)
                             {{--<span class="text-primary">--}}
                             {{$ods->OdsCategoria->nombre}}@if(!$loop->last), @endif
@@ -97,7 +97,7 @@
                 </div>
                 <div class="text-justify">
                     @if($iniciativa->iniciativaPoblaciones()->count()>0)
-                        <label for="" class="text-primary d-block mt-1">Grupo Objetivo</label>
+                        <label for="" class="text-primary d-block mt-1 font-weight-bold">Grupo Objetivo</label>
                         @foreach($iniciativa->iniciativaPoblaciones as $iniciativaPoblacion)
                             {{$iniciativaPoblacion->tipoPoblacion->descripcion}}@if(!$loop->last)
                                 , @endif
@@ -106,13 +106,13 @@
                 </div>
                 <div class="text-justify">
                     @if($iniciativaPoblacion->nombre_organizacion)
-                        <label for="" class="text-primary">Nombre de la organización</label>
+                        <label for="" class="text-primary font-weight-bold">Nombre de la organización</label>
                         {{$iniciativaPoblacion->nombre_organizacion}}
                     @endif
                 </div>
                 <div class="text-justify">
                     @if($iniciativa->iniciativaInstituciones()->count()>0)
-                        <label for="" class="text-primary d-block mt-1">Tipo de organización</label>
+                        <label for="" class="text-primary d-block mt-1 font-weight-bold">Tipo de organización</label>
                         @foreach($iniciativa->iniciativaInstituciones as $iniciativaInstitucion)
                             {{$iniciativaInstitucion->tipoInstitucion->descripcion}}@if(!$loop->last)
                                 , @endif
@@ -121,14 +121,14 @@
                 </div>
                 <div class="text-justify">
                     @if($iniciativa->iniciativa_actor_enfoque)
-                        <label for="" class="text-primary d-block mt-1">Enfoque</label>
+                        <label for="" class="text-primary d-block mt-1 font-weight-bold">Enfoque</label>
                         {{$iniciativa->iniciativa_actor_enfoque}}
                     @endif
                 </div>
 
                 <div class="text-justify">
                     @if($iniciativa->iniciativaContactos()->count()>0)
-                        <label for="" class="text-primary">Contacto</label>
+                        <label for="" class="text-primary font-weight-bold">Contacto</label>
                         @foreach($iniciativa->iniciativaContactos as $contacto)
                             <div for="">{{$contacto->correo_electronico}}</div>
                             <div for="">{{$contacto->celular}}</div>
