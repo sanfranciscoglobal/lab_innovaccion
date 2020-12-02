@@ -11,14 +11,12 @@
             
             <div class="">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                         <div class="row">
                             <div class="col py-2 ">
                                     <a class="font-weight-bold btn btn-primary btn-block"  href="#">MAPA</a>
                             </div>
-                            <div class="col py-2 ">
-                                    <a href="#modal-signin" style="border-color:#8B8B8B;background:#8B8B8B" class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
-                            </div>
+                            
                             <div class="col  py-2">
                                     <a href="#modal-signin" class="font-weight-bold btn btn-primary btn-block">ANALÍTICA</a>
                             </div>
@@ -43,7 +41,7 @@
                     </div>
 
                 
-                    <div class="col-lg-3 col-md-12">
+                    <div class="col-lg col-xl-3 col-md-12">
                         <a href="{{route('app.iniciativas.create')}}" class="font-weight-bold btn btn-primary" style="border-color:#fd972b;background: #fd972b;" >Registra tu iniciativa</a>
                     </div>      
         </div>

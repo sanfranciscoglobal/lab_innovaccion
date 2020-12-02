@@ -4,6 +4,19 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\IniciativasExport;
+use App\Helpers\Archivos;
+use App\Helpers\Helper;
+use App\Models\Canton;
+use App\Models\Iniciativas;
+use App\Models\OdsCategoria;
+use App\Models\TipoInstitucion;
+use App\Models\TipoPoblacion;
+use App\Models\Problema;
+use App\Models\Convocatoria;
+use App\Models\TipoConvocatoria;
+use App\Models\User;
+use Carbon\Carbon;
 
 class MapaProblemas extends Controller
 {
@@ -15,7 +28,15 @@ class MapaProblemas extends Controller
      */
     public static function data(Request $request)
     {
-        
+        $convocatorias=TipoConvocatoria::all();
+        foreach( $convocatorias as $tipo){
+            $tipo=$tipo->convocatorias;
+            foreach( $tipo as $conv){
+                $conv->problemas;
+            }
+
+        }
+       
         Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
         Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
         Iniciativas::$search_tipo_institucion = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
@@ -32,6 +53,6 @@ class MapaProblemas extends Controller
            $x->iniciativaOds;
            $x->iniciativaPoblacionesCompleto;
         }
-        return view('web.iniciativas.visualmapa',compact('iniciativas'));
+        return view('web.iniciativas.problemasmapa',compact('iniciativas','convocatorias'));
     }
 }
