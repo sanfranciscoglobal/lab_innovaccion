@@ -139,7 +139,9 @@ class crudProblemas extends Controller
         
         $request->session()->forget('step', '3');
 
-        return redirect()->route('home')->with('status', 'Problema modificado con éxito');
+        // return redirect()->route('home')->with('status', 'Problema modificado con éxito');
+        return redirect()->route('innovaciongestion.ver',$problema->tipo_convocatoria_id)->with('status', 'Problema modificado con éxito');
+        
     }
 
     /**

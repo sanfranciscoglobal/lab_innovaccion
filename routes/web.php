@@ -196,7 +196,7 @@ Route::as('admin.')
             // Route::resource('abreviatura', 'AbreviaturaController');
             Route::get('dashboard', 'Backend\DashboardController@dashboard')->name('escritorio');
             Route::get('/escritorio/inicial', 'Backend\DashboardController@verInicial')->name('escritorio.incial');
-            Route::get('/escritorio/convocatorias', 'Backend\DashboardController@verConvocatoria')->name('escritorio.convocatoria');
+            Route::get('/dashboard/convocatorias', 'Backend\DashboardController@verConvocatoria')->name('escritorio.convocatoria');
             /** Rutas Innovacion */
             //FASE A
             Route::get('/innovacion/crear', 'Aplicacion\InnovacionController@frmInnovacionAbiertaIdentificacion')->name('innovacionabiertaidentificacion');
