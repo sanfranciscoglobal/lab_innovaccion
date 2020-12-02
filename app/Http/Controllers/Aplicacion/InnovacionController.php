@@ -64,7 +64,7 @@ class InnovacionController extends Controller
         }
 
         $tipo = $convocatoria->tipoconvocatoria_id;
-        $url = route("app.problemas.update", [$convocatoria->id, $problema->id]);
+        $url = route("app.problemas.update", [$problema->id]);
         $url2 = route("app.problemas.update.fase2", [$problema->id]);
         $url3 = route("app.problemas.update.fase3", [$problema->id]);
         return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'method' => 'PUT']);

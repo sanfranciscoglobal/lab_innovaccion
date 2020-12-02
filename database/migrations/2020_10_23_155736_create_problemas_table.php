@@ -17,6 +17,7 @@ class CreateProblemasTable extends Migration
             $table->id();
             $table->foreignId('convocatoria_id')->constrained('convocatorias');
             $table->foreignId('tipo_convocatoria_id')->constrained('tipo_convocatoria');
+            $table->string('nombre', 150);
             $table->boolean('sector')->nullable();
             $table->boolean('subsector')->nullable();
             $table->boolean('confidencial')->nullable();

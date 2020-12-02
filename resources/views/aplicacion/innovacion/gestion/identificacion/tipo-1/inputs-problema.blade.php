@@ -123,6 +123,13 @@
             <p>Esta convocatoria busca generar porcesos de innovación abierta que requieren la participación de agente externos.</p>
         </div>
     </div>
+    <div class="controls-container mb-3 has-parent interactuar {{ old('nombre', $problema->nombre) ? '' : 'd-none' }}">
+        <div class="form-group">
+            <label for="nombre">* Nombre del problema (150 caractéres)</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" minlength="10" maxlength="150" value="{{ old('nombre', $problema->nombre) }}" required>
+        </div>
+        @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+    </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('actividad', $problema->actividad) ? '' : 'd-none' }}">
         <label class="control-label">* Describe cuál es la actividad productiva que realizas, y en la cual se ha presentado el problema detectado (400 caractéres)</label>
         <textarea class="form-control" id="grupo_social" rows="3" name="actividad" placeholder="NUESTRA EMPRESA/PROYECTO/EQUIPO produce enlatados de frutas para exportación, ACTIVIDAD EN LA CUAL TENEMOS EL PROBLEMA de alto costo en el proceso de recepción de materia prima y su clasificación." minlength="20" maxlength="400" required oninput="window.countCharacters('grupo_social','grupo_social_error','submit',25,400,'count_words_2');">{{ old('actividad', $problema->actividad) }}</textarea>
@@ -139,23 +146,13 @@
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('sector', $problema->sector) ? '' : 'd-none' }}">
         <label for="archivo">* Carga un archivo complementario (Max. 10Mb)</label>
-        @if($method == 'POST')
-        <div class="cs-file-drop-area">
-            <div class="cs-file-drop-icon fe-upload"></div>
-            <span class="cs-file-drop-message">ARRASTRA Y SUELTA AQUÍ PARA SUBIR</span>
-            <input type="file" class="cs-file-drop-input" title="Avatar del usuario" name="archivo" id="pdf" accept=".pdf" size="10000000" required>
-            <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
-            <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
-        </div>
-        @else
         @php
             $img = asset('img/logo/logo-icon-footer.png');
             if(Storage::disk('problemas')->exists($problema->archivo)){
                 $img =  asset('storage/problemas/'.$problema->archivo);
             }
             @endphp
-        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" required data-default-file="{{$img}}" accept=".pdf" size="10000000">
-        @endif
+        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" data-max-file-size="10M" @if($method == 'POST') required @endif>
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>

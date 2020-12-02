@@ -34,7 +34,7 @@
   <section class="container my-lg-2 pt-5 pb-lg-5">
     <div class="row align-items-center">
         <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-          <h1 class="mt-5">{{$sectoresArray}}</h1>
+          <h1 class="mt-5">{{ $problema->nombre }}</h1>
         </div>
         <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
     </div>

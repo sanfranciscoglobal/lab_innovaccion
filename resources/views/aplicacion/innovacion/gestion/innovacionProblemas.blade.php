@@ -143,25 +143,14 @@
                   </div>
                 </div> --}}
               </div>
-              
-    
- 
             </article>    
         </div>
       </div>
-     
     </section>
-
-
-
-
-
 
 
     <section>
         <div class="container my-5">
-          
-          @auth
           @if ($convocatoria->fecha_inicio > date('Y-m-d') || $convocatoria->fecha_cierre < date('Y-m-d'))
           <div class="w-100 d-flex justify-content-center mt-3">
             <p class="text-center text-primary">Esta convocatoria esta cerrada y no admite mas problemas.</p>
@@ -171,11 +160,6 @@
             <a class="btn btn-primary" href="{{ route('app.innovaciongestion', $convocatoria->id) }}" role="button">Registra un nuevo problema</a>
           </div>
           @endif
-          @else
-          <div class="w-100 d-flex justify-content-center mt-3">
-            <p class="text-center text-primary">Para registra un nuevo problema inicia session primero.</p>
-          </div>
-          @endauth
         </div>
     </section>
     <section class="container mb-5">
@@ -189,43 +173,99 @@
             $causas = json_decode($problema->causas, true) ?? null;
             $efectos = json_decode($problema->efectos, true) ?? null;
             $keyword = json_decode($problema->keyword, true) ?? null;
+
+            $eslabon = null;
+            if(isset($problema->eslabon)){
+              switch ((int)$problema->eslabon) {
+                case 1:
+                  $eslabon = "Relación con los proveedores y logística";
+                  break;
+                case 2:
+                  $eslabon = "Características de los insumos y su rendimiento";
+                  break;
+                case 3:
+                  $eslabon = "Desarrollo del proceso productivo directo, recursos y talento humano";
+                  break;
+                case 4:
+                  $eslabon = "Obetnción de productos terminados o semiterminados";
+                  break;
+                case 5:
+                  $eslabon = "Relación con los clientes y el mercado";
+                  break;
+              }
+            }
         @endphp
         <div class="col-12 col-md-6 p-2">
           <div class="card text-left">
             {{-- <img class="card-img-top" src="holder.js/100px180/" alt=""> --}}
             <div class="card-body">
               <div class="mb-3">
-                <h4 class="card-title">Title</h4>
+                <h4 class="card-title">{{ $problema->nombre }}</h4>
                 <h6 class="card-subtitle">Registrado el {{ date('Y-m-d', strtotime($problema->created_at)) }}</h6>
                 {{-- <p class="card-text">{{ $problema->problema }}</p> --}}
               </div>
+              @if (isset($problema->actividad))    
               <div class="mb-3">
-                <h4 class="card-title">Causas del Problema</h4>
-                <ul class="text-muted">
-                  <li>{{ $causas[1] ?? '' }}</li>
-                  <li>{{ $causas[2] ?? '' }}</li>
-                  <li>{{ $causas[3] ?? '' }}</li>
-                </ul>
+                <h4 class="card-title">Actividad productiva</h4>
+                <p class="card-text">{{ $problema->actividad }}</p>
               </div>
-              <div class="mb-3">
-                <h4 class="card-title">Efectos del Problema</h4>
-                <ul class="text-muted">
-                  <li>{{ $efectos[1] ?? '' }}</li>
-                  <li>{{ $efectos[2] ?? '' }}</li>
-                  <li>{{ $efectos[3] ?? '' }}</li>
-                </ul>
-              </div>
+              @endif
               <div class="mb-3">
                 <h4 class="card-title">Describe como afecta el Problema</h4>
                 <p class="card-text">{{ $problema->problema }}</p>
               </div>
               <div class="mb-3">
+                <h4 class="card-title">Causas del Problema</h4>
+                <ul class="text-muted">
+                  <li>{{ $causas[1] ?? 'N/A' }}</li>
+                  <li>{{ $causas[2] ?? 'N/A' }}</li>
+                  <li>{{ $causas[3] ?? 'N/A' }}</li>
+                </ul>
+              </div>
+              <div class="mb-3">
+                <h4 class="card-title">Efectos del Problema</h4>
+                <ul class="text-muted">
+                  <li>{{ $efectos[1] ?? 'N/A' }}</li>
+                  <li>{{ $efectos[2] ?? 'N/A' }}</li>
+                  <li>{{ $efectos[3] ?? 'N/A' }}</li>
+                </ul>
+              </div>
+              @if (isset($problema->eslabon))    
+              <div class="mb-3">
+                <h4 class="card-title">Eslabón de la cadena productiva</h4>
+                <p class="card-text">{{ $eslabon }}</p>
+                <p class="card-text">{{ $problema->descripcion_grupo }}</p>
+              </div>
+              @endif
+              @if (isset($problema->grupo_social))    
+              <div class="mb-3">
+                <h4 class="card-title">Grupo social afectado</h4>
+                <p class="card-text">{{ $problema->grupo_social }}</p>
+                <p class="card-text">{{ $problema->descripcion_grupo }}</p>
+              </div>
+              @endif
+              @if (isset($problema->ubacacion))    
+              <div class="mb-3">
+                <h4 class="card-title">Datos de contacto</h4>
+                <p class="card-text">{{ $problema->telefono }}</p>
+                <p class="card-text">{{ $problema->ubicacion }}</p>
+              </div>
+              @endif
+              <div class="mb-3">
                 <h4 class="card-title">Palabras o conceptos clave</h4>
                 <ul class="text-muted">
-                  <li>{{ $keyword[1] ?? '' }}</li>
-                  <li>{{ $keyword[2] ?? '' }}</li>
-                  <li>{{ $keyword[3] ?? '' }}</li>
+                  <li>{{ $keyword[1] ?? 'N/A' }}</li>
+                  <li>{{ $keyword[2] ?? 'N/A' }}</li>
+                  <li>{{ $keyword[3] ?? 'N/A' }}</li>
                 </ul>
+              </div>
+              <div class="mb-3">
+                <h4 class="card-title"><i class="fe-file font-size-xl mr-2"></i>Archivos</h4>         
+                <span class="card-text text-muted"><i class="czi-message text-muted mr-2"></i>{{$problema->archivo}}
+                </span>
+                @if ($problema->archivo)
+                <a class="badge badge-lg" href="{{route('problemas.download', $problema->archivo)}}"><i class="fe-download text-muted mr-2"></i></a>
+                @endif
               </div>
               <div class="text-center">
                 <a class="btn btn-primary btn-small mb-4" href="{{route("soluciones.ver",$problema->id)}}">SOLUCIONES REGISTRADAS</a>
