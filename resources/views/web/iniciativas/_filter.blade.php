@@ -3,20 +3,10 @@
     @csrf
     <div class=" align-items-center  h-100 bg-light rounded-lg box-shadow-lg p-6">
         <div class="w-100 center-block text-left pl-5 pt-1">
-
-
             <div class="">
                 <div class="row align-items-center">
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                         <div class="row">
-<<<<<<< HEAD
-                            <div class="col py-2 ">
-                                    <a class="font-weight-bold btn btn-primary btn-block"  href="#">MAPA</a>
-                            </div>
-                            
-                            <div class="col  py-2">
-                                    <a href="#modal-signin" class="font-weight-bold btn btn-primary btn-block">ANALÍTICA</a>
-=======
                             <div class="col py-2 px-2">
                                 <a class="font-weight-bold btn btn-primary btn-block" href="#">MAPA</a>
                             </div>
@@ -29,9 +19,7 @@
                                    class="font-weight-bold btn btn-primary btn-block">
                                     ANALÍTICA
                                 </a>
->>>>>>> 3b56b58cbb410c25aba59a9fcf78bb884890d204
                             </div>
-
                         </div>
                     </div>
                     <div class="my-2 col-md-6 col-lg-2 col-sm-12 ">
@@ -53,96 +41,6 @@
                         </div>
 
                     </div>
-
-<<<<<<< HEAD
-                
-                    <div class="col-lg col-xl-3 col-md-12">
-                        <a href="{{route('app.iniciativas.create')}}" class="font-weight-bold btn btn-primary" style="border-color:#fd972b;background: #fd972b;" >Registra tu iniciativa</a>
-                    </div>      
-        </div>
-        
-        <div class="row pt-1 ml-2 mr-2 align-items-center">
-        <div class="w-100 center-block text-left pl-md-5 pt-1">
-                                <h2 style="color:#531c6a" class="align-items-center">Filtros</h2> 
-                                    <div class="row pt-1 ml-md-2 mr-md-2 align-items-center">
-                                        <div class="col">
-                                            <span class="font-weight-bold  d-block" style="color:#531c6a " for="from-destination">Ciudad</span>
-                                            <select id="canton_id" class="form-control custom-select select2"
-                                                    name="canton_id[]"
-                                                    data-ajax--url="{{route('api.canton.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    style="width:100%;"
-                                                    data-placeholder="Seleccionar ciudad"
-                                                    multiple>
-                                                @foreach($cantones as $canton)
-                                                    <option value="{{$canton->id}}" selected>{{$canton->nombre}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
-                                            <select id="tipo_institucion" name="tipo_institucion[]"
-                                                    class="form-control custom-select select2"
-                                                    data-ajax--url="{{route('api.tipo-institucion.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    data-placeholder="Seleccionar tipo institución"
-                                                    style="width:100%;"
-                                                    multiple>
-
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <span class="ml-md-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >ODS</span>
-                                            <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
-                                                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    style="width:100%;"
-                                                    data-placeholder="Seleccionar ODS"
-                                                    multiple>
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Población Objetivo</span>
-                                            <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
-                                                    class="form-control select2"
-                                                    data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    data-placeholder="Seleccionar población objetivo"
-                                                    multiple>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-2 col-xl-2  col-md-2 col-sm-3 pt-3">
-                                        <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit" style="border-color:#FF7F00;background: #FF7F00; width: 150px;" >
-                                            Aplicar
-                                        </button>
-                                        </div>
-                                    </div>
-                                    <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
-                                            
-                                    <button style="width: 220px;" type="button" class="col-sm-12 col-md-6 col-lg-4 font-weight-bold btn btn-primary mr-5 btn-filter-submit"
-                                            data-action="{{route('web.iniciativas.exportar-excel')}}">
-                                        Descargar datos
-                                    </button>
-                                    <button type="button" class="col-sm-12 col-md-6 col-lg-4 font-weight-bold btn btn-primary mr-3 btn-filter-submit"
-                                            style="border-color:#7A3240;background:#7A3240 "
-                                            data-action="{{route('web.iniciativas.exportar-excel')}}">
-                                            <img src="{{ asset('images/Group 161.svg')}}"/>
-                                        Ver mapa completo
-                                    </button>
-                                    </p>
-                                </div>
-                          
-
-        
-        </p>
-=======
 
                     <div class="col-lg-3 col-md-12">
                         <a href="{{route('app.iniciativas.create')}}" class="font-weight-bold btn btn-primary"
@@ -218,9 +116,6 @@
                             </button>
                         </p>
                     </div>
-
-
-                    {{--</p>--}}
                 </div>
 
 
@@ -294,7 +189,6 @@
                 {{--</div>--}}
             </div>
         </div>
->>>>>>> 3b56b58cbb410c25aba59a9fcf78bb884890d204
     </div>
 </form>
 
