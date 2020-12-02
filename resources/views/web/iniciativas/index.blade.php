@@ -77,87 +77,74 @@
                             <h4 class="h5 mb-0 text-primary">
                                 {{$iniciativa->nombre_iniciativa}}
                             </h4>
-                            <div class="text-justify my-2 scrolling" id="scrolling-{{rand(0,100)}}">
-                                <span class="text-warning d-block small">Descripci&oacute;n</span>
-                                {{$iniciativa->descripcion_iniciativa}}
-                            </div>
+                            {{--<div class="text-justify my-2 scrolling" id="scrolling-{{rand(0,100)}}">--}}
+                            {{--<span class="text-warning d-block small">Descripci&oacute;n</span>--}}
+                            {{--{{$iniciativa->descripcion_iniciativa}}--}}
+                            {{--</div>--}}
 
                             <h3 class="h5 mb-0 text-primary">
                                 {{$iniciativa->nombre_organizacion}}
                             </h3>
-                            <div class="text-justify instituciones">
-                                @if($iniciativa->iniciativaInstituciones()->count()>0)
-                                    @foreach($iniciativa->iniciativaInstituciones as $institucion)
-                                        <span class="text-primary">
-                                            {{$institucion->tipoInstitucion->descripcion}}@if(!$loop->last), @endif
-                                        </span>
-                                    @endforeach
-                                @endif
-                            </div>
+                            {{--<div class="text-justify instituciones">--}}
+                            {{--@if($iniciativa->iniciativaInstituciones()->count()>0)--}}
+                            {{--@foreach($iniciativa->iniciativaInstituciones as $institucion)--}}
+                            {{--<span class="text-primary">--}}
+                            {{--{{$institucion->tipoInstitucion->descripcion}}@if(!$loop->last), @endif--}}
+                            {{--</span>--}}
+                            {{--@endforeach--}}
+                            {{--@endif--}}
+                            {{--</div>--}}
 
-                            @if($iniciativa->iniciativa_actor_enfoque)
-                                <span class="text-warning small">Enfoque</span>
-                                <div class="text-justify scrolling" id="scrolling-{{rand(0,100)}}">
-                                    {{$iniciativa->iniciativa_actor_enfoque}}
-                                </div>
-                            @endif
+                            {{--@if($iniciativa->iniciativa_actor_enfoque)--}}
+                            {{--<span class="text-warning small">Enfoque</span>--}}
+                            {{--<div class="text-justify scrolling" id="scrolling-{{rand(0,100)}}">--}}
+                            {{--{{$iniciativa->iniciativa_actor_enfoque}}--}}
+                            {{--</div>--}}
+                            {{--@endif--}}
 
-                            <div class="text-justify py-2 small">
-                                @if($iniciativa->iniciativaContactos()->count()>0)
-                                    <label class="text-warning">Contacto</label>
-                                    @foreach($iniciativa->iniciativaContactos as $contacto)
-                                        <div for="">{{$contacto->correo_electronico}}</div>
-                                        <div for="">{{$contacto->celular}}</div>
-                                    @endforeach
-                                @endif
-                                @if($iniciativa->iniciativa_actor_sitio_web)
-                                    {{--<div class="">--}}
-                                        <a class="nav-link-style text-warning"
-                                           href="{{url($iniciativa->iniciativa_actor_sitio_web)}}" target="_blank">
-                                            {{$iniciativa->iniciativa_actor_sitio_web}}
-                                        </a>
-                                    {{--</div>--}}
-                                @endif
-                                @if($iniciativa->iniciativaActor)
-                                    <div class="text-black-50">
-                                        {{$iniciativa->iniciativa_ubicaciones_canton_nombres}}
-                                    </div>
-                                @endif
-                            </div>
+                            {{--<div class="text-justify py-2 small">--}}
+                            {{--@if($iniciativa->iniciativaContactos()->count()>0)--}}
+                            {{--<label class="text-warning">Contacto</label>--}}
+                            {{--@foreach($iniciativa->iniciativaContactos as $contacto)--}}
+                            {{--<div for="">{{$contacto->correo_electronico}}</div>--}}
+                            {{--<div for="">{{$contacto->celular}}</div>--}}
+                            {{--@endforeach--}}
+                            {{--@endif--}}
+                            {{--@if($iniciativa->iniciativa_actor_sitio_web)--}}
+                            {{--<div class="">--}}
+                            {{--<a class="nav-link-style text-warning"--}}
+                            {{--href="{{url($iniciativa->iniciativa_actor_sitio_web)}}" target="_blank">--}}
+                            {{--{{$iniciativa->iniciativa_actor_sitio_web}}--}}
+                            {{--</a>--}}
+                            {{--</div>--}}
+                            {{--@endif--}}
+                            {{--@if($iniciativa->iniciativaActor)--}}
+                            {{--<div class="text-black-50">--}}
+                            {{--{{$iniciativa->iniciativa_ubicaciones_canton_nombres}}--}}
+                            {{--</div>--}}
+                            {{--@endif--}}
+                            {{--</div>--}}
 
-                            <span class="text-warning d-block small pt-2">Registro</span>
-                            <div class="media meta-link align-items-center">
-                                <img class="rounded-circle" width="50"
-                                     src="{{asset('storage/perfil/'.$iniciativa->user_imagen)}}">
-                                <div class="media-body pl-2 ml-1 small">
-                                    <span class="font-weight-semibold d-block w-100">
-                                        {{$iniciativa->user_name}}
-                                    </span>
-                                    <span class="font-size-sm d-block w-100">
-                                        <a class="nav-link-style" href="mailto:{{$iniciativa->user_email}}">
-                                            {{$iniciativa->user_email}}
-                                        </a>
-                                    </span>
-                                    <span class="font-size-sm d-block w-100">
-                                        <a class="nav-link-style" href="tel:{{$iniciativa->user_celular}}">
-                                            {{$iniciativa->user_celular}}
-                                        </a>
-                                    </span>
-                                    {{--@if($iniciativa->iniciativa_actor_sitio_web)--}}
-                                        {{--<div class="">--}}
-                                            {{--<a class="nav-link-style text-warning"--}}
-                                               {{--href="{{url($iniciativa->iniciativa_actor_sitio_web)}}" target="_blank">--}}
-                                                {{--{{$iniciativa->iniciativa_actor_sitio_web}}--}}
-                                            {{--</a>--}}
-                                        {{--</div>--}}
-                                    {{--@endif--}}
-                                    {{--@if($iniciativa->iniciativaActor)--}}
-                                        {{--<div for="">--}}
-                                            {{--{{$iniciativa->iniciativa_ubicaciones_canton_nombres}}--}}
-                                        {{--</div>--}}
-                                    {{--@endif--}}
-                                </div>
-                            </div>
+                            {{--<span class="text-warning d-block small pt-2">Registro</span>--}}
+                            {{--<div class="media meta-link align-items-center">--}}
+                            {{--<img class="rounded-circle" width="50"--}}
+                            {{--src="{{asset('storage/perfil/'.$iniciativa->user_imagen)}}">--}}
+                            {{--<div class="media-body pl-2 ml-1 small">--}}
+                            {{--<span class="font-weight-semibold d-block w-100">--}}
+                            {{--{{$iniciativa->user_name}}--}}
+                            {{--</span>--}}
+                            {{--<span class="font-size-sm d-block w-100">--}}
+                            {{--<a class="nav-link-style" href="mailto:{{$iniciativa->user_email}}">--}}
+                            {{--{{$iniciativa->user_email}}--}}
+                            {{--</a>--}}
+                            {{--</span>--}}
+                            {{--<span class="font-size-sm d-block w-100">--}}
+                            {{--<a class="nav-link-style" href="tel:{{$iniciativa->user_celular}}">--}}
+                            {{--{{$iniciativa->user_celular}}--}}
+                            {{--</a>--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>
