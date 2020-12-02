@@ -83,10 +83,15 @@
                             </label>
 
                             <div class="clearfix"></div>
-                            <a href="#accordion-example-{{$iniciativa->id}}" class="btn btn-primary btn-sm my-2"
-                               data-toggle="collapse" role="button" aria-expanded="false"
-                               aria-controls="multiCollapseExample1">
-                                Ver mas
+                            <a href="{{route('web.iniciativas.show', $iniciativa->id)}}"
+                               {{--href="#accordion-example-{{$iniciativa->id}}"--}}
+                               class="btn btn-primary btn-sm my-2"
+                                    {{--data-toggle="collapse" --}}
+                                    {{--role="button" --}}
+                                    {{--aria-expanded="false"--}}
+                                    {{--aria-controls="multiCollapseExample1"--}}
+                            >
+                                Ver m&aacute;s
                             </a>
                             <div class="collapse multi-collapse my-2" id="accordion-example-{{$iniciativa->id}}">
                                 <div class="card card-body mb-2">
@@ -108,7 +113,8 @@
                                         @if($iniciativa->iniciativaPoblaciones()->count()>0)
                                             <label for="" class="text-warning d-block mt-1">Grupo Objetivo</label>
                                             @foreach($iniciativa->iniciativaPoblaciones as $iniciativaPoblacion)
-                                                {{$iniciativaPoblacion->tipoPoblacion->descripcion}}@if(!$loop->last), @endif
+                                                {{$iniciativaPoblacion->tipoPoblacion->descripcion}}@if(!$loop->last)
+                                                    , @endif
                                             @endforeach
                                         @endif
                                     </div>
