@@ -102,23 +102,23 @@
                 <a class="btn btn-primary mb-3" href="{{route('soluciondetalle.ver',$solucion->id)}}">Ver solución</a>
                 <ul class="d-flex justify-content-center list-inline">
                   <li class="list-inline-item m-0">
-                    <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="{{ $solucion->facebook ?? '#' }}">
+                    <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="https://www.facebook.com/sharer/sharer.php?u={{ $solucion->facebook ?? '#' }}">
                       <i class="fe-facebook"></i>
                     </a>
                   </li>
                   <li class="list-inline-item m-0">
-                    <a class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2 mr-md-3" href="{{ $solucion->twitter ?? '#' }}">
+                    <a class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2 mr-md-3" href="https://twitter.com/intent/tweet?url={{ $solucion->twitter ?? '#' }}">
                       <i class="fe-twitter"></i>
                     </a>
                   </li>
-                  <li class="list-inline-item m-0">
+                  {{-- <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="{{ $solucion->instagram ?? '#' }}">
                       <i class="fe-instagram"></i>
                     </a>
-                  </li>
+                  </li> --}}
                   <li class="list-inline-item m-0">
-                    <a class="social-btn sb-outline sb-youtube sb-dark sb-sm" href="{{ $solucion->youtube ?? '#' }}">
-                      <i class="fe-youtube"></i>
+                    <a class="social-btn sb-outline sb-linkedin sb-dark sb-sm" href="https://www.linkedin.com/shareArticle?url={{ $solucion->linkedin ?? '#' }}">
+                      <i class="fe-linkedin"></i>
                     </a>
                   </li>
                 </ul>
@@ -127,6 +127,9 @@
           </div>
         </div>
         @endforeach
+        <div class="col-12 text-center">
+          {{ $soluciones->links() }}
+        </div>
       </div>
     </section>
 @endsection

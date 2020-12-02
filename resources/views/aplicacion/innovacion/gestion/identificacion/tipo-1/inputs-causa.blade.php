@@ -52,7 +52,9 @@
     </div>
     <div class="controls-container mb-3">
         <label class="control-label">* Describe qué es lo que está pasando en el eslabón de la cadena productiva que señalaste (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="4" name="descripcion_grupo" minlength="10" maxlength="500" placeholder="Ejemplo: LA CADENA PRODUCTIVA SE HA VISTO AFECTADA PORQUE el proveedor entrega materia prima que no cumple con los estándares requeridos, LO CUAL OCASIONA uso de más tiempo y mano de obra en la clasificación de la materia prima que encarece el producto y limita el acceso a más producto exportable." required>{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
+        <textarea class="form-control" id="descripcion_grupo" rows="4" name="descripcion_grupo" minlength="10" maxlength="500" placeholder="Ejemplo: LA CADENA PRODUCTIVA SE HA VISTO AFECTADA PORQUE el proveedor entrega materia prima que no cumple con los estándares requeridos, LO CUAL OCASIONA uso de más tiempo y mano de obra en la clasificación de la materia prima que encarece el producto y limita el acceso a más producto exportable." required oninput="window.countCharacters('descripcion_grupo','descripcion_grupo_error','submit',25,500,'count_words_1');">{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
+        <span style="color: gray" id="count_words_1"></span>
+        <div class="invalid-feedback" id="descripcion_grupo_error"></div>
         @error('eslabon')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3">

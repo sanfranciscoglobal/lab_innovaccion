@@ -118,7 +118,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="org_logo">* Logotipo <small class="text-muted">(Máx. 2Mb)</small></label>
+                                                <label for="org_logo">* Logotipo <small class="text-muted">(máx. 2MB)</small></label>
                                                 @php
                                                     if($fondo->imagen){
                                                         $img = asset('storage/fondos/'.$fondo->imagen);

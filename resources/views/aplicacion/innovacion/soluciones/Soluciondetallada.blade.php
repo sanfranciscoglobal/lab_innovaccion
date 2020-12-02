@@ -80,14 +80,14 @@
 
           <div class="mb-3">
             <h4 class="card-title">Nivel actual de desarrollo de la Solución</h4>
-            <p class="card-text">{{ $solucion->nivelsolucionid->nombre }}</p>
+            <p class="card-text">{{ $solucion->nivelsolucionid->nombre ?? 'N/A' }}</p>
           </div>
           <div class="mb-3">
             <h4 class="card-title">Palabras o conceptos clave</h4>
             <ul class="text-muted">
-              <li>{{$solucion->concepto1 }}</li>
-              <li>{{$solucion->concepto2 }}</li>
-              <li>{{ $solucion->concepto3 }}</li>
+              <li>{{$solucion->concepto1 ?? 'N/A' }}</li>
+              <li>{{$solucion->concepto2 ?? 'N/A' }}</li>
+              <li>{{ $solucion->concepto3 ?? 'N/A' }}</li>
             </ul>
           </div>
 

@@ -31,9 +31,11 @@
     </div>
     <div class="controls-container mb-3">
         <label class="control-label">* Describe cómo le afecta al grupo social que has señalado (500 caractéres)</label>
-        <textarea class="form-control" id="textarea-input" rows="3" name="descripcion_grupo"  placeholder="Ejemplo:
+        <textarea class="form-control" id="descripcion_grupo" rows="3" name="descripcion_grupo"  placeholder="Ejemplo:
         CUANDO los padres QUIEREN vacunar a sus hijos SON AFECTADOS POR la mala organización el momento de emitir turnos y por las largas esperas que provocan malestar y desorganización.
-        CUANDO los productores QUIEREN acceder a crédito para realizar una inversión SON AFECTADOS POR la inexistencia de un proceso claro que establezca los pasos y los requisitos de forma clara, concreta, específica y única." minlength="10" maxlength="500" required>{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
+        CUANDO los productores QUIEREN acceder a crédito para realizar una inversión SON AFECTADOS POR la inexistencia de un proceso claro que establezca los pasos y los requisitos de forma clara, concreta, específica y única." minlength="10" maxlength="500" required oninput="window.countCharacters('descripcion_grupo','descripcion_grupo_error','submit',25,500,'count_words_1');">{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
+        <span style="color: gray" id="count_words_1"></span>
+        <div class="invalid-feedback" id="descripcion_grupo_error"></div>
         @error('descripcion_grupo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3">

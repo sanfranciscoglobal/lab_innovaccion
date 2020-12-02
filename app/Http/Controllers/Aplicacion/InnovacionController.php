@@ -84,7 +84,7 @@ class InnovacionController extends Controller
      */
     public function verProblemas(Convocatoria $convocatoria)
     {
-        $problemas = Problema::where('convocatoria_id', $convocatoria->id)->get();
+        $problemas = Problema::where('convocatoria_id', $convocatoria->id)->paginate(2);
         return view('aplicacion.innovacion.gestion.innovacionProblemas', compact('convocatoria', 'problemas'));
     }
 
