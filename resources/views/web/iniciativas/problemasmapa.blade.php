@@ -1,8 +1,35 @@
 @extends('layouts.aplicacion.app')
 @section('header-css')
     <style>
-       
-         @media (min-width: 992px) and (max-width: 1250px) {
+        
+        #pac-input {
+    height: 37px!important;
+    border: 1px solid #aaa;
+    }
+     .select2-selection--single {
+        border-radius: 10px!important;
+        padding-top: 2%!important;
+        height: 37px!important;
+        border: 1px solid #aaa;
+        color: #737491!important;
+    }
+   .sidebar.active {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #111; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+        }
+   
+    .select2-selection__arrow {
+        margin-right: 2%;
+    }
+        @media (min-width: 992px) and (max-width: 1250px) {
             .itemhome{
                 min-width: 50%;
             }
@@ -42,8 +69,8 @@
 <input id="marker" value="{{ asset('images/hotspot_active.svg')}}" hidden>
 <input id="marker1" value="{{ asset('images/hotspot_naranja.svg')}}" hidden>
 <div  class="bg-overlay-content pb-2 mb-md-3">
-        <div class="container">
-            <div id="mapacabezagrande" style="top:12%;  position:absolute; z-index:10;" class="w-25">
+        <div class="">
+            <div id="mapacabezagrande" class="sidebar" style="top:10%;  position:absolute; z-index:10;" class="w-25">
                 
                     <div  style="background-color: rgba(255, 255,255);" class=" py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg">
                         <div class="row justify-content-center center-block text-center">
@@ -58,6 +85,9 @@
                                 <h2 style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
                                     <i class="shadow px-3 mx-1 btn fa fa-angle-left "></i>Filtros</a>
                                 </h2> 
+                                <h4 class="pt-3" style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
+                                  Problemas
+                                </h4> 
                                             <div class="row my-5">
                                             <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
                                                 <input id="pac-input"  class="form-control" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
@@ -81,6 +111,9 @@
                                                         multiple>
                                                 </select>
                                             </div>
+                                <h4 class="pt-3" style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
+                                  Iniciativas
+                                </h4> 
                                             <div class="row my-5">
                                                 <span class="ml-3 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
                                                 <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
@@ -96,12 +129,19 @@
                                            
                                        
                                             
+                                        <div class="row justify-content-center">
+                                            <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit" style="border-color:#FF7F00;background: #FF7F00; width: 150px;" >
+                                                Aplicar
+                                            </button>
 
-                                        <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit" style="border-color:#FF7F00;background: #FF7F00; width: 150px;" >
-                                            Aplicar
-                                        </button>
-
-                                    
+                                        </div>
+                                        <div class="row py-justify-content-center px-4 py-3">
+                                            <button style="width: 220px;" type="button"
+                                                    class="font-weight-bold btn btn-primary "
+                                                    data-action="{{route('web.iniciativas.exportar-excel')}}">
+                                                Descargar datos
+                                            </button>
+                                        </div>
                                 </div>
                             </div>
                             </form>
