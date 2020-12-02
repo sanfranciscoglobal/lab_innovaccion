@@ -77,6 +77,7 @@ class crudSoluciones extends Controller
 
     }
     public function updateFase2(Store2Post $request,Solucion $solucion){
+ 
         if(Auth::id() != $solucion->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
             return back()->with('error', 'No ingresaste esta solución.');
         }
@@ -109,7 +110,8 @@ class crudSoluciones extends Controller
             $request->session()->put('step', '3');
             return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Innovación solución creada con éxito', 'method' => 'PUT']);
         } else {
-            return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solucón exitosamente']);
+            return redirect()->route('soluciones.ver',$solucion->problema_id)->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solucón exitosamente']);
+            // return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solucón exitosamente']);
         }
 
     }

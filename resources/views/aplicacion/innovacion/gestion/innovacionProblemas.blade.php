@@ -115,9 +115,18 @@
               </div>
               <div class="card-body">
                 <ul>
+                  @if ($sectoresArray)
                   <li><h3 class="mt-2 text-primary">Sectores: </h3>{{ $sectoresArray }}</li>
+                  @endif
+
+                  @if ($subsectoresArray)
                   <li><h3 class="mt-2 text-primary">Subsectores: </h3>{{ $subsectoresArray }}</li>
+                  @endif
+                  
+                  
+                  @if ($odsArray)
                   <li><h3 class="mt-2 text-primary">Ods: </h3>{{ $odsArray }}</li>
+                  @endif
                 </ul>
                 <hr>
                 <br>
@@ -161,7 +170,7 @@
     <section>
         <div class="container my-5">
           
-          @auth
+          {{-- @auth --}}
           @if ($convocatoria->fecha_inicio > date('Y-m-d') || $convocatoria->fecha_cierre < date('Y-m-d'))
           <div class="w-100 d-flex justify-content-center mt-3">
             <p class="text-center text-primary">Esta convocatoria esta cerrada y no admite mas problemas.</p>
@@ -171,11 +180,11 @@
             <a class="btn btn-primary" href="{{ route('app.innovaciongestion', $convocatoria->id) }}" role="button">Registra un nuevo problema</a>
           </div>
           @endif
-          @else
+          {{-- @else
           <div class="w-100 d-flex justify-content-center mt-3">
             <p class="text-center text-primary">Para registra un nuevo problema inicia session primero.</p>
           </div>
-          @endauth
+          @endauth --}}
         </div>
     </section>
     <section class="container mb-5">

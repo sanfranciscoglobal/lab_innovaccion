@@ -18,7 +18,13 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_abierta.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-naranja text-center">sector productivo</h3>
-                        <p class="font-size-sm mb-0 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p class="font-size-sm mb-0 text-justify">En esta sección promovemos la gestión de la innovación sobre la base de la participación ciudadana y la creación colectiva de soluciones a partir de la identificación y planteamiento de problemas.
+
+                            Impulsamos la innovación abierta, la innovación social y la innovación pública, mediante un esquema de interacción virtual que inicia con la visibilización y registro de problemas, para que estos puedan recibir propuestas de soluciones que cumplan con características innovadoras.
+                            
+                            Se realizarán convocatorias a distintos sectores para que registre problemas que hayan detectado en su gestión, y a partir de esa información iniciará el intercambio de conocimiento para proponer soluciones sobre el pilar de la innovación.
+                            
+                            Toda la información se irá cargando en esta sección, y de forma georeferenciada en el mapa de la plataforma.</p>
                     </div>
                 </div>
                 <div class="itemhome col-md-5  col-lg-3 my-3" >
@@ -26,7 +32,13 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_publica.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-mora text-center">gestión pública </h3>
-                        <p class="font-size-sm mb-0 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p class="font-size-sm mb-0 text-justify">En esta sección promovemos la gestión de la innovación sobre la base de la participación ciudadana y la creación colectiva de soluciones a partir de la identificación y planteamiento de problemas.
+
+                            Impulsamos la innovación abierta, la innovación social y la innovación pública, mediante un esquema de interacción virtual que inicia con la visibilización y registro de problemas, para que estos puedan recibir propuestas de soluciones que cumplan con características innovadoras.
+                            
+                            Se realizarán convocatorias a distintos sectores para que registre problemas que hayan detectado en su gestión, y a partir de esa información iniciará el intercambio de conocimiento para proponer soluciones sobre el pilar de la innovación.
+                            
+                            Toda la información se irá cargando en esta sección, y de forma georeferenciada en el mapa de la plataforma.</p>
                     </div>
                 </div>
                 <div class="itemhome col-md-5 col-lg-3 my-3" >
@@ -34,7 +46,13 @@
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_social.png') }}"
                         alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-tomate text-center">Ciudadanía</h3>
-                        <p class="font-size-sm mb-0 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p class="font-size-sm mb-0 text-justify">En esta sección promovemos la gestión de la innovación sobre la base de la participación ciudadana y la creación colectiva de soluciones a partir de la identificación y planteamiento de problemas.
+
+                            Impulsamos la innovación abierta, la innovación social y la innovación pública, mediante un esquema de interacción virtual que inicia con la visibilización y registro de problemas, para que estos puedan recibir propuestas de soluciones que cumplan con características innovadoras.
+                            
+                            Se realizarán convocatorias a distintos sectores para que registre problemas que hayan detectado en su gestión, y a partir de esa información iniciará el intercambio de conocimiento para proponer soluciones sobre el pilar de la innovación.
+                            
+                            Toda la información se irá cargando en esta sección, y de forma georeferenciada en el mapa de la plataforma.</p>
                     </div>
                 </div>
             </div>
