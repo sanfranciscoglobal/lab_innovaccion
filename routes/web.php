@@ -231,8 +231,10 @@ Route::as('web.')
             Route::get('analiticas', 'Web\IniciativasController@analiticas')->name('iniciativas.analiticas');
             Route::post('iniciativas', 'Web\IniciativasController@index')->name('iniciativas.index');
             Route::post('iniciativas/export', 'Web\IniciativasController@exportarExcel')->name('iniciativas.exportar-excel');
-            Route::get('mapa', 'Web\IniciativasController@data')->name('iniciativas.mapa');
-            Route::post('mapa', 'Web\IniciativasController@data')->name('iniciativas.data');
+            Route::get('iniciativasmapa', 'Web\IniciativasController@data')->name('iniciativas.mapa');
+            Route::post('iniciativasmapa', 'Web\IniciativasController@data')->name('iniciativas.data');
+            Route::post('mapa', 'Web\MapaProblemas@data')->name('mapaproblemas.data');
+            Route::get('mapa', 'Web\MapaProblemas@data')->name('mapaproblemas.mapa');
         }
     );
 

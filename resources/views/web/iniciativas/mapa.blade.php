@@ -12,7 +12,7 @@
                                     <div class="col-8 pl-5 py-2">
                                         <div class="row">
                                             <div class="col-7 pl-5 py-2">
-                                            <a style="border-color:#FF7F00;background: #FF7F00;white-space: normal;font-size: 16px; " href="http://127.0.0.1:8000/app/iniciativas/create" class="font-weight-bold btn btn-primary btn-block">Registra tu iniciativa</a>
+                                            <a style="border-color:#FF7F00;background: #FF7F00;white-space: normal;font-size: 16px; " href="{{route('app.iniciativas.create')}}" class="font-weight-bold btn btn-primary btn-block">Registra tu iniciativa</a>
                                             </div>
                                             <div style="color: #5A5B75;" class="col-5 pt-3">
                                                 <p>Encuentra tu innovación</p>
