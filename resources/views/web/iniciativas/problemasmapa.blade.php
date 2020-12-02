@@ -88,7 +88,7 @@
                                 <h4 class="pt-3" style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
                                   Problemas
                                 </h4> 
-                                            <div class="row my-5">
+                                            <div class="row mt-2 mb-5">
                                             <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
                                                 <input id="pac-input"  class="form-control" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
                                             </div>
@@ -114,7 +114,7 @@
                                 <h4 class="pt-3" style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
                                   Iniciativas
                                 </h4> 
-                                            <div class="row my-5">
+                                            <div class="row mt-2 mb-5">
                                                 <span class="ml-3 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
                                                 <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
                                                         data-ajax--url="{{route('api.ods-categoria.select2')}}"
