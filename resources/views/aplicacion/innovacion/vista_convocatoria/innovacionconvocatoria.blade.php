@@ -33,7 +33,7 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_publica.png') }}"
                             alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-mora text-center">gestión pública </h3>
+                        <h3 class="fs-14 mb-2 uppercase text-tomate text-center">gestión pública </h3>
                         <p class="font-size-sm mb-0 text-justify">En esta sección buscamos levantar información acerca de problemas y soluciones en los espacios ciudadanos de participación, colaboración y co-creación, para aportar a la gestión pública a impulsar la innovación a partir de los requerimientos ciudadanos, promoviendo la participación ciudadana, la apertura de información, el uso de tecnologías de la comunicación y de la información en la generación de espacios alternativos de interacción enfocados a mejorar el servicio público, crear soluciones innovadoras a situaciones sociales, modernizar la relación entre actores gubernamentales y no gubernamentales, e innovar en el ámbito de las políticas públicas.</p>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_social.png') }}"
                         alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-tomate text-center">Ciudadanía</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-mora text-center">Ciudadanía</h3>
                         <p class="font-size-sm mb-0 text-justify">En esta sección buscamos levantar información acerca de problemas y soluciones en productos, servicios, procesos, organizaciones, comunicación, que solucionen cuestiones en el ámbito social o de forma más eficaz y eficiente en comparación con alternativas actuales.</p>
                     </div>
                 </div>
@@ -157,7 +157,14 @@
             <div class="pb-2">
                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                     @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
-                        <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                        @if ($convocatoria->tipoconvocatoria_id == 1)
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #ee8808;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                        @elseif ($convocatoria->tipoconvocatoria_id == 2)
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #cc3e39;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                        @elseif ($convocatoria->tipoconvocatoria_id == 3)
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #b5095b;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                        
+                        @endif
                     @else
                         <span class="badge badge-lg badge-floating badge-floating-right text-white btn-primary">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
                     @endif
@@ -178,7 +185,11 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body ">
-                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$convocatoria->nombre}}</a> </h3>
+                                @php
+                                    $nombre=$convocatoria->nombre;
+                                    $nombrelim=substr($nombre, 0, 70);
+                                @endphp 
+                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$nombrelim}}</a> </h3>
                                 {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
                                     @foreach ($convocatoria->conods as $objetivo)
                                         <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
@@ -190,7 +201,7 @@
                                 @endif--}}
                                 @php
                                     $descripcion=$convocatoria->descripcion;
-                                    $descripcionlim=substr($descripcion, 0, 99);
+                                    $descripcionlim=substr($descripcion, 0, 170);
                                 @endphp 
                               
                                 <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
