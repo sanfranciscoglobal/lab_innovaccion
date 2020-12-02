@@ -102,7 +102,7 @@
                         <a class="nav-link  font-weight-bold" href="#" data-toggle="dropdown">
                             Ecosistema de innovación<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/mapa">Mapa de
+                            <li><a class="dropdown-item" href="/iniciativasmapa">Mapa de
                             Iniciativas</a></li>
                             <li><a class="dropdown-item" href="/iniciativas">Iniciativas de
                             Actores</a></li>
@@ -113,7 +113,7 @@
                         <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">
                             Recursos<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="">Mapa General</a></li>
+                            <li><a class="dropdown-item " href="/mapa">Mapa General</a></li>
                             <li><a class="dropdown-item " href="{{route('fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item " href="{{route('eventos')}}">Eventos</a></li>
                             <li><a class="dropdown-item " href="{{route('material')}}">Publicaciones y herramientas</a>
