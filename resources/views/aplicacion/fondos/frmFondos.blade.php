@@ -25,7 +25,7 @@
                             @endif
                         </div>
                         <div class="d-sm-flex pb-2 text-left text-muted text-sm-left">
-                            <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios</p>
+                            <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios.</p>
                         </div>
                         <!-- Content-->
                         <div class="row">
@@ -118,7 +118,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="org_logo">* Logotipo <small class="text-muted">(Máx. 2Mb)</small></label>
+                                                <label for="org_logo">* Logotipo <small class="text-muted">(máx. 2MB)</small></label>
                                                 @php
                                                     if($fondo->imagen){
                                                         $img = asset('storage/fondos/'.$fondo->imagen);
