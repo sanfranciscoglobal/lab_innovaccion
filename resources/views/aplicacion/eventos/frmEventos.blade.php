@@ -189,18 +189,24 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div id="map" style="width:100%; height: 350px;"></div>
+                                                    
+                                                    {{-- <div class="row">
+                                                        
+                                                            <div id="map" class="col-12" style="width:300%; height: 350px;"></div>
                                                             <input type="hidden" type="text" id="latitud" name="org_lat" value="{{isset($evento->org_lat)?$evento->org_lat:'0'}}">
                                                             <input type="hidden" type="text" id="longitud" name="org_long" value="{{isset($evento->org_long)?$evento->org_long:'0'}}">
-                                                        </div>
-                                                    </div>
+                                                        
+                                                    </div> --}}
                                                 </div>
+                                                
                                             </div>
+                                            
                                         </div>
+                                        
                                     </div>
+                                    
                                 </div>
+                                
                             </div>
                             <div class="col-lg-5">
                                 {{-- <div class="form-group">
@@ -246,12 +252,19 @@
                                                 required
                                                 data-max-file-size="2M">
 
-                                        
-                                    
                                     @endif
                                     <div class="invalid-feedback" id='imagen_error'>Inserta una imagen.</div>
                                     <div class="valid-feedback">Bien!</div>
                                     
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row e-presencial">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div id="map" style="width:100%; height: 350px;"></div>
+                                        <input type="hidden" type="text" id="latitud" name="org_lat" value="{{isset($evento->org_lat)?$evento->org_lat:'0'}}">
+                                        <input type="hidden" type="text" id="longitud" name="org_long" value="{{isset($evento->org_long)?$evento->org_long:'0'}}">
                                 </div>
                             </div>
                         </div>
@@ -318,7 +331,7 @@
 <script>
     //  SET TO NULL IF NO OLD DATA
     let user_lat = {{ old('org_lat', $evento->org_lat) ?? 'null' }};
-    let user_lng = {{ old('org_long', $evento->longitud) ?? 'null' }};
+    let user_lng = {{ old('org_long', $evento->org_long) ?? 'null' }};
 </script>
 <script src="{{ asset('js/maps.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=initMap" async defer></script>
