@@ -2,7 +2,7 @@
 @section('header-css')
 <style>
 @media (max-width: 768px) {
-       
+
        #bannerluces{
            background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
        }
@@ -10,7 +10,7 @@
     .card-lab-orange .card-body * { color: white; }
     .card-lab-orange .card-body,
     .card-lab-orange .card-body:before { background-color: #FF9F40; }
-    
+
 </style>
 @endsection
 @section('content')
@@ -24,13 +24,13 @@
                         Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.
                         Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación. </p>
                 </div>
-                <p class="shadow-lg p-3 mb-5 btn-primary rounded" style="">
+                <p class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                     <strong>Indicaciones</strong>
                     <br>Caso 1. Registra fondos propios o de otros organismos en el formulario
                     <br>Caso 2. Revisa las oportunidades de financiamiento pulsando en los íconos
                 </p>
             </div>
-            <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces" 
+            <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces"
             style="background-image:url({{ asset('img/fondos.png')}})">
             </div>
         </div>
@@ -39,12 +39,12 @@
                     video</span>
     </section>
 
-    
+
     <section class="container bg-overlay-content pt-5 pt-md-6" >
         {{-- <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">
             Revisa las oportunidades de financiamiento pulsando en los íconos.</h2> --}}
         <div class="col-12 col-lg-8 offset-lg-2 text-center pb-3">
-                   
+
                 {{--<p class="h5 text-light">
                         Registra fondos propios o de otros organismos en el formulario.</p>
                         --}}
