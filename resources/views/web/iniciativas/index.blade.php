@@ -130,7 +130,7 @@
                                     <div class="text-justify">
                                         @if($iniciativa->iniciativa_actor_enfoque)
                                             <label for="" class="text-warning d-block mt-1">Enfoque</label>
-                                            {{$iniciativaInstitucion->iniciativa_actor_enfoque}}
+                                            {{$iniciativa->iniciativa_actor_enfoque}}
                                         @endif
                                     </div>
 
