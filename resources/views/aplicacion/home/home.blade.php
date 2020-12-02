@@ -16,7 +16,7 @@
         .itemhome{
             min-width: 50%;
         }
-    } 
+    }
 </style>
 <section id="home-hero-banner">
     @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
@@ -35,7 +35,7 @@
                 </div>
                 <div class="itemhome col-md-5  col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        
+
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Ecosistema_Innovacion.png') }}"
                             alt="Icon" />
                         <a href="/iniciativas" class="media meta-link ">
@@ -168,14 +168,14 @@
                                 <a class="meta-link font-size-sm mb-2" href="#">Organización</a>
                             @endif
                             <h3 class="h4 nav-heading mb-4">
-                            
+
                                 <a href="#">{{ $fondos->nombre_fondo }}</a>
                             </h3>
                             <div  class="scrollable" style="overflow: hidden; max-height:200px">
                             {{ $fondos->info }}
                             </div>
                         </div>
-                            
+
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile1.jpg') }}"
@@ -197,9 +197,9 @@
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                    
+
                             <a class="meta-link font-size-sm mb-2" href="#">{{ $convocatoria->tipoconvocatoriaid->nombre}}</a>
-                      
+
                             <h3 class="h4 nav-heading mb-4">
                                 <a href="#">Convocatoria # {{ $convocatoria->id}}</a>
                             </h3>
@@ -213,7 +213,7 @@
                                     alt="Sanomi Smith" />
                                 <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">{{$convocatoria->user->name}}</span></div>
                             </a>
-                            
+
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
                                     <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;{{ $convocatoria->fecha_inicio}}
@@ -272,7 +272,7 @@
                                     <a class="meta-link font-size-sm mb-2" href="#">Herramienta</a>
                                 @endif
                             <h3 class="h4 nav-heading mb-4">
-                               
+
                                 {{ $materiales->nombre_publicacion }}
                             </h3>
                             <div  class="scrollable" style="overflow: hidden; max-height:200px">
@@ -303,7 +303,7 @@
     <!-- Statistics (Digits)-->
     <section class="container py-4 pt-md-6 pt-lg-7 pb-md-5">
         <div class="row pb-lg-4 pt-3 justify-content-center">
-            <div class="col-lg-2 offset-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Convocatoria::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Convocatorias</p>
             </div>

@@ -27,11 +27,11 @@
                     </a>
                 </div>
                 <div class="cs-widget cs-widget-light">
-                    <h4 class="cs-widget-title pt-3">Contáctanos</h4>
+                    <h4 class="cs-widget-title pt-5 pb-0">Contáctanos</h4>
                     <a class="text-white" href="mailto:hola@thinkia.org">hola@thinkia.org</a>
                 </div>
             </div>
-            
+
                 <div class="col-md-3 col-sm-4 ml-auto pb-1" style="margin-top: 2%;">
                     <div class="cs-widget cs-widget-light">
                                         <p class=" text-light opacity-60">Esta obra está bajo  Licencia Creative Commons Atribución 4.0 internacional.</p>
@@ -41,14 +41,14 @@
 
 
             <div class="row justify-content-center center-block text-center mx-auto my-5 pl-sm-7 ">
-              
+
                     <div class="col-6 ml-auto pb-1 h-100" style="margin-top: 2%;">
                     <img src="{{asset('img/layout/footer/PNUD_LAB.svg')}}" style="height:130px!important;"  alt="Creative Commons Attribution 3.0 International">
                     </div>
-                    <div class="col-6 ml-auto pb-1 h-100" style="margin-top: 2%;">    
+                    <div class="col-6 ml-auto pb-1 h-100" style="margin-top: 2%;">
                     <img src="{{asset('img/layout/footer/SFG_Logo.png')}}" style="height:130px!important"  height="100px" alt="Creative Commons Attribution 3.0 International">
                     </div>
-    
+
             </div>
             <?php /*
             <div class="col-md-2 col-sm-4 ml-auto pb-1 mb-4">
