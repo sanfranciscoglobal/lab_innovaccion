@@ -3,6 +3,7 @@ function obtenerPoblacionData(tipo) {
     $.ajax({
         type: 'POST',
         url: 'api/analitica/iniciativas-poblacion',
+        data: $('#filter-iniciativas').serialize(),
         dataType: "json",
         success: function (data) {
             graficarPoblacion(data, tipo);
@@ -167,7 +168,7 @@ function radarPoblacion(data) {
 
     chart.zoomOutButton.disabled = true;
 
-    // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
     series.columns.template.adapter.add("fill", (fill, target) => {
         return chart.colors.getIndex(target.dataItem.index);
     });

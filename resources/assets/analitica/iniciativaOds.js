@@ -1,11 +1,8 @@
-am4core.ready(function () {
-    //obtenerIniciativaData('barras');
-});
-
 function obtenerIniciativaData(tipo) {
     $('#loading').show();
     $.ajax({
         type: 'POST',
+        data: $('#filter-iniciativas').serialize(),
         url: ' api/analitica/iniciativas-ods',
         dataType: "json",
         success: function (data) {

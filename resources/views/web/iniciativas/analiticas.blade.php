@@ -158,6 +158,11 @@
                 grafica = $(this).val();
                 tipoGrafica();
             });
+
+            $("#filter-iniciativas").submit(function () {
+                tipoGrafica();
+                return false;
+            });
         });
 
         function tipoGrafica() {

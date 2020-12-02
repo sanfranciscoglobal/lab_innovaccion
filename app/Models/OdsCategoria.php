@@ -21,7 +21,7 @@ class OdsCategoria extends Model
 
     public function getNombreOdsAttribute()
     {
-        return 'ODS '.$this->id . ': ' . $this->nombre;
+        return 'ODS ' . $this->id . ': ' . $this->nombre;
     }
 
     /**
@@ -33,6 +33,10 @@ class OdsCategoria extends Model
 
         if (self::$search) {
             //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');
+        }
+
+        if (is_array(self::$search)) {
+            $query->whereIn('ods_categorias.id', self::$search);
         }
 
         return $query;

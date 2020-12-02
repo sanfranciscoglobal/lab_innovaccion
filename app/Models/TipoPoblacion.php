@@ -30,6 +30,10 @@ class TipoPoblacion extends Model
             //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');
         }
 
+        if (is_array(self::$search)) {
+            $query->wherein('tipo_poblacion.id', self::$search);
+        }
+
         return $query;
     }
 

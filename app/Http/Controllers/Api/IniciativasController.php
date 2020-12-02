@@ -12,10 +12,9 @@ class IniciativasController extends Controller
 {
     public static function analiticaIniciativaOds(Request $request)
     {
-        $totales = [];
-        $data = [];
+        $totales = $data = [];
+        OdsCategoria::$search = $request->has('ods_categorias') ? $request->ods_categorias : null;
         $odsCategorias = OdsCategoria::obtenerOdsCategoriaAll();
-
 
         foreach ($odsCategorias as $odsCategoria) {
             $value = $odsCategoria->IniciativaOds()->count();
@@ -26,20 +25,21 @@ class IniciativasController extends Controller
                     'text' => "ODS {$odsCategoria->id}"
                 ];
 
-                $total[] = $value;
+                $totales[] = $value;
             }
         }
 
         return [
             'items' => $data,
-            'total' => max($total),
+            'total' => max($totales),
         ];
     }
 
     public static function analiticaIniciativaPoblacion(Request $request)
     {
-        $total = [];
-        $data = [];
+        $total = $data = [];
+
+        TipoPoblacion::$search = $request->has('tipo_poblacion') ? $request->tipo_poblacion : null;
         $tipoPoblaciones = TipoPoblacion::obtenerTipoPoblacionAll();
 
 
