@@ -171,7 +171,9 @@
             <div class="form-group ubicaciones direccion border-bottom-light" data-row="0">
                 <div class="row">
                     <div class="col-lg-12">
-                        <label class="control-label">Dirección Principal</label>
+                        <label class="control-label">Dirección Principal <i class="fe-info text-primary" style="font-size: 22px;
+    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
+                                                                            title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
                         <input maxlength="200"
                                type="text"
                                required="required"
@@ -199,7 +201,7 @@
         <div class="row my-3">
             <div class="col-lg-4 offset-lg-8">
                 <button id="add_city" class="btn btn-sm btn-primary" type="button">
-                    <i class="fe-map-pin mr-2"></i>Agregar sucursal
+                    <i class="fe-plus mr-2"></i>Agregar otra sucursal
                 </button>
             </div>
         </div>

@@ -5,7 +5,7 @@
 <div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
     <p>
         Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco*
-        son obligatorios
+        son obligatorios.
     </p>
 </div>
 <div class="panel-body">

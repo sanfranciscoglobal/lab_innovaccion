@@ -226,6 +226,7 @@ Route::as('web.')
     ->group(
         function () {
             Route::resource('iniciativas', 'Web\IniciativasController');
+            Route::get('analiticas', 'Web\IniciativasController@analiticas')->name('iniciativas.analiticas');
             Route::post('iniciativas', 'Web\IniciativasController@index')->name('iniciativas.index');
             Route::post('iniciativas/export', 'Web\IniciativasController@exportarExcel')->name('iniciativas.exportar-excel');
             Route::get('mapa', 'Web\IniciativasController@data')->name('iniciativas.mapa');
