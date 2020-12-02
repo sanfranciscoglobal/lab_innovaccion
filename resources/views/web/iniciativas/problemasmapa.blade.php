@@ -85,7 +85,7 @@
                                 <h2 style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
                                     <i class="shadow px-3 mx-1 btn fa fa-angle-left "></i>Filtros</a>
                                 </h2> 
-                                <h4 class="pt-3" style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
+                                <h4 class="pt-3" style="color:#531c6a">
                                   Problemas
                                 </h4> 
                                             <div class="row mt-2 mb-5">
@@ -111,7 +111,7 @@
                                                         multiple>
                                                 </select>
                                             </div>
-                                <h4 class="pt-3" style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
+                                <h4 class="pt-3" style="color:#531c6a">
                                   Iniciativas
                                 </h4> 
                                             <div class="row mt-2 mb-5">
