@@ -31,6 +31,7 @@ class Store1Post extends FormRequest
             'confidencial' => ['bool', 'required'],
             'recomendaciones' => ['bool', 'required_if:tipo_convocatoria_id,1', 'nullable'],
             'datos' => ['bool', 'required'],
+            'nombre' => ['string', 'min:10', 'max:150', 'required'],
             'actividad' => ['string', 'min:10', 'max:400', 'required_if:tipo_convocatoria_id,1', 'nullable'],
             'problema' => ['string', 'min:10', 'max:500', 'required'],
             'archivo' => ['file', 'max:10240', 'mimes:pdf', 'nullable']

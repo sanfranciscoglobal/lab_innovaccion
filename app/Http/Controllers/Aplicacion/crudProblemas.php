@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 // Helpers
 use App\Helpers\CustomUrl; // $string
@@ -157,5 +158,10 @@ class crudProblemas extends Controller
 
         $problema->delete();
         return redirect()->route('home')->with('status', 'Problema eliminado con éxito.');
+    }
+
+    public function download($archivo)
+    {
+        return Storage::disk('problemas')->download($archivo);
     }
 }
