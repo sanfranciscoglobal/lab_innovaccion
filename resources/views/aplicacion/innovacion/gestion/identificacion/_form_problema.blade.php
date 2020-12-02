@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary pull-right" type="submit" formaction="{{ $url.'?continue=1' }}">Guargar y continuar</button>
+    <button class="btn btn-primary pull-right" type="submit" id="submit" formaction="{{ $url.'?continue=1' }}">Guargar y continuar</button>
     <button class="btn btn-link" type="submit" formaction="{{ $url.'?continue=0' }}">Guardar</button>
 </div>
 </form>

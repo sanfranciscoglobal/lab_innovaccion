@@ -87,7 +87,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="avatar">Imagen de Perfil</label>
+                                    <label for="avatar">Imagen de Perfil <span class="text-muted">Max. 1MB</span></label>
                                     @if($method == 'POST')
                                     <div class="cs-file-drop-area">
                                         <div class="cs-file-drop-icon fe-upload"></div>
@@ -96,7 +96,6 @@
                                         <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                                         <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
                                     </div>
-                                    <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
                                     @else
                                     @php
                                         $avatar = asset('img/logo/logo-icon-footer.png');
@@ -107,7 +106,6 @@
                                         }
                                         @endphp
                                     <input type="file" class="dropify" id="avatar" name="avatar" title="Avatar del usuario" data-default-file="{{$avatar}}" accept="image/*" size="1MB">
-                                    <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
                                     @endif
                                     @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>

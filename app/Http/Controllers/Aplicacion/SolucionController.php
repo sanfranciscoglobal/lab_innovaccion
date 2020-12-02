@@ -15,7 +15,7 @@ class SolucionController extends Controller
 {
     public function verSoluciones(Problema $problema)
     {
-        $soluciones = Solucion::where('problema_id', $problema->id)->where('terminos','1')->get();
+        $soluciones = Solucion::where('problema_id', $problema->id)->where('terminos','1')->paginate(2);
         $c = new Convocatoria;
         $sectores = $c->sectoresName($problema->convocatoria);
         $sectoresArray = '';

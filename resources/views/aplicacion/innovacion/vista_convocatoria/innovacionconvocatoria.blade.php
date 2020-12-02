@@ -14,7 +14,7 @@
             <h4 class="text-center pt-3 pt-md-2 mb-5 uppercase text-mora">Convocatorias</h4>
             <div class="row justify-content-center">
                 <div class="itemhome col-md-5 col-lg-3 my-3" >
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_abierta.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-naranja text-center">sector productivo</h3>
@@ -22,22 +22,17 @@
                     </div>
                 </div>
                 <div class="itemhome col-md-5  col-lg-3 my-3" >
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_publica.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-mora text-center">gestión pública </h3>
                         <p class="font-size-sm mb-0 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     </div>
                 </div>
-         
-                
                 <div class="itemhome col-md-5 col-lg-3 my-3" >
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_social.png') }}"
                         alt="Icon" />
-                        
-                        
                         <h3 class="fs-14 mb-2 uppercase text-tomate text-center">Ciudadanía</h3>
                         <p class="font-size-sm mb-0 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     </div>
@@ -168,7 +163,7 @@
                                 <div class="row justify-content-center mt-2">
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",$convocatoria->id) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
                                     <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",$convocatoria->id) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
-                                    <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a>
+                                    {{-- <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a> --}}
                                     <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",$convocatoria->id) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
                                 </div>
                             </div>

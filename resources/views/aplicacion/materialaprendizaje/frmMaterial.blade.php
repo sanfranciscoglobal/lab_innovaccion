@@ -18,7 +18,7 @@
             </svg>
         </div>
     </div>
-    <div class="container bg-overlay-content pb-4 mb-md-3" style="margin-top: -350px;">
+    <div class="container bg-overlay-content pb-4 mb-md-3" style="margin-top: -350px; ">
         <div class="row">
             <!-- Content-->
             <div class="col-12 col-lg-8 offset-lg-2">
@@ -197,7 +197,7 @@
                                 <hr class="mt-2 mb-4">
                                 <div class="custom-control custom-checkbox d-block">
                                     <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1"  oninvalid="setCustomValidity('Por favor marca esta casilla si tu quieres continuar.')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                    <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
+                                    <label class="custom-control-label text-justify" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
                                 </div>
                                 <br />
                                 @if ($method=='PUT')

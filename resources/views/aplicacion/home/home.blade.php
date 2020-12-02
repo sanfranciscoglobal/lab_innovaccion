@@ -303,7 +303,7 @@
     <!-- Statistics (Digits)-->
     <section class="container py-4 pt-md-6 pt-lg-7 pb-md-5">
         <div class="row pb-lg-4 pt-3 justify-content-center">
-            <div class="col-lg-2 offset-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Convocatoria::count() }}</h3>
                 <p class="text-muted font-size-lg mb-0 colornumero">Convocatorias</p>
             </div>
@@ -316,8 +316,12 @@
                 <p class="text-muted font-size-lg mb-0 colornumero">Fondos </p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
-                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\MaterialAprendizaje::count() }}</h3>
-                <p class="text-muted font-size-lg mb-0 colornumero">Publicaciones y herramientas</p>
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\MaterialAprendizaje::where('tipo','0')->count() }}</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Publicaciones</p>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
+                <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\MaterialAprendizaje::where('tipo','1')->count() }}</h3>
+                <p class="text-muted font-size-lg mb-0 colornumero">Herramientas</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Evento::count() }}</h3>
