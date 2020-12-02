@@ -40,7 +40,7 @@
 @endsection
 @section('content')
 <input id="marker" value="{{ asset('images/hotspot_active.svg')}}" hidden>
-<input id="marker1" value="{{ asset('images/hotspot.svg')}}" hidden>
+<input id="marker1" value="{{ asset('images/hotspot_naranja.svg')}}" hidden>
 <div  class="bg-overlay-content pb-2 mb-md-3">
         <div class="container">
             <div id="mapacabezagrande" style="top:12%;  position:absolute; z-index:10;" class="w-25">
@@ -138,8 +138,8 @@
 
     iniciativas={!! json_encode($iniciativas ->toArray()) !!};
     convocatoria={!! json_encode($convocatorias ->toArray()) !!};
-    locations=[]
-    problemas=[]
+    locations=[];
+    problemas=[];
 
     c=0
     for(j=0;j<convocatoria.length;j++){
@@ -150,9 +150,15 @@
                     pro=tipo[p].problemas
                     for(k=0;k<pro.length;k++){
                       
-                        console.log(pro[k])
+                        info='<div class="">'
+                            + '<b size="5" style="color:#fd972b">Descripción del problema:</b></br>'
+                            + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
+                            +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
+                            + '<div ">'+"</div></br>"
+                            + '<a class="btn btn-primary"> Ver más </a>' 
+                            +'</div>'
                         problemas.push([])
-                        problemas[c][0]=pro[k].causas;
+                        problemas[c][0]=info;
                         problemas[c][1]=pro[k].latitud;
                         problemas[c][2]=pro[k].longitud;
                         c++;

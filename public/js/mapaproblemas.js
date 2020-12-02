@@ -32,15 +32,23 @@ function filtrarproblemas(id,array=null){
                 if(p==0){
                   data.push({id:tipo[p].id,text:tipo[p].nombre});
                 }
+               
                 if (array!=null){
                   console.log(tipo[p].id)
                   if (array.includes(String(tipo[p].id))){
                     pro=tipo[p].problemas
                     for(k=0;k<pro.length;k++){
-                      
+                      info='<div class="">'
+                      + '<b size="5" style="color:#fd972b">Descripción del problema:</b></br>'
+                      + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
+                      +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
+                      + '<div ">'+"</div></br>"
+                      + '<a class="btn btn-primary"> Ver más </a>' 
+                      +'</div>'
                         console.log(pro[k])
                         problemas.push([])
-                        problemas[c][0]=pro[k].causas;
+                        
+                        problemas[c][0]=info;
                         problemas[c][1]=pro[k].latitud;
                         problemas[c][2]=pro[k].longitud;
                         c++;
@@ -50,11 +58,18 @@ function filtrarproblemas(id,array=null){
                 else{
                  
                     pro=tipo[p].problemas
+                   
                     for(k=0;k<pro.length;k++){
-                      
+                      info='<div class="">'
+                      + '<b size="5" style="color:#fd972b">Descripción del problema:</b></br>'
+                      + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
+                      +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
+                      + '<div ">'+"</div></br>"
+                      + '<a class="btn btn-primary"> Ver más </a>' 
+                      +'</div>'
                         console.log(pro[k])
                         problemas.push([])
-                        problemas[c][0]=pro[k].causas;
+                        problemas[c][0]=info;
                         problemas[c][1]=pro[k].latitud;
                         problemas[c][2]=pro[k].longitud;
                         c++;
