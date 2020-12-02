@@ -372,7 +372,7 @@ window.addSearchMap = function addSearchMap() {
     html += '<div class="form-group ubicaciones direccion border-bottom" data-row="' + addressIterator + '">';
     html += '<div class="row">';
     html += '<div class="col-lg-12">';
-    html += '<label class="control-label">Dirección Sucursal</label>';
+    html += '<label class="control-label">Dirección Sucursal <i class="fe-info text-primary" style="font-size: 22px; margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right" title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>';
     html += '<input type="text" required="required" data-adresscontainer="' + addressIterator + '" class="form-control ubicacion ubicacion-' + addressIterator + '"';
     html += 'placeholder="Escriba la dirección" name="Ubicaciones[' + addressIterator + '][direccion]"';
     html += 'value=""/>';
@@ -387,6 +387,7 @@ window.addSearchMap = function addSearchMap() {
     $('#sedes-container').append(html);
     var newInput = document.getElementsByClassName('ubicacion-' + addressIterator)[0];
     window.initSearchMap(newInput);
+    $('[data-toggle="tooltip"]').tooltip();
 }
 
 window.initSearchMap = function initSearchMap(element) {

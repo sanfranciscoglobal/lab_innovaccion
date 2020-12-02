@@ -49,7 +49,7 @@
                     </td>
                     <td class="text-center">
                         <div style="width: 123px;">
-                            <a href="{{$iniciativa->deleted_at_status ? '#' : route('admin.fondos.edit',$iniciativa->id)}}"
+                            <a href="{{$iniciativa->deleted_at_status ? '#' : route('admin.iniciativas.edit',$iniciativa->id)}}"
                                class="btn btn-sm btn-outline-primary mr-1 {{$iniciativa->deleted_at_status?'disabled':''}}"
                                data-toggle="tooltip"
                                data-placement="left"
