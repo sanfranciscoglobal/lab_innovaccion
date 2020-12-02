@@ -13,4 +13,8 @@ class TipoConvocatoria extends Model
         $rs = TipoConvocatoria::orderBy('id');
         return $rs->get();
     }
+    public function convocatorias()
+    {
+        return $this->hasMany('App\Models\Convocatoria', "tipoconvocatoria_id", "id");
+    }
 }

@@ -24,7 +24,12 @@ class Convocatoria extends Model
     {
         return $this->belongsTo('App\Models\TipoConvocatoria', "tipoconvocatoria_id", "id");
     }
-
+    public function problemas()
+    {
+        
+        return $this->hasMany('App\Models\Problema', 'convocatoria_id', 'id');
+    }
+    
     public function consectores()
     {
         return $this->hasMany('App\Models\ConvocatoriaSector', 'convocatoria_id', 'id');
@@ -69,6 +74,8 @@ class Convocatoria extends Model
             return $s->objetivoid->nombre;
         });
     }
+
+    
 
     public static function obtenerConvocatoriaCount()
     {
