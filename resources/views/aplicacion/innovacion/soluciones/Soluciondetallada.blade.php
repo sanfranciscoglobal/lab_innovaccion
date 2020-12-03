@@ -182,7 +182,7 @@
               </div>
             </div>
 
-            <ul class="d-flex justify-content-center list-inline">
+            {{-- <ul class="d-flex justify-content-center list-inline">
               <li class="list-inline-item m-0">
                 <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="{{ $solucion->facebook ?? '#' }}">
                   <i class="fe-facebook"></i>
@@ -203,7 +203,7 @@
                   <i class="fe-youtube"></i>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </div>
         </div>
         @endif
