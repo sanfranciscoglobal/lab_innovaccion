@@ -135,12 +135,12 @@
                                     <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
                                             
                                     <button style="width: 220px;" type="button" class=" font-weight-bold btn btn-primary mr-5 btn-filter-submit"
-                                            data-action="{{route('web.iniciativas.exportar-excel')}}">
+                                            data-action="">
                                         Descargar datos
                                     </button>
                                     <button type="button" class="font-weight-bold btn btn-primary mr-3 btn-filter-submit"
                                             style="border-color:#7A3240;background:#7A3240 "
-                                            data-action="{{route('web.iniciativas.exportar-excel')}}">
+                                            data-action="">
                                             <img src="{{ asset('images/Group 161.svg')}}"/>
                                         Ver mapa completo
                                     </button>
