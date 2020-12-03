@@ -114,17 +114,17 @@
 
                             <button type="button" class="btn btn-outline-primary mr-3 export"
                                     data-action="{{route('web.iniciativas.exportar.csv')}}">
-                                <i class="fe-download"></i> CSV
+                                <i class="fe-download"></i> .CSV
                             </button>
 
                             <button type="button" class="btn btn-outline-primary mr-3 export"
                                     data-action="{{route('web.iniciativas.exportar.json')}}">
-                                <i class="fe-download"></i> JSON
+                                <i class="fe-download"></i> .JSON
                             </button>
 
                             <button type="button" class="btn btn-outline-primary mr-3 export"
                                     data-action="{{route('web.iniciativas.exportar.excel')}}">
-                                <i class="fe-download"></i> XLSX
+                                <i class="fe-download"></i> .XLSX
                             </button>
 
                             {{--<button style="width: 220px;" type="button"--}}
