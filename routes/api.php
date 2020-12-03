@@ -51,5 +51,6 @@ Route::as('api.analitica.')
         function () {
             Route::post('iniciativas-ods', 'Api\IniciativasController@analiticaIniciativaOds')->name('iniciativa-ods');
             Route::post('iniciativas-poblacion', 'Api\IniciativasController@analiticaIniciativaPoblacion')->name('iniciativa-poblacion');
+            Route::post('iniciativas-institucion', 'Api\IniciativasController@analiticaIniciativaInstitucion')->name('iniciativa-institucion');
         }
     );

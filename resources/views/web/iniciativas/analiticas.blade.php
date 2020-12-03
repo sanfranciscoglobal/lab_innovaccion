@@ -95,7 +95,7 @@
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                         <input class="custom-control-input" type="radio" id="ex-radio-6" name="tipo-grafica"
-                               value="agente" disabled>
+                               value="agente">
                         <label class="custom-control-label tipo-grafica" for="ex-radio-6">Iniciativas por tipo de
                             agente</label>
                     </div>
@@ -141,6 +141,7 @@
     <script src="{{asset('assets/amcharts4/themes/animated.js')}}"></script>
     <script src="{{asset('analitica/iniciativaOds.js')}}"></script>
     <script src="{{asset('analitica/iniciativaPoblacion.js')}}"></script>
+    <script src="{{asset('analitica/iniciativaInstitucion.js')}}"></script>
     <script type="text/javascript">
         var analitica = 'barras';
         var grafica = 'ods';
@@ -159,9 +160,14 @@
                 tipoGrafica();
             });
 
-            $("#filter-iniciativas").submit(function () {
+            $(document).on('click', ".btn-filter-submit", function (e) {
                 tipoGrafica();
-                return false;
+                e.preventDefault();
+            });
+
+            $(document).on('click', ".export", function (e) {
+                $('#filter-iniciativas').attr('action',$(this).data('action'));
+                $('#filter-iniciativas').submit();
             });
         });
 
@@ -175,7 +181,7 @@
             }
 
             if (grafica == 'agente') {
-                //obtenerIniciativaData(analitica);
+                obtenerinstitucionData(analitica);
             }
         }
     </script>
