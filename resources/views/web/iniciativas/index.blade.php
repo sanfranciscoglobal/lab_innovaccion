@@ -254,6 +254,11 @@
                 $('#filter-iniciativas').submit();
                 //console.log(action);
             });
+
+            $(document).on('click', ".export", function (e) {
+                $('#filter-iniciativas').attr('action',$(this).data('action'));
+                $('#filter-iniciativas').submit();
+            });
         });
     </script>
 @endsection
