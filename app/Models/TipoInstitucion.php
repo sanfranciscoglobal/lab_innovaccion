@@ -19,6 +19,16 @@ class TipoInstitucion extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaInstitucionOrganizacion()
+    {
+        return $this->hasMany(IniciativaInstitucion::class, 'tipo_institucion_id', 'id')
+            ->join('iniciativas', 'iniciativas.id', '=', 'iniciativa_institucion.iniciativa_id')
+            ->where('iniciativas.iniciativa_origen_id', '=', 1);
+    }
+
+    /**
      * @return Builder
      */
     public static function builderTipoInstitucion()

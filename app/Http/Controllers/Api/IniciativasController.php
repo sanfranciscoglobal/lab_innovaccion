@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Iniciativas;
 use App\Models\OdsCategoria;
 use App\Models\TipoInstitucion;
 use App\Models\TipoPoblacion;
@@ -68,7 +69,7 @@ class IniciativasController extends Controller
         $tipoInstituciones = TipoInstitucion::obtenerTipoInstitucionAll();
 
         foreach ($tipoInstituciones as $tipoInstitucion) {
-            $value = $tipoInstitucion->iniciativaInstitucion()->count();
+            $value = $tipoInstitucion->iniciativaInstitucionOrganizacion()->count();
             if ($value) {
                 $data[] = [
                     'value' => $value,
@@ -78,6 +79,18 @@ class IniciativasController extends Controller
                 $total[] = $value;
             }
         }
+
+        if (!TipoInstitucion::$search) {
+            if (($value = Iniciativas::obtenerIniciativasIndividualesCount()) && $value > 0) {
+                $data[] = [
+                    'value' => $value,
+                    'text' => "Individual"
+                ];
+
+                $total[] = $value;
+            }
+        }
+
 
         return [
             'items' => $data,
