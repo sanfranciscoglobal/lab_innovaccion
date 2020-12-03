@@ -187,6 +187,10 @@ class InnovacionController extends Controller
         else{
             $convocatorias= Convocatoria::orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
         }
+        if ($request->ods!=null){
+            $odslista=ConvocatoriaODS::select('convocatoria_id')->whereIn('ods_id',$request->ods)->get();
+            $convocatorias=Convocatoria::orderBy('created_at','DESC')->whereIn('id',$odslista)->paginate(Convocatoria::$paginate);
+        }
         return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
     }
     

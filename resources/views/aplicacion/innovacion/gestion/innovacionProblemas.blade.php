@@ -65,7 +65,7 @@
               <div class="d-flex align-items-center">
                 <div class="mx-1">
                   <h6 class="text-muted m-0 text-right">INICIA</h6>
-                  <h6 class="text-muted m-0 text-right">{{ $month_mini[date('m', strtotime($convocatoria->fecha_inicio))] }}</h6>
+                  <h6 class="text-muted m-0 text-right">{{ $month_mini[date('n', strtotime($convocatoria->fecha_inicio))] }}</h6>
                 </div>
                 <div class="mx-1">
                   <h1 class="text-warning m-0 h-100">{{ date('d', strtotime($convocatoria->fecha_inicio)) }}</h1>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="mx-1">
                   <h6 class="text-muted m-0 text-righ">FINALIZA</h6>
-                  <h6 class="text-muted m-0 text-righ">{{ $month_mini[date('m', strtotime($convocatoria->fecha_cierre))] }}</h6>
+                  <h6 class="text-muted m-0 text-righ">{{ $month_mini[date('n', strtotime($convocatoria->fecha_cierre))] }}</h6>
                 </div>
               
             </div>
