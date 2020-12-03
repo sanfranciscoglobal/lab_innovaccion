@@ -60,4 +60,28 @@ class IniciativasController extends Controller
             'total' => max($total),
         ];
     }
+
+    public static function analiticaIniciativaInstitucion(Request $request)
+    {
+        $total = $data = [];
+        TipoInstitucion::$search = $request->has('tipo_institucion') ? $request->tipo_institucion : null;
+        $tipoInstituciones = TipoInstitucion::obtenerTipoInstitucionAll();
+
+        foreach ($tipoInstituciones as $tipoInstitucion) {
+            $value = $tipoInstitucion->iniciativaInstitucion()->count();
+            if ($value) {
+                $data[] = [
+                    'value' => $value,
+                    'text' => "{$tipoInstitucion->descripcion}"
+                ];
+
+                $total[] = $value;
+            }
+        }
+
+        return [
+            'items' => $data,
+            'total' => max($total),
+        ];
+    }
 }
