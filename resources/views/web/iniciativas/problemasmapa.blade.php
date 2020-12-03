@@ -13,18 +13,7 @@
         border: 1px solid #aaa;
         color: #737491!important;
     }
-   .sidebar.active {
-        height: 100%; /* 100% Full-height */
-        width: 0; /* 0 width - change this with JavaScript */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Stay on top */
-        top: 0;
-        left: 0;
-        background-color: #111; /* Black*/
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 60px; /* Place content 60px from the top */
-        transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-        }
+
    
     .select2-selection__arrow {
         margin-right: 2%;
@@ -68,22 +57,51 @@
 @section('content')
 <input id="marker" value="{{ asset('images/hotspot_active.svg')}}" hidden>
 <input id="marker1" value="{{ asset('images/hotspot_naranja.svg')}}" hidden>
+<input id="marker2" value="{{ asset('images/hotspot_red.svg')}}" hidden>
+<input id="marker3" value="{{ asset('images/hotspot_verde.svg')}}" hidden>
+
 <div  class="bg-overlay-content pb-2 mb-md-3">
         <div class="">
-            <div id="mapacabezagrande" class="sidebar" style="top:10%;  position:absolute; z-index:10;" class="w-25">
+            
+            <div   style="bottom:0%;right:30%;left:30%;  position:absolute; z-index:10;" >
+                
+                <div  style="background-color: rgba(255, 255,255);" class=" d-flex flex-column h-100 rounded-lg box-shadow-lg">
+                    <div class="row justify-content-center center-block text-center">
+                        <div class="justify-content-center">
+                            <ul class="legend justify-content-center center-block text-center py-2 my-2 pb-3 ">
+                                <li><span class="superawesome"></span> Iniciativas</li>
+                                <li><span class="awesome"></span> Sector Productivo</li>
+                                <li><span class="kindaawesome"></span> Ciudadanía</li>
+                                <li><span class="notawesome"></span> Gestión Pública</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+
+            
+            <div class=" sidebar d-none d-lg-block">
+                <div  style="top:12%;  position:absolute; z-index:10;" class="p-3">
+                    
+                    <div  style="border-radius: 0 0 50% 50%; background-color: rgba(255, 255,255);" class="  d-flex flex-column h-100  box-shadow-lg">
+                        <a data-toggle="collapse" href="#mapacabezagrande">
+                                        <i class="shadow px-3 mx-1 btn fa fa-angle-down "></i></a>
+                    </div>
+                </div>
+            <div id="mapacabezagrande"  class="collapse" style="top:10%;  position:absolute; z-index:10;" class="w-25">
                 
                     <div  style="background-color: rgba(255, 255,255);" class=" py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg">
                         <div class="row justify-content-center center-block text-center">
                         
                             
-                            <form action="{{route('web.iniciativas.data')}}" method="POST">
+                            <form action="{{route('web.mapaproblemas.data')}}" method="POST">
                                         @method('POST')
                                         @csrf
                             
                             <div class="container justify-content-center">
                                 <div class="w-10 center-block text-left  pt-5">
                                 <h2 style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
-                                    <i class="shadow px-3 mx-1 btn fa fa-angle-left "></i>Filtros</a>
+                                    <i class="shadow px-3 mx-1 btn fa fa-angle-up "></i></a>Filtros
                                 </h2> 
                                 <h4 class="pt-3" style="color:#531c6a">
                                   Problemas
@@ -138,7 +156,7 @@
                                         <div class="row py-justify-content-center px-4 py-3">
                                             <button style="width: 220px;" type="button"
                                                     class="font-weight-bold btn btn-primary "
-                                                    data-action="{{route('web.iniciativas.exportar-excel')}}">
+                                                    data-action="">
                                                 Descargar datos
                                             </button>
                                         </div>
@@ -149,13 +167,35 @@
                         </div>
                     </div>
                 </div>
-                        <!-- Title + Delete link-->
-                <div id="map" style="width: 97%; height: 950px;">
-                </div>  
-
-                  
-               
+                </div>
+                <div id="mapacabezapequeño" style="top:10%;  position:absolute; z-index:10;background-color: rgba(255, 255,255, 0.7);" class="d-block d-lg-none w-100 py-3 rounded-lg box-shadow-lg">
+                <div class="row justify-content-center center-block text-center">
+                    <div class="row justify-content-center center-block text-center">
+                        <div class="col-2">
+                                <a id="filtros" href="#modal-mapa-filtros" data-toggle="modal" class="btn btn-primary">
+                                    <i class="fas fa-filter"></i>
+                                </a >
+                        </div>
+                        <div class="col">
+                                <div class="input-group">
+                                        <span class="input-group-prepend">
+                                            <div class="input-group-text  border-right-0"><i class="fa fa-search"></i></div>
+                                        </span>
+                                        <input id="pac-input" style=" border-top-right-radius:15px;; border-bottom-right-radius:15px;" class="form-control py-2 border-left-0 border pac-target-input" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
+                                        <span class="input-group-append">
+                                        
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+               <!-- Title + Delete link-->
+            <div id="map" style="width: 97%; height: 950px;">
+            </div>  
+
+               
+        </div>
                           
                       
             <!-- Content-->
@@ -179,34 +219,36 @@
     iniciativas={!! json_encode($iniciativas ->toArray()) !!};
     convocatoria={!! json_encode($convocatorias ->toArray()) !!};
     locations=[];
-    problemas=[];
+        problemas=[];
 
-    c=0
-    for(j=0;j<convocatoria.length;j++){
-        if(convocatoria[j].convocatorias){
-            tipo=convocatoria[j].convocatorias;
-            for(p=0;p<tipo.length;p++){
-                if(tipo[p].problemas){
-                    pro=tipo[p].problemas
-                    for(k=0;k<pro.length;k++){
-                      
-                        info='<div class="">'
-                            + '<b size="5" style="color:#fd972b">Descripción del problema:</b></br>'
-                            + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
-                            +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
-                            + '<div ">'+"</div></br>"
-                            + '<a class="btn btn-primary"> Ver más </a>' 
-                            +'</div>'
-                        problemas.push([])
-                        problemas[c][0]=info;
-                        problemas[c][1]=pro[k].latitud;
-                        problemas[c][2]=pro[k].longitud;
-                        c++;
+        c=0
+        for(j=0;j<convocatoria.length;j++){
+            if(convocatoria[j].convocatorias){
+                tipo=convocatoria[j].convocatorias;
+                for(p=0;p<tipo.length;p++){
+                    if(tipo[p].problemas){
+                        pro=tipo[p].problemas
+                        for(k=0;k<pro.length;k++){
+                        
+                            info='<div class="">'
+                            +'<b size="6" style="color:#4e2561">'+ pro[k].nombre +'</b></br>'
+                                + '<b size="5" style="color:#fd972b">Descripción del problema:</b></br>'
+                                + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
+                                +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
+                                + '<div ">'+"</div></br>"
+                                + '<a class="btn btn-primary"> Ver más </a>' 
+                                +'</div>'
+                            problemas.push([])
+                            problemas[c][0]=info;
+                            problemas[c][1]=pro[k].latitud;
+                            problemas[c][2]=pro[k].longitud;
+                            problemas[c][3]=j;
+                            c++;
+                        }
                     }
                 }
             }
         }
-    }
     c=0
     for(i=0;i<iniciativas.length;i++){
         /*descripcion=""
@@ -248,6 +290,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            $('#mapacabezagrande').collapse('show')
             $(document).on('click', '.btn-filter-submit', function () {
                 var action = $(this).data('action');
                 $('#filter-iniciativas').attr('action',action);

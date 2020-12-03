@@ -16,6 +16,9 @@
             </div>
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
         </div>
+        <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                <span class="font-size-sm text-muted">Ver
+                    video</span>
     </section>
     <section id="funciones">
         <div class="container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5">

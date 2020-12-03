@@ -165,8 +165,8 @@
                         <h3 class="h5 text-center">{{$evento->nombre}}</h3>
                         <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
                         <div class="mt-3 font-weight-bold font-weight-md text-primary">
-                            <p style="margin-bottom: 0; font-size:14;"><small >{{date('d M, Y', strtotime( $evento->fecha))}}</small></p>
-                            <p><small >{{date('H\Hi', strtotime( $evento->hora))}}</small></p>
+                            <p style="margin-bottom: 0; font-size:14;">{{date('d M, Y', strtotime( $evento->fecha))}}</p>
+                            <p>{{date('H\Hi', strtotime( $evento->hora))}}</p>
                         </div>
                         <span class="font-weight-bold"><i class="fe-message-square font-size-lg mr-2"></i> Descripción del Evento</span><br>
                         <p class="scrollable"  >{{$evento->descripcion}}</p>
