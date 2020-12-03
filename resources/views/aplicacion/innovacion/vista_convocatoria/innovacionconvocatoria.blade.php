@@ -72,14 +72,14 @@
                     <label class="form-label font-weight-bold" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
                     <select class="form-control custom-select select2" id="estadoconvocatoria" name="estadoconvocatoria" data-clean>
                         <option value="" selected disabled hidden>Seleccione un estado</option>
-                        <option value="1">Ambos</option>
-                        <option value="2">Vigente</option>
-                        <option value="3">Pasado</option>
+                        <option value="1">Todos</option>
+                        <option value="2">Abierto</option>
+                        <option value="3">Cerrado</option>
                     </select>
 
                 </div>
                
-                <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                {{-- <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label for="innovacion_abierta_sector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Sector productivo</label>
                     <div class= "m-0 p-0 w-100 form-group">
                                                                             
@@ -110,7 +110,7 @@
 
                     </div>
 
-                </div>
+                </div> --}}
 
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label for="innovacion_abierta_ods" class="control-label  font-weight-bold" style="color: #a13d8f">ODS</label>

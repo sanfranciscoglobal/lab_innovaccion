@@ -104,13 +104,15 @@
         <div class="pb-5" style="min-width: 300px;">
             <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
               <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+              
               <div class=" pt-5 px-4 px-xl-5" >
-                <a class="media meta-link font-size-sm align-items-center">
+                <h2 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$convocatoria->nombre}}</h2>
+                {{-- <a class="media meta-link font-size-sm align-items-center">
                     <img  width="42" src="{{ $imagen1 }}"
                         alt="Sanomi Smith" />
                     <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$convocatoria->nombre}}</h3>
                             <p class="font-weight-semibold ml-1" style="margin-bottom: 0; color: #a13d8f">{{$convocatoria->user->name}}</p></div>
-                </a>
+                </a> --}}
                 
               </div>
               <div class="card-body">
@@ -175,7 +177,17 @@
       <div class="row align-items-center">
         <div class="col-12 mb-3">
           <h1 class="text-primary text-center">PROBLEMAS REGISTRADOS</h1>
+          <!-- Search-->
+          <div class="col-4 mb-5 justify-content-center">
+            <h3 class="cs-widget-title">Buscar</h3>
+            <div class="input-group-overlay">
+                <div class="input-group-prepend-overlay"><span class="input-group-text"><i
+                            class="fe-search"></i></span></div>
+                <input class="form-control prepended-form-control" type="text" placeholder="Buscar una palabra clave">
+            </div>
         </div>
+        </div>
+        
 
         @foreach ($problemas as $problema)
         @php
@@ -277,8 +289,9 @@
                 @endif
               </div>
               <div class="text-center">
-                <a class="btn btn-primary btn-small mb-4" href="{{route("soluciones.ver",$problema->id)}}">SOLUCIONES REGISTRADAS</a>
-                <ul class="d-flex justify-content-center list-inline">
+                <a class="btn text-white btn-small mb-4" style="background:#ff7f00 " href="{{ route('app.soluciones.crear', $problema->id) }}">Registra una Solución</a>
+                <a class="btn btn-primary btn-small mb-4" href="{{route("soluciones.ver",$problema->id)}}">Ver Soluciones</a>
+                {{-- <ul class="d-flex justify-content-center list-inline">
                   <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="https://www.facebook.com/sharer/sharer.php?u={{ $problema->facebook ?? '#' }}">
                       <i class="fe-facebook"></i>
@@ -289,17 +302,13 @@
                       <i class="fe-twitter"></i>
                     </a>
                   </li>
-                  {{-- <li class="list-inline-item m-0">
-                    <a class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="{{ $problema->instagram ?? '#' }}">
-                      <i class="fe-instagram"></i>
-                    </a>
-                  </li> --}}
+                  
                   <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-linkedin sb-dark sb-sm" href="https://www.linkedin.com/shareArticle?url={{ $problema->linkedin ?? '#' }}">
                       <i class="fe-linkedin"></i>
                     </a>
                   </li>
-                </ul>
+                </ul> --}}
               </div>
             </div>
           </div>
