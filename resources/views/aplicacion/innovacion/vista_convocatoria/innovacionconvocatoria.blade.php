@@ -93,22 +93,26 @@
             <div class="d-sm-flex align-items-center px-4 pt-4 pb-3">
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label class="form-label font-weight-bold" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
+                    
                     <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
                         <option value="" selected hidden>Todos</option>
                         <option value="1">Sector Productivo</option>
                         <option value="2">Ciudadanía</option>
                         <option value="3">Gestión Pública</option>
+                    
                     </select>
 
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label class="form-label font-weight-bold" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
+                    
                     <select class="form-control custom-select select2" id="estadoconvocatoria" name="estadoconvocatoria" data-clean>
                         <option value="" selected hidden>Todos</option>
                         {{-- <option value="1">Todos</option> --}}
                         <option value="2">Abierta</option>
                         <option value="3">Cerrada</option>
                     </select>
+                   
 
                 </div>
 
@@ -147,7 +151,7 @@
 
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label for="innovacion_abierta_ods" class="control-label  font-weight-bold" style="color: #a13d8f">ODS</label>
-                    <div class= "m-0 p-0 w-100 form-group">
+                    
 
                         <select style="width:100%;" id="innovacion_abierta_ods" name="ods[]"
                             class="form-control custom-select select2"
@@ -158,7 +162,7 @@
                             data-close-on-select="false"
                             multiple>
                         </select>
-                    </div>
+               
 
                 </div>
                 {{-- <div class="d-sm-flex align-items-center">
