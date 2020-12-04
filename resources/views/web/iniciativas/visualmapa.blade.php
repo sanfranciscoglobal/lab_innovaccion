@@ -49,18 +49,18 @@
 <input id="marker1" value="{{ asset('images/hotspot.svg')}}" hidden>
     <section class="container my-lg-2 pt-5 pb-lg-3">
         <div class="row align-items-center">
-            <div class="col-lg-6 py-4  mt-lg-5">
-                <h1 class="mt-5">Mapa de iniciativas</h1>
-                <div class="py-3">
+            <div class="text-justify col-lg-6 py-4  mt-lg-5">
+                <h1 class="mt-5 text-primary">Mapa de iniciativas</h1>
+                <div class="py-3 text-justify">
                     <p class="cs-callout">
-                    ¡¡Se parte del ecosistema de innovación!
+                    ¡Se parte del ecosistema de innovación!
                     </br> </br>
                             * Registra tu iniciativa queremos saber sobre tu trabajo. </br>
                             * Conoce el trabajo de otros en temas de innovación.  </br>
                             * Anímate a contactar a actores que trabajen en temas de tu interés.  </br>
                             * Construyamos lazos de trabajo colaborativos. </br>
                     </p>
-                    <div class="shadow-lg p-3 mb-2 btn-purple-gradient text-color-white rounded" style="">
+                    <div class="text-justify shadow-lg p-3 mb-2 btn-purple-gradient text-color-white rounded" style="">
                         <strong>Indicaciones</strong>
                         <ul>
                             <li>Si gustas registrar tu iniciativa pulsa en el botón “Registra tu iniciativa”.</li>
