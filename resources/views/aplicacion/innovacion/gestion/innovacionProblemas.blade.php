@@ -127,7 +127,7 @@
                   
                   
                   @if ($odsArray)
-                  <li><h3 class="mt-2 text-primary">Ods: </h3>{{ $odsArray }}</li>
+                  <li><h3 class="mt-2 text-primary">ODS: </h3>{{ $odsArray }}</li>
                   @endif
                 </ul>
                 <hr>

@@ -184,7 +184,9 @@
                                                     <div class="row">
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <label for="ubicacion">* Ubicación del Evento</label>
+                                                                <label for="ubicacion">* Ubicación del Evento <i class="fe-info text-primary" style="font-size: 22px;
+                                                                    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
+                                                                                                                                                    title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
                                                                 <input class="form-control" type="text" id="direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Dirección del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                                             </div>
                                                         </div>
