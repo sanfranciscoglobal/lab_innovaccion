@@ -17,11 +17,13 @@
                         Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</p>
 
                 </div>
-                <p class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
+                <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                     <strong>Indicaciones</strong>
-                    <br>Revisa y descarga el material de aprendiaje y deja tus comentarios en los foros respectivos de cada publicación.
-                    <br>Publica el artículo o herramienta en el formulario a continuación.
-                </p>
+                    <ul>
+                        <li>Registra fondos propios o de otros organismos en el formulario</li>
+                        <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
+                    </ul> 
+                </div>
 
             </div>
             <div class="d-none d-md-block  col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url({{ asset('images/publicaciones_banner.png') }})" alt="Side banner"></div>

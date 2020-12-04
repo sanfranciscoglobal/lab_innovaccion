@@ -58,7 +58,7 @@ function filtrarproblemas(id,array=null){
                       + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
                       +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
                       + '<div ">'+"</div></br>"
-                      + '<a class="btn btn-primary"> Ver más </a>' 
+                      + '<a class="btn btn-primary" target="_blank" href="/gestion-innovacion/problemas/'+tipo[p].id+'"> Ver más </a>' 
                       +'</div>'
                         console.log(pro[k])
                         problemas.push([])

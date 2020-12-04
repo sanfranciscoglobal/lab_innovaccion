@@ -6,7 +6,23 @@
     transition: width 0.35s ease;
   
 }
-  
+.select2-selection__rendered {
+    overflow-y: scroll !important;
+    max-height: 34px;
+    resize: none;
+    overflow-x: hidden !important;
+    max-width: 20 rem!important;
+}
+.select2-search__field{
+    max-width: 20 rem !important;
+}
+.select2 .select2-container .select2-container--default .select2-container--above {
+    max-width: 20 rem !important;
+    overflow-x: clip;
+    }
+    .select2-search__field:placeholder-shown{
+        max-width: 20 rem !important;
+    }
 .select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
     max-width: 350px;
 }
