@@ -40,7 +40,7 @@
                             
                             
                         </div>
-                        <p>{{$material->tema_tratado}}</p>   
+                        <p>{{$material->categoria->nombre}}</p>   
 
                     </div>
                     
