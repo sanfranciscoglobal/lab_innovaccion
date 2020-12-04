@@ -133,7 +133,7 @@
                                   Iniciativas
                                 </h4> 
                                             <div class="row mt-2 ">
-                                                <span class="ml-3 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
+                                                <span class="ml-3  mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
                                             </div>
                                             <div class="row  mb-5">
                                                 <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
