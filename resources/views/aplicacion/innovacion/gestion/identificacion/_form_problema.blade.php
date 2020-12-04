@@ -4,7 +4,7 @@
 <input type="hidden" name="step" value="1">
 <input type="hidden" name="tipo_convocatoria_id" value="{{ $tipo }}">
 <input type="hidden" name="convocatoria_id" value="{{ $convocatoria->id }}">
-<p>En esta sección promovemos la gestión de la innovación sobre la base de la participación ciudadana y la creación
+{{-- <p>En esta sección promovemos la gestión de la innovación sobre la base de la participación ciudadana y la creación
     colectiva de soluciones a partir de la identificación y planteamiento de problemas.</p>
 <p>Impulsamos la innovación abierta, la innovación social y la innovación pública, mediante un esquema de interacción
     virtual que inicia con la visibilización y registro de problemas, para que estos puedan recibir propuestas de
@@ -12,7 +12,10 @@
 <p>Se realizarán convocatorias a distintos sectores para que registre problemas que hayan detectado en su gestión, y a
     partir de esa información iniciará el intercambio de conocimiento para proponer soluciones sobre el pilar de la
     innovación.</p>
-<p>Toda la información se irá cargando en esta sección, y de forma georeferenciada en el mapa de la plataforma.</p>
+<p>Toda la información se irá cargando en esta sección, y de forma georeferenciada en el mapa de la plataforma.</p> --}}
+<div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+    <p>Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios.</p>
+</div>
 <div class="panel-heading">
     <h3 class="panel-title">Identificación del Problema</h3>
     <p>

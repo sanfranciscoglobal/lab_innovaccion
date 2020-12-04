@@ -114,7 +114,7 @@
         </div>
         
         {{-- <button class="btn btn-primary nextBtn pull-right mt-4" type="button">Siguiente</button> --}}
-        <button class="btn btn-primary pull-right" type="submit" {{$solucion->id == null ? 'disabled' : ''}} formaction="{{ $url1.'?continue=1' }}">Guargar y continuar</button>
+        <button class="btn btn-primary pull-right" type="submit" {{$solucion->id == null ? 'disabled' : ''}} formaction="{{ $url1.'?continue=1' }}">Guardar y continuar</button>
         <button class="btn btn-link" type="submit" {{$solucion->id == null ? 'disabled' : ''}}  formaction="{{ $url1.'?continue=0' }}">Guardar</button>
     </div>
 </form>

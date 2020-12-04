@@ -103,8 +103,8 @@
                                             {{$material->nombre_publicacion}}
                                         </h2>
 
-                                        <p><span class="mr-auto">{{$material->tema_tratado}}</span> </p>
-                                        <p><span class="mr-auto">{{$material->tipo_documento}}</span></p>
+                                        <p><span class="mr-auto">{{$material->categoria->nombre}}</span> </p>
+                                        <p><span class="mr-auto">{{$material->tipodocumento->nombre}}</span></p>
 
                                     </div>
                                     <div class="px-4 px-xl-5 pt-2">
@@ -190,7 +190,7 @@
                             <div class="cs-widget cs-widget-categories mb-5">
                                 <h3 class="cs-widget-title">Categorías</h3>
                                 <ul>
-                                    <li><a class="cs-widget-link" href="#">Innovación<small
+                                    {{-- <li><a class="cs-widget-link" href="#">Innovación<small
                                                 class="text-muted pl-1 ml-2">23</small></a></li>
                                     <li><a class="cs-widget-link" href="#">Innovación abierta<small
                                                 class="text-muted pl-1 ml-2">14</small></a></li>
@@ -201,11 +201,16 @@
                                     <li><a class="cs-widget-link" href="#">Fondos<small
                                                 class="text-muted pl-1 ml-2">35</small></a></li>
                                     <li><a class="cs-widget-link" href="#">Servicios &amp; Vacation<small
-                                                class="text-muted pl-1 ml-2">28</small></a></li>
+                                                class="text-muted pl-1 ml-2">28</small></a></li> --}}
+                                                
+                                    @foreach ($categorias as $categoria)
+                                        <li><a class="cs-widget-link" href="{{ route('material.searchcategoria',$categoria->id) }}">{{$categoria->nombre}}<small
+                                            class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::where('tema_tratado',$categoria->id)->count() }}</small></a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <!-- Featured posts-->
-                            <div class="cs-widget mt-n1 mb-5">
+                            {{-- <div class="cs-widget mt-n1 mb-5">
                                 <h3 class="cs-widget-title pb-1">Publicaciones en tendencia</h3>
                                 <div class="media align-items-center pb-1 mb-3"><a class="d-block" href="#"><img
                                             class="rounded" width="64" src="img/pexels-pixabay-416405.jpg" alt="Post" /></a>
@@ -230,7 +235,7 @@
                                         <p class="font-size-xs text-muted mb-0">por Daniel Adams</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
