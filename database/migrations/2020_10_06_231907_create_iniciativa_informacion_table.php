@@ -19,7 +19,7 @@ class CreateIniciativaInformacionTable extends Migration
             $table->integer('anio');
             $table->string('vigencia', 10);
             $table->string('logo', 250);
-            $table->string('componente_innovador', 250);
+            $table->text('componente_innovador');
             $table->text('descripcion_iniciativa');
             $table->string('url_facebook', 250)->nullable();
             $table->string('url_twitter', 250)->nullable();
