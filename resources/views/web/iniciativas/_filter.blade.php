@@ -1,6 +1,8 @@
+<?php $routeName = Route::currentRouteName(); ?>
 <form id="filter-iniciativas" class="container" action="{{route('web.iniciativas.index')}}" method="POST">
     @method('POST')
     @csrf
+
     <div class=" align-items-center  h-100 bg-light rounded-lg box-shadow-lg pl-2 pr-5 py-4">
         <div class="w-100 center-block text-left pl-5 pt-1">
             <div class="">
@@ -18,23 +20,27 @@
                 </div>
 
                 <div class="row align-items-center">
-                    <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                         <div class="row">
                             <div class="col py-2 px-1">
                                 <a class="font-weight-bold btn btn-primary btn-block"
                                    href="{{route('web.iniciativas.mapa')}}">MAPA</a>
                             </div>
-                            <div class="col py-2 pr-1">
-                                <a href="{{route('web.iniciativas.index')}}"
-                                   style="border-color:#8B8B8B;background:#8B8B8B"
-                                   class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
-                            </div>
-                            <div class="col py-2 pr-3">
-                                <a href="{{route('web.iniciativas.analiticas')}}"
-                                   class="font-weight-bold btn btn-primary btn-block">
-                                    ANALÍTICA
-                                </a>
-                            </div>
+                            @if($routeName !== 'web.iniciativas.index')
+                                <div class="col py-2 pr-1">
+                                    <a href="{{route('web.iniciativas.index')}}"
+                                       {{--style="border-color:#8B8B8B;background:#8B8B8B"--}}
+                                       class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
+                                </div>
+                            @endif
+                            @if($routeName !== 'web.iniciativas.analiticas')
+                                <div class="col py-2 pr-3">
+                                    <a href="{{route('web.iniciativas.analiticas')}}"
+                                       class="font-weight-bold btn btn-primary btn-block">
+                                        ANALÍTICA
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="my-2 col-xl-3 col-lg-3 col-md-3 col-sm-12 text-center">
