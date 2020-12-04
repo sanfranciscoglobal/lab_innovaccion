@@ -92,7 +92,7 @@
 
             <div class="d-sm-flex align-items-center px-4 pt-4 pb-3">
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label class="form-label font-weight-bold" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
+                    <label class="form-label font-weight-bold pb-1" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
                     
                     <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
                         <option value="" selected hidden>Todos</option>
@@ -104,7 +104,7 @@
 
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label class="form-label font-weight-bold" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
+                    <label class="form-label font-weight-bold pb-1" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
                     
                     <select class="form-control custom-select select2" id="estadoconvocatoria" name="estadoconvocatoria" data-clean>
                         <option value="" selected hidden>Todos</option>
@@ -117,7 +117,7 @@
                 </div>
 
                 {{-- <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label for="innovacion_abierta_sector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Sector productivo</label>
+                    <label for="innovacion_abierta_sector_productivo" class="control-label font-weight-bold " style="color: #a13d8f">Sector productivo</label>
                     <div class= "m-0 p-0 w-100 form-group">
 
                         <select style="width:100%;" id="innovacion_abierta_sector_productivo" name="sector_productivo[]"
@@ -134,7 +134,7 @@
 
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label for="innovacion_abierta_subsector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Subsector productivo</label>
+                    <label for=" innovacion_abierta_subsector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Subsector productivo</label>
                     <div class= "m-0 p-0 w-100 form-group">
 
                         <select style="width:100%;" id="innovacion_abierta_subsector_productivo" name="subsector_productivo[]"
@@ -151,7 +151,7 @@
 
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label for="innovacion_abierta_ods" class="control-label  font-weight-bold" style="color: #a13d8f">ODS</label>
-                    
+                    <div class= "m-0 p-0 w-100 form-group">
 
                         <select style="width:100%;" id="innovacion_abierta_ods" name="ods[]"
                             class="form-control custom-select select2"
@@ -162,6 +162,7 @@
                             data-close-on-select="false"
                             multiple>
                         </select>
+                    </div>    
                
 
                 </div>
