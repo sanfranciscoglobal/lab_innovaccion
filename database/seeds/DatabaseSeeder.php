@@ -30,6 +30,9 @@ class DatabaseSeeder extends Seeder
             TipoSectorSeeder::class,
             TipoSubsectorSeeder::class,
             ConvocatoriaSeeder::class,
+            MaterialTipoDocumentoSeeder::class,
+            MaterialCategoriaSeeder::class
+
         ]);
     }
 }
