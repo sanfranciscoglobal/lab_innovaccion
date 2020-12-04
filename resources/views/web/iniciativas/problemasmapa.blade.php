@@ -81,7 +81,7 @@
 
             
             <div class=" sidebar d-none d-lg-block">
-                <div style="top:12%;  position:absolute; z-index:10;" class="p-3">
+                <div style="top:14%;  position:absolute; z-index:10;" class="p-3">
                     
                     <div style="border-radius: 50%; background-color: rgba(255, 255,255);" class="  d-flex flex-column h-100  box-shadow-lg">
                         <a data-toggle="collapse" href="#mapacabezagrande" aria-expanded="false" class="btn-primary collapsed" style="border-radius:35%;transition: all ease-in-out;">
@@ -132,8 +132,10 @@
                                 <h4 class="pt-3" style="color:#531c6a">
                                   Iniciativas
                                 </h4> 
-                                            <div class="row mt-2 mb-5">
+                                            <div class="row mt-2 ">
                                                 <span class="ml-3 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
+                                            </div>
+                                            <div class="row  mb-5">
                                                 <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
                                                         data-ajax--url="{{route('api.ods-categoria.select2')}}"
                                                         data-ajax--data-type="json"

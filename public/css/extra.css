@@ -11,20 +11,15 @@
     max-height: 34px;
     resize: none;
     overflow-x: hidden !important;
-    max-width: 20 rem!important;
+   
 }
-.select2-search__field{
-    max-width: 20 rem !important;
+.pac-input{
+    max-width: 250px !important;
+    
 }
-.select2 .select2-container .select2-container--default .select2-container--above {
-    max-width: 20 rem !important;
+.select2{
+    max-width: 250px !important;
     overflow-x: clip;
-    }
-    .select2-search__field:placeholder-shown{
-        max-width: 20 rem !important;
-    }
-.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
-    max-width: 350px;
 }
 .legend { list-style: none; }
 .legend li { float: left; margin-right: 10px; }
