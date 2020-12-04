@@ -231,7 +231,9 @@ window.disableInputForm = function disableInputForm(id) {
 window.initSelect2 = function initSelect2(element) {
   // console.log('Nr', element);
   $(element).select2({
-    language: "es"
+    width: 'resolve',
+    language: "es",
+    dropdownAutoWidth : true
   });
 };
 
@@ -239,7 +241,9 @@ window.initAjaxSelect2 = function initAjaxSelect2(element) {
   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content'); // console.log('Ajax: ', element);
 
   $(element).select2({
+    width: 'resolve',
     language: "es",
+    dropdownAutoWidth : true,
     ajax: {
       data: function data(params) {
         var query = {

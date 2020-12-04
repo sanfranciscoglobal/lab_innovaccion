@@ -96,10 +96,10 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link justify-content-center center-block text-center font-weight-bold" href="{{route('innovaciones')}}">Gestión de la Innovación</a>
+                        <a class="nav-link  text-lg-center font-weight-bold" href="{{route('innovaciones')}}">Gestión de la Innovación</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link  font-weight-bold" href="#" data-toggle="dropdown">
+                        <a class="text-lg-center nav-link  font-weight-bold" href="#" data-toggle="dropdown">
                             Ecosistema de innovación<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/iniciativasmapa">Mapa de
@@ -125,7 +125,7 @@
                             Nosotros<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('acercade') }}">Acerca de</a></li>
-                            <li><a class="dropdown-item" href="{{ route('faq') }}">Preguntas frecuentes</a></li>
+                            <li><a class="dropdown-item" href="{{ route('faq') }}">Condiciones de uso</a></li>
                         </ul>
                     </li>
 

@@ -39,11 +39,13 @@
                     <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!<br>
                         Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
                 </div>
-                <p class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
+                <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                     <strong>Indicaciones</strong>
-                    <br>Revisa la lista de eventos y participa de estos espacios de intercambio.
-                    <br>Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.
-                </p>
+                    <ul>
+                        <li>Registra fondos propios o de otros organismos en el formulario</li>
+                        <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
+                    </ul> 
+                </div>
             </div>
 
             <div class="d-none d-md-block col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/img_pages/eventos.png') }}')" alt="Side banner"></div>

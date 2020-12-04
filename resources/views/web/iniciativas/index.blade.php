@@ -60,6 +60,14 @@
                                 class="clearfix"></span>
                         * Construyamos lazos de trabajo colaborativos. <span class="clearfix"></span>
                     </p>
+                    <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
+                        <strong>Indicaciones</strong>
+                        <ul>
+                            <li>Registra fondos propios o de otros organismos en el formulario</li>
+                            <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
+                        </ul> 
+                    </div>
+           
                     <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
                     video</span>

@@ -30,11 +30,13 @@
                         Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.
                         Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación. </p>
                 </div>
-                <p class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
+                <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                     <strong>Indicaciones</strong>
-                    <br>Caso 1. Registra fondos propios o de otros organismos en el formulario
-                    <br>Caso 2. Revisa las oportunidades de financiamiento pulsando en los íconos
-                </p>
+                    <ul>
+                        <li>Registra fondos propios o de otros organismos en el formulario</li>
+                        <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
+                    </ul> 
+                </div>
             </div>
             <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-contain order-md-2 overflow-hidden" id="bannerluces"
             style="background-image:url({{ asset('img/img_pages/fondos.png')}})">

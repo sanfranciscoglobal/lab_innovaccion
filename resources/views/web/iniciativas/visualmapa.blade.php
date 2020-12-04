@@ -60,8 +60,16 @@
                                 class="clearfix"></span>
                         * Construyamos lazos de trabajo colaborativos. <span class="clearfix"></span>
                     </p>
+                    <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
+                        <strong>Indicaciones</strong>
+                        <ul>
+                            <li>Registra fondos propios o de otros organismos en el formulario</li>
+                            <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
+                        </ul> 
+                    </div>
                     <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                <span class="font-size-sm text-muted">Ver
+                    
+                    <span class="font-size-sm text-muted">Ver
                     video</span>
                 </div>
             </div>
@@ -110,12 +118,12 @@
         +'<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
         + '<b size="5" style="color:#fd972b">Descripción de la iniciativa:</b></br>'
         + '<div class="">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
-        +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
-        + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
-        +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>'
-        + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
-        +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
-        + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>"
+       // +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
+       // + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
+       // +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>' 
+       // + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
+       // +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
+       // + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>" 
         +'</div>'
         for(j=0;j<iniciativas[i].iniciativa_ubicaciones.length;j++){
             locations.push([])

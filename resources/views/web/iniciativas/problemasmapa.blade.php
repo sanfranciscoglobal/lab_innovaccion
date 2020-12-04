@@ -81,11 +81,11 @@
 
             
             <div class=" sidebar d-none d-lg-block">
-                <div  style="top:12%;  position:absolute; z-index:10;" class="p-3">
+                <div style="top:12%;  position:absolute; z-index:10;" class="p-3">
                     
-                    <div  style="border-radius: 0 0 50% 50%; background-color: rgba(255, 255,255);" class="  d-flex flex-column h-100  box-shadow-lg">
-                        <a data-toggle="collapse" href="#mapacabezagrande">
-                                        <i class="shadow px-3 mx-1 btn fa fa-angle-down "></i></a>
+                    <div style="border-radius: 50%; background-color: rgba(255, 255,255);" class="  d-flex flex-column h-100  box-shadow-lg">
+                        <a data-toggle="collapse" href="#mapacabezagrande" aria-expanded="false" class="btn-primary collapsed" style="border-radius:35%;transition: all ease-in-out;">
+                                        <i class=" py-3 px-3 mx-1  fa  fa-filter"></i></a>
                     </div>
                 </div>
             <div id="mapacabezagrande"  class="collapse" style="top:10%;  position:absolute; z-index:10;" class="w-25">
@@ -234,9 +234,9 @@
                             +'<b size="6" style="color:#4e2561">'+ pro[k].nombre +'</b></br>'
                                 + '<b size="5" style="color:#fd972b">Descripción del problema:</b></br>'
                                 + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
-                                +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
+                                
                                 + '<div ">'+"</div></br>"
-                                + '<a class="btn btn-primary"> Ver más </a>' 
+                                + '<a class="btn btn-primary" target="_blank" href="/gestion-innovacion/problemas/'+tipo[p].id+'"> Ver más </a>' 
                                 +'</div>'
                             problemas.push([])
                             problemas[c][0]=info;
@@ -270,12 +270,12 @@
         +'<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
         + '<b size="5" style="color:#fd972b">Descripción de la iniciativa:</b></br>'
         + '<div class="">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
-        +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
-        + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
-        +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>' 
-        + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
-        +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
-        + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>" 
+        //+'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
+        //+ '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
+        //+'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>' 
+        //+ '<div  ">'+txtods.slice(0, -2)+".</div></br>"
+        //+'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
+        //+ '<div  ">'+txtpobla.slice(0, -2)+".</div></br>" 
         +'</div>'
         for(j=0;j<iniciativas[i].iniciativa_ubicaciones.length;j++){
             locations.push([])
