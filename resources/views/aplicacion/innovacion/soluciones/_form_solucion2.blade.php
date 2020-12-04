@@ -10,7 +10,7 @@
            <div class="col-12">
                 <div class="form-group">
 
-                    <label class="control-label">* Tipo de innovación propuesta</label>
+                    <label class="control-label">* Tipo de innovación propuesta <span style="color: gray">(Selecciona una o varias opciones.)</span></label>
                     {{-- <div class= "m-0 p-0 w-100 form-group">
                         
                         <select style="width:100%;" id="tipo_propuesta" name="tipo_institucion[]"
@@ -61,7 +61,7 @@
                 <div class="form-group">
 
 
-                    <label class="control-label">* Nivel actual de desarrollo de la solución</label>
+                    <label class="control-label">* Nivel actual de desarrollo de la solución <span style="color: gray">(Selecciona una opción.)</span></label>
                     {{-- <div class= "m-0 p-0 w-100 form-group">
                         
                         <select style="width:100%;" id="tipo_poblacion2" name="nivelsolucion_id"
