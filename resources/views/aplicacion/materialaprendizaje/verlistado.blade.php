@@ -19,15 +19,17 @@
             <div class="col-lg-5 pt-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary">Publicaciones y Herramientas</h1>
                 <div class="py-3">
-                    <p class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!<br>
-                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</p>
+                    <p class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!</br></br> 
+                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</br></br>
+                        Deja tus comentarios y reflexiones sobre la utilidad de estos. 
+                        </p>
 
                 </div>
                 <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                     <strong>Indicaciones</strong>
                     <ul>
-                        <li>Registra fondos propios o de otros organismos en el formulario</li>
-                        <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
+                        <li>Publica el artículo o herramienta en el formulario.</li>
+                        <li>Revisa y descarga el material de aprendizaje y deja tus comentarios en los foros respectivos de cada publicación.</li>
                     </ul>
                 </div>
 

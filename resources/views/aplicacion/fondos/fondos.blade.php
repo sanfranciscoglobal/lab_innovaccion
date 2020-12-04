@@ -26,15 +26,15 @@
             <div class="col-md-6 bg-size-cover order-md-2 py-5">
                 <h1 clas="" s="mt-5 text-primary">Fondos</h1>
                 <div class="">
-                    <p class="cs-callout">¡Fomentemos oportunidades de financiamiento para la innovación!<br>
+                    <p class="cs-callout">¡Fomentemos oportunidades de financiamiento para la innovación!</br> </br>
                         Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.
                         Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación. </p>
                 </div>
                 <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                     <strong>Indicaciones</strong>
                     <ul>
-                        <li>Registra fondos propios o de otros organismos en el formulario</li>
-                        <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
+                        <li>Registra fondos propios o de otros organismos en el formulario.</li>
+                        <li>Revisa las oportunidades de financiamiento pulsando en los íconos.</li>
                     </ul> 
                 </div>
             </div>
