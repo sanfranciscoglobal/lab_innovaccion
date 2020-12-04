@@ -6,26 +6,22 @@
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary uppercase">Gestión de la Innovación</h1>
                 <div class="py-3">
-                    <p class="cs-callout">
-                    ¡Compártenos tus retos para resolverlos juntos!</br>
-                    ¡Busquemos soluciones de manera abierta!</br>
+                    <p class="text-justify cs-callout">
+                    ¡Compártenos tus retos para resolverlos juntos!</br></br>
+                    ¡Busquemos soluciones de manera abierta!</br></br>
 
                     Registra tus retos a través de nuestras convocatorias abiertas. Impulsaremos la innovación en el sector productivo, en la gestión pública y en los requerimientos de la ciudadanía. Para cada una de estas convocatorias soluciones factibles serán propuestas desde diversos actores combinando experticias y conocimientos.
 
                     </p>
-                    <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
+                    <div class="text-justify shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                         <strong>Indicaciones</strong>
                         <ul>
-                            <li>Si gustas registrar tu iniciativa pulsa en el botón “Registra tu iniciativa”.</li>
-                            <li>Si gustas informarte:
-                                <ol type="a">
-                                    <li> Indaga en el mapa, al poner el curso sobre la iniciativa obtendrás más información. </li>
-                                    <li> Pulsa el botón “Actores” y se desplegará la información de quién implementa. </li>
-                                    <li> Pulsa el botón “Analítica” y podrás visualizar la información en gráficos. </li>
-                                    <li> Escoge filtros  en base a tu interés y se organizará la información. </li>
-                                    <li>Pulsa el botón “Descargar” y tendrás acceso a toda la base de datos.</li>
-                                </ol>
-                            </li>
+                            <li>Revisa si se ha abierto una convocatoria de innovación de tu interés.</li>
+                            <li>Registra tu reto en función de tus necesidades y el trabajo que realizas.</li>
+                            <li>Si no has registrado un reto, revisa qué problemas están registrados en cada convocatoria y anímate a proveer ideas. </li>
+                            <li>Propón una solución factible para uno o más de los problemas registrados.</li>
+                            <li>Prepárate para implementar tu idea junto al requirente de soluciones.</li>
+
                         </ul>
                     </div>
                 </div>
@@ -34,13 +30,15 @@
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/gestion_innovacion.png') }}" alt="Side banner"></div>
         </div>
 
-        <h2 class=" text-primary uppercase">Metodología</h1>
+        <h2 class="text-primary uppercase">Metodología</h1>
         <div class="py-3">
+        <p class="text-justify">
+        Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social. 
+        </p class="text-justify">
             <ul>
-            <li>Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social. </li>
-            <li>Innovación abierta busca que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.</li>
-            <li>Innovación pública es la mejora del quehacer público, incluyendo la gestión administrativa y los asuntos de interés común.</li>
-            <li>Innovación social se enfoca en resolver retos que aporten al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables. </li>
+            <li><strong>Innovación abierta</strong> busca que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.</li>
+            <li><strong>Innovación pública</strong> es la mejora del quehacer público, incluyendo la gestión administrativa y los asuntos de interés común.</li>
+            <li><strong>Innovación social</strong> se enfoca en resolver retos que aporten al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables. </li>
             </ul>
         </div>
 
@@ -94,7 +92,7 @@
 
             <div class="d-sm-flex align-items-center px-4 pt-4 pb-3">
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label class="form-label font-weight-bold" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
+                    <label class="form-label font-weight-bold pb-1" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
                     
                     <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
                         <option value="" selected hidden>Todos</option>
@@ -106,7 +104,7 @@
 
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label class="form-label font-weight-bold" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
+                    <label class="form-label font-weight-bold pb-1" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
                     
                     <select class="form-control custom-select select2" id="estadoconvocatoria" name="estadoconvocatoria" data-clean>
                         <option value="" selected hidden>Todos</option>
@@ -119,7 +117,7 @@
                 </div>
 
                 {{-- <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label for="innovacion_abierta_sector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Sector productivo</label>
+                    <label for="innovacion_abierta_sector_productivo" class="control-label font-weight-bold " style="color: #a13d8f">Sector productivo</label>
                     <div class= "m-0 p-0 w-100 form-group">
 
                         <select style="width:100%;" id="innovacion_abierta_sector_productivo" name="sector_productivo[]"
@@ -136,7 +134,7 @@
 
                 </div>
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label for="innovacion_abierta_subsector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Subsector productivo</label>
+                    <label for=" innovacion_abierta_subsector_productivo" class="control-label font-weight-bold" style="color: #a13d8f">Subsector productivo</label>
                     <div class= "m-0 p-0 w-100 form-group">
 
                         <select style="width:100%;" id="innovacion_abierta_subsector_productivo" name="subsector_productivo[]"
@@ -152,8 +150,8 @@
                 </div> --}}
 
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
-                    <label for="innovacion_abierta_ods" class="control-label  font-weight-bold" style="color: #a13d8f">ODS</label>
-                    
+                    <label for="innovacion_abierta_ods" class="control-label  font-weight-bold pl-3" style="color: #a13d8f">ODS</label>
+                    <div class= "m-0 p-0 w-100 form-group">
 
                         <select style="width:100%;" id="innovacion_abierta_ods" name="ods[]"
                             class="form-control custom-select select2"
@@ -164,6 +162,7 @@
                             data-close-on-select="false"
                             multiple>
                         </select>
+                    </div>    
                
 
                 </div>
