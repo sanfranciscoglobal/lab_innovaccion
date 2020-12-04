@@ -34,7 +34,7 @@
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/gestion_innovacion.png') }}" alt="Side banner"></div>
         </div>
 
-        <h2 class=" text-primary uppercase">Metología</h1>
+        <h2 class=" text-primary uppercase">Metodología</h1>
         <div class="py-3">
             <ul>
             <li>Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social. </li>
