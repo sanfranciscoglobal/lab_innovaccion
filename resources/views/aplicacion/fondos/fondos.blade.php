@@ -11,6 +11,12 @@
     .card-lab-orange .card-body,
     .card-lab-orange .card-body:before { background-color: #FF9F40; }
 
+    .bg-size-contain {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
 </style>
 @endsection
 @section('content')
@@ -30,8 +36,8 @@
                     <br>Caso 2. Revisa las oportunidades de financiamiento pulsando en los íconos
                 </p>
             </div>
-            <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces"
-            style="background-image:url({{ asset('img/fondos.png')}})">
+            <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-contain order-md-2 overflow-hidden" id="bannerluces"
+            style="background-image:url({{ asset('img/img_pages/fondos.png')}})">
             </div>
         </div>
         <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>

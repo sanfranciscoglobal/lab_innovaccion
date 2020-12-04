@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 @section('header-css')
     <style>
-       
+
          @media (min-width: 992px) and (max-width: 1250px) {
             .itemhome{
                 min-width: 50%;
@@ -36,6 +36,12 @@
             max-width: 250px;
         }
 
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -59,18 +65,18 @@
                     video</span>
                 </div>
             </div>
-            <div class="d-sm-none d-lg-block  col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('images/banner_mapa_iniciativas.png') }}');border-radius: 150px 0 0 150px;">
+            <div class="d-sm-none d-lg-block  col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/img_pages/mapa_iniciativas.png') }}');">
             </div>
         </div>
-  
+
     </section>
-    
+
     <section class="searchbar-container bg-secondary">
         @include('web.iniciativas.mapa')
     </section>
 
-    
-       
+
+
 @endsection
 
 @section('scripts')
@@ -81,7 +87,7 @@
 <script>
 
     iniciativas={!! json_encode($iniciativas ->toArray()) !!};
-    
+
     locations=[]
     c=0
     for(i=0;i<iniciativas.length;i++){
@@ -106,10 +112,10 @@
         + '<div class="">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
         +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
         + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
-        +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>' 
+        +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>'
         + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
         +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
-        + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>" 
+        + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>"
         +'</div>'
         for(j=0;j<iniciativas[i].iniciativa_ubicaciones.length;j++){
             locations.push([])
