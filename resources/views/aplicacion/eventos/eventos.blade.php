@@ -21,6 +21,12 @@
             background: white;
         }
 
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -40,7 +46,7 @@
                 </p>
             </div>
 
-            <div class="d-none d-md-block col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/eventos.png') }}')" alt="Side banner"></div>
+            <div class="d-none d-md-block col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/img_pages/eventos.png') }}')" alt="Side banner"></div>
         </div>
         <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
@@ -165,8 +171,8 @@
                         <h3 class="h5 text-center">{{$evento->nombre}}</h3>
                         <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
                         <div class="mt-3 font-weight-bold font-weight-md text-primary">
-                            <p style="margin-bottom: 0; font-size:14;"><small >{{date('d M, Y', strtotime( $evento->fecha))}}</small></p>
-                            <p><small >{{date('H\Hi', strtotime( $evento->hora))}}</small></p>
+                            <p style="margin-bottom: 0; font-size:14;">{{date('d M, Y', strtotime( $evento->fecha))}}</p>
+                            <p>{{date('H\Hi', strtotime( $evento->hora))}}</p>
                         </div>
                         <span class="font-weight-bold"><i class="fe-message-square font-size-lg mr-2"></i> Descripción del Evento</span><br>
                         <p class="scrollable"  >{{$evento->descripcion}}</p>

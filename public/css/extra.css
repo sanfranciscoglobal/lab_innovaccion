@@ -1,4 +1,28 @@
-
+.collapse.width {
+    height: auto;
+    -webkit-transition: width 0.35s ease;
+    -moz-transition: width 0.35s ease;
+    -o-transition: width 0.35s ease;
+    transition: width 0.35s ease;
+  
+}
+  
+.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
+    max-width: 350px;
+}
+.legend { list-style: none; }
+.legend li { float: left; margin-right: 10px; }
+.legend span {
+    float: left;
+    width: 14px;
+    height: 14px;
+    margin: 4px;
+}
+/* your colors */
+.legend .superawesome { background-color: #FF7F00; }
+.legend .awesome { background-color: #4e2561; }
+.legend .kindaawesome { background-color: #ca0707; }
+.legend .notawesome { background-color: #8fff4f; }
 .img-fluid {
     max-width: 105%;
     height: auto;

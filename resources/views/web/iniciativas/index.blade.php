@@ -54,12 +54,18 @@
                                 class="clearfix"></span>
                         * Construyamos lazos de trabajo colaborativos. <span class="clearfix"></span>
                     </p>
+                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                <span class="font-size-sm text-muted">Ver
+                    video</span>
                 </div>
+                
             </div>
             <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden "
                  style="background-image: url('{{ asset('img/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
             </div>
+            
         </div>
+        
     </section>
     <section class="searchbar-container bg-secondary mt-2">
         @include('web.iniciativas._filter', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones','buscar'))
