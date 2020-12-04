@@ -36,14 +36,14 @@
             <div class="col-md-6 bg-size-cover order-md-2 py-5">
                 <h1 class="mt-5 text-primary">Eventos</h1>
                 <div class="py-3">
-                    <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!<br>
+                    <p class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!</br></br>
                         Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</p>
                 </div>
                 <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                     <strong>Indicaciones</strong>
                     <ul>
-                        <li>Registra fondos propios o de otros organismos en el formulario</li>
-                        <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
+                        <li>Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</li>
+                        <li>Revisa la lista de eventos y participa de estos espacios de intercambio.</li>
                     </ul> 
                 </div>
             </div>
