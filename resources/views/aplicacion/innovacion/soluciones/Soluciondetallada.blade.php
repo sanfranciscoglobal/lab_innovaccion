@@ -33,7 +33,7 @@
   <section class="container my-lg-2 pt-5 pb-lg-5">
     <div class="row align-items-center">
       <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-        <h1 class="mt-5">{{ $sectoresArray }}</h1>
+        <h1 class="mt-5">{{ $solucion->problemaid->nombre }}</h1>
       </div>
       <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
     </div>
@@ -182,7 +182,7 @@
               </div>
             </div>
 
-            <ul class="d-flex justify-content-center list-inline">
+            {{-- <ul class="d-flex justify-content-center list-inline">
               <li class="list-inline-item m-0">
                 <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="{{ $solucion->facebook ?? '#' }}">
                   <i class="fe-facebook"></i>
@@ -203,7 +203,7 @@
                   <i class="fe-youtube"></i>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </div>
         </div>
         @endif
@@ -244,11 +244,11 @@
                   </div>
                 </div>
               </div>
-              <div class="custom-control custom-checkbox d-block">
+              <div class="custom-control custom-checkbox d-block mb-5">
                 <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required>
-                <label class="custom-control-label" for="verificada">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
+                <label class="custom-control-label" for="verificada" style="color: #4a4b65">* Declaro que conozco los términos y condiciones de esta plataforma y autorizo que se publiquen todos los datos registrados en este formulario.</label>
               </div>
-              <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-send font-size-lg mr-2"></i>Enviar</button>
+              <button class="btn btn-primary mt-sm-0" id='submitbutton' type="submit"><i class="fe-send font-size-lg mr-2"></i>Enviar</button>
             </div>
           </div>
         </form>
@@ -345,9 +345,9 @@
               </div>
               @error('financiamiento')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
               <label for="archivo">Carga un archivo complementario (máx. 10MB)</label>
-              {{-- @if($method == 'POST') --}}
+             
               @if($method == 'POST')
               <div class="cs-file-drop-area">
                   <div class="cs-file-drop-icon fe-upload"></div>
@@ -356,7 +356,7 @@
                   <button type="button" class="cs-file-drop-btn btn btn-primary btn-sm">O selecciona archivo</button>
                   <div class="invalid-feedback">Agrega una imagen antes de enviar.</div>
               </div>
-              <small id="emailHelp" class="form-text text-muted">máx. 10Mb</small>
+              <small id="emailHelp" class="form-text text-muted">máx. 10MB</small>
               @else
               @php
                   $img = asset('img/logo/logo-icon-footer.png');
@@ -365,10 +365,21 @@
                   }
                   @endphp
               <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" size="10000000">
-              <small id="emailHelp" class="form-text text-muted">máx. 10Mb</small>
+              <small id="emailHelp" class="form-text text-muted">máx. 10MB</small>
               @endif
               @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-            </div>
+            </div> --}}
+            <div class="form-group">
+              <label for="archivo"> Carga un archivo complementario (máx. 10MB)</label>
+              @php
+                  $img = null;
+                  if(Storage::disk('soluciones')->exists($solucion->archivo)){
+                      $img =  asset('storage/soluciones/'.$solucion->archivo);
+                  }
+                  @endphp
+              <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" data-max-file-size="10M">
+              @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+          </div>
 
             <div class="custom-control custom-checkbox d-block">
               <input class="custom-control-input" type="checkbox" id="verificada" name="terminos" value="1" required {{ old('terminos', $solucion_mejorada->terminos) == '1' ? 'checked' : "" }}>

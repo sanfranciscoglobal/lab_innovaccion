@@ -49,6 +49,14 @@
             color: #fff !important;
         }
 
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
+        .custom-page-ul li {margin-bottom: 0;}
+
     </style>
 @endsection
 @section('content')
@@ -67,22 +75,29 @@
                     </p>
                     <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                         <strong>Indicaciones</strong>
-                        <ul>
-                            <li>Registra fondos propios o de otros organismos en el formulario</li>
-                            <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
-                        </ul> 
+
+                        <ul class="custom-page-ul">
+                          <li>Si gustas registrar tu iniciativa pulsa en el botón “Registra tu iniciativa”.</li>
+                          <li>Si gustas informarte:</li>
+                          <ul class="custom-page-ul">
+                            <li>&nbsp;&nbsp;Indaga en el mapa, al poner el curso sobre la iniciativa obtendrás más información.</li>
+                            <li>&nbsp;&nbsp;Pulsa el botón “Actores” y se desplegará la información de quién implementa.</li>
+                            <li>&nbsp;&nbsp;Pulsa el botón “Analítica” y podrás visualizar la información en gráficos.</li>
+                            <li>&nbsp;&nbsp;Escoge filtros  en base a tu interés y se organizará la información.</li>
+                            <li>&nbsp;&nbsp;Pulsa el botón “Descargar” y tendrás acceso a toda la base de datos.</li>
+                          </ul>
+                        </ul>
+
                     </div>
                     <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                    
-                    <span class="font-size-sm text-muted">Ver
-                    video</span>
+                    <span class="font-size-sm text-muted">Ver video</span>
                 </div>
             </div>
-            <div class="d-none d-lg-block col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden "
-                 style="background-image: url('{{ asset('img/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
+            <div class="col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden "
+                 style="background-image: url('{{ asset('img/img_pages/analiticas.png') }}')">
             </div>
         </div>
-        
+
     </section>
 
     <section class="searchbar-container bg-secondary mt-2">

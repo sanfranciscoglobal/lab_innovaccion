@@ -49,21 +49,21 @@
         @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent entregadatos {{ old('problema', $problema->problema) ? '' : 'd-none' }}">
-        <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
+        <label class="control-label">* Describe cuál es el problema detectado <span style="color: gray">(mín. 25 caractéres)(máx. 500 caractéres)</span></label>
         <textarea class="form-control" id="problema" rows="5" name="problema" required placeholder="Ejemplo. HE DETECTADO QUE SE PRODUCE EL PROBLEMA DE dificultad en el acabado de las artesanías por falta de equipos, LO CUAL PROVOCA reducción en las ventas." minlength="20" maxlength="500" oninput="window.countCharacters('problema','problema_error','submit',25,500,'count_words_1');">{{ old('problema', $problema->problema) }}</textarea>  
         <span style="color: gray" id="count_words_1"></span>
         <div class="invalid-feedback" id="problema_error"></div>
         @error('problema')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent entregadatos {{ old('confidencial', $problema->confidencial) ? '' : 'd-none' }}">
-        <label for="archivo">* Carga un archivo complementario (Max. 10Mb)</label>
+        <label for="archivo"> Carga un archivo complementario (máx. 10MB)</label>
         @php
-            $img = asset('img/logo/logo-icon-footer.png');
+            $img = null;
             if(Storage::disk('problemas')->exists($problema->archivo)){
                 $img =  asset('storage/problemas/'.$problema->archivo);
             }
             @endphp
-        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" data-max-file-size="10M" @if($method == 'POST') required @endif>
+        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" data-max-file-size="10M">
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>

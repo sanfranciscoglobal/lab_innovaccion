@@ -38,6 +38,12 @@
             height: 150px;
         }
 
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -66,14 +72,14 @@
                 <span class="font-size-sm text-muted">Ver
                     video</span>
                 </div>
-                
+
             </div>
-            <div class="d-none d-lg-block col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden "
-                 style="background-image: url('{{ asset('img/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
+            <div class="col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden "
+                 style="background-image: url('{{ asset('img/img_pages/iniciativas_actores.png') }}');">
             </div>
-            
+
         </div>
-        
+
     </section>
     <section class="searchbar-container bg-secondary mt-2">
         @include('web.iniciativas._filter', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones','buscar'))
@@ -267,6 +273,11 @@
                 $('#filter-iniciativas').attr('action', action);
                 $('#filter-iniciativas').submit();
                 //console.log(action);
+            });
+
+            $(document).on('click', ".export", function (e) {
+                $('#filter-iniciativas').attr('action',$(this).data('action'));
+                $('#filter-iniciativas').submit();
             });
         });
     </script>

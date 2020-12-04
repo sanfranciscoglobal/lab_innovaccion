@@ -31,7 +31,7 @@ class Store3Post extends FormRequest
             'linkedin' => ['string', 'nullable', 'max:250'],
             'twitter' => ['string', 'nullable', 'max:250'],
             'youtube' => ['string', 'nullable', 'max:250'],
-            'imagen' => ['image', 'max:1024', 'mimes:jpg, jpeg, png', 'nullable'],
+            'imagen' => ['image', 'max:2048', 'mimes:jpeg,png,gif,jpg', 'nullable'],
             // 'canton_id' => ['numeric', 'exists:canton,id', 'nullable'],
             'direccion' => ['string', 'min:10', 'max:280', 'required'],
             'latitud' => ['numeric', 'required'],

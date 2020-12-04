@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 @section('header-css')
     <style>
-       
+
          @media (min-width: 992px) and (max-width: 1250px) {
             .itemhome{
                 min-width: 50%;
@@ -36,6 +36,12 @@
             max-width: 250px;
         }
 
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -67,18 +73,18 @@
                     video</span>
                 </div>
             </div>
-            <div class="d-none d-lg-block  col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('images/banner_mapa_iniciativas.png') }}');border-radius: 150px 0 0 150px;">
+            <div class="d-sm-none d-lg-block  col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/img_pages/mapa_iniciativas.png') }}');">
             </div>
         </div>
-  
+
     </section>
-    
+
     <section class="searchbar-container bg-secondary">
         @include('web.iniciativas.mapa')
     </section>
 
-    
-       
+
+
 @endsection
 
 @section('scripts')
@@ -89,7 +95,7 @@
 <script>
 
     iniciativas={!! json_encode($iniciativas ->toArray()) !!};
-    
+
     locations=[]
     c=0
     for(i=0;i<iniciativas.length;i++){

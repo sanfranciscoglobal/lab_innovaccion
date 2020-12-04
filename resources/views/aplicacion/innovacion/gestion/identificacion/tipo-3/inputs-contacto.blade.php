@@ -18,7 +18,9 @@
         @error('youtube')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="form-group">
-        <label class="control-label">* Ubicación</label>
+        <label class="control-label">* Ubicación <i class="fe-info text-primary" style="font-size: 22px;
+            margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
+                                                                                            title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
         <input maxlength="200" type="text" required="required" class="form-control"
                placeholder="Enter Company Address" id="direccion" name="direccion"
                value="{{ old('direccion', $problema->direccion) }}"/>
@@ -35,7 +37,7 @@
     </div>
 </div>
 <div class="col-md-4">
-    <div class="controls-container mb-3">
+    {{-- <div class="controls-container mb-3">
         <label for="pdf">Foto relacionado al problema identificado (Max. 1Mb)</label>
         @if($method == 'POST')
         <div class="cs-file-drop-area">
@@ -56,6 +58,27 @@
         <input type="file" class="dropify" title="Avatar del usuario" name="imagen" id="foto" data-default-file="{{$img}}" accept="image/gif, image/jpeg, image/png" size="1000000">
         <small id="emailHelp" class="form-text text-muted">Max. 1Mb</small>
         @endif
+        @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+    </div> --}}
+    <div class="controls-container mb-3">
+        @php
+            $img = asset('img/logo/logo-icon-footer.png');
+            if(Storage::disk('problemas')->exists($problema->imagen)){
+                $img =  asset('storage/problemas/'.$problema->imagen);
+            }
+        @endphp
+        <label for="imagen">Foto relacionado al problema identificado <span style="color: gray">(máx. 2MB)</span></label>
+        <input type="file" 
+                    class="form-control dropify" 
+                    accept="image/gif, image/jpeg, image/png" 
+                    id="imagen" maxlength='250' 
+                    name="imagen" 
+                    size="2000000"
+                    data-default-file="{{$img}}"
+                    data-max-file-size="2M">
+        
+        <div class="invalid-feedback" id='imagen_error'>Inserta una imagen.</div>
+        <div class="valid-feedback">Bien!</div>
         @error('imagen')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <h4 class="h3">Redes sociales de los problemas identificados</h4>
