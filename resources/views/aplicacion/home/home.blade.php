@@ -2,7 +2,7 @@
 
 @section('content')
 <style scoped>
-    .carousel-item {min-height: 550px;}
+    .carousel-item {min-height: 750px;}
 
     @media (max-width: 768px) {
         .carousel-item {
@@ -16,7 +16,7 @@
         .itemhome{
             min-width: 50%;
         }
-    } 
+    }
 </style>
 <section id="home-hero-banner">
     @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
@@ -35,7 +35,7 @@
                 </div>
                 <div class="itemhome col-md-5  col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        
+
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/home/Ecosistema_Innovacion.png') }}"
                             alt="Icon" />
                         <a href="/iniciativas" class="media meta-link ">
@@ -65,7 +65,7 @@
     </section>
 
     <section class="bg-secondary bg-gradient-orange-purple">
-        <div class=" container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5 row no-gutters">
+        <div class=" container-fluid pl-lg-8 pr-lg-8 mt-5 row no-gutters">
             <div class="col-md-6 py-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces"
                 style="background-image: url({{ asset('img/layout/home/laboratorio-side-bkg.png') }});">
             </div>
@@ -168,14 +168,14 @@
                                 <a class="meta-link font-size-sm mb-2" href="#">Organización</a>
                             @endif
                             <h3 class="h4 nav-heading mb-4">
-                            
+
                                 <a href="#">{{ $fondos->nombre_fondo }}</a>
                             </h3>
                             <div  class="scrollable" style="overflow: hidden; max-height:200px">
                             {{ $fondos->info }}
                             </div>
                         </div>
-                            
+
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile1.jpg') }}"
@@ -197,9 +197,9 @@
                     <article class="card card-hover h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                         <span class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">Convocatorias</span>
                         <div class="card-body pt-5 px-4 px-xl-5">
-                    
+
                             <a class="meta-link font-size-sm mb-2" href="#">{{ $convocatoria->tipoconvocatoriaid->nombre}}</a>
-                      
+
                             <h3 class="h4 nav-heading mb-4">
                                 <a href="#">Convocatoria # {{ $convocatoria->id}}</a>
                             </h3>
@@ -213,7 +213,7 @@
                                     alt="Sanomi Smith" />
                                 <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">{{$convocatoria->user->name}}</span></div>
                             </a>
-                            
+
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
                                     <i class="fe-calendar mr-1 mt-n1"></i>&nbsp;{{ $convocatoria->fecha_inicio}}
@@ -272,7 +272,7 @@
                                     <a class="meta-link font-size-sm mb-2" href="#">Herramienta</a>
                                 @endif
                             <h3 class="h4 nav-heading mb-4">
-                               
+
                                 {{ $materiales->nombre_publicacion }}
                             </h3>
                             <div  class="scrollable" style="overflow: hidden; max-height:200px">
