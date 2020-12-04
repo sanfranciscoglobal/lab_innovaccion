@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-
+<br /><br />
     <section class="container container pt-md-5">
         <div class="row align-items-center">
             <div class="col-lg-5 pt-3 py-lg-0 mt-lg-5">
@@ -28,7 +28,7 @@
                     <ul>
                         <li>Registra fondos propios o de otros organismos en el formulario</li>
                         <li>Revisa las oportunidades de financiamiento pulsando en los íconos</li>
-                    </ul> 
+                    </ul>
                 </div>
 
             </div>
@@ -204,7 +204,7 @@
                                                 class="text-muted pl-1 ml-2">35</small></a></li>
                                     <li><a class="cs-widget-link" href="#">Servicios &amp; Vacation<small
                                                 class="text-muted pl-1 ml-2">28</small></a></li> --}}
-                                                
+
                                     @foreach ($categorias as $categoria)
                                         <li><a class="cs-widget-link" href="{{ route('material.searchcategoria',$categoria->id) }}">{{$categoria->nombre}}<small
                                             class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::where('tema_tratado',$categoria->id)->count() }}</small></a></li>
