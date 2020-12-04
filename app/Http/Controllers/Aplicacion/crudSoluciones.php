@@ -82,6 +82,7 @@ class crudSoluciones extends Controller
             return back()->with('error', 'No ingresaste esta solución.');
         }
         $validatedData = $request->validated();
+        
         $solucion->update($validatedData);
         Soluciontipoinnova::where('solucion_id',$solucion->id)->delete();
         foreach ($validatedData['tipo_institucion'] as $propuesta){
