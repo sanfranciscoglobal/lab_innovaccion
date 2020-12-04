@@ -15,9 +15,14 @@ class CreateMaterialCategoriasTable extends Migration
     {
         Schema::create('material_categorias', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('imagen');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
+ 
+
 
     /**
      * Reverse the migrations.

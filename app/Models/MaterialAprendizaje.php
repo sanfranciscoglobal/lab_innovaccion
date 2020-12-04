@@ -20,6 +20,14 @@ class MaterialAprendizaje extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+    public function categoria()
+    {
+        return $this->belongsTo('App\Models\MaterialCategorias','tema_tratado','id');
+    }
+    public function tipodocumento()
+    {
+        return $this->belongsTo('App\Models\MaterialTipodocumento','tipo_documento','id');
+    }
 
     public function articuloss()
     {

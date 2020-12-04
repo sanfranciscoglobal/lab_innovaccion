@@ -15,9 +15,13 @@ class CreateMaterialTipodocumentosTable extends Migration
     {
         Schema::create('material_tipodocumentos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
+
+ 
 
     /**
      * Reverse the migrations.
