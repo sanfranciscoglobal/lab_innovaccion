@@ -72,7 +72,7 @@
         @elseif ( $slide['tipo'] == 'video' )
         <div
             class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}"
-            style="background-position: center;background-size: cover;max-height: 550px;">
+            style="background-position: center;background-size: cover;max-height: 750px;">
             <video autoplay muted loop id="myVideo" style="width:100%;">
               <source src="{{ $slide['video_url'] }}" type="video/mp4">
             </video>

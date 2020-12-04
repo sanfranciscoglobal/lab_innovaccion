@@ -2,7 +2,7 @@
 
 @section('content')
 <style scoped>
-    .carousel-item {min-height: 550px;}
+    .carousel-item {min-height: 750px;}
 
     @media (max-width: 768px) {
         .carousel-item {
