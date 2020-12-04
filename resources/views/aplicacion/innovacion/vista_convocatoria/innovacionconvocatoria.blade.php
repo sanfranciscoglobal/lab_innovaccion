@@ -10,23 +10,10 @@
                     ¡Compártenos tus retos para resolverlos juntos!</br>
                     ¡Busquemos soluciones de manera abierta!</br>
 
-                    Registra tus retos a través de nuestras convocatorias abiertas. Impulsaremos la innovación en el sector productivo, en la gestión pública y en los requerimientos de la ciudadanía. Para cada una de estas convocatorias soluciones factibles serán propuestas desde diversos actores combinando experticias y conocimientos. 
+                    Registra tus retos a través de nuestras convocatorias abiertas. Impulsaremos la innovación en el sector productivo, en la gestión pública y en los requerimientos de la ciudadanía. Para cada una de estas convocatorias soluciones factibles serán propuestas desde diversos actores combinando experticias y conocimientos.
 
                     </p>
-                </div>
-                <h2 class=" text-primary uppercase">Metología</h1>
-                <div class="py-3">
-                    <ul>
-                    <li>Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social. </li>
-                    <li>Innovación abierta busca que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.</li>
-                    <li>Innovación pública es la mejora del quehacer público, incluyendo la gestión administrativa y los asuntos de interés común.</li>
-                    <li>Innovación social se enfoca en resolver retos que aporten al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables. </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/gestion_innovacion.png') }}" alt="Side banner"></div>
-        </div>
-        <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded col-lg-9" style="">
+                    <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
                         <strong>Indicaciones</strong>
                         <ul>
                             <li>Si gustas registrar tu iniciativa pulsa en el botón “Registra tu iniciativa”.</li>
@@ -39,9 +26,24 @@
                                     <li>Pulsa el botón “Descargar” y tendrás acceso a toda la base de datos.</li>
                                 </ol>
                             </li>
-                        </ul> 
+                        </ul>
                     </div>
-                    
+                </div>
+            </div>
+
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/gestion_innovacion.png') }}" alt="Side banner"></div>
+        </div>
+
+        <h2 class=" text-primary uppercase">Metología</h1>
+        <div class="py-3">
+            <ul>
+            <li>Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social. </li>
+            <li>Innovación abierta busca que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.</li>
+            <li>Innovación pública es la mejora del quehacer público, incluyendo la gestión administrativa y los asuntos de interés común.</li>
+            <li>Innovación social se enfoca en resolver retos que aporten al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables. </li>
+            </ul>
+        </div>
+
         <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
                     video</span>
@@ -54,9 +56,9 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_abierta.png') }}"
                             alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-naranja text-center">sector productivo</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-center" style="color: #4e2561;">sector productivo</h3>
                         <p class="font-size-sm mb-0 text-justify">
-                        Las convocatorias de innovación del sector productivo se organizan por actividad económica para recoger los retos que afrontan los productores de bienes y servicios. 
+                        Las convocatorias de innovación del sector productivo se organizan por actividad económica para recoger los retos que afrontan los productores de bienes y servicios.
                         </p>
                     </div>
                 </div>
@@ -64,7 +66,7 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_publica.png') }}"
                             alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-tomate text-center">gestión pública </h3>
+                        <h3 class="fs-14 mb-2 uppercase text-center" style="color: #ff7f00;">gestión pública </h3>
                         <p class="font-size-sm mb-0 text-justify">
                         Las convocatorias de innovación en la gestión pública tienen dos ejes: recogen los retos que afrontan las instituciones públicas y las experiencias ciudadanas al utilizar los servicios públicos.
 
@@ -75,9 +77,9 @@
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
                         <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_social.png') }}"
                         alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-mora text-center">Ciudadanía</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-center"style="color: #ca0808;">Ciudadanía</h3>
                         <p class="font-size-sm mb-0 text-justify">
-                        Las convocatorias de innovación ciudadana invitan a la sociedad civil organizada y a todo tipo de colectivo a compartir sus retos para trabajar por un mayor bienestar social. 
+                        Las convocatorias de innovación ciudadana invitan a la sociedad civil organizada y a todo tipo de colectivo a compartir sus retos para trabajar por un mayor bienestar social.
                         </p>
                     </div>
                 </div>
