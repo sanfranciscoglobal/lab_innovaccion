@@ -149,14 +149,18 @@
                                           </select> --}}
                                           <select style="width:100%;" class="form-control custom-select select2" id='mat_tema' name='tema_tratado'
 
-                                                                    data-ajax--url="{{route('api.material-categoria.select2')}}"
-                                                                    data-ajax--data-type="json"
-                                                                    data-ajax--data-cache="true"
-                                                                    data-allow-clear="true"
-                                                                    data-placeholder="Seleccione un Tema"
-                                                                    >
-                                                                       
-                                                                    </select>
+                                            data-ajax--url="{{route('api.material-categoria.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--data-cache="true"
+                                            
+                                            data-placeholder="Seleccione un Tema"
+                                            >
+                                            @if ($material->tipo_documento)
+                                                    <option value="{{$material->categoria->id}}"
+                                                        selected>{{$material->categoria->nombre}}</option>
+                                            @endif
+                                                
+                                        </select>
                                                            
                                           <div class="invalid-feedback">Seleccione un tema.</div>
                                           <div class="valid-feedback">Bien!</div>
@@ -184,14 +188,18 @@
                                           </select> --}}
                                           <select style="width:100%;" class="form-control custom-select select2" id='mat_tipo' name='tipo_documento'
 
-                                                                    data-ajax--url="{{route('api.material-documento.select2')}}"
-                                                                    data-ajax--data-type="json"
-                                                                    data-ajax--data-cache="true"
-                                                                    data-allow-clear="true"
-                                                                    data-placeholder="Seleccione un Tipo"
-                                                                    >
+                                            data-ajax--url="{{route('api.material-documento.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--data-cache="true"
+                                            
+                                            data-placeholder="Seleccione un Tipo"
+                                            >
+                                                @if ($material->tipo_documento)
+                                                    <option value="{{$material->tipodocumento->id}}"
+                                                        selected>{{$material->tipodocumento->nombre}}</option>
+                                                @endif
                                                                        
-                                                                    </select>
+                                            </select>
                                                            
                                           <div class="invalid-feedback">Seleccione un tema.</div>
                                           <div class="valid-feedback">Bien!</div>

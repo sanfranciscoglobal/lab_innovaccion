@@ -8,7 +8,7 @@
                     data-ajax--url="{{route('api.tipo-sector.select2','1')}}"
                     data-ajax--data-type="json"
                     data-ajax--data-cache="true"
-                    data-allow-clear="true"
+                    
                     data-placeholder="Seleccione uno o varios sectores"
                     data-close-on-select="false"
                     required="required" multiple>

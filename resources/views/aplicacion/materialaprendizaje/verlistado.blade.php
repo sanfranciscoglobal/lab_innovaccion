@@ -45,7 +45,7 @@
 
         <div class="row">
             <div class="text-center  col-12 col-lg-8 offset-lg-2">
-                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje') }}">Publicar un material</a>
+                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje') }}">Publicar material</a>
             </div>
         </div>
 

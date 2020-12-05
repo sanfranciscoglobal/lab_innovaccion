@@ -1,4 +1,4 @@
-<form method="POST" enctype='multipart/form-data' class="needs-validation" novalidate>
+<form method="POST"  enctype='multipart/form-data' onsubmit="return validar()" class="needs-validation" novalidate>
     @csrf
     @method('PUT')
     <div class="panel-heading">
@@ -10,8 +10,8 @@
            <div class="col-12">
                 <div class="form-group">
 
-                    <label class="control-label">* Tipo de innovación propuesta</label>
-                    <div class= "m-0 p-0 w-100 form-group">
+                    <label class="control-label">* Tipo de innovación propuesta <span style="color: gray">(Selecciona una o varias opciones.)</span></label>
+                    {{-- <div class= "m-0 p-0 w-100 form-group">
                         
                         <select style="width:100%;" id="tipo_propuesta" name="tipo_institucion[]"
                             class="form-control select2"
@@ -32,28 +32,24 @@
  
                         <div class="invalid-tooltip">Por favor seleccione uno o varios tipos.</div>
                         <div class="valid-tooltip">Bien!</div>
-                    </div>
-                    {{-- <div class="controls-container mb-3">
-                        <label for="control-label">* Tipo de innovación propuesta</label>
-                        <div class="custom-control custom-radio mb-3">
-                            <input class="custom-control-input form-control" type="checkbox" id="tipo_propuesta-1" name="tipo_institucion[]" value="1">
-                            <label class="custom-control-label" for="tipo_propuesta-1">Innovación de producto o servicio (cuando la propuesta busca el desarrollo de un bien o servicio nuevo o significativamente mejorado en sus características y/o en sus usos posibles)</label>
-                        </div>
-                        <div class="custom-control custom-radio mb-3">
-                            <input class="custom-control-input form-control" type="checkbox" id="tipo_propuesta-2" name="tipo_institucion[]" value="2" >
-                            <label class="custom-control-label" for="tipo_propuesta-2">Innovación del proceso (cuando la propuesta busca el desarrollo de métodos de gestión nuevos o significativamente mejorados por efecto de mejores técnicas, métodos, equipo o software)</label>
-                        </div>
-                        <div class="custom-control custom-radio mb-3">
-                            <input class="custom-control-input form-control" type="checkbox" id="tipo_propuesta-3" name="tipo_institucion[]" value="3" >
-                            <label class="custom-control-label" for="tipo_propuesta-3">Innovación de la estructura organizacional (cuando la propuesta busca el desarrollo de nuevos métodos de organización, en las prácticas institucionales, en la planificación y organización del trabajo o a las relaciones de la organización con su entorno)</label>
-                        </div>
-                        <div class="custom-control custom-radio mb-3">
-                            <input class="custom-control-input form-control" type="checkbox" id="tipo_propuesta-4" name="tipo_institucion[]" value="4" >
-                            <label class="custom-control-label" for="tipo_propuesta-4">Innovación comercial/comunicacional (cuando la propuesta busca el desarrollo de nuevos métodos de comunicación y difusión, mejoras en la imagen organizacional, en su estrategia de posicionamiento o promoción)</label>
-                        </div>
-                        
-                        @error('tipo_institucion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                     </div> --}}
+                    @php
+                        $tipospropuestas=App\Models\TipoPropuesta::all();
+                    @endphp
+                    <div class="tipo-checkbox">
+                        @foreach ($tipospropuestas as $tipopropuesta)
+                       
+                            <div class="custom-control custom-radio mb-3 w-form" >
+                                <input class="custom-control-input form-control" onclick="validarpropuesta('tipo_institucion[]','#errortipo','#validotipo')" type="checkbox" data-name="checkbox" id="{{$tipopropuesta->id}}" name="tipo_institucion[]" value="{{$tipopropuesta->id}}">
+                                <label class="custom-control-label text-muted" for="{{$tipopropuesta->id}}">{{$tipopropuesta->nombre}}</label>
+                            </div>
+                        
+                        @endforeach
+                        
+                        <div class="invalid-tooltip" id='errortipo'>Por favor seleccione uno o varios tipos.</div>
+                        <div class="valid-tooltip" id='validotipo'>Bien!</div>
+                    </div>
+                    
 
                     
                     
@@ -65,8 +61,8 @@
                 <div class="form-group">
 
 
-                    <label class="control-label">* Nivel actual de desarrollo de la solución</label>
-                    <div class= "m-0 p-0 w-100 form-group">
+                    <label class="control-label">* Nivel actual de desarrollo de la solución <span style="color: gray">(Selecciona una opción.)</span></label>
+                    {{-- <div class= "m-0 p-0 w-100 form-group">
                         
                         <select style="width:100%;" id="tipo_poblacion2" name="nivelsolucion_id"
                             class="form-control select2"
@@ -84,6 +80,22 @@
  
                         <div class="invalid-tooltip">Por favor seleccione un nivel.</div>
                         <div class="valid-tooltip">Bien!</div>
+                    </div> --}}
+                    @php
+                        $niveles=App\Models\NivelSolucion::all();
+                    @endphp
+                    <div class="tipo-checkbox">
+                        @foreach ($niveles as $nivel)
+                       
+                            <div class="custom-control custom-radio mb-3 w-form" >
+                                <input class="custom-control-input form-control" onclick="validarpropuesta('nivelsolucion_id','#errornivel','#validonivel')" type="radio" id="nivel{{$nivel->id}}" name="nivelsolucion_id" value="{{$nivel->id}}">
+                                <label class="custom-control-label text-muted" for="nivel{{$nivel->id}}">{{$nivel->nombre}}</label>
+                            </div>
+                        
+                        @endforeach
+                        
+                        <div class="invalid-tooltip" id='errornivel'>Por favor seleccione un nivel.</div>
+                        <div class="valid-tooltip" id='validonivel'>Bien!</div>
                     </div>
 
                     
@@ -113,16 +125,102 @@
             
         </div>
         
-        {{-- <button class="btn btn-primary nextBtn pull-right mt-4" type="button">Siguiente</button> --}}
         <button class="btn btn-primary pull-right" type="submit" {{$solucion->id == null ? 'disabled' : ''}} formaction="{{ $url1.'?continue=1' }}">Guardar y continuar</button>
         <button class="btn btn-link" type="submit" {{$solucion->id == null ? 'disabled' : ''}}  formaction="{{ $url1.'?continue=0' }}">Guardar</button>
     </div>
 </form>
-{{-- <script>
+<script>
     @if($solucion->tipopropuestas)
         @foreach($solucion->tipopropuestas as $propuesta)
-            $checkname='tipo_propuesta-{{$propuesta->tipoinnovacion_id}}';
+            $checkname='{{$propuesta->tipoinnovacion_id}}';
             document.getElementById($checkname).checked=true;
         @endforeach
     @endif
-</script> --}}
+    @if($solucion->nivelsolucion_id)
+        
+        $checkname='nivel{{$solucion->nivelsolucion_id}}';
+        document.getElementById($checkname).checked=true;
+    @endif
+</script>
+<script>
+    let entrysubmit=false;
+    function validar(){
+        var x = document.getElementsByName("tipo_institucion[]");
+        var y = document.getElementsByName("nivelsolucion_id");
+        var i;
+        var cont=0;
+        entrysubmit=true;
+        for (i = 0; i < x.length; i++) {
+            if (x[i].checked) {
+                cont+=1;
+            }
+        }
+        var j;
+        var cont2=0;
+        for (j = 0; j < y.length; j++) {
+            if (y[j].checked) {
+                cont2+=1;
+            }
+        }
+        if (cont>0 && cont2>0){
+            
+            $('#errortipo').removeClass('d-inline');
+            $('#errornivel').removeClass('d-inline');
+            $('#validotipo').addClass('d-inline');
+            $('#validonivel').addClass('d-inline');
+            return(true);
+            
+        }
+        else if(cont>0){
+         
+            $('#validotipo').addClass('d-inline');
+            $('#validonivel').removeClass('d-inline');
+            $('#errornivel').addClass('d-inline');
+            $('#errortipo').removeClass('d-inline');
+            return(false);
+        }
+        else if(cont2>0){
+            
+            $('#validonivel').addClass('d-inline');
+            $('#validotipo').removeClass('d-inline');
+            $('#errornivel').removeClass('d-inline');
+            $('#errortipo').addClass('d-inline');
+            return(false);
+        }
+        else{
+            $('#errortipo').addClass('d-inline');
+            $('#errornivel').addClass('d-inline');
+            
+            return(false);
+        }
+
+
+        
+
+        
+    }
+    function validarpropuesta(nombre,error,valido){
+        var x = document.getElementsByName(nombre);
+        var i;
+        var cont=0;
+        for (i = 0; i < x.length; i++) {
+            if (x[i].checked) {
+                cont+=1;
+            }
+        }
+        if (entrysubmit){
+        if (cont>0){
+            $(error).removeClass('d-inline');
+            $(valido).addClass('d-inline');
+        }
+        else{
+            $(valido).removeClass('d-inline');
+            $(error).addClass('d-inline');
+        }
+        }
+        
+    }
+
+    
+
+</script>
