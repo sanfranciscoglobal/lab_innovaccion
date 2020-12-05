@@ -62,7 +62,7 @@
                 </div>
                 <div class="itemhome col-md-5  col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_publica.png') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/innovacion_publica.png') }}"
                             alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-center" style="color: #ff7f00;">gestión pública </h3>
                         <p class="font-size-sm mb-0 text-justify">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="itemhome col-md-5 col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_social.png') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/innovacion_social.png') }}"
                         alt="Icon" />
                         <h3 class="fs-14 mb-2 uppercase text-center"style="color: #ca0808;">Ciudadanía</h3>
                         <p class="font-size-sm mb-0 text-justify">

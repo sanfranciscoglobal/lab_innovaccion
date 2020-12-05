@@ -17,7 +17,7 @@
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5">¿Qué es Thinkia?</h1>
                 <div class="py-4">
-                    <p class="cs-callout text-justify">Thinkia es un espacio de innovación en donde actores de diversos sectores – público, privado, academia, y sociedad civil - se encuentran con el ánimo de trabajar de manera colaborativa compartiendo los retos que afrontan y buscando soluciones basadas en innovación abierta, pública y social. Este espacio creativo de co-creación permite forjar las bases del ecosistema de innovación poniendo en contacto a los agentes innovadores y compartiendo materiales y metodologías que forjen una cultura de innovación. </p>
+                    <p class="cs-callout text-justify">Thinkia es un espacio de innovación en donde actores de diversos sectores – público, privado, academia y sociedad civil - se encuentran con el ánimo de trabajar de manera colaborativa compartiendo los retos que afrontan y buscando soluciones basadas en innovación abierta, pública y social. Este espacio creativo de co-creación permite forjar las bases del ecosistema de innovación poniendo en contacto a los agentes innovadores y compartiendo materiales y metodologías que forjen una cultura de innovación. </p>
                 </div>
                 <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
@@ -52,7 +52,7 @@
                 <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center p-5">
                     <h2>Misión</h2>
                     <p class="text-justify">Consolidar la relación entre agentes innovadores para generar un ecosistema de innovación articulado y promocionar dentro de cada sector - público, privado, academia y sociedad civil
-                    – que los retos internos pueden ser resueltos con procesos abiertos de participación pública que busquen soluciones efectivas y agiles que aporten al bienestar social. </p>
+                    – que los retos internos pueden ser resueltos con procesos abiertos de participación pública que busquen soluciones efectivas y ágiles que aporten al bienestar social. </p>
                 </div>
             </div>
             <div class="row mb-5">
@@ -123,7 +123,8 @@
     </section>
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
         <h2 class="pb-4 mb-4 text-center">El Equipo</h2>
-        <p class="text-justify">Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.</p>
+        <p class="text-justify">Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia
+             y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.</p>
         <div class="row mb-3 mt-4 align-items-center justify-content-center">
 
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
@@ -134,7 +135,7 @@
                     <div class="card-body text-center">
                         <p class="logos mb-4 mt-4">PNUD</p>
                         <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-5">https://www.ec.undp.org/</p>
+                        <a class="font-size-xl text-body mb-5" href="https://www.ec.undp.org/">https://www.ec.undp.org/</a>
                     </div>
                 </div>
             </div>
@@ -146,7 +147,7 @@
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">Fundación San Francisco Global</p>
                         <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-2">https://www.sanfranciscoglobal.org/</p>
+                        <a class="font-size-xl text-body mb-2" href="https://www.sanfranciscoglobal.org/">https://www.sanfranciscoglobal.org/</a>
                     </div>
                 </div>
             </div>
@@ -160,8 +161,8 @@
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">IMPAQTO</p>
-                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-5">https://www.impaqto.net/</p>
+                        <p class="black font-size-xl text-body mb-2">SECTOR PRIVADO</p>
+                        <a class="font-size-xl text-body mb-5" href="https://www.impaqto.net/">https://www.impaqto.net/</a>
                     </div>
                 </div>
             </div>
@@ -172,8 +173,8 @@
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">CTS LAB</p>
-                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-2">https://www.facebook.com/ctslab.flacso.ec/</p>
+                        <p class="black font-size-xl text-body mb-2">ACADEMIA</p>
+                        <a class="font-size-xl text-body mb-2" href="https://www.facebook.com/ctslab.flacso.ec/">https://www.facebook.com/ctslab.flacso.ec/</a>
                     </div>
                 </div>
             </div>
@@ -188,8 +189,8 @@
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-4 mt-4">OpenLabEc</p>
-                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-5">https://openlab.ec/</p>
+                        <p class="black font-size-xl text-body mb-2">SOCIEDAD CIVIL</p>
+                        <a class="font-size-xl text-body mb-3" href="https://openlab.ec/">https://openlab.ec/</a>
                     </div>
                 </div>
             </div>
@@ -200,8 +201,8 @@
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">EPICO</p>
-                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <p class="font-size-xl text-body mb-2">https://epico.gob.ec/</p>
+                        <p class="black font-size-xl text-body mb-2">SECTOR PÚBLICO</p>
+                        <a class="font-size-xl text-body mb-2" href="https://epico.gob.ec/">https://epico.gob.ec/</a>
                     </div>
                 </div>
             </div>
@@ -238,7 +239,7 @@
                     <ul class="list-unstyled font-size-sm mb-4 pb-2">
                         <li><a class="nav-link-style nav-link-light"
                                 href="mailto:info@laboratoriodeinnovacion.org">hola@thinkialab.org</a></li>
-                        <li><a class="nav-link-style nav-link-light" href="tel:+5932345867">+593 234 5867</a></li>
+                        
                     </ul>
                     <h3 class="h6 pb-2 text-light">Síguenos en:</h3>
                     <a class="social-btn sb-facebook sb-light sb-lg mr-2 " href="#"><i class="fe-facebook"></i></a>
