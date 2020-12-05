@@ -207,7 +207,7 @@
 
                         @endif
                     @else
-                        <span class="badge badge-lg badge-floating badge-floating-right text-white btn-primary">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                        <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:gray;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
                     @endif
                     <div class="row pt-3 no-gutters">
                         <div class="col-md-4 justify-content-md-center">

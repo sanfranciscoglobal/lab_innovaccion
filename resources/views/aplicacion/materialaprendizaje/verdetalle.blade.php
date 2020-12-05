@@ -142,7 +142,7 @@
                                             <img class="rounded-circle" width="42" src="{{ $imagen}}"
                                                 alt="Sanomi Smith" />
                                             <div class="media-body pl-2 ml-1 mt-n1 text-primary"><span class="font-weight-semibold ml-1">{{$comment->user->name}}</span><br>
-                                            <span>{{$diferencia_en_dias->days}} días</span></div>
+                                            <span>hace {{$diferencia_en_dias->days}} días</span></div>
                                         </a>
                                     </div>
                                     
