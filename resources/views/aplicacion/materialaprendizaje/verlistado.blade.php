@@ -3,28 +3,38 @@
     <style>
         .cs-sidebar { background: #f2f2f2; }
 
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
     </style>
 @endsection
 
 @section('content')
-
+<br /><br />
     <section class="container container pt-md-5">
         <div class="row align-items-center">
             <div class="col-lg-5 pt-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary">Publicaciones y Herramientas</h1>
-                <div class="py-3">
-                    <p class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!<br>
-                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</p>
+                <div class="py-3 text-justify">
+                    <p class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!</br></br> 
+                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</br></br>
+                        Deja tus comentarios y reflexiones sobre la utilidad de estos. 
+                        </p>
 
                 </div>
-                <p class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
+                <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded text-justify" style="">
                     <strong>Indicaciones</strong>
-                    <br>Revisa y descarga el material de aprendiaje y deja tus comentarios en los foros respectivos de cada publicación.
-                    <br>Publica el artículo o herramienta en el formulario a continuación.
-                </p>
+                    <ul>
+                        <li>Publica el artículo o herramienta en el formulario.</li>
+                        <li>Revisa y descarga el material de aprendizaje y deja tus comentarios en los foros respectivos de cada publicación.</li>
+                    </ul>
+                </div>
 
             </div>
-            <div class="d-none d-md-block  col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url({{ asset('images/publicaciones_banner.png') }})" alt="Side banner"></div>
+            <div class="d-none d-md-block  col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url({{ asset('img/img_pages/herramientas.png') }})" alt="Side banner"></div>
         </div>
         <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
@@ -34,7 +44,7 @@
 
         <div class="row">
             <div class="text-center  col-12 col-lg-8 offset-lg-2">
-                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje') }}">Publicar un material</a>
+                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje') }}">Publicar material</a>
             </div>
         </div>
 
@@ -97,8 +107,8 @@
                                             {{$material->nombre_publicacion}}
                                         </h2>
 
-                                        <p><span class="mr-auto">{{$material->tema_tratado}}</span> </p>
-                                        <p><span class="mr-auto">{{$material->tipo_documento}}</span></p>
+                                        <p><span class="mr-auto">{{$material->categoria->nombre}}</span> </p>
+                                        <p><span class="mr-auto">{{$material->tipodocumento->nombre}}</span></p>
 
                                     </div>
                                     <div class="px-4 px-xl-5 pt-2">
@@ -184,7 +194,7 @@
                             <div class="cs-widget cs-widget-categories mb-5">
                                 <h3 class="cs-widget-title">Categorías</h3>
                                 <ul>
-                                    <li><a class="cs-widget-link" href="#">Innovación<small
+                                    {{-- <li><a class="cs-widget-link" href="#">Innovación<small
                                                 class="text-muted pl-1 ml-2">23</small></a></li>
                                     <li><a class="cs-widget-link" href="#">Innovación abierta<small
                                                 class="text-muted pl-1 ml-2">14</small></a></li>
@@ -195,11 +205,16 @@
                                     <li><a class="cs-widget-link" href="#">Fondos<small
                                                 class="text-muted pl-1 ml-2">35</small></a></li>
                                     <li><a class="cs-widget-link" href="#">Servicios &amp; Vacation<small
-                                                class="text-muted pl-1 ml-2">28</small></a></li>
+                                                class="text-muted pl-1 ml-2">28</small></a></li> --}}
+
+                                    @foreach ($categorias as $categoria)
+                                        <li><a class="cs-widget-link" href="{{ route('material.searchcategoria',$categoria->id) }}">{{$categoria->nombre}}<small
+                                            class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::where('tema_tratado',$categoria->id)->count() }}</small></a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <!-- Featured posts-->
-                            <div class="cs-widget mt-n1 mb-5">
+                            {{-- <div class="cs-widget mt-n1 mb-5">
                                 <h3 class="cs-widget-title pb-1">Publicaciones en tendencia</h3>
                                 <div class="media align-items-center pb-1 mb-3"><a class="d-block" href="#"><img
                                             class="rounded" width="64" src="img/pexels-pixabay-416405.jpg" alt="Post" /></a>
@@ -224,7 +239,7 @@
                                         <p class="font-size-xs text-muted mb-0">por Daniel Adams</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

@@ -33,7 +33,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand order-lg-1 ml-lg-0 pr-lg-0 mr-lg-0 justify-content-start" href="{{route('home')}}">
-            <img class="navbar-floating-logo d-none d-lg-block my-2" style="width: 150px;max-width: none;" width="100"
+            <img class="navbar-floating-logo d-none d-lg-block my-2" style="width: 225px;max-width: none;" width="100"
                  src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
             <img class="navbar-stuck-logo my-1" style="width: 150px;max-width: none;" src="{{asset('img/logo/thinkia_color.svg')}}"
@@ -96,10 +96,10 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link justify-content-center center-block text-center font-weight-bold" href="{{route('innovaciones')}}">Gestión de la Innovación</a>
+                        <a class="nav-link  text-lg-center font-weight-bold" href="{{route('innovaciones')}}">Gestión de la Innovación</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link  font-weight-bold" href="#" data-toggle="dropdown">
+                        <a class="text-lg-center nav-link  font-weight-bold" href="#" data-toggle="dropdown">
                             Ecosistema de innovación<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/iniciativasmapa">Mapa de
@@ -125,7 +125,7 @@
                             Nosotros<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('acercade') }}">Acerca de</a></li>
-                            <li><a class="dropdown-item" href="{{ route('faq') }}">Preguntas frecuentes</a></li>
+                            <li><a class="dropdown-item" href="{{ route('faq') }}">Condiciones de uso</a></li>
                         </ul>
                     </li>
 

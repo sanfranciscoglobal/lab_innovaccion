@@ -66,8 +66,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label class="control-label">
-                                * Descripción de la Solución
-                                <span class="text-primary">(min. 25 palabras) (max. 100 palabras)</span>
+                                * Descripción de la Solución <span class="text-primary">(mín. 25 palabras) (máx. 100 palabras)</span>
                             </label>
                             <textarea
                                 oninput="window.countWords('descripcion_iniciativa','descripcion_error','btn-siguiente',25,100,'count-words');"
@@ -85,7 +84,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="mat_files">Cargar un archivo complementario (max. 10MB)</label>
+                            <label for="mat_files">Cargar un archivo complementario (máx. 10MB)</label>
 
                             {{-- @if($method == 'POST')
                                 <div class="cs-file-drop-area">
@@ -138,7 +137,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary pull-right" id='btn-siguiente' type="submit" formaction="{{ $url.'?continue=1' }}">Guargar y continuar</button>
+                <button class="btn btn-primary pull-right" id='btn-siguiente' type="submit" formaction="{{ $url.'?continue=1' }}">Guardar y continuar</button>
                 <button class="btn btn-link" type="submit" id='btn-siguiente' formaction="{{ $url.'?continue=0' }}">Guardar</button>
                 
             </div>

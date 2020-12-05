@@ -59,6 +59,9 @@ Route::get('/publicacion-herramienta/download/{articulo}', 'Aplicacion\Materiald
 Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\MaterialdeaprendizajeController@comment')->name('material-de-aprendizaje.comentario');
 
 Route::get('/publicacion-herramienta/tipo/{tipo}', 'Aplicacion\MaterialdeaprendizajeController@searchMateriales')->name('material.search');
+
+Route::get('/publicacion-herramienta/categoria/{categoria}', 'Aplicacion\MaterialdeaprendizajeController@searchMaterialescategoria')->name('material.searchcategoria');
+
 // Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 // Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
 
@@ -124,8 +127,9 @@ Route::as('app.')
              * Material de aprendizaje
              */
             Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material-de-aprendizaje');
-            Route::post('/publicacion-herramienta', 'Aplicacion\crudMaterialesaprendizaje@store')->name('material-de-aprendizaje.post');
+            
             Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@edit')->name('material-de-aprendizaje.edit');
+            Route::post('/publicacion-herramienta', 'Aplicacion\crudMaterialesaprendizaje@store')->name('material-de-aprendizaje.post');
             Route::put('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@update')->name('material-de-aprendizaje.put');
             Route::delete('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@destroy')->name('material-de-aprendizaje.delete');
             // Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\crudMaterialesaprendizaje@comment')->name('material-de-aprendizaje.comentario');
@@ -231,7 +235,9 @@ Route::as('web.')
             Route::resource('iniciativas', 'Web\IniciativasController');
             Route::get('analiticas', 'Web\IniciativasController@analiticas')->name('iniciativas.analiticas');
             Route::post('iniciativas', 'Web\IniciativasController@index')->name('iniciativas.index');
-            Route::post('iniciativas/export', 'Web\IniciativasController@exportarExcel')->name('iniciativas.exportar-excel');
+            Route::post('iniciativas-excel', 'Web\IniciativasController@exportarExcel')->name('iniciativas.exportar.excel');
+            Route::post('iniciativas-json', 'Web\IniciativasController@exportarJson')->name('iniciativas.exportar.json');
+            Route::post('iniciativas-csv', 'Web\IniciativasController@exportarCsv')->name('iniciativas.exportar.csv');
             Route::get('iniciativasmapa', 'Web\IniciativasController@data')->name('iniciativas.mapa');
             Route::post('iniciativasmapa', 'Web\IniciativasController@data')->name('iniciativas.data');
             Route::post('mapa', 'Web\MapaProblemas@data')->name('mapaproblemas.data');

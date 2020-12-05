@@ -11,6 +11,12 @@
     .card-lab-orange .card-body,
     .card-lab-orange .card-body:before { background-color: #FF9F40; }
 
+    .bg-size-contain {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
 </style>
 @endsection
 @section('content')
@@ -18,20 +24,22 @@
     <section class="container mt-lg-2 pt-5 pt-sm-7  mt-md-4 pt-lg-7 pt-md-5 pb-0">
         <div class="row align-items-center">
             <div class="col-md-6 bg-size-cover order-md-2 py-5">
-                <h1 clas="" s="mt-5 text-primary">Fondos</h1>
-                <div class="">
-                    <p class="cs-callout">¡Fomentemos oportunidades de financiamiento para la innovación!<br>
+                <h1 class="mt-5 text-primary">Fondos</h1>
+                <div class="text-justify">
+                    <p class="cs-callout">¡Fomentemos oportunidades de financiamiento para la innovación!</br> </br>
                         Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.
                         Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación. </p>
                 </div>
-                <p class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
+                <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded text-justify" style="">
                     <strong>Indicaciones</strong>
-                    <br>Caso 1. Registra fondos propios o de otros organismos en el formulario
-                    <br>Caso 2. Revisa las oportunidades de financiamiento pulsando en los íconos
-                </p>
+                    <ul>
+                        <li>Registra fondos propios o de otros organismos en el formulario.</li>
+                        <li>Revisa las oportunidades de financiamiento pulsando en los íconos.</li>
+                    </ul> 
+                </div>
             </div>
-            <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces"
-            style="background-image:url({{ asset('img/fondos.png')}})">
+            <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-contain order-md-2 overflow-hidden" id="bannerluces"
+            style="background-image:url({{ asset('img/img_pages/fondos.png')}})">
             </div>
         </div>
         <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>

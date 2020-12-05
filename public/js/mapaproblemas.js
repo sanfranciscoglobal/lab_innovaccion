@@ -10,10 +10,25 @@ $("#tipo_conv").change(function()
   
 });
 
+$("#tipo_conv1").change(function() 
+{
+  $('#conv1').empty().select2({data:null});
+  filtrarproblemas($(this).val());
+  
+});
+
 $("#conv").change(function() 
 {
   if($(this).val().length>0){
     filtrarproblemas($("#tipo_conv").val(),$(this).val());
+  }
+
+  
+});
+$("#conv1").change(function() 
+{
+  if($(this).val().length>0){
+    filtrarproblemas($("#tipo_conv1").val(),$(this).val());
   }
 
   
@@ -43,7 +58,7 @@ function filtrarproblemas(id,array=null){
                       + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
                       +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
                       + '<div ">'+"</div></br>"
-                      + '<a class="btn btn-primary"> Ver más </a>' 
+                      + '<a class="btn btn-primary" target="_blank" href="/gestion-innovacion/problemas/'+tipo[p].id+'"> Ver más </a>' 
                       +'</div>'
                         console.log(pro[k])
                         problemas.push([])
@@ -72,6 +87,7 @@ function filtrarproblemas(id,array=null){
                         problemas[c][0]=info;
                         problemas[c][1]=pro[k].latitud;
                         problemas[c][2]=pro[k].longitud;
+                        problemas[c][3]=j;
                         c++;
                     }
                   
@@ -82,6 +98,7 @@ function filtrarproblemas(id,array=null){
   }
   if(array ==null){
   $("#conv").select2({data: data}); 
+  $("#conv1").select2({data: data}); 
   }
   removeProblemas();
   setProblemas();
@@ -100,11 +117,21 @@ function removeProblemas(){
 }
 function setProblemas(){
   for (j = 0; j < size; j++) {  
+    var colormarcador;
+    if (problemas[j][3]==0){
+      colormarcador=$("#marker2").val();
+    }
+    if (problemas[j][3]==1){
+      colormarcador=$("#marker").val();
+    }
+    if (problemas[j][3]==2){
+      colormarcador=$("#marker3").val();
+    }
     markers.push(new google.maps.Marker({
       position: new google.maps.LatLng(problemas[j][1], problemas[j][2]),
       map: map,
       icon: {
-        url: $("#marker").val()
+        url: colormarcador,
         
       }
     }));

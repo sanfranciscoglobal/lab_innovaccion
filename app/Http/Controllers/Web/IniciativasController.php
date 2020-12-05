@@ -79,6 +79,27 @@ class IniciativasController extends Controller
         return Excel::download(new IniciativasExport(), 'download-iniciativa-' . $fecha . '.xlsx');
     }
 
+    public function exportarCsv(Request $request)
+    {
+        $fecha = Carbon::now()->format('Ymdhi');
+        return Excel::download(new IniciativasExport(), 'download-iniciativa-' . $fecha . '.csv');
+    }
+
+    public function exportarJson(Request $request)
+    {
+        $collection = new IniciativasExport();
+        $data = $collection->collection();
+
+        $fecha = Carbon::now()->format('Ymdhi');
+        $filename = 'download-iniciativa-' . $fecha . ".json";
+        $handle = fopen($filename, 'w+');
+
+        fputs($handle, $data->toJson(JSON_PRETTY_PRINT));
+        fclose($handle);
+        $headers = array('Content-type' => 'application/json');
+        return response()->download($filename, "download-iniciativa-{$fecha}.json", $headers);
+    }
+
     public function mapa()
     {
         return view('mapa');
@@ -86,7 +107,7 @@ class IniciativasController extends Controller
 
     public function show(Iniciativas $iniciativa)
     {
-        return view('web.iniciativas.show',compact('iniciativa'));
+        return view('web.iniciativas.show', compact('iniciativa'));
     }
 
     /**

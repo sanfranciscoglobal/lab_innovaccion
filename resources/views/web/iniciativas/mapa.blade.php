@@ -40,10 +40,10 @@
                                         <a class="font-weight-bold btn btn-primary btn-block" style="border-color:#8B8B8B;background:#8B8B8B" href="#">MAPA</a>
                                     </div>
                                     <div class="col py-2 pr-2">
-                                        <a href="#modal-signin" class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
+                                        <a  href="{{route('web.iniciativas.index')}}" class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
                                     </div>
                                     <div class="col py-2 pr-5">
-                                        <a href="#modal-signin" class="font-weight-bold btn btn-primary btn-block">ANALÍTICA</a>
+                                        <a   href="{{route('web.iniciativas.analiticas')}}" class="font-weight-bold btn btn-primary btn-block">ANALÍTICA</a>
                                         </div>
                                     </div>
                                 </div>
@@ -134,16 +134,16 @@
                                     </div>
                                     <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
                                             
-                                    <button style="width: 220px;" type="button" class=" font-weight-bold btn btn-primary mr-5 btn-filter-submit"
-                                            data-action="{{route('web.iniciativas.exportar-excel')}}">
+                                    <a style="width: 220px;" type="button" class=" font-weight-bold btn btn-primary mr-5 btn-filter-submit"
+                                            data-action="{{route('web.iniciativas.exportar.excel')}}">
                                         Descargar datos
-                                    </button>
-                                    <button type="button" class="font-weight-bold btn btn-primary mr-3 btn-filter-submit"
+                                    </a>
+                                    <a href="/mapa" class="btn btn-primary font-weight-bold btn btn-primary mr-3 btn-filter-submit"
                                             style="border-color:#7A3240;background:#7A3240 "
-                                            data-action="{{route('web.iniciativas.exportar-excel')}}">
+                                            data-action="">
                                             <img src="{{ asset('images/Group 161.svg')}}"/>
                                         Ver mapa completo
-                                    </button>
+                                    </a>
                                     </p>
                                 </div>
                             </form>

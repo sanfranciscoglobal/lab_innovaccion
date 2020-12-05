@@ -103,7 +103,7 @@
                                         <div class="form-group">
                                             <label class="form-label">* Fecha de cierre</label>
                                             <div class="input-group-overlay">
-                                                <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Fecha de cierre" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate": "today"}' id="fecha_cierre" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" required>
+                                                <input class="form-control appended-form-control cs-date-picker" type="text" placeholder="Fecha de cierre" data-datepicker-options='{"altInput": true, "allowInput":true, "ariaDateFormat": "F j, Y", "dateFormat": "Y-m-d", "minDate":"tomorrow"}' id="fecha_cierre" value="{{isset($convocatoria->fecha_cierre)?$convocatoria->fecha_cierre:old('fecha_cierre')}}" required>
                                                 <div class="input-group-append-overlay">
                                                     <span class="input-group-text">
                                                     <i class="fe-calendar"></i>

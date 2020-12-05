@@ -131,28 +131,28 @@
         @error('nombre')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('actividad', $problema->actividad) ? '' : 'd-none' }}">
-        <label class="control-label">* Describe cuál es la actividad productiva que realizas, y en la cual se ha presentado el problema detectado (400 caractéres)</label>
+        <label class="control-label">* Describe cuál es la actividad productiva que realizas, y en la cual se ha presentado el problema detectado<span style="color: gray">(mín. 25 caractéres)(máx. 400 caractéres)</span></label>
         <textarea class="form-control" id="grupo_social" rows="3" name="actividad" placeholder="NUESTRA EMPRESA/PROYECTO/EQUIPO produce enlatados de frutas para exportación, ACTIVIDAD EN LA CUAL TENEMOS EL PROBLEMA de alto costo en el proceso de recepción de materia prima y su clasificación." minlength="20" maxlength="400" required oninput="window.countCharacters('grupo_social','grupo_social_error','submit',25,400,'count_words_2');">{{ old('actividad', $problema->actividad) }}</textarea>
         <span style="color: gray" id="count_words_2"></span>
         <div class="invalid-feedback" id="grupo_social"></div>
         @error('actividad')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('problema', $problema->problema) ? '' : 'd-none' }}">
-        <label class="control-label">* Describe cuál es el problema detectado (500 caractéres)</label>
+        <label class="control-label">* Describe cuál es el problema detectado <span style="color: gray">(mín. 25 caractéres)(máx. 500 caractéres)</span></label>
         <textarea class="form-control" id="problema" rows="5" name="problema"  placeholder="EN EL PROCESO DE PRODUCCIÓN/GESTIÓN SE HA DETECTADO UN PROBLEMA QUE AFECTA al procesos de clasificación, debido a que la materia prima que llega no cumple con el estándar de calidad requerido en el mercado internacional, LO CUAL OCASIONA demoras en la clasificación, falta de materia prima para el procesamientos, altos costos de manos de obra por el tiempo empleado en clasificar." minlength="20" maxlength="500" required oninput="window.countCharacters('problema','problema_error','submit',25,500,'count_words_1');">{{ old('problema', $problema->problema) }}</textarea>
         <span style="color: gray" id="count_words_1"></span>
         <div class="invalid-feedback" id="problema_error"></div>
         @error('problema')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3 has-parent interactuar {{ old('sector', $problema->sector) ? '' : 'd-none' }}">
-        <label for="archivo">* Carga un archivo complementario (Max. 10Mb)</label>
+        <label for="archivo"> Carga un archivo complementario (máx. 10MB)</label>
         @php
-            $img = asset('img/logo/logo-icon-footer.png');
+            $img = null;
             if(Storage::disk('problemas')->exists($problema->archivo)){
                 $img =  asset('storage/problemas/'.$problema->archivo);
             }
             @endphp
-        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" data-max-file-size="10M" @if($method == 'POST') required @endif>
+        <input type="file" class="dropify" title="Avatar del usuario" name="archivo" id="pdf" data-default-file="{{$img}}" accept=".pdf" data-max-file-size="10M">
         @error('archivo')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
 </div>

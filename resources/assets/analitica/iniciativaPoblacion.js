@@ -38,7 +38,6 @@ function barrasPoblacion(data) {
     chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
     chart.data = data.items;
-    console.log(data.items)
 
     var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
     categoryAxis.renderer.grid.template.location = 0;
@@ -51,7 +50,6 @@ function barrasPoblacion(data) {
     valueAxis.max = data.total;
     valueAxis.strictMinMax = true;
     valueAxis.renderer.minGridDistance = 30;
-    console.log(data.total);
 
     //// axis break
     var axisBreak = valueAxis.axisBreaks.create();

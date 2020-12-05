@@ -1,6 +1,17 @@
 @extends('layouts.aplicacion.app')
 
+<style>
+
+    .bg-size-contain {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
+</style>
+
 @section('content')
+<br /><br />
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
@@ -12,7 +23,7 @@
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
                     video</span>
             </div>
-            <div class="col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden" style="background-image: url('{{asset('images/acerca/acerca_de_thinkia.png')}}');">
+            <div class="col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden" style="background-image: url('{{asset('img/img_pages/nosotros.png')}}');">
             </div>
         </div>
     </section>
@@ -31,7 +42,7 @@
         </div>
     </section>
     --->
-   
+
     <section>
         <div class="container">
             <div class="row ">
@@ -40,7 +51,7 @@
                 </div>
                 <div class="col-12 col-lg-6 d-flex align-content-center flex-column justify-content-center p-5">
                     <h2>Misión</h2>
-                    <p class="text-justify">Consolidar la relación entre agentes innovadores para generar un ecosistema de innovación articulado y promocionar dentro de cada sector - público, privado, academia y sociedad civil 
+                    <p class="text-justify">Consolidar la relación entre agentes innovadores para generar un ecosistema de innovación articulado y promocionar dentro de cada sector - público, privado, academia y sociedad civil
                     – que los retos internos pueden ser resueltos con procesos abiertos de participación pública que busquen soluciones efectivas y agiles que aporten al bienestar social. </p>
                 </div>
             </div>
@@ -56,9 +67,10 @@
             </div>
             <h2 class="justify-content-center center-block text-center">Valores</h2>
             <div class="row ">
+
                 <div class="col-12 col-lg-6">
                     <div class="row" style="align-items: center;">
-                        <div class="col-2"><img src="{{asset('images/acerca/Group 312.svg')}}"> 
+                    <div class="col-2"><img src="{{asset('images/acerca/Group 312.svg')}}">
                         </div>
                         <div class="col">
                             <h6 class="color-morado">Confianza</h6>
@@ -66,37 +78,46 @@
                         </div>
                     </div>
                     <div class="row" style="align-items: center;">
-                        <div class="col-2"> <img src="{{asset('images/acerca/Group 314.svg')}}"> 
+                        <div class="col-2"><img src="{{asset('images/acerca/Group 316.svg')}}">
                         </div>
-                        <div class="col">        
-                            <h6 class="color-morado">Transparencia</h6>
-                            <p class="text-justify">Para fortalecer y expandir la cultura de innovación se comunica con claridad el uso que se la da a la información compartida y los compromisos adquiridos por cada actor al participar de convocatorias de identificación de problemas o soluciones. La comunicación es franca y directa entre actores como regla de trabajo en equipo. </p>
-                        </div>
-                    </div>
-                      
-                </div>
-                <div class="col-12 col-lg-6">
-                    
-                    
-                    <div class="row" style="align-items: center;">
-                        <div class="col-2"><img src="{{asset('images/acerca/Group 316.svg')}}"> 
-                        </div> 
-                        <div class="col">      
+                        <div class="col">
                             <h6 class="color-morado">Colaboración </h6>
                             <p class="text-justify">Para consolidar las bases del ecosistema de innovación se debe cooperar trabajando en común hacia ese objetivo sumando esfuerzos.</p>
                         </div>
                     </div>
                     <div class="row" style="align-items: center;">
-                        <div class="col-2"><img src="{{asset('images/acerca/Group 318.svg')}}"> 
-                        </div> 
-                        <div class="col">      
+                        <div class="col-2"><img src="{{asset('images/acerca/Group 319.svg')}}">
+                        </div>
+                        <div class="col">
                             <h6 class="color-morado">Responsabilidad </h6>
                             <p class="text-justify">El trabajo en innovación tanto identificando problemas o soluciones requiere que los actores cumplan con sus compromisos y obligaciones adquiridas ante los demás para garantizar que estos espacios de encuentro sean efectivos y respetuosos. </p>
                         </div>
                     </div>
-                    
+
+
                 </div>
-                
+                <div class="col-12 col-lg-6">
+
+                    <div class="row" style="align-items: center;">
+                        <div class="col-2"> <img src="{{asset('images/acerca/Group 314.svg')}}">
+                        </div>
+                        <div class="col">
+                            <h6 class="color-morado">Transparencia</h6>
+                            <p class="text-justify">Para fortalecer y expandir la cultura de innovación se comunica con claridad el uso que se la da a la información compartida y los compromisos adquiridos por cada actor al participar de convocatorias de identificación de problemas o soluciones. La comunicación es franca y directa entre actores como regla de trabajo en equipo. </p>
+                        </div>
+                    </div>
+                    <div class="row" style="align-items: center;">
+                        <div class="col-2"><img src="{{asset('images/acerca/Group 318.svg')}}">
+                        </div>
+                        <div class="col">
+                            <h6 class="color-morado">Creatividad </h6>
+                            <p class="text-justify">Los agentes innovadores deben buscar de manera consistente y persistentemente a través de varias iteraciones el encontrar una solución innovadora desarrollando e inventando nuevos conceptos y / o objetos que permitan resolver los problemas de desarrollo identificados.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
         </div>
     </section>
@@ -104,10 +125,10 @@
         <h2 class="pb-4 mb-4 text-center">El Equipo</h2>
         <p class="text-justify">Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.</p>
         <div class="row mb-3 mt-4 align-items-center justify-content-center">
-            
+
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
                 <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div class="card-img-top card-img-gradient"><img src="{{asset('img/onu.svg')}}" 
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/pnud.png')}}"
                             style="height: 220px;"/>
                     </div>
                     <div class="card-body text-center">
@@ -119,7 +140,7 @@
             </div>
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
                 <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div class="card-img-top card-img-gradient"><img src="{{asset('img/sanfrancisco.svg')}}" 
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('img/sanfrancisco.svg')}}"
                     style="height: 220px;" />
                     </div>
                     <div class="card-body text-center">
@@ -130,8 +151,63 @@
                 </div>
             </div>
         </div>
-    
-       
+        <div class="row mb-3 mt-4 align-items-center justify-content-center">
+
+            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/impaqto.png')}}"
+                            style="height: 310px;"/>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos mb-3 ">IMPAQTO</p>
+                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
+                        <p class="font-size-xl text-body mb-5">https://www.impaqto.net/</p>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/CTS-LAB_logo.jpg')}}"
+                    style="height: 310px;" />
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos mb-3 ">CTS LAB</p>
+                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
+                        <p class="font-size-xl text-body mb-2">https://www.facebook.com/ctslab.flacso.ec/</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 mt-4 align-items-center justify-content-center">
+
+            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/openlab.png')}}"
+                            style="height: 140px;"/>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos mb-4 mt-4">OpenLabEc</p>
+                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
+                        <p class="font-size-xl text-body mb-5">https://openlab.ec/</p>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
+                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
+                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/epico.png')}}"
+                    style="height: 170px;" />
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="logos mb-3 ">EPICO</p>
+                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
+                        <p class="font-size-xl text-body mb-2">https://epico.gob.ec/</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </section>
     <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
         <div class="container pt-3 pt-md-0">
@@ -161,7 +237,7 @@
                     <h2 class="text-light pb-2">Contacto</h2>
                     <ul class="list-unstyled font-size-sm mb-4 pb-2">
                         <li><a class="nav-link-style nav-link-light"
-                                href="mailto:info@laboratoriodeinnovacion.org">info@laboratoriodeinnovacion.org</a></li>
+                                href="mailto:info@laboratoriodeinnovacion.org">hola@thinkialab.org</a></li>
                         <li><a class="nav-link-style nav-link-light" href="tel:+5932345867">+593 234 5867</a></li>
                     </ul>
                     <h3 class="h6 pb-2 text-light">Síguenos en:</h3>
@@ -173,5 +249,5 @@
             </div>
         </div>
     </section>
-   
+
 @endsection

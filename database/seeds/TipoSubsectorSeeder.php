@@ -436,7 +436,7 @@ class TipoSubsectorSeeder extends Seeder
 
         DB::insert("insert into tipo_subsector (id, sector_id, nombre, created_at, updated_at, deleted_at) values('400','20','U9900: Actividades de Organizaciones y Órganos Extraterritoriales',NULL,NULL,NULL);");
 
-        DB::insert("insert into tipo_subsector (id, sector_id, nombre, created_at, updated_at, deleted_at) values('401','21','Eduación inicial',NULL,NULL,NULL);");
+        DB::insert("insert into tipo_subsector (id, sector_id, nombre, created_at, updated_at, deleted_at) values('401','21','Educación inicial',NULL,NULL,NULL);");
         DB::insert("insert into tipo_subsector (id, sector_id, nombre, created_at, updated_at, deleted_at) values('402','21','Educación primaria y secundaria',NULL,NULL,NULL);");
         DB::insert("insert into tipo_subsector (id, sector_id, nombre, created_at, updated_at, deleted_at) values('403','21','Educación superior',NULL,NULL,NULL);");
         DB::insert("insert into tipo_subsector (id, sector_id, nombre, created_at, updated_at, deleted_at) values('404','21','Inclusión económica y social',NULL,NULL,NULL);");

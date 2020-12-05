@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\MaterialAprendizaje;
 use App\Models\Articulo;
 use App\Models\MaterialComentario;
+use App\Models\MaterialCategorias;
 use App\Http\Requests\Materiales\ComentarioPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +25,7 @@ class MaterialdeaprendizajeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function __construct(){
-        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetalle','comment','searchMateriales');
+        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetalle','comment','searchMateriales','searchMaterialescategoria');
     }
 
 
@@ -33,14 +34,15 @@ class MaterialdeaprendizajeController extends Controller
     
         MaterialAprendizaje::$paginate = 6;
         $materiales = MaterialAprendizaje::obtenerPaginate();
+        $categorias=MaterialCategorias::orderby('nombre')->get();
         //$materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
-        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales'));
+        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales','categorias'));
     }
     public function verDetalle(MaterialAprendizaje $material)
     {
-
+        $categorias=MaterialCategorias::orderby('nombre')->get();
         $comentarios = MaterialComentario::where('material_id',$material->id)->get();
-        return view('aplicacion.materialaprendizaje.verdetalle',compact('material','comentarios'));
+        return view('aplicacion.materialaprendizaje.verdetalle',compact('material','comentarios','categorias'));
     }
     public function verCategoriasmateriales(Request $request)
     {
@@ -90,10 +92,17 @@ class MaterialdeaprendizajeController extends Controller
     }
     public function searchMateriales($tipo)
     {
-
+        $categorias=MaterialCategorias::orderby('nombre')->get();
         $materiales = MaterialAprendizaje::where('tipo',$tipo)->orderbyDesc('created_at')->paginate(MaterialAprendizaje::$paginate);
 
-        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales'));
+        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales','categorias'));
+    }
+    public function searchMaterialescategoria($categoria)
+    {
+        $categorias=MaterialCategorias::orderby('nombre')->get();
+        $materiales = MaterialAprendizaje::where('tema_tratado',$categoria)->orderbyDesc('created_at')->paginate(MaterialAprendizaje::$paginate);
+
+        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales','categorias'));
     }
 
 }
