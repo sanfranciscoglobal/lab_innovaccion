@@ -83,7 +83,17 @@
                     class="clickable"
                     gesture-handler
                 ></a-entity>
-            </a-marker>
+						</a-marker>
+						
+						<a-entity
+								id="model-5"
+								scale="1 1 1"
+								position="0 0 0"
+								animation-mixer="loop: repeat"
+								gltf-model="#dancer-1"
+								class="clickable"
+								gesture-handler
+						></a-entity>
 
             <a-entity camera></a-entity>
         </a-scene>
