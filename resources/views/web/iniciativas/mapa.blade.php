@@ -6,20 +6,16 @@
                     <div id="mapacabezagrande" style="background-color: rgba(255, 255,255, 0.7);" class="py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg p-2">
                         <div class="row justify-content-center center-block text-center">
                         
-                            <div class="col-7">
+                            <div class="col-8">
                                 
                                 <div class="row">
-                                    <div class="col-8 pl-5 py-2">
-                                        <div class="row">
-                                            <div class="col-7 pl-5 py-2">
-                                            <a style="border-color:#FF7F00;background: #FF7F00;white-space: normal;font-size: 16px; " href="{{route('app.iniciativas.create')}}" class="font-weight-bold btn btn-primary btn-block">Registra tu iniciativa</a>
-                                            </div>
-                                            <div style="color: #5A5B75;" class="col-5 pt-3">
-                                                <p>Encuentra tu innovación</p>
-                                            </div>
-                                        </div>
+                                   
+                                    <div class="col-4 pl-5 py-2">
+                                        <a style="border-color:#FF7F00;background: #FF7F00;white-space: normal;font-size: 16px; " href="{{route('app.iniciativas.create')}}" class="font-weight-bold btn btn-primary btn-block">Registra tu iniciativa</a>
                                     </div>
-                                    <div class="col-4 py-2">
+                                           
+                                       
+                                    <div class="col py-2">
                                         <div class="input-group">
                                                 <span class="input-group-prepend">
                                                     <div class="input-group-text  border-right-0"><i class="fa fa-search"></i></div>
@@ -34,11 +30,9 @@
                                 
                                 </div>
                             </div>
-                            <div class="col-5">
+                            <div class="col-4">
                                 <div class="row">
-                                    <div class="col py-2 px-2">
-                                        <a class="font-weight-bold btn btn-primary btn-block" style="border-color:#8B8B8B;background:#8B8B8B" href="#">MAPA</a>
-                                    </div>
+                                    
                                     <div class="col py-2 pr-2">
                                         <a  href="{{route('web.iniciativas.index')}}" class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
                                     </div>
