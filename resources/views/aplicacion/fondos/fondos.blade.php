@@ -28,10 +28,10 @@
                 <div class="text-justify">
                     <div class="cs-callout">
                         <p>¡Fomentemos oportunidades de financiamiento para la innovación!</p>
-                        <ul>
-                            <li>Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.</li>  
-                            <li>Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación. </li>   
-                        </ul>
+
+                            Registra postulaciones propias o de otros organismos para fondos que promuevan la innovación.<br />
+                            Revisa los fondos y anímate aplicar junto a otros actores del ecosistema de innovación.<br />
+
                     </div>
                 </div>
                 <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded text-justify" style="">
@@ -39,7 +39,7 @@
                     <ul>
                         <li>Registra fondos propios o de otros organismos en el formulario.</li>
                         <li>Revisa las oportunidades de financiamiento pulsando en los íconos.</li>
-                    </ul> 
+                    </ul>
                 </div>
             </div>
             <div class="d-none d-md-block  col-md-6  py-xl-8 py-lg-7 py-md-8 py-sm-7 bg-size-contain order-md-2 overflow-hidden" id="bannerluces"

@@ -54,14 +54,13 @@
                 <div class="py-3 text-justify ">
                     <div class="cs-callout">
                     <p class="">
-                    ¡Se parte del ecosistema de innovación!
+                    ¡ Se parte del ecosistema de innovación !
 
-                        <ul>
-                            <li>Registra tu iniciativa queremos saber sobre tu trabajo. </li>
-                            <li>Conoce el trabajo de otros en temas de innovación.  </li>
-                            <li>Anímate a contactar a actores que trabajen en temas de tu interés.  </li>
-                            <li>Construyamos lazos de trabajo colaborativos. </li>
-                        </ul>
+                        Registra tu iniciativa queremos saber sobre tu trabajo.<br />
+                        Conoce el trabajo de otros en temas de innovación.<br />
+                        Anímate a contactar a actores que trabajen en temas de tu interés.<br />
+                        Construyamos lazos de trabajo colaborativos.<br />
+
                     </p>
                     </div>
                     <div class="text-justify shadow-lg p-3 mb-2 btn-purple-gradient text-color-white rounded" style="">
@@ -80,7 +79,7 @@
                         </ul>
                     </div>
                     <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                    
+
                 </div>
             </div>
             <div class="d-sm-none d-lg-block  col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/img_pages/mapa_iniciativas.png') }}');">
@@ -130,10 +129,10 @@
         + '<div class="">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
        // +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
        // + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
-       // +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>' 
+       // +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>'
        // + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
        // +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
-       // + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>" 
+       // + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>"
         +'</div>'
         for(j=0;j<iniciativas[i].iniciativa_ubicaciones.length;j++){
             locations.push([])

@@ -19,11 +19,11 @@
             <div class="col-lg-5 pt-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary">Publicaciones y Herramientas</h1>
                 <div class="py-3 text-justify">
-                    <div class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!</p> 
-                    <ul>
-                        <li>Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</li>
-                        <li>Deja tus comentarios y reflexiones sobre la utilidad de estos. </li>
-                    </ul>
+                    <div class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!</p>
+
+                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.
+                        Deja tus comentarios y reflexiones sobre la utilidad de estos.
+
                     </div>
                 </div>
                 <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded text-justify" style="">
