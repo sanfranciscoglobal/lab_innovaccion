@@ -170,14 +170,21 @@
                         </div>
                         <div class="cs-offcanvas-body px-4 pt-3 pt-lg-0 pr-lg-0 pl-lg-2 pl-xl-4" data-simplebar>
                             <!-- Search-->
-                            <div class="cs-widget mb-5">
-                                <h3 class="cs-widget-title">Buscar</h3>
-                                <div class="input-group-overlay">
-                                    <div class="input-group-prepend-overlay"><span class="input-group-text"><i
-                                                class="fe-search"></i></span></div>
-                                    <input class="form-control prepended-form-control" type="text" placeholder="Buscar">
+                            
+                            <form action="{{route('material.searchnombre')}}" method="POST">
+                                @csrf
+                                @method("POST")
+                                <div class="cs-widget mb-5">
+                                    <h3 class="cs-widget-title">Buscar</h3>
+                                    <div class="input-group-overlay">
+                                        <div class="input-group-prepend-overlay"><span class="input-group-text"><i
+                                                    class="fe-search"></i></span></div>
+                                        <input class="form-control prepended-form-control" type="text" name="buscador" placeholder="Buscar">
+                                    </div>
                                 </div>
-                            </div>
+
+                            </form>
+                            
                             <!-- Tipos-->
                             <div class="cs-widget cs-widget-categories mb-4">
                                 <h3 class="cs-widget-title">Tipos</h3>

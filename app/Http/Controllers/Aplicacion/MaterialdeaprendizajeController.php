@@ -25,7 +25,7 @@ class MaterialdeaprendizajeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function __construct(){
-        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','verCategoriasmateriales','verDetalle','comment','searchMateriales','searchMaterialescategoria');
+        $this->middleware('acceso-app:user,admin,superadmin')->except('verListadomateriales','searchMaterialesbuscador','verCategoriasmateriales','verDetalle','comment','searchMateriales','searchMaterialescategoria');
     }
 
 
@@ -101,6 +101,13 @@ class MaterialdeaprendizajeController extends Controller
     {
         $categorias=MaterialCategorias::orderby('nombre')->get();
         $materiales = MaterialAprendizaje::where('tema_tratado',$categoria)->orderbyDesc('created_at')->paginate(MaterialAprendizaje::$paginate);
+
+        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales','categorias'));
+    }
+    public function searchMaterialesbuscador(Request $request)
+    {
+        $categorias=MaterialCategorias::orderby('nombre')->get();
+        $materiales = MaterialAprendizaje::where('nombre_publicacion', 'ilike', '%' . $request->buscador . '%')->orderbyDesc('created_at')->paginate(MaterialAprendizaje::$paginate);
 
         return view('aplicacion.materialaprendizaje.verlistado',compact('materiales','categorias'));
     }
