@@ -54,7 +54,7 @@
                 <div class="py-3 text-justify ">
                     <div class="cs-callout">
                     <p class="">
-                    ¡ Se parte del ecosistema de innovación !
+                    ¡ Se parte del ecosistema de innovación !<br>
 
 
                             Registra tu iniciativa queremos saber sobre tu trabajo.<br />
@@ -79,6 +79,7 @@
                             </li>
                         </ul>
                     </div>
+                    <br>
                     <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
 
                 <span class="font-size-sm text-muted">Ver
