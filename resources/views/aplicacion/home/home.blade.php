@@ -2,7 +2,7 @@
 
 @section('content')
 <style scoped>
-    .carousel-item {min-height: 550px;}
+    .carousel-item {min-height: 750px;}
 
     @media (max-width: 768px) {
         .carousel-item {
@@ -65,7 +65,7 @@
     </section>
 
     <section class="bg-secondary bg-gradient-orange-purple">
-        <div class=" container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5 row no-gutters">
+        <div class=" container-fluid pl-lg-8 pr-lg-8 mt-5 row no-gutters">
             <div class="col-md-6 py-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces"
                 style="background-image: url({{ asset('img/layout/home/laboratorio-side-bkg.png') }});">
             </div>

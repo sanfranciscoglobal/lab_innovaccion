@@ -53,7 +53,7 @@
                             <ul class="collapse" id="ecosistema" data-parent="#menu">
                                 <li>
                                     <a class="cs-widget-link" href="{{route('app.iniciativas.index')}}">
-                                        Iniciativas
+                                        Iniciativas <small class="text-muted pl-1 ml-2">{{ App\Models\Iniciativas::where('user_id', Auth::id())->count() }}</small>
                                     </a>
                                 </li>
                                 {{-- <li><a class="cs-widget-link" href="#">Analítica</a></li> --}}

@@ -1,7 +1,7 @@
 @extends('layouts.aplicacion.app')
 @section('header-css')
     <style>
-       
+
          @media (min-width: 992px) and (max-width: 1250px) {
             .itemhome{
                 min-width: 50%;
@@ -36,6 +36,12 @@
             max-width: 250px;
         }
 
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -43,30 +49,52 @@
 <input id="marker1" value="{{ asset('images/hotspot.svg')}}" hidden>
     <section class="container my-lg-2 pt-5 pb-lg-3">
         <div class="row align-items-center">
-            <div class="col-lg-6 py-4  mt-lg-5">
-                <h1 class="mt-5">Mapa de iniciativas</h1>
-                <div class="py-4">
-                    <p class="cs-callout">
-                        ¡Se parte del ecosistema de innovación!<span class="clearfix"></span>
-                        * Registra tu iniciativa queremos saber sobre tu trabajo. <span class="clearfix"></span>
-                        * Conoce el trabajo de otros en temas de innovación. <span class="clearfix"></span>
-                        * Anímate a contactar a actores que trabajen en temas de tu interés. <span
-                                class="clearfix"></span>
-                        * Construyamos lazos de trabajo colaborativos. <span class="clearfix"></span>
+            <div class="text-justify col-lg-6 py-4  mt-lg-5">
+                <h1 class="mt-5 text-primary">Mapa de iniciativas</h1>
+                <div class="py-3 text-justify ">
+                    <div class="cs-callout">
+                    <p class="">
+                    ¡ Se parte del ecosistema de innovación !<br>
+
+                        Registra tu iniciativa queremos saber sobre tu trabajo.<br />
+                        Conoce el trabajo de otros en temas de innovación.<br />
+                        Anímate a contactar a actores que trabajen en temas de tu interés.<br />
+                        Construyamos lazos de trabajo colaborativos.<br />
+
                     </p>
+                    </div>
+                    <div class="text-justify shadow-lg p-3 mb-2 btn-purple-gradient text-color-white rounded" style="">
+                        <strong>Indicaciones</strong>
+                        <ul>
+                            <li>Si gustas registrar tu iniciativa pulsa en el botón “Registra tu iniciativa”.</li>
+                            <li>Si gustas informarte:
+                                <ol type="a">
+                                    <li> Indaga en el mapa, al poner el curso sobre la iniciativa obtendrás más información. </li>
+                                    <li> Pulsa el botón “Actores” y se desplegará la información de quién implementa. </li>
+                                    <li> Pulsa el botón “Analítica” y podrás visualizar la información en gráficos. </li>
+                                    <li> Escoge filtros  en base a tu interés y se organizará la información. </li>
+                                    <li> Pulsa los botones para descargar y tendrás acceso a toda la base de datos en diferente formatos.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+
                 </div>
             </div>
-            <div class="d-sm-none d-lg-block  col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url('{{ asset('images/banner_mapa_iniciativas.png') }}');border-radius: 150px 0 0 150px;">
+            <div class="d-sm-none d-lg-block  col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/img_pages/mapa_iniciativas.png') }}');">
             </div>
         </div>
+
     </section>
-    
+
     <section class="searchbar-container bg-secondary">
         @include('web.iniciativas.mapa')
     </section>
 
-    
-       
+
+
 @endsection
 
 @section('scripts')
@@ -77,7 +105,7 @@
 <script>
 
     iniciativas={!! json_encode($iniciativas ->toArray()) !!};
-    
+
     locations=[]
     c=0
     for(i=0;i<iniciativas.length;i++){
@@ -100,12 +128,12 @@
         +'<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
         + '<b size="5" style="color:#fd972b">Descripción de la iniciativa:</b></br>'
         + '<div class="">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
-        +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
-        + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
-        +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>' 
-        + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
-        +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
-        + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>" 
+       // +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
+       // + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
+       // +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>'
+       // + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
+       // +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
+       // + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>"
         +'</div>'
         for(j=0;j<iniciativas[i].iniciativa_ubicaciones.length;j++){
             locations.push([])

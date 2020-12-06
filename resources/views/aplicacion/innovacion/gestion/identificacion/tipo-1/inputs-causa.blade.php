@@ -27,7 +27,7 @@
         @error('efectos.3')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3">
-        <label for="pdf">* Cuál es el eslabón de la cadena productiva en donde se produce el problema</label>
+        <label for="pdf">* Cuál es el eslabón de la cadena productiva en donde se produce el problema?</label>
         <div class="custom-control custom-radio mb-3">
             <input class="custom-control-input form-control" type="radio" id="eslabon-1" name="eslabon" value="1"  {{ old('eslabon', $problema->eslabon) == '1' ? 'checked' : '' }} required>
             <label class="custom-control-label" for="eslabon-1">Relación con los proveedores y logística (Se refiere a la calidad de gestión que realizan los proveedores y el despliegue que permite incorporar esas acciones a la producción de la empresa/proyecto/equipo; ejemplo: acuerdo de entrega vía terrestre directamente en las bodegas)</label>
@@ -51,9 +51,9 @@
         @error('eslabon')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>
     <div class="controls-container mb-3">
-        <label class="control-label">* Describe qué es lo que está pasando en el eslabón de la cadena productiva que señalaste (500 caractéres)</label>
-        <textarea class="form-control" id="descripcion_grupo" rows="4" name="descripcion_grupo" minlength="10" maxlength="500" placeholder="Ejemplo: LA CADENA PRODUCTIVA SE HA VISTO AFECTADA PORQUE el proveedor entrega materia prima que no cumple con los estándares requeridos, LO CUAL OCASIONA uso de más tiempo y mano de obra en la clasificación de la materia prima que encarece el producto y limita el acceso a más producto exportable." required oninput="window.countCharacters('descripcion_grupo','descripcion_grupo_error','submit',25,500,'count_words_1');">{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
-        <span style="color: gray" id="count_words_1"></span>
+        <label class="control-label">* Describe qué es lo que está pasando en el eslabón de la cadena productiva que señalaste <span style="color: gray">(mín. 25 caractéres)(máx. 500 caractéres)</span></label>
+        <textarea class="form-control" id="descripcion_grupo" rows="4" name="descripcion_grupo" minlength="10" maxlength="500" placeholder="Ejemplo: LA CADENA PRODUCTIVA SE HA VISTO AFECTADA PORQUE el proveedor entrega materia prima que no cumple con los estándares requeridos, LO CUAL OCASIONA uso de más tiempo y mano de obra en la clasificación de la materia prima que encarece el producto y limita el acceso a más producto exportable." required oninput="window.countCharacters('descripcion_grupo','descripcion_grupo_error','submit',25,500,'count_words_2');">{{ old('descripcion_grupo', $problema->descripcion_grupo) }}</textarea>
+        <span style="color: gray" id="count_words_2"></span>
         <div class="invalid-feedback" id="descripcion_grupo_error"></div>
         @error('eslabon')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
     </div>

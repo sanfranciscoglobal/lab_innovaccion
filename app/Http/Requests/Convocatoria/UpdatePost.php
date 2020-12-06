@@ -28,7 +28,7 @@ class UpdatePost extends FormRequest
             'tipoconvocatoria_id' => 'string|required',
             'nombre'=>'string|required|max:250',
             'fecha_inicio' => 'date|required',
-            'fecha_cierre' => 'date|required|after:fecha_inicio',
+            'fecha_cierre' => 'date|required',
             'descripcion' => 'string|required',
             'imagen' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
             'terminos'=>'required|boolean',

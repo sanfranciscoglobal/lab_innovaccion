@@ -347,4 +347,12 @@ class Iniciativas extends Model
         return false;
     }
 
+
+    public static function obtenerIniciativasIndividualesCount()
+    {
+        return self::builderIniciativa()
+                ->where('iniciativa_origen_id', 2)
+                ->count() ?? 0;
+    }
+
 }

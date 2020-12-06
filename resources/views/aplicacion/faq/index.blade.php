@@ -1,6 +1,17 @@
 @extends('layouts.aplicacion.app')
 
+<style>
+
+    .bg-size-contain {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
+</style>
+
 @section('content')
+<br /><br /><br />
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
@@ -13,7 +24,10 @@
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
                     video</span>
             </div>
+            <div class="col-md-6 mt-3 py-8 bg-size-contain order-md-2 overflow-hidden" style="background-image: url('{{asset('img/img_pages/uso.png')}}');">
+            </div>
         </div>
+
     </section>
     <section>
         <div class="container">

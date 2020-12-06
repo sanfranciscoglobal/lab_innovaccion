@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 // Helpers
 use App\Helpers\CustomUrl; // $string
@@ -49,13 +50,13 @@ class crudProblemas extends Controller
             }
             if($request->get('continue')){
                 $request->session()->put('step', '2');
-                return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema creada con éxito', 'method' => 'PUT']);
+                return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Problema fase 1 completada con éxito.', 'method' => 'PUT']);
             } else {
-                return redirect()->route('app.escritorio')->with(['status' => 'Innovación problema creada con éxito']);
+                return redirect()->route('app.escritorio')->with(['status' => 'Problema fase 1 completada con éxito, no se olvide de completarla más tarde.']);
             }
             
         }
-        return back()->with('error', 'Innovación problema no creada');
+        return back()->with('error', 'Problema no fue creado.');
     }
 
     /**
@@ -82,12 +83,12 @@ class crudProblemas extends Controller
 
         if($request->get('continue')){
             $request->session()->put('step', '2');
-            return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema modificado con éxito', 'method' => 'PUT']);
+            return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Problema fase 1 completada con éxito', 'method' => 'PUT']);
         } else {
-            return redirect()->route('app.escritorio')->with(['status' => 'Innovación problema modificado con éxito']);
+            return redirect()->route('app.escritorio')->with(['status' => 'Problema fase 1 completada con éxito.']);
         }
 
-        return back()->with('error', 'Innovación problema no actualizada');
+        return back()->with('error', 'Innovación problema no actualizada.');
     }
 
     /**
@@ -114,9 +115,9 @@ class crudProblemas extends Controller
 
         if($request->get('continue')){
             $request->session()->put('step', '3');
-            return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Innovación problema modificado con éxito', 'method' => 'PUT']);
+            return redirect()->route('app.problemas.edit', [$problema->convocatoria_id, $problema->id])->with(['status' => 'Problema fase 2 completada con éxito', 'method' => 'PUT']);
         } else {
-            return redirect()->route('app.escritorio')->with(['status' => 'Innovación problema modificado con éxito']);
+            return redirect()->route('app.escritorio')->with(['status' => 'Problema fase 2 completada con éxito, no se olvide de completarla más tarde.']);
         }
 
         return back()->with('error', 'Innovación problema no modificado.');
@@ -139,7 +140,9 @@ class crudProblemas extends Controller
         
         $request->session()->forget('step', '3');
 
-        return redirect()->route('home')->with('status', 'Problema modificado con éxito');
+        // return redirect()->route('home')->with('status', 'Problema modificado con éxito');
+        return redirect()->route('innovaciongestion.ver',$problema->convocatoria_id)->with('status', 'Problema fase 3 completada con éxito, se ha registrado su problema exitosamente.');
+        
     }
 
     /**
@@ -155,5 +158,10 @@ class crudProblemas extends Controller
 
         $problema->delete();
         return redirect()->route('home')->with('status', 'Problema eliminado con éxito.');
+    }
+
+    public function download($archivo)
+    {
+        return Storage::disk('problemas')->download($archivo);
     }
 }

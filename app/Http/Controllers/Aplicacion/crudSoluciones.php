@@ -47,7 +47,7 @@ class crudSoluciones extends Controller
             Mail::to($solucion->problemaid->user->email)->send(new SolucionEmail($solucion));
             if($request->get('continue')){
                 $request->session()->put('step', '2');
-                return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 1 completada con éxito, continue con el siguiente paso.', 'method' => 'PUT']);
+                return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 1 completada con éxito.', 'method' => 'PUT']);
             } else {
                 return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 1 completada con éxito, recuerda de completarla más tarde.']);
             }
@@ -70,17 +70,19 @@ class crudSoluciones extends Controller
 
         if($request->get('continue')){
             $request->session()->put('step', '2');
-            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 1 completada con éxito', 'method' => 'PUT']);
+            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 1 completada con éxito.', 'method' => 'PUT']);
         } else {
-            return back()->with(['status' => 'Solución fase 1 completada con éxito, no se olvide de completarla más tarde']);
+            return back()->with(['status' => 'Solución fase 1 completada con éxito, no se olvide de completarla más tarde.']);
         }
 
     }
     public function updateFase2(Store2Post $request,Solucion $solucion){
+ 
         if(Auth::id() != $solucion->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
             return back()->with('error', 'No ingresaste esta solución.');
         }
         $validatedData = $request->validated();
+        
         $solucion->update($validatedData);
         Soluciontipoinnova::where('solucion_id',$solucion->id)->delete();
         foreach ($validatedData['tipo_institucion'] as $propuesta){
@@ -93,9 +95,9 @@ class crudSoluciones extends Controller
 
         if($request->get('continue')){
             $request->session()->put('step', '3');
-            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 2 completada con éxito, continue con el último paso', 'method' => 'PUT']);
+            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución fase 2 completada con éxito.', 'method' => 'PUT']);
         } else {
-            return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 2 completada con éxito, no se olvide de completarla más tarde']);
+            return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 2 completada con éxito, no se olvide de completarla más tarde.']);
         }
 
     }
@@ -107,9 +109,10 @@ class crudSoluciones extends Controller
         $solucion->update($validatedData);
         if($request->get('continue')){
             $request->session()->put('step', '3');
-            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Innovación solución creada con éxito', 'method' => 'PUT']);
+            return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución creada con éxito', 'method' => 'PUT']);
         } else {
-            return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solucón exitosamente']);
+            return redirect()->route('soluciones.ver',$solucion->problema_id)->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solución exitosamente']);
+            // return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solucón exitosamente']);
         }
 
     }
@@ -152,7 +155,7 @@ class crudSoluciones extends Controller
             $solucion->save();
         }
 
-        return redirect()->back()->with('status', 'Solucion mejorada guardada con éxito.');
+        return redirect()->back()->with('status', 'Solución mejorada guardada con éxito.');
     }
         
     /**
@@ -172,7 +175,7 @@ class crudSoluciones extends Controller
             $solucion_mejorada->save();
         }
 
-        return redirect()->back()->with('status', 'Solucion mejorada modificada con éxito.');
+        return redirect()->back()->with('status', 'Solución mejorada modificada con éxito.');
     }
 
     /**

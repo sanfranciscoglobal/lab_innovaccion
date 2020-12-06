@@ -64,7 +64,7 @@ class InnovacionController extends Controller
         }
 
         $tipo = $convocatoria->tipoconvocatoria_id;
-        $url = route("app.problemas.update", [$convocatoria->id, $problema->id]);
+        $url = route("app.problemas.update", [$problema->id]);
         $url2 = route("app.problemas.update.fase2", [$problema->id]);
         $url3 = route("app.problemas.update.fase3", [$problema->id]);
         return view('aplicacion.innovacion.gestion.identificacion.create', compact('convocatoria', 'problema'))->with(['tipo' => $tipo, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'method' => 'PUT']);
@@ -100,7 +100,7 @@ class InnovacionController extends Controller
 
     public function verSoluciones(Problema $problema)
     {
-        $soluciones = Solucion::where('problema_id', $problema->id)->get();
+        $soluciones = Solucion::where('problema_id', $problema->id)->paginate(2);
         return view('aplicacion.innovacion.gestion.innovacionProblemas', compact('convocatoria', 'soluciones'));
     }
     
@@ -186,6 +186,10 @@ class InnovacionController extends Controller
         }
         else{
             $convocatorias= Convocatoria::orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
+        }
+        if ($request->ods!=null){
+            $odslista=ConvocatoriaODS::select('convocatoria_id')->whereIn('ods_id',$request->ods)->get();
+            $convocatorias=Convocatoria::orderBy('created_at','DESC')->whereIn('id',$odslista)->paginate(Convocatoria::$paginate);
         }
         return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
     }

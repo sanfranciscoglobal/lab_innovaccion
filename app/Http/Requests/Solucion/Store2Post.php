@@ -25,11 +25,12 @@ class Store2Post extends FormRequest
     {
         return [
             //
-            'tipo_institucion.*'=>'required',
-            'nivelsolucion_id'=>'int|required',
-            'concepto1'=>'required|string',
-            'concepto2'=>'required|string',
-            'concepto3'=>'required|string'
+
+            'tipo_institucion.*'=>['required'],
+            'nivelsolucion_id'=>['int','required'],
+            'concepto1'=>['string','required'],
+            'concepto2'=>['string','required'],
+            'concepto3'=>['string','required']
         ];
     }
 }

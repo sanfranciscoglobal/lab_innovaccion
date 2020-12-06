@@ -1,9 +1,4 @@
 @extends('layouts.aplicacion.app')
-
-@section('header-css')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
-@endsection
-
 @section('content')
 
     <form role="form" action="{{$url}}" id='frm' class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
@@ -41,14 +36,7 @@
                         <div class="row">
                             <div class="col-lg-9">
                                 
-                                {{-- <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <!--textarea id="mat_content" class="form-control ckeditor" name="mat_content" rows="20"></textarea-->
-                                            <textarea id="mat_content" class="form-control " name="mat_content" rows="20"></textarea>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                               
                                 <div class="row">
                                     <div class="col">
                                         <div class="row">
@@ -153,12 +141,27 @@
                                     <div class="row">
                                         <div class="col w-100 form-group">
                                          
-                                          <select class="form-control custom-select select2" id="mat_tema" name='tema_tratado' required>
+                                          {{-- <select class="form-control custom-select select2" id="mat_tema" name='tema_tratado' required>
                                             <option value="">Seleccione un tema</option>
                                             <option value="Tema 1" {{old('tema_tratado',$material->tema_tratado)=="Tema 1"? 'selected':''}}>Tema 1</option>
                                             <option value="Tema 2" {{old('tema_tratado',$material->tema_tratado)=="Tema 2"? 'selected':''}}>Tema 2</option>
                                             <option value="Tema 3" {{old('tema_tratado',$material->tema_tratado)=="Tema 3"? 'selected':''}}>Tema 3</option>
-                                          </select>
+                                          </select> --}}
+                                          <select style="width:100%;" class="form-control custom-select select2" id='mat_tema' name='tema_tratado'
+
+                                            data-ajax--url="{{route('api.material-categoria.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--data-cache="true"
+                                            
+                                            data-placeholder="Seleccione un Tema"
+                                            >
+                                            @if ($material->tipo_documento)
+                                                    <option value="{{$material->categoria->id}}"
+                                                        selected>{{$material->categoria->nombre}}</option>
+                                            @endif
+                                                
+                                        </select>
+                                                           
                                           <div class="invalid-feedback">Seleccione un tema.</div>
                                           <div class="valid-feedback">Bien!</div>
                                         </div>
@@ -177,16 +180,33 @@
                                     <div class="row">
                                         <div class="col w-100 form-group">
                                           
-                                          <select class="form-control custom-select select2" id="mat_tipo" name='tipo_documento' required>
+                                          {{-- <select class="form-control custom-select select2" id="mat_tipo" name='tipo_documento' required>
                                             <option value="">Seleccione un Tipo</option>
                                             <option value="Tipo 1" {{old('tipo_documento',$material->tipo_documento)=="Tipo 1"? 'selected':''}}>Tipo 1</option>
                                             <option value="Tipo 2" {{old('tipo_documento',$material->tipo_documento)=="Tipo 2"? 'selected':''}}>Tipo 2</option>
                                             <option value="Tipo 3" {{old('tipo_documento',$material->tipo_documento)=="Tipo 3"? 'selected':''}}>Tipo 3</option>
-                                          </select>
-                                          <div class="invalid-feedback">Seleccione un tipo.</div>
+                                          </select> --}}
+                                          <select style="width:100%;" class="form-control custom-select select2" id='mat_tipo' name='tipo_documento'
+
+                                            data-ajax--url="{{route('api.material-documento.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--data-cache="true"
+                                            
+                                            data-placeholder="Seleccione un Tipo"
+                                            >
+                                                @if ($material->tipo_documento)
+                                                    <option value="{{$material->tipodocumento->id}}"
+                                                        selected>{{$material->tipodocumento->nombre}}</option>
+                                                @endif
+                                                                       
+                                            </select>
+                                                           
+                                          <div class="invalid-feedback">Seleccione un tema.</div>
                                           <div class="valid-feedback">Bien!</div>
                                         </div>
+                                          
                                     </div>
+                                    
                                     
                                 </div>
                                 <div class="form-group">
@@ -270,18 +290,8 @@
     @endif
 @endsection
 @section('footer')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 <script>
-    @if ($method=='PUT')
-
-        @foreach ($material->articuloss as $articulo)
-           console.log("{{$articulo->nombre}}");
-
-        @endforeach
-    @endif
-    $(document).ready(function(){
-        $('.select2').select2();
-    })
 
     function validateURL() {
          var $URL= document.getElementById("mat_url").value;

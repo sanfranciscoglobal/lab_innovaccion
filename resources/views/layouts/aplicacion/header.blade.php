@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row w-100">
                 <div class="col-12 d-flex justify-content-end align-items-center">
-                    <a href="mailto:info@thinkia.org"><span class=""><span
+                    <a href="mailto:hola@thinkialab.com"><span class=""><span
                                     class="fe-mail"></span>&nbsp;Contáctanos</span></a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
                         <li class="list-inline-item m-0"><a
@@ -33,7 +33,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand order-lg-1 ml-lg-0 pr-lg-0 mr-lg-0 justify-content-start" href="{{route('home')}}">
-            <img class="navbar-floating-logo d-none d-lg-block my-2" style="width: 150px;max-width: none;" width="100"
+            <img class="navbar-floating-logo d-none d-lg-block my-2" style="width: 225px;max-width: none;" width="100"
                  src="{{asset('img/logo/thinkia_color.svg')}}"
                  alt="Thinkia - Laboratorio de innovación"/>
             <img class="navbar-stuck-logo my-1" style="width: 150px;max-width: none;" src="{{asset('img/logo/thinkia_color.svg')}}"
@@ -96,24 +96,24 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link justify-content-center center-block text-center font-weight-bold" href="{{route('innovaciones')}}">Gestión de la Innovación</a>
+                        <a class="nav-link  text-lg-center font-weight-bold" href="{{route('innovaciones')}}">Gestión de la Innovación</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link  font-weight-bold" href="#" data-toggle="dropdown">
+                        <a class="text-lg-center nav-link  font-weight-bold" href="#" data-toggle="dropdown">
                             Ecosistema de innovación<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/mapa">Mapa de
+                            <li><a class="dropdown-item" href="/iniciativasmapa">Mapa de
                             Iniciativas</a></li>
-                            <li><a class="dropdown-item" href="/iniciativas">Iniciativas de
+                            <li><a class="dropdown-item" href="{{route('web.iniciativas.index')}}">Iniciativas de
                             Actores</a></li>
-                            <li><a class="dropdown-item" href="/analitica/">Analítica</a></li>
+                            <li><a class="dropdown-item" href="{{route('web.iniciativas.analiticas')}}">Analítica</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-weight-bold" href="#" data-toggle="dropdown">
                             Recursos<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="">Mapa General</a></li>
+                            <li><a class="dropdown-item " href="/mapa">Mapa General</a></li>
                             <li><a class="dropdown-item " href="{{route('fondos')}}">Fondos</a></li>
                             <li><a class="dropdown-item " href="{{route('eventos')}}">Eventos</a></li>
                             <li><a class="dropdown-item " href="{{route('material')}}">Publicaciones y herramientas</a>
@@ -125,7 +125,7 @@
                             Nosotros<i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('acercade') }}">Acerca de</a></li>
-                            <li><a class="dropdown-item" href="{{ route('faq') }}">Preguntas frecuentes</a></li>
+                            <li><a class="dropdown-item" href="{{ route('faq') }}">Condiciones de uso</a></li>
                         </ul>
                     </li>
 

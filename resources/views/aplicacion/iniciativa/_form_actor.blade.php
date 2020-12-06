@@ -141,7 +141,11 @@
                 <div class="form-group ubicaciones direccion border-bottom-light" data-row="{{$key}}">
                     <div class="row">
                         <div class="col-lg-12">
-                            <label class="control-label">Dirección Principal</label>
+                            {{--@if($loop->first)--}}
+                                <label class="control-label">Dirección Principal <i class="fe-info text-primary" style="font-size: 22px;
+    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
+                                                                                    title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
+                            {{--@endif--}}
                             <input maxlength="200" type="text" required="required"
                                    class="form-control ubicacion ubicacion-{{$key}}"
                                    placeholder="Escriba la dirección"

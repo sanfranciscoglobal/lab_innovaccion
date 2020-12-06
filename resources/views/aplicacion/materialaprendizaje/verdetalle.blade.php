@@ -68,7 +68,7 @@
                                 <a class="media meta-link font-size-sm align-items-center">
                                     <img  class='rounded-circle' width="42" src="{{ $imagen1}}"
                                         alt="Sanomi Smith" />
-                                        <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$material->tema_tratado}}</h3>
+                                        <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$material->categoria->nombre}}</h3>
                                             
                                             <p class="font-weight-semibold ml-1" style="margin-bottom: 0; color: #a13d8f">{{$material->user->name}}</p>
                                             
@@ -122,12 +122,18 @@
 
                                 @foreach ($comentarios as $comment)
                                     @php
+                                        // use Carbon\Carbon
                                         $imagen = asset('img/layout/home/profile4.jpg');
                                         if(isset($comment->user->perfil_id)){
                                             if(isset($comment->user->perfil->avatar)){
                                                 $imagen = asset('storage/perfil/'.$comment->user->perfil->avatar);
                                             }
                                         }
+                                    
+                                        $fecha_actual= new DateTime(date('d-m-Y'));
+                                        $date2 = new DateTime($comment->created_at);
+                                        $diferencia_en_dias = $fecha_actual->diff($date2);
+                                       
                                         
                                     @endphp
                                     <p>{{$comment->comentario}}</p>
@@ -136,14 +142,15 @@
                                             <img class="rounded-circle" width="42" src="{{ $imagen}}"
                                                 alt="Sanomi Smith" />
                                             <div class="media-body pl-2 ml-1 mt-n1 text-primary"><span class="font-weight-semibold ml-1">{{$comment->user->name}}</span><br>
-                                                <span>Hace 3 días</span></div>
+                                            <span>hace {{$diferencia_en_dias->days}} días</span></div>
                                         </a>
                                     </div>
+                                    
                                     <br>
                                     <hr>
                                 @endforeach
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
                                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -156,7 +163,7 @@
                                     </a>
                                 </div>
                                 <br>
-                                <hr>
+                                <hr> --}}
                             </div>
                             
                             
@@ -242,22 +249,14 @@
                             <div class="cs-widget cs-widget-categories mb-5">
                                 <h3 class="cs-widget-title">Categorías</h3>
                                 <ul>
-                                    <li><a class="cs-widget-link" href="#">Innovación<small
-                                                class="text-muted pl-1 ml-2">23</small></a></li>
-                                    <li><a class="cs-widget-link" href="#">Innovación abierta<small
-                                                class="text-muted pl-1 ml-2">14</small></a></li>
-                                    <li><a class="cs-widget-link" href="#">Design Thinking<small
-                                                class="text-muted pl-1 ml-2">7</small></a></li>
-                                    <li><a class="cs-widget-link" href="#">Tecnología<small
-                                                class="text-muted pl-1 ml-2">19</small></a></li>
-                                    <li><a class="cs-widget-link" href="#">Fondos<small
-                                                class="text-muted pl-1 ml-2">35</small></a></li>
-                                    <li><a class="cs-widget-link" href="#">Servicios &amp; Vacation<small
-                                                class="text-muted pl-1 ml-2">28</small></a></li>
+                                    @foreach ($categorias as $categoria)
+                                        <li><a class="cs-widget-link" href="{{ route('material.searchcategoria',$categoria->id) }}">{{$categoria->nombre}}<small
+                                            class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::where('tema_tratado',$categoria->id)->count() }}</small></a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <!-- Featured posts-->
-                            <div class="cs-widget mt-n1 mb-5">
+                            {{-- <div class="cs-widget mt-n1 mb-5">
                                 <h3 class="cs-widget-title pb-1">Publicaciones en tendencia</h3>
                                 <div class="media align-items-center pb-1 mb-3"><a class="d-block" href="#"><img
                                             class="rounded" width="64" src="img/pexels-pixabay-416405.jpg" alt="Post" /></a>
@@ -282,7 +281,7 @@
                                         <p class="font-size-xs text-muted mb-0">por Daniel Adams</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

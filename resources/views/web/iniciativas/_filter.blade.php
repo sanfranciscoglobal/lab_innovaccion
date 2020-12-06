@@ -1,34 +1,44 @@
+<?php $routeName = Route::currentRouteName(); ?>
 <form id="filter-iniciativas" class="container" action="{{route('web.iniciativas.index')}}" method="POST">
     @method('POST')
     @csrf
-    <div class=" align-items-center  h-100 bg-light rounded-lg box-shadow-lg p-6">
+
+    <div class=" align-items-center  h-100 bg-light rounded-lg box-shadow-lg pl-2 pr-5 py-4">
         <div class="w-100 center-block text-left pl-5 pt-1">
-
-
             <div class="">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="row">
-                            <div class="col py-2 px-2">
-                                <a class="font-weight-bold btn btn-primary btn-block" href="#">MAPA</a>
-                            </div>
-                            <div class="col py-2 pr-2">
-                                <a href="#modal-signin" style="border-color:#8B8B8B;background:#8B8B8B"
-                                   class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
-                            </div>
-                            <div class="col col-lg-5 py-2 pr-5">
-                                <a href="{{route('web.iniciativas.analiticas')}}"
-                                   class="font-weight-bold btn btn-primary btn-block">
-                                    ANALÍTICA
-                                </a>
-                            </div>
 
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 pb-3">
+                        <h2 style="color:#531c6a" class="float-left">Filtros</h2>
+                    </div>
+                    
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                        <div class="row">
+                            <div class="col py-2 px-1">
+                                <a class="font-weight-bold btn btn-primary btn-block"
+                                   href="{{route('web.iniciativas.mapa')}}">MAPA</a>
+                            </div>
+                            @if($routeName !== 'web.iniciativas.index')
+                                <div class="col py-2 pr-1">
+                                    <a href="{{route('web.iniciativas.index')}}"
+                                       {{--style="border-color:#8B8B8B;background:#8B8B8B"--}}
+                                       class="font-weight-bold btn btn-primary btn-block">ACTORES</a>
+                                </div>
+                            @endif
+                            @if($routeName !== 'web.iniciativas.analiticas')
+                                <div class="col py-2 pr-3">
+                                    <a href="{{route('web.iniciativas.analiticas')}}"
+                                       class="font-weight-bold btn btn-primary btn-block">
+                                        ANALÍTICA
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
-                    <div class="my-2 col-md-6 col-lg-2 col-sm-12 ">
-                        Encuentra tu innovación
-                    </div>
-                    <div class="my-2 col-lg-3 col-sm-12 col-md-6">
+                    <div class="my-2 col-xl-5 col-lg-9 col-sm-12 col-md-12">
 
                         <div class="input-group">
                             <span class="input-group-prepend">
@@ -44,19 +54,19 @@
                         </div>
 
                     </div>
-
-
-                    <div class="col-lg-3 col-md-12">
-                        <a href="{{route('app.iniciativas.create')}}" class="font-weight-bold btn btn-primary"
-                           style="border-color:#fd972b;background: #fd972b;">Registra tu iniciativa</a>
+                    <div class="col-lg-3 col-md-12 py-3">
+                        <a href="{{route('app.iniciativas.create')}}"
+                           class="font-weight-bold btn btn-primary float-right"
+                           style="border-color:#fd972b;background: #fd972b;">Registra tu iniciativa
+                        </a>
                     </div>
+                    
                 </div>
 
                 <div class="row pt-1 ml-2 mr-2 align-items-center">
-                    <div class="w-100 center-block text-left pl-md-5 pt-1">
-                        <h2 style="color:#531c6a" class="align-items-center">Filtros</h2>
+                    <div class="w-100 center-block text-left pl-xl-7 pl-lg-1 pl-md-0 pt-1">
                         <div class="row pt-1 ml-md-2 mr-md-2 align-items-center">
-                            <div class="col-md-3 col-12">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-12">
                                 <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "
                                       for="to-destination">Tipo Instituci&oacute;n</span>
                                 <select id="tipo_institucion" name="tipo_institucion[]"
@@ -71,7 +81,7 @@
 
                                 </select>
                             </div>
-                            <div class="col-md-3 col-12">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-12">
                                 <span class="ml-md-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block"
                                       style="font-size: 15px;color:#531c6a ">ODS</span>
                                 <select id="ods_categorias" class="form-control custom-select select2"
@@ -85,7 +95,7 @@
                                         multiple>
                                 </select>
                             </div>
-                            <div class="col-md-3 col-12">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-12">
                                 <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">Población Objetivo</span>
                                 <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
                                         class="form-control select2"
@@ -97,7 +107,7 @@
                                         multiple>
                                 </select>
                             </div>
-                            <div class="col-lg-2 col-xl-2  col-md-2 col-sm-3 pt-3">
+                            <div class="col-xs-12 col-sm-2 col-md-2 pt-2">
                                 <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit"
                                         style="border-color:#FF7F00;background: #FF7F00; width: 150px;">
                                     Aplicar
@@ -105,24 +115,41 @@
                             </div>
                         </div>
                         <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
+                            <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                                        data-action="{{route('web.iniciativas.exportar.csv')}}">
+                                    <i class="fe-download"></i> .CSV
+                                </button>
 
-                            <button style="width: 220px;" type="button"
-                                    class="col-sm-12 col-md-6 col-lg-3 font-weight-bold btn btn-primary mr-5 btn-filter-submit"
-                                    data-action="{{route('web.iniciativas.exportar-excel')}}">
-                                Descargar datos
-                            </button>
+                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                                        data-action="{{route('web.iniciativas.exportar.json')}}">
+                                    <i class="fe-download"></i> .JSON
+                                </button>
+
+                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                                        data-action="{{route('web.iniciativas.exportar.excel')}}">
+                                    <i class="fe-download"></i> .XLSX
+                                </button>
+                            </div>
+                            
+                            {{--<button style="width: 220px;" type="button"--}}
+                            {{--class="col-sm-12 col-md-6 col-lg-3 font-weight-bold btn btn-primary mr-5 btn-filter-submit"--}}
+                            {{--data-action="{{route('web.iniciativas.exportar-excel')}}">--}}
+                            {{--Descargar datos--}}
+                            {{--</button>--}}
+                            <div class="col-md-6 col-sm-12">
                             <button type="button"
-                                    class="col-sm-12 col-md-6 col-lg-3 font-weight-bold btn btn-primary mr-3 btn-filter-submit"
-                                    style="border-color:#7A3240;background:#7A3240 "
-                                    data-action="{{route('web.iniciativas.exportar-excel')}}">
+                                    class=" font-weight-bold btn btn-primary mr-3 btn-filter-submit"
+                                    style="border-color:#7A3240;background:#7A3240;"
+                                    data-action="{{route('web.iniciativas.exportar.excel')}}">
                                 <img src="{{ asset('images/Group 161.svg')}}"/>
                                 Ver mapa completo
                             </button>
+                            </div>
+                            </div>
                         </p>
                     </div>
-
-
-                    {{--</p>--}}
                 </div>
 
 
@@ -198,4 +225,3 @@
         </div>
     </div>
 </form>
-

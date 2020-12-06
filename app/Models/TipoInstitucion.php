@@ -9,6 +9,25 @@ class TipoInstitucion extends Model
     public static $search = null;
     protected $table = 'tipo_institucion';
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaInstitucion()
+    {
+        return $this->hasMany(IniciativaInstitucion::class, 'tipo_institucion_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function iniciativaInstitucionOrganizacion()
+    {
+        return $this->hasMany(IniciativaInstitucion::class, 'tipo_institucion_id', 'id')
+            ->join('iniciativas', 'iniciativas.id', '=', 'iniciativa_institucion.iniciativa_id')
+            ->where('iniciativas.iniciativa_origen_id', '=', 1);
+    }
+
     /**
      * @return Builder
      */
@@ -18,6 +37,10 @@ class TipoInstitucion extends Model
 
         if (self::$search) {
             //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');
+        }
+
+        if (is_array(self::$search)) {
+            $query->whereIn('tipo_institucion.id', self::$search);
         }
 
         return $query;

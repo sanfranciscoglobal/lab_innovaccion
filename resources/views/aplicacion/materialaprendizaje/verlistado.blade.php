@@ -2,54 +2,65 @@
 @section('header-css')
     <style>
         .cs-sidebar { background: #f2f2f2; }
-        
+
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
     </style>
 @endsection
 
 @section('content')
-
+<br /><br />
     <section class="container container pt-md-5">
         <div class="row align-items-center">
             <div class="col-lg-5 pt-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary">Publicaciones y Herramientas</h1>
-                <div class="py-3">
-                    <p class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!<br>
-                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</p>
-                    
+                <div class="py-3 text-justify">
+                    <div class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!</p>
+
+                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.
+                        Deja tus comentarios y reflexiones sobre la utilidad de estos.
+
+                    </div>
                 </div>
-                <p class="shadow-lg p-3 mb-5 btn-primary rounded" style="">
+                <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded text-justify" style="">
                     <strong>Indicaciones</strong>
-                    <br>Revisa y descarga el material de aprendiaje y deja tus comentarios en los foros respectivos de cada publicación.
-                    <br>Publica el artículo o herramienta en el formulario a continuación.
-                </p>
-                
+                    <ul>
+                        <li>Publica el artículo o herramienta en el formulario.</li>
+                        <li>Revisa y descarga el material de aprendizaje y deja tus comentarios en los foros respectivos de cada publicación.</li>
+                    </ul>
+                </div>
+
             </div>
-            <div class="d-none d-md-block  col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden " style="background-image: url({{ asset('images/publicaciones_banner.png') }})" alt="Side banner"></div>
+            <div class="d-none d-md-block  col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url({{ asset('img/img_pages/herramientas.png') }})" alt="Side banner"></div>
         </div>
         <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
                     video</span>
     </section>
     <section class="container bg-overlay-content pt-3 mb-4" >
-      
+
         <div class="row">
             <div class="text-center  col-12 col-lg-8 offset-lg-2">
-                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje') }}">Publicar un material</a>
+                    <a class="btn btn-primary" style="border-color:#FF7F00;background: #FF7F00;"href="{{ route('app.material-de-aprendizaje') }}">Publicar material</a>
             </div>
         </div>
 
     </section>
-   
-    
-    
+
+
+
     <div class="cs-sidebar-enabled cs-sidebar-right" >
-        
+
         <div class="container">
-            
+
             <div class="row">
                 <!-- Content-->
                 <div class="col-lg-9 cs-content py-4 mb-2 mb-sm-0 pb-sm-5">
-                    
+
                     {{-- <nav aria-label="breadcrumb">
                         <ol class="py-1 my-2 breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -59,22 +70,22 @@
                         </ol>
                     </nav>
                     <h1 class="mb-5">Blog</h1> --}}
-                
+
                     <!-- Post-->
                     {{-- <div class="row">
                         <div class="col">
-                            
+
                             <p class="text-center font-size-lg">Publica el artículo o herramienta en el formulario a continuación.</p>
                             @if ($autentificacion)
                             <p class="text-center"><a class="btn" style="background: #a13d8f;color:#fafafc" href="{{route('app.material-de-aprendizaje.post')}}">Publica un artículo o herramienta.</a>
                             </p>
                             <p class="font-size-lg">Revisa y descarga el material de aprendiaje y deja tus comentarios en los foros respectivos de cada publicación.</p>
                         @endif
-                            
+
                         </div>
                     </div> --}}
                     <div class="row">
-                       
+
                         @foreach ($materiales as $material)
                         @php
                             $imagen = asset('img/layout/home/profile2.jpg');
@@ -96,13 +107,13 @@
                                         <h2 class="h4 nav-heading mb-4 text-primary">
                                             {{$material->nombre_publicacion}}
                                         </h2>
-                                        
-                                        <p><span class="mr-auto">{{$material->tema_tratado}}</span> </p>
-                                        <p><span class="mr-auto">{{$material->tipo_documento}}</span></p>
-                                    
+
+                                        <p><span class="mr-auto">{{$material->categoria->nombre}}</span> </p>
+                                        <p><span class="mr-auto">{{$material->tipodocumento->nombre}}</span></p>
+
                                     </div>
                                     <div class="px-4 px-xl-5 pt-2">
-   
+
                                         <div class="row">
                                             <div class="col">
                                                 <a class="media meta-link font-size-sm align-items-center">
@@ -110,8 +121,8 @@
                                                         alt="Sanomi Smith" />
                                                     <div class="media-body pl-2 ml-1 mt-n1 text-primary">por<span class="font-weight-semibold ml-1">{{$material->user->name}}</span></div>
                                                 </a>
-                                                
-                                                
+
+
                                             </div>
                                             <div class="col">
                                                 <div class="mt-3 text-right text-nowrap">
@@ -129,26 +140,26 @@
                                                 <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver herramienta</a>
                                             @endif
                                         </div>
-                                        
-                                        
-                                        
+
+
+
                                     </div>
-                                
-                                        
-    
-                                    
-                                    
+
+
+
+
+
                                 </article>
-                                
+
                             </div>
                         </div>
-                            
-                            
+
+
                         @endforeach
                         <div class="col-12">{{ $materiales->links() }}</div>
-                        
+
                     </div>
-                    
+
                 </div>
                 <!-- Sidebar-->
                 <div class="cs-sidebar col-lg-3 pt-lg-5">
@@ -184,7 +195,7 @@
                             <div class="cs-widget cs-widget-categories mb-5">
                                 <h3 class="cs-widget-title">Categorías</h3>
                                 <ul>
-                                    <li><a class="cs-widget-link" href="#">Innovación<small
+                                    {{-- <li><a class="cs-widget-link" href="#">Innovación<small
                                                 class="text-muted pl-1 ml-2">23</small></a></li>
                                     <li><a class="cs-widget-link" href="#">Innovación abierta<small
                                                 class="text-muted pl-1 ml-2">14</small></a></li>
@@ -195,11 +206,16 @@
                                     <li><a class="cs-widget-link" href="#">Fondos<small
                                                 class="text-muted pl-1 ml-2">35</small></a></li>
                                     <li><a class="cs-widget-link" href="#">Servicios &amp; Vacation<small
-                                                class="text-muted pl-1 ml-2">28</small></a></li>
+                                                class="text-muted pl-1 ml-2">28</small></a></li> --}}
+
+                                    @foreach ($categorias as $categoria)
+                                        <li><a class="cs-widget-link" href="{{ route('material.searchcategoria',$categoria->id) }}">{{$categoria->nombre}}<small
+                                            class="text-muted pl-1 ml-2">{{ App\Models\MaterialAprendizaje::where('tema_tratado',$categoria->id)->count() }}</small></a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <!-- Featured posts-->
-                            <div class="cs-widget mt-n1 mb-5">
+                            {{-- <div class="cs-widget mt-n1 mb-5">
                                 <h3 class="cs-widget-title pb-1">Publicaciones en tendencia</h3>
                                 <div class="media align-items-center pb-1 mb-3"><a class="d-block" href="#"><img
                                             class="rounded" width="64" src="img/pexels-pixabay-416405.jpg" alt="Post" /></a>
@@ -224,7 +240,7 @@
                                         <p class="font-size-xs text-muted mb-0">por Daniel Adams</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

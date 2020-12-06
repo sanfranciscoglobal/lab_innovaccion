@@ -28,7 +28,7 @@
                                                 data-placement="bottom">
                                                 <i class="fe-edit text-primary"></i>
                                                 
-                                                CONVOCATORIA -> {{$convocatoria->id}}
+                                                {{$convocatoria->nombre}}
                                             </a></h4>
                                         </div>
                                         <div class="badge badge-lg badge-floating badge-floating-right bg-uva text-white">{{$convocatoria->tipoconvocatoriaid->nombre}}</div>

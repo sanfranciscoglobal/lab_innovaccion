@@ -49,28 +49,58 @@
             color: #fff !important;
         }
 
+        .bg-size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
+        .custom-page-ul li {margin-bottom: 0;}
+
     </style>
 @endsection
 @section('content')
     <section class="container mt-4 pt-5">
         <div class="row align-items-center">
             <div class="col-lg-6 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5 text-primary">Iniciativas de los actores</h1>
-                <div class="py-4">
-                    <p class="cs-callout">
-                        ¡Se parte del ecosistema de innovación!<span class="clearfix"></span>
-                        * Registra tu iniciativa queremos saber sobre tu trabajo. <span class="clearfix"></span>
-                        * Conoce el trabajo de otros en temas de innovación. <span class="clearfix"></span>
-                        * Anímate a contactar a actores que trabajen en temas de tu interés. <span
-                                class="clearfix"></span>
-                        * Construyamos lazos de trabajo colaborativos. <span class="clearfix"></span>
+                <h1 class="mt-5 text-primary">Analíticas</h1>
+                <div class="py-3 text-justify ">
+                    <div class="cs-callout">
+                    <p class="">
+                    ¡ Se parte del ecosistema de innovación !
+
+                      Registra tu iniciativa queremos saber sobre tu trabajo.<br />
+                      Conoce el trabajo de otros en temas de innovación.<br />
+                      Anímate a contactar a actores que trabajen en temas de tu interés.<br />
+                      Construyamos lazos de trabajo colaborativos.<br />
+
                     </p>
+                    </div>
+                    <div class="text-justify shadow-lg p-3 mb-2 btn-purple-gradient text-color-white rounded" style="">
+                        <strong>Indicaciones</strong>
+                        <ul>
+                            <li>Si gustas registrar tu iniciativa pulsa en el botón “Registra tu iniciativa”.</li>
+                            <li>Si gustas informarte:
+                                <ol type="a">
+                                    <li> Indaga en el mapa, al poner el curso sobre la iniciativa obtendrás más información. </li>
+                                    <li> Pulsa el botón “Actores” y se desplegará la información de quién implementa. </li>
+                                    <li> Pulsa el botón “Analítica” y podrás visualizar la información en gráficos. </li>
+                                    <li> Escoge filtros  en base a tu interés y se organizará la información. </li>
+                                    <li> Pulsa los botones para descargar y tendrás acceso a toda la base de datos en diferente formatos.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                <span class="font-size-sm text-muted">Ver
+                    video</span>
                 </div>
             </div>
-            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden "
-                 style="background-image: url('{{ asset('img/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
+            <div class="col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden "
+                 style="background-image: url('{{ asset('img/img_pages/analiticas.png') }}')">
             </div>
         </div>
+
     </section>
 
     <section class="searchbar-container bg-secondary mt-2">
@@ -95,7 +125,7 @@
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                         <input class="custom-control-input" type="radio" id="ex-radio-6" name="tipo-grafica"
-                               value="agente" disabled>
+                               value="agente">
                         <label class="custom-control-label tipo-grafica" for="ex-radio-6">Iniciativas por tipo de
                             agente</label>
                     </div>
@@ -141,6 +171,7 @@
     <script src="{{asset('assets/amcharts4/themes/animated.js')}}"></script>
     <script src="{{asset('analitica/iniciativaOds.js')}}"></script>
     <script src="{{asset('analitica/iniciativaPoblacion.js')}}"></script>
+    <script src="{{asset('analitica/iniciativaInstitucion.js')}}"></script>
     <script type="text/javascript">
         var analitica = 'barras';
         var grafica = 'ods';
@@ -159,9 +190,14 @@
                 tipoGrafica();
             });
 
-            $("#filter-iniciativas").submit(function () {
+            $(document).on('click', ".btn-filter-submit", function (e) {
                 tipoGrafica();
-                return false;
+                e.preventDefault();
+            });
+
+            $(document).on('click', ".export", function (e) {
+                $('#filter-iniciativas').attr('action',$(this).data('action'));
+                $('#filter-iniciativas').submit();
             });
         });
 
@@ -175,7 +211,7 @@
             }
 
             if (grafica == 'agente') {
-                //obtenerIniciativaData(analitica);
+                obtenerinstitucionData(analitica);
             }
         }
     </script>
