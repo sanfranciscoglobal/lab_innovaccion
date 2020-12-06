@@ -178,14 +178,18 @@
         <div class="col-12 mb-3">
           <h1 class="text-primary text-center">PROBLEMAS REGISTRADOS</h1>
           <!-- Search-->
-          <div class="col-4 mb-5 justify-content-center">
-            <h3 class="cs-widget-title">Buscar</h3>
-            <div class="input-group-overlay">
-                <div class="input-group-prepend-overlay"><span class="input-group-text"><i
-                            class="fe-search"></i></span></div>
-                <input class="form-control prepended-form-control" type="text" placeholder="Buscar una palabra clave">
+          <form class="container" name="form" action="{{route('innovaciongestion.search',$convocatoria->id)}}" method="POST">
+            @csrf
+            @method("POST")
+            <div class="col-4 mb-5 justify-content-center">
+              <h3 class="cs-widget-title">Buscar</h3>
+              <div class="input-group-overlay">
+                  <div class="input-group-prepend-overlay"><span class="input-group-text"><i
+                              class="fe-search"></i></span></div>
+                  <input class="form-control prepended-form-control" id="log" type="text" name='busqueda' placeholder="Buscar una palabra clave">
+              </div>
             </div>
-        </div>
+          </form>
         </div>
         
 
@@ -320,3 +324,4 @@
       </div>
     </section>
 @endsection
+

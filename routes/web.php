@@ -59,8 +59,10 @@ Route::get('/publicacion-herramienta/download/{articulo}', 'Aplicacion\Materiald
 Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\MaterialdeaprendizajeController@comment')->name('material-de-aprendizaje.comentario');
 
 Route::get('/publicacion-herramienta/tipo/{tipo}', 'Aplicacion\MaterialdeaprendizajeController@searchMateriales')->name('material.search');
-
 Route::get('/publicacion-herramienta/categoria/{categoria}', 'Aplicacion\MaterialdeaprendizajeController@searchMaterialescategoria')->name('material.searchcategoria');
+
+Route::post('/publicacion-herramienta/nombre', 'Aplicacion\MaterialdeaprendizajeController@searchMaterialesbuscador')->name('material.searchnombre');
+
 
 // Route::get('/material-de-aprendizaje/{cat}/', 'Aplicacion\MaterialdeaprendizajeController@verCategoriasmateriales')->name('material.categoria');
 // Route::get('/material-de-aprendizaje/{cat}/{post}/', 'Aplicacion\MaterialdeaprendizajeController@verDetallematerial')->name('material.categoria.detalle');
@@ -69,6 +71,7 @@ Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovacion
 Route::post('/gestion-innovacion', 'Aplicacion\InnovacionController@searchConvocatorias')->name('convocatorias.search');
 
 Route::get('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
+Route::post('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@searchProblemas')->name('innovaciongestion.search');
 Route::get('/gestion-innovacion/soluciones/{problema}', 'Aplicacion\SolucionController@verSoluciones')->name('soluciones.ver');
 Route::get('/gestion-innovacion/soluciones/detalle/{solucion}', 'Aplicacion\SolucionController@verSoluciondetalle')->name('soluciondetalle.ver');
 Route::get('/gestion-innovacion/soluciones/download/{solucion}', 'Aplicacion\SolucionController@download')->name('soluciones.download');
