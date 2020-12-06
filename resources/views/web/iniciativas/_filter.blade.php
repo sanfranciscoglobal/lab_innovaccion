@@ -11,12 +11,7 @@
                     <div class="col-lg-6 col-md-12 pb-3">
                         <h2 style="color:#531c6a" class="float-left">Filtros</h2>
                     </div>
-                    <div class="col-lg-6 col-md-12 pb-3">
-                        <a href="{{route('app.iniciativas.create')}}"
-                           class="font-weight-bold btn btn-primary float-right"
-                           style="border-color:#fd972b;background: #fd972b;">Registra tu iniciativa
-                        </a>
-                    </div>
+                    
                 </div>
 
                 <div class="row align-items-center">
@@ -43,10 +38,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="my-2 col-xl-3 col-lg-3 col-md-3 col-sm-12 text-center">
-                        Encuentra tu innovación
-                    </div>
-                    <div class="my-2 col-xl-4 col-lg-9 col-sm-9 col-md-12">
+                    <div class="my-2 col-xl-5 col-lg-9 col-sm-12 col-md-12">
 
                         <div class="input-group">
                             <span class="input-group-prepend">
@@ -62,7 +54,13 @@
                         </div>
 
                     </div>
-
+                    <div class="col-lg-3 col-md-12 py-3">
+                        <a href="{{route('app.iniciativas.create')}}"
+                           class="font-weight-bold btn btn-primary float-right"
+                           style="border-color:#fd972b;background: #fd972b;">Registra tu iniciativa
+                        </a>
+                    </div>
+                    
                 </div>
 
                 <div class="row pt-1 ml-2 mr-2 align-items-center">
@@ -117,35 +115,39 @@
                             </div>
                         </div>
                         <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
+                            <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                                        data-action="{{route('web.iniciativas.exportar.csv')}}">
+                                    <i class="fe-download"></i> .CSV
+                                </button>
 
-                            <button type="button" class="btn btn-outline-primary mr-3 export"
-                                    data-action="{{route('web.iniciativas.exportar.csv')}}">
-                                <i class="fe-download"></i> .CSV
-                            </button>
+                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                                        data-action="{{route('web.iniciativas.exportar.json')}}">
+                                    <i class="fe-download"></i> .JSON
+                                </button>
 
-                            <button type="button" class="btn btn-outline-primary mr-3 export"
-                                    data-action="{{route('web.iniciativas.exportar.json')}}">
-                                <i class="fe-download"></i> .JSON
-                            </button>
-
-                            <button type="button" class="btn btn-outline-primary mr-3 export"
-                                    data-action="{{route('web.iniciativas.exportar.excel')}}">
-                                <i class="fe-download"></i> .XLSX
-                            </button>
-
+                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                                        data-action="{{route('web.iniciativas.exportar.excel')}}">
+                                    <i class="fe-download"></i> .XLSX
+                                </button>
+                            </div>
+                            
                             {{--<button style="width: 220px;" type="button"--}}
                             {{--class="col-sm-12 col-md-6 col-lg-3 font-weight-bold btn btn-primary mr-5 btn-filter-submit"--}}
                             {{--data-action="{{route('web.iniciativas.exportar-excel')}}">--}}
                             {{--Descargar datos--}}
                             {{--</button>--}}
-
+                            <div class="col-md-6 col-sm-12">
                             <button type="button"
-                                    class="col-sm-12 col-md-6 col-lg-3 font-weight-bold btn btn-primary mr-3 btn-filter-submit"
+                                    class=" font-weight-bold btn btn-primary mr-3 btn-filter-submit"
                                     style="border-color:#7A3240;background:#7A3240;"
                                     data-action="{{route('web.iniciativas.exportar.excel')}}">
                                 <img src="{{ asset('images/Group 161.svg')}}"/>
                                 Ver mapa completo
                             </button>
+                            </div>
+                            </div>
                         </p>
                     </div>
                 </div>

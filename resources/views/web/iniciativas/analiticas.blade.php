@@ -63,16 +63,19 @@
     <section class="container mt-4 pt-5">
         <div class="row align-items-center">
             <div class="col-lg-6 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5 text-primary">Iniciativas de los actores</h1>
-                <div class="py-3 text-justify">
-                    <p class="cs-callout">
-                    ¡Se parte del ecosistema de innovación!
-                    </br> </br>
-                            * Registra tu iniciativa queremos saber sobre tu trabajo. </br>
-                            * Conoce el trabajo de otros en temas de innovación.  </br>
-                            * Anímate a contactar a actores que trabajen en temas de tu interés.  </br>
-                            * Construyamos lazos de trabajo colaborativos. </br>
+                <h1 class="mt-5 text-primary">Analíticas</h1>
+                <div class="py-3 text-justify ">
+                    <div class="cs-callout">
+                    <p class="">
+                    ¡ Se parte del ecosistema de innovación !
+
+                      Registra tu iniciativa queremos saber sobre tu trabajo.<br />
+                      Conoce el trabajo de otros en temas de innovación.<br />
+                      Anímate a contactar a actores que trabajen en temas de tu interés.<br />
+                      Construyamos lazos de trabajo colaborativos.<br />
+
                     </p>
+                    </div>
                     <div class="text-justify shadow-lg p-3 mb-2 btn-purple-gradient text-color-white rounded" style="">
                         <strong>Indicaciones</strong>
                         <ul>
@@ -83,14 +86,14 @@
                                     <li> Pulsa el botón “Actores” y se desplegará la información de quién implementa. </li>
                                     <li> Pulsa el botón “Analítica” y podrás visualizar la información en gráficos. </li>
                                     <li> Escoge filtros  en base a tu interés y se organizará la información. </li>
-                                    <li>Pulsa el botón “Descargar” y tendrás acceso a toda la base de datos.</li>
+                                    <li> Pulsa los botones para descargar y tendrás acceso a toda la base de datos en diferente formatos.</li>
                                 </ol>
                             </li>
                         </ul>
                     </div>
                     <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
                 <span class="font-size-sm text-muted">Ver
-                    video</span>       
+                    video</span>
                 </div>
             </div>
             <div class="col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden "

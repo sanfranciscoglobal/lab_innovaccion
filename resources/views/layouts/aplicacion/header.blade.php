@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row w-100">
                 <div class="col-12 d-flex justify-content-end align-items-center">
-                    <a href="mailto:info@thinkia.org"><span class=""><span
+                    <a href="mailto:hola@thinkialab.com"><span class=""><span
                                     class="fe-mail"></span>&nbsp;Contáctanos</span></a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
                         <li class="list-inline-item m-0"><a
