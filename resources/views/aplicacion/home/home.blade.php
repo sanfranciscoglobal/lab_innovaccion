@@ -234,13 +234,7 @@
                             {{-- <h3 class="h4 nav-heading mb-4">
                                 <a href="#">{{$iniciativaInfo->nombre_iniciativa}}</a>
                             </h3>
-<<<<<<< HEAD
-                            <div  class="scrollable" style="overflow: hidden; max-height:200px">
-                            {{$iniciativaInfo->descripcion_iniciativa}}
-                            </div>
-=======
                             {{$iniciativaInfo->descripcion_iniciativa}} --}}
->>>>>>> 879c76805c61e92985b9eb859d1a5848ba6e129e
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
