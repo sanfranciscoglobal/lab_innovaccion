@@ -56,8 +56,8 @@
                     </p>
                 </div>
             </div>
-            <div class="col-sm-0 col-md-6 py-8 bg-size-cover order-md-2 overflow-hidden "
-                 style="background-image: url('{{ asset('img/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
+            <div class="col-sm-0 col-md-6 mt-5 py-8 bg-size-cover order-md-2 overflow-hidden "
+                 style="background-image: url('{{ asset('img/img_pages/iniciativas_actores.png') }}');border-radius: 150px 0 0 150px;">
             </div>
         </div>
     </section>

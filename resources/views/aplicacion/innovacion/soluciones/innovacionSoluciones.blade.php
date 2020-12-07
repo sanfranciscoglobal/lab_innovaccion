@@ -36,7 +36,7 @@
         <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
           <h1 class="mt-5">{{ $problema->nombre }}</h1>
         </div>
-        <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
+        <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/herramientas.png') }}" alt="Side banner"></div>
     </div>
   </section>
     <section>
@@ -46,11 +46,11 @@
               <p>{{ $problema->problema }}</p>
             </div>
           </div>
-          
+
           <div class="w-100 d-flex justify-content-center mt-3">
             <a class="btn btn-primary" href="{{ route('app.soluciones.crear', $problema->id) }}" role="button">Registra una nueva solución</a>
           </div>
-          
+
         </div>
     </section>
     <section class="container mb-5">
@@ -67,7 +67,7 @@
               <div class="mb-3">
                 <h4 class="card-title">{{ $solucion->nombre }}</h4>
                 <h6 class="card-subtitle">Registrado el {{ date('Y-m-d', strtotime($solucion->created_at)) }}</h6>
-                
+
               </div>
               <div class="mb-3">
                 <h4 class="card-title">Sector al que perteneces</h4>
@@ -75,15 +75,15 @@
               </div>
               <div class="mb-3">
                 <h4 class="card-title">Tipo de innovación propuesta</h4>
-                 
+
                   <ul class="text-muted">
                     @foreach ($solucion->tipopropuestas as $propuesta)
                       <li>{{$propuesta->tipoinnovacionid->nombre}}</li>
                     @endforeach
-  
+
                   </ul>
               </div>
-              
+
               <div class="mb-3">
                 <h4 class="card-title">Nivel actual de desarrollo de la Solución</h4>
                 <p class="card-text">{{ $solucion->nivelsolucionid->nombre }}</p>
@@ -91,14 +91,14 @@
               <div class="mb-3">
                 <h4 class="card-title">Palabras o conceptos clave</h4>
                 <ul class="text-muted">
-                  
+
                   <li>{{$solucion->concepto1 }}</li>
                   <li>{{$solucion->concepto2 }}</li>
                   <li>{{ $solucion->concepto3 }}</li>
                 </ul>
               </div>
 
-              <div class="text-center">  
+              <div class="text-center">
                 <a class="btn btn-primary mb-3" href="{{route('soluciondetalle.ver',$solucion->id)}}">Ver solución</a>
                 {{-- <ul class="d-flex justify-content-center list-inline">
                   <li class="list-inline-item m-0">
@@ -111,7 +111,7 @@
                       <i class="fe-twitter"></i>
                     </a>
                   </li>
-                 
+
                   <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-linkedin sb-dark sb-sm" href="https://www.linkedin.com/shareArticle?url={{ $solucion->linkedin ?? '#' }}">
                       <i class="fe-linkedin"></i>

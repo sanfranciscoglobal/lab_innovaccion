@@ -67,7 +67,7 @@
     <section class="bg-secondary bg-gradient-orange-purple">
         <div class=" container-fluid pl-lg-8 pr-lg-8 mt-5 row no-gutters">
             <div class="col-md-6 py-7 bg-size-cover order-md-2 overflow-hidden" id="bannerluces"
-                style="background-image: url({{ asset('img/layout/home/laboratorio-side-bkg.png') }});">
+                style="background-image: url({{ asset('img/img_pages/herramientas.png') }});">
             </div>
             <div class="col-md-6 px-3  py-2 py-lg-4 order-md-1">
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-5  py-lg-4 text-white">
