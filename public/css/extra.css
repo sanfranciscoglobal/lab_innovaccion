@@ -6,12 +6,15 @@
     transition: width 0.35s ease;
   
 }
+.select2-selection.select2-selection--multiple {
+    max-width: 300px;
+}
 .select2-container .select2-selection--multiple .select2-selection__rendered {
   
     white-space: unset !important;
 }
 .select2-selection__rendered {
-    max-width: 250px;
+    max-width: 300px;
     overflow-y: scroll !important;
     max-height: 34px;
     resize: none;

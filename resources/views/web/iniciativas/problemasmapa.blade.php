@@ -118,7 +118,7 @@
                                       <div class="pl-4 pr-3">
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
-                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
+                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type=""  autocomplete="off">
                                             </div>
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">ODS</span>
@@ -127,7 +127,7 @@
                                             <div class="row mt-2">
                                                 <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Convocatoria</span>
                                                 <select id="tipo_conv"
-                                                        class="form-control custom-select select2"
+                                                        class="tipo_conv form-control custom-select select2"
                                                         style="width:100%;"
                                                         data-placeholder="Seleccione tipo de convocatoria">
                                                         @foreach($convocatorias as $conv)
@@ -138,7 +138,7 @@
                                             <div class="row mt-2">
                                                 <span class=" ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Convocatorias</span>
                                                 <select style="width:100%;" id="conv"
-                                                        class="form-control select2"
+                                                        class="form-control select2 conv"
                                                         data-placeholder="Seleccione convocatorias"
                                                         multiple>
                                                 </select>
@@ -152,7 +152,7 @@
                                         <div class="pl-4 pr-3">
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
-                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
+                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type=""  autocomplete="off">
                                             </div>
                                             <div class="row mt-2 ">
                                                 <span class="ml-1  mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>

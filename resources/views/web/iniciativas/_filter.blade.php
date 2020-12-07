@@ -116,25 +116,35 @@
                         </div>
                         <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
                             <div class="row">
-                            <div class="col">
-                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                            <div class="d-flex justify-content-end col-md-5">
+                            <button class="btn btn btn-primary mr-3 export dropdown-toggle"  data-toggle="dropdown">Descargar
+                            <span class="caret"></span>
+                            </button>
+                            <button class="btn " data-toggle="dropdown">
+                               
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a type="button" type="button" class="ml-3 export"
                                         data-action="{{route('web.iniciativas.exportar.csv')}}">
                                     <i class="fe-download"></i> .CSV
-                                </button>
+                                    </a
+                                ></li>
 
-                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                                <li><a type="button" class=" ml-3 export"
                                         data-action="{{route('web.iniciativas.exportar.json')}}">
                                     <i class="fe-download"></i> .JSON
-                                </button>
+                                </a></li>
 
-                                <button type="button" class="btn btn-outline-primary mr-3 export"
+                                <li><a type="button" class=" ml-3 export"
                                         data-action="{{route('web.iniciativas.exportar.excel')}}">
                                     <i class="fe-download"></i> .XLSX
-                                </button>
+                                    </a></li>
+                            </ul>
                             </div>
                             
                             {{--<button style="width: 220px;" type="button"--}}
-                            {{--class="col-sm-12 col-md-6 col-lg-3 font-weight-bold btn btn-primary mr-5 btn-filter-submit"--}}
+                            {{--class="col-sm-12 col-md-7 col-lg-3 font-weight-bold btn btn-primary mr-5 btn-filter-submit"--}}
                             {{--data-action="{{route('web.iniciativas.exportar-excel')}}">--}}
                             {{--Descargar datos--}}
                             {{--</button>--}}
