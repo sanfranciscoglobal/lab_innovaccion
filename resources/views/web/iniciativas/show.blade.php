@@ -47,12 +47,11 @@
                 <h1 class="mt-5 text-primary">Iniciativas de los actores</h1>
                 <div class="py-4">
                     <p class="cs-callout">
-                        ¡Se parte del ecosistema de innovación!<span class="clearfix"></span>
-                        * Registra tu iniciativa queremos saber sobre tu trabajo. <span class="clearfix"></span>
-                        * Conoce el trabajo de otros en temas de innovación. <span class="clearfix"></span>
-                        * Anímate a contactar a actores que trabajen en temas de tu interés. <span
-                                class="clearfix"></span>
-                        * Construyamos lazos de trabajo colaborativos. <span class="clearfix"></span>
+                        ¡Se parte del ecosistema de innovación!<br><br>
+                        Registra tu iniciativa queremos saber sobre tu trabajo. <br>
+                        Conoce el trabajo de otros en temas de innovación. <br>
+                        Anímate a contactar a actores que trabajen en temas de tu interés.<br>
+                        Construyamos lazos de trabajo colaborativos. <br>
                     </p>
                 </div>
             </div>
