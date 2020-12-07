@@ -3,9 +3,9 @@ var input = document.getElementById('direccion');
 jQuery(document).ready(function() {
 	initMap();
 });
-$("#tipo_conv").change(function() 
+$(".tipo_conv").change(function() 
 {
-  $('#conv').empty().select2({data:null});
+  $('.conv').empty().select2({data:null});
   filtrarproblemas($(this).val());
   
 });
@@ -17,7 +17,7 @@ $("#tipo_conv1").change(function()
   
 });
 
-$("#conv").change(function() 
+$(".conv").change(function() 
 {
   if($(this).val().length>0){
     filtrarproblemas($("#tipo_conv").val(),$(this).val());
@@ -66,6 +66,7 @@ function filtrarproblemas(id,array=null){
                         problemas[c][0]=info;
                         problemas[c][1]=pro[k].latitud;
                         problemas[c][2]=pro[k].longitud;
+                        problemas[c][3]=j;
                         c++;
                     }
                   }
