@@ -53,9 +53,9 @@
             <div class="row justify-content-center">
                 <div class="itemhome col-md-5 col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="80" src="{{ asset('img/innovacion_abierta.png') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/productivo.svg') }}"
                             alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-center" style="color: #4e2561;">sector productivo</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-center" style="color: #ef9231;">sector productivo</h3>
                         <p class="font-size-sm mb-0 text-justify">
                         Las convocatorias de innovación del sector productivo se organizan por actividad económica para recoger los retos que afrontan los productores de bienes y servicios.
                         </p>
@@ -63,9 +63,9 @@
                 </div>
                 <div class="itemhome col-md-5  col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/innovacion_publica.png') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/gestion_publica.svg') }}"
                             alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-center" style="color: #ff7f00;">gestión pública </h3>
+                        <h3 class="fs-14 mb-2 uppercase text-center" style="color: #bb2027;">gestión pública </h3>
                         <p class="font-size-sm mb-0 text-justify">
                         Las convocatorias de innovación en la gestión pública tienen dos ejes: recogen los retos que afrontan las instituciones públicas y las experiencias ciudadanas al utilizar los servicios públicos.
 
@@ -74,9 +74,9 @@
                 </div>
                 <div class="itemhome col-md-5 col-lg-3 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center h-100">
-                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/innovacion_social.png') }}"
+                        <img class="d-inline-block mb-4 mt-2" width="100" src="{{ asset('img/ciudadania.svg') }}"
                         alt="Icon" />
-                        <h3 class="fs-14 mb-2 uppercase text-center"style="color: #ca0808;">Ciudadanía</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-center"style="color: #803580;">Ciudadanía</h3>
                         <p class="font-size-sm mb-0 text-justify">
                         Las convocatorias de innovación ciudadana invitan a la sociedad civil organizada y a todo tipo de colectivo a compartir sus retos para trabajar por un mayor bienestar social.
                         </p>
@@ -200,11 +200,11 @@
                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                     @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
                         @if ($convocatoria->tipoconvocatoria_id == 1)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #ee8808;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #ef9231;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
                         @elseif ($convocatoria->tipoconvocatoria_id == 2)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #cc3e39;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #803580;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
                         @elseif ($convocatoria->tipoconvocatoria_id == 3)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #b5095b;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #bb2027;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
 
                         @endif
                     @else
