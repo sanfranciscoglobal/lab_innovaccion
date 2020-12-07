@@ -19,11 +19,11 @@
             <div class="col-lg-5 pt-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5 text-primary">Publicaciones y Herramientas</h1>
                 <div class="py-3 text-justify">
-                    <div class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!</p> 
-                    <ul>
-                        <li>Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.</li>
-                        <li>Deja tus comentarios y reflexiones sobre la utilidad de estos. </li>
-                    </ul>
+                    <div class="cs-callout">¡Compartamos material de lectura y herramientas para fortalecer nuestras habilidades y conocimientos de innovación!</p>
+
+                        Publica artículos, blogs, libros, y herramientas entre otros para construir una cultura de innovación.
+                        Deja tus comentarios y reflexiones sobre la utilidad de estos.
+
                     </div>
                 </div>
                 <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded text-justify" style="">
@@ -171,14 +171,21 @@
                         </div>
                         <div class="cs-offcanvas-body px-4 pt-3 pt-lg-0 pr-lg-0 pl-lg-2 pl-xl-4" data-simplebar>
                             <!-- Search-->
-                            <div class="cs-widget mb-5">
-                                <h3 class="cs-widget-title">Buscar</h3>
-                                <div class="input-group-overlay">
-                                    <div class="input-group-prepend-overlay"><span class="input-group-text"><i
-                                                class="fe-search"></i></span></div>
-                                    <input class="form-control prepended-form-control" type="text" placeholder="Buscar">
+                            
+                            <form action="{{route('material.searchnombre')}}" method="POST">
+                                @csrf
+                                @method("POST")
+                                <div class="cs-widget mb-5">
+                                    <h3 class="cs-widget-title">Buscar</h3>
+                                    <div class="input-group-overlay">
+                                        <div class="input-group-prepend-overlay"><span class="input-group-text"><i
+                                                    class="fe-search"></i></span></div>
+                                        <input class="form-control prepended-form-control" type="text" name="buscador" placeholder="Buscar">
+                                    </div>
                                 </div>
-                            </div>
+
+                            </form>
+                            
                             <!-- Tipos-->
                             <div class="cs-widget cs-widget-categories mb-4">
                                 <h3 class="cs-widget-title">Tipos</h3>

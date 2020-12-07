@@ -194,6 +194,13 @@ class InnovacionController extends Controller
         return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
     }
     
+    public function searchProblemas(Request $request,Convocatoria $convocatoria)
+    {
+        $problemas= Problema::where('convocatoria_id', $convocatoria->id);
+        $problemas=$problemas->where('nombre', 'ilike', '%' . $request->busqueda . '%')->orwhere('problema', 'ilike', '%' . $request->busqueda . '%')->orwhere('causas', 'ilike', '%' . $request->busqueda . '%')->paginate(2);
+        return view('aplicacion.innovacion.gestion.innovacionProblemas', compact('convocatoria', 'problemas'));
+        
+    }
 
     
 

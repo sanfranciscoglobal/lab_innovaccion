@@ -25,7 +25,7 @@
 @section('header-css')
     <style>
         .cs-sidebar { background: #f2f2f2; }
-        
+
     </style>
 @endsection
 @section('content')
@@ -36,15 +36,15 @@
                 @if ($material->tipo==0)
                     <div class="py-3">
                         <p style="margin-bottom: 0">{{date('d M , Y', strtotime( $material->fecha_publicacion))}}</p>
-                        
-                    </div>    
+
+                    </div>
                 @endif
-                
+
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/herramientas.png') }}" alt="Side banner"></div>
         </div>
     </section>
-    
+
         @php
             $imagen1 = asset('img/logo/thinkia_color.svg');
             if(isset($material->user->perfil_id)){
@@ -55,9 +55,9 @@
         @endphp
 
     <div class="cs-sidebar-enabled cs-sidebar-right" >
-            
+
         <div class="container">
-            
+
             <div class="row">
                 <!-- Content-->
                 <div class="col-lg-9 cs-content py-4 mb-2 mb-sm-0 pb-sm-5 " >
@@ -69,26 +69,26 @@
                                     <img  class='rounded-circle' width="42" src="{{ $imagen1}}"
                                         alt="Sanomi Smith" />
                                         <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$material->categoria->nombre}}</h3>
-                                            
+
                                             <p class="font-weight-semibold ml-1" style="margin-bottom: 0; color: #a13d8f">{{$material->user->name}}</p>
-                                            
+
                                         </div>
                                 </a>
                                 @if ($material->tipo==0)
                                     <div class="mt-3 text-primary font-weight-semibold">
                                         <span class="font-weight-bold e-presencial"><i class="fe-user font-size-xl mr-2"></i> Autor de la publicación</span>
-                                        <div class="form-group">     
+                                        <div class="form-group">
                                             <input  disabled class="form-control bx-label" style="cursor: auto; background:white" type="text" value="{{$material->autor_publicacion}}">
-             
+
                                         </div>
                                     </div>
                                 @endif
-                                
+
                                     <div class="mt-3 text-primary font-weight-semibold">
                                         <span class="font-weight-bold e-presencial"><i class="fe-file font-size-xl mr-2"></i> Archivos</span>
                                         <ul class="list-group">
                                             @foreach ($material->articuloss as $articulo)
-                                                
+
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                                     <span>
                                                         <i class="czi-message text-muted mr-2"></i>
@@ -99,15 +99,15 @@
                                             @endforeach
                                         </ul>
                                     </div>
-                                
+
                                 <div class="mt-3 text-primary font-weight-semibold">
-                            
+
                                     <span class="font-weight-bold e-presencial"><i class="fe-link font-size-xl mr-2"></i> Fuente de la publicación</span>
-                        
+
                                     <div class="form-group">
-                                        
-                                        
-                                        
+
+
+
                                         <a  href="{{$material->fuente_publicacion}}">
                                         <input  class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($material->fuente_publicacion)?$material->fuente_publicacion:null}}">
                                         </a>
@@ -118,7 +118,7 @@
                                 <span class="font-weight-bold e-presencial"><i class="fe-message-square font-size-xl mr-2"></i> Comentarios </span>
                                     <br>
                                     <br>
-                                
+
 
                                 @foreach ($comentarios as $comment)
                                     @php
@@ -129,12 +129,12 @@
                                                 $imagen = asset('storage/perfil/'.$comment->user->perfil->avatar);
                                             }
                                         }
-                                    
+
                                         $fecha_actual= new DateTime(date('d-m-Y'));
                                         $date2 = new DateTime($comment->created_at);
                                         $diferencia_en_dias = $fecha_actual->diff($date2);
-                                       
-                                        
+
+
                                     @endphp
                                     <p>{{$comment->comentario}}</p>
                                     <div class="row">
@@ -145,14 +145,14 @@
                                             <span>hace {{$diferencia_en_dias->days}} días</span></div>
                                         </a>
                                     </div>
-                                    
+
                                     <br>
                                     <hr>
                                 @endforeach
 
-                                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 <div class="row">
                                     <a class="media meta-link font-size-sm align-items-center" href="#">
@@ -165,10 +165,10 @@
                                 <br>
                                 <hr> --}}
                             </div>
-                            
-                            
+
+
                         </div>
-                        
+
                         <div class="card-footer text-center font-size-sm text-muted">
 
                             <form action="{{route("material-de-aprendizaje.comentario",$material->id)}}" class="needs-validation" novalidate>
@@ -195,12 +195,12 @@
                                                     ></textarea>
                                                     <br>
                                                     @error('comentario')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
-                                        
+
                                                 </div>
                                             </div>
                                         </div>
                                         <button class="btn btn-primary mt-3 mt-sm-0" id='submitbutton' type="submit"><i class="fe-send font-size-lg mr-2"></i>Enviar</button>
-                            
+
                                     </div>
                                 </div>
                             </form>
@@ -208,11 +208,11 @@
                             <div class="row" style="margin-top:3%;padding-left:50%;">
                                 <a href="{{route('material')}}" class="btn btn-sm btn-primary">Cerrar</a>
                             </div>
-                                    
-                            
+
+
                         </div>
-            
-                        
+
+
                     </div>
                 </div>
                 <!-- Sidebar-->
@@ -225,14 +225,19 @@
                         </div>
                         <div class="cs-offcanvas-body px-4 pt-3 pt-lg-0 pr-lg-0 pl-lg-2 pl-xl-4" data-simplebar>
                             <!-- Search-->
-                            <div class="cs-widget mb-5">
-                                <h3 class="cs-widget-title">Buscar</h3>
-                                <div class="input-group-overlay">
-                                    <div class="input-group-prepend-overlay"><span class="input-group-text"><i
-                                                class="fe-search"></i></span></div>
-                                    <input class="form-control prepended-form-control" type="text" placeholder="Buscar">
+                            <form action="{{route('material.searchnombre')}}" method="POST">
+                                @csrf
+                                @method("POST")
+                                <div class="cs-widget mb-5">
+                                    <h3 class="cs-widget-title">Buscar</h3>
+                                    <div class="input-group-overlay">
+                                        <div class="input-group-prepend-overlay"><span class="input-group-text"><i
+                                                    class="fe-search"></i></span></div>
+                                        <input class="form-control prepended-form-control" type="text" name="buscador" placeholder="Buscar">
+                                    </div>
                                 </div>
-                            </div>
+
+                            </form>
                             <!-- Tipos-->
                             <div class="cs-widget cs-widget-categories mb-4">
                                 <h3 class="cs-widget-title">Tipos</h3>
@@ -288,6 +293,6 @@
             </div>
         </div>
     </div>
-       
+
 
 @endsection

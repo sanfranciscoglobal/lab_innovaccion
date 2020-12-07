@@ -35,7 +35,7 @@
       <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
         <h1 class="mt-5">{{ $solucion->problemaid->nombre }}</h1>
       </div>
-      <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
+      <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/herramientas.png') }}" alt="Side banner"></div>
     </div>
   </section>
 
@@ -93,13 +93,13 @@
 
           @if ($solucion->estado_descrip || $solucion->problemaid->user->id== Auth::id() )
           <div class="mt-3 text-primary font-weight-semibold">
-            <h4 class="card-title"><i class="fe-file font-size-xl mr-2"></i>Archivos</h4>         
+            <h4 class="card-title"><i class="fe-file font-size-xl mr-2"></i>Archivos</h4>
             <span class="card-text text-muted"><i class="czi-message text-muted mr-2"></i>{{$solucion->archivo}}
             </span>
             @if ($solucion->archivo)
             <a class="badge badge-lg" href="{{route('soluciones.download', $solucion->archivo)}}"><i class="fe-download text-muted mr-2"></i></a>
             @endif
-          </div> 
+          </div>
           @endif
         </div>
 
@@ -133,7 +133,7 @@
             <p class="text-muted">{{ $solucion_mejorada->financiamiento ?? 'N/A' }}</p>
           </div>
           <div class="mt-3 text-primary font-weight-semibold">
-            <h4 class="card-title"><i class="fe-file font-size-xl mr-2"></i>Archivos</h4>         
+            <h4 class="card-title"><i class="fe-file font-size-xl mr-2"></i>Archivos</h4>
             <span class="card-text text-muted"><i class="czi-message text-muted mr-2"></i>{{ $solucion_mejorada->archivo ?? 'N/A' }}
             </span>
             @if ($solucion_mejorada->archivo)
@@ -260,7 +260,7 @@
             <div class="col-12">
               <h3>Observaciones</h3>
               <div class="form-group">
-                <label class="control-label ">¿Encuentras esta solución viable?</label>                                
+                <label class="control-label ">¿Encuentras esta solución viable?</label>
                 <input  disabled class="form-control bx-label" style="cursor: auto; background:white" type="text" value="{{ old('viable', $solucion->observacionesid->viable) == '1' ? 'Si' : 'No' }}">
               </div>
               <div class="form-group">
@@ -347,7 +347,7 @@
             </div>
             {{-- <div class="form-group">
               <label for="archivo">Carga un archivo complementario (máx. 10MB)</label>
-             
+
               @if($method == 'POST')
               <div class="cs-file-drop-area">
                   <div class="cs-file-drop-icon fe-upload"></div>

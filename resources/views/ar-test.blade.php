@@ -41,7 +41,7 @@
                 id="animated-marker"
                 type="pattern"
                 preset="custom"
-                url="{{ asset('AR/pattern-Danzantes.patt') }}"
+                url="{{ asset('AR/pattern-marker.patt') }}"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
@@ -88,7 +88,7 @@
 						<a-entity
 								id="model-5"
 								scale="1 1 1"
-								position="0 0 0"
+								position="0 -18 -20"
 								animation-mixer="loop: repeat"
 								gltf-model="#dancer-1"
 								class="clickable"

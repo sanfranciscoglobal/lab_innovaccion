@@ -37,9 +37,7 @@
                 <h1 class="mt-5 text-primary">Eventos</h1>
                 <div class="py-3 text-justify">
                     <div class="cs-callout">¡Promocionemos charlas, conferencias, y talleres en innovación!</p>
-                    <ul>
-                        <li> Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.</li>
-                    </ul>
+                    Registra tus propios eventos o de otras organizaciones para que los actores del ecosistema de innovación participen.
                     </div>
                 </div>
                 <div class="shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded text-justify" style="">
@@ -47,7 +45,7 @@
                     <ul>
                         <li>Registra eventos propios o de otros organismos a nivel nacional o internacional en el formulario.</li>
                         <li>Revisa la lista de eventos y participa de estos espacios de intercambio.</li>
-                    </ul> 
+                    </ul>
                 </div>
             </div>
 

@@ -11,7 +11,7 @@
 
                 </div>
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/herramientas.png') }}" alt="Side banner"></div>
         </div>
     </section>
     <section class="container bg-secondary">
@@ -42,14 +42,14 @@
                     <span class="font-weight-bold e-presencial text-primary"><i class="fe-map-pin font-size-xl mr-2"></i> Ubicación</span>
                     <span class="font-weight-bold e-virtual text-primary"><i class="fe-link font-size-xl mr-2"></i> Link del Evento</span>
                 </div>
-                
+
             </div>
 
             <div class="card-footer text-center font-size-sm text-muted">
 
                 <div class="row e-virtual">
                     <div class="col">
-                        
+
                         <div class="form-group">
                             <a Target="_blank" href="{{$evento->url}}">
                             <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($evento->url)?$evento->url:null}}">
@@ -75,11 +75,11 @@
                 <div class="row" style="margin-top:3%;padding-left:50%;">
                     <a href="{{route('eventos')}}" class="btn btn-sm btn-primary">Cerrar</a>
                 </div>
-                
+
             </div>
-            
+
         </div>
-       
+
     </section>
 
 @endsection
@@ -87,16 +87,16 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback" async defer></script>
 <script>
     $(document.body).on("change","#to-destination",function(){
-    
+
     $("#from-destination").empty();
     if (this.value==1) {
-        
+
         $("#from-destination").removeAttr('disabled');
-         
+
     }
     else{
-       
-        $("#from-destination").attr('disabled','disabled');   
+
+        $("#from-destination").attr('disabled','disabled');
     }
     });
 
@@ -171,15 +171,15 @@
         let tipo = {{ old('tipo', (int)$evento->tipo) ?? 'null' }};
         if (tipo==0){
             $('.e-presencial').addClass('d-none');
-            
+
         }
         else{
             initMap();
             $('.e-virtual').addClass('d-none');
-            
+
         }
     });
 
 </script>
-    
+
 @endsection

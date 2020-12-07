@@ -26,7 +26,7 @@
           $odsArray .= '; ';
       }
   }
-  
+
 @endphp
 @section('header-css')
     <style>
@@ -59,9 +59,9 @@
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-              
+
               <h1 class="mt-2 text-primary">{{ $convocatoria->nombre }}</h1>
-              
+
               <div class="d-flex align-items-center">
                 <div class="mx-1">
                   <h6 class="text-muted m-0 text-right">INICIA</h6>
@@ -72,9 +72,9 @@
                 </div>
               </div>
               <br>
-              
+
               <div class="d-flex align-items-center">
-             
+
                 <div class="mx-1">
                   <h1 class="text-primary m-0 h-100">{{ date('d', strtotime($convocatoria->fecha_cierre)) }}</h1>
                 </div>
@@ -82,11 +82,11 @@
                   <h6 class="text-muted m-0 text-righ">FINALIZA</h6>
                   <h6 class="text-muted m-0 text-righ">{{ $month_mini[date('n', strtotime($convocatoria->fecha_cierre))] }}</h6>
                 </div>
-              
+
             </div>
-            
+
             </div>
-            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/layout/home/laboratorio-side-bkg.png') }}" alt="Side banner"></div>
+            <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/herramientas.png') }}" alt="Side banner"></div>
         </div>
     </section>
 
@@ -104,7 +104,7 @@
         <div class="pb-5" style="min-width: 300px;">
             <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
               <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:#ff7f00 ">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-              
+
               <div class=" pt-5 px-4 px-xl-5" >
                 <h2 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$convocatoria->nombre}}</h2>
                 {{-- <a class="media meta-link font-size-sm align-items-center">
@@ -113,7 +113,7 @@
                     <div class="media-body pl-2 ml-1 mt-n1" ><h3 class="font-weight-semibold" style=" padding-top:15px;margin-bottom: 0">{{$convocatoria->nombre}}</h3>
                             <p class="font-weight-semibold ml-1" style="margin-bottom: 0; color: #a13d8f">{{$convocatoria->user->name}}</p></div>
                 </a> --}}
-                
+
               </div>
               <div class="card-body">
                 <ul>
@@ -124,16 +124,16 @@
                   @if ($subsectoresArray)
                   <li><h3 class="mt-2 text-primary">Subsectores: </h3>{{ $subsectoresArray }}</li>
                   @endif
-                  
-                  
+
+
                   @if ($odsArray)
                   <li><h3 class="mt-2 text-primary">ODS: </h3>{{ $odsArray }}</li>
                   @endif
                 </ul>
                 <hr>
                 <br>
-                
-                
+
+
                 <div class="px-2 px-xl-2 pt-0" >
                   <h4 class="font-weight-bold"><i class="fe-message-square font-size-xl mr-2"></i> Descripción </h4>
                       <ul>
@@ -142,7 +142,7 @@
                 </div>
 
                 {{-- <div class="row">
-                  
+
                   <div class="col-12 col-md-1 d-flex justify-content-center align-items-center">
                     <div class="mx-1">
                       <h1 class="text-primary m-0">{{ date('d', strtotime($convocatoria->fecha_cierre)) }}</h1>
@@ -154,7 +154,7 @@
                   </div>
                 </div> --}}
               </div>
-            </article>    
+            </article>
         </div>
       </div>
     </section>
@@ -178,16 +178,20 @@
         <div class="col-12 mb-3">
           <h1 class="text-primary text-center">PROBLEMAS REGISTRADOS</h1>
           <!-- Search-->
-          <div class="col-4 mb-5 justify-content-center">
-            <h3 class="cs-widget-title">Buscar</h3>
-            <div class="input-group-overlay">
-                <div class="input-group-prepend-overlay"><span class="input-group-text"><i
-                            class="fe-search"></i></span></div>
-                <input class="form-control prepended-form-control" type="text" placeholder="Buscar una palabra clave">
+          <form class="container" name="form" action="{{route('innovaciongestion.search',$convocatoria->id)}}" method="POST">
+            @csrf
+            @method("POST")
+            <div class="col-4 mb-5 justify-content-center">
+              <h3 class="cs-widget-title">Buscar</h3>
+              <div class="input-group-overlay">
+                  <div class="input-group-prepend-overlay"><span class="input-group-text"><i
+                              class="fe-search"></i></span></div>
+                  <input class="form-control prepended-form-control" id="log" type="text" name='busqueda' placeholder="Buscar una palabra clave">
+              </div>
             </div>
+          </form>
         </div>
-        </div>
-        
+
 
         @foreach ($problemas as $problema)
         @php
@@ -225,7 +229,7 @@
                 <h6 class="card-subtitle">Registrado el {{ date('Y-m-d', strtotime($problema->created_at)) }}</h6>
                 {{-- <p class="card-text">{{ $problema->problema }}</p> --}}
               </div>
-              @if (isset($problema->actividad))    
+              @if (isset($problema->actividad))
               <div class="mb-3">
                 <h4 class="card-title">Actividad productiva</h4>
                 <p class="card-text">{{ $problema->actividad }}</p>
@@ -251,21 +255,21 @@
                   <li>{{ $efectos[3] ?? 'N/A' }}</li>
                 </ul>
               </div>
-              @if (isset($problema->eslabon))    
+              @if (isset($problema->eslabon))
               <div class="mb-3">
                 <h4 class="card-title">Eslabón de la cadena productiva</h4>
                 <p class="card-text">{{ $eslabon }}</p>
                 <p class="card-text">{{ $problema->descripcion_grupo }}</p>
               </div>
               @endif
-              @if (isset($problema->grupo_social))    
+              @if (isset($problema->grupo_social))
               <div class="mb-3">
                 <h4 class="card-title">Grupo social afectado</h4>
                 <p class="card-text">{{ $problema->grupo_social }}</p>
                 <p class="card-text">{{ $problema->descripcion_grupo }}</p>
               </div>
               @endif
-              @if (isset($problema->ubacacion))    
+              @if (isset($problema->ubacacion))
               <div class="mb-3">
                 <h4 class="card-title">Datos de contacto</h4>
                 <p class="card-text">{{ $problema->telefono }}</p>
@@ -281,7 +285,7 @@
                 </ul>
               </div>
               <div class="mb-3">
-                <h4 class="card-title"><i class="fe-file font-size-xl mr-2"></i>Archivos</h4>         
+                <h4 class="card-title"><i class="fe-file font-size-xl mr-2"></i>Archivos</h4>
                 <span class="card-text text-muted"><i class="czi-message text-muted mr-2"></i>{{$problema->archivo}}
                 </span>
                 @if ($problema->archivo)
@@ -302,7 +306,7 @@
                       <i class="fe-twitter"></i>
                     </a>
                   </li>
-                  
+
                   <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-linkedin sb-dark sb-sm" href="https://www.linkedin.com/shareArticle?url={{ $problema->linkedin ?? '#' }}">
                       <i class="fe-linkedin"></i>
