@@ -68,6 +68,7 @@
                     <div class="cs-callout">
                     <p class="">
                     ¡ Se parte del ecosistema de innovación !
+                    <br><br>
 
                       Registra tu iniciativa queremos saber sobre tu trabajo.<br />
                       Conoce el trabajo de otros en temas de innovación.<br />

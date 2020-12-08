@@ -11,7 +11,7 @@
                     <div class="col-lg-6 col-md-12 pb-3">
                         <h2 style="color:#531c6a" class="float-left">Filtros</h2>
                     </div>
-                    
+
                 </div>
 
                 <div class="row align-items-center">
@@ -60,7 +60,7 @@
                            style="border-color:#fd972b;background: #fd972b;">Registra tu iniciativa
                         </a>
                     </div>
-                    
+
                 </div>
 
                 <div class="row pt-1 ml-2 mr-2 align-items-center">
@@ -140,20 +140,19 @@
                                                     </a></li>
                                             </ul>
                             </div>
-                            
+
                             {{--<button style="width: 220px;" type="button"--}}
                             {{--class="col-sm-12 col-md-7 col-lg-3 font-weight-bold btn btn-primary mr-5 btn-filter-submit"--}}
                             {{--data-action="{{route('web.iniciativas.exportar-excel')}}">--}}
                             {{--Descargar datos--}}
                             {{--</button>--}}
                             <div class="col-md-6 col-sm-12">
-                            <button type="button"
-                                    class=" font-weight-bold btn btn-primary mr-3 btn-filter-submit"
-                                    style="border-color:#7A3240;background:#7A3240;"
-                                    data-action="{{route('web.iniciativas.exportar.excel')}}">
-                                <img src="{{ asset('images/Group 161.svg')}}"/>
+                                <a href="/mapa" class="btn btn-primary font-weight-bold btn btn-primary mr-3 btn-filter-submit"
+                                    style="border-color:#7A3240;background:#7A3240 "
+                                    data-action="">
+                                    <img src="{{ asset('images/Group 161.svg')}}"/>
                                 Ver mapa completo
-                            </button>
+                                </a>
                             </div>
                             </div>
                         </p>

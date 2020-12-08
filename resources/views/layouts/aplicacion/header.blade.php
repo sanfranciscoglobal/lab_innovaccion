@@ -5,7 +5,7 @@
             <div class="row w-100">
                 <div class="col-12 d-flex justify-content-end align-items-center">
                     <a href="mailto:hola@thinkialab.com"><span class=""><span
-                                    class="fe-mail"></span>&nbsp;Contáctanos</span></a>
+                                    class="fe-mail"></span>&nbsp;hola@thinkialab.com</span></a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
                         <li class="list-inline-item m-0"><a
                                     class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="#">
@@ -106,7 +106,7 @@
                             Iniciativas</a></li>
                             <li><a class="dropdown-item" href="{{route('web.iniciativas.index')}}">Iniciativas de
                             Actores</a></li>
-                            <li><a class="dropdown-item" href="{{route('web.iniciativas.analiticas')}}">Analítica</a></li>
+                            <li><a class="dropdown-item" href="{{route('web.iniciativas.analiticas')}}">Analíticas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
