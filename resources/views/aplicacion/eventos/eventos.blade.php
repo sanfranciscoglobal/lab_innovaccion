@@ -56,7 +56,7 @@
                     video</span>
     </section>
 
-    <section class="container bg-overlay-content pt-3" >
+    <section class="container bg-overlay-content pt-3 mb-3" >
 
             <div class="row">
                 <div class="text-center  col-12 col-lg-8 offset-lg-2">
@@ -81,7 +81,7 @@
                     </select>
 
                 </div>
-                <div class="form-group w-100 mb-sm-4 mr-sm-3">
+                <div class="form-group w-100 mb-sm-4 mr-sm-3 mt-4">
                     <label class="form-label font-weight-bold" for="from-destination" style="color: #a13d8f">Cantón</label>
 
                     <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
