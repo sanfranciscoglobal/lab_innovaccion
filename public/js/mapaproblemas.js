@@ -3,54 +3,67 @@ var input = document.getElementById('direccion');
 jQuery(document).ready(function() {
 	initMap();
 });
-$(".tipo_conv").change(function() 
+$("#tipo_conv").change(function() 
 {
-  $('.conv').empty().select2({data:null});
-  filtrarproblemas($(this).val());
+  $('#conv').empty().select2({data:null});
+  filtrarproblemas();
   
 });
 
-$("#tipo_conv1").change(function() 
-{
-  $('#conv1').empty().select2({data:null});
-  filtrarproblemas($(this).val());
-  
-});
 
-$(".conv").change(function() 
+$("#conv").change(function() 
 {
   if($(this).val().length>0){
-    filtrarproblemas($("#tipo_conv").val(),$(this).val());
+    filtrarproblemas();
   }
 
   
 });
-$("#conv1").change(function() 
+$("#ods").change(function() 
 {
   if($(this).val().length>0){
-    filtrarproblemas($("#tipo_conv1").val(),$(this).val());
+    filtrarproblemas();
   }
 
   
 });
-var data=[]
-function filtrarproblemas(id,array=null){
+
+  
+
+
+function filtrarproblemas(){
+  var data=[]
+  id=$("#tipo_conv").val();
+  ods=$("#ods").val();
+  array=$("#conv").val();
  
-  data=[]
   c=0;
   problemas=[]
   for(j=0;j<convocatoria.length;j++){
-    if(convocatoria[j].convocatorias && convocatoria[j].id==id){
+    if(convocatoria[j].convocatorias && (convocatoria[j].id==id || id=="0") ){
+ 
         tipo=convocatoria[j].convocatorias;
         for(p=0;p<tipo.length;p++){
-            if(tipo[p].problemas){
+              let isods=true;
+              if(ods.length>0 &&tipo[p].conods.length>0){
+                isods=false;
+                for(f=0;f<tipo[p].conods.length;f++){
+                  if(ods.includes(String(tipo[p].conods[f].ods_id)))
+                  {
+                    isods=true;
+                    break;
+                  }
+                }
+              }
+              console.log(isods)
+              console.log(tipo)
+              if(tipo[p].problemas && isods){
+               
                 if(p==0){
                   data.push({id:tipo[p].id,text:tipo[p].nombre});
                 }
                
-                if (array!=null){
-                  console.log(tipo[p].id)
-                  if (array.includes(String(tipo[p].id))){
+                  if (array.includes(String(tipo[p].id)) || array.length==0){
                     pro=tipo[p].problemas
                     for(k=0;k<pro.length;k++){
                       info='<div class="">'
@@ -70,36 +83,17 @@ function filtrarproblemas(id,array=null){
                         c++;
                     }
                   }
-                }
-                else{
-                 
-                    pro=tipo[p].problemas
-                   
-                    for(k=0;k<pro.length;k++){
-                      info='<div class="">'
-                      + '<b size="5" style="color:#fd972b">Descripción del problema:</b></br>'
-                      + '<div class=".scrollable">'+pro[k].problema+'</div></br>'
-                      +'<b size="5" style="color:#fd972b">Sector productivo</b></br>'
-                      + '<div ">'+"</div></br>"
-                      + '<a class="btn btn-primary"> Ver más </a>' 
-                      +'</div>'
-                        console.log(pro[k])
-                        problemas.push([])
-                        problemas[c][0]=info;
-                        problemas[c][1]=pro[k].latitud;
-                        problemas[c][2]=pro[k].longitud;
-                        problemas[c][3]=j;
-                        c++;
-                    }
-                  
-                }
-            }
+                
+               
+              }
+            
+           
+            
         }
     }
   }
-  if(array ==null){
-  $("#conv").select2({data: data}); 
-  $("#conv1").select2({data: data}); 
+  if(array.length ==0){
+  $(".conv").select2({data: data}); 
   }
   removeProblemas();
   setProblemas();

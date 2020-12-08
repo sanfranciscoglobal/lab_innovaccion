@@ -33,6 +33,7 @@ class MapaProblemas extends Controller
             $tipo=$tipo->convocatorias;
             foreach( $tipo as $conv){
                 $conv->problemas;
+                $conv->conods;
             }
 
         }

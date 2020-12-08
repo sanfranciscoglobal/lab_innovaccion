@@ -88,7 +88,7 @@
             </div>
 
 
-            <div class=" sidebar d-none d-lg-block">
+            <div class=" sidebar ">
                 <div style="top:14%;  position:absolute; z-index:10;" class="p-3">
 
                     <div style="border-radius: 50%; background-color: rgba(255, 255,255);" class="  d-flex flex-column h-100  box-shadow-lg">
@@ -122,7 +122,15 @@
                                             </div>
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">ODS</span>
-                                                <input id="pac-input"  class="form-control" placeholder="Seleccionar ODS" type="" value="Seleccionar ODS" autocomplete="off">
+                                                <select id="ods" class="form-control custom-select select2" 
+                                                        data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                                        data-ajax--data-type="json"
+                                                        data-ajax--cache="true"
+                                                        data-close-on-select="false"
+                                                        style="width:100%;"
+                                                        data-placeholder="Seleccionar ODS"
+                                                        multiple>
+                                                </select>
                                             </div>
                                             <div class="row mt-2">
                                                 <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Convocatoria</span>
@@ -130,6 +138,7 @@
                                                         class="tipo_conv form-control custom-select select2"
                                                         style="width:100%;"
                                                         data-placeholder="Seleccione tipo de convocatoria">
+                                                        <option value="0" default>Todas</option>
                                                         @foreach($convocatorias as $conv)
                                                             <option value="{{$conv->id}}">{{$conv->nombre}}</option>
                                                         @endforeach
@@ -152,7 +161,15 @@
                                         <div class="pl-4 pr-3">
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
-                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type=""  autocomplete="off">
+                                            </div>
+                                            <div class="row">
+                                            <select id="canton_id" class="form-control custom-select select2"
+                                                name="canton_id[]"
+                                                data-ajax--url="{{route('api.canton.select2')}}"
+                                                data-ajax--data-type="json"
+                                                data-ajax--cache="true"
+                                                data-placeholder="Selecionar Ciudad"
+                                                 multiple>
                                             </div>
                                             <div class="row mt-2 ">
                                                 <span class="ml-1  mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
@@ -170,11 +187,30 @@
                                             </div>
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Institución</span>
-                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
+                                                <select id="tipo_institucion" name="tipo_institucion[]"
+                                                        class="form-control custom-select select2"
+                                                        data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                                        data-ajax--data-type="json"
+                                                        data-ajax--cache="true"
+                                                        data-close-on-select="false"
+                                                        data-placeholder="Seleccionar tipo institución"
+                                                        style="width:100%;"
+                                                        multiple>
+
+                                                </select>
                                             </div>
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Población Objetivo</span>
-                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
+                                            <select id="ods_categorias" class="form-control custom-select select2"
+                                                    name="ods_categorias[]"
+                                                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                                    data-ajax--data-type="json"
+                                                    data-ajax--cache="true"
+                                                    data-close-on-select="false"
+                                                    style="width:100%;"
+                                                    data-placeholder="Seleccionar ODS"
+                                                    multiple>
+                                            </select>
                                             </div>
                                         </div>
 
@@ -186,12 +222,31 @@
 
                                         </div>
                                         <div class="row justify-content-center mt-2 mb-5">
-                                            <button style="width: 220px;" type="button"
-                                                    class="font-weight-bold btn btn-primary "
-                                                    data-action="">
-                                                Descargar datos
+                                        <div class="d-flex justify-content-center col-md-5">
+                                            <button class="font-weight-bold btn btn btn-primary mr-3 export dropdown-toggle"  data-toggle="dropdown">Descargar Datos
+                                            <span class="caret"></span>
                                             </button>
+                                            
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a type="button" type="button" class="ml-3 export"
+                                                        data-action="{{route('web.iniciativas.exportar.csv')}}">
+                                                    <i class="fe-download"></i> .CSV
+                                                    </a
+                                                ></li>
+
+                                                <li><a type="button" class=" ml-3 export"
+                                                        data-action="{{route('web.iniciativas.exportar.json')}}">
+                                                    <i class="fe-download"></i> .JSON
+                                                </a></li>
+
+                                                <li><a type="button" class=" ml-3 export"
+                                                        data-action="{{route('web.iniciativas.exportar.excel')}}">
+                                                    <i class="fe-download"></i> .XLSX
+                                                    </a></li>
+                                            </ul>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                             </form>
@@ -200,7 +255,7 @@
                     </div>
                 </div>
                 </div>
-                <div id="mapacabezapequeño" style="top:10%;  position:absolute; z-index:10;background-color: rgba(255, 255,255, 0.7);" class="d-block d-lg-none w-100 py-3 rounded-lg box-shadow-lg">
+                <div id="mapacabezapequeño" style="top:10%;  position:absolute; z-index:10;background-color: rgba(255, 255,255, 0.7);" class="d-none w-100 py-3 rounded-lg box-shadow-lg">
                 <div class="row justify-content-center center-block text-center">
                     <div class="row justify-content-center center-block text-center">
                         <div class="col-2">
