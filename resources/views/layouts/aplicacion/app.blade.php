@@ -446,7 +446,7 @@
                                 </h4> 
                                             <div class="row mb-2">
                                                 <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Convocatoria</span>
-                                                <select id="tipo_conv" class="form-control custom-select select2 select2-hidden-accessible" style="width:100%;" data-placeholder="Seleccione tipo de convocatoria" data-select2-id="tipo_conv" tabindex="-1" aria-hidden="true">
+                                                <select class="tipo_conv form-control custom-select select2 select2-hidden-accessible" style="width:100%;" data-placeholder="Seleccione tipo de convocatoria" data-select2-id="tipo_conv" tabindex="-1" aria-hidden="true">
                                                                                                                     <option value="1" data-select2-id="2">Sector Productivo</option>
                                                                                                                     <option value="2">Ciudadanía</option>
                                                                                                                     <option value="3">Gestión Pública</option>
@@ -454,8 +454,8 @@
                                             </div>
                                             <div class="row my-2 pb-2">
                                                 <span class=" ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Convocatorias</span>
-                                                <select style="width:100%;" id="conv1"
-                                                        class="form-control select2"
+                                                <select style="width:100%;" 
+                                                        class="form-control select2 conv"
                                                         data-placeholder="Seleccione convocatorias"
                                                         multiple>
                                                 </select>
