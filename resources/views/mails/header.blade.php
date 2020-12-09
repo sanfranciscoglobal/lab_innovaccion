@@ -220,7 +220,7 @@
 <!-- Dark Sub Header Contact and WebView Close -->
 
 <!-- Light Header Logo With Left Menu Open -->
-<table
+{{-- <table
   class="bodyBgColor"
   width="100%"
   border="0"
@@ -320,4 +320,4 @@
       </table>
     </td>
   </tr>
-</table>
+</table> --}}
