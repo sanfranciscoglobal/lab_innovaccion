@@ -11,6 +11,7 @@ class OdsCategoriaController extends Controller
     public static function odsCategoriaSelect2(Request $request)
     {
         $data = [];
+        OdsCategoria::$search = $request->has('search') ? $request->search : null;
         $odsCategorias = OdsCategoria::obtenerOdsCategoriaAll() ?? [];
 
         foreach ($odsCategorias as $odsCategoria) {

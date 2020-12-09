@@ -11,6 +11,7 @@ class TipoInstitucionController extends Controller
     public static function tipoInstitucionSelect2(Request $request)
     {
         $data = [];
+        TipoInstitucion::$search = $request->has('search') ? $request->search : null;
         $tipoInstituciones = TipoInstitucion::obtenerTipoInstitucionAll() ?? [];
 
         foreach ($tipoInstituciones as $tipoInstitucion) {

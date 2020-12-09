@@ -51,7 +51,7 @@
             if ( $slide['open_new_tab'] ) $target = 'target=_blank ';
         @endphp
 
-        @if ( $slide['tipo'] == 'imagen' )
+        @if ( isset($slide['tipo']) && $slide['tipo'] == 'imagen' )
         <div
             class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}"
             style="{{ $styles }}">
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-        @elseif ( $slide['tipo'] == 'video' )
+        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video' )
         <div
             class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}"
             style="background-position: center;background-size: cover;max-height: 750px;">

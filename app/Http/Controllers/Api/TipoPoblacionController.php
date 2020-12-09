@@ -11,6 +11,7 @@ class TipoPoblacionController extends Controller
     public static function tipoPoblacionSelect2(Request $request)
     {
         $data = [];
+        TipoPoblacion::$search = $request->has('search') ? $request->search : null;
         $tipoPoblaciones = TipoPoblacion::obtenerTipoPoblacionAll() ?? [];
 
         foreach ($tipoPoblaciones as $tipoPoblacion) {

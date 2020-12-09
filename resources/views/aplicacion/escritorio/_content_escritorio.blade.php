@@ -25,7 +25,7 @@
     <div class="col-lg-9">
         <div class="d-flex flex-column h-100 bg-light rounded-lg box-shadow-lg">
             <div class="bkg-black border"
-                 style="background-image:url({{asset('img/pexels-pixabay-373543.jpg')}}); background-position:center; background-size:cover; height: 300px;">
+                 style="background-image:url({{asset('img/pexels-pixabay-373544.jpeg')}}); background-position:center; background-size:cover; height: 300px;">
                 {{--<div class="carousel-caption text-white ">--}}
                 {{--<div class="container">--}}
                 {{--<div class="row">--}}

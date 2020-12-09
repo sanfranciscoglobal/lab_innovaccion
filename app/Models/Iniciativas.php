@@ -227,17 +227,19 @@ class Iniciativas extends Model
      */
     public static function builderIniciativa()
     {
-        $query = Iniciativas::orderBy('created_at', request('created_at', 'DESC'));
-        $query->with('iniciativaActor', 'iniciativaInformacion');
+        $query = Iniciativas::select('iniciativas.*')
+            ->join('iniciativa_informacion', 'iniciativa_informacion.id', '=', 'iniciativas.iniciativa_informacion_id')
+            ->leftJoin('iniciativa_actor', 'iniciativa_actor.id', '=', 'iniciativas.iniciativa_actor_id')
+            ->orderBy('created_at', request('created_at', 'DESC'));
+
+        //$query->with('iniciativaActor', 'iniciativaInformacion');
 
         if (self::$search) {
-            $query->whereIn('iniciativa_actor_id', function ($query) {
-                $query->select('id')
-                    ->from('iniciativa_actor')
-                    ->where('iniciativa_actor.nombre_organizacion', 'ilike', '%' . self::$search . '%')
-                    ->Orwhere('iniciativa_actor.siglas', 'ilike', '%' . self::$search . '%')
-                    ->Orwhere('iniciativa_actor.enfoque', 'ilike', '%' . self::$search . '%');
-            });
+            $query->orWhere('iniciativa_actor.nombre_organizacion', 'ilike', '%' . self::$search . '%');
+            $query->orWhere('iniciativa_actor.enfoque', 'ilike', '%' . self::$search . '%');
+            $query->orWhere('iniciativa_informacion.nombre_iniciativa', 'ilike', '%' . self::$search . '%');
+            $query->orWhere('iniciativa_informacion.componente_innovador', 'ilike', '%' . self::$search . '%');
+            $query->orWhere('iniciativa_informacion.descripcion_iniciativa', 'ilike', '%' . self::$search . '%');
 
 //            $query->whereIn('iniciativa_actor_id', function ($query) {
 //                $query->select('id')
@@ -245,6 +247,14 @@ class Iniciativas extends Model
 //                    ->where('iniciativa_actor.nombre_organizacion', 'ilike', '%' . self::$search . '%')
 //                    ->Orwhere('iniciativa_actor.siglas', 'ilike', '%' . self::$search . '%')
 //                    ->Orwhere('iniciativa_actor.enfoque', 'ilike', '%' . self::$search . '%');
+//            });
+//
+//            $query->whereIn('iniciativa_informacion_id', function ($query) {
+//                $query->select('id')
+//                    ->from('iniciativa_informacion')
+//                    ->where('iniciativa_informacion.nombre_iniciativa', 'ilike', '%' . self::$search . '%')
+//                    ->Orwhere('iniciativa_informacion.componente_innovador', 'ilike', '%' . self::$search . '%')
+//                    ->Orwhere('iniciativa_informacion.descripcion_iniciativa', 'ilike', '%' . self::$search . '%');
 //            });
         }
 
@@ -280,7 +290,7 @@ class Iniciativas extends Model
             });
         }
 
-//        dd($query->toSql());
+        // dd($query->toSql(), $query->getBindings());
 
         return $query;
     }
