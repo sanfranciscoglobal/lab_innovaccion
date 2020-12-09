@@ -35,8 +35,8 @@ class TipoInstitucion extends Model
     {
         $query = TipoInstitucion::orderBy('created_at', request('created_at', 'DESC'));
 
-        if (self::$search) {
-            //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');
+        if (!is_array(self::$search)) {
+            $query->where('descripcion', 'ilike', '%' . self::$search . '%');
         }
 
         if (is_array(self::$search)) {

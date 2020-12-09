@@ -31,8 +31,8 @@ class OdsCategoria extends Model
     {
         $query = OdsCategoria::orderBy('ods_categorias.id', request('created_at', 'ASC'));
 
-        if (self::$search) {
-            //$query->orWhere('descripcion', 'like', '%' . self::$search . '%');
+        if (!is_array(self::$search)) {
+            $query->whereRaw("concat('ODS ', ods_categorias.id, ': ',ods_categorias.nombre) ilike '%" . self::$search . "%'");
         }
 
         if (is_array(self::$search)) {
