@@ -199,88 +199,24 @@
                                     </span>
 
                             @endif
+                            @if ($evento->sitioweb!=null)
+                                <span class="font-weight-bold">
+                                <a class="btn btn-primary"  href="{{$evento->sitioweb}}">
+                                    <i class="fe-link font-size-xl mr-2"></i> Ver más
+                                    </a>
+                                </span>
+                            @endif
+
 
                         </div>
+                        
                     </div>
                 </div>
             </div>
 
             @endforeach
             <div class="col-12">{{ $eventos->links() }}</div>
-            <!-- Loop Start -->
-            {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-hover border-0 box-shadow mx-auto" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Hackaton</h3>
-                    </div>
-                    <div class="card-hover-info px-4 py-4">
-                        <h3 class="h5 text-center">Lorem Ipsum</h3>
-                        <p class="text-center"><span class="organizador">Nombre Organizador</span></p>
-                        <p class="text-justify"><?php echo substr('Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus cupiditate dolore, velit deserunt veritatis facere a et unde totam commodi.', 0, 160); ?></p>
-                        <p class="text-center font-weight-bold font-size-lg"><span><?php echo date('d/m/Y'); ?> - <?php echo date('h\Hm'); ?></span></p>
-                        <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Ubicación</span>
-                        <div class="event-map w-100 mt-1" style="min-height: 250px; background: red;"></div>
-                    </div>
-                </div>
-            </div> --}}
-            <!-- loop end -->
-            {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/03.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Conferencia de innovación</h3>
-                    </div>
-                    <div class="card-hover-info px-4 py-4">
-                        <h3 class="h5 text-center">Lorem Ipsum</h3>
-                        <p class="text-center"><span class="organizador">Nombre Organizador</span></p>
-                        <p class="text-justify"><?php echo substr('Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus cupiditate dolore, velit deserunt veritatis facere a et unde totam commodi.', 0, 160); ?></p>
-                        <p class="text-center font-weight-bold font-size-lg"><span><?php echo date('d/m/Y'); ?> - <?php echo date('h\Hm'); ?></span></p>
-                        <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Ubicación</span>
-                        <div class="event-map w-100 mt-1" style="min-height: 250px; background: red;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <div class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/01.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Webinar de innovación</h3>
-                    </div>
-                    <div class="card-hover-info px-4 py-4">
-                        <h3 class="h5 text-center">Lorem Ipsum</h3>
-                        <p class="text-center"><span class="organizador">Nombre Organizador</span></p>
-                        <p class="text-justify"><?php echo substr('Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus cupiditate dolore, velit deserunt veritatis facere a et unde totam commodi.', 0, 160); ?></p>
-                        <p class="text-center font-weight-bold font-size-lg"><span><?php echo date('d/m/Y'); ?> - <?php echo date('h\Hm'); ?></span></p>
-                        <span class="font-weight-bold"><i class="fe-map-pin font-size-xl mr-2"></i> Ubicación</span>
-                        <div class="event-map w-100 mt-1" style="min-height: 250px; background: red;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Hackaton</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/03.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Conferencia de innovación</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-                <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                    <img class="card-img-top" src="{{ asset('img/layout/home/01.jpg') }}" alt="Life Science" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">Webinar de innovación</h3>
-                    </div>
-                </a>
-            </div> --}}
+           
 
         </div>
     </section>

@@ -11,57 +11,19 @@ function initMap() {
 // 	navigator.geolocation.getCurrentPosition(function(position) {
 		var latUsuario = user_lat != -0.1626484 ? user_lat : latCurrentPosition;
 		var lonUsuario = user_lng != -78.4606464 ? user_lng : lonCurrentPosition;
-		var zoom = 16;
-		var dragMarker = true;
 
-		var placeSearch, autocomplete;
-		/*
-        if (
-            jQuery('#necesidad_lat').length > 0 &&
-            jQuery('#necesidad_long').length > 0
-        ){
-            latUsuario = jQuery('#necesidad_lat').val();
-            lonUsuario = jQuery('#necesidad_long').val();
-            zoom = zoom;
-            dragMarker = false;
-        }*/
 
-	// navigator.geolocation.getCurrentPosition(function(position) {
-	// 	latCurrentPosition = position.coords.latitude;
-	// 	lonCurrentPosition = position.coords.longitude;
-	// 	let Latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	// 	map.panTo(Latlng);
-	// 	marker.setPosition(Latlng);
-	// 	infowindow.hideInfoWindow();
-	// });
-
-	// var latUsuario = user_lat != null ? user_lat : position.coords.latitude;
-	// var lonUsuario = user_lng != null ? user_lng : position.coords.longitude;
 	var latUsuario = user_lat != null ? user_lat : latCurrentPosition;
 	var lonUsuario = user_lng != null ? user_lng : lonCurrentPosition;
 	var zoom = 16;
 	var dragMarker = true;
 	var placeSearch, autocomplete;
-	/*
-			if (
-					jQuery('#necesidad_lat').length > 0 &&
-					jQuery('#necesidad_long').length > 0
-			){
-					latUsuario = jQuery('#necesidad_lat').val();
-					lonUsuario = jQuery('#necesidad_long').val();
-					zoom = zoom;
-					dragMarker = false;
-			}*/
-
-	// var map;
 	var marker;
 	var myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
 	var geocoder = new google.maps.Geocoder();
 	var infowindow = new google.maps.InfoWindow();
 
 	var options = {
-		//types: ["locality", "political", "geocode"],
-		//types: ['(cities)'],
 		componentRestrictions: { country: 'ec' },
 	};
 	var autocomplete = new google.maps.places.Autocomplete(input, options);
@@ -74,8 +36,6 @@ function initMap() {
 	marker = new google.maps.Marker({
 		position: myLatlng,
 		map: map,
-		// icon: baseURL + '/images/markers/me_icon.png',
-		// icon: {{asset('/images/markers/me_icon.png')}},
 		draggable: dragMarker,
 		animation: google.maps.Animation.DROP,
 		title: 'Arrastre para seleccionar la ubicación',
@@ -115,8 +75,6 @@ function initMap() {
 		var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
 		marker.setPosition(Latlng);
 		infowindow.setContent(place.formatted_address);
-		//infowindow.hideInfoWindow();
-		//infowindow.showInfoWindow();
 		map.panTo(Latlng);
 		jQuery('input[id="latitud"]').val(place.geometry.location.lat());
 		jQuery('input[id="longitud"]').val(place.geometry.location.lng());

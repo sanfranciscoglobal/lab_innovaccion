@@ -23,6 +23,9 @@ class CreateEventosTable extends Migration
             $table->text('descripcion')->nullable();
             $table->boolean('tipo')->comment('Presencial-1/Virtual-0'); 
             $table->string('canton')->nullable();
+            $table->string('area1')->nullable();
+            $table->string('area2')->nullable();
+            $table->string('sitioweb')->nullable();
             $table->string('ubicacion')->nullable();
             $table->string('org_lat')->nullable();
             $table->string('org_long')->nullable();
