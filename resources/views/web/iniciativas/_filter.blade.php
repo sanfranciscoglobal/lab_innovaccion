@@ -6,12 +6,10 @@
     <div class=" align-items-center  h-100 bg-light rounded-lg box-shadow-lg pl-2 pr-5 py-4">
         <div class="w-100 center-block text-left pl-5 pt-1">
             <div class="">
-
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12 pb-3">
                         <h2 style="color:#531c6a" class="float-left">Filtros</h2>
                     </div>
-
                 </div>
 
                 <div class="row align-items-center">
@@ -73,7 +71,6 @@
                             <div class="col-xs-12 col-sm-12 col-md-3 col-12">
                                 <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "
                                       for="to-destination">Tipo Instituci&oacute;n</span>
-                                {{--{{dd($tipoInstituciones)}}--}}
                                 <select id="tipo_institucion"
                                         name="tipo_institucion[]"
                                         class="form-control custom-select select2"
@@ -114,7 +111,9 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-3 col-12">
                                 <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">Población Objetivo</span>
-                                <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
+                                <select style="width:100%;"
+                                        id="tipo_poblacion"
+                                        name="tipo_poblacion[]"
                                         class="form-control select2"
                                         data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
                                         data-ajax--data-type="json"
@@ -140,36 +139,35 @@
                         <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
                         <div class="row">
                             <div class="font-weight-bold d-flex justify-content-end col-md-5">
-                                <button class="font-weight-bold btn btn btn-primary mr-3 export dropdown-toggle"
+                                <button class="font-weight-bold btn btn btn-primary mr-3 dropdown-toggle"
                                         data-toggle="dropdown">Descargar Datos
                                     <span class="caret"></span>
                                 </button>
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a type="button" type="button" class="ml-3 export"
+                                        <a type="button" type="button" class="nav-link-style ml-3 export"
                                            data-action="{{route('web.iniciativas.exportar.csv')}}">
                                             <i class="fe-download"></i> .CSV
-                                        </a
-                                        ></li>
+                                        </a>
+                                    </li>
 
-                                    <li><a type="button" class=" ml-3 export"
+                                    <li>
+                                        <a type="button" class="nav-link-style ml-3 export"
                                            data-action="{{route('web.iniciativas.exportar.json')}}">
                                             <i class="fe-download"></i> .JSON
-                                        </a></li>
+                                        </a>
+                                    </li>
 
-                                    <li><a type="button" class=" ml-3 export"
+                                    <li>
+                                        <a type="button" class="nav-link-style ml-3 export"
                                            data-action="{{route('web.iniciativas.exportar.excel')}}">
                                             <i class="fe-download"></i> .XLSX
-                                        </a></li>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
 
-                            {{--<button style="width: 220px;" type="button"--}}
-                            {{--class="col-sm-12 col-md-7 col-lg-3 font-weight-bold btn btn-primary mr-5 btn-filter-submit"--}}
-                            {{--data-action="{{route('web.iniciativas.exportar-excel')}}">--}}
-                            {{--Descargar datos--}}
-                            {{--</button>--}}
                             <div class="col-md-6 col-sm-12">
                                 <a href="/mapa"
                                    class="btn btn-primary font-weight-bold btn btn-primary mr-3 btn-filter-submit"
@@ -183,76 +181,6 @@
                         </p>
                     </div>
                 </div>
-
-
-                {{--<div class="d-lg-flex align-items-start px-4 pt-4 pb-3">--}}
-                {{--<div class="d-sm-flex align-items-start">--}}
-                {{--<div class="form-group w-100 mb-sm-4 mr-sm-3">--}}
-                {{--<label class="form-label" for="from-destination">Ciudad</label>--}}
-                {{--<select id="canton_id" class="form-control custom-select select2"--}}
-                {{--name="canton_id"--}}
-                {{--data-ajax--url="{{route('api.canton.select2')}}"--}}
-                {{--data-ajax--data-type="json"--}}
-                {{--data-ajax--cache="true"--}}
-                {{--required="required" multiple>--}}
-                {{--@foreach($cantones as $canton)--}}
-                {{--<option value="{{$canton->id}}" selected>{{$canton->nombre}}</option>--}}
-                {{--@endforeach--}}
-                {{--</select>--}}
-                {{--</div>--}}
-                {{--<div class="form-group w-100 mb-sm-4 mr-sm-3">--}}
-                {{--<label class="form-label" for="to-destination">Tipo Instituci&oacute;n</label>--}}
-                {{--<select id="tipo_institucion" name="tipo_institucion[]"--}}
-                {{--class="form-control custom-select select2"--}}
-                {{--data-ajax--url="{{route('api.tipo-institucion.select2')}}"--}}
-                {{--data-ajax--data-type="json"--}}
-                {{--data-ajax--cache="true"--}}
-                {{--data-close-on-select="false"--}}
-                {{--required="required" multiple>--}}
-                {{--@foreach($tipoInstituciones as $tipoInstitucion)--}}
-                {{--<option value="{{$tipoInstitucion->id}}"--}}
-                {{--selected>--}}
-                {{--{{$tipoInstitucion->descripcion}}--}}
-                {{--</option>--}}
-                {{--@endforeach--}}
-                {{--</select>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="d-sm-flex align-items-start">--}}
-                {{--<div class="form-group w-100 mb-sm-4 mr-sm-3">--}}
-                {{--<label class="form-label">Objetivo de Desarrollo Sostenible (ODS)</label>--}}
-                {{--<select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"--}}
-                {{--data-ajax--url="{{route('api.ods-categoria.select2')}}"--}}
-                {{--data-ajax--data-type="json"--}}
-                {{--data-ajax--cache="true"--}}
-                {{--data-close-on-select="false"--}}
-                {{--required="required" multiple>--}}
-                {{--@foreach($odsCategorias as $odsCategoria)--}}
-                {{--<option value="{{$odsCategoria->id}}" selected>--}}
-                {{--{{$odsCategoria->nombre}}--}}
-                {{--</option>--}}
-                {{--@endforeach--}}
-                {{--</select>--}}
-                {{--</div>--}}
-                {{--<div class="form-group w-100 mb-sm-4 mr-sm-3">--}}
-                {{--<label class="form-label">Población Objetivo</label>--}}
-                {{--<select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"--}}
-                {{--class="form-control select2"--}}
-                {{--data-ajax--url="{{route('api.tipo-poblacion.select2')}}"--}}
-                {{--data-ajax--data-type="json"--}}
-                {{--data-ajax--cache="true"--}}
-                {{--data-close-on-select="false"--}}
-                {{--required="required" multiple>--}}
-                {{--@foreach($tipoPoblaciones as $tipoPoblacion)--}}
-                {{--<option value="{{$tipoPoblacion->id}}" selected>--}}
-                {{--{{$tipoPoblacion->descripcion}}--}}
-                {{--</option>--}}
-                {{--@endforeach--}}
-                {{--</select>--}}
-                {{--</div>--}}
-                {{--<div class="text-center text-sm-left mt-2 mt-sm-4 mb-4">--}}
-                {{--<button class="btn btn-primary" type="submit">Aplicar</button>--}}
-                {{--</div>--}}
             </div>
         </div>
     </div>

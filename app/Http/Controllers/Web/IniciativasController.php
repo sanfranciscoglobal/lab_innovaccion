@@ -31,6 +31,7 @@ class IniciativasController extends Controller
      */
     public function index(Request $request)
     {
+        $scroll = false;
         Iniciativas::$paginate = 10;
         Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
         Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
@@ -46,9 +47,9 @@ class IniciativasController extends Controller
 
         $iniciativas = Iniciativas::obtenerIniciativasPaginate();
 
-         // dd($request, $tipoPoblaciones);
+        $scroll = ($request->has('buscar')) ? true : $scroll;
 
-        return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar'));
+        return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar', 'scroll'));
     }
 
     public static function data(Request $request)
