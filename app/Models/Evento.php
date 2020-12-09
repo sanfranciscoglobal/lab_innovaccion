@@ -12,7 +12,7 @@ class Evento extends Model
     //
     use SoftDeletes;
     protected $table = 'eventos';
-    protected $fillable = ['nombre', 'organizador', 'fecha', 'hora', 'imagen', 'descripcion', 'tipo', 'canton', 'ubicacion', 'org_lat', 'org_long', 'url', 'terminos'];
+    protected $fillable = ['nombre', 'organizador', 'fecha', 'hora', 'imagen', 'descripcion', 'tipo', 'canton','area1','area2','sitioweb', 'ubicacion', 'org_lat', 'org_long', 'url', 'terminos'];
     public static $paginate = 10;
     public static $own = false;
 
