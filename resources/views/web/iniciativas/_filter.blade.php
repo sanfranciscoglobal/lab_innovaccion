@@ -46,8 +46,12 @@
                             </span>
                             <input id="pac-input"
                                    style=" border-top-right-radius:15px;; border-bottom-right-radius:15px;"
-                                   class="form-control py-2 border-left-0 border pac-target-input" placeholder="Buscar"
-                                   type="" value="Buscar" autocomplete="off">
+                                   class="form-control py-2 border-left-0 border pac-target-input"
+                                   placeholder="Buscar"
+                                   type=""
+                                   name="buscar"
+                                   value="{{$buscar}}"
+                                   autocomplete="off">
                             <span class="input-group-append">
 
                             </span>
@@ -69,7 +73,9 @@
                             <div class="col-xs-12 col-sm-12 col-md-3 col-12">
                                 <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "
                                       for="to-destination">Tipo Instituci&oacute;n</span>
-                                <select id="tipo_institucion" name="tipo_institucion[]"
+                                {{--{{dd($tipoInstituciones)}}--}}
+                                <select id="tipo_institucion"
+                                        name="tipo_institucion[]"
                                         class="form-control custom-select select2"
                                         data-ajax--url="{{route('api.tipo-institucion.select2')}}"
                                         data-ajax--data-type="json"
@@ -78,7 +84,12 @@
                                         data-placeholder="Seleccionar tipo institución"
                                         style="width:100%;"
                                         multiple>
-
+                                    @if(isset($tipoInstituciones))
+                                        @foreach($tipoInstituciones as $tipoInstitucion)
+                                            <option value="{{$tipoInstitucion->id}}"
+                                                    selected="selected">{{$tipoInstitucion->descripcion}}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-3 col-12">
@@ -93,6 +104,12 @@
                                         style="width:100%;"
                                         data-placeholder="Seleccionar ODS"
                                         multiple>
+                                    @if(isset($odsCategorias))
+                                        @foreach($odsCategorias as $odsCategoria)
+                                            <option value="{{$odsCategoria->id}}"
+                                                    selected="selected">{{$odsCategoria->nombre}}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-3 col-12">
@@ -105,6 +122,12 @@
                                         data-close-on-select="false"
                                         data-placeholder="Seleccionar población objetivo"
                                         multiple>
+                                    @if(isset($tipoPoblaciones))
+                                        @foreach($tipoPoblaciones as $tipoPoblacion)
+                                            <option value="{{$tipoPoblacion->id}}"
+                                                    selected="selected">{{$tipoPoblacion->descripcion}}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
                             <div class="col-xs-12 col-sm-2 col-md-2 pt-2">
@@ -115,30 +138,31 @@
                             </div>
                         </div>
                         <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
-                            <div class="row">
+                        <div class="row">
                             <div class="font-weight-bold d-flex justify-content-end col-md-5">
-                                            <button class="font-weight-bold btn btn btn-primary mr-3 export dropdown-toggle"  data-toggle="dropdown">Descargar Datos
-                                            <span class="caret"></span>
-                                            </button>
-                                            
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a type="button" type="button" class="ml-3 export"
-                                                        data-action="{{route('web.iniciativas.exportar.csv')}}">
-                                                    <i class="fe-download"></i> .CSV
-                                                    </a
-                                                ></li>
+                                <button class="font-weight-bold btn btn btn-primary mr-3 export dropdown-toggle"
+                                        data-toggle="dropdown">Descargar Datos
+                                    <span class="caret"></span>
+                                </button>
 
-                                                <li><a type="button" class=" ml-3 export"
-                                                        data-action="{{route('web.iniciativas.exportar.json')}}">
-                                                    <i class="fe-download"></i> .JSON
-                                                </a></li>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a type="button" type="button" class="ml-3 export"
+                                           data-action="{{route('web.iniciativas.exportar.csv')}}">
+                                            <i class="fe-download"></i> .CSV
+                                        </a
+                                        ></li>
 
-                                                <li><a type="button" class=" ml-3 export"
-                                                        data-action="{{route('web.iniciativas.exportar.excel')}}">
-                                                    <i class="fe-download"></i> .XLSX
-                                                    </a></li>
-                                            </ul>
+                                    <li><a type="button" class=" ml-3 export"
+                                           data-action="{{route('web.iniciativas.exportar.json')}}">
+                                            <i class="fe-download"></i> .JSON
+                                        </a></li>
+
+                                    <li><a type="button" class=" ml-3 export"
+                                           data-action="{{route('web.iniciativas.exportar.excel')}}">
+                                            <i class="fe-download"></i> .XLSX
+                                        </a></li>
+                                </ul>
                             </div>
 
                             {{--<button style="width: 220px;" type="button"--}}
@@ -147,14 +171,15 @@
                             {{--Descargar datos--}}
                             {{--</button>--}}
                             <div class="col-md-6 col-sm-12">
-                                <a href="/mapa" class="btn btn-primary font-weight-bold btn btn-primary mr-3 btn-filter-submit"
-                                    style="border-color:#7A3240;background:#7A3240 "
-                                    data-action="">
+                                <a href="/mapa"
+                                   class="btn btn-primary font-weight-bold btn btn-primary mr-3 btn-filter-submit"
+                                   style="border-color:#7A3240;background:#7A3240 "
+                                   data-action="">
                                     <img src="{{ asset('images/Group 161.svg')}}"/>
-                                Ver mapa completo
+                                    Ver mapa completo
                                 </a>
                             </div>
-                            </div>
+                        </div>
                         </p>
                     </div>
                 </div>
