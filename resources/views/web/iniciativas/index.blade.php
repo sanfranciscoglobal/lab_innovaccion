@@ -53,16 +53,16 @@
                 <h1 class="mt-5 text-primary">Iniciativas de los actores</h1>
                 <div class="py-3 text-justify ">
                     <div class="cs-callout">
-                    <p class="">
-                    ¡ Se parte del ecosistema de innovación !<br><br>
+                        <p class="">
+                            ¡ Se parte del ecosistema de innovación !<br><br>
 
 
-                            Registra tu iniciativa queremos saber sobre tu trabajo.<br />
-                            Conoce el trabajo de otros en temas de innovación.<br />
-                            Anímate a contactar a actores que trabajen en temas de tu interés.<br />
-                            Construyamos lazos de trabajo colaborativos.<br />
+                            Registra tu iniciativa queremos saber sobre tu trabajo.<br/>
+                            Conoce el trabajo de otros en temas de innovación.<br/>
+                            Anímate a contactar a actores que trabajen en temas de tu interés.<br/>
+                            Construyamos lazos de trabajo colaborativos.<br/>
 
-                    </p>
+                        </p>
                     </div>
                     <div class="text-justify shadow-lg p-3 mb-2 btn-purple-gradient text-color-white rounded" style="">
                         <strong>Indicaciones</strong>
@@ -70,19 +70,25 @@
                             <li>Si gustas registrar tu iniciativa pulsa en el botón “Registra tu iniciativa”.</li>
                             <li>Si gustas informarte:
                                 <ol type="a">
-                                    <li> Indaga en el mapa, al poner el curso sobre la iniciativa obtendrás más información. </li>
-                                    <li> Pulsa el botón “Actores” y se desplegará la información de quién implementa. </li>
-                                    <li> Pulsa el botón “Analítica” y podrás visualizar la información en gráficos. </li>
-                                    <li> Escoge filtros  en base a tu interés y se organizará la información. </li>
-                                    <li> Pulsa los botones para descargar y tendrás acceso a toda la base de datos en diferente formatos.</li>
+                                    <li> Indaga en el mapa, al poner el curso sobre la iniciativa obtendrás más
+                                        información.
+                                    </li>
+                                    <li> Pulsa el botón “Actores” y se desplegará la información de quién implementa.
+                                    </li>
+                                    <li> Pulsa el botón “Analítica” y podrás visualizar la información en gráficos.</li>
+                                    <li> Escoge filtros en base a tu interés y se organizará la información.</li>
+                                    <li> Pulsa los botones para descargar y tendrás acceso a toda la base de datos en
+                                        diferente formatos.
+                                    </li>
                                 </ol>
                             </li>
                         </ul>
                     </div>
                     <br>
-                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default"
+                       href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
 
-                <span class="font-size-sm text-muted">Ver
+                    <span class="font-size-sm text-muted">Ver
                     video</span>
                 </div>
 
@@ -289,9 +295,15 @@
             });
 
             $(document).on('click', ".export", function (e) {
-                $('#filter-iniciativas').attr('action',$(this).data('action'));
+                $('#filter-iniciativas').attr('action', $(this).data('action'));
                 $('#filter-iniciativas').submit();
             });
+
+            @if($scroll)
+            $('html, body').animate({
+                scrollTop: $("#filter-iniciativas").offset().top
+            }, 1000);
+            @endif
         });
     </script>
 @endsection
