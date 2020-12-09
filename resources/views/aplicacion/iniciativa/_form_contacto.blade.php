@@ -27,7 +27,7 @@
                        pattern="\x2b[0-9]+"
                        {{--pattern="(09(9|8))?[0-9]{7}"--}}
                 >
-                <span class="muted-text text-black-50">Ejemplo. 0987654321 ó 2279183</span>
+                <span class="muted-text text-black-50">Ejemplo. +0987654321 ó +2279183</span>
                 {{--<div class="invalid-feedback">Ingresar un teléfono valido</div>--}}
             </div>
             {{--<div class="form-group">--}}
