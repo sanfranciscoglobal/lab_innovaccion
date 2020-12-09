@@ -29,7 +29,6 @@ class crudEventos extends Controller
     public function store(StorePost $request)
     {
         $validatedData = $request->validated();
-
         if ($evento = Evento::create($validatedData)) {
 
             if (isset($validatedData['imagen'])) {

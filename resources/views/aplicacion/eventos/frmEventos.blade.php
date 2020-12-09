@@ -51,12 +51,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    {{-- <div class="col">
-                                        <div class="form-group">
-                                            <label for="fecha">* Fecha</label>
-                                            <input class="form-control" type="date" id="fecha" value="{{isset($evento->fecha)?$evento->fecha:old('fecha')}}" name="fecha"  oninvalid="setCustomValidity('Por favor seleccione una fecha.')" onchange="try{setCustomValidity('')}catch(e){}"  required>
-                                        </div>
-                                    </div> --}}
+                                   
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="form-label">* Fecha</label>
@@ -72,10 +67,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        {{-- <div class="form-group">
-                                            <label for="hora">* Hora</label>
-                                            <input class="form-control" type="time" id="hora" value="{{isset($evento->hora)?$evento->hora:old('hora')}}" name="hora"  oninvalid="setCustomValidity('Por favor seleccione una hora.')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                        </div> --}}
+                                       
                                         <div class="form-group">
                                             <label class="form-label">* Hora</label>
                                             <div class="input-group-overlay">
@@ -111,20 +103,14 @@
                                                     <input class="lugar custom-control-input" type="radio" id="evento_virtual" value="0" name="tipo" required>
                                                     <label class="custom-control-label" for="evento_virtual">Virtual</label>
                                                 </div>
-                                                {{-- <label for="evento_virtual">
-                                                    <input class="lugar" type="radio" id="evento_virtual" value="0" name="tipo" required>
-                                                    Virtual
-                                                </label> --}}
+                                            
                                             </div>
                                             <div class="col-sm-9">
                                                 <div class="custom-control custom-radio">
                                                     <input class="lugar custom-control-input" type="radio" id="evento_presencial" value="1" name="tipo" >
                                                     <label class="custom-control-label" for="evento_presencial">Presencial</label>
                                                 </div>
-                                                {{-- <label for="evento_presencial">
-                                                    <input class="lugar" type="radio" id="evento_presencial" value="1" name="tipo">
-                                                    Presencial
-                                                </label> --}}
+                                           
                                             </div>
                                         </div>
                                     </div>
@@ -141,15 +127,15 @@
                                                 <div class="col-md-12 to-hide e-virtual d-none">
                                                     <div class="form-group">
                                                         <label for="url">* Link del Evento</label>
-                                                        <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&%'\(\)\*\+,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL()" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Link del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
+                                                        <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&%'\(\)\*\+,;=.]+$" class="form-control" type="text" id="url" oninput="validateURL('url')" value="{{isset($evento->url)?$evento->url:old('url')}}" name="url" placeholder="Link del Evento" oninvalid="setCustomValidity('Ingrese una dirección web.')" onchange="try{setCustomValidity('')}catch(e){}">
                                                         <div class="invalid-feedback" id='url-error'></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 to-hide e-presencial d-none">
+                                                {{-- <div class="col-md-12 to-hide e-presencial d-none">
                                                     <div class="row">
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <label for="canton_id">* Cantón</label>
+                                                                {{-- <label for="canton_id">* Cantón</label>
                                                                 <div class= "m-0 p-0 w-100 form-group">
                                                                     
                                                                     <select style="width:100%;" class="form-control custom-select select2" id='canton_id' name='canton'
@@ -164,42 +150,15 @@
                                                                     </select>
                                                                     <div class="invalid-tooltip">Por favor seleccione un cantón.</div>
                                                                     <div class="valid-tooltip">Bien!</div>
-                                                                </div>
-
-                                                                {{-- <select style="width:100%;" id="canton_id" class="form-control select2" name="canton"
-                                                                        data-ajax--url="{{route('api.canton.select2')}}"
-                                                                        data-ajax--data-type="json"
-                                                                        data-ajax--data-cache="true"
-                                                                        data-allow-clear="true"
-                                                                        data-placeholder="Seleccione un Cantón"
-                                                                        data-close-on-select="false"
-                                                                        required="required"
-                                                                        oninvalid="setCustomValidity('Por favor seleccione una opción de la lista.')" onchange="try{setCustomValidity('')}catch(e){}"
-                                                                        ></select> --}}
+                                                                </div> 
                                                                 
                                                             </div>
                                                             @error('canton_id')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <label for="ubicacion">* Ubicación del Evento <i class="fe-info text-primary" style="font-size: 22px;
-                                                                    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
-                                                                                                                                                    title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
-                                                                <input class="form-control" type="text" id="direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Dirección del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     
-                                                    {{-- <div class="row">
-                                                        
-                                                            <div id="map" class="col-12" style="width:300%; height: 350px;"></div>
-                                                            <input type="hidden" type="text" id="latitud" name="org_lat" value="{{isset($evento->org_lat)?$evento->org_lat:'0'}}">
-                                                            <input type="hidden" type="text" id="longitud" name="org_long" value="{{isset($evento->org_long)?$evento->org_long:'0'}}">
-                                                        
-                                                    </div> --}}
-                                                </div>
+                                                    
+                                                </div> --}}
                                                 
                                             </div>
                                             
@@ -259,14 +218,33 @@
                                     <div class="valid-feedback">Bien!</div>
                                     
                                 </div>
+                                <div class="form-group">
+                                    <label for="imagen">Sitio web del evento</label>
+                                    <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&%'\(\)\*\+,;=.]+$" class="form-control" id='sitioweb' name="sitioweb" oninput="validateURL('sitioweb')" placeholder='Sitio web del Evento' value="{{isset($evento->sitioweb)?$evento->sitioweb:''}}" type="text" id="sitoweb">
+                                    @error('sitoweb')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                </div>
+
                             </div>
                         </div>
                         <div class="row e-presencial">
+                            
+                            <div class="col-7">
+                                <div class="form-group">
+                                    <label for="ubicacion">* Ubicación del Evento <i class="fe-info text-primary" style="font-size: 22px;
+                                        margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
+                                                                                                                        title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
+                                    <input class="form-control" type="text" id="direccion" maxlength='250' value="{{isset($evento->ubicacion)?$evento->ubicacion:old('ubicacion')}}" name="ubicacion" placeholder="Dirección del evento" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                </div>
+                            </div>
+                            
                             <div class="col-12">
                                 <div class="form-group">
                                     <div id="map" style="width:100%; height: 350px;"></div>
                                         <input type="hidden" type="text" id="latitud" name="org_lat" value="{{isset($evento->org_lat)?$evento->org_lat:'0'}}">
                                         <input type="hidden" type="text" id="longitud" name="org_long" value="{{isset($evento->org_long)?$evento->org_long:'0'}}">
+                                        <input type="hidden" type="text" id="localidad" name="canton">
+                                        <input type="hidden" type="text" id="area1" name="area1" >
+                                        <input type="hidden" type="text" id="area2" name="area2" >
                                 </div>
                             </div>
                         </div>
@@ -318,24 +296,18 @@
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-warning btn-sm">Eliminar</button>
                         </div>
-
-
                     </form>
                 </div>
             </div>
-        </div>
-
-        
+        </div> 
     @endif
 @endsection
 @section('footer')
-{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script> --}}
 <script>
-    //  SET TO NULL IF NO OLD DATA
     let user_lat = {{ old('org_lat', $evento->org_lat) ?? 'null' }};
     let user_lng = {{ old('org_long', $evento->org_long) ?? 'null' }};
 </script>
-<script src="{{ asset('js/maps.js') }}"></script>
+{{-- <script src="{{ asset('js/maps.js') }}"></script> --}}
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=initMap" async defer></script>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
@@ -350,17 +322,7 @@
         let str = document.getElementById("descripcion").value;
         var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
-        // if (words>maxword){
-        //     // if (words==maxword+1){
-        //     //     maxlength=$('#descripcion').value.length-2
-        //     // }
-        //     // $('#descripcion').value=$('#descripcion').value.substring(0,maxlength);
-        //     // words=maxword;
-        //     // alert('Ha rebasado el limite');
-        //     $("#descripcion").focus();
-        //     $("#descripcion-error-máx").addClass('d-inline');
-        //     $('#descripcion').addClass('is-invalid');
-        // }
+    
         document.getElementById("count-words").innerHTML=words+" palabras";
         if (words>=25 && words<=maxword || words==0){
             $("#descripcion-error").removeClass('d-inline');
@@ -382,19 +344,18 @@
     };
     //
     //funcion url
-    function validateURL() {
-         var $URL= document.getElementById("url").value;
+    function validateURL(idcaja) {
+         var $URL= document.getElementById(idcaja).value;
          var pattern=/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$(:(\d+))?\/?/i;;
 
         if(pattern.test($URL) ){
-            //$("#url-error").removeClass('d-inline');
-            $('#url').removeClass('is-invalid');
-           // $('#submitbutton').removeAttr('disabled');
+
+            $('#'+idcaja).removeClass('is-invalid');
+
             
          } else{
-            //$("#url-error").html('Url invalido');
-           // $("#url-error").addClass('d-inline');
-            $('#url').addClass('is-invalid');
+
+            $('#'+idcaja).addClass('is-invalid');
             //$('#submitbutton').attr('disabled','disabled');
          }
        }
@@ -409,7 +370,6 @@
             if($(this).is(':checked')){
                 
                 if ($(this).val() == 0){
-                    //$('.to-hide').removeClass('d-none');
                     $('.e-presencial .form-control').removeAttr('required');
                     $('.e-presencial').addClass('d-none');
                     $('.e-virtual .form-control').attr('required', true);
@@ -441,18 +401,6 @@
 </script>
 
 <script>
-
-    @if ($method=="PUT" && isset($evento->canton))
-        var cantonidd={{old('canton',(int)$evento->canton)??'null'}};
-        if (cantonidd){
-            var canton_nombre="{{$evento->cantonid->nombre}}";
-            $("#canton_id").select2("trigger", "select", {
-                     data: { id: cantonidd , text:canton_nombre}
-                 });
-        }
-    @endif
-
-
     $(function(){
 
         let tipo = {{ old('tipo', (int)$evento->tipo) ?? 'null' }};
@@ -471,6 +419,123 @@
 
     });
   
+
+</script>
+<script>
+var input = document.getElementById('direccion');
+
+function initMap() {
+
+    var latCurrentPosition = -0.1626484;
+    var lonCurrentPosition = -78.4606464;
+    var latUsuario = user_lat != null ? user_lat : latCurrentPosition;
+    var lonUsuario = user_lng != null ? user_lng : lonCurrentPosition;
+    var zoom = 16;
+    var dragMarker = true;
+    var placeSearch, autocomplete;
+    var marker;
+    var myLatlng = new google.maps.LatLng(latUsuario, lonUsuario);
+    var geocoder = new google.maps.Geocoder();
+    var infowindow = new google.maps.InfoWindow();
+
+    var options = {
+        componentRestrictions: { country: 'ec' },
+    };
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: myLatlng,
+        zoom: zoom,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+    });
+    marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        draggable: dragMarker,
+        animation: google.maps.Animation.DROP,
+        title: 'Arrastre para seleccionar la ubicación',
+    });
+    geocoder.geocode({ latLng: myLatlng }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                jQuery('input[id="latitud"],input[id="longitud"]').show();
+                jQuery('input[id="direccion"]').val(results[0].formatted_address);
+                jQuery('input[id="latitud"]').val(marker.getPosition().lat());
+                jQuery('input[id="longitud"]').val(marker.getPosition().lng());
+                $.each(results[0].address_components, function (index, value) {
+                        if (value.types.indexOf('locality') > -1) {
+                            jQuery('input[id="localidad"]').val(value.short_name);
+                        }
+
+                        if (value.types.indexOf('administrative_area_level_1') > -1) {
+                            jQuery('input[id="area1"]').val(value.short_name);
+                        }
+
+                        if (value.types.indexOf('administrative_area_level_2') > -1) {
+                            jQuery('input[id="area2"]').val(value.short_name);
+                        }
+                        });
+                infowindow.setContent(results[0].formatted_address);
+                infowindow.open(map, marker);
+            }
+        }
+    });
+
+    google.maps.event.addListener(marker, 'dragend', function() {
+        geocoder.geocode({ latLng: marker.getPosition() }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    jQuery('input[id="direccion"]').val(results[0].formatted_address);
+                    jQuery('input[id="latitud"]').val(marker.getPosition().lat());
+                    jQuery('input[id="longitud"]').val(marker.getPosition().lng());
+                    $.each(results[0].address_components, function (index, value) {
+                        if (value.types.indexOf('locality') > -1) {
+                            jQuery('input[id="localidad"]').val(value.short_name);
+                        }
+
+                        if (value.types.indexOf('administrative_area_level_1') > -1) {
+                            jQuery('input[id="area1"]').val(value.short_name);
+                        }
+
+                        if (value.types.indexOf('administrative_area_level_2') > -1) {
+                            jQuery('input[id="area2"]').val(value.short_name);
+                        }
+                        });
+                    infowindow.setContent(results[0].formatted_address);
+                    infowindow.open(map, marker);
+                }
+            }
+        });
+    });
+
+    autocomplete.addListener('place_changed', setnewAddress);
+
+    function setnewAddress() {
+        var place = autocomplete.getPlace();
+        console.log(place.formatted_address);
+        var Latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+        marker.setPosition(Latlng);
+        infowindow.setContent(place.formatted_address);
+        map.panTo(Latlng);
+        $.each(place.address_components, function (index, value) {
+                if (value.types.indexOf('locality') > -1) {
+                    jQuery('input[id="localidad"]').val(value.short_name);
+                }
+
+                if (value.types.indexOf('administrative_area_level_1') > -1) {
+                    jQuery('input[id="area1"]').val(value.short_name);
+                }
+
+                if (value.types.indexOf('administrative_area_level_2') > -1) {
+                    jQuery('input[id="area2"]').val(value.short_name);
+                }
+            });
+        jQuery('input[id="latitud"]').val(place.geometry.location.lat());
+        jQuery('input[id="longitud"]').val(place.geometry.location.lng());
+    }
+}
+
+
 
 </script>
 
