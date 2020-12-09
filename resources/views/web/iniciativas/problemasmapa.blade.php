@@ -68,7 +68,7 @@
 <input id="marker2" value="{{ asset('images/hotspot_red.svg')}}" hidden>
 <input id="marker3" value="{{ asset('images/hotspot_verde.svg')}}" hidden>
 
-<div  class="bg-overlay-content pb-2 mb-md-3">
+<div  class="bg-overlay-content py-8 pb-2 mb-md-3">
         <div class="">
 
             <div   style="bottom:0%;right:30%;left:30%;  position:absolute; z-index:10;" >
