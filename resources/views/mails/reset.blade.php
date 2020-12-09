@@ -345,6 +345,6 @@
     </table>
     
 		<!-- FOOTER -->
-		@include('mails.footer')
+		{{-- @include('mails.footer') --}}
 	</body>
 </html>
