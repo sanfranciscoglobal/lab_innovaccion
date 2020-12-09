@@ -39,7 +39,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="account-ln">* Teléfono</label>
-                                    <input class="form-control @error('celular') is-invalid @enderror" type="text" id="account-ln" maxlength="250" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="(09(9|8))?[0-9]{7}" required>
+                                    <input class="form-control @error('celular') is-invalid @enderror" type="text" id="account-ln" maxlength="250" value="{{ old('celular', $perfil->celular) }}" name="celular" pattern="[+]?[\d]{7,15}" required>
                                     <span class="text-muted">Ejemplo. 0987654321 ó 2345678</span>
                                     @error('celular')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>
