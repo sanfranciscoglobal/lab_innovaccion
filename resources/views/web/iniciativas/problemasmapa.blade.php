@@ -201,14 +201,13 @@
                                             </div>
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Población Objetivo</span>
-                                            <select id="ods_categorias" class="form-control custom-select select2"
-                                                    name="ods_categorias[]"
-                                                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                            <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
+                                                    class="form-control select2"
+                                                    data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
                                                     data-ajax--data-type="json"
                                                     data-ajax--cache="true"
                                                     data-close-on-select="false"
-                                                    style="width:100%;"
-                                                    data-placeholder="Seleccionar ODS"
+                                                    data-placeholder="Seleccionar población objetivo"
                                                     multiple>
                                             </select>
                                             </div>
