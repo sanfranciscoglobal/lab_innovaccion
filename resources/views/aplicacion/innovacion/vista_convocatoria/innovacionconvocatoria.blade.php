@@ -47,7 +47,7 @@
                 <span class="font-size-sm text-muted">Ver
                     video</span>
     </section>
-    <section id="funciones">
+    <section id="searchsection">
         <div class="container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5">
             <h4 class="text-center pt-3 pt-md-2 mb-5 uppercase text-mora">Convocatorias</h4>
             <div class="row justify-content-center">
@@ -96,10 +96,19 @@
                     <label class="form-label font-weight-bold pb-1" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
 
                     <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
+                        @if ($busqueda)
                         <option value="" selected hidden>Todos</option>
-                        <option value="1">Sector Productivo</option>
-                        <option value="2">Ciudadanía</option>
-                        <option value="3">Gestión Pública</option>
+                        <option value="1" {{ old('tipoconvocatoria', $busqueda->tipoconvocatoria) == '1' ? 'selected' : '' }}>Sector Productivo</option>
+                        <option value="2" {{ old('tipoconvocatoria', $busqueda->tipoconvocatoria) == '2' ? 'selected' : '' }}>Ciudadanía</option>
+                        <option value="3" {{ old('tipoconvocatoria', $busqueda->tipoconvocatoria) == '3' ? 'selected' : '' }}>Gestión Pública</option>
+                        
+                        @else
+                        <option value="" selected hidden>Todos</option>
+                        <option value="1" >Sector Productivo</option>
+                        <option value="2" >Ciudadanía</option>
+                        <option value="3" >Gestión Pública</option>
+                        
+                        @endif
 
                     </select>
 
@@ -108,10 +117,16 @@
                     <label class="form-label font-weight-bold pb-1" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
 
                     <select class="form-control custom-select select2" id="estadoconvocatoria" name="estadoconvocatoria" data-clean>
+                        @if ($busqueda)
                         <option value="" selected hidden>Todos</option>
-                        {{-- <option value="1">Todos</option> --}}
+                        <option value="2" {{ old('estadoconvocatoria', $busqueda->estadoconvocatoria) == '2' ? 'selected' : '' }}>Abierta</option>
+                        <option value="3" {{ old('estadoconvocatoria', $busqueda->estadoconvocatoria) == '3' ? 'selected' : '' }}>Cerrada</option>
+                        
+                        @else
+                        <option value="" selected hidden>Todos</option>
                         <option value="2">Abierta</option>
                         <option value="3">Cerrada</option>
+                        @endif
                     </select>
 
 
@@ -162,6 +177,14 @@
                             data-ajax--cache="true"
                             data-close-on-select="false"
                             multiple>
+                            @if($busqueda)
+                                @if($busqueda->ods)
+                                    @foreach($busqueda->ods as $odsid)
+                                        <option value="{{$odsid}}"
+                                            selected>{{ App\Models\OdsCategoria::obtenerODSNombre($odsid) }}</option>
+                                    @endforeach
+                                @endif
+                            @endif
                         </select>
                     </div>
 
@@ -478,6 +501,11 @@
             $(idsubsector).find('option').remove();
         }
     };
+</script>
+<script>
+    @if($jumpsection)
+        window.location.hash = "searchsection";
+    @endif
 </script>
 
 @endsection
