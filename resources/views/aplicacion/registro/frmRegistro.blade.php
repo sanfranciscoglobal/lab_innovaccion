@@ -126,13 +126,24 @@
                             </div>
                             <div class="col-md-7 to-hide d-none">
                                 <div class="form-group">
-                                    <label for="org_tipo">* Tipo de organización</label>
-                                    <select class="form-control req @error('tipo_org') is-invalid @enderror" name="tipo_org" required>
-                                        <option value="">Seleccione uno</option>
-                                        <option value="1" {{ old('tipo_org', $perfil->tipo_org) == 1 ? 'selected' : '' }}>Academia</option>
-                                        <option value="2" {{ old('tipo_org', $perfil->tipo_org) == 2 ? 'selected' : '' }}>Sector Privado</option>
-                                        <option value="3" {{ old('tipo_org', $perfil->tipo_org) == 3 ? 'selected' : '' }}>Sector Público</option>
-                                        <option value="4" {{ old('tipo_org', $perfil->tipo_org) == 4 ? 'selected' : '' }}>Organización de la sociedad civil</option>
+                                <label for="org_tipo">* Tipo de organización {{ $perfil->tipo_org}}</label>
+                                    <select id="tipo_institucion"
+                                        name="tipo_org"
+                                        class="form-control custom-select select2 border border-danger"
+                                        data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                        data-ajax--data-type="json"
+                                        data-ajax--cache="true"
+                                        data-close-on-select="false"
+                                        data-placeholder="Seleccionar tipo institución"
+                                        style="width:100%;">
+                                        @if(old('tipo_org', $perfil->tipo_org))
+                                        <option value="{{$perfil->tipo_org}}" selected>{{$perfil->institucion->descripcion}}</option>
+                                        @endif
+                                        @if(isset($tipoInstituciones))
+                                            @foreach($tipoInstituciones as $tipoInstitucion)
+                                                <option value="{{$tipoInstitucion->id}}">{{$tipoInstitucion->descripcion}}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                     @error('tipo_org')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                 </div>

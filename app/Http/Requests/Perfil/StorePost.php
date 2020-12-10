@@ -29,7 +29,7 @@ class StorePost extends FormRequest
             'proposito' => 'numeric|required',
             'tipo_reg' => 'boolean|required',
             'organizacion' => 'string|nullable|required_if:tipo_reg,0|max:250',
-            'tipo_org' => 'numeric|nullable|required_if:tipo_reg,0',
+            'tipo_org' => 'numeric|nullable|required_if:tipo_reg,0|exists:tipo_institucion,id',
             'direccion' => 'string|nullable|required_if:tipo_reg,0|max:250',
             'canton_id' => 'numeric|nullable',
             'latitud' => 'numeric|nullable|required_if:tipo_reg,0',
