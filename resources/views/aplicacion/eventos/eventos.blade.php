@@ -85,7 +85,7 @@
                     <label class="form-label font-weight-bold" for="from-destination" style="color: #a13d8f">Cantón</label>
 
                     <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
-                            data-ajax--url="{{route('api.canton.select2')}}"
+                            data-ajax--url="{{route('api.canton.select22')}}"
                             data-ajax--data-type="json"
                             data-ajax--data-cache="true"
                             data-allow-clear="true"

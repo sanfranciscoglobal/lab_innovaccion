@@ -55,7 +55,8 @@ class EventosController extends Controller
         if ($request->tipoevento!=null) {
             if($request->tipoevento!=2){
                 if ($request->canton!=null){
-                    $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->whereIn('canton',$request->canton)->paginate(Evento::$paginate);
+                    $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento);
+                    $eventos=$eventos->whereIn('canton',$request->canton)->orwhereIn('area1',$request->canton)->orwhereIn('area2',$request->canton)->paginate(Evento::$paginate);
                 }
                 else{
                     $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->paginate(Evento::$paginate);

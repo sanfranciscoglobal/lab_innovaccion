@@ -13,4 +13,9 @@ class CantonController extends Controller
         Canton::$search = $request->search;
         return Canton::obtenerCantonesAgrupadoProvincia();
     }
+    public static function cantonSelect2nombre(Request $request)
+    {
+        Canton::$search = $request->search;
+        return Canton::obtenerCantonesAgrupadoProvincianombre();
+    }
 }
