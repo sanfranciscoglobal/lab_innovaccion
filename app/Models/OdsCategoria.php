@@ -57,4 +57,11 @@ class OdsCategoria extends Model
     {
         return self::builderOdsCategoria()->pluck('nombre', 'id')->all() ?? [];
     }
+
+    public static function obtenerODSNombre($id)
+    {
+        $ods=OdsCategoria::where('id','=',$id)->first();
+        $odsnombre='ODS '.$ods->id.': '.$ods->nombre;
+        return $odsnombre;
+    }
 }
