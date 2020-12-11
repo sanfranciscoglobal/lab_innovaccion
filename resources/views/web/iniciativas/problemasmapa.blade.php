@@ -63,12 +63,12 @@
     </style>
 @endsection
 @section('content')
-<input id="marker" value="{{ asset('images/hotspot_active.svg')}}" hidden>
-<input id="marker1" value="{{ asset('images/hotspot_naranja.svg')}}" hidden>
-<input id="marker2" value="{{ asset('images/hotspot_red.svg')}}" hidden>
-<input id="marker3" value="{{ asset('images/hotspot_verde.svg')}}" hidden>
+<input id="morado" value="{{ asset('images/hotspot_active.svg')}}" hidden>
+<input id="naranja" value="{{ asset('images/hotspot_naranja.svg')}}" hidden>
+<input id="rojo" value="{{ asset('images/hotspot_red.svg')}}" hidden>
+<input id="verde" value="{{ asset('images/hotspot_verde.svg')}}" hidden>
 
-<div  class="bg-overlay-content pb-2 mb-md-3">
+<div  class="bg-overlay-content pt-8 pb-0 mb-md-0">
         <div class="">
 
             <div   style="bottom:0%;right:30%;left:30%;  position:absolute; z-index:10;" >
@@ -77,10 +77,10 @@
                     <div class="row justify-content-center center-block text-center">
                         <div class="justify-content-center">
                             <ul class="legend justify-content-center center-block text-center py-2 my-2 pb-3 ">
-                                <li><span class="superawesome"></span> Iniciativas</li>
-                                <li><span class="awesome"></span> Sector Productivo</li>
-                                <li><span class="kindaawesome"></span> Ciudadanía</li>
-                                <li><span class="notawesome"></span> Gestión Pública</li>
+                                <li><span class="notawesome"></span> Iniciativas</li>
+                                <li><span class="superawesome"></span> Sector Productivo</li>
+                                <li><span class="awesome"></span> Ciudadanía</li>
+                                <li><span class="kindaawesome"></span> Gestión Pública</li>
                             </ul>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                                         @method('POST')
                                         @csrf
 
-                            <div class="container justify-content-center">
+                            <div class="container justify-content-center pr-0">
                                 <div class="w-10 center-block text-left  pt-5">
                                 <h4 style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
                                     <i style="border-color: #FF7F00;color: white;background: #FF7F00;" class="shadow mr-3 btn fa fa-angle-up "></i></a>Filtros
@@ -117,10 +117,25 @@
                                 <hr />
                                       <div class="pl-4 pr-3">
                                             <div class="row mt-2">
-                                            <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
-                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type=""  autocomplete="off">
+                                            <span class="p-0 font-weight-bold col-12  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
+                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type=""  autocomplete="off" style="width:300px">
                                             </div>
                                             <div class="row mt-2">
+                                            <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Institución</span>
+                                                <select id="tipo_ins" name="tipo_ins]"
+                                                        class="form-control custom-select select2"
+                                                        data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                                        data-ajax--data-type="json"
+                                                        data-ajax--cache="true"
+                                                        data-close-on-select="false"
+                                                        data-placeholder="Seleccionar tipo institución"
+                                                        style="width:100%;"
+                                                        multiple>
+
+                                                </select>
+                                            </div>
+                                            <div class="row mt-2">
+                                
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">ODS</span>
                                                 <select id="ods" class="form-control custom-select select2" 
                                                         data-ajax--url="{{route('api.ods-categoria.select2')}}"
@@ -136,7 +151,7 @@
                                                 <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Convocatoria</span>
                                                 <select id="tipo_conv"
                                                         class="tipo_conv form-control custom-select select2"
-                                                        style="width:100%;"
+                                                        style="width:300px;"
                                                         data-placeholder="Seleccione tipo de convocatoria">
                                                         <option value="0" default>Todas</option>
                                                         @foreach($convocatorias as $conv)
@@ -168,6 +183,7 @@
                                                 data-ajax--url="{{route('api.canton.select2')}}"
                                                 data-ajax--data-type="json"
                                                 data-ajax--cache="true"
+                                                style="width:100%;"
                                                 data-placeholder="Selecionar Ciudad"
                                                  multiple>
                                             </div>
