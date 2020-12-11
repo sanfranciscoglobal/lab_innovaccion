@@ -32,30 +32,26 @@ class EventosController extends Controller
     
     public function verEventos(Request $request)
     {
-        $autentificacion=false;
-        if (Auth::check()) {
-            // The user is logged in...
-            $autentificacion=true;
-        }
+        $busqueda=null;
+        $jumpsection=false;
         Evento::$paginate = 9;
         $eventos = Evento::obtenerPaginate();
 
         // $eventos = Evento::orderbyDesc('fecha','hora')->get();
 
-        return view('aplicacion.eventos.eventos', compact('eventos','autentificacion'));
+        return view('aplicacion.eventos.eventos', compact('eventos','jumpsection'))->with('busqueda',$busqueda);
     }
     
     public function searchEventos(Request $request)
     {
-        $autentificacion=false;
-        if (Auth::check()) {
-            $autentificacion=true;
-        }
+        $busqueda=$request;
+        $jumpsection=true;
         $eventos = Evento::orderbyDesc('fecha','hora')->paginate(Evento::$paginate);
         if ($request->tipoevento!=null) {
             if($request->tipoevento!=2){
-                if ($request->canton!=null){
-                    $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->whereIn('canton',$request->canton)->paginate(Evento::$paginate);
+                if ($request->canton!=null && $request->tipoevento==1){
+                    $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento);
+                    $eventos=$eventos->whereIn('canton',$request->canton)->orwhereIn('area1',$request->canton)->orwhereIn('area2',$request->canton)->paginate(Evento::$paginate);
                 }
                 else{
                     $eventos = Evento::orderbyDesc('fecha','hora')->where('tipo',$request->tipoevento)->paginate(Evento::$paginate);
@@ -67,7 +63,7 @@ class EventosController extends Controller
                 $eventos = Evento::orderbyDesc('fecha','hora')->paginate(Evento::$paginate);
             }
         }
-        return view('aplicacion.eventos.eventos', compact('eventos','autentificacion'));
+        return view('aplicacion.eventos.eventos', compact('eventos','jumpsection'))->with('busqueda',$busqueda);
     }
 
 

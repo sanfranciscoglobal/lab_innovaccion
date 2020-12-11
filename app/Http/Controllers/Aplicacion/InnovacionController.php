@@ -72,10 +72,12 @@ class InnovacionController extends Controller
 
     public function verInnovaciones(Request $request)
     {
+        $busqueda=null;
+        $jumpsection=false;
         $convocatorias = Convocatoria::orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
         // $convocatorias = Convocatoria::where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
         // $convocatorias_antiguas = Convocatoria::where('fecha_cierre','<=',date('Y/m/d'))->paginate(8);
-        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias','busqueda','jumpsection'));
     }
 
     /**
@@ -110,6 +112,8 @@ class InnovacionController extends Controller
         // $sql='select distinct co.id from convocatorias_ods as ods inner join convocatorias as co on co.id=ods.convocatoria_id and 
         // tipoconvocatoria_id=2 and ods_id in '.$str_ods;
         // dd($sql);
+        $busqueda=$request;
+        $jumpsection=true;
 
         $convocatorias = Convocatoria::orderBy('created_at','DESC')->paginate(Convocatoria::$paginate);
 
@@ -136,7 +140,7 @@ class InnovacionController extends Controller
                     $convocatorias= $convocatorias->where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
                 }
                 
-                return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+                return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias','busqueda','jumpsection'));
 
 
             }
@@ -169,7 +173,7 @@ class InnovacionController extends Controller
                 else{
                     $convocatorias= $convocatorias->where('fecha_cierre','>=',date('Y/m/d'))->paginate(Convocatoria::$paginate);
                 }
-                return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+                return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias','busqueda','jumpsection'));
 
             }
         }
@@ -191,7 +195,7 @@ class InnovacionController extends Controller
             $odslista=ConvocatoriaODS::select('convocatoria_id')->whereIn('ods_id',$request->ods)->get();
             $convocatorias=Convocatoria::orderBy('created_at','DESC')->whereIn('id',$odslista)->paginate(Convocatoria::$paginate);
         }
-        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias'));
+        return view('aplicacion.innovacion.vista_convocatoria.innovacionconvocatoria', compact('convocatorias','busqueda','jumpsection'));
     }
     
     public function searchProblemas(Request $request,Convocatoria $convocatoria)

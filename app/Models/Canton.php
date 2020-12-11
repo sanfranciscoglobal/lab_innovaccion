@@ -57,6 +57,32 @@ class Canton extends Model
 
         return $result;
     }
+    public static function obtenerCantonesAgrupadoProvincianombre()
+    {
+        $provincias = Provincia::obtenerProvinciasAll();
+        $cantones = Canton::obtenerCantones();
+        $result = [];
+
+        foreach ($provincias as $provincia) {
+            $children = [];
+            foreach ($cantones as $canton) {
+                if ($canton->provincia_id == $provincia->id) {
+                    $children[] = [
+                        'id' => $canton->nombre,
+                        'text' => $canton->nombre,
+                    ];
+                }
+            }
+
+            if ($children) {
+                $data['text'] = $provincia->nombre;
+                $data['children'] = $children;
+                $result[] = $data;
+            }
+        }
+
+        return $result;
+    }
 
 
     public static function obtenerCantonNombre($nombre)

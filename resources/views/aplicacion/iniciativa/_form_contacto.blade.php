@@ -24,8 +24,10 @@
                        name="iniciativa_contacto[0][celular]"
                        value="{{(isset($contactos[0]))?$contactos[0]->celular:''}}"
                        {{--name="celular"--}}
-                       pattern="(09(9|8))?[0-9]{7}">
-                <span class="muted-text">Ejemplo. 0987654321 ó 2279183</span>
+                       pattern="\x2b[0-9]+"
+                       {{--pattern="(09(9|8))?[0-9]{7}"--}}
+                >
+                <span class="muted-text text-black-50">Ejemplo. +0987654321 ó +2279183</span>
                 {{--<div class="invalid-feedback">Ingresar un teléfono valido</div>--}}
             </div>
             {{--<div class="form-group">--}}

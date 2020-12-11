@@ -56,7 +56,7 @@
                     video</span>
     </section>
 
-    <section class="container bg-overlay-content pt-3 mb-3" >
+    <section class="container bg-overlay-content pt-3 mb-3" id="searchsection" >
 
             <div class="row">
                 <div class="text-center  col-12 col-lg-8 offset-lg-2">
@@ -65,7 +65,7 @@
             </div>
 
     </section>
-    <section class="searchbar-container bg-overlay-content align-items-center" style="background: #f2f2f2;">
+    <section class="searchbar-container bg-overlay-content align-items-center"  style="background: #f2f2f2;">
         <form class="container" action="{{route('eventos.search')}}" method="POST">
             @csrf
             @method("POST")
@@ -73,11 +73,17 @@
                 <div class="form-group w-100 mb-sm-4 mr-sm-3">
                     <label class="form-label font-weight-bold" for="to-destination" style="color: #a13d8f">Tipo de evento</label>
                     <select class="form-control custom-select" id="to-destination" name="tipoevento">
+                        @if ($busqueda)
                         <option value="" selected disabled hidden>Seleccione un tipo</option>
-                        <option value="2">Todos</option>
-                        <option value="0">Virtual</option>
-                        <option value="1">Presencial</option>
-
+                        <option value="2" {{ old('tipoevento', $busqueda->tipoevento) == '2' ? 'selected' : '' }}>Todos</option>
+                        <option value="0" {{ old('tipoevento', $busqueda->tipoevento) == '0' ? 'selected' : '' }}>Virtual</option>
+                        <option value="1" {{ old('tipoevento', $busqueda->tipoevento) == '1' ? 'selected' : '' }}>Presencial</option>
+                        @else
+                        <option value="" selected disabled hidden>Seleccione un tipo</option>
+                        <option value="2" >Todos</option>
+                        <option value="0" >Virtual</option>
+                        <option value="1" >Presencial</option>
+                        @endif
                     </select>
 
                 </div>
@@ -85,7 +91,7 @@
                     <label class="form-label font-weight-bold" for="from-destination" style="color: #a13d8f">Cantón</label>
 
                     <select style="width:100%;" id="from-destination" class="form-control select2 " name="canton[]"
-                            data-ajax--url="{{route('api.canton.select2')}}"
+                            data-ajax--url="{{route('api.canton.select22')}}"
                             data-ajax--data-type="json"
                             data-ajax--data-cache="true"
                             data-allow-clear="true"
@@ -93,6 +99,15 @@
                             data-close-on-select="false"
                             disabled
                             multiple>
+                            @if($busqueda)
+                                @if($busqueda->canton)
+                                    @foreach($busqueda->canton as $cantonid)
+                                        <option value="{{$cantonid}}"
+                                            selected>{{$cantonid}}</option>
+                                    @endforeach
+                                @endif
+                            @endif
+
                     </select>
                 </div>
                 {{-- <div class="d-sm-flex align-items-center">
@@ -242,6 +257,16 @@
 
     });
 
+</script>
+<script>
+    @if($jumpsection)
+        window.location.hash = "searchsection";
+    @endif
+    @if($busqueda)
+        @if($busqueda->tipoevento=='1')
+            $("#from-destination").removeAttr('disabled');
+        @endif
+    @endif
 </script>
 
 @endsection

@@ -9,7 +9,7 @@
                     </h1>
                     <a href="{{route('app.eventos.post')}}" class="btn btn-primary">
                         <i class="fe fe-plus mr-1"></i>
-                        Crear evento
+                        Crear Evento
                     </a>
                 </div>
 

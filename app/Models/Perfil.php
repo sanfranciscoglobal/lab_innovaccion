@@ -24,4 +24,8 @@ class Perfil extends Model
     {
         return $this->belongsTo('App\Models\Canton');
     }
+
+    public function institucion(){
+        return $this->belongsTo('App\Models\TipoInstitucion', 'tipo_org');
+    }
 }
