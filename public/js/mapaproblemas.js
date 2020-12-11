@@ -114,13 +114,13 @@ function setProblemas(){
   for (j = 0; j < size; j++) {  
     var colormarcador;
     if (problemas[j][3]==0){
-      colormarcador=$("#marker2").val();
+      colormarcador=$("#naranja").val();
     }
     if (problemas[j][3]==1){
-      colormarcador=$("#marker").val();
+      colormarcador=$("#morado").val();
     }
     if (problemas[j][3]==2){
-      colormarcador=$("#marker3").val();
+      colormarcador=$("#rojo").val();
     }
     markers.push(new google.maps.Marker({
       position: new google.maps.LatLng(problemas[j][1], problemas[j][2]),
@@ -352,7 +352,7 @@ function initMap() {
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
           map: map,
           icon: {
-            url: $("#marker1").val()
+            url: $("#verde").val()
             
           }
         }));

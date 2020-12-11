@@ -7,14 +7,14 @@
   
 }
 .select2-selection.select2-selection--multiple {
-    max-width: 300px;
+    width: 300px;
 }
 .select2-container .select2-selection--multiple .select2-selection__rendered {
   
     white-space: unset !important;
 }
 .select2-selection__rendered {
-    max-width: 300px;
+    width: 300px;
     overflow-y: scroll !important;
     max-height: 34px;
     resize: none;
@@ -25,7 +25,7 @@
     height: 34px;
 }
 .pac-input{
-    max-width: 250px !important;
+    max-width: 300px !important;
     
 }
 select2-search__field:placeholder-shown {
@@ -39,7 +39,7 @@ select2-search__field:placeholder-shown {
     border-radius: 10px;
 }
 .select2{
-    max-width: 250px !important;
+    max-width: 300px !important;
     overflow-x: clip;
 }
 .legend { list-style: none; }
