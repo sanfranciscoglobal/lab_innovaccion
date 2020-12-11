@@ -129,8 +129,8 @@
 
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
                 <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/pnud.png')}}"
-                            style="height: 220px;"/>
+                    <div style="min-height: 320px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/pnud.png')}}"
+                            style="padding: 40px;margin-top: 60px;"/>
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-4 mt-4">PNUD</p>
@@ -141,8 +141,8 @@
             </div>
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
                 <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div class="card-img-top card-img-gradient"><img src="{{asset('img/sanfrancisco.svg')}}"
-                    style="height: 220px;" />
+                    <div style="min-height: 320px;" class="card-img-top card-img-gradient"><img src="{{asset('img/sanfrancisco.svg')}}"
+                    style="padding: 40px;" />
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">Fundación San Francisco Global</p>
@@ -156,8 +156,8 @@
 
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
                 <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/impaqto.png')}}"
-                            style="height: 310px;"/>
+                    <div style="min-height: 385px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/impaqto.png')}}"
+                            style="padding: 40px;"/>
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">IMPAQTO</p>
@@ -168,8 +168,8 @@
             </div>
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
                 <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/CTS-LAB_logo.jpg')}}"
-                    style="height: 310px;" />
+                    <div style="min-height: 320px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/CTS-LAB_logo.jpg')}}"
+                    style="padding: 40px;" />
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">CTS LAB</p>
@@ -184,8 +184,8 @@
 
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
                 <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/openlab.png')}}"
-                            style="height: 140px;"/>
+                    <div style="min-height: 290px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/openlab.png')}}"
+                            style="padding: 40px;margin-top: 70px;"/>
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-4 mt-4">OpenLabEc</p>
@@ -196,8 +196,8 @@
             </div>
             <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
                 <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div class="card-img-top card-img-gradient"><img src="{{asset('images/logos/epico.png')}}"
-                    style="height: 170px;" />
+                    <div style="min-height: 320px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/epico.png')}}"
+                    style="padding: 40px;margin-top: 70px;" />
                     </div>
                     <div class="card-body text-center">
                         <p class="logos mb-3 ">EPICO</p>
@@ -239,7 +239,7 @@
                     <ul class="list-unstyled font-size-sm mb-4 pb-2">
                         <li><a class="nav-link-style nav-link-light"
                                 href="mailto:info@laboratoriodeinnovacion.org">hola@thinkialab.org</a></li>
-                        
+
                     </ul>
                     <h3 class="h6 pb-2 text-light">Síguenos en:</h3>
                     <a class="social-btn sb-facebook sb-light sb-lg mr-2 " href="#"><i class="fe-facebook"></i></a>
