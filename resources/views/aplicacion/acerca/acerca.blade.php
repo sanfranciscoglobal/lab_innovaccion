@@ -133,7 +133,7 @@
       <!-- Card deck -->
       <div class="card-deck">
         <!-- Card -->
-        <div class="card d-none d-sm-block" style="background: none;border: none;"></div>
+        <!-- <div class="card d-none d-sm-block" style="background: none;border: none;"></div> -->
         <!-- Card -->
         <div class="card">
           <img src="{{asset('images/logos/01.png')}}" class="card-img-top" alt="Card image">
@@ -153,13 +153,6 @@
           <div class="card-footer font-size-xs text-muted text-center"><a href="https://www.sanfranciscoglobal.org" class="btn btn-sm btn-primary">Ver portal web</a></div>
         </div>
         <!-- Card -->
-        <div class="card d-none d-sm-block" style="background: none;border: none;"></div>
-      </div>
-
-      <br /><br /><hr /><br /><br />
-
-      <div class="card-deck">
-        <!-- Card -->
         <div class="card">
           <img src="{{asset('images/logos/03.png')}}" class="card-img-top" alt="Card image">
           <div class="card-body text-center">
@@ -168,6 +161,12 @@
           </div>
           <div class="card-footer font-size-xs text-muted text-center"><a href="https://www.impaqto.net" class="btn btn-sm btn-primary">Ver portal web</a></div>
         </div>
+      </div>
+
+      <br /><br /><hr /><br /><br />
+
+      <div class="card-deck">
+
         <!-- Card -->
         <div class="card">
           <img src="{{asset('images/logos/04.png')}}" class="card-img-top" alt="Card image">
