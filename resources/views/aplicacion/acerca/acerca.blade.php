@@ -121,93 +121,86 @@
             </div>
         </div>
     </section>
+
     <section class="container mb-5 pb-3 pb-lg-0 mb-lg-7 mt-lg-7">
-        <h2 class="pb-4 mb-4 text-center">El Equipo</h2>
-        <p class="text-justify">Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia
-             y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.</p>
-        <div class="row mb-3 mt-4 align-items-center justify-content-center">
 
-            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
-                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div style="min-height: 320px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/pnud.png')}}"
-                            style="padding: 40px;margin-top: 60px;"/>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="logos mb-4 mt-4">PNUD</p>
-                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <a class="font-size-xl text-body mb-5" href="https://www.ec.undp.org/">https://www.ec.undp.org/</a>
-                    </div>
-                </div>
-            </div>
-            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
-                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div style="min-height: 320px;" class="card-img-top card-img-gradient"><img src="{{asset('img/sanfrancisco.svg')}}"
-                    style="padding: 40px;" />
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="logos mb-3 ">Fundación San Francisco Global</p>
-                        <p class="black font-size-xl text-body mb-2">IMPULSOR</p>
-                        <a class="font-size-xl text-body mb-2" href="https://www.sanfranciscoglobal.org/">https://www.sanfranciscoglobal.org/</a>
-                    </div>
-                </div>
-            </div>
+      <h2 class="pb-4 mb-4 text-center">El Equipo</h2>
+      <p class="text-center">Thinkia es un espacio neutro que busca integrar diversas miradas y voces de actores de todos los sectores público, privado, academia
+           y sociedad civil. La estrategia de innovación y agenda de trabajo de Thinkia es co-creada y co-implementada por el siguiente grupo de aliados.
+      </p>
+      <br />
+
+      <!-- Card deck -->
+      <div class="card-deck">
+        <!-- Card -->
+        <div class="card d-none d-sm-block" style="background: none;border: none;"></div>
+        <!-- Card -->
+        <div class="card">
+          <img src="{{asset('images/logos/01.png')}}" class="card-img-top" alt="Card image">
+          <div class="card-body text-center">
+            <h5 class="card-title font-size-xl ">PNUD</h5>
+            <p class="card-text font-size-xl ">IMPULSOR</p>
+          </div>
+          <div class="card-footer font-size-xs text-muted text-center"><a href="https://www.ec.undp.org/" class="btn btn-sm btn-primary">Ver portal web</a></div>
         </div>
-        <div class="row mb-3 mt-4 align-items-center justify-content-center">
+        <!-- Card -->
+        <div class="card">
+          <img src="{{asset('images/logos/02.png')}}" class="card-img-top" alt="Card image">
+          <div class="card-body text-center">
+            <h5 class="card-title font-size-xl ">FUNDACIÓN SAN FRANCISCO GLOBAL</h5>
+            <p class="card-text font-size-xl ">IMPULSOR</p>
+          </div>
+          <div class="card-footer font-size-xs text-muted text-center"><a href="https://www.sanfranciscoglobal.org" class="btn btn-sm btn-primary">Ver portal web</a></div>
+        </div>
+        <!-- Card -->
+        <div class="card d-none d-sm-block" style="background: none;border: none;"></div>
+      </div>
 
-            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
-                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div style="min-height: 385px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/impaqto.png')}}"
-                            style="padding: 40px;"/>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="logos mb-3 ">IMPAQTO</p>
-                        <p class="black font-size-xl text-body mb-2">SECTOR PRIVADO</p>
-                        <a class="font-size-xl text-body mb-5" href="https://www.impaqto.net/">https://www.impaqto.net/</a>
-                    </div>
-                </div>
-            </div>
-            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
-                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div style="min-height: 320px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/CTS-LAB_logo.jpg')}}"
-                    style="padding: 40px;" />
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="logos mb-3 ">CTS LAB</p>
-                        <p class="black font-size-xl text-body mb-2">ACADEMIA</p>
-                        <a class="font-size-xl text-body mb-2" href="https://www.facebook.com/ctslab.flacso.ec/">https://www.facebook.com/ctslab.flacso.ec/</a>
-                    </div>
-                </div>
-            </div>
+      <br /><br /><hr /><br /><br />
+
+      <div class="card-deck">
+        <!-- Card -->
+        <div class="card">
+          <img src="{{asset('images/logos/03.png')}}" class="card-img-top" alt="Card image">
+          <div class="card-body text-center">
+            <h5 class="card-title font-size-xl ">IMPAQTO</h5>
+            <p class="card-text font-size-xl ">SECTOR PRIVADO</p>
+          </div>
+          <div class="card-footer font-size-xs text-muted text-center"><a href="https://www.impaqto.net" class="btn btn-sm btn-primary">Ver portal web</a></div>
+        </div>
+        <!-- Card -->
+        <div class="card">
+          <img src="{{asset('images/logos/04.png')}}" class="card-img-top" alt="Card image">
+          <div class="card-body text-center">
+            <h5 class="card-title font-size-xl ">CTS LAB</h5>
+            <p class="card-text font-size-xl ">ACADEMIA</p>
+          </div>
+          <div class="card-footer font-size-xs text-muted text-center"><a href="https://www.facebook.com/ctslab.flacso.ec" class="btn btn-sm btn-primary">Ver portal web</a></div>
         </div>
 
-        <div class="row mb-3 mt-4 align-items-center justify-content-center">
-
-            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
-                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div style="min-height: 290px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/openlab.png')}}"
-                            style="padding: 40px;margin-top: 70px;"/>
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="logos mb-4 mt-4">OpenLabEc</p>
-                        <p class="black font-size-xl text-body mb-2">SOCIEDAD CIVIL</p>
-                        <a class="font-size-xl text-body mb-3" href="https://openlab.ec/">https://openlab.ec/</a>
-                    </div>
-                </div>
-            </div>
-            <div class="px-3 col-lg-4 col-md-4 col-sm-6 mb-grid-gutter h-100 w-100">
-                <div class="card  card-hover border-0 box-shadow mx-auto" style="max-width: 21rem;">
-                    <div style="min-height: 320px;" class="card-img-top card-img-gradient"><img src="{{asset('images/logos/epico.png')}}"
-                    style="padding: 40px;margin-top: 70px;" />
-                    </div>
-                    <div class="card-body text-center">
-                        <p class="logos mb-3 ">EPICO</p>
-                        <p class="black font-size-xl text-body mb-2">SECTOR PÚBLICO</p>
-                        <a class="font-size-xl text-body mb-2" href="https://epico.gob.ec/">https://epico.gob.ec/</a>
-                    </div>
-                </div>
-            </div>
+        <!-- Card -->
+        <div class="card">
+          <img src="{{asset('images/logos/05.png')}}" class="card-img-top" alt="Card image">
+          <div class="card-body text-center">
+            <h5 class="card-title font-size-xl ">EPICO</h5>
+            <p class="card-text font-size-xl ">SECTOR PÚBLICO</p>
+          </div>
+          <div class="card-footer font-size-xs text-muted text-center"><a href="https://epico.gob.ec/" class="btn btn-sm btn-primary">Ver portal web</a></div>
         </div>
 
+        <!-- Card -->
+        <div class="card">
+          <img src="{{asset('images/logos/06.png')}}" class="card-img-top" alt="Card image">
+          <div class="card-body text-center">
+            <h5 class="card-title font-size-xl ">OPENLABEC</h5>
+            <p class="card-text font-size-xl ">SOCIEDAD CIVIL</p>
+          </div>
+          <div class="card-footer font-size-xs text-muted text-center"><a href="https://openlab.ec" class="btn btn-sm btn-primary">Ver portal web</a></div>
+        </div>
+
+      </div>
+
+      <!-- Card deck -->
 
     </section>
     <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
