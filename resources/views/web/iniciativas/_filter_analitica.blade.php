@@ -78,8 +78,8 @@
                     <div class="col-12 my-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="font-weight-bold text-primary d-block" style="font-size: 15px;">
-                                    Tipo de informaci&oacute;n
+                                <label class="text-primary font-weight-bold d-block">
+                                    INFORMACI&Oacute;N
                                 </label>
                                 <select id="tipo-informacion" class="form-control custom-select tipo-grafica"
                                         placeholder="Seleccionar data" style="width: 100%;">
@@ -91,8 +91,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label class="font-weight-bold text-primary d-block" style="font-size: 15px;">
-                                    Tipo de gr&aacute;fica
+                                <label class="text-primary font-weight-bold d-block">
+                                    GR&Aacute;FICA
                                 </label>
                                 <select id="tipo-grafica" class="form-control custom-select"
                                         placeholder="Seleccionar data">
