@@ -55,7 +55,9 @@
             background-position: right;
         }
 
-        .custom-page-ul li {margin-bottom: 0;}
+        .custom-page-ul li {
+            margin-bottom: 0;
+        }
 
     </style>
 @endsection
@@ -66,16 +68,16 @@
                 <h1 class="mt-5 text-primary">Analíticas</h1>
                 <div class="py-3 text-justify ">
                     <div class="cs-callout">
-                    <p class="">
-                    ¡ Se parte del ecosistema de innovación !
-                    <br><br>
+                        <p class="">
+                            ¡ Se parte del ecosistema de innovación !
+                            <br><br>
 
-                      Registra tu iniciativa queremos saber sobre tu trabajo.<br />
-                      Conoce el trabajo de otros en temas de innovación.<br />
-                      Anímate a contactar a actores que trabajen en temas de tu interés.<br />
-                      Construyamos lazos de trabajo colaborativos.<br />
+                            Registra tu iniciativa queremos saber sobre tu trabajo.<br/>
+                            Conoce el trabajo de otros en temas de innovación.<br/>
+                            Anímate a contactar a actores que trabajen en temas de tu interés.<br/>
+                            Construyamos lazos de trabajo colaborativos.<br/>
 
-                    </p>
+                        </p>
                     </div>
                     <div class="text-justify shadow-lg p-3 mb-2 btn-purple-gradient text-color-white rounded" style="">
                         <strong>Indicaciones</strong>
@@ -83,17 +85,23 @@
                             <li>Si gustas registrar tu iniciativa pulsa en el botón “Registra tu iniciativa”.</li>
                             <li>Si gustas informarte:
                                 <ol type="a">
-                                    <li> Indaga en el mapa, al poner el curso sobre la iniciativa obtendrás más información. </li>
-                                    <li> Pulsa el botón “Actores” y se desplegará la información de quién implementa. </li>
-                                    <li> Pulsa el botón “Analítica” y podrás visualizar la información en gráficos. </li>
-                                    <li> Escoge filtros  en base a tu interés y se organizará la información. </li>
-                                    <li> Pulsa los botones para descargar y tendrás acceso a toda la base de datos en diferente formatos.</li>
+                                    <li> Indaga en el mapa, al poner el curso sobre la iniciativa obtendrás más
+                                        información.
+                                    </li>
+                                    <li> Pulsa el botón “Actores” y se desplegará la información de quién implementa.
+                                    </li>
+                                    <li> Pulsa el botón “Analítica” y podrás visualizar la información en gráficos.</li>
+                                    <li> Escoge filtros en base a tu interés y se organizará la información.</li>
+                                    <li> Pulsa los botones para descargar y tendrás acceso a toda la base de datos en
+                                        diferente formatos.
+                                    </li>
                                 </ol>
                             </li>
                         </ul>
                     </div>
-                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                <span class="font-size-sm text-muted">Ver
+                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default"
+                       href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
+                    <span class="font-size-sm text-muted">Ver
                     video</span>
                 </div>
             </div>
@@ -105,35 +113,35 @@
     </section>
 
     <section class="searchbar-container bg-secondary mt-2">
-        @include('web.iniciativas._filter', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones','buscar'))
+        @include('web.iniciativas._filter_analitica', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones','buscar'))
     </section>
 
-    <section class="searchbar-container bg-secondary mt-2">
-        <div class="container">
-            <div class="card">
-                <div id="option-type" class="card-body text-center">
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input tipo-grafica" type="radio" id="ex-radio-4"
-                               name="tipo-grafica" value="ods"
-                               checked>
-                        <label class="custom-control-label tipo-grafica" for="ex-radio-4">Iniciativas por ODS</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input tipo-grafica" type="radio" id="ex-radio-5"
-                               name="tipo-grafica"
-                               value="poblacion">
-                        <label class="custom-control-label" for="ex-radio-5">Iniciativas por poblaci&oacute;n</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" id="ex-radio-6" name="tipo-grafica"
-                               value="agente">
-                        <label class="custom-control-label tipo-grafica" for="ex-radio-6">Iniciativas por tipo de
-                            agente</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {{--<section class="searchbar-container bg-secondary mt-2">--}}
+    {{--<div class="container">--}}
+    {{--<div class="card">--}}
+    {{--<div id="option-type" class="card-body text-center">--}}
+    {{--<div class="custom-control custom-radio custom-control-inline">--}}
+    {{--<input class="custom-control-input tipo-grafica" type="radio" id="ex-radio-4"--}}
+    {{--name="tipo-grafica" value="ods"--}}
+    {{--checked>--}}
+    {{--<label class="custom-control-label tipo-grafica" for="ex-radio-4">Iniciativas por ODS</label>--}}
+    {{--</div>--}}
+    {{--<div class="custom-control custom-radio custom-control-inline">--}}
+    {{--<input class="custom-control-input tipo-grafica" type="radio" id="ex-radio-5"--}}
+    {{--name="tipo-grafica"--}}
+    {{--value="poblacion">--}}
+    {{--<label class="custom-control-label" for="ex-radio-5">Iniciativas por poblaci&oacute;n</label>--}}
+    {{--</div>--}}
+    {{--<div class="custom-control custom-radio custom-control-inline">--}}
+    {{--<input class="custom-control-input" type="radio" id="ex-radio-6" name="tipo-grafica"--}}
+    {{--value="agente">--}}
+    {{--<label class="custom-control-label tipo-grafica" for="ex-radio-6">Iniciativas por tipo de--}}
+    {{--agente</label>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</section>--}}
 
     <section class="container mt-2">
         <div id="loading" class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
@@ -143,25 +151,25 @@
         <div id="chartdiv" class="mt-5 w-100" style="height: 500px">
 
         </div>
-        <div class="row">
-            <div class="col text-center mt-2 mb-5">
-                <div class="btn-group dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        Tipo de gráfico
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"
-                           data-analitica="barras">Barras</a>
-                        <a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"
-                           data-analitica="pastel">Pastel</a>
-                        <a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"
-                           data-analitica="radar">Radar</a>
-                    </div>
-                </div>
-                {{--<button class="btn btn-primary">Tipo de gráfico</button>--}}
-            </div>
-        </div>
+        {{--<div class="row">--}}
+        {{--<div class="col text-center mt-2 mb-5">--}}
+        {{--<div class="btn-group dropdown">--}}
+        {{--<button id="tipo-grafica" type="button" class="btn btn-primary dropdown-toggle"--}}
+        {{--data-toggle="dropdown"--}}
+        {{--aria-haspopup="true" aria-expanded="false">--}}
+        {{--Tipo de gráfico--}}
+        {{--</button>--}}
+        {{--<div class="dropdown-menu dropdown-menu-right">--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="barras">Barras</a>--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="pastel">Pastel</a>--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="radar">Radar</a>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
     </section>
 
 @endsection
@@ -178,16 +186,30 @@
         var grafica = 'ods';
 
         $(document).ready(function () {
+            controlesTipoGrafica();
             obtenerIniciativaData(analitica);
 
-            $(document).on('click', '.grafica', function () {
-                analitica = $(this).data('analitica');
-                grafica = $('input[name=tipo-grafica]:checked', '#option-type').val();
+            // $(document).on('click', '.grafica', function () {
+            //     analitica = $(this).data('analitica');
+            //     grafica = $('input[name=tipo-grafica]:checked', '#option-type').val();
+            //     tipoGrafica();
+            // });
+
+            // $("input[name='tipo-grafica']").change(function () {
+            //     grafica = $(this).val();
+            //     console.log(grafica);
+            //     tipoGrafica();
+            // });
+
+            $("#tipo-grafica").change(function () {
+                analitica = $(this).val();
+                controlesTipoGrafica();
                 tipoGrafica();
             });
 
-            $("input[name='tipo-grafica']").change(function () {
+            $("#tipo-informacion").change(function () {
                 grafica = $(this).val();
+                controlesTipoGrafica();
                 tipoGrafica();
             });
 
@@ -197,7 +219,7 @@
             });
 
             $(document).on('click', ".export", function (e) {
-                $('#filter-iniciativas').attr('action',$(this).data('action'));
+                $('#filter-iniciativas').attr('action', $(this).data('action'));
                 $('#filter-iniciativas').submit();
             });
         });
@@ -214,6 +236,36 @@
             if (grafica == 'agente') {
                 obtenerinstitucionData(analitica);
             }
+        }
+
+        function controlesTipoGrafica() {
+            $('#tipo-grafica').show();
+
+            if (grafica == 'ods') {
+                $('#c-ods').appendTo('#content-variables');
+                $('#c-tipo-institucion').appendTo('#content-filtros');
+                $('#c-tipo-poblacion').appendTo('#content-filtros');
+            }
+
+            if (grafica == 'poblacion') {
+                $('#c-tipo-poblacion').appendTo('#content-variables');
+                $('#c-tipo-institucion').appendTo('#content-filtros');
+                $('#c-ods').appendTo('#content-filtros');
+            }
+
+            if (grafica == 'agente') {
+                $('#c-tipo-institucion').appendTo('#content-variables');
+                $('#c-tipo-poblacion').appendTo('#content-filtros');
+                $('#c-ods').appendTo('#content-filtros');
+            }
+
+            if (grafica == 'ods_institucion') {
+                $('#c-ods').appendTo('#content-variables');
+                $('#c-tipo-institucion').appendTo('#content-variables');
+                $('#c-tipo-poblacion').appendTo('#content-filtros');
+                $('#tipo-grafica').hide();
+            }
+
         }
     </script>
 @endsection
