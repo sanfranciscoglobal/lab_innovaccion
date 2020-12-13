@@ -239,7 +239,7 @@
         }
 
         function controlesTipoGrafica() {
-            $('#tipo-grafica').show();
+            $('#c-tipo-grafica').show();
 
             if (grafica == 'ods') {
                 $('#c-ods').appendTo('#content-variables');
@@ -263,7 +263,7 @@
                 $('#c-ods').appendTo('#content-variables');
                 $('#c-tipo-institucion').appendTo('#content-variables');
                 $('#c-tipo-poblacion').appendTo('#content-filtros');
-                $('#tipo-grafica').hide();
+                $('#c-tipo-grafica').hide();
             }
 
         }

@@ -91,15 +91,17 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label class="text-primary font-weight-bold d-block">
-                                    GR&Aacute;FICA
-                                </label>
-                                <select id="tipo-grafica" class="form-control custom-select"
-                                        placeholder="Seleccionar data">
-                                    <option value="barras">Barras</option>
-                                    <option value="pastel">Pastel</option>
-                                    <option value="radar">Radar</option>
-                                </select>
+                                <div id="c-tipo-grafica">
+                                    <label class="text-primary font-weight-bold d-block">
+                                        GR&Aacute;FICA
+                                    </label>
+                                    <select id="tipo-grafica" class="form-control custom-select"
+                                            placeholder="Seleccionar data">
+                                        <option value="barras">Barras</option>
+                                        <option value="pastel">Pastel</option>
+                                        <option value="radar">Radar</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
