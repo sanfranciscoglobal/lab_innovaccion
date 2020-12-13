@@ -181,6 +181,7 @@
     <script src="{{asset('analitica/iniciativaOds.js')}}"></script>
     <script src="{{asset('analitica/iniciativaPoblacion.js')}}"></script>
     <script src="{{asset('analitica/iniciativaInstitucion.js')}}"></script>
+    <script src="{{asset('analitica/iniciativaOdsInstitucion.js')}}"></script>
     <script type="text/javascript">
         var analitica = 'barras';
         var grafica = 'ods';
@@ -235,6 +236,10 @@
 
             if (grafica == 'agente') {
                 obtenerinstitucionData(analitica);
+            }
+
+            if (grafica == 'ods_institucion') {
+                obtenerOdsInstitucionData(analitica);
             }
         }
 
