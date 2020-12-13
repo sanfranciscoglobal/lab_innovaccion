@@ -151,25 +151,25 @@
         <div id="chartdiv" class="mt-5 w-100" style="height: 500px">
 
         </div>
-        <div class="row">
-            <div class="col text-center mt-2 mb-5">
-                <div class="btn-group dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        Tipo de gráfico
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"
-                           data-analitica="barras">Barras</a>
-                        <a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"
-                           data-analitica="pastel">Pastel</a>
-                        <a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"
-                           data-analitica="radar">Radar</a>
-                    </div>
-                </div>
-                {{--<button class="btn btn-primary">Tipo de gráfico</button>--}}
-            </div>
-        </div>
+        {{--<div class="row">--}}
+        {{--<div class="col text-center mt-2 mb-5">--}}
+        {{--<div class="btn-group dropdown">--}}
+        {{--<button id="tipo-grafica" type="button" class="btn btn-primary dropdown-toggle"--}}
+        {{--data-toggle="dropdown"--}}
+        {{--aria-haspopup="true" aria-expanded="false">--}}
+        {{--Tipo de gráfico--}}
+        {{--</button>--}}
+        {{--<div class="dropdown-menu dropdown-menu-right">--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="barras">Barras</a>--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="pastel">Pastel</a>--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="radar">Radar</a>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
     </section>
 
 @endsection
@@ -189,17 +189,23 @@
             controlesTipoGrafica();
             obtenerIniciativaData(analitica);
 
-            $(document).on('click', '.grafica', function () {
-                analitica = $(this).data('analitica');
-                grafica = $('input[name=tipo-grafica]:checked', '#option-type').val();
-                tipoGrafica();
-            });
+            // $(document).on('click', '.grafica', function () {
+            //     analitica = $(this).data('analitica');
+            //     grafica = $('input[name=tipo-grafica]:checked', '#option-type').val();
+            //     tipoGrafica();
+            // });
 
             // $("input[name='tipo-grafica']").change(function () {
             //     grafica = $(this).val();
             //     console.log(grafica);
             //     tipoGrafica();
             // });
+
+            $("#tipo-grafica").change(function () {
+                analitica = $(this).val();
+                controlesTipoGrafica();
+                tipoGrafica();
+            });
 
             $("#tipo-informacion").change(function () {
                 grafica = $(this).val();
@@ -233,6 +239,8 @@
         }
 
         function controlesTipoGrafica() {
+            $('#tipo-grafica').show();
+
             if (grafica == 'ods') {
                 $('#c-ods').appendTo('#content-variables');
                 $('#c-tipo-institucion').appendTo('#content-filtros');
@@ -251,7 +259,13 @@
                 $('#c-ods').appendTo('#content-filtros');
             }
 
-            // console.log(grafica);
+            if (grafica == 'ods_institucion') {
+                $('#c-ods').appendTo('#content-variables');
+                $('#c-tipo-institucion').appendTo('#content-variables');
+                $('#c-tipo-poblacion').appendTo('#content-filtros');
+                $('#tipo-grafica').hide();
+            }
+
         }
     </script>
 @endsection

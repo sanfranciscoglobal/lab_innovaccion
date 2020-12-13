@@ -76,15 +76,33 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-12 my-3">
-                        <span class="font-weight-bold text-primary d-block" style="font-size: 15px;">
-                            Tipo de informaci&oacute;n
-                        </span>
-                        <select id="tipo-informacion" class="form-control custom-select tipo-grafica"
-                                placeholder="Seleccionar data">
-                            <option value="ods">Iniciativas por ODS</option>
-                            <option value="poblacion">Iniciativas por poblaci&oacute;n</option>
-                            <option value="agente">Iniciativas por tipo de agente</option>
-                        </select>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="font-weight-bold text-primary d-block" style="font-size: 15px;">
+                                    Tipo de informaci&oacute;n
+                                </label>
+                                <select id="tipo-informacion" class="form-control custom-select tipo-grafica"
+                                        placeholder="Seleccionar data" style="width: 100%;">
+                                    <option value="ods">Iniciativas por ODS</option>
+                                    <option value="poblacion">Iniciativas por poblaci&oacute;n</option>
+                                    <option value="agente">Iniciativas por tipo de agente</option>
+                                    <option value="ods_institucion">Iniciativas por ODS y Tipo Instituci&oacute;n
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="font-weight-bold text-primary d-block" style="font-size: 15px;">
+                                    Tipo de gr&aacute;fica
+                                </label>
+                                <select id="tipo-grafica" class="form-control custom-select"
+                                        placeholder="Seleccionar data">
+                                    <option value="barras">Barras</option>
+                                    <option value="pastel">Pastel</option>
+                                    <option value="radar">Radar</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="col-12">
