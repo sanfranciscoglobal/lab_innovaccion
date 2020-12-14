@@ -111,15 +111,16 @@
                                 <h4 style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
                                     <i style="border-color: #FF7F00;color: white;background: #FF7F00;" class="shadow mr-3 btn fa fa-angle-up "></i></a>Filtros
                                 </h4>
+                                <span class="p-0 font-weight-bold col-12  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
+                                    <input id="pac-input"  class="form-control" placeholder="Buscar" type=""  autocomplete="off" style="width:300px">
+                                </div>
                                 <h4 class="pt-3  text-center" style="color:#531c6a">
                                   Retos
                                 </h4>
                                 <hr />
                                       <div class="pl-4 pr-3">
-                                            <div class="row mt-2">
-                                            <span class="p-0 font-weight-bold col-12  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
-                                                <input id="pac-input"  class="form-control" placeholder="Buscar" type=""  autocomplete="off" style="width:300px">
-                                            </div>
+                                           
+                                           
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Institución</span>
                                                 <select id="tipo_ins" name="tipo_ins]"
@@ -174,19 +175,7 @@
                                 </h4>
                                 <hr />
                                         <div class="pl-4 pr-3">
-                                            <div class="row mt-2">
-                                            <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Ciudad</span>
-                                            </div>
-                                            <div class="row">
-                                            <select id="canton_id" class="form-control custom-select select2"
-                                                name="canton_id[]"
-                                                data-ajax--url="{{route('api.canton.select2')}}"
-                                                data-ajax--data-type="json"
-                                                data-ajax--cache="true"
-                                                style="width:100%;"
-                                                data-placeholder="Selecionar Ciudad"
-                                                 multiple>
-                                            </div>
+                                            
                                             <div class="row mt-2 ">
                                                 <span class="ml-1  mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
                                             </div>
