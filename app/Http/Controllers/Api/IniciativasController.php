@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\CustomUrl;
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Iniciativas;
 use App\Models\OdsCategoria;
@@ -146,6 +148,39 @@ class IniciativasController extends Controller
         return [
             'items' => $data,
             'total' => max($total),
+        ];
+    }
+
+    public static function analiticaIniciativaOdsInstitucion(Request $request)
+    {
+        $data = $categorias = [];
+        OdsCategoria::$search = $request->has('ods_categorias') ? $request->ods_categorias : [];
+        $categoriaOds = OdsCategoria::obtenerOdsCategoriaAll();
+
+        TipoInstitucion::$search = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
+        $tipoInstitucion = TipoInstitucion::obtenerTipoInstitucionAll();
+
+        Iniciativas::$search_tipo_poblacion = $request->has('tipo_poblacion') ? $request->tipo_poblacion : [];
+
+        foreach ($categoriaOds as $key => $ods) {
+            foreach ($tipoInstitucion as $institucion) {
+                Iniciativas::$search_ods_categorias = [$ods->id];
+                Iniciativas::$search_tipo_institucion = [$institucion->id];
+                $iniciativas = Iniciativas::obtenerIniciativasCount();
+
+                if ($iniciativas > 0) {
+                    $cat = CustomUrl::convertAccentedCharacters($institucion->descripcion);
+                    $cat = CustomUrl::urlTitle(mb_strtolower($cat),'_');
+                    $data[$key]['year'] = "ODS {$ods->id}";
+                    $data[$key][$cat] = $iniciativas;
+                    $categorias[$cat] = $institucion->descripcion;
+                }
+            }
+        }
+
+        return [
+            'data' => $data,
+            'categorias' => $categorias,
         ];
     }
 }

@@ -33,13 +33,13 @@ class TipoInstitucion extends Model
      */
     public static function builderTipoInstitucion()
     {
-        $query = TipoInstitucion::orderBy('created_at', request('created_at', 'DESC'));
+        $query = TipoInstitucion::orderBy('descripcion', 'ASC');
 
-        if (!is_array(self::$search)) {
+        if (!is_array(self::$search) && self::$search) {
             $query->where('descripcion', 'ilike', '%' . self::$search . '%');
         }
 
-        if (is_array(self::$search)) {
+        if (is_array(self::$search) && self::$search) {
             $query->whereIn('tipo_institucion.id', self::$search);
         }
 
