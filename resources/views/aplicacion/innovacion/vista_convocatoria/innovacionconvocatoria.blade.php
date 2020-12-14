@@ -93,7 +93,7 @@
             <div class="row">
             <div class="col d-sm-flex align-items-center px-4 pt-4 pb-3">
                 <div class="row">
-                    <div class="col-5 form-group w-100 mb-sm-4 mr-sm-3">
+                    <div class="col-md-5 col-6 col-sm-12 form-group w-100 mb-sm-4 mr-sm-3">
                         <label class="w-100 form-label font-weight-bold pb-1" for="tipoconvocatoria" style="color: #a13d8f">Tipo de convocatoria</label>
 
                         <select class="form-control custom-select select2" id="tipoconvocatoria" name="tipoconvocatoria" data-clean>
@@ -114,8 +114,8 @@
                         </select>
 
                     </div>
-                    <div class="col-5 form-group w-100 mb-sm-4 mr-sm-3">
-                        <label class="form-label font-weight-bold pb-1" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
+                    <div class="col-md-5 col-6 col-sm-12 form-group w-100 mb-sm-4 mr-sm-3">
+                        <label class="w-100 form-label font-weight-bold pb-1" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
 
                         <select class="form-control custom-select select2" id="estadoconvocatoria" name="estadoconvocatoria" data-clean>
                             @if ($busqueda)
@@ -132,7 +132,7 @@
 
 
                     </div>
-                    <div class="col-2 text-center text-sm-left mt-2 mt-sm-4 mb-4">
+                    <div class="col-md-1 col-sm-12 text-center text-sm-left mt-2 mt-sm-4 mb-4">
                         <button class="btn " style="background: #ff7f00; color:#fafafc;" type="submit">Filtrar</button>
                      </div>
 
