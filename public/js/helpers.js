@@ -231,9 +231,7 @@ window.disableInputForm = function disableInputForm(id) {
 window.initSelect2 = function initSelect2(element) {
   // console.log('Nr', element);
   $(element).select2({
-    width: 'resolve',
-    language: "es",
-    dropdownAutoWidth : true
+    language: "es"
   });
 };
 
@@ -241,9 +239,7 @@ window.initAjaxSelect2 = function initAjaxSelect2(element) {
   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content'); // console.log('Ajax: ', element);
 
   $(element).select2({
-    width: 'resolve',
     language: "es",
-    dropdownAutoWidth : true,
     ajax: {
       data: function data(params) {
         var query = {
@@ -445,7 +441,7 @@ window.addSearchMap = function addSearchMap() {
   html += '<div class="form-group ubicaciones direccion border-bottom" data-row="' + addressIterator + '">';
   html += '<div class="row">';
   html += '<div class="col-lg-12">';
-  html += '<label class="control-label">Dirección Sucursal</label>';
+  html += '<label class="control-label">Dirección Sucursal <i class="fe-info text-primary" style="font-size: 22px; margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right" title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>';
   html += '<input type="text" required="required" data-adresscontainer="' + addressIterator + '" class="form-control ubicacion ubicacion-' + addressIterator + '"';
   html += 'placeholder="Escriba la dirección" name="Ubicaciones[' + addressIterator + '][direccion]"';
   html += 'value=""/>';
@@ -459,6 +455,7 @@ window.addSearchMap = function addSearchMap() {
   $('#sedes-container').append(html);
   var newInput = document.getElementsByClassName('ubicacion-' + addressIterator)[0];
   window.initSearchMap(newInput);
+  $('[data-toggle="tooltip"]').tooltip();
 };
 
 window.initSearchMap = function initSearchMap(element) {
@@ -556,7 +553,7 @@ window.Select2Cascade = function (window, $) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/XAMPP/xamppfiles/htdocs/lab_innovaccion/resources/js/helpers.js */"./resources/js/helpers.js");
+module.exports = __webpack_require__(/*! /home/martinvelez/Desktop/lab_innovaccion/resources/js/helpers.js */"./resources/js/helpers.js");
 
 
 /***/ })

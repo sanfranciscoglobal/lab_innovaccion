@@ -112,10 +112,54 @@
 
     </section>
 
-    <section class="searchbar-container bg-secondary mt-2">
+    <section class="row searchbar-container bg-secondary mt-2">
+    <div class="col-md-4 col-12">
         @include('web.iniciativas._filter_analitica', compact('cantones','tipoInstituciones','odsCategorias','tipoPoblaciones','buscar'))
-    </section>
+    </div>
+    <div class="col-md-8 col-12">
+        <div class="row">
+        <div class="container mt-2">
+            <span class="sr-only">Loading...</span>
+        </div>
 
+        <div id="chartdiv" class="mt-5 w-100" style="height: 500px">
+
+        </div>
+        <div class="col pb-2">
+                <a href="{{route('app.iniciativas.create')}}"
+                class="font-weight-bold btn btn-primary float-right"
+                style="border-color:#fd972b;background: #fd972b;">Registra tu iniciativa
+                </a>
+         
+                        <a href="/mapa"
+                           class="btn btn-primary font-weight-bold btn btn-primary mr-3 btn-filter-submit"
+                           style="border-color:#7A3240;background:#7A3240 "
+                           data-action="">
+                            <img src="{{ asset('images/Group 161.svg')}}"/>
+                            Ver mapa completo
+                        </a>
+        </div>
+        {{--<div class="row">--}}
+        {{--<div class="col text-center mt-2 mb-5">--}}
+        {{--<div class="btn-group dropdown">--}}
+        {{--<button id="tipo-grafica" type="button" class="btn btn-primary dropdown-toggle"--}}
+        {{--data-toggle="dropdown"--}}
+        {{--aria-haspopup="true" aria-expanded="false">--}}
+        {{--Tipo de gráfico--}}
+        {{--</button>--}}
+        {{--<div class="dropdown-menu dropdown-menu-right">--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="barras">Barras</a>--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="pastel">Pastel</a>--}}
+        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
+        {{--data-analitica="radar">Radar</a>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+    </div>
+    </section>                            
     {{--<section class="searchbar-container bg-secondary mt-2">--}}
     {{--<div class="container">--}}
     {{--<div class="card">--}}
@@ -143,35 +187,7 @@
     {{--</div>--}}
     {{--</section>--}}
 
-    <section class="container mt-2">
-        <div id="loading" class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-
-        <div id="chartdiv" class="mt-5 w-100" style="height: 500px">
-
-        </div>
-        {{--<div class="row">--}}
-        {{--<div class="col text-center mt-2 mb-5">--}}
-        {{--<div class="btn-group dropdown">--}}
-        {{--<button id="tipo-grafica" type="button" class="btn btn-primary dropdown-toggle"--}}
-        {{--data-toggle="dropdown"--}}
-        {{--aria-haspopup="true" aria-expanded="false">--}}
-        {{--Tipo de gráfico--}}
-        {{--</button>--}}
-        {{--<div class="dropdown-menu dropdown-menu-right">--}}
-        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
-        {{--data-analitica="barras">Barras</a>--}}
-        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
-        {{--data-analitica="pastel">Pastel</a>--}}
-        {{--<a style="cursor: pointer;" class="nav-link-style dropdown-item grafica"--}}
-        {{--data-analitica="radar">Radar</a>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-    </section>
-
+    
 @endsection
 
 @section('scripts')

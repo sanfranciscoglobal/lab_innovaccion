@@ -78,17 +78,17 @@
 
                 </div>
                 <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-12 pb-3">
+                    <div class="col-lg-6 col-md-12">
                         <h2 style="color:#531c6a" class="float-left">Filtros</h2>
                     </div>
                 </div>
-                <div class="row pt-1  mr-2 align-items-center">
+                <div class="row  mr-2 align-items-center">
 
-                    <div class="w-100 center-block text-left pl-xl-2 pl-lg-1 pl-md-0 pt-1">
-                        <div class="row pt-1  mr-md-2 align-items-center">
+                    <div class="w-100 center-block text-left pl-xl-2 pl-lg-1 pl-md-0">
+                        <div class="row  mr-md-2 align-items-center">
 
 
-                            <div class="col-12 py-1">
+                            <div class="col-12 ">
                                 <span class="ml-md-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "
                                 >Tipo Instituci&oacute;n</span>
                                 <select id="tipo_institucion"
@@ -165,9 +165,9 @@
                             {{--</select>--}}
                             {{--</div>--}}
                         </div>
-                        <p style="display: flex;" class="text-center pt-1 mt-3 justify-content-center">
+                        <p style="display: flex;" class="text-center  justify-content-center">
                         <div class="row justify-content-center">
-                            <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit"
+                            <button type="submit" class="font-weight-bold  btn btn-primary btn-filter-submit"
                                     style="border-color:#FF7F00;background: #FF7F00; width: 150px;">
                                 Aplicar
                             </button>
@@ -181,23 +181,6 @@
 </form>
 
 <style>
-    #pac-input {
-        min-height: 60px;
-        border: 1px solid #aaa !important;
-    }
-
-    .select2-selection__rendered {
-        max-height: 60px !important;
-    }
-
-    .select2-selection.select2-selection--single {
-        height: 60px !important;
-    }
-
-    .select2-container .select2-selection--multiple {
-        min-height: 60px !important;
-    }
-
     .select2-selection.select2-selection--multiple {
         width: 100%;
     }

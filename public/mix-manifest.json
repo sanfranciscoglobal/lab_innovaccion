@@ -2,6 +2,8 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/helpers.js": "/js/helpers.js",
+    "/analitica/iniciativaInstitucion.js": "/analitica/iniciativaInstitucion.js",
     "/analitica/iniciativaOds.js": "/analitica/iniciativaOds.js",
+    "/analitica/iniciativaOdsInstitucion.js": "/analitica/iniciativaOdsInstitucion.js",
     "/analitica/iniciativaPoblacion.js": "/analitica/iniciativaPoblacion.js"
 }
