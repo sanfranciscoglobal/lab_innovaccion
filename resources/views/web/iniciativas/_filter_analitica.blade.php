@@ -6,6 +6,7 @@
     <div class=" align-items-center  h-100 bg-light rounded-lg box-shadow-lg pl-2 pr-5 py-4">
         <div class="w-100 center-block text-left pl-5 pt-1">
             <div class="">
+            
                 <div class="row align-items-center">
                     <div class="col py-2 px-1">
                         <a class="font-weight-bold btn btn-primary btn-block"
@@ -27,103 +28,70 @@
                         </div>
                     @endif
 
-                    <div class="font-weight-bold d-flex justify-content-end col-xl-3 col-lg-12 col-md-12 col-sm-12">
-                        <button class="font-weight-bold btn btn btn-primary mr-3 dropdown-toggle"
-                                data-toggle="dropdown">Descargar Datos
-                            <span class="caret"></span>
-                        </button>
-
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a type="button" type="button" class="nav-link-style ml-3 export"
-                                   data-action="{{route('web.iniciativas.exportar.csv')}}">
-                                    <i class="fe-download"></i> .CSV
-                                </a>
-                            </li>
-
-                            <li>
-                                <a type="button" class="nav-link-style ml-3 export"
-                                   data-action="{{route('web.iniciativas.exportar.json')}}">
-                                    <i class="fe-download"></i> .JSON
-                                </a>
-                            </li>
-
-                            <li>
-                                <a type="button" class="nav-link-style ml-3 export"
-                                   data-action="{{route('web.iniciativas.exportar.excel')}}">
-                                    <i class="fe-download"></i> .XLSX
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12">
-                        <a href="/mapa"
-                           class="btn btn-primary font-weight-bold btn btn-primary mr-3 btn-filter-submit"
-                           style="border-color:#7A3240;background:#7A3240 "
-                           data-action="">
-                            <img src="{{ asset('images/Group 161.svg')}}"/>
-                            Ver mapa completo
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-12 py-3">
-                        <a href="{{route('app.iniciativas.create')}}"
-                           class="font-weight-bold btn btn-primary float-right"
-                           style="border-color:#fd972b;background: #fd972b;">Registra tu iniciativa
-                        </a>
-                    </div>
 
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-12 my-3">
-                        <div class="row">
-                            <div class="col-md-6">
+               
+                  
+                    <div class="row">
+                            <div id="c-tipo-grafica">
                                 <label class="text-primary font-weight-bold d-block">
-                                    INFORMACI&Oacute;N
+                                Tipo de gr&aacute;fico
                                 </label>
-                                <select id="tipo-informacion" class="form-control custom-select tipo-grafica"
-                                        placeholder="Seleccionar data" style="width: 100%;">
-                                    <option value="ods">Iniciativas por ODS</option>
-                                    <option value="poblacion">Iniciativas por poblaci&oacute;n</option>
-                                    <option value="agente">Iniciativas por tipo de agente</option>
-                                    <option value="ods_institucion">Iniciativas por ODS y Tipo Instituci&oacute;n
-                                    </option>
+                                <select id="tipo-grafica" class="form-control custom-select"
+                                        placeholder="Seleccionar data">
+                                    <option value="barras">Barras</option>
+                                    <option value="pastel">Pastel</option>
+                                    <option value="radar">Radar</option>
                                 </select>
                             </div>
-                            <div class="col-md-6">
-                                <div id="c-tipo-grafica">
-                                    <label class="text-primary font-weight-bold d-block">
-                                        GR&Aacute;FICA
-                                    </label>
-                                    <select id="tipo-grafica" class="form-control custom-select"
-                                            placeholder="Seleccionar data">
-                                        <option value="barras">Barras</option>
-                                        <option value="pastel">Pastel</option>
-                                        <option value="radar">Radar</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+                      
 
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="text-primary font-weight-bold">VARIABLES</label>
-                                <div id="content-variables" class="my-2">
-
-                                </div>
+                   
+                          
+                    <div class="row">
+                            
+                            <label class="w-100 text-primary font-weight-bold d-block">
+                            Variable
+                            </label>
+                            <select id="tipo-informacion" class="form-control custom-select tipo-grafica"
+                                    placeholder="Seleccionar data" style="width: 100%;">
+                                <option value="ods">Iniciativas por ODS</option>
+                                <option value="poblacion">Iniciativas por poblaci&oacute;n</option>
+                                <option value="agente">Iniciativas por tipo de agente</option>
+                                <option value="ods_institucion">Iniciativas por ODS y Tipo Instituci&oacute;n
+                                </option>
+                            </select>
+                    </div>  
+                    <div class="row mt-2">
+                            <label class="text-primary font-weight-bold w-100">Sub-variable</label>
+                            <div id="content-variables" class="my-2">
                             </div>
-                            <div class="col-md-6">
-                                <label class="text-primary font-weight-bold">FILTROS</label>
-                                <div id="content-filtros" class="my-2">
-
-                                </div>
-                            </div>
-
-                            <div id="c-tipo-institucion">
-                                <label class="font-weight-bold d-block text-warning">
+                            <div id="c-ods">
+                                <label class="w-100 font-weight-bold d-block text-warning d-block">ODS</label>
+                                <select id="ods_categorias" class="form-control custom-select select2"
+                                        name="ods_categorias[]"
+                                        data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                        data-ajax--data-type="json"
+                                        data-ajax--cache="true"
+                                        data-close-on-select="false"
+                                        style="width:100%;"
+                                    data-placeholder="Seleccionar ODS"
+                                    multiple>
+                                @if(isset($odsCategorias))
+                                    @foreach($odsCategorias as $odsCategoria)
+                                        <option value="{{$odsCategoria->id}}"
+                                                selected="selected">{{$odsCategoria->nombre}}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+                    </div>
+                            <div class="row">
+                                <label class="w-100 text-primary font-weight-bold my-2">FILTROS</label>
+                                <div id="content-filtros" class="">
+                                <div id="c-tipo-institucion">
+                                <label class="w-100 font-weight-bold d-block text-warning">
                                     Tipo Instituci&oacute;n
                                 </label>
                                 <select id="tipo_institucion"
@@ -144,49 +112,32 @@
                                     @endif
                                 </select>
                             </div>
-
-                            <div id="c-ods">
-                                <label class="font-weight-bold d-block text-warning d-block">ODS</label>
-                                <select id="ods_categorias" class="form-control custom-select select2"
-                                        name="ods_categorias[]"
-                                        data-ajax--url="{{route('api.ods-categoria.select2')}}"
-                                        data-ajax--data-type="json"
-                                        data-ajax--cache="true"
-                                        data-close-on-select="false"
-                                        style="width:100%;"
-                                        data-placeholder="Seleccionar ODS"
-                                        multiple>
-                                    @if(isset($odsCategorias))
-                                        @foreach($odsCategorias as $odsCategoria)
-                                            <option value="{{$odsCategoria->id}}"
-                                                    selected="selected">{{$odsCategoria->nombre}}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
+                            <div class="row pl-3" id="c-tipo-poblacion ">
+                                    <label class="w-100 text-warning font-weight-bold  d-block  mt-1">
+                                        Población Objetivo
+                                    </label>
+                                    <select style="width:100%;"
+                                            id="tipo_poblacion"
+                                            name="tipo_poblacion[]"
+                                            class="form-control select2 pl-1"
+                                            data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--cache="true"
+                                            data-close-on-select="false"
+                                            data-placeholder="Seleccionar población objetivo"
+                                            multiple>
+                                        @if(isset($tipoPoblaciones))
+                                            @foreach($tipoPoblaciones as $tipoPoblacion)
+                                                <option value="{{$tipoPoblacion->id}}"
+                                                        selected="selected">{{$tipoPoblacion->descripcion}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
                             </div>
-
-                            <div id="c-tipo-poblacion">
-                                <label class="text-warning font-weight-bold  d-block">
-                                    Población Objetivo
-                                </label>
-                                <select style="width:100%;"
-                                        id="tipo_poblacion"
-                                        name="tipo_poblacion[]"
-                                        class="form-control select2"
-                                        data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
-                                        data-ajax--data-type="json"
-                                        data-ajax--cache="true"
-                                        data-close-on-select="false"
-                                        data-placeholder="Seleccionar población objetivo"
-                                        multiple>
-                                    @if(isset($tipoPoblaciones))
-                                        @foreach($tipoPoblaciones as $tipoPoblacion)
-                                            <option value="{{$tipoPoblacion->id}}"
-                                                    selected="selected">{{$tipoPoblacion->descripcion}}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
+                                
+                          
+                          
 
                             <div class="col-12 mt-2 text-center">
                                 <button type="submit"
@@ -194,6 +145,36 @@
                                         style="border-color:#FF7F00;background: #FF7F00; width: 150px;">
                                     Aplicar
                                 </button>
+                                <div class="">
+                                    <button class="font-weight-bold btn btn btn-primary mr-3 dropdown-toggle"
+                                            data-toggle="dropdown">Descargar Datos
+                                        <span class="caret"></span>
+                                    </button>
+
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a type="button" type="button" class="nav-link-style ml-3 export"
+                                            data-action="{{route('web.iniciativas.exportar.csv')}}">
+                                                <i class="fe-download"></i> .CSV
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a type="button" class="nav-link-style ml-3 export"
+                                            data-action="{{route('web.iniciativas.exportar.json')}}">
+                                                <i class="fe-download"></i> .JSON
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a type="button" class="nav-link-style ml-3 export"
+                                            data-action="{{route('web.iniciativas.exportar.excel')}}">
+                                                <i class="fe-download"></i> .XLSX
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                
                             </div>
                         </div>
                     </div>
@@ -203,55 +184,3 @@
     </div>
 </form>
 
-<style>
-    #pac-input {
-        min-height: 60px;
-        border: 1px solid #aaa !important;
-    }
-
-    .select2-selection__rendered {
-        max-height: 60px !important;
-    }
-
-    .select2-selection.select2-selection--single {
-        height: 60px !important;
-    }
-
-    .select2-container .select2-selection--multiple {
-        min-height: 60px !important;
-    }
-
-    .select2-selection.select2-selection--multiple {
-        width: 100%;
-    }
-
-    .select2-container .select2-selection--multiple .select2-selection__rendered {
-
-        white-space: unset !important;
-    }
-
-    .select2-selection__rendered {
-        width: 100%;
-        overflow-y: scroll !important;
-        resize: none;
-
-    }
-
-    select2-search__field:placeholder-shown {
-        width: auto !important;
-    }
-
-    .select2-selection__choice {
-
-    }
-
-    .select2-selection.select2-selection--single {
-
-        border-radius: 10px;
-    }
-
-    .select2 {
-        max-width: none !important;
-    }
-
-</style>
