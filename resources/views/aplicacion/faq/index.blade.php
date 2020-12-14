@@ -15,14 +15,13 @@
     <section class="container my-lg-2 pt-5 pb-lg-7">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5">Preguntas frecuentes</h1>
+                <h1 class="mt-5"></h1>
                 <div class="py-4">
-                    <p class="cs-callout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                    <p class="cs-callout">Consulas tus preguntas frecuentes y condiciones de uso</p>
                 </div>
-                <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
+                {{-- <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
                     href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
-                    video</span>
+                    video</span> --}}
             </div>
             <div class="col-md-6 mt-3 py-8 bg-size-contain order-md-2 overflow-hidden" style="background-image: url('{{asset('img/img_pages/uso.png')}}');">
             </div>
@@ -31,31 +30,83 @@
     </section>
     <section>
         <div class="container">
+            <div class="tent-center flex-column justify-content-center row mt-5 mb-5">
+                <h2 >Preguntas Frecuentes</h2>
+            </div>
             <div class="row">
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, commodi incidunt voluptate nisi
-                        magnam accusantium possimus suscipit debitis. Consectetur culpa dolorem libero ratione reiciendis
-                        similique voluptas saepe placeat eveniet esse. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Est aspernatur laboriosam, libero voluptate doloribus recusandae distinctio maxime, ex nemo
-                        architecto magnam. Laboriosam quam beatae iste itaque? Non enim ipsum quasi?</p>
+                    <!-- Accordion made of cards -->
+                    <div class="accordion" id="accordionExample">
+
+                        <!-- Card -->
+                        <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h3 class="accordion-heading">
+                            <a href="#collapseOne" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                                Pregunta 1
+                                <span class="accordion-indicator"></span>
+                            </a>
+                            </h3>
+                        </div>
+                        <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                             Respuesta 1 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                            </div>
+                        </div>
+                        </div>
+
+                        <!-- Card -->
+                        <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h3 class="accordion-heading">
+                            <a href="#collapseTwo" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                                Pregunta 2
+                                <span class="accordion-indicator"></span>
+                            </a>
+                            </h3>
+                        </div>
+                        <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                                Respuesta 2 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                            </div>
+                        </div>
+                        </div>
+
+                        <!-- Card -->
+                        <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h3 class="accordion-heading">
+                            <a href="#collapseThree" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
+                                Pregunta 3
+                                <span class="accordion-indicator"></span>
+                            </a>
+                            </h3>
+                        </div>
+                        <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                                Respuesta 3  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-  
+
     <section>
         <div class="container">
             <div class="tent-center flex-column justify-content-center row mt-5 mb-5">
                 <h2 >Términos y Condiciones</h2>
             </div>
             <div class="row mt-5 mb-5" style="overflow: scroll!important;max-height:500px">
-               
-                
+
+
                 <div class="d-flex align-content-center flex-column justify-content-center">
-                   
-                    <p class="text-justify">         
+
+                    <p class="text-justify">
                     Los siguientes términos y condiciones se refieren a las reglas de uso del Sitio Web <a href="www.thinkialab.com">www.thinkialab.com</a>
-                    Al utilizar las funcionalidades del sitio web y navegar en las distintas páginas de la plataforma, usted acepta y está de acuerdo con estos términos y condiciones, de acuerdo a lo que se describe en los siguientes numerales: 
+                    Al utilizar las funcionalidades del sitio web y navegar en las distintas páginas de la plataforma, usted acepta y está de acuerdo con estos términos y condiciones, de acuerdo a lo que se describe en los siguientes numerales:
                     </p>
                     <ol type="1">
                         <li class="text-justify">Licencia Limitada. Usted puede acceder y ver el contenido del Sitio Web desde su computadora o desde cualquier otro dispositivo, y declara que conoce los derechos de la licencia de la plataforma.
@@ -69,10 +120,10 @@
                         <li class="text-justify">Término.  <a href="www.thinkialab.com">www.thinkialab.com</a> puede terminar, cambiar, suspender o descontinuar cualquier aspecto del Sitio Web o de los servicios del Sitio Web en cualquier momento. Puede restringir, suspender o terminar su acceso al Sitio Web y/o a sus servicios si creemos que usted está en incumplimiento de nuestros términos y condiciones o de la ley aplicable, o por cualquier otra razón sin notificación o responsabilidad. Mantiene una política que estipula la terminación, en circunstancias apropiadas, de los privilegios de uso del Sitio Web para usuarios que son violadores repetitivos de los derechos de propiedad intelectual.</li>
                         <li class="text-justify"> Cambios de Términos de Uso.  <a href="www.thinkialab.com">www.thinkialab.com</a> se reserva el derecho, a su sola discreción, de cambiar, modificar, añadir o quitar cualquier porción de los Términos y Condiciones, toda o en parte, en cualquier momento.
                     </ol>
-                    
+
                 </div>
             </div>
-        </div>  
+        </div>
     </section>
     <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
         <div class="container pt-3 pt-md-0">
