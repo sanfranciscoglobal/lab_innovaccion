@@ -115,7 +115,7 @@
 
                     </div>
                     <div class="col-md-5 col-6 col-sm-12 form-group w-100 mb-sm-4 mr-sm-3">
-                        <label class="form-label font-weight-bold pb-1" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
+                        <label class="w-100 form-label font-weight-bold pb-1" for="estadoconvocatoria" style="color: #a13d8f">Estado de la convocatoria</label>
 
                         <select class="form-control custom-select select2" id="estadoconvocatoria" name="estadoconvocatoria" data-clean>
                             @if ($busqueda)
