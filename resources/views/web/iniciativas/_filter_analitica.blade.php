@@ -54,90 +54,85 @@
                             <label class="w-100 text-primary font-weight-bold d-block">
                             Variable
                             </label>
-                            <select id="tipo-informacion" class="form-control custom-select tipo-grafica"
-                                    placeholder="Seleccionar data" style="width: 100%;">
-                                <option value="ods">Iniciativas por ODS</option>
-                                <option value="poblacion">Iniciativas por poblaci&oacute;n</option>
-                                <option value="agente">Iniciativas por tipo de agente</option>
-                                <option value="ods_institucion">Iniciativas por ODS y Tipo Instituci&oacute;n
-                                </option>
-                            </select>
+                            <input type="radio" id="tipo-informacion" name="tipo-informacion" value="ods">
+                            <label class="pt-2 px-1 text-primary font-weight-bold d-block" for="male">ODS</label><br>
+                            <input type="radio" id="tipo-informacion1" name="tipo-informacion" value="poblacion">
+                            <label class="pt-2 px-1  text-primary font-weight-bold d-block" for="female">Poblaci&oacuten</label><br>
+                            <input type="radio" id="tipo-informacion2" name="tipo-informacion" value="agente">
+                            <label class="pt-2 px-1  text-primary font-weight-bold d-block" for="other">Agente</label> 
+                          
                     </div>  
-                    <div class="row mt-2">
-                            <label class="text-primary font-weight-bold w-100">Sub-variable</label>
-                            <div id="content-variables" class="my-2">
-                            </div>
-                            <div id="c-ods">
-                                <label class="w-100 font-weight-bold d-block text-warning d-block">ODS</label>
-                                <select id="ods_categorias" class="form-control custom-select select2"
-                                        name="ods_categorias[]"
-                                        data-ajax--url="{{route('api.ods-categoria.select2')}}"
-                                        data-ajax--data-type="json"
-                                        data-ajax--cache="true"
-                                        data-close-on-select="false"
-                                        style="width:100%;"
-                                    data-placeholder="Seleccionar ODS"
+                    
+                <div class="row">
+                    <label class="w-100 text-primary font-weight-bold my-2">FILTROS</label>
+                    <div id="content-filtros" class="">
+                        <div class="row pl-3"   id="c-tipo-institucion">
+                        
+                            <label class="w-100 font-weight-bold d-block text-warning">
+                                Tipo Instituci&oacute;n
+                            </label>
+                            <select id="tipo_institucion"
+                                    name="tipo_institucion[]"
+                                    class="form-control custom-select select2"
+                                    data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                    data-ajax--data-type="json"
+                                    data-ajax--cache="true"
+                                    data-close-on-select="false"
+                                    data-placeholder="Seleccionar tipo institución"
+                                    style="width:100%;"
                                     multiple>
-                                @if(isset($odsCategorias))
-                                    @foreach($odsCategorias as $odsCategoria)
-                                        <option value="{{$odsCategoria->id}}"
-                                                selected="selected">{{$odsCategoria->nombre}}</option>
+                                @if(isset($tipoInstituciones))
+                                    @foreach($tipoInstituciones as $tipoInstitucion)
+                                        <option value="{{$tipoInstitucion->id}}"
+                                                selected="selected">{{$tipoInstitucion->descripcion}}</option>
                                     @endforeach
                                 @endif
                             </select>
                         </div>
-                    </div>
-                            <div class="row">
-                                <label class="w-100 text-primary font-weight-bold my-2">FILTROS</label>
-                                <div id="content-filtros" class="">
-                                <div id="c-tipo-institucion">
-                                <label class="w-100 font-weight-bold d-block text-warning">
-                                    Tipo Instituci&oacute;n
-                                </label>
-                                <select id="tipo_institucion"
-                                        name="tipo_institucion[]"
-                                        class="form-control custom-select select2"
-                                        data-ajax--url="{{route('api.tipo-institucion.select2')}}"
-                                        data-ajax--data-type="json"
-                                        data-ajax--cache="true"
-                                        data-close-on-select="false"
-                                        data-placeholder="Seleccionar tipo institución"
-                                        style="width:100%;"
-                                        multiple>
-                                    @if(isset($tipoInstituciones))
-                                        @foreach($tipoInstituciones as $tipoInstitucion)
-                                            <option value="{{$tipoInstitucion->id}}"
-                                                    selected="selected">{{$tipoInstitucion->descripcion}}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="row pl-3" id="c-tipo-poblacion ">
-                                    <label class="w-100 text-warning font-weight-bold  d-block  mt-1">
-                                        Población Objetivo
-                                    </label>
-                                    <select style="width:100%;"
-                                            id="tipo_poblacion"
-                                            name="tipo_poblacion[]"
-                                            class="form-control select2 pl-1"
-                                            data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                        <div class="row pl-3" >    
+                            <label class="w-100 text-warning font-weight-bold  d-block  mt-1">
+                                Población Objetivo
+                            </label>
+                            <select style="width:100%;"
+                                    id="tipo_poblacion"
+                                    name="tipo_poblacion[]"
+                                    class="form-control select2 pl-1"
+                                    data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                                    data-ajax--data-type="json"
+                                    data-ajax--cache="true"
+                                    data-close-on-select="false"
+                                    data-placeholder="Seleccionar población objetivo"
+                                    multiple>
+                                @if(isset($tipoPoblaciones))
+                                    @foreach($tipoPoblaciones as $tipoPoblacion)
+                                        <option value="{{$tipoPoblacion->id}}"
+                                                selected="selected">{{$tipoPoblacion->descripcion}}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+                        <div class="row pl-3" >
+                                <label class="w-100 font-weight-bold d-block text-warning d-block">ODS</label>
+                                    <select id="ods_categorias" class="form-control custom-select select2"
+                                            name="ods_categorias[]"
+                                            data-ajax--url="{{route('api.ods-categoria.select2')}}"
                                             data-ajax--data-type="json"
                                             data-ajax--cache="true"
                                             data-close-on-select="false"
-                                            data-placeholder="Seleccionar población objetivo"
-                                            multiple>
-                                        @if(isset($tipoPoblaciones))
-                                            @foreach($tipoPoblaciones as $tipoPoblacion)
-                                                <option value="{{$tipoPoblacion->id}}"
-                                                        selected="selected">{{$tipoPoblacion->descripcion}}</option>
-                                            @endforeach
-                                        @endif
+                                            style="width:100%;"
+                                        data-placeholder="Seleccionar ODS"
+                                        multiple>
+                                    @if(isset($odsCategorias))
+                                        @foreach($odsCategorias as $odsCategoria)
+                                            <option value="{{$odsCategoria->id}}"
+                                                    selected="selected">{{$odsCategoria->nombre}}</option>
+                                        @endforeach
+                                    @endif
                                     </select>
-                                </div>
                             </div>
-                                
+                        </div>    
                           
-                          
+                         
 
                             <div class="col-12 mt-2 text-center">
                                 <button type="submit"
