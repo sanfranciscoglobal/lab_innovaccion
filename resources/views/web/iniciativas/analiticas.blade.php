@@ -229,7 +229,16 @@
                 controlesTipoGrafica();
                 tipoGrafica();
             });
-
+            $("#tipo-informacion1").change(function () {
+                grafica = $(this).val();
+                controlesTipoGrafica();
+                tipoGrafica();
+            });
+            $("#tipo-informacion2").change(function () {
+                grafica = $(this).val();
+                controlesTipoGrafica();
+                tipoGrafica();
+            });
             $(document).on('click', ".btn-filter-submit", function (e) {
                 tipoGrafica();
                 e.preventDefault();
