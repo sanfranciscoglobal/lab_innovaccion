@@ -69,13 +69,36 @@
                 </div>
             </div>
         </div>
-        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video' )
+        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'solo_fondo' )
+        <div
+            class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}">
+            <div class="carousel-caption text-{{ !empty( $slide['text_color'] ) ? $slide['text_color'] : 'center' }} ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 slide-container {{ !empty( $slide['content_classes'] ) ? $slide['content_classes'] : '' }}">
+                            <h2 class="fs-36 bolder">{!! $slide['title'] !!}</h2>
+                            <p class="fs-22">{!! $slide['content'] !!}</p>
+                            @if ( $slide['show_button'] )
+                            <a class="btn btn-shadow bkg-{{ !empty( $slide['button_background'] ) ? $slide['button_background'] : 'aqua' }} text-{{ !empty( $slide['button_text_color'] ) ? $slide['button_text_color'] : 'white' }} fs-18" href="{{ $slide['button_url'] }}" {{ $target }}>{{ $slide['button_title'] }}</a>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video_mp4' )
         <div
             class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}"
             style="background-position: center;background-size: cover;max-height: 750px;">
             <video autoplay muted loop id="myVideo" style="width:100%;">
               <source src="{{ $slide['video_url'] }}" type="video/mp4">
             </video>
+        </div>
+        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video_youtube' )
+        <div style="max-height: 750px;">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe style="top: 80px;" class="embed-responsive-item" src="https://www.youtube.com/embed/A3pwoj719yY?autoplay=1&mute=1&loop=1&controls=0&start=25" frameborder=”0″ allowfullscreen></iframe>
+            </div>
         </div>
         @endif
 
