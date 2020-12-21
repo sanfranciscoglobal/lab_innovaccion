@@ -32,7 +32,7 @@ class IniciativasController extends Controller
     public function index(Request $request)
     {
         $scroll = false;
-        Iniciativas::$paginate = 10;
+        Iniciativas::$paginate = 12;
         Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
         Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
         Iniciativas::$search_tipo_institucion = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
