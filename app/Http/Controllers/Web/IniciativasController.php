@@ -48,6 +48,7 @@ class IniciativasController extends Controller
         $iniciativas = Iniciativas::obtenerIniciativasPaginate();
 
         $scroll = ($request->has('buscar')) ? true : $scroll;
+        $scroll = ($request->has('page')) ? true : $scroll;
 
         return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar', 'scroll'));
     }

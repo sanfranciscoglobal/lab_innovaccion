@@ -277,8 +277,9 @@
         @endforeach
         <!-- loop end -->
         </div>
+
+        {!! $iniciativas->links() !!}
     </section>
-    {!! $iniciativas->links() !!}
 
 @endsection
 
