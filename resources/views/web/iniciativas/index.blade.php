@@ -278,9 +278,7 @@
         <!-- loop end -->
         </div>
     </section>
-    @php
-        $iniciativas->links()
-    @endphp
+    {!! $iniciativas->links() !!}
 
 @endsection
 
