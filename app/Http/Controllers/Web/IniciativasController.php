@@ -74,6 +74,7 @@ class IniciativasController extends Controller
             $x->iniciativaUbicaciones;
             $x->iniciativaOds;
             $x->iniciativaPoblacionesCompleto;
+            $x->iniciativaInformacion;
         }
 
         return view('web.iniciativas.visualmapa', compact('iniciativas'));
