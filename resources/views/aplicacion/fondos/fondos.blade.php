@@ -48,9 +48,14 @@
             style="background-image:url({{ asset('img/img_pages/fondos.png')}})">
             </div>
         </div>
-        <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                <span class="font-size-sm text-muted">Ver
-                    video</span>
+
+        <div id="video-gallery">
+          <a href="https://www.youtube.com/embed/a8j1XVjUA_A" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+            <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+            <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
+          </a>
+        </div>
+
     </section>
 
 
@@ -167,6 +172,7 @@
 
 
 <script>
+    lightGallery(document.getElementById('video-gallery'));
     // moment.locale('es-mx');
     $('#modelId').on('show.bs.modal', function (event) {
         let button = $(event.relatedTarget)

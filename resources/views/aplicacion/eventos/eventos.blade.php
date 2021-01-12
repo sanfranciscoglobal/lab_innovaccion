@@ -51,9 +51,14 @@
 
             <div class="d-none d-md-block col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url('{{ asset('img/img_pages/eventos.png') }}')" alt="Side banner"></div>
         </div>
-        <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                <span class="font-size-sm text-muted">Ver
-                    video</span>
+
+        <div id="video-gallery">
+          <a href="https://www.youtube.com/embed/a8j1XVjUA_A" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+            <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+            <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
+          </a>
+        </div>
+
     </section>
 
     <section class="container bg-overlay-content pt-3 mb-3" id="searchsection" >
@@ -224,14 +229,14 @@
 
 
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
 
             @endforeach
             <div class="col-12">{{ $eventos->links() }}</div>
-           
+
 
         </div>
     </section>
@@ -259,6 +264,9 @@
 
 </script>
 <script>
+
+    lightGallery(document.getElementById('video-gallery'));
+
     @if($jumpsection)
         window.location.hash = "searchsection";
     @endif

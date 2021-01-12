@@ -99,10 +99,15 @@
                             </li>
                         </ul>
                     </div>
-                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default"
-                       href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                    <span class="font-size-sm text-muted">Ver
-                    video</span>
+
+                    <br />
+                    <div id="video-gallery">
+                      <a href="https://www.youtube.com/embed/Xw_jRZrMxNU" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+                        <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+                        <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
+                      </a>
+                    </div>
+
                 </div>
             </div>
             <div class="col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden "
@@ -130,7 +135,7 @@
                 class="font-weight-bold btn btn-primary float-right"
                 style="border-color:#fd972b;background: #fd972b;">Registra tu iniciativa
                 </a>
-         
+
                         <a href="/mapa"
                            class="btn btn-primary font-weight-bold btn btn-primary mr-3 btn-filter-submit"
                            style="border-color:#7A3240;background:#7A3240 "
@@ -159,7 +164,7 @@
         {{--</div>--}}
         {{--</div>--}}
     </div>
-    </section>                            
+    </section>
     {{--<section class="searchbar-container bg-secondary mt-2">--}}
     {{--<div class="container">--}}
     {{--<div class="card">--}}
@@ -187,7 +192,7 @@
     {{--</div>--}}
     {{--</section>--}}
 
-    
+
 @endsection
 
 @section('scripts')
@@ -199,6 +204,9 @@
     <script src="{{asset('analitica/iniciativaInstitucion.js')}}"></script>
     <script src="{{asset('analitica/iniciativaOdsInstitucion.js')}}"></script>
     <script type="text/javascript">
+
+        lightGallery(document.getElementById('video-gallery'));
+
         var analitica = 'barras';
         var grafica = 'ods';
 
