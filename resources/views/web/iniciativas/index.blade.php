@@ -86,12 +86,14 @@
                     </div>
                     <br>
 
-                       <div id="video-gallery">
-                         <a href="https://www.youtube.com/embed/Xw_jRZrMxNU" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
-                           <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
-                           <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
-                         </a>
-                       </div>
+                    <div id="video-gallery">
+                      <a href="https://www.youtube.com/embed/Xw_jRZrMxNU" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+                        <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+                        <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
+                      </a>
+                    </div>
+
+                </div>
 
             </div>
             <div class="col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden "
