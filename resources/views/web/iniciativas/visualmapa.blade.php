@@ -79,9 +79,13 @@
                         </ul>
                     </div>
                     <br>
-                    <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3 mt-0 mb-4" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                    <span class="font-size-sm text-muted">Ver
-                        video</span>
+
+                    <div id="video-gallery">
+                      <a href="https://www.youtube.com/embed/Xw_jRZrMxNU" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+                        <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+                        <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
+                      </a>
+                    </div>
 
                 </div>
             </div>
@@ -105,6 +109,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 
 <script>
+
+    lightGallery(document.getElementById('video-gallery'));
 
     iniciativas={!! json_encode($iniciativas ->toArray()) !!};
 

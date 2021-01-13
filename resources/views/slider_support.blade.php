@@ -1,7 +1,18 @@
 @section('header-css')
 @parent
+    <style>
 
-@stop
+        #video-gallery {
+            transform: translateY(280%);
+        }
+        @media (max-width: 768px) {
+          #video-gallery {
+              transform: translateY(75%);
+          }
+        }
+
+    </style>
+@endsection
 
 @php
     $slides = config('common_sliders.' . $slides);
@@ -29,13 +40,7 @@
 </div>
 @else
 <div id="{{ $sliderID }}" class="{{ $sliderID }} carousel slider-{{ $size }} {{ (count( $slides ) > 1) ? 'slide' : '' }}" data-ride="carousel">
-    @if (count( $slides ) > 1)
-    <ol class="carousel-indicators">
-        @for ($i = 0; $i < count( $slides ); $i++)
-        <li data-target="#{{ $sliderID }}" data-slide-to="{{ $i }}" class="{{ $i == 0 ? 'active' : '' }}"></li>
-        @endfor
-    </ol>
-    @endif
+
     <div class="carousel-inner">
         @foreach ($slides as $index => $slide)
         @php
@@ -91,18 +96,18 @@
         </div>
         @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video_mp4' )
         <div
-            class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}"
+            class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }} text-center"
             style="background-position: center;background-size: cover;max-height: 750px;top: 130px;">
-            <!-- <div class="home-video-overlay"></div> -->
+            <div class="home-video-overlay"></div>
 
-            <div id="video-gallery" style="position: absolute;top: 250px;cursor: pointer;left: 150px;z-index: 3;">
+            <div id="video-gallery" style="position: relative;display: inline-block;cursor: pointer; z-index: 3;">
               <a href="https://www.youtube.com/embed/A3pwoj719yY?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
-                <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
-                <span class="font-size-lg p-2">Ver video completo</span>
+                <span class="custom-cs-video-btn custom-cs-video-btn"></span>
+                <span style="display: inline-flex;" class="font-size-lg text-light p-2">¿Qué es Thinkia? Ver video</span>
               </a>
             </div>
 
-            <video autoplay muted loop id="myVideo" style="width:100%;max-height: 620px;">
+            <video autoplay muted loop id="myVideo" style="width:100%;max-height: 450px;">
               <source src="{{ $slide['video_url'] }}" type="video/mp4">
             </video>
         </div>
@@ -116,15 +121,14 @@
 
         @endforeach
     </div>
+    @if (count( $slides ) > 1)
+    <ol class="carousel-indicators">
+        @for ($i = 0; $i < count( $slides ); $i++)
+        <li data-target="#{{ $sliderID }}" data-slide-to="{{ $i }}" class="{{ $i == 0 ? 'active' : '' }}"></li>
+        @endfor
+    </ol>
+    @endif
 </div>
 <!-- END Home slider-->
 @endif
 @endif
-
-@section('scripts')
-<script type="text/javascript">
-  lightGallery(document.getElementById('video-gallery'));
-</script>
-@parent
-
-@stop

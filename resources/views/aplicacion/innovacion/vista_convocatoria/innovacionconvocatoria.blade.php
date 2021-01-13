@@ -43,9 +43,13 @@
             <div class="col py-3 py-lg-0 mt-lg-5"><img src="{{ asset('img/img_pages/gestion_innovacion.png') }}" alt="Side banner"></div>
         </div>
 
-        <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                <span class="font-size-sm text-muted">Ver
-                    video</span>
+        <div id="video-gallery">
+          <a href="https://www.youtube.com/embed/9ycW4cmVS6U" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+            <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+            <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
+          </a>
+        </div>
+
     </section>
     <section id="searchsection">
         <div class="container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5">
@@ -102,13 +106,13 @@
                             <option value="1" {{ old('tipoconvocatoria', $busqueda->tipoconvocatoria) == '1' ? 'selected' : '' }}>Sector Productivo</option>
                             <option value="2" {{ old('tipoconvocatoria', $busqueda->tipoconvocatoria) == '2' ? 'selected' : '' }}>Ciudadanía</option>
                             <option value="3" {{ old('tipoconvocatoria', $busqueda->tipoconvocatoria) == '3' ? 'selected' : '' }}>Gestión Pública</option>
-                            
+
                             @else
                             <option value="" selected hidden>Todos</option>
                             <option value="1" >Sector Productivo</option>
                             <option value="2" >Ciudadanía</option>
                             <option value="3" >Gestión Pública</option>
-                            
+
                             @endif
 
                         </select>
@@ -122,7 +126,7 @@
                             <option value="" selected hidden>Todos</option>
                             <option value="2" {{ old('estadoconvocatoria', $busqueda->estadoconvocatoria) == '2' ? 'selected' : '' }}>Abierta</option>
                             <option value="3" {{ old('estadoconvocatoria', $busqueda->estadoconvocatoria) == '3' ? 'selected' : '' }}>Cerrada</option>
-                            
+
                             @else
                             <option value="" selected hidden>Todos</option>
                             <option value="2">Abierta</option>
@@ -161,10 +165,10 @@
                     </div>
                 </div>
 
-                 
-                
+
+
               </div>
-               
+
             </div>
 
 
@@ -511,3 +515,10 @@
 </style>
 
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+  lightGallery(document.getElementById('video-gallery'));
+</script>
+@parent
+@stop

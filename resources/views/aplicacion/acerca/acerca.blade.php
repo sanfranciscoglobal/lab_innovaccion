@@ -19,9 +19,14 @@
                 <div class="py-4">
                     <p class="cs-callout text-justify">Thinkia es un espacio de innovación en donde actores de diversos sectores – público, privado, academia y sociedad civil - se encuentran con el ánimo de trabajar de manera colaborativa compartiendo los retos que afrontan y buscando soluciones basadas en innovación abierta, pública y social. Este espacio creativo de co-creación permite forjar las bases del ecosistema de innovación poniendo en contacto a los agentes innovadores y compartiendo materiales y metodologías que forjen una cultura de innovación. </p>
                 </div>
-                <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
-                    href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
-                    video</span>
+
+                <div id="video-gallery">
+                  <a href="https://www.youtube.com/embed/A3pwoj719yY?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+                    <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+                    <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
+                  </a>
+                </div>
+
             </div>
             <div class="col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden" style="background-image: url('{{asset('img/img_pages/nosotros.png')}}');">
             </div>
@@ -244,3 +249,10 @@
     </section>
 
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+  lightGallery(document.getElementById('video-gallery'));
+</script>
+@parent
+@stop
