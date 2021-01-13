@@ -72,8 +72,8 @@
                 </div>
 
                 <!-- Filtros-->
-                <div  id="mapafiltrosgrande" class="d-none d-lg-block" style="bottom:20px; position:absolute; z-index:10; width: 95%;">
-                    <div class="px-lg-7 align-items-center">
+                <div  id="mapafiltrosgrande" class="d-none d-lg-block" style="bottom:20px; position:absolute; z-index:10; width: 100%;">
+                    <div class="ml-lg-5 mx-md-3 px-7 align-items-center">
                         <div class=" d-flex flex-column h-100 rounded-lg box-shadow-lg p-2" style="background-color: rgba(255, 255,255, 0.7);">
                         <form action="{{route('web.iniciativas.data')}}" method="POST">
                                         @method('POST')
