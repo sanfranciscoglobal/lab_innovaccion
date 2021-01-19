@@ -13,17 +13,20 @@
             <div class="col-md-3 col-sm-4 ml-auto pb-1">
                 <div class="cs-widget cs-widget-light">
                     <h4 class="cs-widget-title" style="text-align: center;">Síguenos</h4>
-                    <a class="social-btn sb-outline sb-facebook sb-light sb-lg mr-2 mb-2" href="#">
+                    <a class="social-btn sb-outline sb-facebook sb-light sb-lg mr-2 mb-2" href="https://www.facebook.com/ThinkiaLab">
                         <i class="fe-facebook"></i>
                     </a>
-                    <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="#">
+                    <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="https://twitter.com/ThinkiaLab">
                         <i class="fe-twitter"></i>
                     </a>
-                    <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="#">
+                    <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="https://www.instagram.com/thinkia_lab/">
                         <i class="fe-instagram"></i>
                     </a>
-                    <a class="social-btn sb-outline sb-linkedin sb-light sb-lg mr-2 mb-2" href="#">
+                    <a class="social-btn sb-outline sb-linkedin sb-light sb-lg mr-2 mb-2" href="https://www.linkedin.com/company/thinkia/">
                         <i class="fe-linkedin"></i>
+                    </a>
+                    <a class="social-btn sb-outline sb-youtube sb-light sb-lg mr-2 mb-2" href="https://www.youtube.com/channel/UCXFx92BV71HBIbbCL7gRD9w">
+                        <i class="fe-youtube"></i>
                     </a>
                 </div>
                 <div class="cs-widget cs-widget-light">
