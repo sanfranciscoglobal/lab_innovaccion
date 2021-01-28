@@ -7,22 +7,31 @@
                     <a href="mailto:hola@thinkialab.com"><span class=""><span
                                     class="fe-mail"></span>&nbsp;hola@thinkialab.com</span></a>
                     <ul class="d-flex justify-content-space-around list-inline align-items-center ml-4 mb-0">
-                        <li class="list-inline-item m-0"><a
-                                    class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="#">
+                        <li class="list-inline-item m-0">
+                            <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="https://www.facebook.com/ThinkiaLab">
                                 <i class="fe-facebook"></i>
-                            </a></li>
-                        <li class="list-inline-item m-0"><a
-                                    class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2 mr-md-3" href="#">
+                            </a>
+                        </li>
+                        <li class="list-inline-item m-0">
+                            <a class="social-btn sb-outline sb-twitter sb-dark sb-sm mr-2 mr-md-3" href="https://twitter.com/ThinkiaLab">
                                 <i class="fe-twitter"></i>
-                            </a></li>
-                        <li class="list-inline-item m-0"><a
-                                    class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="#">
+                            </a>
+                        </li>
+                        <li class="list-inline-item m-0">
+                            <a class="social-btn sb-outline sb-instagram sb-dark sb-sm mr-2 mr-md-3" href="https://www.instagram.com/thinkia_lab/">
                                 <i class="fe-instagram"></i>
-                            </a></li>
-                        <li class="list-inline-item m-0"><a class="social-btn sb-outline sb-linkedin sb-dark sb-sm"
-                                                            href="#">
+                            </a>
+                        </li>
+                        <li class="list-inline-item m-0">
+                            <a class="social-btn sb-outline sb-linkedin sb-dark sb-sm mr-2 mr-md-3" href="https://www.linkedin.com/company/thinkia/">
                                 <i class="fe-linkedin"></i>
-                            </a></li>
+                            </a>
+                        </li>
+                        <li class="list-inline-item m-0">
+                            <a class="social-btn sb-outline sb-youtube sb-dark sb-sm" href="https://www.youtube.com/channel/UCXFx92BV71HBIbbCL7gRD9w">
+                                <i class="fe-youtube"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

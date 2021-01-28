@@ -42,7 +42,7 @@
                     <table class="row" width="390" border="0" align="left" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" valign="top">
-                          <table class="centerFloat" border="0" align="left" cellpadding="0" cellspacing="0">
+                          {{-- <table class="centerFloat" border="0" align="left" cellpadding="0" cellspacing="0">
                             <tr>
                               <td
                                 width="35"
@@ -52,7 +52,8 @@
                               >
                                 <a href="https://example.com/">
                                   <img
-                                    src="{{ asset('img/mails/light-phone.png') }}"
+                                    {{-- src="{{ asset('img/mails/light-phone.png') }}" --}
+                                    src="https://thinkialab.com/img/mails/light-phone.png"
                                     width="25"
                                     alt=""
                                     style="border:0;width:25px;"
@@ -70,7 +71,7 @@
                                 >
                               </td>
                             </tr>
-                          </table>
+                          </table> --}}
 
                           <table class="row" border="0" align="left" cellpadding="0" cellspacing="0">
                             <tr>
@@ -88,9 +89,9 @@
                                 valign="middle"
                                 style="font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:13px; font-weight:400; color:#FFFFFF; line-height:24px;"
                               >
-                                <a href="https://example.com/">
+                                <a href="mailto:hola@thinkia.com">
                                   <img
-                                    src="{{ asset('img/mails/light-email.png') }}"
+                                    src="https://thinkialab.com/img/mails/light-email.png"
                                     width="25"
                                     alt=""
                                     style="border:0;width:25px;"
@@ -103,7 +104,7 @@
                                 valign="middle"
                                 style="font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:13px; font-weight:400; color:#FFFFFF;line-height:24px;"
                               >
-                                <a href="https://example.com/" style="text-decoration:none; color:#FFFFFF;"
+                                <a href="mailto:hola@thinkia.com" style="text-decoration:none; color:#FFFFFF;"
                                   >hola@thinkia.com</a
                                 >
                               </td>
@@ -135,9 +136,9 @@
                           <table border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                               <td align="center" valign="middle">
-                                <a href="#" style="text-decoration:none;border:0">
+                                <a href="https://twitter.com/ThinkiaLab" style="text-decoration:none;border:0">
                                   <img
-                                    src="{{ asset('img/mails/social-twitter-light.png') }}"
+                                    src="https://thinkialab.com/img/mails/social-twitter-light.png"
                                     alt="#"
                                     border="0"
                                     width="30"
@@ -152,9 +153,9 @@
                           <table border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                               <td align="center" valign="middle">
-                                <a href="#" style="text-decoration:none;border:0">
+                                <a href="https://www.facebook.com/ThinkiaLab" style="text-decoration:none;border:0">
                                   <img
-                                    src="{{ asset('img/mails/social-facebook-light.png') }}"
+                                    src="https://thinkialab.com/img/mails/social-facebook-light.png"
                                     alt="#"
                                     border="0"
                                     width="30"
@@ -169,9 +170,9 @@
                           <table border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                               <td align="center" valign="middle">
-                                <a href="#" style="text-decoration:none;border:0">
+                                <a href="https://www.linkedin.com/company/thinkia/" style="text-decoration:none;border:0">
                                   <img
-                                    src="{{ asset('img/mails/social-linkedin-light.png') }}"
+                                    src="https://thinkialab.com/img/mails/social-linkedin-light.png"
                                     alt="#"
                                     border="0"
                                     width="30"
@@ -186,9 +187,26 @@
                           <table border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                               <td align="center" valign="middle">
-                                <a href="#" style="text-decoration:none;border:0">
+                                <a href="https://www.instagram.com/thinkia_lab/" style="text-decoration:none;border:0">
                                   <img
-                                    src="{{ asset('img/mails/social-instagram-light.png') }}"
+                                    src="https://thinkialab.com/img/mails/social-instagram-light.png"
+                                    alt="#"
+                                    border="0"
+                                    width="30"
+                                    style="display:block;border:0;width:25px;"
+                                  />
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td valign="middle" width="35">
+                          <table border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td align="center" valign="middle">
+                                <a href="https://www.youtube.com/channel/UCXFx92BV71HBIbbCL7gRD9w" style="text-decoration:none;border:0">
+                                  <img
+                                    src="https://thinkialab.com/img/mails/social-youtube-light.png"
                                     alt="#"
                                     border="0"
                                     width="30"
@@ -265,7 +283,7 @@
                         <td align="center" valign="top">
                           <a href="https://example.com/">
                             <img
-                              src="http://stage.thinkialab.com/img/logo/thinkia_color.svg"
+                              src="http://thinkialab.com/img/logo/thinkia_color.svg"
                               width="140"
                               alt=""
                               style="display:block;border:0;width:140px;"
