@@ -32,7 +32,7 @@ class IniciativasController extends Controller
     public function index(Request $request)
     {
         $scroll = false;
-        Iniciativas::$paginate = 10;
+        Iniciativas::$paginate = 12;
         Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
         Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
         Iniciativas::$search_tipo_institucion = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
@@ -48,6 +48,7 @@ class IniciativasController extends Controller
         $iniciativas = Iniciativas::obtenerIniciativasPaginate();
 
         $scroll = ($request->has('buscar')) ? true : $scroll;
+        $scroll = ($request->has('page')) ? true : $scroll;
 
         return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar', 'scroll'));
     }
@@ -73,6 +74,7 @@ class IniciativasController extends Controller
             $x->iniciativaUbicaciones;
             $x->iniciativaOds;
             $x->iniciativaPoblacionesCompleto;
+            $x->iniciativaInformacion;
         }
 
         return view('web.iniciativas.visualmapa', compact('iniciativas'));

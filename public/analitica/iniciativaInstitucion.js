@@ -1,12 +1,12 @@
-function obtenerPoblacionData(tipo) {
+function obtenerinstitucionData(tipo) {
     $('#loading').show();
     $.ajax({
         type: 'POST',
-        url: 'api/analitica/iniciativas-poblacion',
+        url: 'api/analitica/iniciativas-institucion',
         data: $('#filter-iniciativas').serialize(),
         dataType: "json",
         success: function (data) {
-            graficarPoblacion(data, tipo);
+            graficarInstitucion(data, tipo);
             $('#loading').hide();
         },
         error: function (request, status, error) {
@@ -15,21 +15,21 @@ function obtenerPoblacionData(tipo) {
     });
 }
 
-function graficarPoblacion(data, tipo) {
+function graficarInstitucion(data, tipo) {
     if (tipo == 'barras') {
-        barrasPoblacion(data);
+        barrasInstitucion(data);
     }
 
     if (tipo == 'pastel') {
-        pastelPoblacion(data);
+        pastelInstitucion(data);
     }
 
     if (tipo == 'radar') {
-        radarPoblacion(data);
+        radarInstitucion(data);
     }
 }
 
-function barrasPoblacion(data) {
+function barrasInstitucion(data) {
     // Themes begin
     am4core.useTheme(am4themes_animated);
     // Themes end
@@ -92,7 +92,7 @@ function barrasPoblacion(data) {
     }];
 }
 
-function pastelPoblacion(data) {
+function pastelInstitucion(data) {
     // Themes end
 
     // Create chart instance
@@ -129,7 +129,7 @@ function pastelPoblacion(data) {
     }];
 }
 
-function radarPoblacion(data) {
+function radarInstitucion(data) {
     // Themes begin
     am4core.useTheme(am4themes_animated);
 

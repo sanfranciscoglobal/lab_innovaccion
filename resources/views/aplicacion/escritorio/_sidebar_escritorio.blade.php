@@ -24,7 +24,7 @@
                 <div class="cs-widget cs-widget-categories mb-5 pl-3">
                     <ul id="menu">
                         <li><a class="cs-widget-link px-4 py-3 collapsed" href="#gestion" data-toggle="collapse">Gestión
-                                de
+                                de la
                                 innovación</a>
                             <ul class="collapse" id="gestion" data-parent="#menu">
                                 <li><a class="cs-widget-link" href="#">Innovación abierta

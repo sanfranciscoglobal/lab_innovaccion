@@ -37,9 +37,14 @@
             </div>
             <div class="d-none d-md-block  col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden " style="background-image: url({{ asset('img/img_pages/herramientas.png') }})" alt="Side banner"></div>
         </div>
-        <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3" style="cursor: default" href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a>
-                <span class="font-size-sm text-muted">Ver
-                    video</span>
+
+        <div id="video-gallery">
+          <a href="https://www.youtube.com/embed/a8j1XVjUA_A" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+            <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+            <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
+          </a>
+        </div>
+
     </section>
     <section class="container bg-overlay-content pt-3 mb-4" >
 
@@ -171,7 +176,7 @@
                         </div>
                         <div class="cs-offcanvas-body px-4 pt-3 pt-lg-0 pr-lg-0 pl-lg-2 pl-xl-4" data-simplebar>
                             <!-- Search-->
-                            
+
                             <form action="{{route('material.searchnombre')}}" method="POST">
                                 @csrf
                                 @method("POST")
@@ -185,7 +190,7 @@
                                 </div>
 
                             </form>
-                            
+
                             <!-- Tipos-->
                             <div class="cs-widget cs-widget-categories mb-4">
                                 <h3 class="cs-widget-title">Tipos</h3>
@@ -254,4 +259,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+  <script>
+      lightGallery(document.getElementById('video-gallery'));
+  </script>
 @endsection

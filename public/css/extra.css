@@ -1,32 +1,91 @@
+/* Video */
+
+.custom-cs-video-btn-primary {
+    background-color: #4e2561 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+.lg-backdrop.in {
+    opacity: 0.95 !important;
+}
+
+.custom-cs-video-btn::before {
+    font-family: "feather";
+    line-height: 5.625rem;
+    content: "\E9C3";
+}
+
+.custom-cs-video-btn {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 5.625rem;
+    height: 5.625rem;
+    padding-left: 0.125rem;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #5a5b75;
+    font-size: 1.125rem;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0.25rem 1rem -0.25rem rgba(55, 56, 78, 0.2);
+    vertical-align: middle;
+}
+
+.home-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(12, 0, 17, .9);
+  z-index: 2;
+}
+
+/* Close Video */
+
+.bkg-black {
+  background-color: #000000;
+}
+
+.bkg-white {
+  background-color: #ffffff;
+}
+
+.bkg-yellow {
+  background-color: #c07f00;
+}
+
 .collapse.width {
     height: auto;
     -webkit-transition: width 0.35s ease;
     -moz-transition: width 0.35s ease;
     -o-transition: width 0.35s ease;
     transition: width 0.35s ease;
-  
+
 }
 .select2-selection.select2-selection--multiple {
-    max-width: 300px;
+    width: 300px;
 }
 .select2-container .select2-selection--multiple .select2-selection__rendered {
-  
+
     white-space: unset !important;
 }
 .select2-selection__rendered {
-    max-width: 300px;
+    width: 300px;
     overflow-y: scroll !important;
     max-height: 34px;
     resize: none;
     overflow-x: hidden !important;
-   
+
 }
 .select2-selection.select2-selection--single {
     height: 34px;
 }
 .pac-input{
-    max-width: 250px !important;
-    
+    max-width: 300px !important;
+
 }
 select2-search__field:placeholder-shown {
     width: auto !important;
@@ -39,7 +98,7 @@ select2-search__field:placeholder-shown {
     border-radius: 10px;
 }
 .select2{
-    max-width: 250px !important;
+    max-width: 300px !important;
     overflow-x: clip;
 }
 .legend { list-style: none; }
@@ -138,4 +197,20 @@ color: #370C60!important;
 }
 .textoeventos{
     color: #4A4A4A;
+}
+
+.carousel-indicators {
+    margin-top: 18px;
+    display: flex;
+    bottom: inherit;
+}
+
+.carousel-indicators li {
+    width: 30px;
+    height: 6px;
+    margin-right: 4px;
+    margin-left: 4px;
+    background-color: #30173c;
+    opacity: 0.2;
+    transition: opacity 0.6s ease;
 }

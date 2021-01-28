@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
 
 class OdsCategoria extends Model
 {
+    use SoftDeletes;
     public static $search = null;
     protected $table = 'ods_categorias';
 
@@ -31,11 +33,11 @@ class OdsCategoria extends Model
     {
         $query = OdsCategoria::orderBy('ods_categorias.id', request('created_at', 'ASC'));
 
-        if (!is_array(self::$search)) {
+        if (!is_array(self::$search) && self::$search) {
             $query->whereRaw("concat('ODS ', ods_categorias.id, ': ',ods_categorias.nombre) ilike '%" . self::$search . "%'");
         }
 
-        if (is_array(self::$search)) {
+        if (is_array(self::$search) && self::$search) {
             $query->whereIn('ods_categorias.id', self::$search);
         }
 
@@ -56,5 +58,12 @@ class OdsCategoria extends Model
     public static function obtenerOdsCategoriaPluckNameIdArray()
     {
         return self::builderOdsCategoria()->pluck('nombre', 'id')->all() ?? [];
+    }
+
+    public static function obtenerODSNombre($id)
+    {
+        $ods=OdsCategoria::where('id','=',$id)->first();
+        $odsnombre='ODS '.$ods->id.': '.$ods->nombre;
+        return $odsnombre;
     }
 }

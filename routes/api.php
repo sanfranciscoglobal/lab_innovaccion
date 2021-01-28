@@ -46,6 +46,9 @@ Route::get('/obtener-objetivos-desarrollo-select2', 'Api\ObjetivosDesarrolloCont
 Route::get('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->name('api.canton.select2');
 Route::post('/obtener-canton-select2', 'Api\CantonController@cantonSelect2')->name('api.canton.select2');
 
+Route::get('/obtener-canton-select22', 'Api\CantonController@cantonSelect2nombre')->name('api.canton.select22');
+Route::post('/obtener-canton-select22', 'Api\CantonController@cantonSelect2nombre')->name('api.canton.select22');
+
 /** Soluciones api */
 
 Route::get('/obtener-sector-solucion-select2', 'Api\SectorSolucionController@SectorSolucionSelect2')->name('api.sector-solucion.select2');
@@ -60,5 +63,6 @@ Route::as('api.analitica.')
             Route::post('iniciativas-ods', 'Api\IniciativasController@analiticaIniciativaOds')->name('iniciativa-ods');
             Route::post('iniciativas-poblacion', 'Api\IniciativasController@analiticaIniciativaPoblacion')->name('iniciativa-poblacion');
             Route::post('iniciativas-institucion', 'Api\IniciativasController@analiticaIniciativaInstitucion')->name('iniciativa-institucion');
+            Route::post('iniciativas-ods-institucion', 'Api\IniciativasController@analiticaIniciativaOdsInstitucion')->name('iniciativa-ods-institucion');
         }
     );

@@ -240,22 +240,6 @@ class Iniciativas extends Model
             $query->orWhere('iniciativa_informacion.nombre_iniciativa', 'ilike', '%' . self::$search . '%');
             $query->orWhere('iniciativa_informacion.componente_innovador', 'ilike', '%' . self::$search . '%');
             $query->orWhere('iniciativa_informacion.descripcion_iniciativa', 'ilike', '%' . self::$search . '%');
-
-//            $query->whereIn('iniciativa_actor_id', function ($query) {
-//                $query->select('id')
-//                    ->from('iniciativa_actor')
-//                    ->where('iniciativa_actor.nombre_organizacion', 'ilike', '%' . self::$search . '%')
-//                    ->Orwhere('iniciativa_actor.siglas', 'ilike', '%' . self::$search . '%')
-//                    ->Orwhere('iniciativa_actor.enfoque', 'ilike', '%' . self::$search . '%');
-//            });
-//
-//            $query->whereIn('iniciativa_informacion_id', function ($query) {
-//                $query->select('id')
-//                    ->from('iniciativa_informacion')
-//                    ->where('iniciativa_informacion.nombre_iniciativa', 'ilike', '%' . self::$search . '%')
-//                    ->Orwhere('iniciativa_informacion.componente_innovador', 'ilike', '%' . self::$search . '%')
-//                    ->Orwhere('iniciativa_informacion.descripcion_iniciativa', 'ilike', '%' . self::$search . '%');
-//            });
         }
 
         if (self::$search_canton_id) {
@@ -289,8 +273,6 @@ class Iniciativas extends Model
                     ->whereIn('iniciativa_poblacion.tipo_poblacion_id', self::$search_tipo_poblacion);
             });
         }
-
-        // dd($query->toSql(), $query->getBindings());
 
         return $query;
     }

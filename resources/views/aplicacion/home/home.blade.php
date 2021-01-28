@@ -4,12 +4,24 @@
 <style scoped>
     .carousel-item {min-height: 750px;}
 
+    #video-gallery-2 {
+      position: relative;
+      display: table;
+      cursor: pointer;
+      margin: auto;
+      z-index: 3;
+      padding-top: 100px;
+    }
+
     @media (max-width: 768px) {
         .carousel-item {
             min-height: 350px!important;
             }
         #bannerluces{
             background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
+        }
+        #video-gallery-2 {
+          padding-top: 70px;
         }
     }
     @media (min-width: 992px) and (max-width: 1250px) {
@@ -20,6 +32,14 @@
 </style>
 <section id="home-hero-banner">
     @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
+
+    <div id="video-gallery-2">
+      <a href="https://www.youtube.com/embed/A3pwoj719yY?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+        <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
+        <span style="display: inline-flex;" class="font-size-lg p-2">¿Qué es Thinkia? Mira el video</span>
+      </a>
+    </div>
+
 </section>
 
     <section id="funciones">
@@ -325,3 +345,11 @@
         </div>
     </section>
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+  lightGallery(document.getElementById('video-gallery'));
+  lightGallery(document.getElementById('video-gallery-2'));
+</script>
+@parent
+@stop

@@ -1,3 +1,19 @@
+@section('header-css')
+@parent
+    <style>
+
+        #video-gallery {
+            transform: translateY(280%);
+        }
+        @media (max-width: 768px) {
+          #video-gallery {
+              transform: translateY(75%);
+          }
+        }
+
+    </style>
+@endsection
+
 @php
     $slides = config('common_sliders.' . $slides);
     if ( !isset ( $sliderID ) ) $sliderID = 'carouselExampleCaptions';
@@ -24,13 +40,7 @@
 </div>
 @else
 <div id="{{ $sliderID }}" class="{{ $sliderID }} carousel slider-{{ $size }} {{ (count( $slides ) > 1) ? 'slide' : '' }}" data-ride="carousel">
-    @if (count( $slides ) > 1)
-    <ol class="carousel-indicators">
-        @for ($i = 0; $i < count( $slides ); $i++)
-        <li data-target="#{{ $sliderID }}" data-slide-to="{{ $i }}" class="{{ $i == 0 ? 'active' : '' }}"></li>
-        @endfor
-    </ol>
-    @endif
+
     <div class="carousel-inner">
         @foreach ($slides as $index => $slide)
         @php
@@ -69,18 +79,55 @@
                 </div>
             </div>
         </div>
-        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video' )
+        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'solo_fondo' )
         <div
-            class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}"
-            style="background-position: center;background-size: cover;max-height: 750px;">
-            <video autoplay muted loop id="myVideo" style="width:100%;">
+            class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}">
+            <div class="carousel-caption text-{{ !empty( $slide['text_color'] ) ? $slide['text_color'] : 'center' }} ">
+                <div class="container">
+                    <div class="row">
+                      <div class="jumbotron bg-size-cover bg-position-center bg-no-repeat text-center py-7 mb-0" style="background-image: url(https://around.createx.studio/img/components/jumbotron/jumbotron-bg.jpg);">
+                        <a class="cs-video-btn my-2" href="https://vimeo.com/93641234" data-sub-html='<h6 class="font-size-sm text-light">Video caption</h6>'></a>
+                        <br>
+                        <span class="font-size-sm text-light">Click me to watch video!</span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video_mp4' )
+        <div
+            class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }} text-center"
+            style="background-position: center;background-size: cover;max-height: 750px;top: 130px;">
+            <div class="home-video-overlay"></div>
+
+            <div id="video-gallery" style="position: relative;display: inline-block;cursor: pointer; z-index: 3;">
+              <a href="https://www.youtube.com/embed/A3pwoj719yY?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+                <span class="custom-cs-video-btn custom-cs-video-btn"></span>
+                <span style="display: inline-flex;" class="font-size-lg text-light p-2">¿Qué es Thinkia? Ver video</span>
+              </a>
+            </div>
+
+            <video autoplay muted loop id="myVideo" style="width:100%;max-height: 450px;">
               <source src="{{ $slide['video_url'] }}" type="video/mp4">
             </video>
+        </div>
+        @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video_youtube' )
+        <div style="max-height: 750px;">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe style="top: 80px;" class="embed-responsive-item" src="https://www.youtube.com/embed/A3pwoj719yY?autoplay=1&mute=1&loop=1&controls=0&start=25" frameborder=”0″ allowfullscreen></iframe>
+            </div>
         </div>
         @endif
 
         @endforeach
     </div>
+    @if (count( $slides ) > 1)
+    <ol class="carousel-indicators">
+        @for ($i = 0; $i < count( $slides ); $i++)
+        <li data-target="#{{ $sliderID }}" data-slide-to="{{ $i }}" class="{{ $i == 0 ? 'active' : '' }}"></li>
+        @endfor
+    </ol>
+    @endif
 </div>
 <!-- END Home slider-->
 @endif
