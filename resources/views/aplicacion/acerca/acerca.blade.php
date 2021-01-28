@@ -210,7 +210,7 @@
 
 
     </section>
-    <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
+    {{-- <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
         <div class="container pt-3 pt-md-0">
             <div class="row pb-2">
                 <form class="col-xl-6 col-lg-7 col-md-7 needs-validation mb-5" action="" novalidate>
@@ -239,7 +239,7 @@
                     <ul class="list-unstyled font-size-sm mb-4 pb-2">
                         <li><a class="nav-link-style nav-link-light"
                                 href="mailto:info@laboratoriodeinnovacion.org">hola@thinkialab.org</a></li>
-                        
+
                     </ul>
                     <h3 class="h6 pb-2 text-light">Síguenos en:</h3>
                     <a class="social-btn sb-facebook sb-light sb-lg mr-2 " href="#"><i class="fe-facebook"></i></a>
@@ -249,6 +249,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 @endsection
