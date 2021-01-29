@@ -34,7 +34,7 @@
     @include('slider_support', ['sliderID' => 'hero', 'slides' => 'home_slides'])
 
     <div id="video-gallery-2">
-      <a href="https://www.youtube.com/embed/A3pwoj719yY?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+      <a href="https://www.youtube.com/embed/dAJdK0Uu2Ao?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
         <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
         <span style="display: inline-flex;" class="font-size-lg p-2">¿Qué es Thinkia? Mira el video</span>
       </a>
