@@ -130,15 +130,17 @@
                 <p class="textoeventos">Mira nuestros próximos eventos</p>
             </div>
             <div class="row">
+                @foreach ($eventos as $evento)
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                        <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
+                        <img class="card-img-top" src="{{ asset('storage/eventos').'/'.$evento->imagen }}" alt="{{ $evento->id }}" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center textoevento">Hackaton</h3>
+                            <h3 class="h5 mb-0 text-center textoevento">{{ $evento->nombre }}</h3>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+                @endforeach
+                {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/03.jpg') }}" alt="Life Science" />
                         <div class="card-body">
@@ -153,7 +155,7 @@
                             <h3 class="h5 mb-0 text-center textoevento">Webinar de innovación</h3>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -316,7 +318,7 @@
     </section> --}}
     {{-- <div class="bg-secondary" style="margin-top: -300px; padding-top: 300px;"></div> --}}
     <!-- Statistics (Digits)-->
-    <section class="container py-4">
+    <section class="container py-5">
         <div class="row pb-lg-4 pt-3 justify-content-center">
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Convocatoria::count() }}</h3>
