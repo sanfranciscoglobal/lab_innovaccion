@@ -130,15 +130,17 @@
                 <p class="textoeventos">Mira nuestros próximos eventos</p>
             </div>
             <div class="row">
+                @foreach ($eventos as $evento)
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
-                        <img class="card-img-top" src="{{ asset('img/layout/home/02.jpg') }}" alt="Life Science" />
+                        <img class="card-img-top" src="{{ asset('storage/eventos').'/'.$evento->imagen }}" alt="{{ $evento->id }}" />
                         <div class="card-body">
-                            <h3 class="h5 mb-0 text-center textoevento">Hackaton</h3>
+                            <h3 class="h5 mb-0 text-center textoevento">{{ $evento->nombre }}</h3>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+                @endforeach
+                {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
                     <a class="card card-hover border-0 box-shadow mx-auto" href="#" style="max-width: 400px;">
                         <img class="card-img-top" src="{{ asset('img/layout/home/03.jpg') }}" alt="Life Science" />
                         <div class="card-body">
@@ -153,7 +155,7 @@
                             <h3 class="h5 mb-0 text-center textoevento">Webinar de innovación</h3>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -163,15 +165,16 @@
         </div>
     </section>
     <!-- Blog-->
-    <div class="position-relative bg-purple-gradient" style="height: 420px;">
+    {{-- <div class="position-relative bg-purple-gradient" style="height: 420px;">
         <div class="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
                 <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z">
                 </path>
             </svg>
         </div>
-    </div>
-    <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
+    </div> --}}
+
+    {{-- <section class="container bg-overlay-content pt-5 pt-md-6" style="margin-top: -420px;">
         <h2 class="text-light text-center pt-3 pt-md-2 mb-5 uppercase">Novedades</h2>
         <div class="cs-carousel">
             <div class="cs-carousel-inner"
@@ -254,15 +257,15 @@
                             {{-- <h3 class="h4 nav-heading mb-4">
                                 <a href="#">{{$iniciativaInfo->nombre_iniciativa}}</a>
                             </h3>
-                            {{$iniciativaInfo->descripcion_iniciativa}} --}}
+                            {{$iniciativaInfo->descripcion_iniciativa}} --}
                         </div>
                         <div class="px-4 px-xl-5 pt-2">
                             <a class="media meta-link font-size-sm align-items-center" href="#">
                                 <img class="rounded-circle" width="42" src="{{ asset('img/layout/home/profile3.jpg') }}"
                                     alt="Sanomi Smith" />
                                 {{-- <div class="media-body pl-2 ml-1 mt-n1 text-naranja">por<span class="font-weight-semibold ml-1">
-                                {{ $iniciativaAutor->nombre_organizacion }}
-                                </span></div> --}}
+                                {{ $iniciativaAutor->nombre_organizacion }
+                                </span></div> --}
                             </a>
                             <div class="mt-3 text-right text-nowrap">
                                 <a class="meta-link font-size-xs text-tomate" href="#">
@@ -312,10 +315,10 @@
                 @endisset
             </div>
         </div>
-    </section>
-    <div class="bg-secondary" style="margin-top: -300px; padding-top: 300px;"></div>
+    </section> --}}
+    {{-- <div class="bg-secondary" style="margin-top: -300px; padding-top: 300px;"></div> --}}
     <!-- Statistics (Digits)-->
-    <section class="container py-4 pt-md-6 pt-lg-7 pb-md-5">
+    <section class="container py-5">
         <div class="row pb-lg-4 pt-3 justify-content-center">
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center mb-grid-gutter">
                 <h3 class="display-2 font-weight-normal mb-0 colornumero">{{ App\Models\Convocatoria::count() }}</h3>

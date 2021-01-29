@@ -207,7 +207,7 @@
       <!-- Card deck -->
 
     </section>
-    <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
+    {{-- <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
         <div class="container pt-3 pt-md-0">
             <div class="row pb-2">
                 <form class="col-xl-6 col-lg-7 col-md-7 needs-validation mb-5" action="" novalidate>
@@ -246,7 +246,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 @endsection
 

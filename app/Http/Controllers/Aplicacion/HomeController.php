@@ -23,6 +23,7 @@ use App\Models\Iniciativas;
 use App\Models\IniciativaUbicacion;
 use App\Models\MaterialAprendizaje;
 use App\Models\Convocatoria;
+use App\Models\Evento;
 class HomeController extends Controller
 {
     /**
@@ -32,7 +33,7 @@ class HomeController extends Controller
      */
     public function home(Request $request)
     {
-        
+
         $fondos = Fondo::latest()->first();
         // //$fondos->updated_at->format('Y-m-d H:i:s');
         // //Iniciativas::$paginate = 1;
@@ -43,11 +44,12 @@ class HomeController extends Controller
         $convocatoria=Convocatoria::latest()->first();
         // $convocatoria->tipoconvocatoriaid;
         // $convocatoria->user;
-        $materiales = MaterialAprendizaje::latest()->first();;
-        
+        $materiales = MaterialAprendizaje::latest()->first();
+        $eventos = Evento::orderBy('created_at', 'desc')->take(3)->get();
+
         // //return compact('fondos','materiales','convocatoria','iniciativaDate','iniciativaInfo','iniciativaAutor');
         // return view('aplicacion.home.home',compact('fondos','convocatoria','iniciativaDate','iniciativaInfo','iniciativaAutor','materiales'));
-        return view('aplicacion.home.home',compact('fondos','convocatoria','materiales','iniciativas'));
+        return view('aplicacion.home.home',compact('fondos','convocatoria','materiales','iniciativas', 'eventos'));
     }
     public function contacto(Request $request)
     {

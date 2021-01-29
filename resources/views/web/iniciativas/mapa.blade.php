@@ -1,8 +1,10 @@
 
-    <div  class="bg-overlay-content pb-2 mb-md-3" style="margin-top: -50px;">
-        <div class="row">
+    <div  class="bg-overlay-content">
+        <div class="row m-0">
             <div style="top:15px; position:absolute; z-index:10;  width: 100%;">
-                <div class="ml-lg-5 mx-md-3 px-7 align-items-center d-none d-lg-block ">
+
+                {{-- search box --}}
+                <div class="ml-lg-5 mx-md-3 px-7 align-items-center d-none d-lg-block">
                     <div id="mapacabezagrande" style="background-color: rgba(255, 255,255, 0.7);" class="py-3 d-flex flex-column h-100 rounded-lg box-shadow-lg p-2">
                         <div class="row justify-content-center center-block text-center">
 
@@ -67,8 +69,9 @@
                         </div>
                     </div>
                 </div>
-                        <!-- Title + Delete link-->
-                <div id="map" style="width: 97%; height: 1200px;">
+
+                {{-- MAP --}}
+                <div id="map" style="width: 100%; height: 1200px;">
                 </div>
 
                 <!-- Filtros-->
@@ -131,7 +134,7 @@
                                             <button class="font-weight-bold btn btn btn-primary mr-3 export dropdown-toggle"  data-toggle="dropdown">Descargar Datos
                                             <span class="caret"></span>
                                             </button>
-                                            
+
                                             <ul class="dropdown-menu">
                                                 <li>
                                                     <a type="button" type="button" class="ml-3 export"
@@ -164,12 +167,7 @@
                             </form>
                     </div>
                 </div>
-
             </div>
-
-
-            <!-- Content-->
-
         </div>
     </div>
     <style>
