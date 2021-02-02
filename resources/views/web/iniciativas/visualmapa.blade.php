@@ -109,33 +109,31 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap" async defer></script>
 
 <script>
-
     lightGallery(document.getElementById('video-gallery'));
 
-    iniciativas={!! json_encode($iniciativas ->toArray()) !!};
-
-    locations=[]
-    c=0
-    for(i=0;i<iniciativas.length;i++){
+    iniciativas = @json($iniciativas->toArray());
+    locations = []
+    c = 0
+    for(i=0; i<iniciativas.length; i++){
         /*descripcion=""
         des=iniciativas[0].iniciativa_informacion.descripcion_iniciativa.match(/.{1,15}/g)
         for(z=0;z<des.length;z++){
             descripcion+="<b>"+des[z]+"</b></br>"
         }*/
-        txtods=""
-        ods=iniciativas[i].iniciativa_ods;
+        txtods = ""
+        ods = iniciativas[i].iniciativa_ods;
         for(z=0;z<ods.length;z++){
             txtods=ods[z].id+", ";
         }
-        txtpobla="";
-        pobla=iniciativas[i].iniciativa_poblaciones_completo;
-        for(z=0;z<pobla.length;z++){
-            txtpobla=pobla[z].descripcion+", ";
+        txtpobla = "";
+        pobla = iniciativas[i].iniciativa_poblaciones_completo;
+        for(z=0; z<pobla.length; z++){
+            txtpobla = pobla[z].descripcion+", ";
         }
-        info='<div class="">'
-        +'<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
+        info = '<div class="">'
+        + '<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
         + '<b size="5" style="color:#fd972b">Descripción de la iniciativa:</b></br>'
-        + '<div class="">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
+        + '<div class="">'+iniciativas[i].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
        // +'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
        // + '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
        // +'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>'
@@ -143,7 +141,7 @@
        // +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
        // + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>"
         +'</div>'
-        for(j=0;j<iniciativas[i].iniciativa_ubicaciones.length;j++){
+        for(j=0; j<iniciativas[i].iniciativa_ubicaciones.length; j++){
             locations.push([])
             locations[c].push(info)
             locations[c].push(iniciativas[i].iniciativa_ubicaciones[j].latitud)
