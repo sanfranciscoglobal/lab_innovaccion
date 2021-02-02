@@ -133,7 +133,7 @@ return [
         // ],
         [
             'title'                     => '',
-            'tipo'                      => 'video_mp4',
+            'tipo'                      => 'solo_fondo',
             'content'                   => '',
             'show_button'               => true,
             'button_title'              => 'BOTON EJEMPLO',
@@ -144,12 +144,30 @@ return [
             'content_classes'           => 'd-flex flex-column justify-content-center align-items-center text-center',
             'text_color'                => 'black',
             'background_color'          => 'white',
-            'background_image_url'      => '',
-            'video_url'                 => 'videos/Thinkia_Corto_QueEsThinkia_V5_Web_Corto.mp4',
+            'background_image_url'      => 'img/Banner3.jpg',
             'background_blend_mode'     => '',
             'background_position'       => 'center',
             'background_size'           => 'cover'
         ],
+        // [
+        //     'title'                     => '',
+        //     'tipo'                      => 'video_mp4',
+        //     'content'                   => '',
+        //     'show_button'               => true,
+        //     'button_title'              => 'BOTON EJEMPLO',
+        //     'button_background'         => 'yellow',
+        //     'button_text_color'         => 'white',
+        //     'button_url'                => '#',
+        //     'open_new_tab'              => false,
+        //     'content_classes'           => 'd-flex flex-column justify-content-center align-items-center text-center',
+        //     'text_color'                => 'black',
+        //     'background_color'          => 'white',
+        //     'background_image_url'      => '',
+        //     'video_url'                 => 'videos/Thinkia_Corto_QueEsThinkia_V5_Web_Corto.mp4',
+        //     'background_blend_mode'     => '',
+        //     'background_position'       => 'center',
+        //     'background_size'           => 'cover'
+        // ],
     ],
     'example_slider' => [
         [

@@ -20,7 +20,7 @@
                     <p class="cs-callout">Consulas tus preguntas frecuentes y condiciones de uso</p>
                 </div>
                 {{-- <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
-                    href="https://www.youtube.com/watch?v=hTu0a4o97dU"></a><span class="font-size-sm text-muted">Ver
+                    href="https://www.youtube.com/embed/oAzGvQ_2RYM?controls=0"></a><span class="font-size-sm text-muted">Ver
                     video</span> --}}
             </div>
             <div class="col-md-6 mt-3 py-8 bg-size-contain order-md-2 overflow-hidden" style="background-image: url('{{asset('img/img_pages/uso.png')}}');">
@@ -125,7 +125,7 @@
             </div>
         </div>
     </section>
-    <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
+    {{-- <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
         <div class="container pt-3 pt-md-0">
             <div class="row pb-2">
                 <form class="col-xl-6 col-lg-7 col-md-7 needs-validation mb-5" action="" novalidate>
@@ -164,6 +164,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 @endsection

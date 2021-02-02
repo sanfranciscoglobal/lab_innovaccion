@@ -81,18 +81,17 @@
         </div>
         @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'solo_fondo' )
         <div
-            class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }}">
-            <div class="carousel-caption text-{{ !empty( $slide['text_color'] ) ? $slide['text_color'] : 'center' }} ">
-                <div class="container">
-                    <div class="row">
-                      <div class="jumbotron bg-size-cover bg-position-center bg-no-repeat text-center py-7 mb-0" style="background-image: url(https://around.createx.studio/img/components/jumbotron/jumbotron-bg.jpg);">
-                        <a class="cs-video-btn my-2" href="https://vimeo.com/93641234" data-sub-html='<h6 class="font-size-sm text-light">Video caption</h6>'></a>
-                        <br>
-                        <span class="font-size-sm text-light">Click me to watch video!</span>
-                      </div>
-                    </div>
-                </div>
+            class="carousel-item  {{ $index == 0 ? 'active': ''}} bkg-{{ !empty( $slide['background_color'] ) ? $slide['background_color'] : 'aqua' }} text-center"
+            style="{{ $styles }} max-height: 750px; top: 130px;">
+            <div class="home-video-overlay"></div>
+
+            <div id="video-gallery" style="position: relative;display: inline-block;cursor: pointer; z-index: 3;">
+              <a href="https://www.youtube.com/embed/dAJdK0Uu2Ao?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+                <span class="custom-cs-video-btn custom-cs-video-btn"></span>
+                <span style="display: inline-flex;" class="font-size-lg text-light p-2">¿Qué es Thinkia? Ver video</span>
+              </a>
             </div>
+
         </div>
         @elseif ( isset($slide['tipo']) && $slide['tipo'] == 'video_mp4' )
         <div

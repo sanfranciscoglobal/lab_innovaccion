@@ -87,7 +87,7 @@
                     <br>
 
                     <div id="video-gallery">
-                      <a href="https://www.youtube.com/embed/Xw_jRZrMxNU" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+                      <a href="https://www.youtube.com/embed/lBGiDZIQ0qk?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
                         <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
                         <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
                       </a>
