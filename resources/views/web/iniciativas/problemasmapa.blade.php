@@ -119,8 +119,8 @@
                                 </h4>
                                 <hr />
                                       <div class="pl-4 pr-3">
-                                           
-                                           
+
+
                                             <div class="row mt-2">
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Institución</span>
                                                 <select id="tipo_ins" name="tipo_ins]"
@@ -136,9 +136,9 @@
                                                 </select>
                                             </div>
                                             <div class="row mt-2">
-                                
+
                                             <span class="ml-1 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">ODS</span>
-                                                <select id="ods" class="form-control custom-select select2" 
+                                                <select id="ods" class="form-control custom-select select2"
                                                         data-ajax--url="{{route('api.ods-categoria.select2')}}"
                                                         data-ajax--data-type="json"
                                                         data-ajax--cache="true"
@@ -175,7 +175,7 @@
                                 </h4>
                                 <hr />
                                         <div class="pl-4 pr-3">
-                                            
+
                                             <div class="row mt-2 ">
                                                 <span class="ml-1  mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
                                             </div>
@@ -230,7 +230,7 @@
                                             <button class="font-weight-bold btn btn btn-primary mr-3 export dropdown-toggle"  data-toggle="dropdown">Descargar Datos
                                             <span class="caret"></span>
                                             </button>
-                                            
+
                                             <ul class="dropdown-menu">
                                                 <li>
                                                     <a type="button" type="button" class="ml-3 export"
@@ -360,7 +360,7 @@
         info='<div class="">'
         +'<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
         + '<b size="5" style="color:#fd972b">Descripción de la iniciativa:</b></br>'
-        + '<div class="">'+iniciativas[0].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
+        + '<div class="">'+iniciativas[i].iniciativa_informacion.descripcion_iniciativa+'</div></br>'
         //+'<b size="5" style="color:#fd972b">Componente innovador</b></br>'
         //+ '<div ">'+iniciativas[i].iniciativa_informacion.componente_innovador+"</div></br>"
         //+'<b size="5" style="color:#fd972b">ODS vinculados:</b></br>'
