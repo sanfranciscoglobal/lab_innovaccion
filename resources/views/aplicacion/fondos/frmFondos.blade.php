@@ -123,7 +123,7 @@
                                                     if($fondo->imagen){
                                                         $img = asset('storage/fondos/'.$fondo->imagen);
                                                     } else {
-                                                        $img = '';
+                                                        $img = asset('img/logo/thinkia_color_no_slogan.svg');
                                                     }
                                                     @endphp
                                                 <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" data-max-file-size="2M" accept="image/gif, image/jpeg, image/png" id="org_logo">
