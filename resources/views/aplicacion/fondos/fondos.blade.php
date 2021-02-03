@@ -1,12 +1,11 @@
 @extends('layouts.aplicacion.app')
 @section('header-css')
 <style>
-@media (max-width: 768px) {
-
-       #bannerluces{
-           background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
-       }
-   }
+    @media (max-width: 768px) {
+        #bannerluces{
+            background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
+        }
+    }
     .card-lab-orange .card-body * { color: white; }
     .card-lab-orange .card-body,
     .card-lab-orange .card-body:before { background-color: #FF9F40; }
