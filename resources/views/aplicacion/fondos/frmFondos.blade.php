@@ -87,7 +87,7 @@
                                                             </div>
                                                             <input type="hidden" name="fecha_inicio" class="cs-date-range-ini" required>
                                                         </div>
-                                                        
+
                                                         @error('fecha_inicio')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                                     </div>
                                                 </div>
@@ -123,10 +123,10 @@
                                                     if($fondo->imagen){
                                                         $img = asset('storage/fondos/'.$fondo->imagen);
                                                     } else {
-                                                        $img = '';
+                                                        $img = asset('img/logo/thinkia_color_no_slogan.svg');
                                                     }
                                                     @endphp
-                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" data-max-file-size="2M" accept="image/gif, image/jpeg, image/png" id="org_logo" @if($method == 'POST') required @endif>
+                                                <input type="file" class="dropify" name="imagen" title="Imagen del fondo" data-default-file="{{$img}}" data-max-file-size="2M" accept="image/gif, image/jpeg, image/png" id="org_logo">
                                                 <div class="invalid-feedback" id='org_logo_error'>Inserta una imagen.</div>
                                                 @error('avatar')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                             </div>
@@ -164,7 +164,7 @@
                                     </div> --}}
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <hr class="my-3">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
