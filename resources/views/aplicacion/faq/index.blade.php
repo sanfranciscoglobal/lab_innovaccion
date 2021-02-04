@@ -17,7 +17,8 @@
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5"></h1>
                 <div class="py-4">
-                    <p class="cs-callout">Consulas tus preguntas frecuentes y condiciones de uso</p>
+                    <p class="cs-callout">Thinkia es un espacio de innovación abierta que tiene una licencia de Creative Commons Reconocimiento – NoComercial - CompartirIgual 4.0 Internacional.
+                        <br>Conoce nuestro términos y condiciones de uso y consulta las preguntas más frecuentes sobre el uso de este espacio.</p>
                 </div>
                 {{-- <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
                     href="https://www.youtube.com/embed/oAzGvQ_2RYM?controls=0"></a><span class="font-size-sm text-muted">Ver
@@ -31,10 +32,10 @@
     <section>
         <div class="container">
             <div class="tent-center flex-column justify-content-center row mt-5 mb-5">
-                <h2 >Preguntas Frecuentes</h2>
+                <h2 >Generales</h2>
             </div>
             <div class="row">
-                <div class="col-12 col-lg-8 offset-lg-2">
+                <div class="col-12 col-lg-12">
                     <!-- Accordion made of cards -->
                     <div class="accordion" id="accordionExample">
 
@@ -43,14 +44,14 @@
                         <div class="card-header" id="headingOne">
                             <h3 class="accordion-heading">
                             <a href="#collapseOne" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
-                                Pregunta 1
+                                ¿En qué casos necesito generar un usuario?
                                 <span class="accordion-indicator"></span>
                             </a>
                             </h3>
                         </div>
                         <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                             Respuesta 1 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                                Si vas a registrar i) una iniciativa de innovación, ii) fondos, eventos o publicaciones y herramientas, y iii) un problema o solución en las convocatorias abiertas necesitas generar un usuario.
                             </div>
                         </div>
                         </div>
@@ -60,34 +61,132 @@
                         <div class="card-header" id="headingTwo">
                             <h3 class="accordion-heading">
                             <a href="#collapseTwo" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
-                                Pregunta 2
+                                ¿Puedo darle otros usos a esta información y redistribuirla?
                                 <span class="accordion-indicator"></span>
                             </a>
                             </h3>
                         </div>
                         <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                Respuesta 2 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                                Thinkia promueve un uso de información en formato de datos abiertos, por lo cual toda la información del Sitio Web puede ser usada, reutilizada y difundida libremente.
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tent-center flex-column justify-content-center row mt-5 mb-5">
+                <h2 >Sobre el ecosistema de innovación
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-12">
+                    <!-- Accordion made of cards -->
+                    <div class="accordion" id="accordionExample">
+
+                        <!-- Card -->
+                        <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h3 class="accordion-heading">
+                            <a href="#collapseOne" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                                ¿Cómo sé si el trabajo que hago tiene un componente innovador?
+                                <span class="accordion-indicator"></span>
+                            </a>
+                            </h3>
+                        </div>
+                        <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                Thinkia no busca validar o verificar si una iniciativa es innovadora o no. Cada actor que registre su trabajo en este Sitio Web tiene la responsabilidad de reflexionar y decidir si su trabajo cumple con este criterio teniendo en mente el propósito de este espacio. A modo de guía referencial, se comparten los siguientes criterios: una iniciativa innovadora le da una solución efectiva a un problema concreto de desarrollo. La solución puede ser una idea nueva o una modificación de lo habiente, debe ser construido entre varios actores y sobre todo busca mejorar el bienestar de una comunidad o colectivo.
                             </div>
                         </div>
                         </div>
 
                         <!-- Card -->
                         <div class="card">
-                        <div class="card-header" id="headingThree">
+                        <div class="card-header" id="headingTwo">
                             <h3 class="accordion-heading">
-                            <a href="#collapseThree" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
-                                Pregunta 3
+                            <a href="#collapseTwo" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                                ¿Puedo mapear una iniciativa que no esté activa?
                                 <span class="accordion-indicator"></span>
                             </a>
                             </h3>
                         </div>
-                        <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                Respuesta 3  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                                Registra tu iniciativa de innovación, si ya está registrada, edítala para que la información está actualizada.  Si tu iniciativa ya no está activa la puedes registrar igualmente y especificar que ya finalizo.
                             </div>
                         </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tent-center flex-column justify-content-center row mt-5 mb-5">
+                <h2 >Gestión de la innovación
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-12">
+                    <!-- Accordion made of cards -->
+                    <div class="accordion" id="accordionExample">
+
+                        <!-- Card -->
+                        <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h3 class="accordion-heading">
+                            <a href="#collapseOne" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                                ¿Cómo sé si ha abierto una convocatoria de mi interés?
+                                <span class="accordion-indicator"></span>
+                            </a>
+                            </h3>
+                        </div>
+                        <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                Sigue a Thinkia en redes y revisa nuestro Sitio Web para que te enteres.
+                            </div>
+                        </div>
+                        </div>
+
+                        <!-- Card -->
+                        <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h3 class="accordion-heading">
+                            <a href="#collapseTwo" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                                ¿Cómo funcionan las convocatorias?
+                                <span class="accordion-indicator"></span>
+                            </a>
+                            </h3>
+                        </div>
+                        <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                                Se abrirán convocatorias en uno de los siguientes ejes: gestión pública, sector productivo y ciudadanía.<br>
+                                Cada convocatoria tiene dos fases, en la primera fase se registran los problemas, y en la segunda fase se
+                                registran las soluciones atadas a esos problemas inscritos. Por ejemplo, en el eje sector productivo se
+                                abre la convocatoria para el sector cacaotero. Fase 1: uno de los problemas registrados por la Asociación
+                                de Cacaoteros de Guayas es para buscar una solución que le permita tener un empaque más sustentable
+                                del producto. Fase 2: de manera individual o en grupo se puedes dar una solución a este problema
+                                concreto.
+                            </div>
+                        </div>
+                        </div>
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h3 class="accordion-heading">
+                                <a href="#collapseTwo" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                                    ¿Cómo sé si mi problema requiere una solución de este tipo?
+                                    <span class="accordion-indicator"></span>
+                                </a>
+                                </h3>
+                            </div>
+                            <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    El formulario que te permite registrar tu problema en cada convocatoria tiene unas preguntas de
+                                arranque que te permiten evaluar si este espacio de innovación abierta es el espacio correcto para
+                                buscar una solución y qué implicaciones tiene.
+                                </div>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -96,10 +195,14 @@
 
     <section>
         <div class="container">
-            <div class="tent-center flex-column justify-content-center row mt-5 mb-5">
+            <div class="tent-center justify-content-center row mt-5 mb-5">
                 <h2 >Términos y Condiciones</h2>
             </div>
-            <div class="row mt-5 mb-5" style="overflow: scroll!important;max-height:500px">
+            <div class="tent-center justify-content-center row mt-5 mb-5">
+                <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn" href="/Terminos_y_condiciones_Thinkia.pdf" target="_blank" style="margin-left:0px !important" >Descargar</a>
+            </div>
+
+            {{-- <div class="row mt-5 mb-5" style="overflow: scroll!important;max-height:500px">
 
 
                 <div class="d-flex align-content-center flex-column justify-content-center">
@@ -122,7 +225,7 @@
                     </ol>
 
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
     {{-- <section class="cs-footer jarallax bg-dark pt-5 pt-md-6 pt-lg-7">
