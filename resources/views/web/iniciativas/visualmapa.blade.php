@@ -115,6 +115,7 @@
     locations = []
     c = 0
     for(i=0; i<iniciativas.length; i++){
+        // console.log(iniciativas[i]);
         /*descripcion=""
         des=iniciativas[0].iniciativa_informacion.descripcion_iniciativa.match(/.{1,15}/g)
         for(z=0;z<des.length;z++){
@@ -130,6 +131,9 @@
         for(z=0; z<pobla.length; z++){
             txtpobla = pobla[z].descripcion+", ";
         }
+
+        let route = "{{ route('web.iniciativas.show', 0) }}";
+        route = route.replace("/0", "/"+iniciativas[i].id);
         info = '<div class="">'
         + '<b size="6" style="color:#4e2561">'+ iniciativas[i].iniciativa_informacion.nombre_iniciativa +'</b></br>'
         + '<b size="5" style="color:#fd972b">Descripción de la iniciativa:</b></br>'
@@ -140,7 +144,7 @@
        // + '<div  ">'+txtods.slice(0, -2)+".</div></br>"
        // +'<b size="5" style="color:#fd972b">Grupo objetivo:</b></br>'
        // + '<div  ">'+txtpobla.slice(0, -2)+".</div></br>"
-        +'</div>'
+        +'</div><a href="'+route+'">Ver más</a>'
         for(j=0; j<iniciativas[i].iniciativa_ubicaciones.length; j++){
             locations.push([])
             locations[c].push(info)

@@ -22,7 +22,7 @@
                                                 <span class="input-group-prepend">
                                                     <div class="input-group-text  border-right-0"><i class="fa fa-search"></i></div>
                                                 </span>
-                                                <input id="pac-input" style=" border-top-right-radius:15px;; border-bottom-right-radius:15px;" class="form-control py-2 border-left-0 border pac-target-input" placeholder="Buscar" type="" value="Buscar" autocomplete="off">
+                                                <input id="pac-input" style=" border-top-right-radius:15px;; border-bottom-right-radius:15px;" class="form-control py-2 border-left-0 border pac-target-input" placeholder="Buscar" type="text" autocomplete="off">
                                                 <span class="input-group-append">
 
                                                 </span>
@@ -79,8 +79,8 @@
                     <div class="ml-lg-5 mx-md-3 px-7 align-items-center">
                         <div class=" d-flex flex-column h-100 rounded-lg box-shadow-lg p-2" style="background-color: rgba(255, 255,255, 0.7);">
                         <form action="{{route('web.iniciativas.data')}}" method="POST">
-                                        @method('POST')
-                                        @csrf
+                            @method('POST')
+                            @csrf
                             <div class="row justify-content-center">
                                 <div class="w-100 center-block text-left pl-5 pt-1">
                                 <h2 style="color:#531c6a">Filtros</h2>
@@ -88,39 +88,39 @@
                                         <div class="col-12">
                                             <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
                                             <select id="tipo_institucion" name="tipo_institucion[]"
-                                                    class="form-control custom-select select2"
-                                                    data-ajax--url="{{route('api.tipo-institucion.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    data-placeholder="Seleccionar tipo institución"
-                                                    style="width:100%;"
-                                                    multiple>
-
+                                                class="form-control custom-select select2"
+                                                data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                                data-ajax--data-type="json"
+                                                data-ajax--cache="true"
+                                                data-close-on-select="false"
+                                                data-placeholder="Seleccionar tipo institución"
+                                                style="width:100%;"
+                                                multiple>
                                             </select>
                                         </div>
                                         <div class="col-12">
-                                            <span class="ml-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >ODS</span>
-                                            <select id="ods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
-                                                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    style="width:100%;"
-                                                    data-placeholder="Seleccionar ODS"
-                                                    multiple>
+                                            <span class="ml-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a">ODS</span>
+                                            <select id="ods_categorias" class="form-control custom-select select2"
+                                                name="ods_categorias[]"
+                                                data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                                data-ajax--data-type="json"
+                                                data-ajax--cache="true"
+                                                data-close-on-select="false"
+                                                style="width:100%;"
+                                                data-placeholder="Seleccionar ODS"
+                                                multiple>
                                             </select>
                                         </div>
                                         <div class="col-12">
                                             <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Población Objetivo</span>
                                             <select style="width:100%;" id="tipo_poblacion" name="tipo_poblacion[]"
-                                                    class="form-control select2"
-                                                    data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    data-placeholder="Seleccionar población objetivo"
-                                                    multiple>
+                                                class="form-control select2"
+                                                data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                                                data-ajax--data-type="json"
+                                                data-ajax--cache="true"
+                                                data-close-on-select="false"
+                                                data-placeholder="Seleccionar población objetivo"
+                                                multiple>
                                             </select>
                                         </div>
                                         <div class="col-lg-2 col-xl-2  col-md-2 col-sm-3 pt-3">
