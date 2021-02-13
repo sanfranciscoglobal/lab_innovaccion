@@ -115,7 +115,7 @@
     locations = []
     c = 0
     for(i=0; i<iniciativas.length; i++){
-        console.log(iniciativas[i]);
+        // console.log(iniciativas[i]);
         /*descripcion=""
         des=iniciativas[0].iniciativa_informacion.descripcion_iniciativa.match(/.{1,15}/g)
         for(z=0;z<des.length;z++){
