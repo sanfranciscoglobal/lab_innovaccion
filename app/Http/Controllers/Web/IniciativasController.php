@@ -50,12 +50,16 @@ class IniciativasController extends Controller
         $scroll = ($request->has('buscar')) ? true : $scroll;
         $scroll = ($request->has('page')) ? true : $scroll;
 
+        if ($request->has('tipo_institucion') || $request->has('ods_categorias') || $request->has('tipo_poblacion')) {
+            $scroll = true;
+        }
+
         return view('web.iniciativas.index', compact('iniciativas', 'cantones', 'tipoInstituciones', 'odsCategorias', 'tipoPoblaciones', 'buscar', 'scroll'));
     }
 
     public static function data(Request $request)
     {
-
+        $scroll = false;
         Iniciativas::$search = $request->has('buscar') ? $request->buscar : null;
         Iniciativas::$search_canton_id = $request->has('canton_id') ? $request->canton_id : [];
         Iniciativas::$search_tipo_institucion = $request->has('tipo_institucion') ? $request->tipo_institucion : [];
@@ -77,7 +81,11 @@ class IniciativasController extends Controller
             $x->iniciativaInformacion;
         }
 
-        return view('web.iniciativas.visualmapa', compact('iniciativas'));
+        if ($request->has('tipo_institucion') || $request->has('ods_categorias') || $request->has('tipo_poblacion')) {
+            $scroll = true;
+        }
+
+        return view('web.iniciativas.visualmapa', compact('iniciativas','tipoInstituciones', 'odsCategorias','tipoPoblaciones','scroll'));
     }
 
     public function exportarExcel(Request $request)

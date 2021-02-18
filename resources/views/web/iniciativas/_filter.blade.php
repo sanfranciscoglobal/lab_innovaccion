@@ -1,5 +1,6 @@
 <?php $routeName = Route::currentRouteName(); ?>
-<form id="filter-iniciativas" class="container" action="{{route('web.iniciativas.index')}}" method="POST">
+<form id="filter-iniciativas" class="container" action="{{route('web.iniciativas.index')}}" method="POST"
+      data-action="{{route('web.iniciativas.index')}}">
     @method('POST')
     @csrf
 
@@ -167,8 +168,9 @@
                         </div>
                         <p style="display: flex;" class="text-center  justify-content-center">
                         <div class="row justify-content-center">
-                            <button type="submit" class="font-weight-bold  btn btn-primary btn-filter-submit"
-                                    style="border-color:#FF7F00;background: #FF7F00; width: 150px;">
+                            <button type="button" class="font-weight-bold  btn btn-primary btn-filter-submit"
+                                    style="border-color:#FF7F00;background: #FF7F00; width: 150px;"
+                                    data-action="{{route('web.iniciativas.index')}}">
                                 Aplicar
                             </button>
                         </div>

@@ -292,16 +292,27 @@
         lightGallery(document.getElementById('video-gallery'));
 
         $(document).ready(function () {
+            // $('#filter-iniciativas').on('submit', function (event) {
+            //     event.preventDefault();
+            //     var action = $(this).data('action');
+            //     $('#filter-iniciativas').attr('action', action);
+            //     // $(this).submit();
+            //     console.log(action);
+            //     return true;
+            // });
+
             $(document).on('click', '.btn-filter-submit', function () {
                 var action = $(this).data('action');
                 $('#filter-iniciativas').attr('action', action);
                 $('#filter-iniciativas').submit();
-                //console.log(action);
+                // console.log(action);
             });
 
             $(document).on('click', ".export", function (e) {
-                $('#filter-iniciativas').attr('action', $(this).data('action'));
+                var action = $(this).data('action');
+                $('#filter-iniciativas').attr('action', action);
                 $('#filter-iniciativas').submit();
+                // console.log(action);
             });
 
             @if($scroll)
