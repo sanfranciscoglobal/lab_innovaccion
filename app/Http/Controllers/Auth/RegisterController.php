@@ -74,7 +74,7 @@ class RegisterController extends Controller
 
         Auth::attempt($request->only('email', 'password'));
 
-        // Mail::to($user->email)->send(new EmailVerification($user));
+        Mail::to($user->email)->send(new EmailVerification($user));
 
         return redirect()->route('home')->with('status', 'Usuario creado con éxito, por favor verifica tu correo electrónico.');
     }
