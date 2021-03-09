@@ -75,7 +75,7 @@
 .select2-selection__rendered {
     width: 300px;
     overflow-y: scroll !important;
-    max-height: 34px;
+    /* max-height: 34px; */
     resize: none;
     overflow-x: hidden !important;
 
