@@ -155,7 +155,7 @@
                                         </div>
                                         @error('direccion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                     </div>
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="org_canton" class="control-label">Cantón</label><br>
                                             <select class="form-control custom-select select2" style="width:100%" id="org_canton" name="canton_id" data-ajax--url="{{route('api.canton.select2')}}" data-ajax--data-type="json" data-ajax--cache="true" data-close-on-select="false">
@@ -168,7 +168,7 @@
                                             <div class="valid-feedback">Bien!</div>
                                             @error('canton_id')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
