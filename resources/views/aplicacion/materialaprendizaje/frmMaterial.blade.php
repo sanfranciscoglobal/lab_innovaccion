@@ -74,6 +74,24 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-12 ">
+                                        <div class="form-group m-publicacion m-herramienta d-none">
+                                            <label id='label_nombre' for="mat_nombre">* Descripción de la publicación <span style="color: gray">(máx. 350 caracteres)</span> </label>
+                                            <textarea oninput="window.countCharacters('componente_innovador','componente_innovador_error','btn-siguiente-descripcion',85,350,'count_words_3');"
+                                                name="componente_innovador"
+                                                id="componente_innovador"
+                                                class="form-control"
+                                                placeholder="Componente Innovador"
+                                                rows="6">
+                                                {{--maxlength="350"--}}
+                                            
+                                            </textarea>
+                                            @error('nombre_publicacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-8 ">
                                         <div class="form-group m-publicacion m-herramienta d-none">
                                             <label for="mat_url" id="label_url">* Fuente de la publicación</label>
