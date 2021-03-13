@@ -30,6 +30,7 @@ class StorePost extends FormRequest
             'tema_tratado' => 'string|required',
             'tipo_documento' => 'string|required',
             'tipo' => 'boolean|required',
+            'descripcion_publicacion'=>'string|required',
             //'imagen_portada' => 'nullable|image|mimes:jpeg,png,gif,jpg|max:2048',
             'mat_files.*'=>['file', 'max:10240', 'nullable'],
             'fuente_publicacion' => 'required|string',

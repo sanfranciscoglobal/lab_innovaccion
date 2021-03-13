@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +31,9 @@ Route::get('/terminos-y-condiciones', function () {
 Route::get('/preguntas-frecuentes', function () {
     return view('aplicacion.faq.index');
 })->name('faq');
+Route::get('/terminos-y-condiciones/download', function () {
+    return Storage::disk('terminos')->download('Terminos y condiciones_rev_AMG.pdf');
+})->name('terminos.download');
 
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
@@ -139,6 +142,9 @@ Route::as('app.')
 
             // Route::get('/registro-de-material-de-aprendizaje', 'Aplicacion\MaterialdeaprendizajeController@verFormularioregistromaterial')->name('registromaterial');
             Route::post('/ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
+            Route::get('/publicacion-herramienta/tema_tratado/{tema}', function () {
+                return Storage::disk('terminos')->download('Terminos y condiciones_rev_AMG.pdf');
+            })->name('terminos.download');
 
 
             /**

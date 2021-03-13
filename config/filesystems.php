@@ -73,7 +73,15 @@ return [
         'soluciones' => [
             'driver' => 'local',
             'root' => storage_path('app') . '/public/soluciones',
-        ], 
+        ],
+        'terminos' => [
+            'driver' => 'local',
+            'root' => storage_path('app') . '/public/terminos',
+        ],
+        'tiposdocumento' => [
+            'driver' => 'local',
+            'root' => storage_path('app') . '/public/tiposdocumento',
+        ],  
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

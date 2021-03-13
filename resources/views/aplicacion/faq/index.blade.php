@@ -199,7 +199,7 @@
                 <h2 >Términos y Condiciones</h2>
             </div>
             <div class="tent-center justify-content-center row mt-5 mb-5">
-                <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn" href="/Terminos_y_condiciones_Thinkia.pdf" target="_blank" style="margin-left:0px !important" >Descargar</a>
+                <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-stuck-btn" href="{{route('terminos.download')}}" style="margin-left:0px !important" >Descargar</a>
             </div>
 
             {{-- <div class="row mt-5 mb-5" style="overflow: scroll!important;max-height:500px">
