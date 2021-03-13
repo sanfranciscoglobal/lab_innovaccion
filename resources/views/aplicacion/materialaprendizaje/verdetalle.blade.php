@@ -46,12 +46,13 @@
     </section>
 
         @php
-            $imagen1 = asset('img/logo/thinkia_color.svg');
+            $imagen1 = asset('img/logo/favicon/android-chrome-192x192.png');
             if(isset($material->user->perfil_id)){
-                if(isset($material->user->perfil->avatar)){
+                if(Storage::disk('perfil')->exists($material->user->perfil->avatar)){
                     $imagen1 = asset('storage/perfil/'.$material->user->perfil->avatar);
                 }
             }
+            
         @endphp
 
     <div class="cs-sidebar-enabled cs-sidebar-right" >
@@ -83,6 +84,12 @@
                                         </div>
                                     </div>
                                 @endif
+                                <div class="mt-3 text-primary font-weight-semibold">
+                                    <span class="font-weight-bold e-presencial"><i class="fe-book font-size-xl mr-2"></i> Descripción</span>
+                                    <textarea  class="form-control" 
+                                    style="cursor: default ; background:white" disabled
+                                    >{{isset($material->descripcion_publicacion)?$material->descripcion_publicacion:null}}</textarea>
+                                </div>
 
                                     <div class="mt-3 text-primary font-weight-semibold">
                                         <span class="font-weight-bold e-presencial"><i class="fe-file font-size-xl mr-2"></i> Archivos</span>

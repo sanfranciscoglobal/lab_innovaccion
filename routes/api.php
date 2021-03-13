@@ -37,6 +37,7 @@ Route::get('/obtener-material-categoria-select2', 'Api\MaterialCategoriaControll
 //Route::post('/obtener-material-categoria', 'Api\MaterialCategoriaController@materialcategoriaSelect2')->name('api.material-categoria.select2');
 
 Route::get('/obtener-material-documento-select2', 'Api\MaterialTipoDocumentoController@materialtipodocSelect2')->name('api.material-documento.select2');
+Route::post('/obtener-material-categoria-image', 'Api\MaterialCategoriaController@materialcategoriasearch')->name('api.material-categoria.image');
 //Route::post('/obtener-material-documento', 'Api\MaterialTipoDocumentoController@materialtipodocSelect2')->name('api.material-documento.select2');
 
 

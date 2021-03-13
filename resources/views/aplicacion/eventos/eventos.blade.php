@@ -185,54 +185,54 @@
 
                 <div class="col-lg-4 col-sm-6 mb-grid-gutter">
 
-                <div class="card card-hover border-0 box-shadow mx-auto">
-                    <img class="card-img-top" style="height: 50ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}" />
-                    <div class="card-body">
-                        <h3 class="h5 mb-0 text-center">{{$evento->nombre}}</h3>
-                    </div>
-                    <div class="card-hover-info px-4 py-4 bg-secondary h-100">
-                        <h3 class="h5 text-center">{{$evento->nombre}}</h3>
-                        <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
-                        <div class="mt-3 font-weight-bold font-weight-md text-primary">
-                            <p style="margin-bottom: 0; font-size:14;">{{date('d M, Y', strtotime( $evento->fecha))}}</p>
-                            <p>{{date('H\Hi', strtotime( $evento->hora))}}</p>
+                    <div class="card card-hover border-0 box-shadow mx-auto">
+                        <img class="card-img-top" style="height: 50ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}" />
+                        <div class="card-body">
+                            <h3 class="h5 mb-0 text-center">{{$evento->nombre}}</h3>
                         </div>
-                        <span class="font-weight-bold"><i class="fe-message-square font-size-lg mr-2"></i> Descripción del Evento</span><br>
-                        <p class="scrollable"  >{{$evento->descripcion}}</p>
+                        <div class="card-hover-info px-4 py-4 bg-secondary h-100">
+                            <h3 class="h5 text-center">{{$evento->nombre}}</h3>
+                            <p class="text-center"><span class="organizador">{{$evento->organizador}}</span></p>
+                            <div class="mt-3 font-weight-bold font-weight-md text-primary">
+                                <p style="margin-bottom: 0; font-size:14;">{{date('d M, Y', strtotime( $evento->fecha))}}</p>
+                                <p>{{date('H\Hi', strtotime( $evento->hora))}}</p>
+                            </div>
+                            <span class="font-weight-bold"><i class="fe-message-square font-size-lg mr-2"></i> Descripción del Evento</span><br>
+                            <p class="scrollable"  >{{$evento->descripcion}}</p>
 
 
-                        <div class="mt-3 text-primary font-weight-semibold text-center">
+                            <div class="mt-3 text-primary font-weight-semibold text-center">
 
-                            @if ($evento->tipo==0)
-                                <span class="font-weight-bold">
-                                <a class="btn btn-primary"  href="{{$evento->url}}">
-                                    <i class="fe-link font-size-xl mr-2"></i> Link del evento
-                                    </a>
-                                </span>
-
-                            @else
-                                <span class="font-weight-bold">
-                                <a class="btn btn-primary" href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
-                                    <i class="fe-map-pin font-size-xl mr-2"></i> Ubicación
-
-                                    </a>
+                                @if ($evento->tipo==0)
+                                    <span class="font-weight-bold">
+                                    <a class="btn btn-primary"  href="{{$evento->url}}">
+                                        <i class="fe-link font-size-xl mr-2"></i> Link del evento
+                                        </a>
                                     </span>
 
-                            @endif
-                            @if ($evento->sitioweb!=null)
-                                <span class="font-weight-bold">
-                                <a class="btn btn-primary"  href="{{$evento->sitioweb}}">
-                                    <i class="fe-link font-size-xl mr-2"></i> Ver más
-                                    </a>
-                                </span>
-                            @endif
+                                @else
+                                    <span class="font-weight-bold">
+                                    <a class="btn btn-primary" href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
+                                        <i class="fe-map-pin font-size-xl mr-2"></i> Ubicación
 
+                                        </a>
+                                        </span>
+
+                                @endif
+                                @if ($evento->sitioweb!=null)
+                                    <span class="font-weight-bold">
+                                    <a class="btn btn-primary"  href="{{$evento->sitioweb}}">
+                                        <i class="fe-link font-size-xl mr-2"></i> Ver más
+                                        </a>
+                                    </span>
+                                @endif
+
+
+                            </div>
 
                         </div>
-
                     </div>
                 </div>
-            </div>
 
             @endforeach
             <div class="col-12">{{ $eventos->links() }}</div>

@@ -93,9 +93,9 @@
 
                         @foreach ($materiales as $material)
                         @php
-                            $imagen = asset('img/layout/home/profile2.jpg');
+                            $imagen =  asset('img/logo/favicon/android-chrome-192x192.png');
                             if(isset($material->user->perfil_id)){
-                                if(isset($material->user->perfil->avatar)){
+                                if(Storage::disk('perfil')->exists($material->user->perfil->avatar)){
                                     $imagen = asset('storage/perfil/'.$material->user->perfil->avatar);
                                 }
                             }
