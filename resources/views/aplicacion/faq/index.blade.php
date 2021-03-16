@@ -17,8 +17,9 @@
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5"></h1>
                 <div class="py-4">
-                    <p class="cs-callout">Thinkia es un espacio de innovación abierta que tiene una licencia de Creative Commons Reconocimiento – NoComercial - CompartirIgual 4.0 Internacional.
-                        <br>Conoce nuestro términos y condiciones de uso y consulta las preguntas más frecuentes sobre el uso de este espacio.</p>
+                    <p class="cs-callout">Thinkia no busca validar o verificar si una iniciativa es innovadora o no. Cada actor que registre su trabajo en este Sitio Web tiene la responsabilidad de reflexionar y decidir si su trabajo cumple con este criterio teniendo en mente el propósito de este espacio.
+                        <br> A modo de guía referencial, se comparten los siguientes criterios: una iniciativa innovadora es una solución efectiva e implementada a un problema concreto de desarrollo.
+                        <br>La solución puede ser una idea, metodología o proceso nuevo o una modificación de lo habiente, debe ser construido entre varios actores y sobre todo busca mejorar el bienestar de una comunidad o colectivo.</p>
                 </div>
                 {{-- <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
                     href="https://www.youtube.com/embed/oAzGvQ_2RYM?controls=0"></a><span class="font-size-sm text-muted">Ver
