@@ -11,7 +11,6 @@ class MaterialCategoriaController extends Controller
 {
     public static function materialcategoriaSelect2(Request $request)
     {
-        
         MaterialCategorias::$search = $request->search;
         $data = [];
         $Categorias = MaterialCategorias::obtenermaterialcategoriaAll() ?? [];

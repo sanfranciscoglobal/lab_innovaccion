@@ -157,13 +157,7 @@
                                     <label for="mat_tema">* Tema tratado</label>
                                     <div class="row">
                                         <div class="col w-100 form-group">
-                                         
-                                          {{-- <select class="form-control custom-select select2" id="mat_tema" name='tema_tratado' required>
-                                            <option value="">Seleccione un tema</option>
-                                            <option value="Tema 1" {{old('tema_tratado',$material->tema_tratado)=="Tema 1"? 'selected':''}}>Tema 1</option>
-                                            <option value="Tema 2" {{old('tema_tratado',$material->tema_tratado)=="Tema 2"? 'selected':''}}>Tema 2</option>
-                                            <option value="Tema 3" {{old('tema_tratado',$material->tema_tratado)=="Tema 3"? 'selected':''}}>Tema 3</option>
-                                          </select> --}}
+                             
                                           <select style="width:100%;" class="form-control custom-select select2" id='mat_tema' name='tema_tratado'
 
                                             data-ajax--url="{{route('api.material-categoria.select2')}}"
@@ -186,32 +180,16 @@
                                     </div>
 
 
-                                    {{-- <select class="form-control select2" name="tema_tratado" oninvalid="setCustomValidity('Por favor seleccione una opción de la lista.')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                        <option value="">Seleccione un tema</option>
-                                        <option value="Tema 1" {{old('tema_tratado',$material->tema_tratado)=="Tema 1"? 'selected':''}}>Tema 1</option>
-                                        <option value="Tema 2" {{old('tema_tratado',$material->tema_tratado)=="Tema 2"? 'selected':''}}>Tema 2</option>
-                                        <option value="Tema 3" {{old('tema_tratado',$material->tema_tratado)=="Tema 3"? 'selected':''}}>Tema 3</option>
-                                    </select> --}}
                                 </div>
                                 <div class="form-group">
                                     <label for="mat_tipo">* Tipo de Documento</label>
                                     <div class="row">
                                         <div class="col w-100 form-group">
                                           
-                                          {{-- <select class="form-control custom-select select2" id="mat_tipo" name='tipo_documento' required>
-                                            <option value="">Seleccione un Tipo</option>
-                                            <option value="Tipo 1" {{old('tipo_documento',$material->tipo_documento)=="Tipo 1"? 'selected':''}}>Tipo 1</option>
-                                            <option value="Tipo 2" {{old('tipo_documento',$material->tipo_documento)=="Tipo 2"? 'selected':''}}>Tipo 2</option>
-                                            <option value="Tipo 3" {{old('tipo_documento',$material->tipo_documento)=="Tipo 3"? 'selected':''}}>Tipo 3</option>
-                                          </select> --}}
+                     
                                           <select style="width:100%;" class="form-control custom-select select2" id='mat_tipo' name='tipo_documento'
-
-                                            data-ajax--url="{{route('api.material-documento.select2')}}"
-                                            data-ajax--data-type="json"
                                             data-ajax--data-cache="true"
                                             required="required"
-                                            data-placeholder="Seleccione un Tipo"
-
                                             >
                                                 @if ($material->tipo_documento)
                                                     <option value="{{$material->tipodocumento->id}}"
@@ -219,7 +197,7 @@
                                                 @endif
                                                                        
                                             </select>
-                                                           
+
                                           <div class="invalid-feedback">Seleccione un tema.</div>
                                           <div class="valid-feedback">Bien!</div>
                                         </div>
@@ -253,32 +231,6 @@
     </div>
     </form>
     @if ($method=='PUT')
-        {{-- <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-warning text-white">
-                        <h4 class="modal-title text-white"><i class="fe-alert-triangle mr-2"></i> Eliminar Material</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="text-white">&times;</span>
-                            </button>
-                    </div>
-                    
-
-                    <form action="{{ route('app.material-de-aprendizaje.delete',$material->id) }}" role="form" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <div class="modal-body">
-                            <div class="text-warning">Está seguro que desea eliminar este material?</div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-                            <button type="submit"  class="btn btn-primary btn-sm">Eliminar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> --}}
 
         <div class="modal fade" id="deleteAlert" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -332,10 +284,31 @@
    
 </script>
 <script>
+    var CSRF_TOKEN=$('meta[name="csrf-token"]').attr('content');
      $(document).ready(function(){
         $('.lugar').change(function(){
             if($(this).is(':checked')){
-
+                let tipo_material= $(this).val();
+                $('#mat_tipo').select2({
+                        ajax: {
+                            url: "{{route('api.material-documento.select2')}}",
+                            type:"post",
+                            dataType:"json",
+                            data: function(params){
+                                return{
+                                    _token:CSRF_TOKEN,
+                                    search:params.term,
+                                    tipo_material:tipo_material
+                                }
+                            },
+                            processResults: function (data) {
+                                return {
+                                    results: data
+                                };
+                            }
+                        },
+                       placeholder:"Seleccione un tipo"
+                });
                 if ($(this).val() == 0){
                     //$('.to-hide').removeClass('d-none');
                     $('.m-herramienta .form-control').removeAttr('required');
@@ -349,6 +322,8 @@
                     document.getElementById("mat_url").placeholder='Link de la publicación';
                     document.getElementById("mat_nombre").placeholder='Nombre de la publicación';
                     document.getElementById("descripcion").placeholder='Descripción de la publicación';
+                    
+                   
 
                 }else{
                     if ($(this).val() == 1){
@@ -402,14 +377,8 @@
                 }
                 
         });
-
-
-        
-
         
     });
-
-
 
     $(function(){
         countWords();  
