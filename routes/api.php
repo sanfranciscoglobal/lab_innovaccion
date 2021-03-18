@@ -34,11 +34,11 @@ Route::get('/obtener-tipo-subsector-select2', 'Api\TipoSectorController@tipoSubs
 Route::post('/obtener-tipo-subsector-select2', 'Api\TipoSectorController@tipoSubsectorSelect2')->name('api.tipo-subsector.select2');
 
 Route::get('/obtener-material-categoria-select2', 'Api\MaterialCategoriaController@materialcategoriaSelect2')->name('api.material-categoria.select2');
-//Route::post('/obtener-material-categoria', 'Api\MaterialCategoriaController@materialcategoriaSelect2')->name('api.material-categoria.select2');
+// Route::post('/obtener-material-categoria', 'Api\MaterialCategoriaController@materialcategoriaSelect2')->name('api.material-categoria.select2');
 
-Route::get('/obtener-material-documento-select2', 'Api\MaterialTipoDocumentoController@materialtipodocSelect2')->name('api.material-documento.select2');
+//Route::get('/obtener-material-documento-select2', 'Api\MaterialTipoDocumentoController@materialtipodocSelect2')->name('api.material-documento.select2');
 Route::post('/obtener-material-categoria-image', 'Api\MaterialCategoriaController@materialcategoriasearch')->name('api.material-categoria.image');
-//Route::post('/obtener-material-documento', 'Api\MaterialTipoDocumentoController@materialtipodocSelect2')->name('api.material-documento.select2');
+Route::post('/obtener-material-documento-select2', 'Api\MaterialTipoDocumentoController@materialtipodocSelect2')->name('api.material-documento.select2');
 
 
 Route::get('/obtener-objetivos-desarrollo-select2', 'Api\ObjetivosDesarrolloController@objetivosDesarrolloSelect2')->name('api.objetivo-desarrollo.select2');
