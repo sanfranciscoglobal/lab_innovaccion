@@ -7,6 +7,7 @@
                 <h1 class="mt-5 text-primary uppercase">Gestión de la Innovación</h1>
                 <div class="py-3">
                     <p class="text-justify cs-callout">
+
                     ¡ Compártenos tus retos para resolverlos juntos !</br>
                     ¡ Busquemos soluciones de manera abierta !</br></br>
 
@@ -21,7 +22,6 @@
                     </p class="text-justify">
                         <ul>
                         <li><strong>Innovación abierta</strong> busca que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.</li>
-                        <li><strong>Innovación pública</strong> es la mejora del quehacer público, incluyendo la gestión administrativa y los asuntos de interés común.</li>
                         <li><strong>Innovación social</strong> se enfoca en resolver retos que aporten al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables. </li>
                         </ul>
                     </div>
