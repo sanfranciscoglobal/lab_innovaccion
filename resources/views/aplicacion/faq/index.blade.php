@@ -17,8 +17,10 @@
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
                 <h1 class="mt-5"></h1>
                 <div class="py-4">
-                    <p class="cs-callout">Thinkia no busca validar o verificar si una iniciativa es innovadora o no. Cada actor que registre su trabajo en este Sitio Web tiene la responsabilidad de reflexionar y decidir si su trabajo cumple con este criterio teniendo en mente el propósito de este espacio.
+                    <p class="cs-callout text-justify">Thinkia no busca validar o verificar si una iniciativa es innovadora o no. Cada actor que registre su trabajo en este Sitio Web tiene la responsabilidad de reflexionar y decidir si su trabajo cumple con este criterio teniendo en mente el propósito de este espacio.
+                        <br>
                         <br> A modo de guía referencial, se comparten los siguientes criterios: una iniciativa innovadora es una solución efectiva e implementada a un problema concreto de desarrollo.
+                        <br>
                         <br>La solución puede ser una idea, metodología o proceso nuevo o una modificación de lo habiente, debe ser construido entre varios actores y sobre todo busca mejorar el bienestar de una comunidad o colectivo.</p>
                 </div>
                 {{-- <a class="cs-video-btn cs-video-btn-primary cs-video-btn-sm mr-3"
