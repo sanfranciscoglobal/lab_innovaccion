@@ -114,7 +114,7 @@
 @section('scripts')
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk1o4ccLlIVCRKZUEmgfwVz5h-KrqnnDU&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRzOQr6pAx5Ts1MUHxJRfX6ZjK3ZWJ40&libraries=places&callback=initMap"
             async defer></script>
 
     <script>
