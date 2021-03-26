@@ -114,7 +114,7 @@
                                         </h2>
 
                                         <p><span class="mr-auto">{{$material->categoria->nombre}}</span> </p>
-                                        {{-- <p><span class="mr-auto">{{$material->tipodocumento->nombre}}</span></p> --}}
+                                        <p><span class="mr-auto">{{$material->tipodocumento->nombre}}</span></p>
 
                                     </div>
                                     <div class="px-4 px-xl-5 pt-2">
