@@ -19,8 +19,12 @@
                     <div class="py-3">
                     <p class="text-justify">
                     Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social.
-                    </p class="text-justify">
-                        Por innovación abierta nos referimos a que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva. Cada convocatoria de innovación abierta tiene un proceso de difusión para el público en general permitiendo que actores de diversos sectores participen. Los problemas que buscan resolver estas convocatorias son desafíos de desarrollo y las soluciones deben aportar al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables.
+                    </p>
+                    <p class="text-justify">
+                        Por innovación abierta nos referimos a que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.
+                    <p class="text-justify">
+                        <br>
+                        Cada convocatoria de innovación abierta tiene un proceso de difusión para el público en general permitiendo que actores de diversos sectores participen. Los problemas que buscan resolver estas convocatorias son desafíos de desarrollo y las soluciones deben aportar al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables.
 
 
                     </div>
