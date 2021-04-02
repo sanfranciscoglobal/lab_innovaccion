@@ -23,6 +23,7 @@ class Materialesaprendizaje extends Migration
             $table->boolean('tipo')->comment('Publicacion-0/Herramienta-1'); 
             //$table->string('imagen_portada');
             $table->text('fuente_publicacion');
+            $table->text('descripcion_publicacion');
             $table->string('autor_publicacion')->nullable();
             $table->boolean('estado')->default(FALSE)->comment('No aprobado-1/Aprobado-0');                
             $table->boolean('terminos');

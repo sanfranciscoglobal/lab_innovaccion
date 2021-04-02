@@ -105,7 +105,7 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link  text-lg-center font-weight-bold" href="{{route('innovaciones')}}">Gestión de la Innovación</a>
+                        <a class="nav-link  text-lg-center font-weight-bold" href="{{route('innovaciones')}}">Innovación abierta</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="text-lg-center nav-link  font-weight-bold" href="#" data-toggle="dropdown">

@@ -4,9 +4,10 @@
     <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5 text-primary uppercase">Gestión de la Innovación</h1>
+                <h1 class="mt-5 text-primary uppercase"></h1>
                 <div class="py-3">
                     <p class="text-justify cs-callout">
+
                     ¡ Compártenos tus retos para resolverlos juntos !</br>
                     ¡ Busquemos soluciones de manera abierta !</br></br>
 
@@ -18,12 +19,14 @@
                     <div class="py-3">
                     <p class="text-justify">
                     Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social.
-                    </p class="text-justify">
-                        <ul>
-                        <li><strong>Innovación abierta</strong> busca que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.</li>
-                        <li><strong>Innovación pública</strong> es la mejora del quehacer público, incluyendo la gestión administrativa y los asuntos de interés común.</li>
-                        <li><strong>Innovación social</strong> se enfoca en resolver retos que aporten al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables. </li>
-                        </ul>
+                    </p>
+                    <p class="text-justify">
+                        Por innovación abierta nos referimos a que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.
+                    <p class="text-justify">
+                        <br>
+                        Cada convocatoria de innovación abierta tiene un proceso de difusión para el público en general permitiendo que actores de diversos sectores participen. Los problemas que buscan resolver estas convocatorias son desafíos de desarrollo y las soluciones deben aportar al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables.
+
+
                     </div>
 
                     <div class="text-justify shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">

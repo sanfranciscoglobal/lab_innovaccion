@@ -18,8 +18,12 @@ class MaterialTipoDocumentoSeeder extends Seeder
         DB::connection()->getPdo()->exec($sql);
 
         MaterialTipodocumento::create(['nombre' => 'Artículo científico']);
-        MaterialTipodocumento::create(['nombre' => 'Noticia']);
+        MaterialTipodocumento::create(['nombre' => 'Blog']);
+        MaterialTipodocumento::create(['nombre' => 'Informe/Reporte']);
         MaterialTipodocumento::create(['nombre' => 'Libro']);
+        MaterialTipodocumento::create(['nombre' => 'Manual']);
+        MaterialTipodocumento::create(['nombre' => 'Metodología']);
+        MaterialTipodocumento::create(['nombre' => 'Noticia']);
        
     }
 }
