@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\CustomUrl;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
@@ -86,4 +87,7 @@ class Evento extends Model
         return false;
     }
 
+    public function getSlugAttribute() {
+        return CustomUrl::urlTitle($this->nombre);
+    }
 }

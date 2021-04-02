@@ -270,7 +270,7 @@
 																	align="center"
 																	style="background-color:#FFFFFF;font-family:'Poppins',Arial,Helvetica,sans-serif; font-size:12px; font-weight:600; color:#5f27cd; line-height:24px;letter-spacing:1px;padding:10px 28px;border-radius:0px;"
 																>
-																	<a href="{{ route('soluciondetalle.ver', $solucion->id) }}" style="text-decoration:none; color:#5f27cd;"
+																	<a href="{{ route('soluciondetalle.ver', [$solucion->id, $solucion->slug]) }}" style="text-decoration:none; color:#5f27cd;"
 																		>THINKIALAB</a
 																	>
 																</td>

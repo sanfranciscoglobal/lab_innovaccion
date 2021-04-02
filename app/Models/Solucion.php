@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\CustomUrl;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
@@ -35,15 +36,15 @@ class Solucion extends Model
     public function observacionesid(){
         return $this->hasOne('App\Models\SolucionObservacion','solucion_id','id');
     }
-    
+
     public function mejorada(){
         return $this->hasOne('App\Models\SolucionMejorada');
     }
-    
+
     public function rating(){
         return $this->hasMany('App\Models\SolucionRating');
     }
-    
+
     public function comentarios(){
         return $this->hasMany('App\Models\SolucionComentario');
     }
@@ -65,5 +66,9 @@ class Solucion extends Model
     {
         $rs = self::builder();
         return $rs->paginate(self::$paginate) ?? [];
+    }
+
+    public function getSlugAttribute() {
+        return CustomUrl::urlTitle($this->nombre);
     }
 }
