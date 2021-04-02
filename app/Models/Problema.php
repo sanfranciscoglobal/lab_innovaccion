@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\CustomUrl;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
@@ -59,5 +60,9 @@ class Problema extends Model
     {
         $rs = self::builder();
         return $rs->paginate(self::$paginate) ?? [];
+    }
+
+    public function getSlugAttribute() {
+        return CustomUrl::urlTitle($this->nombre);
     }
 }
