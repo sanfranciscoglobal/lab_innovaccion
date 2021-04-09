@@ -51,15 +51,15 @@ Route::post('change-password/edit', 'Auth\ConfirmPasswordController@update')->na
 
 // Sistema
 Route::get('/eventos', 'Aplicacion\EventosController@verEventos')->name('eventos');
-Route::get('/eventos/{evento}', 'Aplicacion\EventosController@verEventodetalle')->name('eventodetalle');
+Route::get('/eventos/{evento}/{slug}', 'Aplicacion\EventosController@verEventodetalle')->name('eventodetalle');
 //Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
 Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');
 Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
-Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@verDetalle')->name('material.detalle');
+Route::get('/publicacion-herramienta/{material}/{slug}', 'Aplicacion\MaterialdeaprendizajeController@verDetalle')->name('material.detalle');
 Route::get('/publicacion-herramienta/download/{articulo}', 'Aplicacion\MaterialdeaprendizajeController@download')->name('material.download');
-Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\MaterialdeaprendizajeController@comment')->name('material-de-aprendizaje.comentario');
+Route::get('/publicacion-herramienta/{comentario}/{material}', 'Aplicacion\MaterialdeaprendizajeController@comment')->name('material-de-aprendizaje.comentario');
 
 Route::get('/publicacion-herramienta/tipo/{tipo}', 'Aplicacion\MaterialdeaprendizajeController@searchMateriales')->name('material.search');
 Route::get('/publicacion-herramienta/categoria/{categoria}', 'Aplicacion\MaterialdeaprendizajeController@searchMaterialescategoria')->name('material.searchcategoria');
@@ -73,10 +73,10 @@ Route::post('/publicacion-herramienta/nombre', 'Aplicacion\Materialdeaprendizaje
 Route::get('/gestion-innovacion', 'Aplicacion\InnovacionController@verInnovaciones')->name('innovaciones');
 Route::post('/gestion-innovacion', 'Aplicacion\InnovacionController@searchConvocatorias')->name('convocatorias.search');
 
-Route::get('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
+Route::get('/gestion-innovacion/problemas/{convocatoria}/{slug}', 'Aplicacion\InnovacionController@verProblemas')->name('innovaciongestion.ver');
 Route::post('/gestion-innovacion/problemas/{convocatoria}', 'Aplicacion\InnovacionController@searchProblemas')->name('innovaciongestion.search');
-Route::get('/gestion-innovacion/soluciones/{problema}', 'Aplicacion\SolucionController@verSoluciones')->name('soluciones.ver');
-Route::get('/gestion-innovacion/soluciones/detalle/{solucion}', 'Aplicacion\SolucionController@verSoluciondetalle')->name('soluciondetalle.ver');
+Route::get('/gestion-innovacion/soluciones/{problema}/{slug}', 'Aplicacion\SolucionController@verSoluciones')->name('soluciones.ver');
+Route::get('/gestion-innovacion/soluciones/detalle/{solucion}/{slug}', 'Aplicacion\SolucionController@verSoluciondetalle')->name('soluciondetalle.ver');
 Route::get('/gestion-innovacion/soluciones/download/{solucion}', 'Aplicacion\SolucionController@download')->name('soluciones.download');
 Route::get('/gestion-innovacion/problemas/download/{problema}', 'Aplicacion\crudProblemas@download')->name('problemas.download');
 
@@ -133,7 +133,7 @@ Route::as('app.')
              * Material de aprendizaje
              */
             Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeController@showForm')->name('material-de-aprendizaje');
-            
+
             Route::get('/publicacion-herramienta/{material}', 'Aplicacion\MaterialdeaprendizajeController@edit')->name('material-de-aprendizaje.edit');
             Route::post('/publicacion-herramienta', 'Aplicacion\crudMaterialesaprendizaje@store')->name('material-de-aprendizaje.post');
             Route::put('/publicacion-herramienta/{material}', 'Aplicacion\crudMaterialesaprendizaje@update')->name('material-de-aprendizaje.put');

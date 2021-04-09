@@ -54,7 +54,7 @@ class crudProblemas extends Controller
             } else {
                 return redirect()->route('app.escritorio')->with(['status' => 'Problema fase 1 completada con éxito, no se olvide de completarla más tarde.']);
             }
-            
+
         }
         return back()->with('error', 'Problema no fue creado.');
     }
@@ -103,7 +103,7 @@ class crudProblemas extends Controller
         if(Auth::id() != $problema->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
             return back()->with('error', 'No ingresaste este problema.');
         }
-        
+
         $validatedData = $request->validated();
         $problema->causas = json_encode($validatedData['causas']);
         $problema->efectos = json_encode($validatedData['efectos']);
@@ -137,12 +137,12 @@ class crudProblemas extends Controller
             $problema->imagen = $imageName;
             $problema->save();
         }
-        
+
         $request->session()->forget('step', '3');
 
         // return redirect()->route('home')->with('status', 'Problema modificado con éxito');
-        return redirect()->route('innovaciongestion.ver',$problema->convocatoria_id)->with('status', 'Problema fase 3 completada con éxito, se ha registrado su problema exitosamente.');
-        
+        return redirect()->route('innovaciongestion.ver',[$problema->convocatoria_id, $problema->convocatoria->slug])->with('status', 'Problema fase 3 completada con éxito, se ha registrado su problema exitosamente.');
+
     }
 
     /**

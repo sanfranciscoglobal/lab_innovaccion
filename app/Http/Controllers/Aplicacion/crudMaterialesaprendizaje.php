@@ -29,19 +29,19 @@ class crudMaterialesaprendizaje extends Controller
         $this->middleware('acceso-app:user,superadmin')->only('destroy');
     }
     public function store(StorePost $request){
-       
+
         try{
             $validatedData=$request->validated();
-            
+
             if($material=MaterialAprendizaje::create($validatedData)){
-                
+
                 // if(isset($material['imagen_portada'])){
                 //     $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id;
                 //     $imageName = Archivos::storeImagen($name, $material['imagen_portada'], 'materiales');
                 //     $material->imagen_portada = $imageName;
                 //     $material->save();
                 // }
-            
+
                 $files= $request->file('mat_files');
                 if(isset($files)){
                     $cont=1;
@@ -52,14 +52,14 @@ class crudMaterialesaprendizaje extends Controller
                         $fileName=Archivos::storeImagen($name,$file, 'materiales');
                         $articulo=Articulo::create([
                             'material_id'=>$material['id'],
-                            'nombre' =>$fileName   
+                            'nombre' =>$fileName
                         ]);
                         $articulo->save();
                         $cont=$cont+1;
                     }
                 }
-                
-                return redirect()->route('app.escritorio.material')->with('status', 'Material creado con éxito');         
+
+                return redirect()->route('app.escritorio.material')->with('status', 'Material creado con éxito');
             }
         }
         catch (Exception $e){
@@ -73,14 +73,14 @@ class crudMaterialesaprendizaje extends Controller
     {
         $validatedData = $request->validated();
         $material->update($validatedData);
-       
+
         // if(isset($validatedData['imagen_portada'])){
-        //     $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id;      
+        //     $name = CustomUrl::urlTitle($material['nombre_publicacion'] ).'_'.$material->id;
         //     $imageName = Archivos::storeImagen($name, $material['imagen_portada'], 'materiales');
         //     $material->imagen_portada = $imageName;
         //     $material->save();
         // }
-     
+
         //eliminar y grabar
         $files= $request->file('mat_files');
         if(isset($files)){
@@ -130,14 +130,14 @@ class crudMaterialesaprendizaje extends Controller
     //         if($comentario=MaterialComentario::create($validatedData)){
     //             $comentario->user_id = auth()->id();
     //             $comentario->save();
-    //             return redirect()->route('material.detalle',$material->id)->with('status', 'Comentario registrado con éxito');
+    //             return redirect()->route('material.detalle',[$material->id, $material->slug])->with('status', 'Comentario registrado con éxito');
     //         }
     //     }
     //     else{
     //         return redirect()->route('material')->with('status', 'Debe registrarse para ingresar un comentario.');
     //     }
-        
-            
-        
+
+
+
     // }
 }

@@ -294,7 +294,7 @@
               </div>
               <div class="text-center">
                 <a class="btn text-white btn-small mb-4" style="background:#ff7f00 " href="{{ route('app.soluciones.crear', $problema->id) }}">Registra una Solución</a>
-                <a class="btn btn-primary btn-small mb-4" href="{{route("soluciones.ver",$problema->id)}}">Ver Soluciones</a>
+                <a class="btn btn-primary btn-small mb-4" href="{{route("soluciones.ver", [$problema->id, $problema->slug])}}">Ver Soluciones</a>
                 {{-- <ul class="d-flex justify-content-center list-inline">
                   <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="https://www.facebook.com/sharer/sharer.php?u={{ $problema->facebook ?? '#' }}">

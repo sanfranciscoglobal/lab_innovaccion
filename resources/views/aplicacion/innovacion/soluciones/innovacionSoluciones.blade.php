@@ -99,7 +99,7 @@
               </div>
 
               <div class="text-center">
-                <a class="btn btn-primary mb-3" href="{{route('soluciondetalle.ver',$solucion->id)}}">Ver solución</a>
+                <a class="btn btn-primary mb-3" href="{{route('soluciondetalle.ver', [$solucion->id, $solucion->slug])}}">Ver solución</a>
                 {{-- <ul class="d-flex justify-content-center list-inline">
                   <li class="list-inline-item m-0">
                     <a class="social-btn sb-outline sb-facebook sb-dark sb-sm mr-2 mr-md-3" href="https://www.facebook.com/sharer/sharer.php?u={{ $solucion->facebook ?? '#' }}">

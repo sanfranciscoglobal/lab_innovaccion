@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\CustomUrl;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
@@ -26,10 +27,10 @@ class Convocatoria extends Model
     }
     public function problemas()
     {
-        
+
         return $this->hasMany('App\Models\Problema', 'convocatoria_id', 'id');
     }
-    
+
     public function consectores()
     {
         return $this->hasMany('App\Models\ConvocatoriaSector', 'convocatoria_id', 'id');
@@ -75,7 +76,7 @@ class Convocatoria extends Model
         });
     }
 
-    
+
 
     public static function obtenerConvocatoriaCount()
     {
@@ -102,5 +103,7 @@ class Convocatoria extends Model
         return $rs->paginate(self::$paginate) ?? [];
     }
 
-
+    public function getSlugAttribute() {
+        return CustomUrl::urlTitle($this->nombre);
+    }
 }
