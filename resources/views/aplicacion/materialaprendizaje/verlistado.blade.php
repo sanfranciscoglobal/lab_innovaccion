@@ -113,8 +113,12 @@
                                             {{$material->nombre_publicacion}}
                                         </h2>
 
-                                        <p><span class="mr-auto">{{$material->categoria->nombre}}</span> </p>
-                                        <p><span class="mr-auto">{{$material->tipodocumento->nombre}}</span></p>
+                                        <p><strong><span class="mr-auto">{{$material->categoria->nombre}}</span></strong> </p>
+                                        {{-- <p><span class="mr-auto">{{$material->tipodocumento->imagen}}</span></p> --}}
+                                        <p>
+                                            <img class="" width="300" src="img/tipo_documentos/{{$material->tipodocumento->imagen}}"
+                                                        alt="Thinkia" />
+                                        </p>
 
                                     </div>
                                     <div class="px-4 px-xl-5 pt-2">

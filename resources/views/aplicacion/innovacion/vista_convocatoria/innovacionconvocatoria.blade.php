@@ -18,7 +18,8 @@
                     <h2 class="text-primary uppercase">Metodología</h1>
                     <div class="py-3">
                     <p class="text-justify">
-                    Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social.
+                        Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social.
+
                     </p>
                     <p class="text-justify">
                         Por innovación abierta nos referimos a que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.
