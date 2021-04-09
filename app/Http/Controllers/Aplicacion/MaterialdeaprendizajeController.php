@@ -73,10 +73,10 @@ class MaterialdeaprendizajeController extends Controller
     {
         return Storage::disk('materiales')->download($articulo);
     }
-    public function comment(ComentarioPost $request, MaterialAprendizaje $material) {
+    public function comment(ComentarioPost $comentario, MaterialAprendizaje $material) {
 
         if (Auth::check()) {
-            $validatedData=$request->validated();
+            $validatedData=$comentario->validated();
             if($comentario=MaterialComentario::create($validatedData)){
                 $comentario->user_id = auth()->id();
                 $comentario->save();

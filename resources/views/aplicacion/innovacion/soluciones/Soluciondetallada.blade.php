@@ -278,7 +278,7 @@
       @endif
     </div>
     <div class="row" style="margin-top:3%;padding-left:50%;">
-      <a href="{{route('soluciones.ver', [$solucion->problema_id, $solucion->problema->slug])}}" class="btn btn-sm btn-primary">Cerrar</a>
+      <a href="{{route('soluciones.ver', [$solucion->problema_id, $solucion->problemaid->slug])}}" class="btn btn-sm btn-primary">Cerrar</a>
     </div>
   </section>
 
