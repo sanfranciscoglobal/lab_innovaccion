@@ -172,10 +172,10 @@
                 {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
 
                     <div class="card  border-0 box-shadow mx-auto" style="max-width: 400px;">
-                        <a class="media meta-link font-size-sm align-items-center" href="{{route('eventodetalle',$evento->id)}}">
+                        <a class="media meta-link font-size-sm align-items-center" href="{{route('eventodetalle', [$evento->id, $evento->slug])}}">
                             <img class="card-img-top" style="height: 58ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
                             <div class="card-body text-center">
-                                <a class=" meta-link font-size-lg font-weight-bold align-items-center text-primary" href="{{route('eventodetalle',$evento->id)}}">{{$evento->nombre}}</a>
+                                <a class=" meta-link font-size-lg font-weight-bold align-items-center text-primary" href="{{route('eventodetalle', [$evento->id, $evento->slug])}}">{{$evento->nombre}}</a>
                             </div>
                         </a>
 

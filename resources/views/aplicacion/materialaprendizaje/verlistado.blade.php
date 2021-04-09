@@ -144,9 +144,9 @@
                                         <br>
                                         <div class="row" style="margin-left:31%">
                                             @if ($material->tipo==0)
-                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver publicación</a>
+                                                <a class="btn btn-primary" href="{{route('material.detalle',[$material->id, $material->slug])}}">Ver publicación</a>
                                             @else
-                                                <a class="btn btn-primary" href="{{route('material.detalle',$material->id)}}">Ver herramienta</a>
+                                                <a class="btn btn-primary" href="{{route('material.detalle',[$material->id, $material->slug])}}">Ver herramienta</a>
                                             @endif
                                         </div>
 

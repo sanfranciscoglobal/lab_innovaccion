@@ -216,10 +216,10 @@
                                 <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
 
                                 <div class="row justify-content-center mt-2">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",$convocatoria->id) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",$convocatoria->id) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
+                                    <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
                                     {{-- <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a> --}}
-                                    <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",$convocatoria->id) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -229,14 +229,14 @@
                                     $nombre=$convocatoria->nombre;
                                     $nombrelim=substr($nombre, 0, 70);
                                 @endphp
-                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$nombrelim}}</a> </h3>
+                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3>
                                 {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
                                     @foreach ($convocatoria->conods as $objetivo)
-                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
                                     @endforeach
                                 @else
                                     @foreach ($convocatoria->consectores as $sector)
-                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
                                     @endforeach
                                 @endif--}}
                                 @php
@@ -293,11 +293,11 @@
                             <div class="card-body ">
                                 @if ($convocatoria->tipoconvocatoria_id == 2)
                                     @foreach ($convocatoria->conods as $objetivo)
-                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
                                     @endforeach
                                 @else
                                     @foreach ($convocatoria->consectores as $sector)
-                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
                                     @endforeach
                                 @endif
                                 <p class="card-text font-size-sm">{{$convocatoria->descripcion}}</p>
