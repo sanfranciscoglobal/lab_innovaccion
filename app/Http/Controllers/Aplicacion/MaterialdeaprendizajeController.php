@@ -34,9 +34,9 @@ class MaterialdeaprendizajeController extends Controller
 
         MaterialAprendizaje::$paginate = 6;
         $materiales = MaterialAprendizaje::obtenerPaginate();
-        $categorias=MaterialCategorias::orderby('nombre')->get();
+        $categorias = MaterialCategorias::orderby('nombre')->get();
         //$materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
-        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales','categorias'));
+        return view('aplicacion.materialaprendizaje.verlistado', compact('materiales','categorias'));
     }
     public function verDetalle(MaterialAprendizaje $material)
     {
@@ -73,10 +73,10 @@ class MaterialdeaprendizajeController extends Controller
     {
         return Storage::disk('materiales')->download($articulo);
     }
-    public function comment(ComentarioPost $request, MaterialAprendizaje $material) {
+    public function comment(ComentarioPost $comentario, MaterialAprendizaje $material) {
 
         if (Auth::check()) {
-            $validatedData=$request->validated();
+            $validatedData=$comentario->validated();
             if($comentario=MaterialComentario::create($validatedData)){
                 $comentario->user_id = auth()->id();
                 $comentario->save();
