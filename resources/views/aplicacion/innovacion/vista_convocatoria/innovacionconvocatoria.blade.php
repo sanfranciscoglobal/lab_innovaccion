@@ -24,10 +24,7 @@
                     <p class="text-justify">
                         Por innovación abierta nos referimos a que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.
                     <p class="text-justify">
-                        <br>
                         Cada convocatoria de innovación abierta tiene un proceso de difusión para el público en general permitiendo que actores de diversos sectores participen. Los problemas que buscan resolver estas convocatorias son desafíos de desarrollo y las soluciones deben aportar al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables.
-
-
                     </div>
 
                     <div class="text-justify shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
