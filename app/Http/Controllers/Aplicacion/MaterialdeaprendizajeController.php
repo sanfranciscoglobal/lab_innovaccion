@@ -38,7 +38,7 @@ class MaterialdeaprendizajeController extends Controller
         //$materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
         return view('aplicacion.materialaprendizaje.verlistado', compact('materiales','categorias'));
     }
-    public function verDetalle(MaterialAprendizaje $material)
+    public function verDetalle($slug, MaterialAprendizaje $material)
     {
         $categorias=MaterialCategorias::orderby('nombre')->get();
         $comentarios = MaterialComentario::where('material_id',$material->id)->get();
@@ -92,6 +92,7 @@ class MaterialdeaprendizajeController extends Controller
     }
     public function searchMateriales($tipo)
     {
+        dd($tipo);
         $categorias=MaterialCategorias::orderby('nombre')->get();
         $materiales = MaterialAprendizaje::where('tipo',$tipo)->orderbyDesc('created_at')->paginate(MaterialAprendizaje::$paginate);
 
