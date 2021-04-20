@@ -92,7 +92,6 @@ class MaterialdeaprendizajeController extends Controller
     }
     public function searchMateriales($tipo)
     {
-        dd($tipo);
         $categorias=MaterialCategorias::orderby('nombre')->get();
         $materiales = MaterialAprendizaje::where('tipo',$tipo)->orderbyDesc('created_at')->paginate(MaterialAprendizaje::$paginate);
 
