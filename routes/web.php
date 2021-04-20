@@ -57,7 +57,7 @@ Route::get('/fondos', 'Aplicacion\FondosController@verFondos')->name('fondos');
 Route::post('/eventos', 'Aplicacion\EventosController@searchEventos')->name('eventos.search');
 Route::get('/iniciativas', 'Aplicacion\IniciativasController@listado')->name('iniciativa.create');
 Route::get('/publicacion-herramienta', 'Aplicacion\MaterialdeaprendizajeController@verListadomateriales')->name('material');
-Route::get('/publicacion-herramienta/{material}/{slug}', 'Aplicacion\MaterialdeaprendizajeController@verDetalle')->name('material.detalle');
+Route::get('/publicacion-herramienta/{slug}/{material}', 'Aplicacion\MaterialdeaprendizajeController@verDetalle')->name('material.detalle');
 Route::get('/publicacion-herramienta/download/{articulo}', 'Aplicacion\MaterialdeaprendizajeController@download')->name('material.download');
 Route::get('/publicacion-herramienta/comentario/{material}', 'Aplicacion\MaterialdeaprendizajeController@comment')->name('material-de-aprendizaje.comentario');
 

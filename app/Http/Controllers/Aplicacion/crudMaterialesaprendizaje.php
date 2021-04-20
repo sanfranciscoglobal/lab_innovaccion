@@ -130,7 +130,7 @@ class crudMaterialesaprendizaje extends Controller
     //         if($comentario=MaterialComentario::create($validatedData)){
     //             $comentario->user_id = auth()->id();
     //             $comentario->save();
-    //             return redirect()->route('material.detalle',[$material->id, $material->slug])->with('status', 'Comentario registrado con éxito');
+    //             return redirect()->route('material.detalle',[$material->slug, $material->id])->with('status', 'Comentario registrado con éxito');
     //         }
     //     }
     //     else{
