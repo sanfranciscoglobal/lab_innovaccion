@@ -5,13 +5,13 @@
     <title>Laboratorio de Innovación</title>
     <!-- google Analytics -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCKYF8WLDC"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJ161YGHX6"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-RCKYF8WLDC');
+        gtag('config', 'G-PJ161YGHX6');
         </script>
 
 
