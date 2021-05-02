@@ -143,8 +143,7 @@
                         <div class="col-lg-12">
                             {{--@if($loop->first)--}}
                                 <label class="control-label">Dirección Principal <i class="fe-info text-primary" style="font-size: 22px;
-    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
-                                                                                    title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
+    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right" title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
                             {{--@endif--}}
                             <input maxlength="200" type="text" required="required"
                                    class="form-control ubicacion ubicacion-{{$key}}"
@@ -175,9 +174,12 @@
             <div class="form-group ubicaciones direccion border-bottom-light" data-row="0">
                 <div class="row">
                     <div class="col-lg-12">
-                        <label class="control-label">Dirección Principal <i class="fe-info text-primary" style="font-size: 22px;
-    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
-                                                                            title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
+                        <label class="control-label">Dirección Principal<br>
+                            <span class="text-black-50"><small style="color: brown">En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario.</small></span>
+                            {{-- <i class="fe-info text-primary" style="font-size: 22px;
+    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right" title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i> --}}
+                        </label>
+
                         <input maxlength="200"
                                type="text"
                                required="required"
@@ -190,6 +192,7 @@
                                data-latitud='-0.1626484'
                                data-longitud='-78.4606464'
                         />
+
                         <input type="hidden" class="form-control lat lat-0" name="Ubicaciones[0][latitud]" value="">
                         <input type="hidden" class="form-control long long-0" name="Ubicaciones[0][longitud]" value="">
                         <input type="hidden" class="form-control localidad localidad-0" name="Ubicaciones[0][localidad]"
@@ -202,6 +205,7 @@
         @endif
 
         <div id="sedes-container"></div>
+
         <div class="row my-3">
             <div class="col-lg-4 offset-lg-8">
                 <button id="add_city" class="btn btn-sm btn-primary" type="button">
