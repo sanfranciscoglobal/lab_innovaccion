@@ -1,7 +1,6 @@
 <div class="bg-overlay-content">
     <div class="row m-0">
         <div style="top:15px; position:absolute; z-index:10;  width: 100%;">
-
             {{-- search box --}}
             <div class="ml-lg-5 mx-md-3 px-7 align-items-center d-none d-lg-block">
                 <div id="mapacabezagrande" style="background-color: rgba(255, 255,255, 0.7);"
@@ -203,7 +202,7 @@
                                         <button type="button"
                                                 class=" font-weight-bold btn btn-primary mr-3 btn-filter-submit"
                                                 style="border-color:#7A3240;background:#7A3240;"
-                                                data-action="{{route('web.iniciativas.exportar.excel')}}">
+                                                data-action="{{ route('web.mapaproblemas.mapa') }}">
                                             <img src="{{ asset('images/Group 161.svg')}}"/>
                                             Ver mapa completo
                                         </button>
