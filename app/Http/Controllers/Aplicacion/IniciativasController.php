@@ -296,7 +296,7 @@ class IniciativasController extends Controller
 
     public static function dataUbicaciones(Request $request, Iniciativas $iniciativa)
     {
-
+        $data = [];
         if ($request->has('Ubicaciones')) {
             foreach ($request->Ubicaciones as $key => $info) {
                 if (isset($info['direccion'])) {
