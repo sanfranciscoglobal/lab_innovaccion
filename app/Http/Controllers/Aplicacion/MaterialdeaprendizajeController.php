@@ -31,14 +31,14 @@ class MaterialdeaprendizajeController extends Controller
 
     public function verListadomateriales(Request $request)
     {
-    
+
         MaterialAprendizaje::$paginate = 6;
         $materiales = MaterialAprendizaje::obtenerPaginate();
-        $categorias=MaterialCategorias::orderby('nombre')->get();
+        $categorias = MaterialCategorias::orderby('nombre')->get();
         //$materiales = MaterialAprendizaje::orderbyDesc('fecha_publicacion')->get();
-        return view('aplicacion.materialaprendizaje.verlistado',compact('materiales','categorias'));
+        return view('aplicacion.materialaprendizaje.verlistado', compact('materiales','categorias'));
     }
-    public function verDetalle(MaterialAprendizaje $material)
+    public function verDetalle($slug, MaterialAprendizaje $material)
     {
         $categorias=MaterialCategorias::orderby('nombre')->get();
         $comentarios = MaterialComentario::where('material_id',$material->id)->get();
@@ -62,33 +62,33 @@ class MaterialdeaprendizajeController extends Controller
         return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.post'),'method'=>'POST']);
 
     }
- 
+
     public function edit(MaterialAprendizaje $material)
     {
-        
-    
+
+
         return view('aplicacion.materialaprendizaje.frmMaterial', compact('material'))->with(['url' => route('app.material-de-aprendizaje.put',$material->id),'method'=>'PUT']);
     }
     public function download($articulo)
     {
         return Storage::disk('materiales')->download($articulo);
     }
-    public function comment(ComentarioPost $request, MaterialAprendizaje $material) {
+    public function comment(ComentarioPost $comentario, MaterialAprendizaje $material) {
 
         if (Auth::check()) {
-            $validatedData=$request->validated();
+            $validatedData=$comentario->validated();
             if($comentario=MaterialComentario::create($validatedData)){
                 $comentario->user_id = auth()->id();
                 $comentario->save();
-                return redirect()->route('material.detalle',$material->id)->with('status', 'Comentario registrado con éxito');
+                return redirect()->route('material.detalle',[$material->slug, $material->id])->with('status', 'Comentario registrado con éxito');
             }
         }
         else{
             return redirect()->route('home')->with('error', 'Debe iniciar sesión para ingresar un comentario.');
         }
-        
-            
-        
+
+
+
     }
     public function searchMateriales($tipo)
     {

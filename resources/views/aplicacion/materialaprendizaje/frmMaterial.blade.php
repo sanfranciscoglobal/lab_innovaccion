@@ -29,14 +29,14 @@
 
                         </div>
                         <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
-                            <span style="color: gray">Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios.</span> 
+                            <span style="color: gray">Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco* son obligatorios.</span>
                         </div>
-                        
+
                         <!-- Content-->
                         <div class="row">
                             <div class="col-md-9">
-                                
-                               
+
+
                                 <div class="row">
                                     <div class="col">
                                         <div class="row">
@@ -70,7 +70,7 @@
                                             <input class="form-control" type="text" id="mat_nombre" placeholder="Nombre de la publicación" value="{{isset($material->nombre_publicacion)?$material->nombre_publicacion:old('nombre_publicacion')}}" maxlength='150' name="nombre_publicacion" oninvalid="setCustomValidity('Por favor complete este campo.')" onchange="try{setCustomValidity('')}catch(e){}" required>
                                             @error('nombre_publicacion')<div class="invalid-feedback d-inline">{{ $message }}</div>@enderror
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="row">
@@ -87,7 +87,7 @@
                                                 >{{ old('descripcion_publicacion', $material->descripcion_publicacion ?? null) }}</textarea><span style="color: gray" id="count-words"></span>
                                             <div class="invalid-feedback" id='descripcion-error'></div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="row">
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8 m-publicacion d-none">
-                                        
+
                                         <div class="form-group">
                                             <label class="form-label">* Fecha de publicación</label>
                                             <div class="input-group-overlay">
@@ -130,7 +130,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mat_adjuntar">Adjuntar archivos <span style="color: gray">(máx. 10MB)</span></label>
-                                            
+
                                             @if ($method=='PUT')
 
                                                 <input class="form-control dropify" data-max-file-size="10M" type="file" id="mat_adjuntar" name="mat_files[]"
@@ -157,11 +157,11 @@
                                     <label for="mat_tema">* Tema tratado</label>
                                     <div class="row">
                                         <div class="col w-100 form-group">
-                             
+
                                           <select style="width:100%;" class="form-control custom-select select2" id='mat_tema' name='tema_tratado'
 
                                             data-ajax--url="{{route('api.material-categoria.select2')}}"
-                                            
+
                                             data-ajax--data-type="json"
                                             data-ajax--data-cache="true"
                                             required="required"
@@ -171,9 +171,9 @@
                                                     <option value="{{$material->categoria->id}}"
                                                         selected>{{$material->categoria->nombre}}</option>
                                             @endif
-                                                
+
                                         </select>
-                                                           
+
                                           <div class="invalid-feedback">Seleccione un tema.</div>
                                           <div class="valid-feedback">Bien!</div>
                                         </div>
@@ -185,8 +185,8 @@
                                     <label for="mat_tipo">* Tipo de Documento</label>
                                     <div class="row">
                                         <div class="col w-100 form-group">
-                                          
-                     
+
+
                                           <select style="width:100%;" class="form-control custom-select select2" id='mat_tipo' name='tipo_documento'
                                             data-ajax--data-cache="true"
                                             required="required"
@@ -195,21 +195,21 @@
                                                     <option value="{{$material->tipodocumento->id}}"
                                                         selected>{{$material->tipodocumento->nombre}}</option>
                                                 @endif
-                                                                       
+
                                             </select>
 
                                           <div class="invalid-feedback">Seleccione un tema.</div>
                                           <div class="valid-feedback">Bien!</div>
                                         </div>
-                                          
+
                                     </div>
-                                    
-                                    
+
+
                                 </div>
                                 <div class="form-group">
-                                    
-                                    <img id="material_img" width="100%" src="{{asset('img/logo/thinkia_color.svg')}}">
-                                    
+
+                                    {{-- <img id="material_img" width="100%" src="{{asset('img/logo/thinkia_color.svg')}}"> --}}
+
                                 </div>
                                 <hr class="mt-2 mb-4">
                                 <div class="custom-control custom-checkbox d-block">
@@ -272,7 +272,7 @@
             // $("#url-error").removeClass('d-inline');
             $('#mat_url').removeClass('is-invalid');
             // $('#submitbutton').removeAttr('disabled');
-            
+
          } else{
             // $("#url-error").html('Url inválido');
             // $("#url-error").addClass('d-inline');
@@ -281,7 +281,7 @@
          }
        }
 
-   
+
 </script>
 <script>
     var CSRF_TOKEN=$('meta[name="csrf-token"]').attr('content');
@@ -322,8 +322,8 @@
                     document.getElementById("mat_url").placeholder='Link de la publicación';
                     document.getElementById("mat_nombre").placeholder='Nombre de la publicación';
                     document.getElementById("descripcion").placeholder='Descripción de la publicación';
-                    
-                   
+
+
 
                 }else{
                     if ($(this).val() == 1){
@@ -332,16 +332,16 @@
                         $('.m-publicacion').addClass('d-none');
                         $('.m-herramienta .form-control').attr('required', true);
                         $('.m-herramienta').removeClass('d-none');
-                        
+
                         $("#label_url").html('* Fuente de la herramienta' );
                         $("#label_nombre").html('* Nombre de la herramienta <span style="color: gray">(máx. 250 caracteres)</span>');
                         $("#label_descripcion").html('* Descripción de la herramienta <span style="color: gray">(mín. 25 palabras)(máx. 100 palabras)</span>');
                         $('#frm').removeClass('was-validated');
-                        
+
                         document.getElementById("mat_url").placeholder='Link de la herramienta';
                         document.getElementById("mat_nombre").placeholder='Nombre de la herramienta';
                         document.getElementById("descripcion").placeholder='Descripción de la herramienta';
-                    
+
                     }
 
                 }
@@ -349,7 +349,7 @@
         });
 
     });
-    
+
 </script>
 <script>
 
@@ -368,20 +368,20 @@
                 "categoria":categoria,
             }
         }).done(function(data) {
-            
+
                 if(data!=undefined){
                     $('#material_img').attr('src',data);
                 }
                 else{
                     $('#material_img').attr('src',asset('img/logo/thinkia_color.svg'));
                 }
-                
+
         });
-        
+
     });
 
     $(function(){
-        countWords();  
+        countWords();
         let tipo = {{ old('tipo', (int)$material->tipo) ?? 'null' }};
 
         switch(tipo){
@@ -398,11 +398,11 @@
     });
     var maxword=100;
     function countWords(){
-        
+
         let str = document.getElementById("descripcion").value;
         var spaces=str.match(/\S+/g);
         var words=spaces ? spaces.length:0;
-    
+
         document.getElementById("count-words").innerHTML=words+" palabras";
         if (words>=25 && words<=maxword || words==0){
             $("#descripcion-error").removeClass('d-inline');
@@ -413,13 +413,13 @@
             $("#descripcion-error").html('Llene el mínimo de palabras necesarias');
             $("#descripcion-error").addClass('d-inline');
             $('#descripcion').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');   
+            $('#submitbutton').attr('disabled','disabled');
         }
         else{
             $("#descripcion-error").html('Ha sobrepasado el límite de palabras permitido');
             $("#descripcion-error").addClass('d-inline');
             $('#descripcion').addClass('is-invalid');
-            $('#submitbutton').attr('disabled','disabled');  
+            $('#submitbutton').attr('disabled','disabled');
         }
     };
 

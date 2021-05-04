@@ -4,7 +4,7 @@
     <section class="container my-lg-2 pt-5 pb-lg-5">
         <div class="row align-items-center">
             <div class="col-lg-5 py-3 py-lg-0 mt-lg-5">
-                <h1 class="mt-5 text-primary uppercase">Gestión de la Innovación</h1>
+                <h1 class="mt-5 text-primary uppercase"></h1>
                 <div class="py-3">
                     <p class="text-justify cs-callout">
 
@@ -18,12 +18,13 @@
                     <h2 class="text-primary uppercase">Metodología</h1>
                     <div class="py-3">
                     <p class="text-justify">
-                    Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social.
-                    </p class="text-justify">
-                        <ul>
-                        <li><strong>Innovación abierta</strong> busca que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.</li>
-                        <li><strong>Innovación social</strong> se enfoca en resolver retos que aporten al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables. </li>
-                        </ul>
+                        Cada convocatoria permite registrar problemas y recibir soluciones en un espacio de trabajo basado en la innovación abierta, pública y social.
+
+                    </p>
+                    <p class="text-justify">
+                        Por innovación abierta nos referimos a que las organizaciones se abran a recibir aportes de actores externos, reconociendo el potencial de la inteligencia colectiva.
+                    <p class="text-justify">
+                        Cada convocatoria de innovación abierta tiene un proceso de difusión para el público en general permitiendo que actores de diversos sectores participen. Los problemas que buscan resolver estas convocatorias son desafíos de desarrollo y las soluciones deben aportar al bienestar social de forma inclusiva y sostenible, con énfasis en grupos vulnerables.
                     </div>
 
                     <div class="text-justify shadow-lg p-3 mb-5 btn-purple-gradient text-color-white rounded" style="">
@@ -212,10 +213,10 @@
                                 <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
 
                                 <div class="row justify-content-center mt-2">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",$convocatoria->id) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",$convocatoria->id) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
+                                    <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
                                     {{-- <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a> --}}
-                                    <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",$convocatoria->id) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -225,14 +226,14 @@
                                     $nombre=$convocatoria->nombre;
                                     $nombrelim=substr($nombre, 0, 70);
                                 @endphp
-                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$nombrelim}}</a> </h3>
+                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3>
                                 {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
                                     @foreach ($convocatoria->conods as $objetivo)
-                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
                                     @endforeach
                                 @else
                                     @foreach ($convocatoria->consectores as $sector)
-                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
                                     @endforeach
                                 @endif--}}
                                 @php
@@ -289,11 +290,11 @@
                             <div class="card-body ">
                                 @if ($convocatoria->tipoconvocatoria_id == 2)
                                     @foreach ($convocatoria->conods as $objetivo)
-                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
                                     @endforeach
                                 @else
                                     @foreach ($convocatoria->consectores as $sector)
-                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",$convocatoria->id)}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
                                     @endforeach
                                 @endif
                                 <p class="card-text font-size-sm">{{$convocatoria->descripcion}}</p>

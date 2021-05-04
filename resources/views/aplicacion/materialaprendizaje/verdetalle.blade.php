@@ -52,7 +52,7 @@
                     $imagen1 = asset('storage/perfil/'.$material->user->perfil->avatar);
                 }
             }
-            
+
         @endphp
 
     <div class="cs-sidebar-enabled cs-sidebar-right" >
@@ -86,7 +86,7 @@
                                 @endif
                                 <div class="mt-3 text-primary font-weight-semibold">
                                     <span class="font-weight-bold e-presencial"><i class="fe-book font-size-xl mr-2"></i> Descripción</span>
-                                    <textarea  class="form-control" 
+                                    <textarea  class="form-control"
                                     style="cursor: default ; background:white" disabled
                                     >{{isset($material->descripcion_publicacion)?$material->descripcion_publicacion:null}}</textarea>
                                 </div>
@@ -178,7 +178,7 @@
 
                         <div class="card-footer text-center font-size-sm text-muted">
 
-                            <form action="{{route("material-de-aprendizaje.comentario",$material->id)}}" class="needs-validation" novalidate>
+                            <form action="{{route("material-de-aprendizaje.comentario", $material->id)}}" class="needs-validation" novalidate>
                                 <input type="hidden" name="material_id" value="{{$material->id}}">
                                 <div class="pb-2">
                                     <div class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1 text-left" style="padding: 2%; background:#f2f2f2">

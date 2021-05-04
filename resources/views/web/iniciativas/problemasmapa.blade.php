@@ -108,6 +108,7 @@
 
                             <div class="container justify-content-center pr-0">
                                 <div class="w-10 center-block text-left  pt-5">
+                                    <span><strong>Nota:</strong>¡ Desactiva tu ubicación de tu navegador<br> para una mejorar visualización del mapa !</span>
                                 <h4 style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
                                     <i style="border-color: #FF7F00;color: white;background: #FF7F00;" class="shadow mr-3 btn fa fa-angle-up "></i></a>Filtros
                                 </h4>

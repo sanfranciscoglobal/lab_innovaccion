@@ -34,7 +34,7 @@ class crudSoluciones extends Controller
 {
     //
     public function store(Store1Post $request){
-   
+
         $validatedData = $request->validated();
         if($solucion=Solucion::create($validatedData)){
             $solucion->user_id = auth()->id();
@@ -54,7 +54,7 @@ class crudSoluciones extends Controller
 
         }
         return back()->with('error', 'Solución no fue creada');
-       
+
     }
     public function update(UpdatePost $request,Solucion $solucion){
         if(Auth::id() != $solucion->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
@@ -77,12 +77,12 @@ class crudSoluciones extends Controller
 
     }
     public function updateFase2(Store2Post $request,Solucion $solucion){
- 
+
         if(Auth::id() != $solucion->user_id && (!Auth::user()->hasRole('admin') && !Auth::user()->hasRole('superadmin'))){
             return back()->with('error', 'No ingresaste esta solución.');
         }
         $validatedData = $request->validated();
-        
+
         $solucion->update($validatedData);
         Soluciontipoinnova::where('solucion_id',$solucion->id)->delete();
         foreach ($validatedData['tipo_institucion'] as $propuesta){
@@ -111,7 +111,7 @@ class crudSoluciones extends Controller
             $request->session()->put('step', '3');
             return redirect()->route('app.soluciones.edit', [$solucion->problema_id, $solucion->id])->with(['status' => 'Solución creada con éxito', 'method' => 'PUT']);
         } else {
-            return redirect()->route('soluciones.ver',$solucion->problema_id)->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solución exitosamente']);
+            return redirect()->route('soluciones.ver',[$solucion->problema_id, $solucion->problemaid->slug])->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solución exitosamente']);
             // return redirect()->route('app.escritorio')->with(['status' => 'Solución fase 3 completada con éxito, se ha registrado su solucón exitosamente']);
         }
 
@@ -136,7 +136,7 @@ class crudSoluciones extends Controller
             return back()->with('status', 'Observación creada con éxito.' );
         }
     }
-        
+
     /**
      * Guarda el rating de una solucion
      * @param StoreMejorada $request
@@ -157,7 +157,7 @@ class crudSoluciones extends Controller
 
         return redirect()->back()->with('status', 'Solución mejorada guardada con éxito.');
     }
-        
+
     /**
      * Guarda el rating de una solucion
      * @param StoreMejorada $request
