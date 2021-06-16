@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\CustomUrl;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\IniciativaActor;
 use App\Models\Iniciativas;
 use App\Models\OdsCategoria;
 use App\Models\TipoInstitucion;
@@ -170,7 +171,7 @@ class IniciativasController extends Controller
 
                 if ($iniciativas > 0) {
                     $cat = CustomUrl::convertAccentedCharacters($institucion->descripcion);
-                    $cat = CustomUrl::urlTitle(mb_strtolower($cat),'_');
+                    $cat = CustomUrl::urlTitle(mb_strtolower($cat), '_');
                     $data[$key]['year'] = "ODS {$ods->id}";
                     $data[$key][$cat] = $iniciativas;
                     $categorias[$cat] = $institucion->descripcion;
@@ -182,5 +183,22 @@ class IniciativasController extends Controller
             'data' => $data,
             'categorias' => $categorias,
         ];
+    }
+
+    public static function iniciativaActorAutoComplete(Request $request)
+    {
+        $data = [];
+        if ($iniciativaActor = IniciativaActor::iniciativaActorNombreLike($request->term)) {
+            foreach ($iniciativaActor as $actor) {
+                $data[] = [
+                    'id' => $actor->id,
+                    'label' => $actor->nombre_organizacion . ' (' . $actor->siglas . ')',
+                    'value' => $actor->nombre_organizacion,
+                    'siglas' => $actor->siglas,
+                    'sitio_web' => $actor->sitio_web,
+                ];
+            }
+        }
+        return $data;
     }
 }

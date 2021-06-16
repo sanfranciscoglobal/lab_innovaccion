@@ -5,14 +5,18 @@
     <title>Laboratorio de Innovación</title>
     <!-- google Analytics -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCKYF8WLDC"></script>
-        <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCKYF8WLDC"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-RCKYF8WLDC');
-        </script>
+    </script>
 
 
     <!-- SEO Meta Tags-->
@@ -33,7 +37,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
     {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
-    <link rel="stylesheet" href="assets/lightgallery.js/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="{{asset('assets/lightgallery.js/dist/css/lightgallery.min.css')}}">
     <!-- Page loading styles-->
     <style>
         .cs-page-loading {
@@ -368,7 +372,7 @@
     <!-- Navbar Floating light for Index page only-->
     @include('layouts.aplicacion.header')
     @yield('content')
-    <div  class="modal fade" id="modal-filtros" tabindex="-1">
+    <div class="modal fade" id="modal-filtros" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
                 <div class="modal-header border-0 bg-purple-gradient px-4">
@@ -380,63 +384,67 @@
                 <div class="modal-body px-4">
 
                     <form action="{{route('web.iniciativas.data')}}" method="POST">
-                                        @method('POST')
-                                        @csrf
-                            <div class="row justify-content-center">
+                        @method('POST')
+                        @csrf
+                        <div class="row justify-content-center">
 
-                                        <div class="col-12">
-                                            <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo Instituci&oacute;n</span>
-                                            <select id="etipo_institucion" name="tipo_institucion[]"
-                                                    class="form-control custom-select select2"
-                                                    data-ajax--url="{{route('api.tipo-institucion.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    data-placeholder="Seleccionar tipo institución"
-                                                    style="width:100%;"
-                                                    multiple>
+                            <div class="col-12">
+                                <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "
+                                      for="to-destination">Tipo Instituci&oacute;n</span>
+                                <select id="etipo_institucion" name="tipo_institucion[]"
+                                        class="form-control custom-select select2"
+                                        data-ajax--url="{{route('api.tipo-institucion.select2')}}"
+                                        data-ajax--data-type="json"
+                                        data-ajax--cache="true"
+                                        data-close-on-select="false"
+                                        data-placeholder="Seleccionar tipo institución"
+                                        style="width:100%;"
+                                        multiple>
 
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            <span class="ml-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >ODS</span>
-                                            <select id="eods_categorias" class="form-control custom-select select2" name="ods_categorias[]"
-                                                    data-ajax--url="{{route('api.ods-categoria.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    style="width:100%;"
-                                                    data-placeholder="Seleccionar ODS"
-                                                    multiple>
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Población Objetivo</span>
-                                            <select style="width:100%;" id="etipo_poblacion" name="tipo_poblacion[]"
-                                                    class="form-control select2"
-                                                    data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
-                                                    data-ajax--data-type="json"
-                                                    data-ajax--cache="true"
-                                                    data-close-on-select="false"
-                                                    data-placeholder="Seleccionar población objetivo"
-                                                    multiple>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-2 col-xl-2  col-md-2 col-sm-3 pt-3">
-                                        <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit" style="border-color:#FF7F00;background: #FF7F00;" >
-                                            Aplicar
-                                        </button>
-                                        </div>
-
-
+                                </select>
                             </div>
+                            <div class="col-12">
+                                <span class="ml-3 py-2 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block"
+                                      style="font-size: 15px;color:#531c6a ">ODS</span>
+                                <select id="eods_categorias" class="form-control custom-select select2"
+                                        name="ods_categorias[]"
+                                        data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                        data-ajax--data-type="json"
+                                        data-ajax--cache="true"
+                                        data-close-on-select="false"
+                                        style="width:100%;"
+                                        data-placeholder="Seleccionar ODS"
+                                        multiple>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">Población Objetivo</span>
+                                <select style="width:100%;" id="etipo_poblacion" name="tipo_poblacion[]"
+                                        class="form-control select2"
+                                        data-ajax--url="{{route('api.tipo-poblacion.select2')}}"
+                                        data-ajax--data-type="json"
+                                        data-ajax--cache="true"
+                                        data-close-on-select="false"
+                                        data-placeholder="Seleccionar población objetivo"
+                                        multiple>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-xl-2  col-md-2 col-sm-3 pt-3">
+                                <button type="submit" class="font-weight-bold mt-3 btn btn-primary btn-filter-submit"
+                                        style="border-color:#FF7F00;background: #FF7F00;">
+                                    Aplicar
+                                </button>
+                            </div>
+
+
+                        </div>
 
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div  class="modal fade" id="modal-mapa-filtros" tabindex="-1">
+    <div class="modal fade" id="modal-mapa-filtros" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
                 <div class="modal-header border-0 bg-purple-gradient px-4">
@@ -448,59 +456,65 @@
                 <div class="modal-body px-4">
 
                     <form action="{{route('web.mapaproblemas.data')}}" method="POST">
-                                        @method('POST')
-                                        @csrf
+                        @method('POST')
+                        @csrf
 
-                            <div class="container justify-content-center">
-                                <div class="w-10 center-block text-left">
+                        <div class="container justify-content-center">
+                            <div class="w-10 center-block text-left">
 
                                 <h4 class="" style="color:#531c6a">
-                                  Problemas
+                                    Problemas
                                 </h4>
-                                            <div class="row mb-2">
-                                                <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "  for="to-destination">Tipo de Convocatoria</span>
-                                                <select class="tipo_conv form-control custom-select select2 select2-hidden-accessible" style="width:100%;" data-placeholder="Seleccione tipo de convocatoria" data-select2-id="tipo_conv" tabindex="-1" aria-hidden="true">
-                                                                                                                    <option value="1" data-select2-id="2">Sector Productivo</option>
-                                                                                                                    <option value="2">Ciudadanía</option>
-                                                                                                                    <option value="3">Gestión Pública</option>
-                                                                                                        </select>
-                                            </div>
-                                            <div class="row my-2 pb-2">
-                                                <span class=" ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a " >Convocatorias</span>
-                                                <select style="width:100%;"
-                                                        class="form-control select2 conv"
-                                                        data-placeholder="Seleccione convocatorias"
-                                                        multiple>
-                                                </select>
-                                            </div>
+                                <div class="row mb-2">
+                                    <span class="ml-3 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a "
+                                          for="to-destination">Tipo de Convocatoria</span>
+                                    <select class="tipo_conv form-control custom-select select2 select2-hidden-accessible"
+                                            style="width:100%;" data-placeholder="Seleccione tipo de convocatoria"
+                                            data-select2-id="tipo_conv" tabindex="-1" aria-hidden="true">
+                                        <option value="1" data-select2-id="2">Sector Productivo</option>
+                                        <option value="2">Ciudadanía</option>
+                                        <option value="3">Gestión Pública</option>
+                                    </select>
+                                </div>
+                                <div class="row my-2 pb-2">
+                                    <span class=" ml-3 font-weight-bold  d-block"
+                                          style="font-size: 15px;color:#531c6a ">Convocatorias</span>
+                                    <select style="width:100%;"
+                                            class="form-control select2 conv"
+                                            data-placeholder="Seleccione convocatorias"
+                                            multiple>
+                                    </select>
+                                </div>
                                 <h4 class="" style="color:#531c6a">
-                                  Iniciativas
+                                    Iniciativas
                                 </h4>
-                                            <div class="row mb-2">
-                                                <span class="ml-3 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block" style="font-size: 15px;color:#531c6a ">ODS</span>
-                                                <select id="ods_categorias_1" class="form-control custom-select select2" name="ods_categorias[]"
-                                                        data-ajax--url="{{route('api.ods-categoria.select2')}}"
-                                                        data-ajax--data-type="json"
-                                                        data-ajax--cache="true"
-                                                        data-close-on-select="false"
-                                                        style="width:100%;"
-                                                        data-placeholder="Seleccionar ODS"
-                                                        multiple>
-                                                </select>
-                                            </div>
+                                <div class="row mb-2">
+                                    <span class="ml-3 mt-1 mb-1  py-md-0 mt-sm-0 mb-sm-0 font-weight-bold  d-block"
+                                          style="font-size: 15px;color:#531c6a ">ODS</span>
+                                    <select id="ods_categorias_1" class="form-control custom-select select2"
+                                            name="ods_categorias[]"
+                                            data-ajax--url="{{route('api.ods-categoria.select2')}}"
+                                            data-ajax--data-type="json"
+                                            data-ajax--cache="true"
+                                            data-close-on-select="false"
+                                            style="width:100%;"
+                                            data-placeholder="Seleccionar ODS"
+                                            multiple>
+                                    </select>
+                                </div>
 
 
-
-                                        <div class="row justify-content-center">
-                                            <button type="submit" class="font-weight-bold  btn btn-primary btn-filter-submit" style="border-color:#FF7F00;background: #FF7F00; width: 150px;" >
-                                                Aplicar
-                                            </button>
-
-                                        </div>
+                                <div class="row justify-content-center">
+                                    <button type="submit" class="font-weight-bold  btn btn-primary btn-filter-submit"
+                                            style="border-color:#FF7F00;background: #FF7F00; width: 150px;">
+                                        Aplicar
+                                    </button>
 
                                 </div>
+
                             </div>
-                            </form>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -523,11 +537,11 @@
 <script src="{{asset('js/helpers.js')}}"></script>
 <link rel="stylesheet" href="{{asset('assets/simple-scrollbar-master/simple-scrollbar.css')}}"/>
 <script src="{{ asset('assets/simple-scrollbar-master/simple-scrollbar.min.js') }}"></script>
-<script src="assets/lightgallery.js/dist/js/lightgallery.min.js"></script>
-<script src="assets/lightgallery.js/dist/js/lg-video.min.js"></script>
+<script src="{{ asset('assets/lightgallery.js/dist/js/lightgallery.min.js') }}"></script>
+<script src="{{asset('assets/lightgallery.js/dist/js/lg-video.min.js')}}"></script>
 @if($errors->any())
     <script>
-        var isLogin = {{ old('login') ?? 'null' }};
+        var isLogin = "{{ old('login') ?? 'null' }}";
         if (isLogin != null) {
             if (isLogin == 1) {
                 $('#modal-signin').modal('show');
@@ -540,8 +554,8 @@
 <script>
     (function ($) {
         $(function () {
-            $(document).ready(function(){
-                $('.scrolling').each(function(){
+            $(document).ready(function () {
+                $('.scrolling').each(function () {
                     var id = $(this).attr('id');
                     SimpleScrollbar.initEl(document.getElementById(id));
                 });

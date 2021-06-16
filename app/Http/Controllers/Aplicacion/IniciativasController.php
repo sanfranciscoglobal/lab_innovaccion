@@ -85,7 +85,14 @@ class IniciativasController extends Controller
                     ->withInput();
             }
 
-            $modelActor = ($request->iniciativa_propiedad == 1) ? IniciativaActor::create($requestData) : [];
+            if ($modelActor = IniciativaActor::find($request->iniciativa_actor_id)) {
+                $modelActor->update($requestData);
+            }
+
+            if (!$modelActor) {
+                //dd($requestData, $request, $modelActor);
+                $modelActor = ($request->iniciativa_propiedad == 1) ? IniciativaActor::create($requestData) : [];
+            }
 
             if ($image = Archivos::storeImagen('iniciativas-' . date('his'), $request->logo, 'iniciativas')) {
                 $requestData['logo'] = $image;
@@ -108,7 +115,6 @@ class IniciativasController extends Controller
                                 throw new Exception;
                             }
                         }
-
 
                         if ($dataUbicaciones = self::dataUbicaciones($request, $modelIniciativa) ?? []) {
                             if (!(IniciativaUbicacion::insert($dataUbicaciones))) {

@@ -10,16 +10,19 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="form-group">
-                    <label class="control-label">* Nombre de la organización</label>
+                    <label class="control-label d-block">* Nombre de la organización</label>
+
+                    <input type="hidden" name="iniciativa_actor_id" id="iniciativa_actor_id"
+                           value="{{($model->iniciativaActor)?$model->iniciativaActor->id:''}}">
+
                     <input maxlength="200"
                            type="text"
                            required="required"
                            class="form-control"
                            placeholder="Nombre de la organización"
                            name="nombre_organizacion"
+                           id="nombre_organizacion"
                            value="{{($model->iniciativaActor)?$model->iniciativaActor->nombre_organizacion:''}}">
-                    {{--<div class="invalid-feedback">Por favor ingresar Nombre de la organización</div>--}}
-                    {{--<div class="valid-feedback"><i class="fe-check-circle"></i></div>--}}
                 </div>
             </div>
             <div class="col-lg-4">
@@ -99,51 +102,15 @@
             </div>
         </div>
 
-        {{--<div class="row">--}}
-        {{--<div class="col-lg-8">--}}
-        {{--<div class="form-group">--}}
-        {{--<label class="control-label">* Ubicaci&oacute;n de la iniciativa</label>--}}
-        {{--<select style="width:100%;" id="ubicaciones" class="form-control select2" name="ubicaciones[]"--}}
-        {{--data-ajax--url="{{route('api.canton.select2')}}"--}}
-        {{--data-ajax--data-type="json"--}}
-        {{--data-ajax--cache="true"--}}
-        {{--data-close-on-select="false"--}}
-        {{--required="required" multiple>--}}
-
-        {{--@if($model->iniciativaUbicaciones)--}}
-        {{--@foreach($model->iniciativaUbicaciones as $ubicacion)--}}
-        {{--<option value="{{$ubicacion->canton_id}}"--}}
-        {{--selected>{{$ubicacion->canton->nombre}}</option>--}}
-        {{--@endforeach--}}
-        {{--@endif--}}
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<div class="form-group">--}}
-        {{--<label class="control-label">* Canton</label><br/>--}}
-        {{--<select style="width:100%;" id="canton_id" class="form-control select2" name="canton_id"--}}
-        {{--data-ajax--url="{{route('api.canton.select2')}}"--}}
-        {{--data-ajax--data-type="json"--}}
-        {{--data-ajax--cache="true"--}}
-        {{--required="required">--}}
-        {{--@if($model->iniciativaActor)--}}
-        {{--<option value="{{$model->iniciativaActor->canton_id}}"--}}
-        {{--selected>{{$model->iniciativaActor->canton->nombre}}</option>--}}
-        {{--@endif--}}
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-
         @if($model->iniciativaUbicaciones->count() > 0)
             @foreach($model->iniciativaUbicaciones as $key => $ubicacion)
                 <div class="form-group ubicaciones direccion border-bottom-light" data-row="{{$key}}">
                     <div class="row">
                         <div class="col-lg-12">
                             {{--@if($loop->first)--}}
-                                <label class="control-label">Dirección Principal <i class="fe-info text-primary" style="font-size: 22px;
-    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right" title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
+                            <label class="control-label">Dirección Principal <i class="fe-info text-primary" style="font-size: 22px;
+    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right"
+                                                                                title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i></label>
                             {{--@endif--}}
                             <input maxlength="200" type="text" required="required"
                                    class="form-control ubicacion ubicacion-{{$key}}"
@@ -175,9 +142,10 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <label class="control-label">Dirección Principal<br>
-                            <span class="text-black-50"><small style="color: brown">En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario.</small></span>
-                            {{-- <i class="fe-info text-primary" style="font-size: 22px;
-    margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right" title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i> --}}
+                            <span class="text-black-50"><small style="color: brown">
+                                    En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario.</small>
+                            </span>
+                            {{-- <i class="fe-info text-primary" style="font-size: 22px; margin-top: -6px;" type="button" data-toggle="tooltip" data-placement="right" title="En este campo ingresa las calles que corresponden a tu ubicación y selecciona con el ícono la dirección exacta, de ser necesario."></i> --}}
                         </label>
 
                         <input maxlength="200"

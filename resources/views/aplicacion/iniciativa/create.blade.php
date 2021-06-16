@@ -2,6 +2,7 @@
 
 @section('header-css')
     {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">--}}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
         .stepwizard-step p {
             margin-top: 0px;
@@ -75,6 +76,10 @@
             border: 1px solid darkred;
             padding: 0 10px;
             background: rgba(139, 0, 0, 0.397);
+        }
+
+        .ui-autocomplete-loading {
+            background: url(http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/images/ui-anim_basic_16x16.gif) no-repeat right center
         }
     </style>
 @endsection
@@ -162,6 +167,7 @@
 @section('footer')
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Hl2qksxsEhVC2vJTEM-oMypYDh9UOvQ&libraries=places&callback=window.initMap"
             async defer></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
         // initMap();
         //var input = document.getElementById('evento_direccion');
@@ -291,6 +297,30 @@
             $('.is-hidden input').each(function () {
                 $(this).val('');
             })
+        });
+
+        $("#nombre_organizacion").autocomplete({
+            source: "{{route('api.iniciativa-actor-autocomplete')}}",
+            minLength: 2,
+            search: function (event, ui) {
+                $('#siglas').val('');
+                $('#sitio_web').val('');
+                $('#iniciativa_actor_id').val('');
+            },
+            select: function (event, data) {
+                console.log(data);
+                $('#siglas').val(data.item.siglas);
+                $('#sitio_web').val(data.item.sitio_web);
+                $('#iniciativa_actor_id').val(data.item.id);
+            }
+        });
+
+        $(document).on('change', '#nombre_organizacion', function (e) {
+            if ($(this).val() == '') {
+                $('#siglas').val('');
+                $('#sitio_web').val('');
+                $('#iniciativa_actor_id').val('');
+            }
         })
     </script>
 @endsection

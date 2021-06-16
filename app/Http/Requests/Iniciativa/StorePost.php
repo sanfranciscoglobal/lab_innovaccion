@@ -27,6 +27,7 @@ class StorePost extends FormRequest
         return [
             'iniciativa_propiedad' => 'required',
 
+            'iniciativa_actor_id' => 'nullable',
             'nombre_organizacion' => 'nullable',
             'siglas' => 'nullable',
             'sitio_web' => 'nullable',

@@ -56,6 +56,8 @@ Route::get('/obtener-sector-solucion-select2', 'Api\SectorSolucionController@Sec
 Route::get('/obtener-nivel-solucion-select2', 'Api\NivelSolucionController@NivelSolucionSelect2')->name('api.nivel-solucion.select2');
 Route::get('/obtener-tipo-propuesta-select2', 'Api\TipoPropuestaController@TipoPropuestaSelect2')->name('api.tipo-propuesta.select2');
 
+Route::get('/obtener_iniciativa_actor_autocomplete', 'Api\IniciativasController@iniciativaActorAutoComplete')->name('api.iniciativa-actor-autocomplete');
+
 
 Route::as('api.analitica.')
     ->prefix('analitica')
