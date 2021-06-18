@@ -16,6 +16,7 @@
                 <th>Origen</th>
                 <th>Componente Innovador</th>
                 <th>Descripci&oacute;n</th>
+                <th>Coincidencia <span>>= 30%</span> </th>
                 <th>Estado</th>
                 <th class="text-center">
                     <i class="fa fa-cog"></i>
@@ -45,12 +46,56 @@
                     <td>{!! $iniciativa->descripcion_iniciativa !!}</td>
                     <td>{!! $iniciativa->descripcion_iniciativa !!}</td>
                     <td>
-                        {!! \App\Helpers\Helper::obtenerEtiquetaEstado($iniciativa->deleted_at) !!}
+                        <div class="w-100 mb-2">
+                            <a href="#" class="btn-link">Organización</a>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="50"
+                                     aria-valuemin="0" aria-valuemax="100">30%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2">
+                            <a href="#" class="btn-link">Sitio web</a>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50"
+                                     aria-valuemin="0" aria-valuemax="100">50%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2">
+                            <a href="#" class="btn-link">Iniciativa</a>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="50"
+                                     aria-valuemin="0" aria-valuemax="100">80%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2">
+                            <a href="#" class="btn-link">Componente</a>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="50"
+                                     aria-valuemin="0" aria-valuemax="100">90%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2">
+                            <a href="#" class="btn-link">Contacto</a>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50"
+                                     aria-valuemin="0" aria-valuemax="100">50%
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-center" style="width: 60px;">
+                            {!! \App\Helpers\Helper::obtenerEtiquetaEstado($iniciativa->deleted_at) !!}
+                        </div>
                     </td>
                     <td class="text-center">
-                        <div style="width: 123px;">
+                        <div style="width: 50px;">
                             <a href="{{$iniciativa->deleted_at_status ? '#' : route('admin.iniciativas.edit',$iniciativa->id)}}"
-                               class="btn btn-sm btn-outline-primary mr-1 {{$iniciativa->deleted_at_status?'disabled':''}}"
+                               class="btn btn-sm btn-outline-primary w-100 my-2 {{$iniciativa->deleted_at_status?'disabled':''}}"
                                data-toggle="tooltip"
                                data-placement="left"
                                data-state="primary"
@@ -69,7 +114,7 @@
                             @else
                                 <a href="" data-toggle="modal" data-target="#deleteModal"
                                    data-id="{{ $iniciativa->id }}"
-                                   class="btn btn-sm btn-outline-danger">
+                                   class="btn btn-sm btn-outline-danger w-100">
                                     <i class="fe-trash-2"></i>
                                 </a>
                             @endif

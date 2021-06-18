@@ -72,7 +72,7 @@ class Helper
         if ($estado) {
             return '<span class="badge badge-pill badge-danger">ELIMINADO</span>';
         } else {
-            return '<span class="badge badge-pill badge-success">ACTIVO</span>';
+            return '<span class="badge badge-pill badge-success mx-auto">ACTIVO</span>';
         }
     }
 
@@ -83,5 +83,11 @@ class Helper
         }
 
         return false;
+    }
+
+    public static function similar_text($text_1, $text_2)
+    {
+        $percent = self::similar_text($text_1, $text_2);
+        dd($percent);
     }
 }

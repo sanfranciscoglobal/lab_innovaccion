@@ -29,6 +29,8 @@ class IniciativasController extends Controller
     {
         //dd(session()->get('admin'));
         $iniciativas = Iniciativas::obtenerIniciativasWithTrashedAll();
+        self::setSimilarText($iniciativas);
+
         return view('backend.iniciativas.index', compact('iniciativas'));
     }
 
@@ -101,5 +103,16 @@ class IniciativasController extends Controller
     {
         $iniciativa->delete();
         return back()->with('status', 'Iniciativa eliminada con éxito');
+    }
+
+    /**
+     * @param Iniciativas[] $iniciativas
+     */
+    public static function setSimilarText($iniciativas)
+    {
+        // similar_text();
+//        foreach ($iniciativas as $iniciativa) {
+//            dd($iniciativa);
+//        }
     }
 }
