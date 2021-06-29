@@ -16,7 +16,7 @@
                 <th>Origen</th>
                 <th>Componente Innovador</th>
                 <th>Descripci&oacute;n</th>
-                <th>Coincidencia <span>>= 30%</span> </th>
+                <th>Coincidencia <span>>= 30%</span></th>
                 <th>Estado</th>
                 <th class="text-center">
                     <i class="fa fa-cog"></i>
@@ -43,48 +43,79 @@
                         @endif
                     </td>
                     <td>{{$iniciativa->iniciativa_origen_descripcion}}</td>
-                    <td>{!! $iniciativa->descripcion_iniciativa !!}</td>
+                    <td>{!! $iniciativa->componente_innovador !!}</td>
                     <td>{!! $iniciativa->descripcion_iniciativa !!}</td>
                     <td>
                         <div class="w-100 mb-2">
                             <a href="#" class="btn-link">Organización</a>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="50"
-                                     aria-valuemin="0" aria-valuemax="100">30%
-                                </div>
+                                @if($iniciativa::$similar_nombre_organizacion)
+                                    <div class="progress-bar" role="progressbar"
+                                         style="width: {{$iniciativa::$similar_nombre_organizacion['value']}}%;"
+                                         aria-valuenow="50"
+                                         data-id="{{$iniciativa::$similar_nombre_organizacion['id']}}"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100">
+                                        {{$iniciativa::$similar_nombre_organizacion['value']}}%
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <div class="w-100 mb-2">
-                            <a href="#" class="btn-link">Sitio web</a>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50"
-                                     aria-valuemin="0" aria-valuemax="100">50%
+                            @if($iniciativa::$similar_sitio_web)
+                                <a href="#" class="btn-link">Sitio web</a>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"
+                                         style="width: {{$iniciativa::$similar_sitio_web['value']}}%;"
+                                         data-id="{{$iniciativa::$similar_sitio_web['id']}}"
+                                         aria-valuenow="50"
+                                         aria-valuemin="0" aria-valuemax="100">
+                                        {{$iniciativa::$similar_sitio_web['value']}}%
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                         <div class="w-100 mb-2">
-                            <a href="#" class="btn-link">Iniciativa</a>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="50"
-                                     aria-valuemin="0" aria-valuemax="100">80%
+                            @if($iniciativa::$similar_iniciativa)
+                                <a href="#" class="btn-link">Iniciativa</a>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"
+                                         style="width: {{$iniciativa::$similar_iniciativa['value']}}%;"
+                                         aria-valuenow="50"
+                                         data-id="{{$iniciativa::$similar_iniciativa['id']}}"
+                                         aria-valuemin="0" aria-valuemax="100">
+                                        {{$iniciativa::$similar_iniciativa['value']}}%
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                         <div class="w-100 mb-2">
-                            <a href="#" class="btn-link">Componente</a>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="50"
-                                     aria-valuemin="0" aria-valuemax="100">90%
+                            @if($iniciativa::$similar_componente)
+                                <a href="#" class="btn-link">Componente</a>
+                                <div class="progress">
+                                    <div class="progress-bar"
+                                         role="progressbar"
+                                         style="width: {{$iniciativa::$similar_componente['value']}}%;"
+                                         aria-valuenow="50"
+                                         data-id="{{$iniciativa::$similar_componente['id']}}"
+                                         aria-valuemin="0" aria-valuemax="100">
+                                        {{$iniciativa::$similar_componente['value']}}%
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                         <div class="w-100 mb-2">
-                            <a href="#" class="btn-link">Contacto</a>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50"
-                                     aria-valuemin="0" aria-valuemax="100">50%
+                            @if($iniciativa::$similar_contacto)
+                                <a href="#" class="btn-link">Contacto</a>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"
+                                         style="width: {{$iniciativa::$similar_contacto['value']}}%;" aria-valuenow="50"
+                                         data-id="{{$iniciativa::$similar_contacto['id']}}"
+                                         aria-valuemin="0" aria-valuemax="100">
+                                        {{$iniciativa::$similar_contacto['value']}}%
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </td>
                     <td>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 class IniciativasController extends Controller
 {
+    public static $coincidencia = 30;
     /**
      * Instantiate a new UserController instance.
      */
@@ -28,8 +29,12 @@ class IniciativasController extends Controller
     public function index()
     {
         //dd(session()->get('admin'));
-        $iniciativas = Iniciativas::obtenerIniciativasWithTrashedAll();
-        self::setSimilarText($iniciativas);
+        if ($iniciativas = Iniciativas::obtenerIniciativasWithTrashedAll()) {
+            foreach ($iniciativas as $iniciativa) {
+                //$iniciativa->similar_nombre_organizacion($iniciativas);
+                self::setSimilarText($iniciativas, $iniciativa);
+            }
+        }
 
         return view('backend.iniciativas.index', compact('iniciativas'));
     }
@@ -107,12 +112,66 @@ class IniciativasController extends Controller
 
     /**
      * @param Iniciativas[] $iniciativas
+     * @param Iniciativas $iniciativa
      */
-    public static function setSimilarText($iniciativas)
+    public static function setSimilarText($iniciativas, $iniciativa)
     {
-        // similar_text();
-//        foreach ($iniciativas as $iniciativa) {
-//            dd($iniciativa);
-//        }
+        $similarNombre = $similarWeb = $similarIniciativa = $similarComponente =  [];
+        foreach ($iniciativas as $iniciativa_) {
+            if ($iniciativa_->id != $iniciativa->id) {
+                if ($iniciativa_->nombre_organizacion) {
+                    similar_text($iniciativa->nombre_organizacion, $iniciativa_->nombre_organizacion, $percentNombre);
+                    similar_text($iniciativa->iniciativa_actor_sitio_web, $iniciativa_->iniciativa_actor_sitio_web, $percentSitioWeb);
+                    similar_text($iniciativa->nombre_iniciativa, $iniciativa_->nombre_iniciativa, $percentIniciativa);
+                    similar_text($iniciativa->componente_innovador, $iniciativa_->componente_innovador, $percentComponente);
+
+                    if ($percentNombre > self::$coincidencia) {
+                        $similarNombre[$iniciativa_->id] = $percentNombre;
+                    }
+
+                    if ($percentSitioWeb > self::$coincidencia) {
+                        $similarWeb[$iniciativa_->id] = $percentSitioWeb;
+                    }
+
+                    if ($percentIniciativa > self::$coincidencia) {
+                        $similarIniciativa[$iniciativa_->id] = $percentIniciativa;
+                    }
+
+                    if ($percentComponente > self::$coincidencia) {
+                        $similarComponente[$iniciativa_->id] = $percentComponente;
+                    }
+                }
+            }
+        }
+
+        arsort($similarNombre);
+        arsort($similarWeb);
+        arsort($similarIniciativa);
+        arsort($similarComponente);
+
+        $id = array_key_first($similarNombre);
+        $id_web = array_key_first($similarWeb);
+        $id_iniciativa = array_key_first($similarIniciativa);
+        $id_componente = array_key_first($similarComponente);
+
+        $iniciativa::$similar_nombre_organizacion = isset($similarNombre[$id]) ? [
+            'id' => $id,
+            'value' => $similarNombre[$id]
+        ] : null;
+
+        $iniciativa::$similar_sitio_web = isset($similarWeb[$id_web]) ? [
+            'id' => $id,
+            'value' => round($similarWeb[$id_web])
+        ] : null;
+
+        $iniciativa::$similar_iniciativa = isset($similarIniciativa[$id_iniciativa]) ? [
+            'id' => $id,
+            'value' => round($similarIniciativa[$id_iniciativa])
+        ] : null;
+
+        $iniciativa::$similar_componente = isset($similarComponente[$id_componente]) ? [
+            'id' => $id,
+            'value' => round($similarComponente[$id_componente])
+        ] : null;
     }
 }

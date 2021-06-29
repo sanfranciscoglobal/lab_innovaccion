@@ -25,6 +25,12 @@ class Iniciativas extends Model
         'iniciativa_informacion_id',
     ];
 
+    public static $similar_nombre_organizacion = [];
+    public static $similar_sitio_web = [];
+    public static $similar_iniciativa = [];
+    public static $similar_componente = [];
+    public static $similar_contacto = [];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
