@@ -12,6 +12,7 @@
         <table class="datatables-demo table table-striped table-bordered">
             <thead class="thead-dark">
             <tr>
+                <th>ID</th>
                 <th>Iniciativa</th>
                 <th>Origen</th>
                 <th>Componente Innovador</th>
@@ -24,8 +25,16 @@
             </tr>
             </thead>
             <tbody>
+            {{--{{dd($iniciativas)}}--}}
             @foreach($iniciativas as $iniciativa)
+                <?php
+                \App\Http\Controllers\Backend\IniciativasController::setSimilarText($iniciativas, $iniciativa);
+                //                dd($iniciativa, $iniciativa->similar_nombre_organizacion, $iniciativa->similar_sitio_web, $iniciativa->similar_iniciativa, $iniciativa->similar_componente);
+                ?>
                 <tr>
+                    <td>
+                        {{$iniciativa->id}}
+                    </td>
                     <td>
                         <div class="border-bottom">
                             {{$iniciativa->nombre_iniciativa}}
@@ -46,73 +55,122 @@
                     <td>{!! $iniciativa->componente_innovador !!}</td>
                     <td>{!! $iniciativa->descripcion_iniciativa !!}</td>
                     <td>
-                        <div class="w-100 mb-2">
-                            <a href="#" class="btn-link">Organización</a>
-                            <div class="progress">
-                                @if($iniciativa::$similar_nombre_organizacion)
+                        <div class="w-100 mb-3">
+                            @if($iniciativa->similar_nombre_organizacion)
+                                <a href="{{route('admin.iniciativas.edit',$iniciativa->similar_nombre_organizacion['id'])}}"
+                                   class="btn btn-sm btn-outline-primary w-100 my-2" target="_blank"
+                                   data-toggle="tooltip"
+                                   data-placement="left"
+                                   data-state="primary"
+                                   title="Revisar coincidencia"
+                                >
+                                    <i class="fe-edit"></i> Organización
+                                </a>
+                                <div class="progress">
                                     <div class="progress-bar" role="progressbar"
-                                         style="width: {{$iniciativa::$similar_nombre_organizacion['value']}}%;"
+                                         style="width: {{$iniciativa->similar_nombre_organizacion['value']}}%;"
                                          aria-valuenow="50"
-                                         data-id="{{$iniciativa::$similar_nombre_organizacion['id']}}"
+                                         data-id="{{$iniciativa->similar_nombre_organizacion['id']}}"
                                          aria-valuemin="0"
                                          aria-valuemax="100">
-                                        {{$iniciativa::$similar_nombre_organizacion['value']}}%
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="w-100 mb-2">
-                            @if($iniciativa::$similar_sitio_web)
-                                <a href="#" class="btn-link">Sitio web</a>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar"
-                                         style="width: {{$iniciativa::$similar_sitio_web['value']}}%;"
-                                         data-id="{{$iniciativa::$similar_sitio_web['id']}}"
-                                         aria-valuenow="50"
-                                         aria-valuemin="0" aria-valuemax="100">
-                                        {{$iniciativa::$similar_sitio_web['value']}}%
+                                        {{$iniciativa->similar_nombre_organizacion['value']}}%
                                     </div>
                                 </div>
                             @endif
                         </div>
-                        <div class="w-100 mb-2">
-                            @if($iniciativa::$similar_iniciativa)
-                                <a href="#" class="btn-link">Iniciativa</a>
+
+                        <div class="w-100 mb-3">
+                            @if($iniciativa->similar_sitio_web)
+                                <a href="{{route('admin.iniciativas.edit', $iniciativa->similar_sitio_web['id'])}}"
+                                   class="btn btn-sm btn-outline-primary w-100 my-2" target="_blank"
+                                   data-toggle="tooltip"
+                                   data-placement="left"
+                                   data-state="primary"
+                                   title="Revisar coincidencia"
+                                >
+                                    <i class="fe-edit"></i> Sitio web
+                                </a>
+
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar"
-                                         style="width: {{$iniciativa::$similar_iniciativa['value']}}%;"
+                                         style="width: {{$iniciativa->similar_sitio_web['value']}}%;"
+                                         data-id="{{$iniciativa->similar_sitio_web['id']}}"
                                          aria-valuenow="50"
-                                         data-id="{{$iniciativa::$similar_iniciativa['id']}}"
                                          aria-valuemin="0" aria-valuemax="100">
-                                        {{$iniciativa::$similar_iniciativa['value']}}%
+                                        {{$iniciativa->similar_sitio_web['value']}}%
                                     </div>
                                 </div>
                             @endif
                         </div>
-                        <div class="w-100 mb-2">
-                            @if($iniciativa::$similar_componente)
-                                <a href="#" class="btn-link">Componente</a>
+
+                        <div class="w-100 mb-3">
+                            @if($iniciativa->similar_iniciativa)
+                                <a href="{{route('admin.iniciativas.edit', $iniciativa->similar_iniciativa['id'])}}"
+                                   class="btn btn-sm btn-outline-primary w-100 my-2" target="_blank"
+                                   data-toggle="tooltip"
+                                   data-placement="left"
+                                   data-state="primary"
+                                   title="Revisar coincidencia"
+                                >
+                                    <i class="fe-edit"></i> Iniciativa
+                                </a>
+
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"
+                                         style="width: {{$iniciativa->similar_iniciativa['value']}}%;"
+                                         aria-valuenow="50"
+                                         data-id="{{$iniciativa->similar_iniciativa['id']}}"
+                                         aria-valuemin="0" aria-valuemax="100">
+                                        {{$iniciativa->similar_iniciativa['value']}}%
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="w-100 mb-3">
+                            @if($iniciativa->similar_componente)
+                                <a href="{{route('admin.iniciativas.edit', $iniciativa->similar_componente['id'])}}"
+                                   class="btn btn-sm btn-outline-primary w-100 my-2" target="_blank"
+                                   data-toggle="tooltip"
+                                   data-placement="left"
+                                   data-state="primary"
+                                   title="Revisar coincidencia"
+                                >
+                                    <i class="fe-edit"></i> Componente
+                                </a>
+
                                 <div class="progress">
                                     <div class="progress-bar"
                                          role="progressbar"
-                                         style="width: {{$iniciativa::$similar_componente['value']}}%;"
+                                         style="width: {{$iniciativa->similar_componente['value']}}%;"
                                          aria-valuenow="50"
-                                         data-id="{{$iniciativa::$similar_componente['id']}}"
+                                         data-id="{{$iniciativa->similar_componente['id']}}"
                                          aria-valuemin="0" aria-valuemax="100">
-                                        {{$iniciativa::$similar_componente['value']}}%
+                                        {{$iniciativa->similar_componente['value']}}%
                                     </div>
                                 </div>
                             @endif
                         </div>
-                        <div class="w-100 mb-2">
-                            @if($iniciativa::$similar_contacto)
-                                <a href="#" class="btn-link">Contacto</a>
+
+                        <div class="w-100 mb-3">
+                            @if($iniciativa->similar_contacto)
+                                <a href="{{route('admin.iniciativas.edit', $iniciativa->similar_contacto['id'])}}"
+                                   class="btn btn-sm btn-outline-primary w-100 my-2" target="_blank"
+                                   data-toggle="tooltip"
+                                   data-placement="left"
+                                   data-state="primary"
+                                   title="Revisar coincidencia"
+                                >
+                                    <i class="fe-edit"></i> Contacto
+                                </a>
+
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar"
-                                         style="width: {{$iniciativa::$similar_contacto['value']}}%;" aria-valuenow="50"
-                                         data-id="{{$iniciativa::$similar_contacto['id']}}"
+                                         style="width: {{$iniciativa->similar_contacto['value']}}%;"
+                                         aria-valuenow="50"
+                                         data-id="{{$iniciativa->similar_contacto['id']}}"
                                          aria-valuemin="0" aria-valuemax="100">
-                                        {{$iniciativa::$similar_contacto['value']}}%
+                                        {{$iniciativa->similar_contacto['value']}}%
                                     </div>
                                 </div>
                             @endif
@@ -167,5 +225,7 @@
 @section('footer')
     <script>
         window.deleteModalAjax('deleteModal');
+
+
     </script>
 @endsection

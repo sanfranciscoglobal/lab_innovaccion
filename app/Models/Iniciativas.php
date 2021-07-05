@@ -25,6 +25,7 @@ class Iniciativas extends Model
         'iniciativa_informacion_id',
     ];
 
+    public static $similar_data = [];
     public static $similar_nombre_organizacion = [];
     public static $similar_sitio_web = [];
     public static $similar_iniciativa = [];
@@ -226,6 +227,62 @@ class Iniciativas extends Model
     public function getDeletedAtStatusAttribute()
     {
         return ($this->deleted_at) ? true : false;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSimilarNombreOrganizacionAttribute()
+    {
+        $id = array_key_first(self::$similar_nombre_organizacion);
+        return isset(self::$similar_nombre_organizacion[$id]) ? [
+            'id' => $id,
+            'value' => round(self::$similar_nombre_organizacion[$id], 0)
+        ] : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSimilarSitioWebAttribute()
+    {
+        $id = array_key_first(self::$similar_sitio_web);
+        return isset(self::$similar_sitio_web[$id]) ? [
+            'id' => $id,
+            'value' => round(self::$similar_sitio_web[$id], 0)
+        ] : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSimilarIniciativaAttribute()
+    {
+        $id = array_key_first(self::$similar_iniciativa);
+        return isset(self::$similar_iniciativa[$id]) ? [
+            'id' => $id,
+            'value' => round(self::$similar_iniciativa[$id], 0)
+        ] : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSimilarComponenteAttribute()
+    {
+        $id = array_key_first(self::$similar_componente);
+        return isset(self::$similar_componente[$id]) ? [
+            'id' => $id,
+            'value' => round(self::$similar_componente[$id], 0)
+        ] : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSimilarContactoAttribute()
+    {
+        return null;
     }
 
     /**
