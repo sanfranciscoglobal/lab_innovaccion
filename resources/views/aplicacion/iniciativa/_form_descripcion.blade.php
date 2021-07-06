@@ -2,11 +2,27 @@
 <div class="panel-heading">
     <h3 class="panel-title">Información de la Iniciativa de Innovación</h3>
 </div>
-<div class="d-sm-flex pb-4 text-left text-muted text-sm-left">
+<div class="d-sm-flex pb-4 text-left text-muted text-sm-left flex-column">
     <p>
         Llena los siguientes campos para completar exitosamente tu registro. Recuerda que los campos con asterisco*
         son obligatorios.
     </p>
+    {{--{{dd($iniciativas)}}--}}
+    @if(isset($iniciativas) && $iniciativas)
+        <div class="h6 text-primary">
+            Iniciativas @if($model->iniciativaActor->nombre_organizacion){{$model->iniciativaActor->nombre_organizacion}}
+            ({{$model->iniciativaActor->siglas}})@endif</div>
+        <ul class="list-group  list-group-horizontal-sm">
+            @foreach($iniciativas as $iniciativa)
+                <li class="list-group-item d-flex justify-content-between align-items-center py-1">
+                    {{$iniciativa->iniciativaInformacion->nombre_iniciativa}}
+                    <a href="{{route('app.iniciativas.edit',$iniciativa->id)}}" class="nav-link py-1" target="_blank">
+                        <i class="far fa-edit"></i>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 </div>
 <div class="panel-body">
     <div class="row">

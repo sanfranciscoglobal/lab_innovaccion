@@ -60,12 +60,40 @@ class IniciativasController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create(Request $request)
+    public function create(Request $request, IniciativaActor $iniciativaActor)
     {
         $model = new Iniciativas();
         IniciativaOrigen::$paginate = $request->mostrar;
         $iniciativasOrigen = IniciativaOrigen::obtenerIniciativaOrigenPaginate();
-        return view('aplicacion.iniciativa.create', compact('iniciativasOrigen', 'model'));
+
+        $iniciativas = [];
+
+        if ($iniciativaActor->id) {
+            $model->iniciativaActor = $iniciativaActor;
+
+            $iniciativas = Iniciativas::where('iniciativa_actor_id', $iniciativaActor->id)
+                ->orderby('updated_at', 'desc')
+                ->get();
+
+            if ($iniciativa = isset($iniciativas[0]) ? $iniciativas[0] : null) {
+                $model->iniciativaInstituciones = IniciativaInstitucion::join('tipo_institucion', 'tipo_institucion.id', '=', 'iniciativa_institucion.tipo_institucion_id')
+                    ->where('iniciativa_institucion.iniciativa_id', $iniciativa->id)
+                    ->get();
+
+                $model->iniciativaUbicaciones = IniciativaUbicacion::where('iniciativa_ubicacion.iniciativa_id', $iniciativa->id)
+                    ->orderby('updated_at', 'desc')
+                    ->get();
+
+                //dd($model->iniciativaUbicaciones);
+            }
+        }
+
+
+        return view('aplicacion.iniciativa.create', [
+            'iniciativasOrigen' => $iniciativasOrigen,
+            'model' => $model,
+            'iniciativas' => $iniciativas,
+        ]);
     }
 
     /**

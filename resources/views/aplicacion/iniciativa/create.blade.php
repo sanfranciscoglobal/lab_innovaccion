@@ -308,10 +308,7 @@
                 $('#iniciativa_actor_id').val('');
             },
             select: function (event, data) {
-                console.log(data);
-                $('#siglas').val(data.item.siglas);
-                $('#sitio_web').val(data.item.sitio_web);
-                $('#iniciativa_actor_id').val(data.item.id);
+                window.location.href = data.item.url;
             }
         });
 

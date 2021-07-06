@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Route;
 
@@ -81,7 +82,6 @@ Route::get('/gestion-innovacion/soluciones/download/{solucion}', 'Aplicacion\Sol
 Route::get('/gestion-innovacion/problemas/download/{problema}', 'Aplicacion\crudProblemas@download')->name('problemas.download');
 
 
-
 //Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 
 
@@ -151,7 +151,7 @@ Route::as('app.')
              * Rutas iniciativas
              */
             Route::resource('iniciativas', 'Aplicacion\IniciativasController');
-            //Route::get('/iniciativa', 'Aplicacion\IniciativasController@create')->name('iniciativa.create');
+            Route::get('iniciativas/create/{iniciativaActor}', 'Aplicacion\IniciativasController@create')->name('iniciativa.create.actor');
             //Route::post('/iniciativa/store', 'Aplicacion\IniciativasController@store')->name('iniciativa.store');
 
 
@@ -271,6 +271,6 @@ Route::get('/admin/acerca-de', function () {
 //    );
 
 
-Route::get('ar-test', function(){
+Route::get('ar-test', function () {
     return view('ar-test');
 });
