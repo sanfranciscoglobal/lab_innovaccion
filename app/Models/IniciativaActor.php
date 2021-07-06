@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 
 class IniciativaActor extends Model
 {
@@ -40,6 +41,9 @@ class IniciativaActor extends Model
         $query = self::builder();
 
         return $query->where('nombre_organizacion', 'ILIKE', "%$search%")
+            ->join('iniciativas', 'iniciativas.iniciativa_actor_id', '=', 'iniciativa_actor.id')
+            ->distinct()
+            ->whereRaw('iniciativas.deleted_at is null')
             ->get();
     }
 }

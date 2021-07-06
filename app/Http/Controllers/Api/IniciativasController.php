@@ -6,7 +6,9 @@ use App\Helpers\CustomUrl;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\IniciativaActor;
+use App\Models\IniciativaInstitucion;
 use App\Models\Iniciativas;
+use App\Models\IniciativaUbicacion;
 use App\Models\OdsCategoria;
 use App\Models\TipoInstitucion;
 use App\Models\TipoPoblacion;
@@ -190,12 +192,32 @@ class IniciativasController extends Controller
         $data = [];
         if ($iniciativaActor = IniciativaActor::iniciativaActorNombreLike($request->term)) {
             foreach ($iniciativaActor as $actor) {
+//                $iniciativa = Iniciativas::where('iniciativa_actor_id', $actor->id)
+//                    ->orderby('updated_at', 'desc')
+//                    ->first();
+//
+//                $s = IniciativaInstitucion::join('tipo_institucion', 'tipo_institucion.id', '=', 'iniciativa_institucion.tipo_institucion_id')
+//                    ->where('iniciativa_institucion.iniciativa_id', $iniciativa->id)
+//                    ->pluck('tipo_institucion.descripcion', 'tipo_institucion.id')
+//                    ->all();
+//
+//                $tipos = [];
+//                foreach ($s as $key => $name) {
+//                    $tipos[] = ['id' => $key, 'text' => $name];
+//                }
+
+                //dd($s, $iniciativa->id, $tipos);
+                // dd(Iniciativas::where('iniciativa_actor_id', $actor->id)->toSql());
+                //dd($actor, $iniciativa, $iniciativa->iniciativaInstituciones->tipoInstitucion);
+//                dd(route('app.iniciativa.create.actor', $actor->id));
                 $data[] = [
                     'id' => $actor->id,
                     'label' => $actor->nombre_organizacion . ' (' . $actor->siglas . ')',
                     'value' => $actor->nombre_organizacion,
                     'siglas' => $actor->siglas,
                     'sitio_web' => $actor->sitio_web,
+                    'enfoque' => $actor->enfoque,
+                    'url' => route('app.iniciativa.create.actor', $actor->id),
                 ];
             }
         }

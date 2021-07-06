@@ -67,8 +67,9 @@
                             required="required" multiple>
                         @if($model->iniciativaInstituciones)
                             @foreach($model->iniciativaInstituciones as $institucion)
-                                <option value="{{$institucion->tipo_institucion_id}}"
-                                        selected>{{$institucion->tipoInstitucion->descripcion}}</option>
+                                <option value="{{$institucion->tipo_institucion_id}}" selected>
+                                    {{$institucion->tipoInstitucion->descripcion}}
+                                </option>
                             @endforeach
                         @endif
                     </select>
@@ -92,8 +93,6 @@
                             class="form-control"
                             placeholder="Ingrese el enfoque"
                             rows="6"
-                            {{--oninvalid="setCustomValidity('Por favor complete este campo.')"--}}
-                            {{--onchange="try{setCustomValidity('')}catch(e){}"--}}
                             required
                     >{{($model->iniciativa_actor_enfoque)?$model->iniciativa_actor_enfoque:''}}</textarea>
                     <span style="color: gray" id="count-words"></span>
