@@ -35,6 +35,10 @@ Route::get('/terminos-y-condiciones/download', function () {
     return Storage::disk('terminos')->download('Terminos y condiciones_rev_AMG.pdf');
 })->name('terminos.download');
 
+Route::get('/minga-de-nutricion', function () {
+    return view('aplicacion.landing.landing_page');
+})->name('faq');
+
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
