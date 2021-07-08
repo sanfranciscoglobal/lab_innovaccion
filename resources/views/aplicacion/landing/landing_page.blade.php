@@ -72,27 +72,27 @@
 </section>
 
     <section id="funciones">
-        <div class="container-fluid pl-lg-8 pr-lg-8 mt-5 mb-5">
+        <div class="container-fluid pl-lg-8 pr-lg-8 mt-5">
             <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class=" h1 mb-4 eventos-titulo uppercase">Información General</span>
+                <h3 class=" h1 mb-4 eventos-titulo uppercase">Reto Universitario de Innovación</span>
                 </h3>
                 {{-- <p class="textoeventos">Mira nuestros próximos eventos</p> --}}
             </div>
             <div class="row justify-content-center">
 
-                <div class="itemhome col-md-5  col-lg-3 my-3" >
+                <div class="itemhome col-md-5  col-lg-4 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
                         <h3 class="fs-14 mb-2 uppercase text-mora"> ¿Qué es?</h3>
-                        <p class="font-size-sm mb-0 text-justify">Recogemos con convocatorias específicas recogemos los retos que afronta el sector público, privado y la sociedad civil para buscar soluciones viables e innovadoras de manera abierta y colectiva.</p>
+                        <p class="font-size-sm mb-0 text-justify">El Reto Universitario de Innovación es un proceso virtual en el que las y los participantes desarrollarán campañas de comunicación para transformar comportamientos inadecuados en las familias y personas a cargo de niñas y niños con y en riesgo de desnutrición. Así, buscamos contribuir a la disminución del índice de desnutrición crónica infantil (DCI) en Ecuador.</p>
                     </div>
                 </div>
-                <div class="itemhome col-md-5  col-lg-3 my-3" >
+                <div class="itemhome col-md-5  col-lg-4 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
 
-                        <h3 class="fs-14 mb-2 uppercase text-uva">¿Quiénes participán?</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-uva">¿Quiénes participan?</h3>
 
                         <p class="font-size-sm mb-0 text-justify">
-                            Este reto está dirigido a equipos conformados por estudiantes o personas egresadas de cualquier universidad o instituto técnico y tecnológico de Ecuador.
+                            Este reto está dirigido a equipos conformados por <strong> o personas egresadas de cualquier universidad o instituto técnico y tecnológico de Ecuador</strong>.
                         </p>
                         <p class="font-size-sm mb-0 text-justify">
                             <br>
@@ -102,26 +102,34 @@
                         </p>
                     </div>
                 </div>
-                <div class="itemhome col-md-5 col-lg-3 my-3" >
+                <div class="itemhome col-md-5 col-lg-4 my-3" >
                     <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <h3 class="fs-14 mb-2 uppercase text-naranja">¿En qué ejes debe centrarse la campaña de comunicación?</h3>
+                        <h3 class="fs-14 mb-2 uppercase text-naranja">Áreas de participación</h3>
                         <p class="font-size-sm mb-0 text-justify">
-                            Lactancia y alimentación complementaria;<br>
-                            Agua,  saneamiento e higiene, y<br>
-                            Chequeos de salud para madres y niños.<br>
+                            <ul>
+                                <li>Lactancia y alimentación complementaria. </li>
+                                <li>Agua,  saneamiento e higiene. </li>
+                                <li>Chequeos de salud para madres y niños </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid pl-lg-8 pr-lg-8">
+            <div class="col-md-12 px-3  py-2 py-lg-4 order-md-1">
+                <div class="itemhome" >
+                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
+                        <h3 class="fs-14 mb-2 uppercase text-mora text-center"> Bases e inscripción</h3>
+                        <p class="text-center p-t-10">
+                            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn" href="#" >Descargarse las bases</a>
+                            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn" href="#" >Inscripción aquí</a>
+                        </p>
+                    </div>
+                </div>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="itemhome col-md-5 col-lg-3 my-3" >
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <h3 class="fs-14 mb-2 uppercase text-tomate">Inscripción</h3>
-                        <p class="font-size-sm mb-0 text-justify">
-                            Inscripciones aquí:<br>
-                            <a class="btn font-weight-bold botonmora " style=" width: 150px; padding-top:10px;" href="https://forms.gle/YJu597yiJUi3ZMjz5">Ingresar</a>
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -136,45 +144,34 @@
                     <p class="text-justify">El Reto se realizará de forma virtual e incluye las siguientes actividades, las cuales te pedimos leas con detalle para que te organices con tu equipo </p>
                     </div>
                     <div class="col-sm-6">
-                    <p class="text-white"><strong> Inscripción</strong></p>
                     <ul class="list-unstyled font-size-sm">
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Junio 21, 202 - Arranque del proceso de inscripción de equipos. </span>
+                            <span class="text-justify">Inscripción: 26 de junio al 31 de agosto. </span>
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Agosto 05, 2021 - Sesión informativa sobre el Reto Universitario de Innovación.</span>
+                            <span class="text-justify">Laboratorio de ideas:  3- 4 de septiembre.</span>
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Agosto 31, 2021 - Cierre de inscripciones de equipos.</span>
-                        </li>
-                    </ul>
-                    <p class="text-white"><strong>Participación</strong></p>
-                    <ul class="list-unstyled font-size-sm">
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Septiembre - Octubre 2021 - Participación de los equipos inscritos en los laboratorios de innovación / Mentorías y Tutorías. </span>
+                            <span class="text-justify">Recepción de propuestas: 10 de octubre.</span>
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Octubre 10, 2021 - Entrega de las propuestas finales.</span>
+                            <span class="text-justify">Prototipando mi idea: 24 - 25 de septiembre.</span>
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Agosto 31, 2021 - Cierre de inscripciones de equipos.</span>
-                        </li>
-                    </ul>
-                    <p class="text-white"><strong>Cierre</strong></p>
-                    <ul class="list-unstyled font-size-sm">
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Octubre 18, 2021 - Anuncio de resultados y premiación. </span>
+                            <span class="text-justify">Mentorías: 26 de septiembre al 8 de octubre.</span>
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Octubre - Noviembre 2021 - Lanzamiento de la campaña de comunicación .</span>
+                            <span class="text-justify">Selección de finalistas: 11 al 15 de octubre.</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fe-check-circle font-size-lg mr-2"></i>
+                            <span class="text-justify">Anuncio de ganadores: 18 de octubre.</span>
                         </li>
                     </ul>
                     </div>
@@ -192,7 +189,7 @@
 
                         <div class="col-sm-10">
                         <h2 class="text-white">Premio</h2>
-                        <p class="text-justify">La propuesta ganadora será anunciada en un evento virtual y su plan de medios será pautado de acuerdo al presupuesto asignado de diez mil dólares (US $10.000), el que será entregado directamente a los medios de comunicación por parte de Diálogos Vitales.</p>
+                        <p class="text-justify">La propuesta ganadora será anunciada en un evento virtual y su plan de medios será pautado de acuerdo al presupuesto asignado de doce mil dólares (US $12.000), el que será entregado directamente a los medios de comunicación por parte de Diálogos Vitales.</p>
                         </div>
                     </div>
 
@@ -205,7 +202,7 @@
     <section class="bg-secondary" id="demos">
         <div class="container pt-5 pb-4 py-md-6 py-lg-7">
             <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class=" h1 mb-4 eventos-titulo uppercase">Organización</span>
+                <h3 class=" h2 mb-4 eventos-titulo uppercase">Organizan</span>
                 </h3>
             </div>
             <div class="row">
@@ -293,7 +290,7 @@
                 <div class="col-sm-1">
 
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     {{-- <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-DE-LA-MINGA-01.png') }}" alt="" /> --}}
                 </div>
                 <div class="col-sm-2">
@@ -307,6 +304,52 @@
                 </div>
                 <div class="col-sm-2">
 
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="bg-secondary" id="demos">
+        <div class="container pt-5 pb-4 py-md-6 py-lg-7">
+            <div class="text-center mb-5 pt-3 pt-lg-4">
+                <h3 class=" h2 mb-4 eventos-titulo uppercase">Thinkia Lab. de Innovación</span>
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+
+                </div>
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-2">
+                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-ORGANIZADORES-19-150x150.png') }}" alt="" />
+                </div>
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-2">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-DE-LA-MINGA-21-1.png') }}" alt="" />
+                </div>
+                <div class="col-sm-2">
+                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-16.png') }}" alt="" />
+                </div>
+                <div class="col-sm-2">
+                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-17.png') }}" alt="" />
+                </div>
+                <div class="col-sm-2">
+                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-18.png') }}" alt="" />
+                </div>
+                <div class="col-sm-2">
+                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-15.png') }}" alt="" />
+                </div>
+                <div class="col-sm-2">
+                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-14.png') }}" alt="" />
                 </div>
             </div>
 
