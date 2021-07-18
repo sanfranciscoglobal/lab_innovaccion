@@ -255,7 +255,7 @@
             </div>
         </div>
     </section>
-    <section style="background-image: url({{ asset('img/landing/fondo_minga.png') }});background-repeat: no-repeat; background-size: auto; background-color: #f7f7fc;">
+    <section>
         <div class="text-center pt-lg-5">
             <h3 class="eventos-titulo">Premio</span></h3>
         </div>
