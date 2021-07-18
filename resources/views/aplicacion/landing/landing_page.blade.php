@@ -71,155 +71,257 @@
 
 </section>
 
-    <section id="funciones">
-        <div class="container-fluid pl-lg-8 pr-lg-8 mt-5">
-            <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class=" h1 mb-4 eventos-titulo uppercase">Reto Universitario de Innovación</span>
-                </h3>
-                {{-- <p class="textoeventos">Mira nuestros próximos eventos</p> --}}
-            </div>
-            <div class="row justify-content-center">
 
-                <div class="itemhome col-md-5  col-lg-4 my-3" >
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <h3 class="fs-14 mb-2 uppercase text-mora"> ¿Qué es?</h3>
-                        <p class="font-size-sm mb-0 text-justify">El Reto Universitario de Innovación es un proceso virtual en el que las y los participantes desarrollarán campañas de comunicación para transformar comportamientos inadecuados en las familias y personas a cargo de niñas y niños con y en riesgo de desnutrición. Así, buscamos contribuir a la disminución del índice de desnutrición crónica infantil (DCI) en Ecuador.</p>
-                    </div>
-                </div>
-                <div class="itemhome col-md-5  col-lg-4 my-3" >
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-
-                        <h3 class="fs-14 mb-2 uppercase text-uva">¿Quiénes participan?</h3>
-
-                        <p class="font-size-sm mb-0 text-justify">
-                            Este reto está dirigido a equipos conformados por <strong> o personas egresadas de cualquier universidad o instituto técnico y tecnológico de Ecuador</strong>.
-                        </p>
-                        <p class="font-size-sm mb-0 text-justify">
-                            <br>
-                            * Todas las personas que participan deben ser mayores de edad (18+ años).
-                            <br>
-                            * Los equipos deben conformarse por al menos dos personas.
-                        </p>
-                    </div>
-                </div>
-                <div class="itemhome col-md-5 col-lg-4 my-3" >
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <h3 class="fs-14 mb-2 uppercase text-naranja">Áreas de participación</h3>
-                        <p class="font-size-sm mb-0 text-justify">
-                            <ul>
-                                <li>Lactancia y alimentación complementaria. </li>
-                                <li>Agua,  saneamiento e higiene. </li>
-                                <li>Chequeos de salud para madres y niños </li>
-                            </ul>
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <section style="background-image: url({{ asset('img/landing/bk-de-que-va-reto.png') }});background-repeat: no-repeat; background-size: auto; background-color: #2a8982;">
+        <div class="text-center pt-lg-5 text-white">
+            <h3 class="text-white">¿De qué va el Reto?</span></h3>
         </div>
-    </section>
-    <section>
-        <div class="container-fluid pl-lg-8 pr-lg-8">
-            <div class="col-md-12 px-3  py-2 py-lg-4 order-md-1">
-                <div class="itemhome" >
-                    <div class="bg-light box-shadow-lg rounded-lg p-4 mb-grid-gutter text-center text-sm-left h-100">
-                        <h3 class="fs-14 mb-2 uppercase text-mora text-center"> Bases e inscripción</h3>
-                        <p class="text-center p-t-10">
-                            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn" href="#" >Descargarse las bases</a>
-                            <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block navbar-btn" href="#" >Inscripción aquí</a>
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section style="background-image: url({{ asset('img/landing/fondo_minga.png') }});background-repeat: no-repeat; background-size: auto; background-color: #ec9534;">
-        <div class=" container-fluid pl-lg-8 pr-lg-8 mt-5 row no-gutters">
-            <div class="col-md-12 px-3  py-2 py-lg-4 order-md-1">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-5  py-lg-4 text-white">
-                    <h2 class="text-white">Cronograma</h2>
-                    <div class="row">
-                    <div class="col-sm-6">
-                    <p class="text-justify">El Reto se realizará de forma virtual e incluye las siguientes actividades, las cuales te pedimos leas con detalle para que te organices con tu equipo </p>
-                    </div>
-                    <div class="col-sm-6">
-                    <ul class="list-unstyled font-size-sm">
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Inscripción: 26 de junio al 31 de agosto. </span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Laboratorio de ideas:  3- 4 de septiembre.</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Recepción de propuestas: 10 de octubre.</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Prototipando mi idea: 24 - 25 de septiembre.</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Mentorías: 26 de septiembre al 8 de octubre.</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Selección de finalistas: 11 al 15 de octubre.</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fe-check-circle font-size-lg mr-2"></i>
-                            <span class="text-justify">Anuncio de ganadores: 18 de octubre.</span>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section style="background-image: url({{ asset('img/landing/fondo_minga2.png') }});background-repeat: no-repeat; background-size: auto; background-color: #2a8982;">
         <div class=" container-fluid pl-lg-8 pr-lg-8 row no-gutters">
-            <div class="col-md-12 px-3  py-2 py-lg-4 order-md-1">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-5  py-lg-4 text-white">
-
-                    <div class="row mt-40">
-
-                        <div class="col-sm-10">
-                        <h2 class="text-white">Premio</h2>
-                        <p class="text-justify">La propuesta ganadora será anunciada en un evento virtual y su plan de medios será pautado de acuerdo al presupuesto asignado de doce mil dólares (US $12.000), el que será entregado directamente a los medios de comunicación por parte de Diálogos Vitales.</p>
+            <div class="col-md-12 px-3 order-md-1">
+                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4 text-white">
+                    <div class="row">
+                        <div class="col-sm-12" style="font-size: 16px !important">
+                        <h3 class="text-white">Objetivo Del Reto</h2>
+                        <p class="text-justify">El objetivo del reto es incentivar a jóvenes estudiantes de instituciones de educación  superior a desarrollar campañas de comunicación que contribuyan en la reducción de  la DCI.
+                            Contribuir a la generación y difusión de conocimiento, y al involucramiento de la  comunidad académica.
+                            </p>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="font-size: 16px !important">
+                        <h3 class="text-white">Objetivo De La Campaña</h2>
+                        <p class="text-justify">Cambiar comportamientos de las familias con niñas y niños con y en riesgo  de desnutrición a través de una campaña de comunicación que aborde los  siguientes ejes:</p>
+                            <ul class="list-unstyled pl-lg-8">
+                                <li class="d-flex align-items-center">
+                                    <i class="fe-check-circle font-size-lg mr-2"></i>
+                                    <span class="text-justify">Lactancia y alimentación complementaria.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fe-check-circle font-size-lg mr-2"></i>
+                                    <span class="text-justify">Agua, saneamiento e higiene.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fe-check-circle font-size-lg mr-2"></i>
+                                    <span class="text-justify">Chequeos de salud para madres y niños.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="font-size: 16px !important">
+                        <p class="text-justify">La campaña de comunicación <strong>debe tener un alcance nacional</strong> e ir dirigida a los grupos priorizados en Costa, Sierra y Amazonía: <strong> madres y padres de familia y personas a cargo del cuidado de los niños y niñas con o en riesgo de desnutrición.</strong> </p>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </section>
+    <section style="background-image: url({{ asset('img/landing/fondo_minga2.png') }});background-repeat: no-repeat; background-size: auto; background-color: #2a8982;">
+        <div class="text-center pt-lg-5 text-white">
+            <h3 class="text-white">¿Quiénes organizan el reto? </span></h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-3">
+                <img class="justify-content-center" width="200" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" />
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class=" container-fluid pl-lg-8 pr-lg-8 row no-gutters">
+            <div class="col-md-12 px-3 order-md-1">
+                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4 text-white">
+                    <div class="row">
+                        <div class="col-sm-12" style="font-size: 16px !important">
+                        <p class="text-justify">Thinkia - lab de innovación es la herramienta con la cual cuenta el Programa de las  Naciones Unidas para el Desarrollo (PNUD) para promover la innovación abierta como  un método para acelerar los objetivos de desarrollo sostenible. Esta herramienta  está gerenciada por diversos actores: Fundación San Francisco Global y OpenlabEC  (sociedad civil), IMPAQTO (privado), ÉPICO (privado) y FLACSO CTS Lab (academia).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-3">
+                <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/DIALOGOS_VITALES.png') }}" alt="" />
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class=" container-fluid pl-lg-8 pr-lg-8 row no-gutters">
+            <div class="col-md-12 px-3 order-md-1">
+                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4 text-white">
+                    <div class="row">
+                        <div class="col-sm-12" style="font-size: 16px !important">
+                        <p class="text-justify">Diálogos Vitales (DV) nace en marzo del 2020 como una iniciativa ciudadana  autoconvocada y promovida por personas de varios sectores, con el objetivo de  encontrar el camino a la recuperación justa y sostenible del Ecuador a través de la  confianza y la colaboración.  DV cuenta con 10 mesas de trabajo o mingas, una de ellas es la Minga por la Nutrición  en Ecuador, que busca reducir el 2% anual de desnutrición crónica infantil en  Ecuador en niños y niñas durante sus primeros 1000 días de vida.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-image: url({{ asset('img/landing/fondo_minga_2.png') }});background-repeat: no-repeat; background-size: auto; background-color: #ec9534;">
+        <div class="text-center pt-lg-5 text-white">
+            <h3 class="text-white">¿Quiénes pueden participar del Reto?</span></h3>
+        </div>
+        <div class="container-fluid row no-gutters">
+
+            <div class="col-md-12">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="text-justify" style="font-size: 16px !important">
+                                <li>Personas ecuatorianas mayores de 18 años.</li>
+                                <li>Ser estudiante o egresado de cualquier universidad o instituto técnico y tecnológico del país.
+                                    Deben conformarse equipos de mínimo dos personas sin un máximo de participantes</li>
+                                <li>Deben conformarse equipos de mínimo dos personas sin un máximo de participantes. Se sugiere que los equipos sean interdisciplinarios, integrando a estudiantes de carreras relacionadas al tema</li>
+                                <li>Personas que no tengan relación laboral con la Minga de Nutrición de Diálogos Vitales o las entidades organizadoras: Programa de las Naciones Unidas para el Desarrollo - PNUD, Fundación San Francisco Global, ÉPICO, IMPAQTO, FLACSO  CTS LAB, y OpenlabEC</li>
+
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa-reto.png') }}" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a class="btn font-weight-bold botonmora " style=" width: 300px;" href="/eventos/">Descarga las bases aquí</a>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <a class="btn font-weight-bold botonmora " style=" width: 300px;" href="/eventos/">Inscríbete aquí</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-image: url({{ asset('img/landing/fondo_minga2.png') }});background-repeat: no-repeat; background-size: auto; background-color: #2a8982;">
+        <div class="text-center pt-lg-5 text-white">
+            <h3 class="text-white">Cronograma</span></h3>
+        </div>
+        <div class="container-fluid row no-gutters">
+
+            <div class="col-md-12">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="text-justify" style="font-size: 16px !important; "> Reto se realizará de forma virtual e incluye las siguientes actividades, las cuales te pedimos leas con detalle para que te organices con tu equipo</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled" style="font-size: 16px !important;">
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
+                                    <span class="text-justify">Inscripción: 26 de junio al 31 de agosto. </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
+                                    <span class="text-justify">Laboratorio de ideas:  3- 4 de septiembre.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
+                                    <span class="text-justify">Recepción de propuestas: 10 de octubre.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
+                                    <span class="text-justify">Prototipando mi idea: 24 - 25 de septiembre.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
+                                    <span class="text-justify">Mentorías: 26 de septiembre al 8 de octubre.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
+                                    <span class="text-justify">Selección de finalistas: 11 al 15 de octubre.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
+                                    <span class="text-justify">Anuncio de ganadores: 18 de octubre.</span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-image: url({{ asset('img/landing/fondo_minga.png') }});background-repeat: no-repeat; background-size: auto; background-color: #f7f7fc;">
+        <div class="text-center pt-lg-5">
+            <h3 class="eventos-titulo">Premio</span></h3>
+        </div>
+        <div class="container-fluid row no-gutters">
+
+            <div class="col-md-12">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8 pr-lg-8  py-lg-4">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/premio-reto.png') }}" alt="" />
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="text-justify" style="font-size: 16px !important;">
+                            La propuesta ganadora será anunciada en un evento virtual y su plan de medios será pautado de acuerdo al presupuesto asignado de doce mil dólares (US $12.000), el que será entregado directamente a los medios de comunicación por parte de Diálogos Vitales.</p>
+                            <p class="text-justify" style="font-size: 16px !important;">Diálogos Vitales y Thinkia - lab se reservan el derecho de contrastar los montos económicos planteados en el plan de medios directamente con los medios de comunicación, y a realizar los ajustes que considere pertinentes para el pautaje  planificado
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-image: url({{ asset('img/landing/fondo_minga_2.png') }});background-repeat: no-repeat; background-size: auto; background-color: #ec9534;">
+        <div class="text-center pt-lg-5 text-white">
+            <h3 class="text-white">Propiedad intelectual</span></h3>
+        </div>
+        <div class="container-fluid row no-gutters">
+
+            <div class="col-md-12">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8 pr-lg-8  py-lg-4 text-white">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                Los derechos de autoría serán del equipo ganador. Los derechos de uso y reproducción serán cedidos a Diálogos Vitales y Thinkia-lab con una licencia Creative Commons  Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0).
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                El equipo ganador y las organizaciones mencionadas serán libres de:
+                            </p>
+                            <ul class="text-justify" style="font-size: 16px !important;">
+                                <li> Compartir: copiar y redistribuir el material en cualquier medio o formato.</li>
+                                <li> Adaptar: remezclar, transformar y construir a partir del material.</li>
+                            </ul>
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                La licencia no puede revocar estas libertades, en tanto se sigan los siguientes términos:
+                            </p>
+                            <ul class="text-justify" style="font-size: 16px !important;">
+                                <li> Atribución: se debe dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios. Se lo puede hacer en cualquier forma razonable, pero no de forma tal que sugiera que se tiene su uso o tienen el  apoyo de la licenciante.  </li>
+                                <li> No comercial: no puede hacerse uso del material con propósitos comerciales.</li>
+                                <li>No hay restricciones adicionales: no pueden aplicarse términos legales ni  medidas tecnológicas que restrinjan legalmente a otras a hacer cualquier uso  permitido por la licencia.  </li>
+                            </ul>
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                Más información sobre la licencia Creative Commons Atribución-NoComercial  4.0 Internacional (CC BY-NC 4.0):  https://creativecommons.org/licenses/by-nc/4.0/deed.es
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/premio-propiedad.png') }}" alt="" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Demos-->
-    <section class="bg-secondary" id="demos">
-        <div class="container pt-5 pb-4 py-md-6 py-lg-7">
-            <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class=" h2 mb-4 eventos-titulo uppercase">Organizan</span>
-                </h3>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                </div>
-                <div class="col-sm-3 justify-content-center">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/DIALOGOS_VITALES.png') }}" alt="" />
-                </div>
-                <div class="col-sm-3">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" />
-                </div>
-                <div class="col-sm-3">
-                </div>
-            </div>
-
-        </div>
-    </section>
     <section class="bg-secondary" id="demos">
         <div class="container pt-5 pb-4 py-md-6 py-lg-7">
             <div class="text-center mb-5 pt-3 pt-lg-4">
@@ -304,52 +406,6 @@
                 </div>
                 <div class="col-sm-2">
 
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <section class="bg-secondary" id="demos">
-        <div class="container pt-5 pb-4 py-md-6 py-lg-7">
-            <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class=" h2 mb-4 eventos-titulo uppercase">Thinkia Lab. de Innovación</span>
-                </h3>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-
-                </div>
-                <div class="col-sm-2">
-
-                </div>
-                <div class="col-sm-2">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-ORGANIZADORES-19-150x150.png') }}" alt="" />
-                </div>
-                <div class="col-sm-2">
-
-                </div>
-                <div class="col-sm-2">
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-DE-LA-MINGA-21-1.png') }}" alt="" />
-                </div>
-                <div class="col-sm-2">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-16.png') }}" alt="" />
-                </div>
-                <div class="col-sm-2">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-17.png') }}" alt="" />
-                </div>
-                <div class="col-sm-2">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-18.png') }}" alt="" />
-                </div>
-                <div class="col-sm-2">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-15.png') }}" alt="" />
-                </div>
-                <div class="col-sm-2">
-                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/LOGOS-MIEMBROS-THINKIA-14.png') }}" alt="" />
                 </div>
             </div>
 
