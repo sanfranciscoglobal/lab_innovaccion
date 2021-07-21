@@ -70,9 +70,11 @@
     </div> --}}
 
 </section>
+    <section style="margin-top: 50px !important; background-color: #ffffff !important;">
+    </section>
 
 
-    <section style="background-image: url({{ asset('img/landing/bk-de-que-va-reto.png') }});background-repeat: no-repeat; background-size: auto; background-color: #2a8982;">
+    <section style="background-image: url({{ asset('img/landing/thinkia-nutricion.jpg') }});background-repeat: no-repeat; background-size: auto; background-color: #8fbebb;">
         <div class="text-center pt-lg-5 text-white">
             <h3 class="text-white">¿De qué va el Reto?</span></h3>
         </div>
@@ -117,22 +119,22 @@
             </div>
         </div>
     </section>
-    <section style="background-image: url({{ asset('img/landing/fondo_minga2.png') }});background-repeat: no-repeat; background-size: auto; background-color: #2a8982;">
-        <div class="text-center pt-lg-5 text-white">
-            <h3 class="text-white">¿Quiénes organizan el reto? </span></h3>
+    <section style="">
+        <div class="text-center pt-lg-5">
+            <h3 class="eventos-titulo">¿Quiénes organizan el reto? </span></h3>
         </div>
         <div class="row">
             <div class="col-sm-5">
             </div>
             <div class="col-sm-3">
-                <img class="justify-content-center" width="200" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" />
+                <img class="justify-content-center" width="200" src="{{ asset('img/logo/Logo_Thinkia_1.png') }}" alt="" />
             </div>
             <div class="col-sm-3">
             </div>
         </div>
         <div class=" container-fluid pl-lg-8 pr-lg-8 row no-gutters">
             <div class="col-md-12 px-3 order-md-1">
-                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4 text-white">
+                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4">
                     <div class="row">
                         <div class="col-sm-12" style="font-size: 16px !important">
                         <p class="text-justify">Thinkia - lab de innovación es la herramienta con la cual cuenta el Programa de las  Naciones Unidas para el Desarrollo (PNUD) para promover la innovación abierta como  un método para acelerar los objetivos de desarrollo sostenible. Esta herramienta  está gerenciada por diversos actores: Fundación San Francisco Global y OpenlabEC  (sociedad civil), IMPAQTO (privado), ÉPICO (privado) y FLACSO CTS Lab (academia).
@@ -153,7 +155,7 @@
         </div>
         <div class=" container-fluid pl-lg-8 pr-lg-8 row no-gutters">
             <div class="col-md-12 px-3 order-md-1">
-                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4 text-white">
+                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2">
                     <div class="row">
                         <div class="col-sm-12" style="font-size: 16px !important">
                         <p class="text-justify">Diálogos Vitales (DV) nace en marzo del 2020 como una iniciativa ciudadana  autoconvocada y promovida por personas de varios sectores, con el objetivo de  encontrar el camino a la recuperación justa y sostenible del Ecuador a través de la  confianza y la colaboración.  DV cuenta con 10 mesas de trabajo o mingas, una de ellas es la Minga por la Nutrición  en Ecuador, que busca reducir el 2% anual de desnutrición crónica infantil en  Ecuador en niños y niñas durante sus primeros 1000 días de vida.
@@ -173,7 +175,7 @@
             <div class="col-md-12">
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="padding-top: 40px;">
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li>Personas ecuatorianas mayores de 18 años.</li>
                                 <li>Ser estudiante o egresado de cualquier universidad o instituto técnico y tecnológico del país.
@@ -190,13 +192,13 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white ">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <a class="btn font-weight-bold botonmora " style=" width: 300px;" href="/eventos/">Descarga las bases aquí</a>
+                        <div class="col-sm-6" style="padding-left: 10% !important;">
+                            <a class="btn font-weight-bold botonmora text-center" style=" width: 300px;" href="/eventos/">Descarga las bases aquí</a>
 
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="padding-left: 3% !important;">
                             <a class="btn font-weight-bold botonmora " style=" width: 300px;" href="/eventos/">Inscríbete aquí</a>
 
                         </div>
@@ -265,9 +267,9 @@
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8 pr-lg-8  py-lg-4">
                     <div class="row">
                         <div class="col-sm-6">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/premio-reto.png') }}" alt="" />
+                            <img class="text-center" width="400" src="{{ asset('img/landing/premio-reto-2.png') }}" alt="" />
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="padding-top: 40px!important;">
                             <p class="text-justify" style="font-size: 16px !important;">
                             La propuesta ganadora será anunciada en un evento virtual y su plan de medios será pautado de acuerdo al presupuesto asignado de doce mil dólares (US $12.000), el que será entregado directamente a los medios de comunicación por parte de Diálogos Vitales.</p>
                             <p class="text-justify" style="font-size: 16px !important;">Diálogos Vitales y Thinkia - lab se reservan el derecho de contrastar los montos económicos planteados en el plan de medios directamente con los medios de comunicación, y a realizar los ajustes que considere pertinentes para el pautaje  planificado
@@ -313,7 +315,7 @@
                             </p>
                         </div>
                         <div class="col-sm-6">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/premio-propiedad.png') }}" alt="" />
+                            <img width="500" src="{{ asset('img/landing/premio-propiedad.png') }}" alt="" style="display: block; margin-left: auto;">
                         </div>
                     </div>
                 </div>
@@ -325,8 +327,25 @@
     <section class="bg-secondary" id="demos">
         <div class="container pt-5 pb-4 py-md-6 py-lg-7">
             <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class=" h1 mb-4 eventos-titulo uppercase">Diálogos Vitales</span>
+                <h3 class=" h2 mb-4 eventos-titulo uppercase">Miembros de la Minga de Nutrición de Diálogos Vitales</span>
                 </h3>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+
+                </div>
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-2">
+                    <img class="justify-content-center" width="200" src="{{ asset('img/landing/logos/DIALOGOS_VITALES.png') }}" alt="" />
+                </div>
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-2">
+
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-1">
