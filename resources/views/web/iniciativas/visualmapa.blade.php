@@ -104,9 +104,9 @@
     </section>
 
     <section class="searchbar-container bg-secondary">
-        <div class="text-justify col-lg-6 mt-lg-5">
+        {{-- <div class="text-justify col-lg-6 mt-lg-5">
             <span><strong>Nota:</strong>¡ Desactiva tu ubicación de tu navegador para una mejorar visualización del mapa !</span>
-        </div>
+        </div> --}}
         @include('web.iniciativas.mapa')
     </section>
 
