@@ -74,7 +74,7 @@
     </section>
 
 
-    <section style="background-image: url({{ asset('img/landing/thinkia-nutricion.jpg') }});background-repeat: no-repeat; background-size: auto; background-color: #8fbebb;">
+    <section style="background-image: url({{ asset('img/landing/thinkia-nutricion.png') }});background-repeat: no-repeat; background-size: auto; background-color: #8fbebb;">
         <div class="text-center pt-lg-5 text-white">
             <h3 class="text-white">¿De qué va el Reto?</span></h3>
         </div>
@@ -186,7 +186,7 @@
                             </ul>
                         </div>
                         <div class="col-sm-6">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa-reto.png') }}" alt="" />
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa-reto-2.png') }}" alt="" />
                         </div>
                     </div>
                 </div>
@@ -195,11 +195,11 @@
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white ">
                     <div class="row">
                         <div class="col-sm-6" style="padding-left: 10% !important;">
-                            <a class="btn font-weight-bold botonmora text-center" style=" width: 300px;" href="/eventos/">Descarga las bases aquí</a>
+                            <a class="btn font-weight-bold botonmora text-center" target="_blank" style=" width: 300px;" href="https://drive.google.com/file/d/13HtTjC3XkJHfer5ix7b_yEcLg_NGrXqW/view">Descarga las bases aquí</a>
 
                         </div>
                         <div class="col-sm-6" style="padding-left: 3% !important;">
-                            <a class="btn font-weight-bold botonmora " style=" width: 300px;" href="/eventos/">Inscríbete aquí</a>
+                            <a class="btn font-weight-bold botonmora " target="_blank"  style=" width: 300px;" href="https://docs.google.com/forms/d/1nOczRX11ULb35XaIfhySWj6_jZ96SGssEOYwFxllViw/edit#responses">Inscríbete aquí</a>
 
                         </div>
                     </div>
@@ -216,38 +216,40 @@
             <div class="col-md-12">
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="padding-top: 10%">
                             <p class="text-justify" style="font-size: 16px !important; "> Reto se realizará de forma virtual e incluye las siguientes actividades, las cuales te pedimos leas con detalle para que te organices con tu equipo</p>
                         </div>
                         <div class="col-sm-6">
                             <ul class="list-unstyled" style="font-size: 16px !important;">
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
-                                    <span class="text-justify">Inscripción: 26 de junio al 31 de agosto. </span>
+                                    <i><img class="justify-content-center" width="70" src="{{ asset('img/landing/inscripcion-01.png') }}" style="padding-rigth:5px " alt="" /></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Inscripción: 26 de junio al 31 de agosto. </span>
+                                </li>
+                                <hr style="width:60%;text-align:left; margin: 15px;">
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80"  alt="" /></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Laboratorio de ideas:  3- 4 de septiembre.</span>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
-                                    <span class="text-justify">Laboratorio de ideas:  3- 4 de septiembre.</span>
+                                    <i><img class="justify-content-center" width="80" alt="" /></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Recepción de propuestas: 10 de octubre.</span>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
-                                    <span class="text-justify">Recepción de propuestas: 10 de octubre.</span>
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/landing/inscripcion-02.png') }}" alt="" /></i>
+                                    <span class="text-justify"> &nbsp;&nbsp;Prototipando mi idea: 24 - 25 de septiembre.</span>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
-                                    <span class="text-justify">Prototipando mi idea: 24 - 25 de septiembre.</span>
+                                    <i><img class="justify-content-center" width="80"  alt="" /></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Mentorías: 26 de septiembre al 8 de octubre.</span>
+                                </li>
+                                <hr style="width:60%;text-align:left; margin: 15px;">
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/landing/inscripcion-03.png') }}" alt="" /></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Selección de finalistas: 11 al 15 de octubre.</span>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
-                                    <span class="text-justify">Mentorías: 26 de septiembre al 8 de octubre.</span>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
-                                    <span class="text-justify">Selección de finalistas: 11 al 15 de octubre.</span>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/logo/thinkia_color_no_slogan.svg') }}" alt="" /></i>
-                                    <span class="text-justify">Anuncio de ganadores: 18 de octubre.</span>
+                                    <i><img class="justify-content-center" width="80" alt="" /></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Anuncio de ganadores: 18 de octubre.</span>
                                 </li>
                             </ul>
 
@@ -264,12 +266,12 @@
         <div class="container-fluid row no-gutters">
 
             <div class="col-md-12">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8 pr-lg-8  py-lg-4">
+                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 pl-lg-8 pr-lg-8  py-lg-4">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <img class="text-center" width="400" src="{{ asset('img/landing/premio-reto-2.png') }}" alt="" />
+                        <div class="col-sm-6" style="padding-left: 60px;">
+                            <img class="text-center" width="300" src="{{ asset('img/landing/premio-reto-2.png') }}" alt="" />
                         </div>
-                        <div class="col-sm-6" style="padding-top: 40px!important;">
+                        <div class="col-sm-6" style="padding-top: 10px!important;">
                             <p class="text-justify" style="font-size: 16px !important;">
                             La propuesta ganadora será anunciada en un evento virtual y su plan de medios será pautado de acuerdo al presupuesto asignado de doce mil dólares (US $12.000), el que será entregado directamente a los medios de comunicación por parte de Diálogos Vitales.</p>
                             <p class="text-justify" style="font-size: 16px !important;">Diálogos Vitales y Thinkia - lab se reservan el derecho de contrastar los montos económicos planteados en el plan de medios directamente con los medios de comunicación, y a realizar los ajustes que considere pertinentes para el pautaje  planificado
@@ -314,8 +316,8 @@
                                 Más información sobre la licencia Creative Commons Atribución-NoComercial  4.0 Internacional (CC BY-NC 4.0):  https://creativecommons.org/licenses/by-nc/4.0/deed.es
                             </p>
                         </div>
-                        <div class="col-sm-6">
-                            <img width="500" src="{{ asset('img/landing/premio-propiedad.png') }}" alt="" style="display: block; margin-left: auto;">
+                        <div class="col-sm-6" style="padding-top: 10px">
+                            <img width="500" src="{{ asset('img/landing/premio-propiedad-2.png') }}" alt="" style="padding-top: 20px; display: block; margin-left: auto;">
                         </div>
                     </div>
                 </div>

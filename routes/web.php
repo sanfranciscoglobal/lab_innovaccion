@@ -38,7 +38,7 @@ Route::get('/terminos-y-condiciones/download', function () {
 
 Route::get('/minga-de-nutricion', function () {
     return view('aplicacion.landing.landing_page');
-})->name('faq');
+})->name('minga_nutricion');
 
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
