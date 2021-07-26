@@ -94,24 +94,24 @@ return [
             'background_position'       => 'center',
             'background_size'           => 'cover'
         ],
-        // [
-        //     'title'                     => '',
-        //     'content'                   => '',
-        //     'tipo'                      => 'imagen',
-        //     'show_button'               => false,
-        //     'button_title'              => 'BOTON EJEMPLO',
-        //     'button_background'         => 'yellow',
-        //     'button_text_color'         => 'white',
-        //     'button_url'                => '#',
-        //     'open_new_tab'              => false,
-        //     'content_classes'           => 'd-flex flex-column justify-content-center align-items-center text-center',
-        //     'text_color'                => 'white',
-        //     'background_color'          => 'black',
-        //     'background_image_url'      => 'img/banner_convocatoria_3_3.jpg',
-        //     'background_blend_mode'     => '',
-        //     'background_position'       => 'center',
-        //     'background_size'           => 'cover'
-        // ],
+        [
+            'title'                     => '',
+            'content'                   => '',
+            'tipo'                      => 'imagen',
+            'show_button'               => false,
+            'button_title'              => 'BOTON EJEMPLO',
+            'button_background'         => 'yellow',
+            'button_text_color'         => 'white',
+            'button_url'                => '#',
+            'open_new_tab'              => false,
+            'content_classes'           => 'd-flex flex-column justify-content-center align-items-center text-center',
+            'text_color'                => 'white',
+            'background_color'          => 'black',
+            'background_image_url'      => 'img/banner_convocatoria_02_03.png',
+            'background_blend_mode'     => '',
+            'background_position'       => 'center',
+            'background_size'           => 'cover'
+        ],
 
         // [
         //     'title'                     => 'asociadosasd',

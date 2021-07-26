@@ -222,7 +222,7 @@
                         <div class="col-sm-6">
                             <ul class="list-unstyled" style="font-size: 16px !important;">
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="70" src="{{ asset('img/landing/inscripcion-01.png') }}" style="padding-rigth:5px " alt="" /></i>
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/landing/inscripcion-01.png') }}" style="padding-rigth:5px " alt="" /></i>
                                     <span class="text-justify">&nbsp;&nbsp;Inscripción: 26 de junio al 31 de agosto. </span>
                                 </li>
                                 <hr style="width:60%;text-align:left; margin: 15px;">
@@ -230,7 +230,7 @@
                                     <i><img class="justify-content-center" width="80"  alt="" /></i>
                                     <span class="text-justify">&nbsp;&nbsp;Laboratorio de ideas:  3- 4 de septiembre.</span>
                                 </li>
-                                <li class="d-flex align-items-center">
+                                <li class="d-flex align-items-center" style="padding-top: 20px;">
                                     <i><img class="justify-content-center" width="80" alt="" /></i>
                                     <span class="text-justify">&nbsp;&nbsp;Recepción de propuestas: 10 de octubre.</span>
                                 </li>
