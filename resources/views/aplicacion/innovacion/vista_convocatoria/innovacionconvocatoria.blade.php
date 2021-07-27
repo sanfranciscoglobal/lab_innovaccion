@@ -227,7 +227,8 @@
                                     $nombrelim=substr($nombre, 0, 70);
                                 @endphp
 
-                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3>
+                                {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
+                                <h3 class="card-title" ><a style="color: #cc3e39" href="minga-de-nutricion">{{$nombrelim}}</a> </h3>
                                 {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
                                     @foreach ($convocatoria->conods as $objetivo)
                                         <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
