@@ -190,7 +190,7 @@
 
         <div class="row mb-4">
         @foreach ($convocatorias as $convocatoria)
-        <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+        <div class="col-lg-6 col-sm-6 mb-grid-gutter">
             <div class="pb-2">
                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
                     @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
@@ -240,7 +240,7 @@
                                 @endif--}}
                                 @php
                                     $descripcion=$convocatoria->descripcion;
-                                    $descripcionlim=substr($descripcion, 0, 170);
+                                    $descripcionlim=substr($descripcion, 0, 700);
                                 @endphp
 
                                 <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
