@@ -40,6 +40,10 @@ Route::get('/minga-de-nutricion', function () {
     return view('aplicacion.landing.landing_page');
 })->name('minga_nutricion');
 
+Route::get('/cambio-climatico', function () {
+    return view('aplicacion.landing.landing_page_cambio_climatico');
+})->name('cambio-climantico');
+
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
