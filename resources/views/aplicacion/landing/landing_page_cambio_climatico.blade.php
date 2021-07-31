@@ -331,10 +331,7 @@
             <div class="col-md-12">
                 <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 pl-lg-8 pr-lg-8  py-lg-4">
                     <div class="row">
-                        <div class="col-sm-6" style="padding-left: 60px;">
-                            <img class="text-center" width="300" src="{{ asset('img/landing/premio-reto-2.png') }}" alt="" />
-                        </div>
-                        <div class="col-sm-6" style="padding-top: 10px!important;">
+                        <div class="col-sm-12" style="padding-top: 10px!important;">
                             <p class="text-justify" style="font-size: 16px !important;">
                                 Las y los participantes serán mencionados en el documento de la Cuarta Comunicación Nacional. Sus nombres e instituciones constarán en los anexos de este documento, bajo el eje de la mesa temática en la que haya contribuido durante el Reto. </p>
                             <p class="text-justify" style="font-size: 16px !important;">Al culminar el Reto de Innovación, el Ministerio de Ambiente, Agua y Transición Ecológica, junto con Thinkia-lab de innovación, entregarán a cada participante un certificado de participación como reconocimiento a su trabajo.
@@ -403,7 +400,7 @@
 
                 </div>
                 <div class="col-sm-2">
-                    <img class="justify-content-center" width="500" src="{{ asset('img/landing/logos/Logo_MAATE.png') }}" alt="" />
+                    <img class="justify-content-center" width="500" src="{{ asset('img/landing/logos/LOGOS_GEF_PNUD.png') }}" alt="" />
                 </div>
                 <div class="col-sm-2">
 
