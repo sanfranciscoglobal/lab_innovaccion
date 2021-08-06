@@ -44,6 +44,12 @@
         }
 
     </style>
+    <script type="text/javascript">
+            $( document ).ready(function() {
+            $('#myModal').modal('toggle')
+        });
+
+    </script>
 @endsection
 @section('content')
     <input id="marker" value="{{ asset('images/hotspot_active.svg')}}" hidden>
@@ -93,7 +99,9 @@
                             <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
                         </a>
                     </div>
-
+                    <div class="text-left" style="padding-top: 30px!important">
+                        <a href="#myModal" class="trigger-btn" data-toggle="modal"><strong> <i class="fas fa-exclamation"></i> &nbsp;&nbsp; Mejora la visualización de mapa</strong></a>
+                    </div>
                 </div>
             </div>
             <div class="d-sm-none d-lg-block  col-sm-0 col-md-6 py-8 bg-size-contain order-md-2 overflow-hidden "
@@ -109,6 +117,26 @@
         </div> --}}
         @include('web.iniciativas.mapa')
     </section>
+
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="cs-view show" id="modal-signin-view">
+                    <div class="modal-header border-0 bg-purple-gradient px-4">
+                        <h4 class="modal-title text-light">Instrucciones</h4>
+                        <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body px-4">
+                        <p class="font-size-ms text-muted">
+                            Desactiva tu ubicación para una mejor visualización del mapa
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

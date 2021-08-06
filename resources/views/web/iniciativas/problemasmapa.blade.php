@@ -61,6 +61,11 @@
         }
 
     </style>
+    <script type="text/javascript">
+            $( document ).ready(function() {
+            $('#myModal').modal('toggle')
+        });
+    </script>
 @endsection
 @section('content')
 <input id="morado" value="{{ asset('images/hotspot_active.svg')}}" hidden>
@@ -108,7 +113,10 @@
 
                             <div class="container justify-content-center pr-0">
                                 <div class="w-10 center-block text-left  pt-5">
-                                    <span><strong>Nota:</strong>¡ Desactiva tu ubicación de tu navegador<br> para una mejorar visualización del mapa !</span>
+                                    <div class="text-left" style="padding-top: 10px!important; padding-botton:10px !important;">
+                                        <a href="#myModal" class="trigger-btn" data-toggle="modal"><strong> <i class="fas fa-exclamation"></i> &nbsp;&nbsp; Mejora la visualización de mapa</strong></a>
+                                    </div>
+
                                 <h4 style="color:#531c6a"><a data-toggle="collapse" href="#mapacabezagrande">
                                     <i style="border-color: #FF7F00;color: white;background: #FF7F00;" class="shadow mr-3 btn fa fa-angle-up "></i></a>Filtros
                                 </h4>
@@ -292,6 +300,26 @@
 
             <!-- Content-->
 
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="cs-view show" id="modal-signin-view">
+                    <div class="modal-header border-0 bg-purple-gradient px-4">
+                        <h4 class="modal-title text-light">Instrucciones</h4>
+                        <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body px-4">
+                        <p class="font-size-ms text-muted">
+                            Desactiva tu ubicación para una mejor visualización del mapa
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
