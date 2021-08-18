@@ -268,7 +268,7 @@
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white ">
                     <div class="row">
                         <div class="col-sm-6" style="padding-left: 10% !important;">
-                            <a class="btn font-weight-bold botonmora text-center" target="_blank" style=" width: 300px;" href="#">Descarga las bases aquí</a>
+                            <a class="btn font-weight-bold botonmora text-center" target="_blank" style=" width: 300px;" href="Bases_Cambio_Climatico_V3.pdf">Descarga las bases aquí</a>
 
                         </div>
                         <div class="col-sm-6" style="padding-left: 3% !important;">
