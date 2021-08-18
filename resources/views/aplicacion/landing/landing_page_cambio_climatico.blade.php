@@ -326,7 +326,7 @@
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i><img class="justify-content-center" width="80" alt="" /></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Marzo 2022: Lanzamiento de la Cuarta Comunicación Nacional.</span>
+                                    <span class="text-justify">&nbsp;&nbsp;Marzo 2022: Lanzamiento de la Cuarta <br>&nbsp;&nbsp;Comunicación Nacional.</span>
                                 </li>
                             </ul>
 
