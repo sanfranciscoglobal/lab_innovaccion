@@ -88,13 +88,21 @@
                         </div>
                         <div class="col-sm-6" style="padding-top: 10px!important;">
                             <p class="text-justify" style="font-size: 16px !important;">
-                                Ecuador reconoce al cambio climático como un fenómeno global que pone en riesgo la seguridad, el desarrollo y el bienestar de la población. Es así que, hace más de una década el Gobierno a través del Ministerio del Ambiente, Agua y Transición Ecológica (MAATE) viene realizando esfuerzos por mitigar las emisiones de gases de efecto invernadero (GEI) a nivel nacional y de esta manera reducir la vulnerabilidad de los sistemas sociales, económicos y ambientales.</p>
-                            <p class="text-justify" style="font-size: 16px !important;">El MAATE, a través de la Subsecretaría de Cambio Climático, con el soporte del Programa de las Naciones Unidas para el Desarrollo (PNUD) y el apoyo financiero del Fondo Global para el Medio Ambiente (GEF, por sus siglas en inglés), se encuentra implementando el Proyecto “Cuarta Comunicación Nacional (4CN) y el Segundo Informe Bienal de Actualización (2IBA)”.
+                                Ecuador reconoce al cambio climático como un fenómeno global que pone en riesgo la seguridad, el desarrollo y el bienestar de la población. Es así que, hace más de una década el Gobierno a través del Ministerio del Ambiente, Agua y Transición Ecológica (MAATE) viene realizando esfuerzos por mitigar las emisiones de gases de efecto invernadero (GEI) a nivel nacional y de esta manera reducir la vulnerabilidad de los sistemas sociales, económicos y ambientales
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                Si bien el MAATE con apoyo de diversas carteras de Estado ha alcanzado importantes avances en la creación de un marco político para la gestión del cambio climático e implementación activa de proyectos e iniciativas de mitigación y adaptación en el territorio, aún existen limitantes o barreras que el país debe superar para lograr afrontar la situación climática global.                             </p>
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                En este sentido, el MAATE, a través de la Subsecretaría de Cambio Climático, con el soporte del Programa de las Naciones Unidas para el Desarrollo (PNUD) y el apoyo financiero del Fondo Global para el Medio Ambiente (GEF, por sus siglas en inglés), se encuentra implementando el Proyecto “Cuarta Comunicación Nacional (4CN) y el Segundo Informe Bienal de Actualización (2IBA)”.                            </p>
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                Es así que, se ha considerado prioritario convocar a actores estratégicos públicos, privados, académicos y de sociedad civil para recoger de manera participativa información de las barreras, necesidades y oportunidades de esta problemática que afronta el país en materia de gestión del cambio climático. A través del Reto de Innovación denominado “Cuarta Comunicación Nacional”, se espera obtener insumos de primera mano para promover la toma de decisiones que informen en pro del futuro fortalecimiento de las acciones y estrategias de adaptación y mitigación.
                             </p>
-                            <p class="text-justify" style="font-size: 16px !important;">El Proyecto 4CN-2IBA se enmarca en el cumplimiento de los compromisos adquiridos por el Ecuador, como Parte signataria de la Convención Marco de Naciones Unidas sobre el Cambio Climático (CMNUCC) y se enfoca en reportar a la comunidad nacional e internacional los avances del país en materia de institucionalidad, marco regulatorio e implementación de acciones de mitigación y adaptación que contribuyen a la lucha global contra el cambio climático. A su vez, brinda la oportunidad de informar al mundo sobre las barreras, necesidades y desafíos que afronta el país en la gestión de la mitigación y adaptación, orientando la búsqueda de soluciones a futuro.
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                El Proyecto 4CN-2IBA se enmarca en el cumplimiento de los compromisos adquiridos por el Ecuador, como Parte signataria de la Convención Marco de Naciones Unidas sobre el Cambio Climático (CMNUCC) y se enfoca en reportar a la comunidad nacional e internacional los avances del país en materia de institucionalidad, marco regulatorio e implementación de acciones de mitigación, adaptación y medios de implementación (transferencia de tecnología, fortalecimiento de capacidades y financiamiento) que contribuyen a la lucha global contra el cambio climático. A su vez, brinda la oportunidad de informar al mundo sobre las barreras, necesidades y desafíos que afronta el país en la gestión de la mitigación, adaptación y medios de implementación, orientando la búsqueda de soluciones a futuro.
                             </p>
-                            <p class="text-justify" style="font-size: 16px !important;">Es así que, se ha considerado prioritario convocar a actores estratégicos públicos, privados, académicos y de sociedad civil para recoger de manera participativa información de las barreras, necesidades y oportunidades de esta problemática que afronta el país en materia de gestión del cambio climático. A través del Reto de Innovación denominado “Cuarta Comunicación Nacional”, se espera obtener insumos de primera mano para promover la toma de decisiones que informen en pro del futuro fortalecimiento de las acciones y estrategias de adaptación y mitigación.
+                            <p class="text-justify" style="font-size: 16px !important;">
+                                Es así que, se ha considerado prioritario convocar a actores estratégicos públicos, privados, académicos y de sociedad civil para recoger de manera participativa información de las barreras, necesidades y oportunidades de esta problemática que afronta el país en materia de gestión del cambio climático. A través del Reto de Innovación denominado “Identificación de necesidades, barreras y oportunidades para la gestión del Cambio Climático” se espera obtener insumos para promover la toma de decisiones que informen el futuro fortalecimiento de las acciones y estrategias de adaptación, mitigación y medios de implementación.
                             </p>
+
                         </div>
                     </div>
                 </div>
@@ -103,7 +111,7 @@
     </section>
     <section style="background-image: url({{ asset('img/landing/bk-cambio-climatico-2.png') }});background-repeat: no-repeat; background-size: auto; background-color: #61b3c5;">
         <div class="text-center pt-lg-5 text-white">
-            <h3 class="text-white">¿De qué va el Reto?</span></h3>
+            <h3 class="text-white">¿De qué se trata el Reto?</span></h3>
         </div>
         <div class=" container-fluid pl-lg-8 pr-lg-8 row no-gutters">
             <div class="col-md-12 px-3 order-md-1">
@@ -168,27 +176,6 @@
             <div class="col-sm-5">
             </div>
             <div class="col-sm-3">
-                <img class="justify-content-center" width="200" src="{{ asset('img/logo/Logo_Thinkia_1.png') }}" alt="" />
-            </div>
-            <div class="col-sm-3">
-            </div>
-        </div>
-        <div class=" container-fluid pl-lg-8 pr-lg-8 row no-gutters">
-            <div class="col-md-12 px-3 order-md-1">
-                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4">
-                    <div class="row">
-                        <div class="col-sm-12" style="font-size: 16px !important">
-                            <p class="text-justify"><strong> Programa de las Naciones Unidas para el Desarrollo (PNUD)</strong> tiene una posición única dentro del sistema de Naciones Unidas para fomentar la implementación de los Objetivos de Desarrollo Sostenible (ODS) junto a los gobiernos, el sector privado, la sociedad civil y los ciudadanos con soluciones integrales a desafíos complejos. PNUD cuenta con la herramienta Thinkia - lab de innovación para promover la innovación abierta como un método para acelerar los ODS. Esta herramienta  está gerenciada por diversos actores: Fundación San Francisco Global,  OpenlabEC  (sociedad civil), IMPAQTO (privado), EPICO (privado) y FLACSCO CTS Lab (academia).  Para más información: https://thinkialab.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-5">
-            </div>
-            <div class="col-sm-3">
                 <img class="justify-content-center" width="300" src="{{ asset('img/landing/logos/Logo_MAATE.png') }}" alt="" />
             </div>
             <div class="col-sm-3">
@@ -206,6 +193,28 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-3">
+                <img class="justify-content-center" width="200" src="{{ asset('img/logo/Logo_Thinkia_1.png') }}" alt="" />
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class=" container-fluid pl-lg-8 pr-lg-8 row no-gutters">
+            <div class="col-md-12 px-3 order-md-1">
+                <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4">
+                    <div class="row">
+                        <div class="col-sm-12" style="font-size: 16px !important">
+                            <p class="text-justify"><strong> Programa de las Naciones Unidas para el Desarrollo (PNUD)</strong> tiene una posición única dentro del sistema de Naciones Unidas para fomentar la implementación de los Objetivos de Desarrollo Sostenible (ODS) junto a los gobiernos, el sector privado, la sociedad civil y los ciudadanos con soluciones integrales a desafíos complejos. PNUD cuenta con la herramienta Thinkia - lab de innovación para promover la innovación abierta como un método para acelerar los ODS. Esta herramienta  está gerenciada por diversos actores: Fundación San Francisco Global,  OpenlabEC  (sociedad civil), IMPAQTO (privado), EPICO (privado) y FLACSCO CTS Lab (academia).  Para más información: https://thinkialab.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
     <section style="background-repeat: no-repeat; background-size: auto; background-color: #ec9534;">
         <div class="text-center pt-lg-5 text-white">
@@ -218,8 +227,8 @@
                     <div class="row">
                         <div class="col-sm-6" style="padding-top: 40px;">
                             <ul class="text-justify" style="font-size: 16px !important">
-                                <li>Personas con conocimientos y experiencia teórica o práctica relacionados al cambio climático y que puedan aportar con insumos concretos para identificar barreras, necesidades y oportunidades en materia de mitigación y adaptación de cambio climático.</li>
-                                <li>Personas naturales o jurídicas que tengan al menos un año de experiencia (laboral) y/o al menos 2 años de conocimientos teóricos en uno o más de los siguientes temas:</li>
+                                <li>Personas naturales o jurídicas que puedan aportar con insumos concretos para identificar barreras, necesidades y oportunidades en materia de mitigación, adaptación de cambio climático, y medios de implementación del cambio climático.</li>
+                                <li>Personas naturales o jurídicas que tengan al menos 1 año de experiencia laboral en uno o más de los siguientes temas:</li>
                             </ul>
                             <ul style="font-size: 14px !important; ">
                                 <li class="d-flex align-items-center">
@@ -240,7 +249,7 @@
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="fe-check-circle font-size-lg mr-2"></i>
-                                    <span class="text-justify">Medios de implementación.</span>
+                                    <span class="text-justify">Medios de implementación para la gestión del cambio climático (financiamiento climático, fortalecimiento de capacidades y transferencia de tecnología.</span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="fe-check-circle font-size-lg mr-2"></i>
@@ -254,15 +263,16 @@
                     </div>
                 </div>
             </div>
+        </div>
             <div class="col-md-12">
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white ">
                     <div class="row">
                         <div class="col-sm-6" style="padding-left: 10% !important;">
-                            <a class="btn font-weight-bold botonmora text-center" target="_blank" style=" width: 300px;" href="https://drive.google.com/file/d/13HtTjC3XkJHfer5ix7b_yEcLg_NGrXqW/view">Descarga las bases aquí</a>
+                            <a class="btn font-weight-bold botonmora text-center" target="_blank" style=" width: 300px;" href="Bases_Cambio_Climatico_V3.pdf">Descarga las bases aquí</a>
 
                         </div>
                         <div class="col-sm-6" style="padding-left: 3% !important;">
-                            <a class="btn font-weight-bold botonmora " target="_blank"  style=" width: 300px;" href="https://docs.google.com/forms/d/1nOczRX11ULb35XaIfhySWj6_jZ96SGssEOYwFxllViw/edit#responses">Inscríbete aquí</a>
+                            <a class="btn font-weight-bold botonmora " target="_blank"  style=" width: 300px;" href="https://docs.google.com/forms/d/e/1FAIpQLSfgfPFFC-CGXWAYC8lxRpLBB2wvCB7DPI21Vv9kvfTNsZZUgQ/viewform">Inscríbete aquí</a>
 
                         </div>
                     </div>
@@ -286,7 +296,7 @@
                             <ul class="list-unstyled" style="font-size: 16px !important;">
                                 <li class="d-flex align-items-center">
                                     <i><img class="justify-content-center" width="80"  style="padding-rigth:5px " alt="" /></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Agosto 09,  2021: Arranque del proceso de inscripción. </span>
+                                    <span class="text-justify">&nbsp;&nbsp;Agosto19, 2021: Arranque de proceso de inscripción. </span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i><img class="justify-content-center" width="80" src="{{ asset('img/landing/inscripcion-01.png') }}"  alt="" /></i>
@@ -298,11 +308,15 @@
                                 </li>
                                 <hr style="width:70%;text-align:left; margin: 15px;">
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80"  alt="" /></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Octubre 2021: Participación de las personas u organizaciones inscritos en el “Laboratorio de conocimiento” y talleres “Afinando mi conocimiento”.</span>
+                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/landing/inscripcion-02.png') }}"   alt="" /></i>
+                                    <span class="text-justify">
+                                            &nbsp;&nbsp;Octubre 2021: Participación de las personas
+                                        <br>&nbsp;&nbsp;u organizaciones inscritos en el
+                                        <br>&nbsp;&nbsp;“Laboratorio de conocimiento”
+                                        <br>&nbsp;&nbsp; y talleres “Afinando mi conocimiento”.</span>
                                 </li>
                                 <li class="d-flex align-items-center" style="padding-top: 20px;">
-                                    <i><img class="justify-content-center" width="80" src="{{ asset('img/landing/inscripcion-02.png') }}"  alt="" /></i>
+                                    <i><img class="justify-content-center" width="80"  alt="" /></i>
                                     <span class="text-justify">&nbsp;&nbsp;Oct - Nov  2021: Mesas de diálogo.</span>
                                 </li>
                                 <hr style="width:70%;text-align:left; margin: 15px;">
@@ -312,7 +326,7 @@
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i><img class="justify-content-center" width="80" alt="" /></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Marzo 2022: Lanzamiento de la Cuarta Comunicación Nacional.</span>
+                                    <span class="text-justify">&nbsp;&nbsp;Marzo 2022: Lanzamiento de la Cuarta <br>&nbsp;&nbsp;Comunicación Nacional.</span>
                                 </li>
                             </ul>
 
@@ -333,7 +347,7 @@
                     <div class="row">
                         <div class="col-sm-12" style="padding-top: 10px!important;">
                             <p class="text-justify" style="font-size: 16px !important;">
-                                Las y los participantes serán mencionados en el documento de la Cuarta Comunicación Nacional. Sus nombres e instituciones constarán en los anexos de este documento, bajo el eje de la mesa temática en la que haya contribuido durante el Reto. </p>
+                                Las y los participantes serán mencionados a manera de agradecimiento en el documento de la Cuarta Comunicación Nacional de Cambio Climático en el capítulo correspondiente a Barreras, Necesidades, Oportunidades y el Apoyo Recibido para la Gestión del Cambio Climático. Sus nombres e instituciones estarán en los anexos de este documento, bajo el eje de la mesa temática en la que haya contribuido durante el Reto. </p>
                             <p class="text-justify" style="font-size: 16px !important;">Al culminar el Reto de Innovación, el Ministerio de Ambiente, Agua y Transición Ecológica, junto con Thinkia-lab de innovación, entregarán a cada participante un certificado de participación como reconocimiento a su trabajo.
                             </p>
                         </div>
@@ -397,13 +411,13 @@
 
                 </div>
                 <div class="col-sm-2">
-
+                    <img class="justify-content-center" width="500" src="{{ asset('img/landing/logos/coop-alemana.jpeg') }}" alt="" />
                 </div>
                 <div class="col-sm-2">
                     <img class="justify-content-center" width="500" src="{{ asset('img/landing/logos/LOGOS_GEF_PNUD.png') }}" alt="" />
                 </div>
                 <div class="col-sm-2">
-
+                    <img class="justify-content-center" width="500" src="{{ asset('img/landing/logos/logo-catar.png') }}" alt="" />
                 </div>
                 <div class="col-sm-2">
 
