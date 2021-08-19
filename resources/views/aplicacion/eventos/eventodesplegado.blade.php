@@ -51,7 +51,7 @@
                     <div class="col">
 
                         <div class="form-group">
-                            <a Target="_blank" href="{{$evento->url}}">
+                            <a target="_blank" href="{{$evento->url}}">
                             <input  disabled class="form-control bx-label" style="cursor: pointer; background:white" type="text" value="{{isset($evento->url)?$evento->url:null}}">
                             </a>
                         </div>
