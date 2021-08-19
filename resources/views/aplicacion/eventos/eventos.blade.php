@@ -53,7 +53,7 @@
         </div>
 
         <div id="video-gallery">
-          <a href="https://www.youtube.com/embed/oAzGvQ_2RYM?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
+          <a href="https://www.youtube.com/embed/oAzGvQ_2RYM?controls=0" target="_blank" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
             <span class="custom-cs-video-btn custom-cs-video-btn-primary"></span>
             <span style="display: inline-flex;" class="font-size-lg p-2">Ver video</span>
           </a>
@@ -172,10 +172,10 @@
                 {{-- <div class="col-lg-4 col-sm-6 mb-grid-gutter">
 
                     <div class="card  border-0 box-shadow mx-auto" style="max-width: 400px;">
-                        <a class="media meta-link font-size-sm align-items-center" href="{{route('eventodetalle', [$evento->id, $evento->slug])}}">
+                        <a class="media meta-link font-size-sm align-items-center" href="{{route('eventodetalle', [$evento->id, $evento->slug])}}" target="_blank">
                             <img class="card-img-top" style="height: 58ch" src="{{asset('storage/eventos').'/'.$evento->imagen}}" alt="{{$evento->id}}"/>
                             <div class="card-body text-center">
-                                <a class=" meta-link font-size-lg font-weight-bold align-items-center text-primary" href="{{route('eventodetalle', [$evento->id, $evento->slug])}}">{{$evento->nombre}}</a>
+                                <a class=" meta-link font-size-lg font-weight-bold align-items-center text-primary" href="{{route('eventodetalle', [$evento->id, $evento->slug])}}" target="_blank">{{$evento->nombre}}</a>
                             </div>
                         </a>
 
@@ -205,14 +205,14 @@
 
                                 @if ($evento->tipo==0)
                                     <span class="font-weight-bold">
-                                    <a class="btn btn-primary"  href="{{$evento->url}}">
+                                    <a class="btn btn-primary"  href="{{$evento->url}}" target="_blank">
                                         <i class="fe-link font-size-xl mr-2"></i> Link del evento
                                         </a>
                                     </span>
 
                                 @else
                                     <span class="font-weight-bold">
-                                    <a class="btn btn-primary" href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}">
+                                    <a class="btn btn-primary" href="https://maps.google.com/?q={{$evento->org_lat}},{{$evento->org_long}}" target="_blank">
                                         <i class="fe-map-pin font-size-xl mr-2"></i> Ubicación
 
                                         </a>
@@ -221,7 +221,7 @@
                                 @endif
                                 @if ($evento->sitioweb!=null)
                                     <span class="font-weight-bold">
-                                    <a class="btn btn-primary"  href="{{$evento->sitioweb}}">
+                                    <a class="btn btn-primary"  href="{{$evento->sitioweb}}" target="_blank">
                                         <i class="fe-link font-size-xl mr-2"></i> Ver más
                                         </a>
                                     </span>
