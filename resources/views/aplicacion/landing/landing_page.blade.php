@@ -230,10 +230,6 @@
                                     <i><img class="justify-content-center" width="80"  alt="" /></i>
                                     <span class="text-justify">&nbsp;&nbsp;Laboratorio de ideas:  3- 4 de septiembre.</span>
                                 </li>
-                                <li class="d-flex align-items-center" style="padding-top: 20px;">
-                                    <i><img class="justify-content-center" width="80" alt="" /></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Recepción de propuestas: 10 de octubre.</span>
-                                </li>
                                 <li class="d-flex align-items-center">
                                     <i><img class="justify-content-center" width="80" src="{{ asset('img/landing/inscripcion-02.png') }}" alt="" /></i>
                                     <span class="text-justify"> &nbsp;&nbsp;Prototipando mi idea: 24 - 25 de septiembre.</span>
@@ -241,6 +237,10 @@
                                 <li class="d-flex align-items-center">
                                     <i><img class="justify-content-center" width="80"  alt="" /></i>
                                     <span class="text-justify">&nbsp;&nbsp;Mentorías: 26 de septiembre al 8 de octubre.</span>
+                                </li>
+                                <li class="d-flex align-items-center" style="padding-top: 20px;">
+                                    <i><img class="justify-content-center" width="80" alt="" /></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Recepción de propuestas: 10 de octubre.</span>
                                 </li>
                                 <hr style="width:60%;text-align:left; margin: 15px;">
                                 <li class="d-flex align-items-center">

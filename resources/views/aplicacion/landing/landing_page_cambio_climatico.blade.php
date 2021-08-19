@@ -119,8 +119,7 @@
                     <div class="row">
                         <div class="col-sm-12" style="font-size: 16px !important">
                         <h3 class="text-white">Objetivo Del Reto</h2>
-                            <p class="text-justify">El objetivo del reto es construir de manera abierta y participativa la Cuarta Comunicación Nacional sobre Cambio Climático del Ecuador receptando aprendizajes, experiencias e insumos en seis temas específicos:
-                            </p>
+                            <p class="text-justify">Construir de manera abierta y participativa el capítulo de Barreras, Necesidades, Oportunidades y el Apoyo Recibido para la Gestión del Cambio Climático en el documento de la <strong>Cuarta Comunicación Nacional sobre Cambio Climático del Ecuador</strong>, receptando aprendizajes, experiencias e insumos en <strong>seis temas específicos:</strong></p>
                         </div>
                     </div>
                     <div class="row">
@@ -128,38 +127,34 @@
                             <ul class="list-unstyled pl-lg-8">
                                 <li class="d-flex align-items-center">
                                     <i class="fe-check-circle font-size-lg mr-2"></i>
-                                    <span class="text-justify">Contribuciones determinadas a nivel nacional (NDC).</span>
+                                    <span class="text-justify"><strong>Contribución determinada a nivel nacional (NDC, por sus siglas en inglés)</strong></span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="fe-check-circle font-size-lg mr-2"></i>
-                                    <span class="text-justify">Acciones de Mitigación Nacionalmente Apropiadas (NAMAs).</span>
+                                    <span class="text-justify"><strong>Acciones de Mitigación Nacionalmente Apropiadas (NAMAs)</strong></span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="fe-check-circle font-size-lg mr-2"></i>
-                                    <span class="text-justify">Reducción de Emisiones por Deforestación y Degradación (REDD+).</span>
+                                    <span class="text-justify"><strong>Reducción de Emisiones por Deforestación y Degradación (REDD+)</strong></span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="fe-check-circle font-size-lg mr-2"></i>
-                                    <span class="text-justify">Inventarios Nacionales de Gases de Efecto Invernadero (INGEI).</span>
+                                    <span class="text-justify"><strong>Inventarios Nacionales de Gases de Efecto Invernadero (INGEI)</strong></span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="fe-check-circle font-size-lg mr-2"></i>
-                                    <span class="text-justify">Medios de implementación.</span>
+                                    <span class="text-justify"><strong>Medios de implementación.</strong></span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="fe-check-circle font-size-lg mr-2"></i>
-                                    <span class="text-justify">Medición, Reporte y Verificación (MRV).</span>
+                                    <span class="text-justify"><strong>Medición, Reporte y Verificación (MRV).</strong></span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12" style="font-size: 16px !important">
-                            <p class="text-justify">Además, el reto busca identificar información relevante en los siguientes ejes transversales: gobernanza, investigación, gestión de conocimiento y transferencia tecnológica.
-                            </p>
-                        </div>
-                        <div class="col-sm-12" style="font-size: 16px !important">
-                            <p class="text-justify">Este Reto de Innovación tiene alcance nacional y está dirigida a todos los actores (individuos u organizaciones) con experiencia práctica o teórica en temas de adaptación y mitigación al cambio climático que puedan aportar a la identificación de barreras, necesidades, y oportunidades para la gestión del cambio climático en Ecuador, en el marco de estos 6 ejes.
+                            <p class="text-justify">Así, se busca identificar barreras, necesidades, y oportunidades para la implementación de acciones de adaptación, mitigación y medios de implementación de cambio climático abordando los siguientes ejes transversales: a) gobernanza; b) investigación; c) gestión de conocimiento; y d) transferencia tecnológica.
                             </p>
                         </div>
                     </div>
@@ -170,7 +165,7 @@
     </section>
     <section style="">
         <div class="text-center pt-lg-5">
-            <h3 class="eventos-titulo">¿Quiénes organizan el reto? </span></h3>
+            <h3 class="eventos-titulo">Organizado por: </span></h3>
         </div>
         <div class="row">
             <div class="col-sm-5">
@@ -192,6 +187,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="text-center pt-lg-5">
+            <h3 class="eventos-titulo">Con el apoyo de: </span></h3>
         </div>
         <div class="row">
             <div class="col-sm-5">
@@ -311,9 +309,8 @@
                                     <i><img class="justify-content-center" width="80" src="{{ asset('img/landing/inscripcion-02.png') }}"   alt="" /></i>
                                     <span class="text-justify">
                                             &nbsp;&nbsp;Octubre 2021: Participación de las personas
-                                        <br>&nbsp;&nbsp;u organizaciones inscritos en el
-                                        <br>&nbsp;&nbsp;“Laboratorio de conocimiento”
-                                        <br>&nbsp;&nbsp; y talleres “Afinando mi conocimiento”.</span>
+                                        <br>&nbsp;&nbsp;u organizaciones inscritas en el
+                                        <br>&nbsp;&nbsp;“Laboratorio de conocimiento”.
                                 </li>
                                 <li class="d-flex align-items-center" style="padding-top: 20px;">
                                     <i><img class="justify-content-center" width="80"  alt="" /></i>
@@ -403,7 +400,7 @@
     <section class="bg-secondary" id="demos">
         <div class="container pt-5 pb-4 py-md-6 py-lg-7">
             <div class="text-center mb-5 pt-3 pt-lg-4">
-                <h3 class=" h2 mb-4 eventos-titulo uppercase">Con el apoyo de:</span>
+                <h3 class=" h2 mb-4 eventos-titulo uppercase">Financiado por:</span>
                 </h3>
             </div>
             <div class="row">
