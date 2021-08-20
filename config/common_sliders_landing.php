@@ -219,7 +219,7 @@ return [
             'content_classes'           => 'd-flex flex-column justify-content-center align-items-center text-center',
             'text_color'                => 'white',
             'background_color'          => 'black',
-            'background_image_url'      => 'img/landing/banner_cambio_climantico-03.jpg',
+            'background_image_url'      => 'img/landing/banner_cambio_climantico_03_03.jpg',
             'background_blend_mode'     => '',
             'background_position'       => 'center',
             'background_size'           => 'cover'
