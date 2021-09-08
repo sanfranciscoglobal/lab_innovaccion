@@ -221,30 +221,61 @@
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <div class="card-body ">
-                                @php
-                                    $nombre=$convocatoria->nombre;
-                                    $nombrelim=substr($nombre, 0, 70);
-                                @endphp
+                            @if ($convocatoria->id) ==7)
+                                
 
-                                {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
-                                <h3 class="card-title" ><a style="color: #cc3e39" href="minga-de-nutricion">{{$nombrelim}}</a> </h3>
-                                {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
-                                    @foreach ($convocatoria->conods as $objetivo)
-                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
-                                    @endforeach
-                                @else
-                                    @foreach ($convocatoria->consectores as $sector)
-                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
-                                    @endforeach
-                                @endif--}}
-                                @php
-                                    $descripcion=$convocatoria->descripcion;
-                                    $descripcionlim=substr($descripcion, 0, 700);
-                                @endphp
+                                <div class="card-body ">
+                                    @php
+                                        $nombre=$convocatoria->nombre;
+                                        $nombrelim=substr($nombre, 0, 70);
+                                    @endphp
 
-                                <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
-                            </div>
+                                    {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
+                                    <h3 class="card-title" ><a style="color: #cc3e39" href="cambio-climatico">{{$nombrelim}}</a> </h3>
+                                    {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
+                                        @foreach ($convocatoria->conods as $objetivo)
+                                            <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                        @endforeach
+                                    @else
+                                        @foreach ($convocatoria->consectores as $sector)
+                                            <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                        @endforeach
+                                    @endif--}}
+                                    @php
+                                        $descripcion=$convocatoria->descripcion;
+                                        $descripcionlim=substr($descripcion, 0, 700);
+                                    @endphp
+
+                                    <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
+                                </div>
+
+                            @endif
+                            @if ($convocatoria->id) ==6)
+                                <div class="card-body ">
+                                    @php
+                                        $nombre=$convocatoria->nombre;
+                                        $nombrelim=substr($nombre, 0, 70);
+                                    @endphp
+
+                                    {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
+                                    <h3 class="card-title" ><a style="color: #cc3e39" href="minga-de-nutricion">{{$nombrelim}}</a> </h3>
+                                    {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
+                                        @foreach ($convocatoria->conods as $objetivo)
+                                            <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                        @endforeach
+                                    @else
+                                        @foreach ($convocatoria->consectores as $sector)
+                                            <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                        @endforeach
+                                    @endif--}}
+                                    @php
+                                        $descripcion=$convocatoria->descripcion;
+                                        $descripcionlim=substr($descripcion, 0, 700);
+                                    @endphp
+
+                                    <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
+                                </div>
+                            @endif
                         </div>
 
                     </div>
