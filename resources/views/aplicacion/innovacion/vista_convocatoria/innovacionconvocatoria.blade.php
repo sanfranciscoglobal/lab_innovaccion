@@ -320,8 +320,9 @@
                 </article>
             </div>
         </div>
-        @endforeach
         @endif
+        @endforeach
+
 
     </div>
 
