@@ -190,6 +190,8 @@
 
         <div class="row mb-4">
         @foreach ($convocatorias as $convocatoria)
+
+        @if($convocatoria->id = 7)
         <div class="col-lg-6 col-sm-6 mb-grid-gutter">
             <div class="pb-2">
                 <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
@@ -221,61 +223,95 @@
                             </div>
                         </div>
                         <div class="col-md-8">
-                            @if ($convocatoria->id) ==7)
-                                
+                            <div class="card-body ">
+                                @php
+                                    $nombre=$convocatoria->nombre;
+                                    $nombrelim=substr($nombre, 0, 70);
+                                @endphp
 
-                                <div class="card-body ">
-                                    @php
-                                        $nombre=$convocatoria->nombre;
-                                        $nombrelim=substr($nombre, 0, 70);
-                                    @endphp
+                                {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
+                                <h3 class="card-title" ><a style="color: #cc3e39" href="cambio-climatico">{{$nombrelim}}</a> </h3>
+                                {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
+                                    @foreach ($convocatoria->conods as $objetivo)
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                    @endforeach
+                                @else
+                                    @foreach ($convocatoria->consectores as $sector)
+                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                    @endforeach
+                                @endif--}}
+                                @php
+                                    $descripcion=$convocatoria->descripcion;
+                                    $descripcionlim=substr($descripcion, 0, 700);
+                                @endphp
 
-                                    {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
-                                    <h3 class="card-title" ><a style="color: #cc3e39" href="cambio-climatico">{{$nombrelim}}</a> </h3>
-                                    {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
-                                        @foreach ($convocatoria->conods as $objetivo)
-                                            <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
-                                        @endforeach
-                                    @else
-                                        @foreach ($convocatoria->consectores as $sector)
-                                            <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
-                                        @endforeach
-                                    @endif--}}
-                                    @php
-                                        $descripcion=$convocatoria->descripcion;
-                                        $descripcionlim=substr($descripcion, 0, 700);
-                                    @endphp
+                                <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
+                            </div>
+                        </div>
 
-                                    <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
+                    </div>
+                    <h2 class="text-right font-size-lg pr-4">FINALIZA <span style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_cierre))}}</span> {{date('M', strtotime( $convocatoria->fecha_cierre))}}</h2>
+
+                </article>
+            </div>
+        </div>
+        @endif
+        @if($convocatoria->id = 6)
+        <div class="col-lg-6 col-sm-6 mb-grid-gutter">
+            <div class="pb-2">
+                <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+                    @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
+                        @if ($convocatoria->tipoconvocatoria_id == 1)
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #ef9231;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                        @elseif ($convocatoria->tipoconvocatoria_id == 2)
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #803580;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                        @elseif ($convocatoria->tipoconvocatoria_id == 3)
+                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #bb2027;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+
+                        @endif
+                    @else
+                        <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:gray;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                    @endif
+                    <div class="row pt-3 no-gutters">
+                        <div class="col-md-4 justify-content-md-center">
+                            <div class="card-body text center">
+                                <h1 class="text-center font-weight-bold font-size-lg m-0">INICIO</h1>
+                                <h1 class="text-center m-0" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>
+                                <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
+
+                                <div class="row justify-content-center mt-2">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
+                                    <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
+                                    {{-- <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a> --}}
+                                    <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body ">
+                                @php
+                                    $nombre=$convocatoria->nombre;
+                                    $nombrelim=substr($nombre, 0, 70);
+                                @endphp
 
-                            @endif
-                            @if ($convocatoria->id) ==6)
-                                <div class="card-body ">
-                                    @php
-                                        $nombre=$convocatoria->nombre;
-                                        $nombrelim=substr($nombre, 0, 70);
-                                    @endphp
+                                {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
+                                <h3 class="card-title" ><a style="color: #cc3e39" href="minga-de-nutricion">{{$nombrelim}}</a> </h3>
+                                {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
+                                    @foreach ($convocatoria->conods as $objetivo)
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                    @endforeach
+                                @else
+                                    @foreach ($convocatoria->consectores as $sector)
+                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                    @endforeach
+                                @endif--}}
+                                @php
+                                    $descripcion=$convocatoria->descripcion;
+                                    $descripcionlim=substr($descripcion, 0, 700);
+                                @endphp
 
-                                    {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
-                                    <h3 class="card-title" ><a style="color: #cc3e39" href="minga-de-nutricion">{{$nombrelim}}</a> </h3>
-                                    {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
-                                        @foreach ($convocatoria->conods as $objetivo)
-                                            <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
-                                        @endforeach
-                                    @else
-                                        @foreach ($convocatoria->consectores as $sector)
-                                            <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
-                                        @endforeach
-                                    @endif--}}
-                                    @php
-                                        $descripcion=$convocatoria->descripcion;
-                                        $descripcionlim=substr($descripcion, 0, 700);
-                                    @endphp
-
-                                    <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
-                                </div>
-                            @endif
+                                <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
+                            </div>
                         </div>
 
                     </div>
@@ -285,6 +321,7 @@
             </div>
         </div>
         @endforeach
+        @endif
 
     </div>
 
