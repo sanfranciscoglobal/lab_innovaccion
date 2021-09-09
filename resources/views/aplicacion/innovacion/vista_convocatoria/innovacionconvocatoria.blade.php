@@ -189,138 +189,141 @@
         <h2 class="text-light text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS</h2>
 
         <div class="row mb-4">
+        
+
         @foreach ($convocatorias as $convocatoria)
+            @if($convocatoria->id == 6)
+                <div class="col-lg-6 col-sm-6 mb-grid-gutter">
+                    <div class="pb-2">
+                        <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+                            @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
+                                @if ($convocatoria->tipoconvocatoria_id == 1)
+                                    <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #ef9231;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                                @elseif ($convocatoria->tipoconvocatoria_id == 2)
+                                    <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #803580;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                                @elseif ($convocatoria->tipoconvocatoria_id == 3)
+                                    <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #bb2027;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
 
-        @if($convocatoria->id = 7)
-        <div class="col-lg-6 col-sm-6 mb-grid-gutter">
-            <div class="pb-2">
-                <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                    @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
-                        @if ($convocatoria->tipoconvocatoria_id == 1)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #ef9231;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-                        @elseif ($convocatoria->tipoconvocatoria_id == 2)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #803580;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-                        @elseif ($convocatoria->tipoconvocatoria_id == 3)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #bb2027;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                                @endif
+                            @else
+                                <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:gray;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                            @endif
+                            <div class="row pt-3 no-gutters">
+                                <div class="col-md-4 justify-content-md-center">
+                                    <div class="card-body text center">
+                                        <h1 class="text-center font-weight-bold font-size-lg m-0">INICIO</h1>
+                                        <h1 class="text-center m-0" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>
+                                        <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
 
-                        @endif
-                    @else
-                        <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:gray;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-                    @endif
-                    <div class="row pt-3 no-gutters">
-                        <div class="col-md-4 justify-content-md-center">
-                            <div class="card-body text center">
-                                <h1 class="text-center font-weight-bold font-size-lg m-0">INICIO</h1>
-                                <h1 class="text-center m-0" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>
-                                <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
-
-                                <div class="row justify-content-center mt-2">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
-                                    {{-- <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a> --}}
-                                    <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
+                                        <div class="row justify-content-center mt-2">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
+                                            <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
+                                            {{-- <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a> --}}
+                                            <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body ">
-                                @php
-                                    $nombre=$convocatoria->nombre;
-                                    $nombrelim=substr($nombre, 0, 70);
-                                @endphp
+                                <div class="col-md-8">
+                                    <div class="card-body ">
+                                        @php
+                                            $nombre=$convocatoria->nombre;
+                                            $nombrelim=substr($nombre, 0, 70);
+                                        @endphp
 
-                                {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
-                                <h3 class="card-title" ><a style="color: #cc3e39" href="cambio-climatico">{{$nombrelim}}</a> </h3>
-                                {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
-                                    @foreach ($convocatoria->conods as $objetivo)
-                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
-                                    @endforeach
-                                @else
-                                    @foreach ($convocatoria->consectores as $sector)
-                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
-                                    @endforeach
-                                @endif--}}
-                                @php
-                                    $descripcion=$convocatoria->descripcion;
-                                    $descripcionlim=substr($descripcion, 0, 700);
-                                @endphp
+                                        {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="cambio-climatico">{{$nombrelim}}</a> </h3>
+                                        {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
+                                            @foreach ($convocatoria->conods as $objetivo)
+                                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                            @endforeach
+                                        @else
+                                            @foreach ($convocatoria->consectores as $sector)
+                                                <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                            @endforeach
+                                        @endif--}}
+                                        @php
+                                            $descripcion=$convocatoria->descripcion;
+                                            $descripcionlim=substr($descripcion, 0, 700);
+                                        @endphp
 
-                                <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <h2 class="text-right font-size-lg pr-4">FINALIZA <span style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_cierre))}}</span> {{date('M', strtotime( $convocatoria->fecha_cierre))}}</h2>
-
-                </article>
-            </div>
-        </div>
-        @endif
-        @if($convocatoria->id = 6)
-        <div class="col-lg-6 col-sm-6 mb-grid-gutter">
-            <div class="pb-2">
-                <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
-                    @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
-                        @if ($convocatoria->tipoconvocatoria_id == 1)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #ef9231;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-                        @elseif ($convocatoria->tipoconvocatoria_id == 2)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #803580;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-                        @elseif ($convocatoria->tipoconvocatoria_id == 3)
-                            <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #bb2027;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-
-                        @endif
-                    @else
-                        <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:gray;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
-                    @endif
-                    <div class="row pt-3 no-gutters">
-                        <div class="col-md-4 justify-content-md-center">
-                            <div class="card-body text center">
-                                <h1 class="text-center font-weight-bold font-size-lg m-0">INICIO</h1>
-                                <h1 class="text-center m-0" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>
-                                <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
-
-                                <div class="row justify-content-center mt-2">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
-                                    {{-- <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a> --}}
-                                    <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
+                                        <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
+                                    </div>
                                 </div>
+
                             </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body ">
-                                @php
-                                    $nombre=$convocatoria->nombre;
-                                    $nombrelim=substr($nombre, 0, 70);
-                                @endphp
+                            <h2 class="text-right font-size-lg pr-4">FINALIZA <span style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_cierre))}}</span> {{date('M', strtotime( $convocatoria->fecha_cierre))}}</h2>
 
-                                {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
-                                <h3 class="card-title" ><a style="color: #cc3e39" href="minga-de-nutricion">{{$nombrelim}}</a> </h3>
-                                {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
-                                    @foreach ($convocatoria->conods as $objetivo)
-                                        <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
-                                    @endforeach
-                                @else
-                                    @foreach ($convocatoria->consectores as $sector)
-                                        <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
-                                    @endforeach
-                                @endif--}}
-                                @php
-                                    $descripcion=$convocatoria->descripcion;
-                                    $descripcionlim=substr($descripcion, 0, 700);
-                                @endphp
-
-                                <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
-                            </div>
-                        </div>
-
+                        </article>
                     </div>
-                    <h2 class="text-right font-size-lg pr-4">FINALIZA <span style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_cierre))}}</span> {{date('M', strtotime( $convocatoria->fecha_cierre))}}</h2>
+                </div>
+            @else
+                <div class="col-lg-6 col-sm-6 mb-grid-gutter">
+                    <div class="pb-2">
+                        <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
+                            @if (($convocatoria->fecha_cierre) >= (date('Y-m-d')))
+                                @if ($convocatoria->tipoconvocatoria_id == 1)
+                                    <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #ef9231;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                                @elseif ($convocatoria->tipoconvocatoria_id == 2)
+                                    <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #803580;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                                @elseif ($convocatoria->tipoconvocatoria_id == 3)
+                                    <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background: #bb2027;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
 
-                </article>
-            </div>
-        </div>
-        @endif
+                                @endif
+                            @else
+                                <span class="badge badge-lg badge-floating badge-floating-right text-white" style="background:gray;">{{$convocatoria->tipoconvocatoriaid->nombre}}</span>
+                            @endif
+                            <div class="row pt-3 no-gutters">
+                                <div class="col-md-4 justify-content-md-center">
+                                    <div class="card-body text center">
+                                        <h1 class="text-center font-weight-bold font-size-lg m-0">INICIO</h1>
+                                        <h1 class="text-center m-0" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>
+                                        <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
+
+                                        <div class="row justify-content-center mt-2">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></a>
+                                            <a href="https://twitter.com/intent/tweet?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&text={{ $convocatoria->tipoconvocatoriaid->nombre }}" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></a>
+                                            {{-- <a href="#" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon mt-2"><i class="fe-instagram"></i></a> --}}
+                                            <a href="https://www.linkedin.com/shareArticle?url={{ route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug]) }}&title={{ $convocatoria->tipoconvocatoriaid->nombre }}&source=LinkedIn" type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2 mt-2"><i class="fe-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body ">
+                                        @php
+                                            $nombre=$convocatoria->nombre;
+                                            $nombrelim=substr($nombre, 0, 70);
+                                        @endphp
+
+                                        {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="cambio-climatico">{{$nombrelim}}</a> </h3>
+                                        {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
+                                            @foreach ($convocatoria->conods as $objetivo)
+                                                <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>
+                                            @endforeach
+                                        @else
+                                            @foreach ($convocatoria->consectores as $sector)
+                                                <h3 class="card-title"><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$sector->sectorid->nombre}}</a> </h3>
+                                            @endforeach
+                                        @endif--}}
+                                        @php
+                                            $descripcion=$convocatoria->descripcion;
+                                            $descripcionlim=substr($descripcion, 0, 700);
+                                        @endphp
+
+                                        <p class="card-text font-size-sm" >{{$descripcionlim}}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <h2 class="text-right font-size-lg pr-4">FINALIZA <span style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_cierre))}}</span> {{date('M', strtotime( $convocatoria->fecha_cierre))}}</h2>
+
+                        </article>
+                    </div>
+                </div>
+                
+            @endif
+
+
         @endforeach
 
 
@@ -331,7 +334,6 @@
 
     {{-- <section class="container">
         <h2 class="text-primary text-center pt-3 pt-md-2 uppercase">CONVOCATORIAS pasadas</h2>
-
         <div class="row mb-4">
         @foreach ($convocatorias_antiguas as $convocatoria)
         <div class="col-lg-4 col-sm-6 mb-grid-gutter">
@@ -348,7 +350,6 @@
                                 <h1 class="text-center font-weight-bold font-size-lg m-0">INICIO</h1>
                                 <h1 class="text-center m-0" style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_inicio))}}</h1>
                                 <p class="text-center font-weight-bold font-size-lg m-0">{{date('M', strtotime( $convocatoria->fecha_inicio))}}</p>
-
                                 <div class="row justify-content-center mt-2">
                                     <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon"><i class="fe-facebook"></i></button>
                                     <button type="button" class="col-5 btn btn-outline-secondary btn-sm btn-icon ml-2"><i class="fe-twitter"></i></button>
@@ -371,17 +372,13 @@
                                 <p class="card-text font-size-sm">{{$convocatoria->descripcion}}</p>
                             </div>
                         </div>
-
                     </div>
                     <h2 class="text-right font-size-lg pr-4">FINALIZA <span style="color:#cc3e39">{{date('d', strtotime( $convocatoria->fecha_cierre))}}</span> {{date('M', strtotime( $convocatoria->fecha_cierre))}}</h2>
-
                 </article>
             </div>
         </div>
         @endforeach
-
     </div>
-
     <div class="col-12">{{ $convocatorias->links() }}</div>
     </section> --}}
 
@@ -423,7 +420,6 @@
                 listasectores=[]
                 recargarlista(listasectores,idsubsector);
             }
-
         });
         function recargarlistasectores(idsector,value){
             // data-ajax--url="{{route('api.tipo-sector.select2',1)}}"
@@ -434,94 +430,69 @@
                     type:"POST",
                     url:"{{route('api.tipo-sector.select2',1)}}",
                     data: "json",
-
                     success:function(r){
                         $(idsector).find('option').remove();
                         $(r).each(function(i,v){
-
                             $(idsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
-
                         });
                     },
                     error:function(){
                         alert('Ocurrio un error en el servidor ..');
                     }
-
                 });
-
             }
             else if (value==3){
                 $.ajax({
-
                     type:"POST",
                     url:"{{route('api.tipo-sector.select2',3)}}",
                     data: "json",
-
                     success:function(r){
                         $(idsector).find('option').remove();
                         $(r).each(function(i,v){
-
                             $(idsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
-
                         });
                     },
                     error:function(){
                         alert('Ocurrio un error en el servidor ..');
                     }
-
                 });
-
             }
             else{
                 $.ajax({
-
                     type:"POST",
                     url:"{{route('api.tipo-sector.select2',2)}}",
                     data: "json",
-
                     success:function(r){
                         $(idsector).find('option').remove();
                         $(r).each(function(i,v){
-
                             $(idsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
-
                         });
                     },
                     error:function(){
                         alert('Ocurrio un error en el servidor ..');
                     }
-
                 });
-
             }
-
         };
     });
-
 </script>
 <script type="text/javascript">
-
     $(document).ready(function(){
         var listasectores=[];
         var idsubsector;
         $('#innovacion_abierta_sector_productivo').change(function(){
             idsubsector='#innovacion_abierta_subsector_productivo';
             listasectores=$('#innovacion_abierta_sector_productivo').val();
-
             recargarlista(listasectores,idsubsector);
         });
     });
-
     function recargarlista(listasectores,idsubsector){
-
         if (listasectores.length!=0){
             var subsectorlist=$(idsubsector).val();
             $.ajax({
-
                 type:"POST",
                 url:"{{route('api.tipo-subsector.select2')}}",
                 data: { listasectores1: JSON.stringify(listasectores)} ,
-
                 success:function(r){
                     $(idsubsector).find('option').remove();
                     $(r).each(function(i,v){
@@ -531,13 +502,11 @@
                         else{
                             $(idsubsector).append('<option value="'+ v.id+'">'+v.text+'</option>');
                         }
-
                     });
                 },
                 error:function(){
                     alert('Ocurrio un error en el servidor ..');
                 }
-
             });
         }
         else{
@@ -554,36 +523,25 @@
     .select2-selection.select2-selection--multiple {
         width: 100%;
     }
-
     .select2-container .select2-selection--multiple .select2-selection__rendered {
-
         white-space: unset !important;
     }
-
     .select2-selection__rendered {
         width: 100%;
         overflow-y: scroll !important;
         resize: none;
-
     }
-
     select2-search__field:placeholder-shown {
         width: auto !important;
     }
-
     .select2-selection__choice {
-
     }
-
     .select2-selection.select2-selection--single {
-
         border-radius: 10px;
     }
-
     .select2 {
         max-width: none !important;
     }
-
 </style>
 
 @endsection
