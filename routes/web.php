@@ -44,6 +44,10 @@ Route::get('/cambio-climatico', function () {
     return view('aplicacion.landing.landing_page_cambio_climatico');
 })->name('cambio-climantico');
 
+Route::get('/hackaton-por-el-oceano', function () {
+    return view('aplicacion.landing.landing_page_hackaton_oceano');
+})->name('cambio-climantico');
+
 // Users
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
