@@ -108,7 +108,7 @@
                 <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4">
                     <div class="row">
                         <div class="col-sm-12" style="font-size: 16px !important">
-                        <h3 class="">Objetivo Del Reto</h2>
+                        
                             <p class="text-justify">
                                 El objetivo del Hackatón es incentivar a los participantes a desarrollar un emprendimiento ambiental en cualquier de estas dos categorías:
                             </p>
@@ -233,10 +233,10 @@
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white">
                     <div class="row">
                         <div class="col-sm-6" style="padding-top: 40px;">
-                            <p>Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
+                            <p style="font-size: 16px !important">Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li>Personas entre 17 y 35 años que residan en Ecuador y que sientan un gran compromiso hacia la conservación y protección del océano.</li>
-                                <li>PPersonas que cumplan con alguno de estos perfiles (revisar el punto 4 de las bases para mayor información):</li>
+                                <li>Personas que cumplan con alguno de estos perfiles (revisar el punto 4 de las bases para mayor información):</li>
                             </ul>
                             <ul style="font-size: 14px !important; ">
                                 <li class="d-flex align-items-center">
@@ -258,13 +258,13 @@
                             </ul>
                         </div>
                         <div class="col-sm-6">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa_mares_01.png') }}" alt="" />
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa_5_mares.png') }}" alt="" />
                         </div>
                         <div class="col-md-12">
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li>El equipo debe tener como objetivo contribuir con al menos uno  de estos desafíos (revisar el punto 5 de las bases para mayor información):</li>
                             </ul>
-                            <p><strong>Categoría I: Contaminación plástica</strong></p>
+                            <p style="font-size: 16px !important"><strong>Categoría I: Contaminación plástica</strong></p>
                         </div>
                         <div class="col-sm-6" style="padding-top: 0px;">
                             <p>Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
@@ -278,10 +278,10 @@
                             <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa_2_mares.png') }}" alt="" />
                         </div>
                         <div class="col-md-12">
-                            <p><strong>Categoría II: Pesquería incidental</strong></p>
+                            <p style="font-size: 16px !important"><strong>Categoría II: Pesquería incidental</strong></p>
                         </div>
                         <div class="col-sm-6" style="padding-top: 0px;">
-                            <p>Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
+                            <p style="font-size: 16px !important">Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li><strong>Desafío 1:</strong>Reducción de pesca de especies protegidas no objetivos de pesca a través de innovaciones tecnológicas que puedan ser utilizadas en pesca artesanal, semi-industrial e industrial.</li>
                                 <li><strong>Desafío 2:</strong> Detección de pesca ilegal, no declarada y no reglamentada a través de innovaciones tecnológicas que puedan ser utilizadas en pesca artesanal, semi-industrial e industrial.</li>
