@@ -31,7 +31,7 @@
 @endsection
 @section('content')
 <style scoped>
-    .carousel-item {min-height: 650px;}
+    .carousel-item {min-height: 550px;}
 
     #video-gallery-2 {
       position: relative;
@@ -50,7 +50,7 @@
             background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
         }
         #video-gallery-2 {
-          padding-top: 70px;
+          padding-top: 150px;
         }
     }
     @media (min-width: 992px) and (max-width: 1250px) {
@@ -59,8 +59,8 @@
         }
     }
 </style>
-<section id="home-hero-banner">
-    @include('slider_support_landing', ['sliderID' => 'hero', 'slides' => 'home-cambio-climatico'])
+<section id="home-hero-banner" style="padding-top:150px;">
+    @include('slider_support_landing', ['sliderID' => 'hero', 'slides' => 'home-hackaton-por-el-oceano'])
 
     {{-- <div id="video-gallery-2">
       <a href="https://www.youtube.com/embed/dAJdK0Uu2Ao?controls=0" class="mr-3" loadYoutubeThumbnail='false' style="text-decoration:none;">
@@ -74,9 +74,9 @@
     </section>
 
 
-    <section style="background-image: url({{ asset('img/landing/bk-cambio-climatico-2.png') }});background-repeat: no-repeat; background-size: auto; background-color: #61b3c5;">
+    <section style="background-image: url({{ asset('img/landing/mares_home_antecedentes.png') }});background-repeat: no-repeat; background-size: auto; background-color: #bfd9ec;">
         <div class="text-center pt-lg-5">
-            <h3 class="eventos-titulo">Antecedentes</span></h3>
+            <h3 class="eventos-titulo text-white">Antecedentes</span></h3>
         </div>
         <div class="container-fluid row no-gutters">
 
@@ -128,11 +128,13 @@
             </div>
             <div class="col-md-6 px-3 order-md-1">
                 <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 py-lg-4 text-white">
-                    <img class="justify-content-center" width="400" src="{{ asset('img/landing/climatico-puede-participar.png') }}" alt="" />
+                    <img class="justify-content-center" width="400" src="{{ asset('img/landing/obejtivo_mares.jpg') }}" alt="" />
                 </div>
             </div>
         </div>
     </section>
+    <hr>
+
     <section style="">
         <div class="text-center pt-lg-5">
             <h3 class="eventos-titulo">¿Quiénes organizan el reto?  </span></h3>
@@ -256,13 +258,15 @@
                             </ul>
                         </div>
                         <div class="col-sm-6">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/climatico-puede-participar.png') }}" alt="" />
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa_mares_01.png') }}" alt="" />
                         </div>
                         <div class="col-md-12">
-                            <p>El equipo debe tener como objetivo contribuir con al menos uno  de estos desafíos (revisar el punto 5 de las bases para mayor información): </p>
+                            <ul class="text-justify" style="font-size: 16px !important">
+                                <li>El equipo debe tener como objetivo contribuir con al menos uno  de estos desafíos (revisar el punto 5 de las bases para mayor información):</li>
+                            </ul>
                             <p><strong>Categoría I: Contaminación plástica</strong></p>
                         </div>
-                        <div class="col-sm-6" style="padding-top: 40px;">
+                        <div class="col-sm-6" style="padding-top: 0px;">
                             <p>Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li><strong>Desafío 1:</strong> Prevención de contaminación por macro y micro plásticos en ecosistemas marinos por una mala gestión de desechos del turismo y/o pesca.</li>
@@ -270,13 +274,13 @@
                                 <li><strong>Desafío 3:</strong> Reducción y detección de varamientos  de especies marinas causadas por intoxicación con desperdicios plásticos origen del turismo o pesca.</li>
                             </ul>
                         </div>
-                        <div class="col-sm-6">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/climatico-puede-participar.png') }}" alt="" />
+                        <div class="col-sm-6" style="padding: 0px;">
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa_2_mares.png') }}" alt="" />
                         </div>
                         <div class="col-md-12">
                             <p><strong>Categoría II: Pesquería incidental</strong></p>
                         </div>
-                        <div class="col-sm-6" style="padding-top: 40px;">
+                        <div class="col-sm-6" style="padding-top: 0px;">
                             <p>Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li><strong>Desafío 1:</strong>Reducción de pesca de especies protegidas no objetivos de pesca a través de innovaciones tecnológicas que puedan ser utilizadas en pesca artesanal, semi-industrial e industrial.</li>
@@ -286,7 +290,7 @@
                             </ul>
                         </div>
                         <div class="col-sm-6">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/climatico-puede-participar.png') }}" alt="" />
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa_mares.png') }}" alt="" />
                         </div>
 
                     </div>
@@ -297,7 +301,7 @@
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white ">
                     <div class="row">
                         <div class="col-sm-6" style="padding-left: 10% !important;">
-                            <a class="btn font-weight-bold  text-center text-white" target="_blank" style=" width: 300px; background-color: #80a2bd;" href="https://drive.google.com/file/d/1ij9zHaC8SXum56guHz6ftxkGa5OeWxHe/view?usp=sharing">Descarga las bases aquí</a>
+                            <a class="btn font-weight-bold  text-center text-white" target="_blank" style=" width: 300px; background-color: #80a2bd;" href="https://drive.google.com/file/d/10stbmMDVz1d6xJpRpLRJ3pYWsW_0Isgb/view?usp=sharing">Descarga las bases aquí</a>
 
                         </div>
                         <div class="col-sm-6" style="padding-left: 3% !important;">
