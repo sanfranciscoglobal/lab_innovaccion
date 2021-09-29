@@ -341,7 +341,7 @@
                             </p>
                         </div>
                          <div class="col-sm-6">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/climatico-puede-participar.png') }}" alt="" />
+                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/recocimiento_mares_01.png') }}" alt="" />
                         </div>
                     </div>
                 </div>
