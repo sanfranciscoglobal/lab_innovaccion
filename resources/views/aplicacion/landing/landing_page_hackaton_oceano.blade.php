@@ -173,7 +173,7 @@
                 <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2">
                     <div class="row">
                         <div class="col-sm-12" style="font-size: 16px !important">
-                        <p class="text-justify"><strong> Fundación Mingas por el Mar</strong> ees una organización sin fines de lucro enfocada en programas de educación ambiental y ciencia ciudadana, con el objetivo de promover mejores hábitos y la reducción del consumo. Iniciando actividades en 2016 como un grupo de la sociedad civil, Mingas por el Mar logró estatus de fundación en 2019. Actualmente está conformada por más de 300 voluntarios organizados en 23 grupos a nivel nacional. 
+                        <p class="text-justify"><strong> Fundación Mingas por el Mar</strong> es una organización sin fines de lucro enfocada en programas de educación ambiental y ciencia ciudadana, con el objetivo de promover mejores hábitos y la reducción del consumo. Iniciando actividades en 2016 como un grupo de la sociedad civil, Mingas por el Mar logró estatus de fundación en 2019. Actualmente está conformada por más de 300 voluntarios organizados en 23 grupos a nivel nacional. 
                         </div>
                     </div>
                 </div>
