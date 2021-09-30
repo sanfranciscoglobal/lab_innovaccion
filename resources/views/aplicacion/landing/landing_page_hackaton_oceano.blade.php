@@ -74,7 +74,7 @@
     </section>
 
 
-    <section style="background-image: url({{ asset('img/landing/mares_home_antecedentes.png') }});background-repeat: no-repeat; background-size: auto; background-color: #bfd9ec;">
+    <section style="background-image: url({{ asset('img/landing/mares_home_antecedentes.png') }});background-repeat: no-repeat; background-size: auto; background-color: #0f1b33;">
         <div class="text-center pt-lg-5">
             <h3 class="eventos-titulo text-white">Antecedentes</span></h3>
         </div>
@@ -260,14 +260,14 @@
                         <div class="col-sm-6">
                             <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa_5_mares.png') }}" alt="" />
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="padding-top: 10px;">
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li>El equipo debe tener como objetivo contribuir con al menos uno  de estos desafíos (revisar el punto 5 de las bases para mayor información):</li>
                             </ul>
                             <p style="font-size: 16px !important"><strong>Categoría I: Contaminación plástica</strong></p>
                         </div>
                         <div class="col-sm-6" style="padding-top: 0px;">
-                            <p>Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
+                            
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li><strong>Desafío 1:</strong> Prevención de contaminación por macro y micro plásticos en ecosistemas marinos por una mala gestión de desechos del turismo y/o pesca.</li>
                                 <li><strong>Desafío 2:</strong> Recuperación de ecosistemas marinos afectados por la contaminación por macro y micro plásticos por una mala gestión de desechos del turismo y/o pesca.</li>
@@ -275,7 +275,7 @@
                             </ul>
                         </div>
                         <div class="col-sm-6" style="padding: 0px;">
-                            <img class="justify-content-center" width="400" src="{{ asset('img/landing/participa_2_mares.png') }}" alt="" />
+                            <img class="justify-content-center" width="280" src="{{ asset('img/landing/participa_mares_01.png') }}" alt="" />
                         </div>
                         <div class="col-md-12">
                             <p style="font-size: 16px !important"><strong>Categoría II: Pesquería incidental</strong></p>
