@@ -281,7 +281,6 @@
                             <p style="font-size: 16px !important"><strong>Categoría II: Pesquería incidental</strong></p>
                         </div>
                         <div class="col-sm-6" style="padding-top: 0px;">
-                            <p style="font-size: 16px !important">Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
                             <ul class="text-justify" style="font-size: 16px !important">
                                 <li><strong>Desafío 1:</strong>Reducción de pesca de especies protegidas no objetivos de pesca a través de innovaciones tecnológicas que puedan ser utilizadas en pesca artesanal, semi-industrial e industrial.</li>
                                 <li><strong>Desafío 2:</strong> Detección de pesca ilegal, no declarada y no reglamentada a través de innovaciones tecnológicas que puedan ser utilizadas en pesca artesanal, semi-industrial e industrial.</li>
