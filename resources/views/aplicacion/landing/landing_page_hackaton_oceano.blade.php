@@ -299,7 +299,7 @@
             <div class="col-md-12">
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white ">
                     <div class="row">
-                        <div class="col-sm-6" style="padding-left: 5% !important;">
+                        <div class="col-sm-6" style="padding-left: 5% !important;padding-top: 10px;">
                             <a class="btn font-weight-bold  text-center text-white" target="_blank" style=" width: 300px; background-color: #80a2bd;" href="https://drive.google.com/file/d/10stbmMDVz1d6xJpRpLRJ3pYWsW_0Isgb/view?usp=sharing">Descarga las bases aquí</a>
 
                         </div>
