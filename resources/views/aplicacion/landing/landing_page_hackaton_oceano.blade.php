@@ -31,7 +31,7 @@
 @endsection
 @section('content')
 <style scoped>
-    .carousel-item {min-height: 550px;}
+    .carousel-item {min-height: 650px;}
 
     #video-gallery-2 {
       position: relative;
@@ -44,13 +44,13 @@
 
     @media (max-width: 768px) {
         .carousel-item {
-            min-height: 350px!important;
+            min-height: 180px!important;
             }
         #bannerluces{
             background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
         }
         #video-gallery-2 {
-          padding-top: 150px;
+          padding-top: 70px;
         }
     }
     @media (min-width: 992px) and (max-width: 1250px) {
@@ -299,11 +299,11 @@
             <div class="col-md-12">
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white ">
                     <div class="row">
-                        <div class="col-sm-6" style="padding-left: 10% !important;">
+                        <div class="col-sm-6" style="padding-left: 5% !important;">
                             <a class="btn font-weight-bold  text-center text-white" target="_blank" style=" width: 300px; background-color: #80a2bd;" href="https://drive.google.com/file/d/10stbmMDVz1d6xJpRpLRJ3pYWsW_0Isgb/view?usp=sharing">Descarga las bases aquí</a>
 
                         </div>
-                        <div class="col-sm-6" style="padding-left: 3% !important;">
+                        <div class="col-sm-6" style="padding-left: 5% !important; padding-top: 10px;">
                             <a class="btn font-weight-bold  text-center text-white" target="_blank"  style=" width: 300px; background-color: #80a2bd;" href="https://forms.gle/prixcQV1i2cVR4GCA">Inscríbete aquí</a>
 
                         </div>
