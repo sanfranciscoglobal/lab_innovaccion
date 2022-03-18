@@ -172,7 +172,7 @@
         
 
     </section>
-    <section style="background-repeat: no-repeat; background-size: auto; background-color: #01375b;">
+    <section style="background-repeat: no-repeat; background-size: auto; background-color:#4caf50;">
         <div class="text-center pt-lg-5 text-white">
             <h3 class="text-white">¿Quiénes pueden participar del Reto?</span></h3>
         </div>
