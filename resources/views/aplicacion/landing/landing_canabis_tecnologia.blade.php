@@ -172,7 +172,7 @@
         
 
     </section>
-    <section style="background-repeat: no-repeat; background-size: auto; background-color:#4caf50;">
+    <section style="background-repeat: no-repeat; background-size: auto; background-color: #4caf50;">
         <div class="text-center pt-lg-5 text-white">
             <h3 class="text-white">¿Quiénes pueden participar del Reto?</span></h3>
         </div>
@@ -238,11 +238,11 @@
                 <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8 py-lg-4 text-white">
                     <div class="row">
                         <div class="col-sm-6" style="padding-left: 5% !important;padding-top: 10px;">
-                            <a class="btn font-weight-bold  text-center text-white" target="_blank" style=" width: 300px; background-color: #80a2bd;" href="https://drive.google.com/file/d/1qSxSrMCma6IFZNSDPcvexhB9A4_twvvc/view?usp=sharing">Descarga las bases aquí</a>
+                            <a class="btn font-weight-bold  text-center text-white" target="_blank" style=" width: 300px; background-color: #01375b;" href="https://drive.google.com/file/d/1qSxSrMCma6IFZNSDPcvexhB9A4_twvvc/view?usp=sharing">Descarga las bases aquí</a>
 
                         </div>
                         <div class="col-sm-6" style="padding-left: 5% !important; padding-top: 10px;">
-                            <a class="btn font-weight-bold  text-center text-white" target="_blank"  style=" width: 300px; background-color: #80a2bd;" href="https://docs.google.com/forms/d/e/1FAIpQLSekYewtpISGMrP1kORWEax_jxmUqAkIH0i3hjLWz-DH3kVOpg/viewform?usp=send_form">Inscríbete aquí</a>
+                            <a class="btn font-weight-bold  text-center text-white" target="_blank"  style=" width: 300px; background-color: #01375b;" href="https://docs.google.com/forms/d/e/1FAIpQLSekYewtpISGMrP1kORWEax_jxmUqAkIH0i3hjLWz-DH3kVOpg/viewform?usp=send_form">Inscríbete aquí</a>
 
                         </div>
                     </div>
@@ -250,7 +250,7 @@
             </div>
         </div>
     </section>
-    <section style="background-repeat: no-repeat; background-size: auto; background-color: #94c2fe;">
+    <section style="background-repeat: no-repeat; background-size: auto; background-color: #01375b;">
         <div class="text-center pt-lg-5 text-white">
             <h3 class="text-white">Entregables</span></h3>
         </div>
