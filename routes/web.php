@@ -44,6 +44,10 @@ Route::get('/cambio-climatico', function () {
     return view('aplicacion.landing.landing_page_cambio_climatico');
 })->name('cambio-climantico');
 
+Route::get('/canabis-y-tecnologia', function () {
+    return view('aplicacion.landing.landing_canabis_tecnologia');
+})->name('canabis-y-tecnologia');
+
 Route::get('/hackaton-por-el-oceano', function () {
     return view('aplicacion.landing.landing_page_hackaton_oceano');
 })->name('cambio-climantico');

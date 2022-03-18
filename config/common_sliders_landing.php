@@ -317,6 +317,26 @@ return [
             'background_size'           => 'cover'
         ],
     ],
+    'canabis_y_tecnologia' => [
+        [
+            'title'                     => '',
+            'content'                   => '',
+            'tipo'                      => 'imagen',
+            'show_button'               => false,
+            'button_title'              => 'BOTON EJEMPLO',
+            'button_background'         => 'yellow',
+            'button_text_color'         => 'white',
+            'button_url'                => '#',
+            'open_new_tab'              => false,
+            'content_classes'           => 'd-flex flex-column justify-content-center align-items-center text-center',
+            'text_color'                => 'white',
+            'background_color'          => 'black',
+            'background_image_url'      => 'img/landing/BANNER_Canamo_Artboard_10.jpeg',
+            'background_blend_mode'     => '',
+            'background_position'       => 'center',
+            'background_size'           => 'cover'
+        ],
+    ],
     'reporta_slides' => [
         [
             'title'                     => 'PASO 1',
