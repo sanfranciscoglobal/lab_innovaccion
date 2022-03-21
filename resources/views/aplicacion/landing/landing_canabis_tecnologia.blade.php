@@ -71,16 +71,16 @@
 
 </section>
     
-    <section style="background-repeat: no-repeat; background-size: auto; background-color: #01375b;">
+    <section style="background-repeat: no-repeat; background-size: auto; background-color: #d8eda4;">
         <div class="text-center pt-lg-5">
-            <h3 class="eventos-titulo text-white">¿De qué va el reto?</span></h3>
+            <h3 class="eventos-titulo">¿De qué va el reto?</span></h3>
         </div>
         <div class="container-fluid row no-gutters">
 
-            <div class="col-md-12">
+            <div class="col-md-7">
                 <div class="ml-md-auto mr-sm-1 my-sm-0 py-md-2 pl-md-2 pl-lg-8 pr-lg-8  py-lg-4">
                     <div class="row">
-                        <div class="col-sm-12 text-white" style="padding-top: 10px!important;">
+                        <div class="col-sm-12" style="padding-top: 10px!important;">
                             <p class="text-justify" style="font-size: 16px !important;">
                                 <strong>Objetivo del reto</strong><br>Este Reto de Innovación busca aportar con instrumentos de medición de THC (y opcionalmente otros cannabinoides), que tanto entidades de control como productores puedan utilizar para realizar mediciones en los cultivos de cáñamo en campo (in situ), sin necesidad de acudir a laboratorios. 
                             <p class="text-justify" style="font-size: 16px !important;">
@@ -88,6 +88,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <img class="text-center" src="/img/landing/cannabis_2.png" alt="">
+                
             </div>
         </div>
     </section>
@@ -172,14 +176,15 @@
         
 
     </section>
-    <section style="background-repeat: no-repeat; background-size: auto; background-color: #4caf50;">
+    <section style="background-repeat: no-repeat; background-size: auto; background-color: #fff;">
         <div class="text-center pt-lg-5 text-white">
-            <h3 class="text-white">¿Quiénes pueden participar del Reto?</span></h3>
+            <h3 class="">¿Quiénes pueden participar del Reto?</span></h3>
         </div>
         <div class="container-fluid row no-gutters">
 
             <div class="col-md-12">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white" style="padding-right: 10.5em !important;">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4" style="padding-right: 10.5em !important;">
+
                     <div class="row">
                         <div class="col-sm-12 text-justify" style="padding-top: 40px;">
                             <p style="font-size: 16px !important">Equipos de mínimo 3 personas y máximo 6 personas, que cumplan las siguientes características:</p>
@@ -250,14 +255,14 @@
             </div>
         </div>
     </section>
-    <section style="background-repeat: no-repeat; background-size: auto; background-color: #01375b;">
+    <section style="background-image: url(/img/landing/cannabis_bk_2.png);background-repeat: no-repeat; background-size: auto; background-color: #d8eda4;">
         <div class="text-center pt-lg-5 text-white">
-            <h3 class="text-white">Entregables</span></h3>
+            <h3 class="">Entregables</span></h3>
         </div>
         <div class="container-fluid row no-gutters">
 
             <div class="col-md-12">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4 text-white" style="padding-right: 10.5em !important;">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4" style="padding-right: 10.5em !important;">
                     <div class="row">
                         <div class="col-sm-12 text-justify" style="padding-top: 40px;">
                             <p style="font-size: 16px !important">Al finalizar el reto, cada equipo participante deberá entregar:</p>
@@ -301,6 +306,57 @@
                                     <span class="text-justify">Plano del sistema interno en el que se indiquen partes y/o máquinas de ensamblaje a ser utilizadas en la medición.</span>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-repeat: no-repeat; background-size: auto; background-color: #fff;">
+        <div class="text-center pt-lg-5 text-white">
+            <h3 class="">Cronograma</h3>
+        </div>
+        <div class="container-fluid row no-gutters">
+
+            <div class="col-md-12">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="list-unstyled" style="font-size: 16px !important;">
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" style="padding-rigth:5px " alt=""></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Entre el 21 de marzo y el 15 de abril: inscripciones abiertas </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="/img/landing/inscripcion-01.png" alt=""></i>
+                                    <span class="text-justify">&nbsp;&nbsp;15 de abril: último día para recibir postulaciones</span>
+                                </li>
+                                <hr style="width:70%;text-align:left; margin: 15px;">
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" style="padding-rigth:5px " alt=""></i>
+                                    <span class="text-justify">
+                                            &nbsp;&nbsp;Entre el 25 y 27 de abril: anuncio de equipos seleccionados
+                                        
+                                </span></li>
+                                <li class="d-flex align-items-center" style="padding-top: 20px;">
+                                    <i><img class="justify-content-center" width="80" src="/img/landing/inscripcion-02.png" alt=""></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Entre el 02 de mayo y 10 de junio: taller y laboratorios.<br><small>*Las fechas específicas serán compartidas más adelante, <br>pero para facilitar tu participación, llevaremos a cabo laboratorios y talleres los días sábados en la mañana.</small></span>
+                                </li>
+                                <li class="d-flex align-items-center" style="padding-top: 20px;">
+                                    <i><img class="justify-content-center" width="80" alt=""></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Domingo 12 de junio: entrega de propuestas finales por parte de los equipos.</span>
+                                </li>
+                                <hr style="width:70%;text-align:left; margin: 15px;">
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" src="http://127.0.0.1:8000/img/landing/inscripcion-03.png" alt=""></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Entre el 13 y 21 de junio: evaluación de propuestas.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i><img class="justify-content-center" width="80" alt=""></i>
+                                    <span class="text-justify">&nbsp;&nbsp;Miércoles 22 de junio: anuncio de resultados y premiación
+                                </li>
+                            </ul>
+
                         </div>
                     </div>
                 </div>

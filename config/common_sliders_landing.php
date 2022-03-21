@@ -331,7 +331,7 @@ return [
             'content_classes'           => 'd-flex flex-column justify-content-center align-items-center text-center',
             'text_color'                => 'white',
             'background_color'          => 'black',
-            'background_image_url'      => 'img/landing/BANNER_Canamo_Artboard_10.jpeg',
+            'background_image_url'      => 'img/landing/BANNER_Canamo_Artboard_10.jpg',
             'background_blend_mode'     => '',
             'background_position'       => 'center',
             'background_size'           => 'cover'
