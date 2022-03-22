@@ -348,7 +348,7 @@
                                 </li>
                                 <hr style="width:70%;text-align:left; margin: 15px;">
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="http://127.0.0.1:8000/img/landing/inscripcion-03.png" alt=""></i>
+                                    <i><img class="justify-content-center" width="80" src="/img/landing/inscripcion-03.png" alt=""></i>
                                     <span class="text-justify">&nbsp;&nbsp;Entre el 13 y 21 de junio: evaluación de propuestas.</span>
                                 </li>
                                 <li class="d-flex align-items-center">
