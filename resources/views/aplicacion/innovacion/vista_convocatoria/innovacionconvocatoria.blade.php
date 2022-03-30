@@ -192,7 +192,7 @@
         
 
         @foreach ($convocatorias as $convocatoria)
-            @if($convocatoria->id == 7)
+            @if($convocatoria->id == 9)
             {{-- <?php dd($convocatoria->id);?> --}}
                 <div class="col-lg-6 col-sm-6 mb-grid-gutter">
                     <div class="pb-2">
