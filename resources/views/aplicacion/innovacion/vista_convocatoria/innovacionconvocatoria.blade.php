@@ -192,7 +192,8 @@
         
 
         @foreach ($convocatorias as $convocatoria)
-            @if($convocatoria->id == 6)
+            @if($convocatoria->id == 7)
+            {{-- <?php dd($convocatoria->id);?> --}}
                 <div class="col-lg-6 col-sm-6 mb-grid-gutter">
                     <div class="pb-2">
                         <article class="card h-100 border-0 box-shadow pt-4 pb-5 mx-1">
@@ -231,7 +232,7 @@
                                         @endphp
 
                                         {{-- <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$nombrelim}}</a> </h3> --}}
-                                        <h3 class="card-title" ><a style="color: #cc3e39" href="minga-de-nutricion">{{$nombrelim}}</a> </h3>
+                                        <h3 class="card-title" ><a style="color: #cc3e39" href="canabis-y-tecnologia">{{$nombrelim}}</a> </h3>
                                         {{-- @if ($convocatoria->tipoconvocatoria_id == 2)
                                             @foreach ($convocatoria->conods as $objetivo)
                                                 <h3 class="card-title" ><a style="color: #cc3e39" href="{{route("innovaciongestion.ver",[$convocatoria->id, $convocatoria->slug])}}">{{$objetivo->objetivoid->nombre}}</a> </h3>

@@ -31,7 +31,7 @@
 @endsection
 @section('content')
 <style scoped>
-    .carousel-item {min-height: 750px;}
+    .carousel-item {min-height: 800px;}
 
     #video-gallery-2 {
       position: relative;
@@ -44,7 +44,7 @@
 
     @media (max-width: 768px) {
         .carousel-item {
-            min-height: 180px!important;
+            min-height: 250px!important;
             }
         #bannerluces{
             background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
@@ -183,7 +183,7 @@
         <div class="container-fluid row no-gutters">
 
             <div class="col-md-12">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4" style="padding-right: 10.5em !important;">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4" style="padding-right: 5.5em !important;">
 
                     <div class="row">
                         <div class="col-sm-12 text-justify" style="padding-top: 40px;">
@@ -262,7 +262,7 @@
         <div class="container-fluid row no-gutters">
 
             <div class="col-md-12">
-                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4" style="padding-right: 10.5em !important;">
+                <div class="ml-md-auto mr-sm-1 py-5 my-sm-0 py-md-2 pl-md-2 pl-lg-8  py-lg-4" style="padding-right: 5.5em !important;">
                     <div class="row">
                         <div class="col-sm-12 text-justify" style="padding-top: 40px;">
                             <p style="font-size: 16px !important">Al finalizar el reto, cada equipo participante deberá entregar:</p>
