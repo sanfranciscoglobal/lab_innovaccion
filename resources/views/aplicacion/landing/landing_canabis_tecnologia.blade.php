@@ -31,7 +31,7 @@
 @endsection
 @section('content')
 <style scoped>
-    .carousel-item {min-height: 800px;}
+    .carousel-item {min-height: 750px;}
 
     #video-gallery-2 {
       position: relative;
