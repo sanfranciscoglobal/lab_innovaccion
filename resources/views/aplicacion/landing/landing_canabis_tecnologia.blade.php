@@ -44,7 +44,7 @@
 
     @media (max-width: 768px) {
         .carousel-item {
-            min-height: 250px!important;
+            min-height: 200px!important;
             }
         #bannerluces{
             background-image: url({{ asset('img/layout/home/light-bulb-with-drawing-graph_2.jpg')}})!important;
@@ -324,39 +324,28 @@
                         <div class="col-sm-12">
                             <ul class="list-unstyled" style="font-size: 16px !important;">
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" style="padding-rigth:5px " alt=""></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Entre el 21 de marzo y el 15 de abril: inscripciones abiertas </span>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="/img/landing/inscripcion-01.png" alt=""></i>
-                                    <span class="text-justify">&nbsp;&nbsp;15 de abril: último día para recibir postulaciones</span>
+                                    <i><img class="justify-content-center" width="120" src="/img/landing/inscripcion-01.png" alt=""></i>
+                                    <p class="text-justify pl-1">Entre el 21 de marzo y el 15 de abril: inscripciones abiertas<br> 
+                                    15 de abril: último día para recibir postulaciones
+                                    </p>
                                 </li>
                                 <hr style="width:70%;text-align:left; margin: 15px;">
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" style="padding-rigth:5px " alt=""></i>
-                                    <span class="text-justify">
-                                            &nbsp;&nbsp;Entre el 25 y 27 de abril: anuncio de equipos seleccionados
-                                        
-                                </span></li>
-                                <li class="d-flex align-items-center" style="padding-top: 20px;">
-                                    <i><img class="justify-content-center" width="80" src="/img/landing/inscripcion-02.png" alt=""></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Entre el 02 de mayo y 10 de junio: taller y laboratorios.<br><small>*Las fechas específicas serán compartidas más adelante, <br>pero para facilitar tu participación, llevaremos a cabo laboratorios y talleres los días sábados en la mañana.</small></span>
+                                    <i><img class="justify-content-center" width="120" src="/img/landing/inscripcion-02.png" alt=""></i>
+                                    <p class="text-justify pl-3">Entre el 25 y 27 de abril: anuncio de equipos seleccionados<br>
+                                        Entre el 02 de mayo y 10 de junio: taller y laboratorios<br>
+                                        Domingo 12 de junio: entrega de propuestas finales por parte de los equipos.
+                                    </p>
                                 </li>
-                                <li class="d-flex align-items-center" style="padding-top: 20px;">
-                                    <i><img class="justify-content-center" width="80" alt=""></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Domingo 12 de junio: entrega de propuestas finales por parte de los equipos.</span>
-                                </li>
+                                <small>*Las fechas específicas serán compartidas más adelante,pero para facilitar tu participación, llevaremos a cabo laboratorios y talleres los días sábados en la mañana.</small>
                                 <hr style="width:70%;text-align:left; margin: 15px;">
                                 <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" src="/img/landing/inscripcion-03.png" alt=""></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Entre el 13 y 21 de junio: evaluación de propuestas.</span>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <i><img class="justify-content-center" width="80" alt=""></i>
-                                    <span class="text-justify">&nbsp;&nbsp;Miércoles 22 de junio: anuncio de resultados y premiación
+                                    <i><img class="justify-content-center" width="120" src="/img/landing/inscripcion-03.png" alt=""></i>
+                                    <p class="text-justify pl-1">Entre el 13 y 21 de junio: evaluación de propuestas.<br> 
+                                    Miércoles 22 de junio: anuncio de resultados y premiación
+                                    </p>
                                 </li>
                             </ul>
-
                         </div>
                     </div>
                 </div>
