@@ -255,7 +255,7 @@
             </div>
         </div>
     </section>
-    <section style="background-image: url(/img/landing/cannabis_bk_2.png);background-repeat: no-repeat; background-size: auto; background-color: #d8eda4;">
+    <section style="background-image: url(/img/landing/cannabis_bk_2.png);background-repeat: no-repeat; background-size: auto; background-color: #d7ecb7;">
         <div class="text-center pt-lg-5 text-white">
             <h3 class="">Entregables</span></h3>
         </div>
